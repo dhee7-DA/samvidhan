@@ -1,0 +1,111 @@
+import type { LandmarkJudgment } from '../types/constitution';
+
+export const LANDMARK_JUDGMENTS: LandmarkJudgment[] = [
+  {
+    id: 'kesavananda-bharati',
+    caseName: 'Kesavananda Bharati v. State of Kerala',
+    citation: 'AIR 1973 SC 1461',
+    year: 1973,
+    benchStrength: 13,
+    chiefJusticeOrJudges: 'S.M. Sikri (CJI), J.M. Shelat, K.S. Hegde, A.N. Grover, H.R. Khanna, etc.',
+    coreIssue: 'Whether Parliament’s amending power under Article 368 is unlimited and whether it can destroy fundamental rights or alter the constitutional framework.',
+    verdict: '7:6 Majority: Parliament can amend any provision of the Constitution, including Part III Fundamental Rights, but cannot destroy or emasculate the Basic Structure of the Constitution.',
+    ratioDecidendi: 'Article 368 contains constituent power, but the word "amendment" implies that the original foundational identity and architecture of the Constitution must survive.',
+    dissent: 'Minority (6 judges led by A.N. Ray) held that Article 368 plenary amending power has no implied or inherent limitations.',
+    lastingImpact: 'Saved Indian democracy by establishing judicial review over constitutional amendments and setting an unbreachable ceiling on legislative supremacy.',
+    category: 'Basic Structure'
+  },
+  {
+    id: 'maneka-gandhi',
+    caseName: 'Maneka Gandhi v. Union of India',
+    citation: 'AIR 1978 SC 597',
+    year: 1978,
+    benchStrength: 7,
+    chiefJusticeOrJudges: 'M.H. Beg (CJI), Y.V. Chandrachud, P.N. Bhagwati, V.R. Krishna Iyer, etc.',
+    coreIssue: 'Whether the impounding of a passport under the Passports Act without reason or hearing violated Articles 14, 19, and 21.',
+    verdict: 'Unanimous: Procedure depriving a person of life or personal liberty must be just, fair, and reasonable, not arbitrary, fanciful, or oppressive.',
+    ratioDecidendi: 'Overruled A.K. Gopalan. Fundamental rights do not operate in isolated silos; Articles 14, 19, and 21 form a triadic Golden Triangle that mutually reinforce each other.',
+    lastingImpact: 'Transformed Article 21 from a formalistic procedural clause into an expansive fountainhead for human dignity, procedural fairness, and modern rights.',
+    category: 'Fundamental Rights'
+  },
+  {
+    id: 'sr-bommai',
+    caseName: 'S.R. Bommai v. Union of India',
+    citation: 'AIR 1994 SC 1918',
+    year: 1994,
+    benchStrength: 9,
+    chiefJusticeOrJudges: 'M.N. Venkatachaliah (CJI), A.M. Ahmadi, J.S. Verma, K. Ramaswamy, etc.',
+    coreIssue: 'Scope and judicial reviewability of Presidential proclamations under Article 356 (imposition of President’s Rule on States).',
+    verdict: 'Presidential proclamation under Article 356 is subject to judicial review; floor test in the legislative assembly is the only objective litmus test for majority.',
+    ratioDecidendi: 'Secularism and Federalism are essential features of the Basic Structure. State assembly cannot be dissolved until both Houses of Parliament approve the proclamation.',
+    lastingImpact: 'Ended the rampant partisan dismissal of democratically elected state governments by the Union executive.',
+    category: 'Federalism'
+  },
+  {
+    id: 'puttaswamy-privacy',
+    caseName: 'Justice K.S. Puttaswamy (Retd.) v. Union of India',
+    citation: '(2017) 10 SCC 1',
+    year: 2017,
+    benchStrength: 9,
+    chiefJusticeOrJudges: 'J.S. Khehar (CJI), J. Chelameswar, S.A. Bobde, D.Y. Chandrachud, etc.',
+    coreIssue: 'Whether the Right to Privacy is a constitutionally protected Fundamental Right under the Indian Constitution.',
+    verdict: 'Unanimous 9:0: Privacy is an intrinsic, fundamental facet of Article 21 personal liberty and dignity, and emanates across Part III.',
+    ratioDecidendi: 'Explicitly overruled M.P. Sharma (1954) and Kharak Singh (1962). Formulated the tripartite test of legality, legitimate state aim, and proportionality.',
+    lastingImpact: 'Formed the jurisprudential bedrock for digital data protection, bodily autonomy, LGBTQ+ decriminalization, and surveillance limits.',
+    category: 'Fundamental Rights'
+  },
+  {
+    id: 'indra-sawhney',
+    caseName: 'Indra Sawhney v. Union of India (Mandal Case)',
+    citation: 'AIR 1993 SC 477',
+    year: 1992,
+    benchStrength: 9,
+    chiefJusticeOrJudges: 'M.H. Kania (CJI), M.N. Venkatachaliah, S. Ratnavel Pandian, B.P. Jeevan Reddy, etc.',
+    coreIssue: 'Validity of 27% reservation for Other Backward Classes (OBCs) in Central government services and overall reservation limits.',
+    verdict: '6:3 Majority: Upheld 27% quota for OBCs subject to exclusion of the "Creamy Layer". Enforced a strict 50% vertical ceiling on total reservations.',
+    ratioDecidendi: 'Caste can be a dominant indicator of social backwardness but not the sole criterion. Backward classes under Art 16(4) are not identical to SC/ST.',
+    dissent: 'Differed on economic backwardness quotas and whether reservations can extend to promotional cadres.',
+    lastingImpact: 'Established the enduring constitutional doctrine of the 50% reservation ceiling and institutionalized the creamy layer exclusion principle.',
+    category: 'Social Justice'
+  },
+  {
+    id: 'minerva-mills',
+    caseName: 'Minerva Mills Ltd. v. Union of India',
+    citation: 'AIR 1980 SC 1789',
+    year: 1980,
+    benchStrength: 5,
+    chiefJusticeOrJudges: 'Y.V. Chandrachud (CJI), P.N. Bhagwati, V.R. Krishna Iyer, V.D. Tulzapurkar, A.P. Sen',
+    coreIssue: 'Constitutional validity of Section 4 and Section 55 of the 42nd Amendment Act, 1976 attempting to give DPSP absolute primacy over Fundamental Rights.',
+    verdict: 'Struck down Section 4 and 55. A limited amending power is itself a Basic Feature of the Constitution; Parliament cannot convert limited power into an unlimited one.',
+    ratioDecidendi: 'Indian Constitution is founded on the bedrock of the balance between Part III and Part IV. To give absolute primacy to one over the other is to destroy harmony.',
+    lastingImpact: 'Barred Parliament from immunizing constitutional amendments from judicial review under Article 368(4) and (5).',
+    category: 'Basic Structure'
+  },
+  {
+    id: 'navtej-johar',
+    caseName: 'Navtej Singh Johar v. Union of India',
+    citation: '(2018) 1 SCC 791',
+    year: 2018,
+    benchStrength: 5,
+    chiefJusticeOrJudges: 'Dipak Misra (CJI), R.F. Nariman, A.M. Khanwilkar, D.Y. Chandrachud, Indu Malhotra',
+    coreIssue: 'Constitutional validity of Section 377 of the Indian Penal Code criminalizing consensual homosexual acts between adults.',
+    verdict: 'Unanimous: Decriminalized consensual adult same-sex acts. Struck down Section 377 to the extent it penalized consensual private relationships.',
+    ratioDecidendi: 'Section 377 violated Articles 14 (equality), 15 (non-discrimination on sex/sexual orientation), 19(1)(a) (expression), and 21 (dignity and autonomy).',
+    lastingImpact: 'Affirmed constitutional morality over majoritarian social morality and established sexual orientation as an intrinsic human right.',
+    category: 'Fundamental Rights'
+  },
+  {
+    id: 'fourth-judges',
+    caseName: 'Supreme Court Advocates-on-Record Association v. Union of India (NJAC Case)',
+    citation: '(2016) 5 SCC 1',
+    year: 2015,
+    benchStrength: 5,
+    chiefJusticeOrJudges: 'J.S. Khehar, J. Chelameswar, Madan B. Lokur, Kurian Joseph, A.K. Goel',
+    coreIssue: 'Validity of the 99th Constitutional Amendment and National Judicial Appointments Commission (NJAC) Act 2014 replacing the Collegium system.',
+    verdict: '4:1 Majority: Struck down both the 99th Amendment and the NJAC Act as unconstitutional and void for infringing upon the independence of judiciary.',
+    ratioDecidendi: 'Judicial primacy in the appointment of higher court judges is an inviolable facet of the independence of the judiciary, which is a Basic Feature.',
+    dissent: 'Justice J. Chelameswar dissented, holding that executive representation in NJAC did not per se compromise judicial independence and Collegium lacked transparency.',
+    lastingImpact: 'Restored and entrenched the Collegium system for appointing Supreme Court and High Court judges in India.',
+    category: 'Judicial Independence'
+  }
+];
