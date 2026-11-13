@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Search, Bookmark, ChevronRight, ChevronDown, Check, Sparkles, Filter, RotateCcw } from 'lucide-react';
 import { ARTICLES_MASTER_INDEX, type ArticleMasterEntry } from '../../data/articlesMasterData';
 import { useTheme } from '../../context/ThemeContext';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const ArticlesMasterView: React.FC = () => {
   const { setActiveTab, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -239,7 +240,7 @@ export const ArticlesMasterView: React.FC = () => {
                 </h4>
 
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed break-words">
-                  {art.conciseSummary}
+                  <AnnotatedLegalText text={art.conciseSummary} />
                 </p>
               </div>
 

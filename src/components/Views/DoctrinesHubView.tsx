@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Scale, CheckCircle2, AlertOctagon, Award, Search, ChevronRight, ChevronDown } from 'lucide-react';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
 import type { ConstitutionalDoctrine } from '../../types/constitution';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const DoctrinesHubView: React.FC = () => {
   const [selectedDocId, setSelectedDocId] = useState<string>(DOCTRINES_DATA[0].id);
@@ -184,7 +185,7 @@ export const DoctrinesHubView: React.FC = () => {
               Constitutional Essence
             </span>
             <p className="text-sm text-[var(--text-primary)] leading-relaxed">
-              {currentDoctrine.essence}
+              <AnnotatedLegalText text={currentDoctrine.essence} />
             </p>
           </div>
 

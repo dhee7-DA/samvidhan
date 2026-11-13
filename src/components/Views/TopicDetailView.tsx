@@ -33,6 +33,7 @@ import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeg
 import { BasicStructureEvolutionSVG } from '../VectorDiagrams/BasicStructureEvolutionSVG';
 import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
 import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const TopicDetailView: React.FC = () => {
   const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -369,7 +370,7 @@ export const TopicDetailView: React.FC = () => {
 
                   {/* Summary */}
                   <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {art.summary}
+                    <AnnotatedLegalText text={art.summary} />
                   </p>
 
                   {/* Plain English Highlight Box */}
@@ -379,7 +380,7 @@ export const TopicDetailView: React.FC = () => {
                         <Sparkles className="w-3 h-3" /> In Plain English
                       </span>
                       <p className="text-xs text-[var(--text-primary)] leading-relaxed font-medium">
-                        {art.plainEnglish}
+                        <AnnotatedLegalText text={art.plainEnglish} />
                       </p>
                     </div>
                   )}
@@ -396,7 +397,7 @@ export const TopicDetailView: React.FC = () => {
                         <Scale className="w-3.5 h-3.5" /> Real-World Everyday / Practical Scenario
                       </span>
                       <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                        {art.realWorldScenario}
+                        <AnnotatedLegalText text={art.realWorldScenario} />
                       </p>
                     </div>
                   )}
@@ -408,7 +409,7 @@ export const TopicDetailView: React.FC = () => {
                         <Shield className="w-3.5 h-3.5" /> Prosecutor & Judicial Litigation Note
                       </span>
                       <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                        {art.prosecutionNote}
+                        <AnnotatedLegalText text={art.prosecutionNote} />
                       </p>
                     </div>
                   )}
@@ -430,12 +431,12 @@ export const TopicDetailView: React.FC = () => {
                                 {c.clause}
                               </span>
                               <span className="text-[var(--text-primary)] font-medium">
-                                {c.explanation}
+                                <AnnotatedLegalText text={c.explanation} />
                               </span>
                             </div>
                             {c.example && (
                               <div className="mt-1 pl-2 border-l-2 border-[var(--accent)]/50 text-[11px] text-[var(--text-muted)] italic">
-                                Example: {c.example}
+                                Example: <AnnotatedLegalText text={c.example} />
                               </div>
                             )}
                           </div>

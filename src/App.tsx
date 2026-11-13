@@ -13,6 +13,7 @@ import { DoctrinesHubView } from './components/Views/DoctrinesHubView';
 import { LandmarkCasesView } from './components/Views/LandmarkCasesView';
 import { ComparativeLawView } from './components/Views/ComparativeLawView';
 import { QuizMasteryView } from './components/Views/QuizMasteryView';
+import { DictionaryView } from './components/Views/DictionaryView';
 import { Scale } from 'lucide-react';
 
 const MainContent: React.FC = () => {
@@ -28,6 +29,7 @@ const MainContent: React.FC = () => {
         {activeTab === 'overview' && <OverviewDashboard />}
         {activeTab === 'parts' && <TopicDetailView />}
         {activeTab === 'articles-master' && <ArticlesMasterView />}
+        {activeTab === 'dictionary' && <DictionaryView />}
         {activeTab === 'visual-lab' && <VisualLabView />}
         {activeTab === 'amendments' && <AmendmentsView />}
         {activeTab === 'schedules' && <SchedulesView />}
@@ -54,6 +56,7 @@ const MainContent: React.FC = () => {
             <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)]">Overview</button>
             <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)]">25 Parts</button>
             <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)]">Articles 1–395</button>
+            <button onClick={() => setActiveTab('dictionary')} className="hover:text-[var(--text-primary)]">Legal Dictionary</button>
             <button onClick={() => setActiveTab('visual-lab')} className="hover:text-[var(--text-primary)]">Visual Law Lab</button>
             <button onClick={() => setActiveTab('amendments')} className="hover:text-[var(--text-primary)]">Amendments</button>
             <button onClick={() => setActiveTab('doctrines')} className="hover:text-[var(--text-primary)]">Doctrines</button>
