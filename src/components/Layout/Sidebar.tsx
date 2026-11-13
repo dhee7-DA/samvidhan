@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Compass,
   BookOpen,
@@ -11,7 +11,7 @@ import {
   GitCommit,
   Layers,
   ChevronDown,
-  Menu
+  Sparkles
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -20,52 +20,89 @@ interface NavItem {
   label: string;
   icon: React.ReactNode;
   badge?: string;
+  sub?: string;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" /> },
-  { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII' },
-  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Master Index' },
-  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '15 SVGs' },
-  { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106' },
-  { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic' },
-  { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines' },
-  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases' },
-  { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" /> },
-  { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall' },
+  { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Architecture & Preamble' },
+  { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII', sub: 'Analytical Breakdown' },
+  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Master Index', sub: 'Complete Directory' },
+  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '15 Blueprints', sub: 'Vector Blueprints' },
+  { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106', sub: 'Constituent Shifts' },
+  { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic', sub: 'TEARS OF OLD PM' },
+  { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines', sub: 'Judicial Tests' },
+  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases', sub: 'Authoritative Ratios' },
+  { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" />, sub: 'Comparative Sources' },
+  { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall', sub: 'Conceptual Drills' },
 ];
 
 export const Sidebar: React.FC = () => {
   const { activeTab, setActiveTab } = useTheme();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const currentItem = NAV_ITEMS.find((item) => item.id === activeTab) || NAV_ITEMS[0];
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <nav className="w-full border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] py-2 px-4 transition-colors">
-      {/* Mobile Collapsible Navigation Button */}
-      <div className="md:hidden flex flex-col gap-2">
+      {/* Responsive Collapsible Navigation (< xl screens, including mobile and split-screen desktop ~770px) */}
+      <div ref={menuRef} className="xl:hidden max-w-7xl mx-auto flex flex-col gap-2 relative">
         <button
-          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          className="flex items-center justify-between p-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)]"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          className="w-full flex items-center justify-between p-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono text-[var(--text-primary)] transition-all shadow-sm"
         >
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-[var(--accent)]">{currentItem.icon}</span>
-            <span className="font-bold">{currentItem.label}</span>
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="text-[var(--accent)] shrink-0">{currentItem.icon}</span>
+            <span className="font-bold truncate">{currentItem.label}</span>
             {currentItem.badge && (
-              <span className="text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+              <span className="text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
                 {currentItem.badge}
               </span>
             )}
+            <span className="text-[10px] text-[var(--text-muted)] truncate hidden sm:inline">
+              — {currentItem.sub}
+            </span>
           </div>
-          <div className="flex items-center gap-1.5 text-[var(--text-muted)] shrink-0 ml-2">
-            <span className="text-[10px]">10 Modules</span>
-            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileMenuOpen ? 'rotate-180 text-[var(--accent)]' : ''}`} />
+          <div className="flex items-center gap-2 text-[var(--text-muted)] shrink-0 ml-2">
+            <span className="text-[10px] hidden xs:inline">10 Modules</span>
+            <div className={`p-1 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] transition-transform duration-200 ${
+              isMenuOpen ? 'rotate-180 text-[var(--accent)] border-[var(--accent)]' : ''
+            }`}>
+              <ChevronDown className="w-3.5 h-3.5" />
+            </div>
           </div>
         </button>
 
-        {isMobileMenuOpen && (
-          <div className="p-3 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-xl grid grid-cols-2 gap-1.5 animate-fadeIn">
+        {isMenuOpen && (
+          <div className="absolute top-full left-0 right-0 mt-2 z-50 p-3 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 animate-fadeIn max-h-[75vh] overflow-y-auto">
+            <div className="col-span-full pb-2 mb-1 border-b border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+              <span className="font-bold text-[var(--text-primary)]">NAVIGATE CONSTITUTION MODULES</span>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="hover:text-[var(--text-primary)] px-2 py-0.5 rounded hover:bg-[var(--bg-base)] transition-colors text-[11px]"
+              >
+                Close ✕
+              </button>
+            </div>
             {NAV_ITEMS.map((item) => {
               const isActive = activeTab === item.id;
               return (
@@ -73,18 +110,34 @@ export const Sidebar: React.FC = () => {
                   key={item.id}
                   onClick={() => {
                     setActiveTab(item.id);
-                    setIsMobileMenuOpen(false);
+                    setIsMenuOpen(false);
                   }}
-                  className={`flex items-center gap-2 p-2.5 rounded-xl text-xs font-mono text-left transition-all ${
+                  className={`flex items-start gap-2.5 p-3 rounded-xl text-xs font-mono text-left transition-all ${
                     isActive
-                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm'
-                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-md'
+                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
                   }`}
                 >
-                  <span className={isActive ? 'text-inherit' : 'text-[var(--text-muted)]'}>
+                  <span className={`mt-0.5 shrink-0 ${isActive ? 'text-inherit' : 'text-[var(--accent)]'}`}>
                     {item.icon}
                   </span>
-                  <span className="truncate">{item.label}</span>
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="truncate font-semibold">{item.label}</span>
+                      {item.badge && (
+                        <span className={`text-[9px] px-1 py-0.2 rounded shrink-0 ${
+                          isActive ? 'bg-black/20 text-inherit' : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-subtle)]'
+                        }`}>
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                    {item.sub && (
+                      <span className={`text-[10px] truncate ${isActive ? 'text-inherit/80' : 'text-[var(--text-muted)]'}`}>
+                        {item.sub}
+                      </span>
+                    )}
+                  </div>
                 </button>
               );
             })}
@@ -92,8 +145,8 @@ export const Sidebar: React.FC = () => {
         )}
       </div>
 
-      {/* Desktop Navigation Tab Strip */}
-      <div className="hidden md:flex max-w-7xl mx-auto items-center justify-start xl:justify-center gap-1 lg:gap-2 overflow-x-auto scrollbar-none px-2">
+      {/* Desktop Full Navigation Tab Strip (xl screens and wider: 1280px+) */}
+      <div className="hidden xl:flex max-w-7xl mx-auto items-center justify-center gap-1.5 px-2">
         {NAV_ITEMS.map((item) => {
           const isActive = activeTab === item.id;
           return (
@@ -111,7 +164,7 @@ export const Sidebar: React.FC = () => {
               </span>
               <span>{item.label}</span>
               {item.badge && (
-                <span className="hidden xl:inline text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                <span className="text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
                   {item.badge}
                 </span>
               )}
