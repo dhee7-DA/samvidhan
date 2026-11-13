@@ -6,15 +6,23 @@ import { PART_4_DPSP_EXPANDED } from './part4DPSPData';
 import { PART_4A_DUTIES_EXPANDED } from './part4aDutiesData';
 import { PART_5_UNION_EXPANDED } from './part5UnionData';
 import { PART_6_STATES_EXPANDED } from './part6StatesData';
+import { PART_8_UTS_EXPANDED } from './part8UTsData';
 import { PART_9_PANCHAYATS_EXPANDED } from './part9LocalGovernanceData';
+import { PART_9A_MUNICIPALITIES_EXPANDED, PART_9B_COOPERATIVES_EXPANDED } from './part9aMunicipalitiesData';
+import { PART_10_TRIBAL_EXPANDED } from './part10TribalData';
 import { PART_11_FEDERAL_EXPANDED } from './part11FederalData';
 import { PART_12_FINANCE_EXPANDED } from './part12FinanceData';
+import { PART_13_TRADE_EXPANDED } from './part13TradeData';
 import { PART_14_SERVICES_EXPANDED } from './part14ServicesData';
+import { PART_14A_TRIBUNALS_EXPANDED } from './part14aTribunalsData';
 import { PART_15_ELECTIONS_EXPANDED } from './part15ElectionsData';
+import { PART_16_CLASSES_EXPANDED } from './part16ClassesData';
 import { PART_17_LANGUAGE_EXPANDED } from './part17LanguageData';
 import { PART_18_EMERGENCY_EXPANDED } from './part18EmergencyData';
+import { PART_19_MISC_EXPANDED } from './part19MiscData';
 import { PART_20_AMENDMENT_EXPANDED } from './part20AmendmentData';
 import { PART_21_SPECIAL_EXPANDED } from './part21SpecialData';
+import { PART_22_CLOSING_EXPANDED } from './part22ClosingData';
 
 export const CONSTITUTION_PARTS: ConstitutionPart[] = [
   {
@@ -270,26 +278,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Clarified triple chain of democratic accountability: civil servants to ministers, ministers to assembly, assembly to voters.'
       }
     ],
-    articles: [
-      {
-        number: '239',
-        title: 'Administration of Union territories',
-        summary: 'Every Union territory shall be administered by the President acting through an administrator appointed by him.',
-        textSnippet: 'Save as otherwise provided by Parliament by law, every Union territory shall be administered by the President.'
-      },
-      {
-        number: '239AA',
-        title: 'Special provisions with respect to Delhi',
-        summary: 'Established Legislative Assembly and Council of Ministers for NCT of Delhi, reserving Police, Public Order, and Land to the Union Government.',
-        textSnippet: 'The Union territory of Delhi shall be called the National Capital Territory of Delhi and the administrator thereof shall be designated as the Lieutenant Governor.'
-      },
-      {
-        number: '240',
-        title: 'Power of President to make regulations for certain Union territories',
-        summary: 'Empowers President to enact regulations for peace, progress, and good government of Andaman & Nicobar, Lakshadweep, Dadra & Nagar Haveli and Daman & Diu.',
-        textSnippet: 'The President may make regulations for the peace, progress and good government of the Union territory.'
-      }
-    ]
+    articles: PART_8_UTS_EXPANDED
   },
   {
     id: 'part-9',
@@ -337,20 +326,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Barred states from using pending boundary delimitation as an excuse to avoid local elections.'
       }
     ],
-    articles: [
-      {
-        number: '243Q',
-        title: 'Constitution of Municipalities',
-        summary: 'Provides for Nagar Panchayats for transitional areas, Municipal Councils for smaller urban areas, and Municipal Corporations for larger urban areas.',
-        textSnippet: 'There shall be constituted in every State: a Nagar Panchayat, a Municipal Council, and a Municipal Corporation.'
-      },
-      {
-        number: '243ZD',
-        title: 'Committee for district planning',
-        summary: 'Mandates constitution of a District Planning Committee (DPC) in every district to consolidate draft plans prepared by Panchayats and Municipalities.',
-        textSnippet: 'There shall be constituted in every State at the district level a District Planning Committee.'
-      }
-    ]
+    articles: PART_9A_MUNICIPALITIES_EXPANDED
   },
   {
     id: 'part-9b',
@@ -374,20 +350,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Reaffirmed federal boundaries: cooperative societies within a state fall exclusively under State List Entry 32.'
       }
     ],
-    articles: [
-      {
-        number: '243ZH',
-        title: 'Definitions of Co-operative Society',
-        summary: 'Defines cooperative society, board, office-bearer, and multi-state cooperative society.',
-        textSnippet: 'Co-operative society means a society registered or deemed to be registered under any law relating to co-operative societies.'
-      },
-      {
-        number: '243ZJ',
-        title: 'Number and term of members of board and its office bearers',
-        summary: 'Limits board strength to 21, mandates 5-year tenure, and requires reservation for women and SC/ST.',
-        textSnippet: 'The board shall consist of such number of directors not exceeding twenty-one, with reservations for SC/ST and women.'
-      }
-    ]
+    articles: PART_9B_COOPERATIVES_EXPANDED
   },
   {
     id: 'part-10',
@@ -411,20 +374,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Historic environmental and indigenous land rights charter in Fifth Schedule areas.'
       }
     ],
-    articles: [
-      {
-        number: '244',
-        title: 'Administration of Scheduled Areas and Tribal Areas',
-        summary: 'Applies Fifth Schedule to Scheduled Areas in any State other than AMTM; applies Sixth Schedule to tribal areas in Assam, Meghalaya, Tripura, Mizoram.',
-        textSnippet: 'The provisions of the Fifth Schedule shall apply to the administration and control of the Scheduled Areas and Scheduled Tribes in any State other than AMTM.'
-      },
-      {
-        number: '244A',
-        title: 'Formation of an autonomous State comprising certain tribal areas in Assam',
-        summary: 'Authorizes Parliament by law to form an autonomous State within Assam with a local legislature or Council of Ministers.',
-        textSnippet: 'Parliament may, by law, form within the State of Assam an autonomous State comprising all or any of the tribal areas.'
-      }
-    ]
+    articles: PART_10_TRIBAL_EXPANDED
   },
   {
     id: 'part-11',
@@ -520,26 +470,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Resolved a 60-year fiscal dilemma on state entry taxation.'
       }
     ],
-    articles: [
-      {
-        number: '301',
-        title: 'Freedom of trade, commerce and intercourse',
-        summary: 'Guarantees that trade, commerce and intercourse throughout the territory of India shall be free from regional barriers.',
-        textSnippet: 'Subject to the other provisions of this Part, trade, commerce and intercourse throughout the territory of India shall be free.'
-      },
-      {
-        number: '302',
-        title: 'Power of Parliament to impose restrictions on trade, commerce and intercourse',
-        summary: 'Parliament may by law impose such restrictions on the freedom of trade between States as may be required in the public interest.',
-        textSnippet: 'Parliament may by law impose such restrictions on the freedom of trade, commerce or intercourse as may be required in the public interest.'
-      },
-      {
-        number: '304',
-        title: 'Restrictions on trade, commerce and intercourse among States',
-        summary: 'Empowers State Legislatures to levy non-discriminatory taxes on imported goods (304a) and impose reasonable restrictions with prior Presidential sanction (304b).',
-        textSnippet: 'The Legislature of a State may by law impose on goods imported from other States any tax to which similar goods manufactured in that State are subject.'
-      }
-    ]
+    articles: PART_13_TRADE_EXPANDED
   },
   {
     id: 'part-14',
@@ -596,20 +527,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Barred executive dominance over judicial tribunal appointments and service conditions.'
       }
     ],
-    articles: [
-      {
-        number: '323A',
-        title: 'Administrative tribunals',
-        summary: 'Parliament may by law provide for the adjudication by administrative tribunals of disputes regarding recruitment and conditions of service of public servants.',
-        textSnippet: 'Parliament may, by law, provide for the adjudication or trial by administrative tribunals of disputes and complaints with respect to recruitment and conditions of service.'
-      },
-      {
-        number: '323B',
-        title: 'Tribunals for other matters',
-        summary: 'Empowers appropriate legislatures to establish tribunals for taxation, foreign exchange, industrial/labor disputes, ceiling on property, and essential goods.',
-        textSnippet: 'The appropriate Legislature may, by law, provide for the adjudication or trial by tribunals of any disputes, complaints, or offences.'
-      }
-    ]
+    articles: PART_14A_TRIBUNALS_EXPANDED
   },
   {
     id: 'part-15',
@@ -674,38 +592,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Harmonized affirmative action with the equality principle.'
       }
     ],
-    articles: [
-      {
-        number: '330',
-        title: 'Reservation of seats for Scheduled Castes and Scheduled Tribes in the House of the People',
-        summary: 'Mandates seat reservations in Lok Sabha for SCs and STs proportionate to their population census figures.',
-        textSnippet: 'Seats shall be reserved in the House of the People for: the Scheduled Castes, the Scheduled Tribes.'
-      },
-      {
-        number: '335',
-        title: 'Claims of Scheduled Castes and Scheduled Tribes to services and posts',
-        summary: 'Mandates that claims of SCs/STs shall be taken into consideration consistently with the maintenance of efficiency of administration.',
-        textSnippet: 'The claims of the members of the Scheduled Castes and the Scheduled Tribes shall be taken into consideration, consistently with the maintenance of efficiency of administration.'
-      },
-      {
-        number: '338',
-        title: 'National Commission for Scheduled Castes',
-        summary: 'Constitutional watchdog to investigate and monitor all matters relating to safeguards provided for SCs.',
-        textSnippet: 'There shall be a Commission for the Scheduled Castes to be known as the National Commission for Scheduled Castes.'
-      },
-      {
-        number: '338A',
-        title: 'National Commission for Scheduled Tribes',
-        summary: 'Bifurcated from NCSC by 89th Constitutional Amendment 2003 as an autonomous body for tribal welfare and development.',
-        textSnippet: 'There shall be a Commission for the Scheduled Tribes to be known as the National Commission for Scheduled Tribes.'
-      },
-      {
-        number: '338B',
-        title: 'National Commission for Backward Classes',
-        summary: 'Conferred full constitutional status on NCBC by the 102nd Constitutional Amendment Act 2018.',
-        textSnippet: 'There shall be a Commission for the socially and educationally backward classes to be known as the National Commission for Backward Classes.'
-      }
-    ]
+    articles: PART_16_CLASSES_EXPANDED
   },
   {
     id: 'part-17',
@@ -780,26 +667,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Distinguished between personal immunity of the Governor and judicial reviewability of gubernatorial decisions.'
       }
     ],
-    articles: [
-      {
-        number: '361',
-        title: 'Protection of President and Governors',
-        summary: 'The President or Governor is not answerable to any court for duties of office; no criminal proceedings or arrest warrants lie during term.',
-        textSnippet: 'The President, or the Governor of a State, shall not be answerable to any court for the exercise and performance of the powers and duties of his office.'
-      },
-      {
-        number: '361A',
-        title: 'Protection of publication of proceedings of Parliament and State Legislatures',
-        summary: 'Inserted by 44th Amendment 1978: Grants civil and criminal immunity for substantially true reports in newspapers/radio of parliamentary proceedings.',
-        textSnippet: 'No person shall be liable to any proceedings in any court in respect of the publication of a substantially true report of any proceedings of either House.'
-      },
-      {
-        number: '365',
-        title: 'Effect of failure to comply with, or to give effect to, directions given by the Union',
-        summary: 'If a State fails to comply with Union executive directions, President may hold that the government cannot be carried on in accordance with the Constitution (triggering Art 356).',
-        textSnippet: 'Where any State has failed to comply with, or to give effect to, any directions given in the exercise of the executive power of the Union.'
-      }
-    ]
+    articles: PART_19_MISC_EXPANDED
   },
   {
     id: 'part-20',
@@ -866,31 +734,6 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       'Article 395 repealed the Indian Independence Act 1947 and the Government of India Act 1935, cutting the colonial umbilical cord.'
     ],
     landmarkCases: [],
-    articles: [
-      {
-        number: '393',
-        title: 'Short title',
-        summary: 'Officially designates the document: This Constitution may be called the Constitution of India.',
-        textSnippet: 'This Constitution may be called the Constitution of India.'
-      },
-      {
-        number: '394',
-        title: 'Commencement',
-        summary: 'Specified the immediate commencement of 16 articles on 26 Nov 1949 and remaining provisions on 26 Jan 1950.',
-        textSnippet: 'This article and articles 5, 6, 7, 8, 9, 60, 324... shall come into force at once, and the remaining provisions shall come into force on the twenty-sixth day of January, 1950.'
-      },
-      {
-        number: '394A',
-        title: 'Authoritative text in the Hindi language',
-        summary: 'Inserted by 58th Amendment 1987: Mandates publication of an authoritative translation of the Constitution in Hindi having the same legal effect.',
-        textSnippet: 'The translation in the Hindi language of this Constitution shall be deemed to be the authoritative text thereof in the Hindi language.'
-      },
-      {
-        number: '395',
-        title: 'Repeals',
-        summary: 'Formally repealed the Indian Independence Act, 1947 and the Government of India Act, 1935, establishing indigenous constitutional sovereignty.',
-        textSnippet: 'The Indian Independence Act, 1947, and the Government of India Act, 1935... are hereby repealed.'
-      }
-    ]
+    articles: PART_22_CLOSING_EXPANDED
   }
 ];
