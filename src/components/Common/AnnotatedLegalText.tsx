@@ -26,8 +26,15 @@ function escapeRegExp(string: string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Compile each key with smart boundaries so keys with symbols/parentheses (e.g. "Karachi Resolution (1931)") match correctly
+const PATTERN_STRING = ALL_KEYS.map((k) => {
+  const left = /^\w/.test(k) ? '\\b' : '(?<=^|[^a-zA-Z0-9_])';
+  const right = /\w$/.test(k) ? '\\b' : '(?=[^a-zA-Z0-9_]|$)';
+  return `${left}${escapeRegExp(k)}${right}`;
+}).join('|');
+
 // Global compiled regex pattern
-const DICTIONARY_REGEX = new RegExp(`\\b(${ALL_KEYS.map(escapeRegExp).join('|')})\\b`, 'gi');
+const DICTIONARY_REGEX = new RegExp(`(${PATTERN_STRING})`, 'gi');
 
 interface TooltipProps {
   termData: LegalTerm;

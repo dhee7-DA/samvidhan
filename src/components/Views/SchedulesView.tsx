@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, CheckCircle2, Bookmark, ExternalLink, Sparkles } from 'lucide-react';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const SchedulesView: React.FC = () => {
   const [filterQuery, setFilterQuery] = useState('');
@@ -82,11 +83,11 @@ export const SchedulesView: React.FC = () => {
                 </div>
 
                 <h4 className="text-sm font-bold text-[var(--text-primary)] mb-2">
-                  {sch.title}
+                  <AnnotatedLegalText text={sch.title} />
                 </h4>
 
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
-                  {sch.subject}
+                  <AnnotatedLegalText text={sch.subject} />
                 </p>
 
                 <div className="flex flex-col gap-1.5 pt-3 border-t border-[var(--border-subtle)]">
@@ -96,14 +97,16 @@ export const SchedulesView: React.FC = () => {
                   {sch.details.slice(0, 2).map((d, i) => (
                     <div key={i} className="flex items-start gap-1.5 text-xs text-[var(--text-primary)]">
                       <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 text-[var(--emerald)] shrink-0" />
-                      <span className="leading-snug">{d}</span>
+                      <span className="leading-snug">
+                        <AnnotatedLegalText text={d} />
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] text-[10px] italic text-[var(--text-muted)]">
-                {sch.historicalEvolution}
+                <AnnotatedLegalText text={sch.historicalEvolution} />
               </div>
             </div>
           ))}

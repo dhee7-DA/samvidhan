@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GitCommit, Search, Sparkles, Award, ExternalLink, Calendar, ChevronRight, ChevronDown } from 'lucide-react';
 import { AMENDMENTS_DATA, type ConstitutionalAmendment } from '../../data/amendmentsData';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const AmendmentsView: React.FC = () => {
   const [query, setQuery] = useState('');
@@ -150,7 +151,7 @@ export const AmendmentsView: React.FC = () => {
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
-                {selectedAmd.title}
+                <AnnotatedLegalText text={selectedAmd.title} />
               </h2>
             </div>
           </div>
@@ -175,7 +176,7 @@ export const AmendmentsView: React.FC = () => {
               Underlying Purpose & Rationale
             </span>
             <p className="text-sm text-[var(--text-primary)] leading-relaxed">
-              {selectedAmd.keyObjectives}
+              <AnnotatedLegalText text={selectedAmd.keyObjectives} />
             </p>
           </div>
 
@@ -185,7 +186,7 @@ export const AmendmentsView: React.FC = () => {
               Substantive Constitutional Impact
             </span>
             <p className="text-xs text-[var(--text-primary)] leading-relaxed">
-              {selectedAmd.significance}
+              <AnnotatedLegalText text={selectedAmd.significance} />
             </p>
           </div>
 
@@ -198,7 +199,7 @@ export const AmendmentsView: React.FC = () => {
                   Supreme Court Judicial Review
                 </span>
                 <p className="text-xs text-[var(--text-secondary)] mt-0.5 leading-relaxed font-mono">
-                  {selectedAmd.landmarkJudicialImpact}
+                  <AnnotatedLegalText text={selectedAmd.landmarkJudicialImpact} />
                 </p>
               </div>
             </div>

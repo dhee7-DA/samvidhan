@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Globe2, ArrowRight, BookOpen, Layers, CheckCircle2, ChevronDown, Filter } from 'lucide-react';
 import { COMPARATIVE_DATA } from '../../data/comparativeData';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const ComparativeLawView: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState(COMPARATIVE_DATA[0]);
@@ -130,7 +131,7 @@ export const ComparativeLawView: React.FC = () => {
               <div>
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <h4 className="text-sm font-bold text-[var(--text-primary)]">
-                    {feat.feature}
+                    <AnnotatedLegalText text={feat.feature} />
                   </h4>
                   <span className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-subtle)] shrink-0">
                     {feat.constitutionalArticles}
@@ -142,7 +143,7 @@ export const ComparativeLawView: React.FC = () => {
                     Indian Constitutional Adaptation
                   </span>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    {feat.indianAdaptation}
+                    <AnnotatedLegalText text={feat.indianAdaptation} />
                   </p>
                 </div>
               </div>
