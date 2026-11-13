@@ -1,11 +1,17 @@
 import type { ConstitutionPart } from '../types/constitution';
+import { PART_1_TERRITORY_EXPANDED } from './part1TerritoryData';
+import { PART_2_CITIZENSHIP_EXPANDED } from './part2CitizenshipData';
 import { PART_3_ARTICLES_EXPANDED } from './part3FundamentalRightsData';
 import { PART_4_DPSP_EXPANDED } from './part4DPSPData';
+import { PART_4A_DUTIES_EXPANDED } from './part4aDutiesData';
 import { PART_5_UNION_EXPANDED } from './part5UnionData';
 import { PART_6_STATES_EXPANDED } from './part6StatesData';
+import { PART_9_PANCHAYATS_EXPANDED } from './part9LocalGovernanceData';
 import { PART_11_FEDERAL_EXPANDED } from './part11FederalData';
 import { PART_12_FINANCE_EXPANDED } from './part12FinanceData';
 import { PART_14_SERVICES_EXPANDED } from './part14ServicesData';
+import { PART_15_ELECTIONS_EXPANDED } from './part15ElectionsData';
+import { PART_17_LANGUAGE_EXPANDED } from './part17LanguageData';
 import { PART_18_EMERGENCY_EXPANDED } from './part18EmergencyData';
 import { PART_20_AMENDMENT_EXPANDED } from './part20AmendmentData';
 import { PART_21_SPECIAL_EXPANDED } from './part21SpecialData';
@@ -42,41 +48,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
     ],
     svgDiagramId: 'federal-relations',
     mnemonics: ['U-S-A-L: Union, States admission, Alteration, Laws consequential'],
-    articles: [
-      {
-        number: '1',
-        title: 'Name and territory of the Union',
-        summary: 'Designates the nation as "India, that is Bharat" and characterizes it as a Union of States rather than a Federation of States.',
-        textSnippet: 'India, that is Bharat, shall be a Union of States. Territory comprises States, Union Territories, and acquired lands.',
-        clauses: [
-          { clause: '1(1)', explanation: 'Affirms dual nomenclature: India (modern international) and Bharat (historical/indigenous).' },
-          { clause: '1(2)', explanation: 'States and territories are cataloged in the First Schedule.' },
-          { clause: '1(3)', explanation: 'Territory encompasses territories of States, Union territories, and territories that may be acquired.' }
-        ]
-      },
-      {
-        number: '2',
-        title: 'Admission or establishment of new States',
-        summary: 'Vests Parliament with legislative authority to admit into the Union or establish new States on terms it deems fit.',
-        textSnippet: 'Parliament may by law admit into the Union, or establish, new States on such terms and conditions as it thinks fit.'
-      },
-      {
-        number: '3',
-        title: 'Formation of new States and alteration of areas, boundaries or names',
-        summary: 'Empowers Parliament to alter state borders, bifurcate states, merge units, or change names via simple legislative enactment.',
-        textSnippet: 'Parliament may by law form a new State, alter the area, boundaries or name of any existing State.',
-        clauses: [
-          { clause: 'Proviso (a)', explanation: 'A Bill under Article 3 can only be introduced on the prior recommendation of the President.' },
-          { clause: 'Proviso (b)', explanation: 'President must refer the bill to the affected state legislature for views; however, Parliament is not bound by the state legislature opinion.' }
-        ]
-      },
-      {
-        number: '4',
-        title: 'Laws made under Articles 2 and 3 to provide for amendment of First and Fourth Schedules',
-        summary: 'Clarifies that laws enacted under Article 2 and 3 do not constitute constitutional amendments under Article 368.',
-        textSnippet: 'No such law as aforesaid shall be deemed to be an amendment of this Constitution for the purposes of article 368.'
-      }
-    ]
+    articles: PART_1_TERRITORY_EXPANDED
   },
   {
     id: 'part-2',
@@ -100,26 +72,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Courts cannot usurp executive determination of citizenship cessation without central finding.'
       }
     ],
-    articles: [
-      {
-        number: '5',
-        title: 'Citizenship at the commencement of the Constitution',
-        summary: 'Conferred citizenship on individuals having domicile in India who were born in India, whose parents were born in India, or who were resident for 5+ years.',
-        textSnippet: 'Every person who has his domicile in the territory of India and was born or ordinarily resident.'
-      },
-      {
-        number: '9',
-        title: 'Persons voluntarily acquiring citizenship of a foreign State not to be citizens',
-        summary: 'Enforces strict single citizenship; taking allegiance to another sovereign automatically terminates Indian citizenship.',
-        textSnippet: 'No person shall be a citizen of India if he has voluntarily acquired the citizenship of any foreign State.'
-      },
-      {
-        number: '11',
-        title: 'Parliament to regulate the right of citizenship by law',
-        summary: 'Plenary constitutional mandate enabling Parliament to create, amend, or terminate citizenship rights (led to Citizenship Act 1955).',
-        textSnippet: 'Nothing in the foregoing provisions shall derogate from the power of Parliament to make any provision with respect to the acquisition and termination of citizenship.'
-      }
-    ]
+    articles: PART_2_CITIZENSHIP_EXPANDED
   },
   {
     id: 'part-3',
@@ -214,14 +167,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Elevated Article 51A as an active canon of constitutional interpretation.'
       }
     ],
-    articles: [
-      {
-        number: '51A',
-        title: 'Fundamental duties of citizens',
-        summary: 'Enumerates 11 obligations including respecting the Constitution, defending the country, protecting the environment, and promoting scientific temper.',
-        textSnippet: 'It shall be the duty of every citizen of India to abide by the Constitution, cherish noble ideals, defend the nation, and protect the natural environment.'
-      }
-    ]
+    articles: PART_4A_DUTIES_EXPANDED
   },
   {
     id: 'part-5',
@@ -367,32 +313,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Integrated local self-government reservations into mainstream equal protection doctrine.'
       }
     ],
-    articles: [
-      {
-        number: '243A',
-        title: 'Gram Sabha',
-        summary: 'Village assembly comprising all registered voters of a village, exercising powers devolved by State Legislature.',
-        textSnippet: 'A Gram Sabha may exercise such powers and perform such functions at the village level as the Legislature of a State may provide.'
-      },
-      {
-        number: '243B',
-        title: 'Constitution of Panchayats',
-        summary: 'Mandates 3-tier Panchayats in every State, with exemption from intermediate tier for States with population below 20 lakhs.',
-        textSnippet: 'There shall be constituted in every State, Panchayats at the village, intermediate and district levels.'
-      },
-      {
-        number: '243D',
-        title: 'Reservation of seats',
-        summary: 'Proportionate reservations for SCs/STs and not less than 33% reservation for women across all tiers and offices.',
-        textSnippet: 'Not less than one-third of the total number of seats to be filled by direct election in every Panchayat shall be reserved for women.'
-      },
-      {
-        number: '243K',
-        title: 'Elections to the Panchayats',
-        summary: 'Vests superintendence, direction, and control of elections in an independent State Election Commissioner.',
-        textSnippet: 'The superintendence, direction and control of the preparation of electoral rolls for, and the conduct of, all elections to the Panchayats shall be vested in a State Election Commission.'
-      }
-    ]
+    articles: PART_9_PANCHAYATS_EXPANDED
   },
   {
     id: 'part-9a',
@@ -721,32 +642,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'electoral-architecture',
-    articles: [
-      {
-        number: '324',
-        title: 'Superintendence, direction and control of elections to be vested in an Election Commission',
-        summary: 'Vests complete electoral management in the ECI consisting of the Chief Election Commissioner and other Election Commissioners.',
-        textSnippet: 'The superintendence, direction and control of the preparation of the electoral rolls for, and the conduct of, all elections to Parliament and to the Legislature of every State shall be vested in an Election Commission.'
-      },
-      {
-        number: '325',
-        title: 'No person to be ineligible for inclusion in electoral roll on grounds of religion, race, caste or sex',
-        summary: 'Abolished communal and separate electorates; mandates one single general electoral roll for every territorial constituency.',
-        textSnippet: 'There shall be one general electoral roll for every territorial constituency and no person shall be ineligible on grounds only of religion, race, caste, sex.'
-      },
-      {
-        number: '326',
-        title: 'Elections to Lok Sabha and State Legislative Assemblies to be on the basis of adult suffrage',
-        summary: 'Universal adult franchise: Every citizen not less than eighteen years of age has the constitutional right to be registered as a voter.',
-        textSnippet: 'The elections to the House of the People and to the Legislative Assembly of every State shall be on the basis of adult suffrage.'
-      },
-      {
-        number: '329',
-        title: 'Bar to interference by courts in electoral matters',
-        summary: 'Bars courts from questioning delimitation laws and mandates that elections can only be called in question by an election petition presented after completion.',
-        textSnippet: 'No election to either House of Parliament or to the House of the Legislature of a State shall be called in question except by an election petition.'
-      }
-    ]
+    articles: PART_15_ELECTIONS_EXPANDED
   },
   {
     id: 'part-16',
@@ -835,32 +731,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         significance: 'Balanced Hindi promotion directives with safeguards for non-Hindi states.'
       }
     ],
-    articles: [
-      {
-        number: '343',
-        title: 'Official language of the Union',
-        summary: 'The official language of the Union shall be Hindi in Devanagari script. Form of numerals shall be the international form of Indian numerals.',
-        textSnippet: 'The official language of the Union shall be Hindi in Devanagari script.'
-      },
-      {
-        number: '348',
-        title: 'Language to be used in the Supreme Court and in the High Courts and for Acts, Bills, etc.',
-        summary: 'Mandates that all proceedings in Supreme Court and High Courts and authoritative texts of Bills, Acts, Ordinances must be in the English language.',
-        textSnippet: 'All proceedings in the Supreme Court and in every High Court, and authoritative texts of all Bills, Acts and Ordinances shall be in the English language.'
-      },
-      {
-        number: '350A',
-        title: 'Facilities for instruction in mother-tongue at primary stage',
-        summary: 'Directs every State and local authority to endeavor to provide primary school education in mother-tongue to linguistic minority children.',
-        textSnippet: 'It shall be the endeavour of every State and of every local authority within the State to provide adequate facilities for instruction in the mother-tongue at the primary stage.'
-      },
-      {
-        number: '351',
-        title: 'Directive for development of the Hindi language',
-        summary: 'Directs the Union to promote the spread of Hindi and develop it as a medium of expression for all elements of the composite culture of India.',
-        textSnippet: 'It shall be the duty of the Union to promote the spread of the Hindi language, to develop it so that it may serve as a medium of expression for all the elements of the composite culture.'
-      }
-    ]
+    articles: PART_17_LANGUAGE_EXPANDED
   },
   {
     id: 'part-18',

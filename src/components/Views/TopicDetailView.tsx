@@ -32,6 +32,7 @@ import { GSTCouncilFiscalSVG } from '../VectorDiagrams/GSTCouncilFiscalSVG';
 import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeguardsSVG';
 import { BasicStructureEvolutionSVG } from '../VectorDiagrams/BasicStructureEvolutionSVG';
 import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
+import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
 
 export const TopicDetailView: React.FC = () => {
   const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -296,6 +297,11 @@ export const TopicDetailView: React.FC = () => {
         {currentPart.id === 'part-14' && (
           <div className="flex flex-col gap-2">
             <CivilServicesSafeguardsSVG />
+          </div>
+        )}
+        {currentPart.id === 'part-15' && (
+          <div className="flex flex-col gap-2">
+            <ElectoralArchitectureSVG />
           </div>
         )}
         {currentPart.id === 'part-18' && (
