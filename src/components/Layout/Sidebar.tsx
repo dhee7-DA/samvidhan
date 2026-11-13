@@ -24,11 +24,11 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" /> },
   { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII' },
   { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Master Index' },
-  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '14 SVGs' },
+  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '15 SVGs' },
   { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106' },
   { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic' },
   { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines' },
-  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" /> },
+  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '50 Cases' },
   { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" /> },
   { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall' },
 ];

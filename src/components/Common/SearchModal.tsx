@@ -3,7 +3,7 @@ import { Search, X, ChevronRight } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { CONSTITUTION_PARTS } from '../../data/partsData';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
-import { LANDMARK_JUDGMENTS } from '../../data/judgmentsData';
+import { DETAILED_CASE_LAWS_BY_TOPIC } from '../../data/caseLawsDetailedData';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { AMENDMENTS_DATA } from '../../data/amendmentsData';
 import { ARTICLES_MASTER_INDEX } from '../../data/articlesMasterData';
@@ -102,21 +102,25 @@ export const SearchModal: React.FC = () => {
       }
     });
 
-    // Search Landmark Judgments
-    LANDMARK_JUDGMENTS.forEach((caseItem) => {
-      if (
-        caseItem.caseName.toLowerCase().includes(q) ||
-        caseItem.coreIssue.toLowerCase().includes(q) ||
-        caseItem.verdict.toLowerCase().includes(q)
-      ) {
-        res.push({
-          category: 'Landmark Case',
-          title: `${caseItem.caseName} (${caseItem.year})`,
-          subtitle: `${caseItem.citation} • ${caseItem.coreIssue.slice(0, 80)}...`,
-          targetTab: 'judgments',
-          targetId: caseItem.id
-        });
-      }
+    // Search 50 Landmark Cases
+    DETAILED_CASE_LAWS_BY_TOPIC.forEach((topic) => {
+      topic.cases.forEach((caseItem) => {
+        if (
+          caseItem.caseName.toLowerCase().includes(q) ||
+          caseItem.citation.toLowerCase().includes(q) ||
+          caseItem.governingDoctrine.toLowerCase().includes(q) ||
+          caseItem.presidingJudges.toLowerCase().includes(q) ||
+          caseItem.ratioDecidendi.toLowerCase().includes(q)
+        ) {
+          res.push({
+            category: 'Landmark Case',
+            title: `${caseItem.caseName} (${caseItem.year})`,
+            subtitle: `${caseItem.citation} • ${caseItem.benchStrength}-Judge Bench • ${caseItem.governingDoctrine}`,
+            targetTab: 'judgments',
+            targetId: caseItem.id
+          });
+        }
+      });
     });
 
     // Search Schedules

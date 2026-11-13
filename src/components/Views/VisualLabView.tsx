@@ -30,6 +30,7 @@ import { GSTCouncilFiscalSVG } from '../VectorDiagrams/GSTCouncilFiscalSVG';
 import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeguardsSVG';
 import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
 import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
+import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
 
 interface DiagramItem {
   id: string;
@@ -124,6 +125,15 @@ const DIAGRAMS: DiagramItem[] = [
     summary: 'Autonomous constitutional safeguards and customary protections across 11 diverse States.'
   },
   {
+    id: 'precedent-lineage',
+    title: 'Precedent Lineage & Judicial Evolution',
+    category: 'Judicial Precedent',
+    articles: '5 Landmark Judicial Trees',
+    icon: <GitBranch className="w-4 h-4" />,
+    component: <PrecedentLineageSVG />,
+    summary: 'Evolutionary vector trees tracking how the Supreme Court developed, deepened, and occasionally overruled major constitutional precedents.'
+  },
+  {
     id: 'emergency-matrix',
     title: 'Emergency Matrix & Rights Suspension Gauge',
     category: 'Crisis Governance',
@@ -185,7 +195,7 @@ export const VisualLabView: React.FC = () => {
               Visual Law Lab
             </h1>
             <span className="text-xs px-2 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-              14 Bespoke Vector Blueprints
+              15 Bespoke Vector Blueprints
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">
