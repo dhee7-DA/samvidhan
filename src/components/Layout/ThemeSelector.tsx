@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Palette, Sun, Moon, Sparkles, Feather, ChevronDown, Check } from 'lucide-react';
+import { Palette, Sun, Moon, Sparkles, Feather, ChevronDown, Check, Flame } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import type { ThemeMode } from '../../types/constitution';
 
@@ -14,10 +14,18 @@ const THEMES: { id: ThemeMode; name: string; icon: React.ReactNode; desc: string
   },
   {
     id: 'ink',
-    name: 'Ink',
+    name: 'Ink (Cyan)',
     icon: <Sparkles className="w-3.5 h-3.5" />,
-    desc: 'Deep fountain-pen midnight navy & ice',
-    sampleColor: '#38bdf8',
+    desc: 'Pitch dark black & vivid electric cyan',
+    sampleColor: '#00f0ff',
+    mode: 'Dark'
+  },
+  {
+    id: 'pink',
+    name: 'Mono Pink',
+    icon: <Flame className="w-3.5 h-3.5" />,
+    desc: 'Monochrome obsidian & hot pink neon',
+    sampleColor: '#ff2d75',
     mode: 'Dark'
   },
   {
@@ -32,16 +40,16 @@ const THEMES: { id: ThemeMode; name: string; icon: React.ReactNode; desc: string
     id: 'paper',
     name: 'Paper',
     icon: <Feather className="w-3.5 h-3.5" />,
-    desc: 'Warm archival parchment & sumi ink',
-    sampleColor: '#b45309',
+    desc: 'Warm archival parchment & rubric crimson',
+    sampleColor: '#991b1b',
     mode: 'Light'
   },
   {
     id: 'chalk',
     name: 'Chalk',
     icon: <Sun className="w-3.5 h-3.5" />,
-    desc: 'Architectural slate & clean studio white',
-    sampleColor: '#2563eb',
+    desc: 'Architectural studio white & royal indigo',
+    sampleColor: '#4f46e5',
     mode: 'Light'
   }
 ];
@@ -106,7 +114,7 @@ export const ThemeSelector: React.FC = () => {
         <div className="absolute right-0 mt-2 w-72 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl p-2 z-50 animate-fadeIn backdrop-blur-xl">
           <div className="flex items-center justify-between px-2.5 py-1.5 text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider border-b border-[var(--border-subtle)] mb-1.5">
             <span>Themes & Palettes</span>
-            <span>5 Presets</span>
+            <span>6 Presets</span>
           </div>
 
           <div className="flex flex-col gap-1">

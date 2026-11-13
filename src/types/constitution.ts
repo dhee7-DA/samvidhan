@@ -1,4 +1,4 @@
-export type ThemeMode = 'monochrome' | 'ink' | 'carbon' | 'paper' | 'chalk';
+export type ThemeMode = 'monochrome' | 'ink' | 'carbon' | 'paper' | 'chalk' | 'pink';
 export type FontMode = 'geist' | 'geist-mono' | 'jetbrains';
 
 export interface ConstitutionalClause {
