@@ -4,6 +4,8 @@ import { MapPin, Shield, CheckCircle2, ChevronRight, Compass } from 'lucide-reac
 interface AsymmetricState {
   article: string;
   state: string;
+  shortName: string;
+  subLabel: string;
   keySafeguard: string;
   historicalContext: string;
   color: string;
@@ -13,6 +15,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371',
     state: 'Maharashtra & Gujarat',
+    shortName: 'MH & GJ',
+    subLabel: 'Bilingual',
     keySafeguard: 'Separate development boards for Vidarbha, Marathwada, Saurashtra, and Kutch with equitable allocation of state funds and technical education quotas.',
     historicalContext: 'Formulated during the bilingual Bombay state bifurcation in 1960 to safeguard economically lagging sub-regions.',
     color: '#38bdf8'
@@ -20,6 +24,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371A',
     state: 'Nagaland',
+    shortName: 'Nagaland',
+    subLabel: 'Customary',
     keySafeguard: 'No Act of Parliament regarding religious/social practices, Naga customary law, or land ownership/transfer applies unless approved by Nagaland Legislative Assembly.',
     historicalContext: 'Result of the 1960 16-point agreement between the Naga People’s Convention and the Government of India.',
     color: '#10b981'
@@ -27,6 +33,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371B',
     state: 'Assam',
+    shortName: 'Assam',
+    subLabel: 'Tribal Areas',
     keySafeguard: 'President may provide for the constitution of a committee of the Legislative Assembly consisting of members elected from tribal areas.',
     historicalContext: 'Designed to protect interests of frontier hill and plains tribal populations.',
     color: '#f59e0b'
@@ -34,6 +42,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371C',
     state: 'Manipur',
+    shortName: 'Manipur',
+    subLabel: 'Hill Areas',
     keySafeguard: 'Legislative Assembly Hill Areas Committee; Governor submits annual report to the President on hill administration.',
     historicalContext: 'Protects the distinct tribal hill districts from valley domination.',
     color: '#a855f7'
@@ -41,6 +51,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371D & E',
     state: 'Andhra Pradesh & Telangana',
+    shortName: 'AP & TG',
+    subLabel: 'Local Cadres',
     keySafeguard: 'Equitable opportunities in public employment and education for different local regions (Presidential Order local cadre system); Central University.',
     historicalContext: 'Enacted under 32nd Amendment 1973 to satisfy regional grievances between Coastal Andhra, Rayalaseema, and Telangana.',
     color: '#6366f1'
@@ -48,6 +60,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371F',
     state: 'Sikkim',
+    shortName: 'Sikkim',
+    subLabel: 'Chogyal Laws',
     keySafeguard: 'Assembly of not less than 32 members, protection of preexisting Chogyal-era municipal and customary laws, 1 Lok Sabha seat.',
     historicalContext: 'Inserted by 36th Amendment 1975 when the Himalayan protectorate acceded as the 22nd state of India.',
     color: '#ec4899'
@@ -55,6 +69,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371G',
     state: 'Mizoram',
+    shortName: 'Mizoram',
+    subLabel: 'Peace Accord',
     keySafeguard: 'Parliamentary acts on Mizo religion, customary law, and land ownership do not apply unless ratified by Mizoram Assembly; assembly minimum 40 members.',
     historicalContext: 'Historic 1986 Mizo Peace Accord ending two decades of insurgency.',
     color: '#14b8a6'
@@ -62,6 +78,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371H',
     state: 'Arunachal Pradesh',
+    shortName: 'Arunachal',
+    subLabel: 'Governor Law',
     keySafeguard: 'Governor has special individual judgment responsibility for law and order; assembly minimum 30 members.',
     historicalContext: 'Enacted by 55th Amendment 1986 on grant of statehood to the strategic border state.',
     color: '#f97316'
@@ -69,6 +87,8 @@ const ASYMMETRIC_STATES: AsymmetricState[] = [
   {
     article: 'Art 371J',
     state: 'Karnataka (Kalyana-Karnataka)',
+    shortName: 'Karnataka',
+    subLabel: 'HK Region',
     keySafeguard: 'Separate development board for 6 backward districts (Bidar, Ballari, Kalaburagi, Koppal, Raichur, Yadgir); local reservations in education & state government jobs.',
     historicalContext: 'Inserted by 98th Amendment 2012 to address chronic regional socio-economic backwardness in the former Hyderabad-Karnataka region.',
     color: '#e11d48'
@@ -125,11 +145,11 @@ export const AsymmetricFederalismSVG: React.FC = () => {
                   {st.article.replace('Art ', '')}
                 </text>
                 <line x1="10" y1="34" x2="80" y2="34" stroke="var(--border-subtle)" />
-                <text x="45" y="54" textAnchor="middle" fill="var(--text-primary)" fontSize="8.5" fontWeight="bold">
-                  {st.state.split(' ')[0]}
+                <text x="45" y="54" textAnchor="middle" fill="var(--text-primary)" fontSize="9" fontWeight="bold">
+                  {st.shortName}
                 </text>
-                <text x="45" y="68" textAnchor="middle" fill="var(--text-muted)" fontSize="7">
-                  {st.state.split(' ')[1] || 'State'}
+                <text x="45" y="68" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">
+                  {st.subLabel}
                 </text>
                 <circle cx="45" cy="82" r={isSelected ? 4 : 2} fill={isSelected ? st.color : 'var(--border-strong)'} />
               </g>

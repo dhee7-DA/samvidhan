@@ -189,12 +189,12 @@ export const VisualLabView: React.FC = () => {
       {/* Title & Banner */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse" />
+          <div className="flex flex-wrap items-center gap-2 mb-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse shrink-0" />
             <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
               Visual Law Lab
             </h1>
-            <span className="text-xs px-2 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+            <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
               15 Bespoke Vector Blueprints
             </span>
           </div>
@@ -204,8 +204,8 @@ export const VisualLabView: React.FC = () => {
         </div>
       </div>
 
-      {/* Blueprint Selector Carousel / Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-2.5">
+      {/* Blueprint Selector Grid (15 items: perfectly fills 3x5 or 5x3) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
         {DIAGRAMS.map((item) => {
           const isSelected = item.id === activeDiagram.id;
           return (

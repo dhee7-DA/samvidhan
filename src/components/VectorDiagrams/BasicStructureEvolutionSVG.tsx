@@ -4,6 +4,7 @@ import { History, Shield, ChevronRight, Award } from 'lucide-react';
 interface TimelineStation {
   year: number;
   caseOrAmd: string;
+  shortName: string;
   bench: string;
   ruling: string;
   impactOnAmendingPower: 'Supreme' | 'Restricted' | 'Absolute Void' | 'Equilibrium';
@@ -15,6 +16,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1951,
     caseOrAmd: 'Shankari Prasad v. Union of India',
+    shortName: 'Shankari Prasad',
     bench: '5-Judge Bench',
     ruling: 'Parliament can amend any part of the Constitution including Fundamental Rights. "Law" in Art 13 means ordinary law, not constitutional amendment under Art 368.',
     impactOnAmendingPower: 'Supreme',
@@ -24,6 +26,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1965,
     caseOrAmd: 'Sajjan Singh v. State of Rajasthan',
+    shortName: 'Sajjan Singh',
     bench: '5-Judge Bench',
     ruling: 'Upheld Shankari Prasad. However, Justice Mudholkar and Justice Hidayatullah in separate opinions queried whether the "basic features" could ever be altered.',
     impactOnAmendingPower: 'Supreme',
@@ -33,6 +36,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1967,
     caseOrAmd: 'I.C. Golak Nath v. State of Punjab',
+    shortName: 'Golak Nath',
     bench: '11-Judge Bench (6:5 Verdict)',
     ruling: 'Overruled Shankari Prasad. Parliament CANNOT take away or abridge any Fundamental Right. "Law" in Article 13 includes constitutional amendments.',
     impactOnAmendingPower: 'Absolute Void',
@@ -42,6 +46,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1971,
     caseOrAmd: '24th Constitutional Amendment Act',
+    shortName: '24th Amend.',
     bench: 'Parliamentary Enactment',
     ruling: 'Enacted to overturn Golak Nath. Inserted Art 13(4) and Art 368(3) clarifying that nothing in Art 13 applies to an amendment under Art 368.',
     impactOnAmendingPower: 'Supreme',
@@ -51,6 +56,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1973,
     caseOrAmd: 'Kesavananda Bharati v. State of Kerala',
+    shortName: 'Kesavananda',
     bench: '13-Judge Bench (7:6 Verdict)',
     ruling: 'Overruled Golak Nath and upheld 24th Amendment, but established that Article 368 does not confer the power to alter or destroy the "Basic Structure".',
     impactOnAmendingPower: 'Equilibrium',
@@ -60,6 +66,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1975,
     caseOrAmd: 'Indira Nehru Gandhi v. Raj Narain',
+    shortName: 'Indira Gandhi',
     bench: '5-Judge Bench',
     ruling: 'Struck down Article 329A(4) inserted by 39th Amendment which placed prime ministerial election disputes beyond judicial review.',
     impactOnAmendingPower: 'Equilibrium',
@@ -69,6 +76,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 1980,
     caseOrAmd: 'Minerva Mills Ltd. v. Union of India',
+    shortName: 'Minerva Mills',
     bench: '5-Judge Bench',
     ruling: 'Struck down Sec 4 & 55 of 42nd Amendment. Limited amending power is itself basic structure; balance between Part III and Part IV is inviolable.',
     impactOnAmendingPower: 'Equilibrium',
@@ -78,6 +86,7 @@ const STATIONS: TimelineStation[] = [
   {
     year: 2007,
     caseOrAmd: 'I.R. Coelho v. State of Tamil Nadu',
+    shortName: 'I.R. Coelho',
     bench: '9-Judge Bench (Unanimous)',
     ruling: 'All amendments and laws inserted into the Ninth Schedule on or after April 24, 1973 are subject to judicial review against the Basic Structure doctrine.',
     impactOnAmendingPower: 'Equilibrium',
@@ -114,7 +123,7 @@ export const BasicStructureEvolutionSVG: React.FC = () => {
           className="w-full min-w-[760px] h-auto select-none font-mono"
         >
           {/* Main Chronology Rail */}
-          <line x1="50" y1="90" x2="910" y2="90" stroke="var(--border-strong)" strokeWidth="3" />
+          <line x1="50" y1="90" x2="880" y2="90" stroke="var(--border-strong)" strokeWidth="3" />
 
           {/* Timeline Nodes */}
           {STATIONS.map((station, idx) => {
@@ -174,10 +183,10 @@ export const BasicStructureEvolutionSVG: React.FC = () => {
                   y="34"
                   textAnchor="middle"
                   fill={isSelected ? 'var(--text-primary)' : 'var(--text-muted)'}
-                  fontSize="7.5"
+                  fontSize="8"
                   fontWeight={isSelected ? 'bold' : 'normal'}
                 >
-                  {station.caseOrAmd.split(' ')[0]}
+                  {station.shortName}
                 </text>
               </g>
             );

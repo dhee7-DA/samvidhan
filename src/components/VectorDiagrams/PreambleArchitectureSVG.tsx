@@ -82,9 +82,9 @@ export const PreambleArchitectureSVG: React.FC = () => {
           </defs>
 
           {/* Background connectors */}
-          <line x1="200" y1="100" x2="250" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#arrow)" />
-          <line x1="440" y1="100" x2="490" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#arrow)" />
-          <line x1="680" y1="100" x2="730" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#arrow)" />
+          <line x1="210" y1="100" x2="265" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#arrow)" />
+          <line x1="450" y1="100" x2="505" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#arrow)" />
+          <line x1="690" y1="100" x2="745" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#arrow)" />
 
           {/* 4 Stages */}
           {stages.map((stage, idx) => {

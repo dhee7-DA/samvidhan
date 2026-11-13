@@ -95,47 +95,52 @@ export const CivilServicesSafeguardsSVG: React.FC = () => {
       {activeTab === 'exceptions' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
           <svg viewBox="0 0 940 240" className="w-full min-w-[720px] h-auto select-none font-mono">
-            {/* Proviso (a) */}
-            <g transform="translate(50, 20)">
-              <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#ef4444" strokeWidth="1.5" />
-              <rect x="16" y="16" width="228" height="26" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" />
-              <text x="130" y="33" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">PROVISO (a) : CONVICTION</text>
-              <text x="20" y="68" fill="var(--text-primary)" fontSize="9" fontWeight="bold">Criminal Offence Conviction</text>
-              <text x="20" y="88" fill="var(--text-secondary)" fontSize="8">
-                Where conduct leads to conviction on a criminal charge in a court of law.
-              </text>
-              <rect x="16" y="125" width="228" height="45" rx="6" fill="var(--bg-base)" stroke="var(--border-subtle)" />
-              <text x="130" y="145" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">No Departmental Inquiry Needed</text>
-              <text x="130" y="160" textAnchor="middle" fill="var(--accent)" fontSize="8" fontWeight="bold">Tulsiram Patel (1985)</text>
-            </g>
+              {/* Proviso (a) */}
+              <g transform="translate(50, 20)">
+                <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#ef4444" strokeWidth="1.5" />
+                <rect x="16" y="16" width="228" height="26" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" />
+                <text x="130" y="33" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">PROVISO (a) : CONVICTION</text>
+                <text x="20" y="66" fill="var(--text-primary)" fontSize="9" fontWeight="bold">Criminal Offence Conviction</text>
+                <text x="20" y="84" fill="var(--text-secondary)" fontSize="8">
+                  <tspan x="20" dy="0">Where conduct leads to conviction on</tspan>
+                  <tspan x="20" dy="13">a criminal charge in a court of law.</tspan>
+                </text>
+                <rect x="16" y="125" width="228" height="45" rx="6" fill="var(--bg-base)" stroke="var(--border-subtle)" />
+                <text x="130" y="145" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">No Departmental Inquiry Needed</text>
+                <text x="130" y="160" textAnchor="middle" fill="var(--accent)" fontSize="8" fontWeight="bold">Tulsiram Patel (1985)</text>
+              </g>
 
-            {/* Proviso (b) */}
-            <g transform="translate(340, 20)">
-              <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#f59e0b" strokeWidth="1.5" />
-              <rect x="16" y="16" width="228" height="26" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" />
-              <text x="130" y="33" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="bold">PROVISO (b) : IMPRACTICABILITY</text>
-              <text x="20" y="68" fill="var(--text-primary)" fontSize="9" fontWeight="bold">Inquiry Not Practicable</text>
-              <text x="20" y="88" fill="var(--text-secondary)" fontSize="8">
-                Disciplinary authority satisfied for reasons recorded in writing that holding inquiry is impracticable (e.g. witnesses terrorized).
-              </text>
-              <rect x="16" y="125" width="228" height="45" rx="6" fill="var(--bg-base)" stroke="var(--border-subtle)" />
-              <text x="130" y="145" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">Subject to Judicial Review</text>
-              <text x="130" y="160" textAnchor="middle" fill="#f59e0b" fontSize="8" fontWeight="bold">Reasons must be objective</text>
-            </g>
+              {/* Proviso (b) */}
+              <g transform="translate(340, 20)">
+                <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#f59e0b" strokeWidth="1.5" />
+                <rect x="16" y="16" width="228" height="26" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" />
+                <text x="130" y="33" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="bold">PROVISO (b) : IMPRACTICABILITY</text>
+                <text x="20" y="66" fill="var(--text-primary)" fontSize="9" fontWeight="bold">Inquiry Not Practicable</text>
+                <text x="20" y="84" fill="var(--text-secondary)" fontSize="8">
+                  <tspan x="20" dy="0">Disciplinary authority records reasons</tspan>
+                  <tspan x="20" dy="13">in writing that inquiry is not practicable</tspan>
+                  <tspan x="20" dy="13">(e.g. witnesses terrorized or hostile).</tspan>
+                </text>
+                <rect x="16" y="125" width="228" height="45" rx="6" fill="var(--bg-base)" stroke="var(--border-subtle)" />
+                <text x="130" y="145" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">Subject to Judicial Review</text>
+                <text x="130" y="160" textAnchor="middle" fill="#f59e0b" fontSize="8" fontWeight="bold">Reasons must be objective</text>
+              </g>
 
-            {/* Proviso (c) */}
-            <g transform="translate(630, 20)">
-              <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#a855f7" strokeWidth="1.5" />
-              <rect x="16" y="16" width="228" height="26" rx="4" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" />
-              <text x="130" y="33" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="bold">PROVISO (c) : STATE SECURITY</text>
-              <text x="20" y="68" fill="var(--text-primary)" fontSize="9" fontWeight="bold">National Security Interest</text>
-              <text x="20" y="88" fill="var(--text-secondary)" fontSize="8">
-                President or Governor is satisfied that in the interest of security of the State, it is inexpedient to hold inquiry.
-              </text>
-              <rect x="16" y="125" width="228" height="45" rx="6" fill="var(--bg-base)" stroke="var(--border-subtle)" />
-              <text x="130" y="145" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">Subjective Satisfaction</text>
-              <text x="130" y="160" textAnchor="middle" fill="#a855f7" fontSize="8" fontWeight="bold">No reasons need be disclosed</text>
-            </g>
+              {/* Proviso (c) */}
+              <g transform="translate(630, 20)">
+                <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#a855f7" strokeWidth="1.5" />
+                <rect x="16" y="16" width="228" height="26" rx="4" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" />
+                <text x="130" y="33" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="bold">PROVISO (c) : STATE SECURITY</text>
+                <text x="20" y="66" fill="var(--text-primary)" fontSize="9" fontWeight="bold">National Security Interest</text>
+                <text x="20" y="84" fill="var(--text-secondary)" fontSize="8">
+                  <tspan x="20" dy="0">President or Governor is satisfied</tspan>
+                  <tspan x="20" dy="13">that in state security interest, inquiry</tspan>
+                  <tspan x="20" dy="13">is inexpedient to be conducted.</tspan>
+                </text>
+                <rect x="16" y="125" width="228" height="45" rx="6" fill="var(--bg-base)" stroke="var(--border-subtle)" />
+                <text x="130" y="145" textAnchor="middle" fill="var(--text-muted)" fontSize="7.5">Subjective Satisfaction</text>
+                <text x="130" y="160" textAnchor="middle" fill="#a855f7" fontSize="8" fontWeight="bold">No reasons need be disclosed</text>
+              </g>
           </svg>
         </div>
       )}

@@ -134,13 +134,13 @@ export const EmergencyMatrixSVG: React.FC = () => {
           })}
 
           {/* Bottom Inviolable Core Banner */}
-          <g transform="translate(50, 220)">
-            <rect x="0" y="0" width="840" height="46" rx="8" fill="var(--bg-base)" stroke="var(--emerald)" strokeWidth="1.2" />
-            <text x="420" y="18" textAnchor="middle" fill="var(--emerald)" fontSize="9.5" fontWeight="bold">
-              THE 44TH AMENDMENT (1978) IRONCLAD RULE
+          <g transform="translate(50, 215)">
+            <rect x="0" y="0" width="840" height="52" rx="8" fill="var(--bg-base)" stroke="var(--emerald)" strokeWidth="1.2" />
+            <text x="420" y="20" textAnchor="middle" fill="var(--emerald)" fontSize="10" fontWeight="bold">
+              THE 44TH AMENDMENT (1978) INVIOLABLE SHIELD
             </text>
-            <text x="420" y="34" textAnchor="middle" fill="var(--text-secondary)" fontSize="8.5">
-              Articles 20 (Self-incrimination / Double Jeopardy) and 21 (Right to Life & Personal Liberty) CANNOT BE SUSPENDED under any emergency.
+            <text x="420" y="38" textAnchor="middle" fill="var(--text-secondary)" fontSize="8.5">
+              Articles 20 & 21 (Protection against Self-Incrimination and Right to Life) CANNOT BE SUSPENDED under any emergency.
             </text>
           </g>
         </svg>

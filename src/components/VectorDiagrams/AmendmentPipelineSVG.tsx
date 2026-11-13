@@ -145,7 +145,7 @@ export const AmendmentPipelineSVG: React.FC = () => {
               strokeWidth={selectedTrack.id === 'track-2' ? '2.5' : '1'}
             />
             <text x="14" y="24" fill="#38bdf8" fontSize="10" fontWeight="bold">TRACK 02 : SPECIAL MAJORITY</text>
-            <text x="14" y="42" fill="var(--text-secondary)" fontSize="8.5">&gt;50% total membership + 2/3 present & voting</text>
+            <text x="14" y="42" fill="var(--text-secondary)" fontSize="8">&gt;50% Total House + 2/3 Present &amp; Voting</text>
           </g>
 
           {/* Track 3 Node: Special + State Ratification */}

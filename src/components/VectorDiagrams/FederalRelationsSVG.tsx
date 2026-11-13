@@ -171,13 +171,16 @@ export const FederalRelationsSVG: React.FC = () => {
           </g>
 
           {/* Central Overriding Rail across Bottom */}
-          <g transform="translate(50, 250)">
-            <rect x="0" y="0" width="840" height="54" rx="8" fill="var(--bg-surface-elevated)" stroke="var(--border-strong)" strokeWidth="1" />
+          <g transform="translate(50, 245)">
+            <rect x="0" y="0" width="840" height="62" rx="8" fill="var(--bg-surface-elevated)" stroke="var(--border-strong)" strokeWidth="1" />
             <text x="420" y="20" textAnchor="middle" fill="var(--gold)" fontSize="10" fontWeight="bold">
               THE 5 EXTRAORDINARY CENTRAL OVERRIDING PATHWAYS OVER STATE LIST (LIST II)
             </text>
             <text x="420" y="38" textAnchor="middle" fill="var(--text-secondary)" fontSize="8.5">
-              Art 249 (Rajya Sabha Resolution) • Art 250 (National Emergency) • Art 252 (State Consent) • Art 253 (Treaties) • Art 356 (State Breakdown)
+              Art 249 (National Interest Resolution) • Art 250 (National Emergency) • Art 252 (2+ State Consent)
+            </text>
+            <text x="420" y="52" textAnchor="middle" fill="var(--text-muted)" fontSize="8">
+              Art 253 (International Treaties Enforcement) • Art 356 (Constitutional Machinery Breakdown)
             </text>
           </g>
         </svg>

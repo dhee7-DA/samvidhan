@@ -18,7 +18,7 @@ const WRITS: WritDetail[] = [
   {
     id: 'habeas-corpus',
     name: 'Habeas Corpus',
-    latinMeaning: 'To have the body of',
+    latinMeaning: 'To produce the body',
     targetEntity: 'Public authorities AND private individuals',
     primaryPurpose: 'Release a person detained unlawfully or without legal justification.',
     whoCanFile: 'Detained person, relative, friend, or any public-spirited individual (Relaxed Locus Standi).',
@@ -66,7 +66,7 @@ const WRITS: WritDetail[] = [
   {
     id: 'certiorari',
     name: 'Certiorari',
-    latinMeaning: 'To be certified / informed',
+    latinMeaning: 'To be certified',
     targetEntity: 'Judicial, quasi-judicial, and administrative authorities acting judicially',
     primaryPurpose: 'Quash an illegal order passed without jurisdiction, in excess of jurisdiction, or in violation of natural justice.',
     whoCanFile: 'Aggrieved party whose legal rights are infringed by the invalid order.',
@@ -147,9 +147,9 @@ export const WritsMatrixSVG: React.FC = () => {
           {/* Top Axis: Supreme Court (Art 32) & High Court (Art 226) */}
           <g transform="translate(490, 28)">
             <rect
-              x="-240"
+              x="-290"
               y="-16"
-              width="480"
+              width="580"
               height="32"
               rx="6"
               fill="var(--bg-surface-elevated)"
@@ -160,11 +160,11 @@ export const WritsMatrixSVG: React.FC = () => {
               textAnchor="middle"
               y="5"
               fill="var(--text-primary)"
-              fontSize="12"
+              fontSize="10.5"
               fontWeight="600"
               letterSpacing="0.5"
             >
-              PREROGATIVE WRIT JURISDICTION : SUPREME COURT (ART 32) & HIGH COURTS (ART 226)
+              PREROGATIVE WRITS • SUPREME COURT (ART 32) & HIGH COURTS (ART 226)
             </text>
           </g>
 
@@ -253,7 +253,7 @@ export const WritsMatrixSVG: React.FC = () => {
                   y="52"
                   textAnchor="middle"
                   fill="var(--text-muted)"
-                  fontSize="9.5"
+                  fontSize="8"
                   fontStyle="italic"
                 >
                   "{writ.latinMeaning}"
@@ -265,7 +265,7 @@ export const WritsMatrixSVG: React.FC = () => {
                 <text x="16" y="80" fill="var(--text-secondary)" fontSize="9" fontWeight="600">
                   TARGET SCOPE:
                 </text>
-                <text x="16" y="96" fill="var(--text-primary)" fontSize="9.5" width="128">
+                <text x="16" y="96" fill="var(--text-primary)" fontSize="9.5">
                   {writ.id === 'habeas-corpus'
                     ? 'State & Private'
                     : writ.id === 'mandamus'
@@ -322,7 +322,7 @@ export const WritsMatrixSVG: React.FC = () => {
                   y="196"
                   textAnchor="middle"
                   fill={isSelected ? '#09090b' : 'var(--text-secondary)'}
-                  fontSize="9.5"
+                  fontSize="8"
                   fontWeight="600"
                 >
                   {isSelected ? 'INSPECTING' : 'VIEW DETAILS'}

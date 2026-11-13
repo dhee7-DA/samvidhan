@@ -77,10 +77,10 @@ export const SchedulesGenealogySVG: React.FC = () => {
                   y="74"
                   textAnchor="middle"
                   fill="var(--text-secondary)"
-                  fontSize="7.5"
+                  fontSize={sch.mnemonicKeyword.length > 9 ? "6.2" : "7.2"}
                   fontWeight="600"
                 >
-                  {sch.mnemonicKeyword.slice(0, 8)}
+                  {sch.mnemonicKeyword}
                 </text>
 
                 {/* Amendment indicator */}

@@ -63,10 +63,10 @@ export const AmendmentsView: React.FC = () => {
                     {amd.year}
                   </span>
                 </div>
-                <h4 className="text-xs font-bold text-[var(--text-primary)] line-clamp-1">
+                <h4 className="text-xs font-bold text-[var(--text-primary)] line-clamp-1 break-words">
                   {amd.title}
                 </h4>
-                <p className="text-[11px] text-[var(--text-secondary)] line-clamp-1 mt-0.5">
+                <p className="text-[11px] text-[var(--text-secondary)] line-clamp-1 mt-0.5 break-words">
                   {amd.keyObjectives}
                 </p>
               </div>

@@ -26,26 +26,27 @@ export const ElectoralArchitectureSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg viewBox="0 0 940 300" className="w-full min-w-[720px] h-auto select-none font-mono">
           {/* Top Axis: Article 324 Central ECI Node */}
-          <g transform="translate(470, 20)">
-            <rect x="-240" y="0" width="480" height="90" rx="10" fill="var(--bg-surface-elevated)" stroke="#38bdf8" strokeWidth="2" />
+          <g transform="translate(470, 18)">
+            <rect x="-240" y="0" width="480" height="96" rx="10" fill="var(--bg-surface-elevated)" stroke="#38bdf8" strokeWidth="2" />
             <text x="0" y="24" textAnchor="middle" fill="#38bdf8" fontSize="11" fontWeight="bold">
               ELECTION COMMISSION OF INDIA (ARTICLE 324)
             </text>
-            <text x="0" y="44" textAnchor="middle" fill="var(--text-primary)" fontSize="10">
+            <text x="0" y="42" textAnchor="middle" fill="var(--text-primary)" fontSize="10">
               Chief Election Commissioner + Other Election Commissioners
             </text>
-            <text x="0" y="60" textAnchor="middle" fill="var(--text-muted)" fontSize="8.5">
-              Superintendence, direction & control of Parliament, Assembly, President & VP elections
+            <text x="0" y="58" textAnchor="middle" fill="var(--text-muted)" fontSize="8">
+              <tspan x="0" dy="0">Superintendence, direction & control of Parliament & Assembly polls</tspan>
+              <tspan x="0" dy="12">as well as Presidential & Vice-Presidential elections</tspan>
             </text>
-            <text x="0" y="76" textAnchor="middle" fill="var(--gold)" fontSize="8" fontWeight="bold">
+            <text x="0" y="86" textAnchor="middle" fill="var(--gold)" fontSize="8" fontWeight="bold">
               CEC removal condition: Same as Supreme Court Judge (Art 324(5))
             </text>
           </g>
 
           {/* Diverging Paths to Core Principles */}
-          <path d="M 330 110 L 220 150" fill="none" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" />
-          <path d="M 470 110 L 470 150" fill="none" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" />
-          <path d="M 610 110 L 720 150" fill="none" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" />
+          <path d="M 330 114 L 220 150" fill="none" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" />
+          <path d="M 470 114 L 470 150" fill="none" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" />
+          <path d="M 610 114 L 720 150" fill="none" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="3 3" />
 
           {/* Principle 1: Universal Adult Suffrage */}
           <g transform="translate(50, 150)">

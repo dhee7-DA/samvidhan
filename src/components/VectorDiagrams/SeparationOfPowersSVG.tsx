@@ -148,9 +148,10 @@ export const SeparationOfPowersSVG: React.FC = () => {
             className="cursor-pointer transition-all duration-150"
             onClick={() => setSelectedVector(CHECK_VECTORS[0])}
           />
-          <text x="290" y="130" fill="var(--text-muted)" fontSize="8.5" className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[0])}>
-            [Art 13/32: Judicial Review]
-          </text>
+          <g className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[0])} transform="translate(240, 118)">
+            <rect x="0" y="0" width="136" height="18" rx="4" fill="var(--bg-base)" stroke={selectedVector.id === 'jud-to-leg' ? '#38bdf8' : 'var(--border-subtle)'} strokeWidth="0.8" />
+            <text x="68" y="12" textAnchor="middle" fill={selectedVector.id === 'jud-to-leg' ? '#38bdf8' : 'var(--text-secondary)'} fontSize="8" fontWeight="bold">Art 13/32: Judicial Review</text>
+          </g>
 
           {/* 2. Legislature -> Judiciary */}
           <path
@@ -162,9 +163,10 @@ export const SeparationOfPowersSVG: React.FC = () => {
             className="cursor-pointer"
             onClick={() => setSelectedVector(CHECK_VECTORS[3])}
           />
-          <text x="290" y="210" fill="var(--text-muted)" fontSize="8.5" className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[3])}>
-            [Art 124(4): Impeachment]
-          </text>
+          <g className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[3])} transform="translate(240, 202)">
+            <rect x="0" y="0" width="136" height="18" rx="4" fill="var(--bg-base)" stroke={selectedVector.id === 'leg-to-jud' ? '#a855f7' : 'var(--border-subtle)'} strokeWidth="0.8" />
+            <text x="68" y="12" textAnchor="middle" fill={selectedVector.id === 'leg-to-jud' ? '#a855f7' : 'var(--text-secondary)'} fontSize="8" fontWeight="bold">Art 124(4): Impeachment</text>
+          </g>
 
           {/* 3. Judiciary -> Executive */}
           <path
@@ -176,9 +178,10 @@ export const SeparationOfPowersSVG: React.FC = () => {
             className="cursor-pointer"
             onClick={() => setSelectedVector(CHECK_VECTORS[1])}
           />
-          <text x="630" y="130" fill="var(--text-muted)" fontSize="8.5" className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[1])}>
-            [Art 226/32: Writs & Orders]
-          </text>
+          <g className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[1])} transform="translate(564, 118)">
+            <rect x="0" y="0" width="140" height="18" rx="4" fill="var(--bg-base)" stroke={selectedVector.id === 'jud-to-exec' ? '#10b981' : 'var(--border-subtle)'} strokeWidth="0.8" />
+            <text x="70" y="12" textAnchor="middle" fill={selectedVector.id === 'jud-to-exec' ? '#10b981' : 'var(--text-secondary)'} fontSize="8" fontWeight="bold">Art 226/32: Writs &amp; Orders</text>
+          </g>
 
           {/* 4. Executive -> Judiciary */}
           <path
@@ -190,9 +193,10 @@ export const SeparationOfPowersSVG: React.FC = () => {
             className="cursor-pointer"
             onClick={() => setSelectedVector(CHECK_VECTORS[5])}
           />
-          <text x="630" y="210" fill="var(--text-muted)" fontSize="8.5" className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[5])}>
-            [Art 124/217: Appointments]
-          </text>
+          <g className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[5])} transform="translate(564, 202)">
+            <rect x="0" y="0" width="140" height="18" rx="4" fill="var(--bg-base)" stroke={selectedVector.id === 'exec-to-jud' ? '#6366f1' : 'var(--border-subtle)'} strokeWidth="0.8" />
+            <text x="70" y="12" textAnchor="middle" fill={selectedVector.id === 'exec-to-jud' ? '#6366f1' : 'var(--text-secondary)'} fontSize="8" fontWeight="bold">Art 124/217: Appointments</text>
+          </g>
 
           {/* 5. Legislature <-> Executive Bottom Rails */}
           <line
@@ -205,9 +209,10 @@ export const SeparationOfPowersSVG: React.FC = () => {
             className="cursor-pointer"
             onClick={() => setSelectedVector(CHECK_VECTORS[2])}
           />
-          <text x="470" y="290" textAnchor="middle" fill="var(--text-muted)" fontSize="8.5" className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[2])}>
-            ← [Art 75(3): Collective Responsibility & No-Confidence] →
-          </text>
+          <g className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[2])} transform="translate(350, 276)">
+            <rect x="0" y="0" width="240" height="20" rx="4" fill="var(--bg-base)" stroke={selectedVector.id === 'leg-to-exec' ? '#f59e0b' : 'var(--border-subtle)'} strokeWidth="0.8" />
+            <text x="120" y="13" textAnchor="middle" fill={selectedVector.id === 'leg-to-exec' ? '#f59e0b' : 'var(--text-secondary)'} fontSize="8" fontWeight="bold">Art 75(3): Collective Responsibility</text>
+          </g>
 
           <line
             x1="240"
@@ -220,9 +225,10 @@ export const SeparationOfPowersSVG: React.FC = () => {
             className="cursor-pointer"
             onClick={() => setSelectedVector(CHECK_VECTORS[4])}
           />
-          <text x="470" y="342" textAnchor="middle" fill="var(--text-muted)" fontSize="8.5" className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[4])}>
-            ← [Art 111: Presidential Veto / Art 123: Ordinances] →
-          </text>
+          <g className="cursor-pointer" onClick={() => setSelectedVector(CHECK_VECTORS[4])} transform="translate(350, 332)">
+            <rect x="0" y="0" width="240" height="20" rx="4" fill="var(--bg-base)" stroke={selectedVector.id === 'exec-to-leg' ? '#f43f5e' : 'var(--border-subtle)'} strokeWidth="0.8" />
+            <text x="120" y="13" textAnchor="middle" fill={selectedVector.id === 'exec-to-leg' ? '#f43f5e' : 'var(--text-secondary)'} fontSize="8" fontWeight="bold">Art 111: Veto • Art 123: Ordinances</text>
+          </g>
         </svg>
       </div>
 

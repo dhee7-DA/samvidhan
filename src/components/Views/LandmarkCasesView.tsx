@@ -166,15 +166,17 @@ export const LandmarkCasesView: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-8 animate-fadeIn">
       {/* Top Hero Banner */}
       <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center border border-[var(--accent)]/20">
-              <Award className="w-4 h-4" />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 mb-2 flex-wrap">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center border border-[var(--accent)]/20 shrink-0">
+                <Award className="w-4 h-4" />
+              </div>
+              <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-primary)]">
+                Landmark Constitutional Precedents Lab
+              </h1>
             </div>
-            <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">
-              Landmark Constitutional Precedents Lab
-            </h1>
-            <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+            <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] w-fit shrink-0">
               100 Authoritative Cases • 5 Per Topic Across 20 Clusters
             </span>
           </div>
@@ -199,10 +201,10 @@ export const LandmarkCasesView: React.FC = () => {
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex bg-[var(--bg-base)] p-1 rounded-xl border border-[var(--border-subtle)] shrink-0 self-stretch sm:self-auto">
+        <div className="flex items-center overflow-x-auto p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 self-stretch sm:self-auto max-w-full scrollbar-none">
           <button
             onClick={() => setViewMode('cases')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
               viewMode === 'cases'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -214,7 +216,7 @@ export const LandmarkCasesView: React.FC = () => {
 
           <button
             onClick={() => setViewMode('lineage')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
               viewMode === 'lineage'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -226,7 +228,7 @@ export const LandmarkCasesView: React.FC = () => {
 
           <button
             onClick={() => setViewMode('principles')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
               viewMode === 'principles'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -238,7 +240,7 @@ export const LandmarkCasesView: React.FC = () => {
 
           <button
             onClick={() => setViewMode('bookmarks')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
               viewMode === 'bookmarks'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -344,7 +346,7 @@ export const LandmarkCasesView: React.FC = () => {
           {/* Topic Cluster Selector Strip (Only in 'cases' mode) */}
           {viewMode === 'cases' && (
             <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)]">
                   Filter by 20 Constitutional Topics (5 Cases Each)
                 </span>
@@ -353,7 +355,7 @@ export const LandmarkCasesView: React.FC = () => {
                 </span>
               </div>
 
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none px-0.5">
                 <button
                   onClick={() => setSelectedTopicId('all')}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono whitespace-nowrap transition-all shrink-0 ${
@@ -487,7 +489,7 @@ export const LandmarkCasesView: React.FC = () => {
           {/* Master-Detail Split Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Left Column: Cases List (5 Cols) */}
-            <div className="lg:col-span-5 flex flex-col gap-2 max-h-[82vh] overflow-y-auto pr-1">
+            <div className="lg:col-span-5 min-w-0 flex flex-col gap-2 max-h-[82vh] overflow-y-auto pr-1">
               {filteredCases.length === 0 ? (
                 <div className="p-8 text-center rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col items-center justify-center gap-2">
                   <Scale className="w-8 h-8 text-[var(--text-muted)]" />
@@ -543,12 +545,12 @@ export const LandmarkCasesView: React.FC = () => {
                         </button>
                       </div>
 
-                      <h4 className="text-sm font-bold text-[var(--text-primary)] leading-snug">
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] leading-snug break-words">
                         {c.caseName}
                       </h4>
 
-                      <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pt-1 border-t border-[var(--border-subtle)]/50">
-                        <span className="truncate">{c.citation}</span>
+                      <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pt-1 border-t border-[var(--border-subtle)]/50 gap-2">
+                        <span className="truncate min-w-0">{c.citation}</span>
                         <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[var(--accent)]' : ''}`} />
                       </div>
                     </div>
@@ -558,7 +560,7 @@ export const LandmarkCasesView: React.FC = () => {
             </div>
 
             {/* Right Column: Deep Case Law Dossier (7 Cols) */}
-            <div className="lg:col-span-7 flex flex-col gap-6">
+            <div className="lg:col-span-7 min-w-0 flex flex-col gap-6">
               {currentCase && (
                 <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-md flex flex-col gap-6 animate-fadeIn">
                   {/* Dossier Header */}
@@ -623,36 +625,40 @@ export const LandmarkCasesView: React.FC = () => {
                       </div>
                     </div>
 
-                    <h2 className="text-2xl font-bold text-[var(--text-primary)] leading-tight">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] leading-tight break-words">
                       {currentCase.caseName}
                     </h2>
 
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-[var(--text-muted)]">
-                      <span>Citation: <strong className="text-[var(--text-secondary)]">{currentCase.citation}</strong></span>
+                      <span className="break-all">Citation: <strong className="text-[var(--text-secondary)]">{currentCase.citation}</strong></span>
                       <span>Bench: <strong className="text-[var(--text-secondary)]">{currentCase.benchStrength} Judges</strong></span>
                     </div>
 
-                    <div className="text-xs text-[var(--text-muted)] font-mono bg-[var(--bg-base)] p-2.5 rounded-lg border border-[var(--border-subtle)]">
+                    <div className="text-xs text-[var(--text-muted)] font-mono bg-[var(--bg-base)] p-2.5 rounded-lg border border-[var(--border-subtle)] break-words">
                       <strong className="text-[var(--text-secondary)]">Presiding Bench:</strong> {currentCase.presidingJudges}
                     </div>
 
                     {/* Constitutional Articles & Governing Doctrine */}
                     <div className="flex flex-wrap items-center gap-2 pt-1">
-                      <span className="text-xs font-mono text-[var(--text-muted)]">Articles Involved:</span>
-                      {currentCase.constitutionalArticles.map((art) => (
-                        <button
-                          key={art}
-                          onClick={() => setActiveTab('articles-master')}
-                          className="px-2 py-0.5 rounded text-[11px] font-mono bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 hover:bg-[var(--accent)]/20 transition-colors"
-                        >
-                          {art}
-                        </button>
-                      ))}
+                      <span className="text-xs font-mono text-[var(--text-muted)] shrink-0">Articles Involved:</span>
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {currentCase.constitutionalArticles.map((art) => (
+                          <button
+                            key={art}
+                            onClick={() => setActiveTab('articles-master')}
+                            className="px-2 py-0.5 rounded text-[11px] font-mono bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 hover:bg-[var(--accent)]/20 transition-colors"
+                          >
+                            {art}
+                          </button>
+                        ))}
+                      </div>
 
-                      <span className="text-xs font-mono text-[var(--text-muted)] ml-auto">Doctrine:</span>
-                      <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-semibold border border-[var(--border-strong)]">
-                        {currentCase.governingDoctrine}
-                      </span>
+                      <div className="flex items-center gap-1.5 ml-auto flex-wrap">
+                        <span className="text-xs font-mono text-[var(--text-muted)] shrink-0">Doctrine:</span>
+                        <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-semibold border border-[var(--border-strong)] break-words">
+                          {currentCase.governingDoctrine}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -662,7 +668,7 @@ export const LandmarkCasesView: React.FC = () => {
                       <BookOpen className="w-3.5 h-3.5 text-[var(--accent)]" />
                       Factual Background & Procedural Posture
                     </span>
-                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)]">
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)] break-words">
                       {currentCase.factualBackground}
                     </p>
                   </div>
@@ -673,7 +679,7 @@ export const LandmarkCasesView: React.FC = () => {
                       <Scale className="w-3.5 h-3.5 text-sky-400" />
                       The Constitutional Question Before the Bench
                     </span>
-                    <p className="text-sm font-semibold text-[var(--text-primary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)]">
+                    <p className="text-sm font-semibold text-[var(--text-primary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)] break-words">
                       {currentCase.constitutionalQuestion}
                     </p>
                   </div>
@@ -684,7 +690,7 @@ export const LandmarkCasesView: React.FC = () => {
                       <Award className="w-3.5 h-3.5 text-emerald-400" />
                       Majority Verdict & Operative Holding
                     </span>
-                    <p className="text-sm text-[var(--text-primary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)]">
+                    <p className="text-sm text-[var(--text-primary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)] break-words">
                       {currentCase.majorityVerdict}
                     </p>
                   </div>
@@ -696,11 +702,11 @@ export const LandmarkCasesView: React.FC = () => {
                       Binding Ratio Decidendi (Article 141)
                     </span>
                     <div className="bg-[var(--bg-surface-elevated)] p-5 rounded-xl border-l-4 border-l-[var(--accent)] border border-[var(--border-strong)] flex flex-col gap-2 shadow-sm">
-                      <p className="text-sm text-[var(--text-primary)] leading-relaxed font-serif italic">
+                      <p className="text-sm text-[var(--text-primary)] leading-relaxed font-serif italic break-words">
                         "{currentCase.ratioDecidendi}"
                       </p>
                       {currentCase.keyQuote && (
-                        <p className="text-xs text-[var(--text-secondary)] font-serif border-t border-[var(--border-subtle)] pt-2 mt-1">
+                        <p className="text-xs text-[var(--text-secondary)] font-serif border-t border-[var(--border-subtle)] pt-2 mt-1 break-words">
                           Key Epigram: {currentCase.keyQuote}
                         </p>
                       )}
@@ -714,7 +720,7 @@ export const LandmarkCasesView: React.FC = () => {
                         <ShieldAlert className="w-3.5 h-3.5" />
                         Historic Dissenting Opinion
                       </span>
-                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed bg-rose-500/5 p-4 rounded-xl border border-rose-500/20">
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed bg-rose-500/5 p-4 rounded-xl border border-rose-500/20 break-words">
                         {currentCase.notableDissent}
                       </p>
                     </div>
@@ -726,8 +732,8 @@ export const LandmarkCasesView: React.FC = () => {
                       <Scale className="w-3.5 h-3.5 text-[var(--accent)]" />
                       Courtroom Utility: How Courts Apply & Cite This Precedent Today
                     </span>
-                    <div className="bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/20 text-xs text-[var(--text-secondary)] leading-relaxed flex flex-col gap-2">
-                      <p>{currentCase.howCourtsApplyToday}</p>
+                    <div className="bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/20 text-xs text-[var(--text-secondary)] leading-relaxed flex flex-col gap-2 break-words">
+                      <p className="break-words">{currentCase.howCourtsApplyToday}</p>
                     </div>
                   </div>
                 </div>

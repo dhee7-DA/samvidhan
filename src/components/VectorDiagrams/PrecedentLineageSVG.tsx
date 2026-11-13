@@ -651,7 +651,7 @@ export const PrecedentLineageSVG: React.FC = () => {
       {/* SVG Vector Canvas */}
       <div className="w-full overflow-x-auto pb-2">
         <svg
-          viewBox="0 0 960 210"
+          viewBox="0 0 960 220"
           className="w-full min-w-[760px] h-auto select-none font-mono"
         >
           {/* Subtle Dot Grid Background Pattern */}
@@ -672,133 +672,159 @@ export const PrecedentLineageSVG: React.FC = () => {
             </marker>
           </defs>
 
-          <rect width="960" height="210" fill="url(#precedent-grid)" rx="12" />
+          <rect width="960" height="220" fill="url(#precedent-grid)" rx="12" />
 
-          {/* Evolutionary Backbone Line */}
-          <line
-            x1="80"
-            y1="105"
-            x2="880"
-            y2="105"
-            stroke="var(--border-strong)"
-            strokeWidth="3"
-            strokeDasharray="6 4"
-          />
-
-          {/* Nodes and Links */}
-          {currentLineage.nodes.map((node, index) => {
-            const x = 90 + index * 195;
-            const isSelected = selectedNodeId === node.id;
-            const isLast = index === currentLineage.nodes.length - 1;
+          {/* Dynamic Evolutionary Backbone Rail */}
+          {(() => {
+            const totalNodes = currentLineage.nodes.length;
+            const padX = 110;
+            const usableWidth = 960 - 2 * padX;
+            const stepX = totalNodes > 1 ? usableWidth / (totalNodes - 1) : 0;
+            const startX = padX;
+            const endX = padX + (totalNodes - 1) * stepX;
 
             return (
-              <g
-                key={node.id}
-                className="cursor-pointer transition-transform duration-200"
-                onClick={() => setSelectedNodeId(node.id)}
-                transform={`translate(${x}, 105)`}
-              >
-                {/* Connecting directional line segment */}
-                {!isLast && (
-                  <line
-                    x1="28"
-                    y1="0"
-                    x2="167"
-                    y2="0"
-                    stroke={isSelected ? node.color : 'var(--border-strong)'}
-                    strokeWidth={isSelected ? '2.5' : '1.5'}
-                    markerEnd="url(#arrowhead)"
-                  />
-                )}
-
-                {/* Node Outer Halo for Active Selection */}
-                {isSelected && (
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="26"
-                    fill="none"
-                    stroke={node.color}
-                    strokeWidth="2"
-                    strokeDasharray="3 3"
-                    className="animate-spin-slow"
-                  />
-                )}
-
-                {/* Main Node Circle */}
-                <circle
-                  cx="0"
-                  cy="0"
-                  r={isSelected ? 20 : 15}
-                  fill={isSelected ? node.color : 'var(--bg-surface)'}
-                  stroke={node.color}
+              <>
+                <line
+                  x1={startX}
+                  y1="105"
+                  x2={endX}
+                  y2="105"
+                  stroke="var(--border-strong)"
                   strokeWidth="2.5"
-                  className="transition-all duration-200 hover:scale-110 shadow-sm"
+                  strokeDasharray="6 4"
                 />
 
-                {/* Year in Center of Node or Top */}
-                <text
-                  x="0"
-                  y={isSelected ? '4' : '3'}
-                  textAnchor="middle"
-                  fontSize={isSelected ? '10' : '9'}
-                  fontWeight="bold"
-                  fill={isSelected ? '#000000' : 'var(--text-primary)'}
-                >
-                  {node.year}
-                </text>
+                {/* Nodes and Links */}
+                {currentLineage.nodes.map((node, index) => {
+                  const x = startX + index * stepX;
+                  const isSelected = selectedNodeId === node.id;
+                  const isLast = index === totalNodes - 1;
+                  const distToNext = stepX;
 
-                {/* Top Badge: Action Type */}
-                <g transform="translate(0, -32)">
-                  <rect
-                    x="-45"
-                    y="-11"
-                    width="90"
-                    height="18"
-                    rx="9"
-                    fill="var(--bg-surface-elevated)"
-                    stroke={node.color}
-                    strokeWidth="1"
-                  />
-                  <text
-                    x="0"
-                    y="2"
-                    textAnchor="middle"
-                    fontSize="8.5"
-                    fontWeight="bold"
-                    fill={node.color}
-                  >
-                    {node.actionType}
-                  </text>
-                </g>
+                  // Clean display name
+                  const shortName = node.caseName.includes('(') && node.caseName.includes(')')
+                    ? node.caseName.split('(')[1].replace(')', '').trim()
+                    : node.caseName.split(' v. ')[0].replace('In re ', '').trim();
 
-                {/* Bottom Label: Case Short Name */}
-                <g transform="translate(0, 36)">
-                  <text
-                    x="0"
-                    y="0"
-                    textAnchor="middle"
-                    fontSize="9.5"
-                    fontWeight="bold"
-                    fill={isSelected ? 'var(--text-primary)' : 'var(--text-secondary)'}
-                  >
-                    {node.caseName.length > 22
-                      ? node.caseName.substring(0, 20) + '...'
-                      : node.caseName}
-                  </text>
-                  <text
-                    x="0"
-                    y="13"
-                    textAnchor="middle"
-                    fontSize="8"
-                    fill="var(--text-muted)"
-                  >
-                    {node.bench.split(' ')[0]}
-                  </text>
-                </g>
-              </g>
+                  return (
+                    <g
+                      key={node.id}
+                      className="cursor-pointer transition-transform duration-200"
+                      onClick={() => setSelectedNodeId(node.id)}
+                      transform={`translate(${x}, 105)`}
+                    >
+                      {/* Connecting directional line segment */}
+                      {!isLast && (
+                        <line
+                          x1="26"
+                          y1="0"
+                          x2={distToNext - 26}
+                          y2="0"
+                          stroke={isSelected ? node.color : 'var(--border-strong)'}
+                          strokeWidth={isSelected ? '2.5' : '1.5'}
+                          markerEnd="url(#arrowhead)"
+                        />
+                      )}
+
+                      {/* Node Outer Halo for Active Selection */}
+                      {isSelected && (
+                        <circle
+                          cx="0"
+                          cy="0"
+                          r="26"
+                          fill="none"
+                          stroke={node.color}
+                          strokeWidth="2"
+                          strokeDasharray="3 3"
+                        />
+                      )}
+
+                      {/* Main Node Circle */}
+                      <circle
+                        cx="0"
+                        cy="0"
+                        r={isSelected ? 20 : 15}
+                        fill={isSelected ? node.color : 'var(--bg-surface)'}
+                        stroke={node.color}
+                        strokeWidth="2.5"
+                        className="transition-all duration-200 hover:scale-110 shadow-sm"
+                      />
+
+                      {/* Year in Center of Node */}
+                      <text
+                        x="0"
+                        y={isSelected ? '4' : '3'}
+                        textAnchor="middle"
+                        fontSize={isSelected ? '10' : '9'}
+                        fontWeight="bold"
+                        fill={isSelected ? '#000000' : 'var(--text-primary)'}
+                      >
+                        {node.year}
+                      </text>
+
+                      {/* Top Badge: Action Type */}
+                      <g transform="translate(0, -32)">
+                        <rect
+                          x="-50"
+                          y="-11"
+                          width="100"
+                          height="18"
+                          rx="9"
+                          fill="var(--bg-surface-elevated)"
+                          stroke={node.color}
+                          strokeWidth={isSelected ? '1.5' : '0.8'}
+                        />
+                        <text
+                          x="0"
+                          y="2"
+                          textAnchor="middle"
+                          fontSize="8"
+                          fontWeight="bold"
+                          fill={node.color}
+                        >
+                          {node.actionType}
+                        </text>
+                      </g>
+
+                      {/* Bottom Label: Case Short Name & Bench */}
+                      <g transform="translate(0, 36)">
+                        <rect
+                          x="-65"
+                          y="-8"
+                          width="130"
+                          height="32"
+                          rx="6"
+                          fill={isSelected ? 'var(--bg-surface-elevated)' : 'var(--bg-base)'}
+                          stroke={isSelected ? node.color : 'var(--border-subtle)'}
+                          strokeWidth={isSelected ? '1.2' : '0.6'}
+                        />
+                        <text
+                          x="0"
+                          y="6"
+                          textAnchor="middle"
+                          fontSize="9"
+                          fontWeight="bold"
+                          fill={isSelected ? 'var(--text-primary)' : 'var(--text-secondary)'}
+                        >
+                          {shortName.length > 18 ? shortName.slice(0, 16) + '..' : shortName}
+                        </text>
+                        <text
+                          x="0"
+                          y="18"
+                          textAnchor="middle"
+                          fontSize="7.5"
+                          fill="var(--text-muted)"
+                        >
+                          {node.year} • {node.bench.split(' ')[0]}
+                        </text>
+                      </g>
+                    </g>
+                  );
+                })}
+              </>
             );
-          })}
+          })()}
         </svg>
       </div>
 
@@ -820,7 +846,7 @@ export const PrecedentLineageSVG: React.FC = () => {
                 {activeNode.bench}
               </span>
             </div>
-            <h4 className="text-lg font-bold text-[var(--text-primary)]">
+            <h4 className="text-lg font-bold text-[var(--text-primary)] break-words">
               {activeNode.caseName} ({activeNode.year})
             </h4>
           </div>

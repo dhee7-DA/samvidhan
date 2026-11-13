@@ -55,17 +55,17 @@ export const DoctrinesHubView: React.FC = () => {
                     : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <h4 className="text-xs font-bold text-[var(--text-primary)]">
+                <div className="flex items-center justify-between gap-1 mb-1">
+                  <h4 className="text-xs font-bold text-[var(--text-primary)] break-words">
                     {doc.name}
                   </h4>
                   {doc.latinTerm && (
-                    <span className="text-[9px] font-mono italic text-[var(--text-muted)]">
-                      {doc.latinTerm.split(' ')[0]}
+                    <span className="text-[9px] font-mono italic text-[var(--text-muted)] shrink-0 max-w-[110px] truncate text-right">
+                      {doc.latinTerm}
                     </span>
                   )}
                 </div>
-                <p className="text-[11px] text-[var(--text-secondary)] line-clamp-1">
+                <p className="text-[11px] text-[var(--text-secondary)] line-clamp-1 break-words">
                   Case: {doc.leadCase}
                 </p>
               </div>
