@@ -24,7 +24,9 @@ import {
   Globe2,
   Vote,
   Compass,
-  Users
+  Users,
+  ArrowLeft,
+  List
 } from 'lucide-react';
 import {
   DETAILED_CASE_LAWS_BY_TOPIC,
@@ -55,6 +57,7 @@ export const LandmarkCasesView: React.FC = () => {
   const [benchFilter, setBenchFilter] = useState<'all' | 'constitution-5' | 'super-7-plus'>('all');
   const [sortOrder, setSortOrder] = useState<'chronological' | 'reverse-chronological' | 'bench-size'>('chronological');
   const [isTopicDrawerOpen, setIsTopicDrawerOpen] = useState(false);
+  const [mobilePane, setMobilePane] = useState<'list' | 'dossier'>('list');
 
   // Copied state
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -168,89 +171,104 @@ export const LandmarkCasesView: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-8 animate-fadeIn">
       {/* Top Hero Banner */}
-      <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 mb-2 flex-wrap">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center border border-[var(--accent)]/20 shrink-0">
-                <Award className="w-4 h-4" />
-              </div>
+      <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center border border-[var(--accent)]/20 shrink-0 shadow-sm">
+              <Award className="w-5 h-5" />
+            </div>
+            <div>
               <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-primary)]">
                 Landmark Constitutional Precedents Lab
               </h1>
+              <p className="text-xs font-mono text-[var(--text-muted)] mt-0.5">
+                The Canonical Compendium of Supreme Court Precedents
+              </p>
             </div>
-            <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] w-fit shrink-0">
-              100 Authoritative Cases • 5 Per Topic Across 20 Clusters
-            </span>
           </div>
-          <p className="text-sm text-[var(--text-secondary)] max-w-3xl leading-relaxed">
-            The canonical compendium of Supreme Court precedents frequently cited across High Courts and constitutional litigation. Complete with factual backgrounds, ratios decidendi, historical dissents, and present-day courtroom utility.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-mono text-[var(--text-muted)]">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400"></span> 100 Detailed Judgments
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-sky-400"></span> 20 Constitutional Topics
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-purple-400"></span> 8 Interactive Lineage SVGs
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-amber-400"></span> Courtroom Application Badges
-            </span>
-          </div>
+          <span className="text-xs px-3 py-1 rounded-lg font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] w-fit shrink-0">
+            100 Authoritative Cases • 20 Clusters • 5 Per Topic
+          </span>
         </div>
 
-        {/* View Mode Switcher */}
-        <div className="flex items-center overflow-x-auto p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 self-stretch sm:self-auto max-w-full scrollbar-none">
+        <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-4xl">
+          Frequently cited across High Courts and constitutional litigation. Complete with factual backgrounds, ratios decidendi, historical dissents, and present-day courtroom utility.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-[var(--border-subtle)]/60 text-xs font-mono text-[var(--text-muted)]">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span> 100 Detailed Judgments
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-sky-400"></span> 20 Constitutional Clusters
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-purple-400"></span> 8 Evolutionary Lineage Trees
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-amber-400"></span> Modern Courtroom Utility Badges
+          </span>
+        </div>
+      </div>
+
+      {/* View Mode Segmented Control Bar (Dedicated Full-Width Toolbar) */}
+      <div className="flex items-center overflow-x-auto p-1.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm scrollbar-none">
+        <div className="flex items-center gap-1.5 min-w-max w-full sm:w-auto">
           <button
             onClick={() => setViewMode('cases')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
+            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
               viewMode === 'cases'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>100 Cases</span>
+            <BookOpen className="w-4 h-4" />
+            <span>100 Cases Explorer</span>
+            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-subtle)]">
+              100
+            </span>
           </button>
 
           <button
             onClick={() => setViewMode('lineage')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
+            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
               viewMode === 'lineage'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
             }`}
           >
-            <GitBranch className="w-3.5 h-3.5" />
+            <GitBranch className="w-4 h-4" />
             <span>Precedent Lineage</span>
+            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+              8 Trees
+            </span>
           </button>
 
           <button
             onClick={() => setViewMode('principles')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
+            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
               viewMode === 'principles'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
             }`}
           >
-            <Scale className="w-3.5 h-3.5" />
-            <span>Precedent Law</span>
+            <Scale className="w-4 h-4" />
+            <span>Doctrine of Stare Decisis</span>
           </button>
 
           <button
             onClick={() => setViewMode('bookmarks')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono whitespace-nowrap shrink-0 transition-all ${
+            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
               viewMode === 'bookmarks'
                 ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
             }`}
           >
-            <BookMarked className="w-3.5 h-3.5" />
-            <span>Saved ({bookmarkedCaseIds.length})</span>
+            <BookMarked className="w-4 h-4 text-[var(--gold)]" />
+            <span>Saved Precedents</span>
+            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[var(--badge-bg)] text-[var(--gold)] border border-[var(--gold)]/30 font-bold">
+              {bookmarkedCaseIds.length}
+            </span>
           </button>
         </div>
       </div>
@@ -502,9 +520,9 @@ export const LandmarkCasesView: React.FC = () => {
           )}
 
           {/* Search, Bench Filter, and Sorting Bar */}
-          <div className="p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          <div className="p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
             {/* Search Input */}
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex-1">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex-1 min-w-0">
               <Search className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
               <input
                 type="text"
@@ -516,69 +534,100 @@ export const LandmarkCasesView: React.FC = () => {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] px-1"
+                  className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] px-1 shrink-0"
                 >
                   Clear
                 </button>
               )}
             </div>
 
-            {/* Bench Strength Filter */}
-            <div className="flex items-center gap-1.5 shrink-0 overflow-x-auto">
-              <span className="text-[11px] font-mono text-[var(--text-muted)] flex items-center gap-1">
-                <Filter className="w-3 h-3" /> Bench:
-              </span>
-              <button
-                onClick={() => setBenchFilter('all')}
-                className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
-                  benchFilter === 'all'
-                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
-                }`}
-              >
-                All
-              </button>
-              <button
-                onClick={() => setBenchFilter('constitution-5')}
-                className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
-                  benchFilter === 'constitution-5'
-                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
-                }`}
-              >
-                5+ Judges
-              </button>
-              <button
-                onClick={() => setBenchFilter('super-7-plus')}
-                className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
-                  benchFilter === 'super-7-plus'
-                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
-                }`}
-              >
-                7+ Judges
-              </button>
-            </div>
+            {/* Filters Row */}
+            <div className="flex flex-wrap items-center justify-between sm:justify-start gap-3 shrink-0">
+              {/* Bench Strength Filter */}
+              <div className="flex items-center gap-1.5 shrink-0 overflow-x-auto">
+                <span className="text-[11px] font-mono text-[var(--text-muted)] flex items-center gap-1">
+                  <Filter className="w-3 h-3" /> Bench:
+                </span>
+                <button
+                  onClick={() => setBenchFilter('all')}
+                  className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
+                    benchFilter === 'all'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
+                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => setBenchFilter('constitution-5')}
+                  className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
+                    benchFilter === 'constitution-5'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
+                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  5+ Judges
+                </button>
+                <button
+                  onClick={() => setBenchFilter('super-7-plus')}
+                  className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
+                    benchFilter === 'super-7-plus'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
+                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  7+ Judges
+                </button>
+              </div>
 
-            {/* Sort Order Selector */}
-            <div className="flex items-center gap-1.5 shrink-0">
-              <span className="text-[11px] font-mono text-[var(--text-muted)]">Sort:</span>
-              <select
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value as any)}
-                className="px-2.5 py-1 rounded text-xs font-mono bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus:outline-none cursor-pointer"
-              >
-                <option value="chronological">Earliest (1950 → 2024)</option>
-                <option value="reverse-chronological">Latest (2024 → 1950)</option>
-                <option value="bench-size">Largest Bench First</option>
-              </select>
+              {/* Sort Order Selector */}
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="text-[11px] font-mono text-[var(--text-muted)]">Sort:</span>
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value as any)}
+                  className="px-2.5 py-1 rounded text-xs font-mono bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus:outline-none cursor-pointer"
+                >
+                  <option value="chronological">Earliest (1950 → 2024)</option>
+                  <option value="reverse-chronological">Latest (2024 → 1950)</option>
+                  <option value="bench-size">Largest Bench First</option>
+                </select>
+              </div>
             </div>
+          </div>
+
+          {/* Mobile & Tablet Master-Detail Pane Switcher (< lg screens) */}
+          <div className="lg:hidden flex items-center p-1 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm">
+            <button
+              onClick={() => setMobilePane('list')}
+              className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-mono transition-all ${
+                mobilePane === 'list'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <List className="w-4 h-4" />
+              <span>Precedents List ({filteredCases.length})</span>
+            </button>
+            <button
+              onClick={() => setMobilePane('dossier')}
+              className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-mono transition-all ${
+                mobilePane === 'dossier'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Active Dossier</span>
+            </button>
           </div>
 
           {/* Master-Detail Split Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            {/* Left Column: Cases List (5 Cols) */}
-            <div className="lg:col-span-5 min-w-0 flex flex-col gap-2 max-h-[82vh] overflow-y-auto pr-1">
+            {/* Left Column: Cases List (5 Cols on lg, or mobilePane === 'list' on < lg) */}
+            <div className={`lg:col-span-5 min-w-0 flex-col gap-2 max-h-[82vh] overflow-y-auto pr-1 ${
+              mobilePane === 'dossier' ? 'hidden lg:flex' : 'flex'
+            }`}>
               {filteredCases.length === 0 ? (
                 <div className="p-8 text-center rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col items-center justify-center gap-2">
                   <Scale className="w-8 h-8 text-[var(--text-muted)]" />
@@ -595,7 +644,10 @@ export const LandmarkCasesView: React.FC = () => {
                   return (
                     <div
                       key={c.id}
-                      onClick={() => setSelectedCaseId(c.id)}
+                      onClick={() => {
+                        setSelectedCaseId(c.id);
+                        setMobilePane('dossier');
+                      }}
                       className={`p-4 rounded-xl border cursor-pointer transition-all flex flex-col gap-2 ${
                         isSelected
                           ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] shadow-md ring-1 ring-[var(--accent)]/30'
@@ -648,10 +700,23 @@ export const LandmarkCasesView: React.FC = () => {
               )}
             </div>
 
-            {/* Right Column: Deep Case Law Dossier (7 Cols) */}
-            <div className="lg:col-span-7 min-w-0 flex flex-col gap-6">
+            {/* Right Column: Deep Case Law Dossier (7 Cols on lg, or mobilePane === 'dossier' on < lg) */}
+            <div className={`lg:col-span-7 min-w-0 flex-col gap-6 ${
+              mobilePane === 'list' ? 'hidden lg:flex' : 'flex'
+            }`}>
               {currentCase && (
                 <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-md flex flex-col gap-6 animate-fadeIn">
+                  {/* Back button for mobile/tablet */}
+                  <div className="lg:hidden pb-2 border-b border-[var(--border-subtle)]">
+                    <button
+                      onClick={() => setMobilePane('list')}
+                      className="flex items-center gap-1.5 text-xs font-mono text-[var(--accent)] hover:underline font-semibold"
+                    >
+                      <ArrowLeft className="w-3.5 h-3.5" />
+                      <span>Back to Precedents List ({filteredCases.length} cases)</span>
+                    </button>
+                  </div>
+
                   {/* Dossier Header */}
                   <div className="flex flex-col gap-3 pb-4 border-b border-[var(--border-subtle)]">
                     <div className="flex flex-wrap items-center justify-between gap-2">

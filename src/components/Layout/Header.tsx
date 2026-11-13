@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
                 LEX MAGNA
               </span>
             </div>
-            <p className="text-[10px] font-mono text-[var(--text-muted)] hidden sm:block">
+            <p className="text-[10px] font-mono text-[var(--text-muted)] hidden xl:block">
               Constitution of India • Interactive Mastery Hub
             </p>
           </div>
@@ -36,19 +36,19 @@ export const Header: React.FC = () => {
         {/* Search trigger button */}
         <button
           onClick={() => setSearchOpen(true)}
-          className="flex-1 max-w-sm hidden md:flex items-center justify-between px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] transition-all font-mono text-xs"
+          className="flex-1 max-w-xs hidden md:flex items-center justify-between px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] transition-all font-mono text-xs min-w-0"
         >
-          <div className="flex items-center gap-2">
-            <Search className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-            <span>Search articles, writs, doctrines...</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <Search className="w-3.5 h-3.5 text-[var(--text-secondary)] shrink-0" />
+            <span className="truncate whitespace-nowrap text-[var(--text-secondary)]">Search law, articles, cases...</span>
           </div>
-          <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+          <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 hidden lg:inline">
             ⌘K
           </kbd>
         </button>
 
         {/* Right Controls: Font, Theme, Bookmarks */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => setSearchOpen(true)}
             className="md:hidden p-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"

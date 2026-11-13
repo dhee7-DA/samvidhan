@@ -42,8 +42,8 @@ export const SchedulesView: React.FC = () => {
 
       {/* Grid of All 12 Schedules */}
       <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-xl font-bold text-[var(--text-primary)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
             Complete Schedule Catalog
           </h3>
           <input
@@ -51,7 +51,7 @@ export const SchedulesView: React.FC = () => {
             value={filterQuery}
             onChange={(e) => setFilterQuery(e.target.value)}
             placeholder="Filter schedules..."
-            className="px-3 py-1.5 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none font-mono"
+            className="px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none font-mono"
           />
         </div>
 

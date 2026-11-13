@@ -93,7 +93,7 @@ export const Sidebar: React.FC = () => {
       </div>
 
       {/* Desktop Navigation Tab Strip */}
-      <div className="hidden md:flex max-w-7xl mx-auto items-center justify-center gap-1 lg:gap-2 overflow-x-auto scrollbar-none">
+      <div className="hidden md:flex max-w-7xl mx-auto items-center justify-start xl:justify-center gap-1 lg:gap-2 overflow-x-auto scrollbar-none px-2">
         {NAV_ITEMS.map((item) => {
           const isActive = activeTab === item.id;
           return (
