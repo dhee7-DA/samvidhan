@@ -27,6 +27,7 @@ import { FederalRelationsSVG } from '../VectorDiagrams/FederalRelationsSVG';
 import { EmergencyMatrixSVG } from '../VectorDiagrams/EmergencyMatrixSVG';
 import { LegislativePassageSVG } from '../VectorDiagrams/LegislativePassageSVG';
 import { CriminalConstitutionalPipelineSVG } from '../VectorDiagrams/CriminalConstitutionalPipelineSVG';
+import { ExecutiveClemencyArchitectureSVG } from '../VectorDiagrams/ExecutiveClemencyArchitectureSVG';
 
 export const TopicDetailView: React.FC = () => {
   const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -267,12 +268,14 @@ export const TopicDetailView: React.FC = () => {
           </div>
         )}
         {currentPart.id === 'part-5' && (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-6">
+            <ExecutiveClemencyArchitectureSVG />
             <SeparationOfPowersSVG />
           </div>
         )}
         {currentPart.id === 'part-6' && (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-6">
+            <ExecutiveClemencyArchitectureSVG />
             <LegislativePassageSVG />
           </div>
         )}

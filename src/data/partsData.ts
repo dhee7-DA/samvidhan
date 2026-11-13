@@ -1,6 +1,8 @@
 import type { ConstitutionPart } from '../types/constitution';
 import { PART_3_ARTICLES_EXPANDED } from './part3FundamentalRightsData';
 import { PART_4_DPSP_EXPANDED } from './part4DPSPData';
+import { PART_5_UNION_EXPANDED } from './part5UnionData';
+import { PART_6_STATES_EXPANDED } from './part6StatesData';
 
 export const CONSTITUTION_PARTS: ConstitutionPart[] = [
   {
@@ -238,38 +240,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'separation-of-powers',
-    articles: [
-      {
-        number: '53',
-        title: 'Executive power of the Union',
-        summary: 'Vests executive power in the President, exercised directly or through subordinate officers.',
-        textSnippet: 'The executive power of the Union shall be vested in the President.'
-      },
-      {
-        number: '74',
-        title: 'Council of Ministers to aid and advise President',
-        summary: 'Mandates that the President act in accordance with ministerial advice; proviso allows returning advice once for reconsideration.',
-        textSnippet: 'There shall be a Council of Ministers with the Prime Minister at the head to aid and advise the President.'
-      },
-      {
-        number: '110',
-        title: 'Definition of "Money Bills"',
-        summary: 'Exclusively defines bills containing provisions dealing with taxation, borrowing, and Consolidated Fund outlays; certified definitively by the Speaker.',
-        textSnippet: 'A Bill shall be deemed to be a Money Bill if it contains only provisions dealing with taxation, borrowing, or custody of Consolidated Fund.'
-      },
-      {
-        number: '124',
-        title: 'Establishment and constitution of the Supreme Court',
-        summary: 'Foundational provision establishing the Supreme Court, qualifications of judges, and judicial tenure until age 65.',
-        textSnippet: 'There shall be a Supreme Court of India consisting of a Chief Justice of India and other Judges.'
-      },
-      {
-        number: '143',
-        title: 'Power of President to consult Supreme Court',
-        summary: 'Advisory jurisdiction: President can refer questions of law or fact of public importance to the Supreme Court for its opinion.',
-        textSnippet: 'If it appears to the President that a question of law or fact has arisen, he may refer the question to that Court for consideration.'
-      }
-    ]
+    articles: PART_5_UNION_EXPANDED
   },
   {
     id: 'part-6',
@@ -294,32 +265,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'legislative-passage',
-    articles: [
-      {
-        number: '153',
-        title: 'Governors of States',
-        summary: 'Provides for a Governor for each State; the same person can be appointed Governor for two or more states (7th Amd 1956).',
-        textSnippet: 'There shall be a Governor for each State.'
-      },
-      {
-        number: '163',
-        title: 'Council of Ministers to aid and advise Governor',
-        summary: 'Governor acts on ministerial advice except where the Constitution explicitly requires exercise of discretionary judgment.',
-        textSnippet: 'There shall be a Council of Ministers with the Chief Minister at the head to aid and advise the Governor except in discretionary matters.'
-      },
-      {
-        number: '200',
-        title: 'Assent to Bills and reservation for President',
-        summary: 'Options of the Governor on bills passed by State Legislature: assent, withhold, return for reconsideration, or reserve for Presidential consideration.',
-        textSnippet: 'The Governor shall declare that he assents to the Bill, withholds assent, returns it, or reserves it for the consideration of the President.'
-      },
-      {
-        number: '226',
-        title: 'Power of High Courts to issue certain writs',
-        summary: 'Grants plenary power to High Courts to issue writs not only for Fundamental Rights but also for any other legal right.',
-        textSnippet: 'Every High Court shall have powers to issue directions, orders or writs for the enforcement of Part III rights and for any other purpose.'
-      }
-    ]
+    articles: PART_6_STATES_EXPANDED
   },
   {
     id: 'part-7',

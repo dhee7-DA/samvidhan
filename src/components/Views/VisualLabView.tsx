@@ -37,6 +37,7 @@ import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeg
 import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
 import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
 import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
+import { ExecutiveClemencyArchitectureSVG } from '../VectorDiagrams/ExecutiveClemencyArchitectureSVG';
 
 interface DiagramItem {
   id: string;
@@ -57,6 +58,15 @@ const DIAGRAMS: DiagramItem[] = [
     icon: <Gavel className="w-4 h-4" />,
     component: <CriminalConstitutionalPipelineSVG />,
     summary: 'Interactive blueprint mapping constitutional protections to criminal investigation, arrest, forensic discovery, and bail.'
+  },
+  {
+    id: 'clemency-architecture',
+    title: 'Executive Clemency Architecture & Judicial Scrutiny',
+    category: 'Executive Governance',
+    articles: 'Articles 72 & 161 ⟷ Sec 473 BNSS',
+    icon: <Scale className="w-4 h-4" />,
+    component: <ExecutiveClemencyArchitectureSVG />,
+    summary: 'Interactive comparative blueprint of executive pardoning power, cabinet supremacy, statutory remission primacy, and judicial review safeguards.'
   },
   {
     id: 'writs-matrix',
@@ -223,7 +233,7 @@ export const VisualLabView: React.FC = () => {
               Visual Law Lab
             </h1>
             <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
-              16 Bespoke Vector Blueprints
+              17 Bespoke Vector Blueprints
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">
