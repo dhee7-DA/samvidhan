@@ -231,6 +231,232 @@ export const PART_5_UNION_EXPANDED: ArticleItem[] = [
 
   // CHAPTER II: PARLIAMENT
   {
+    number: '79',
+    title: 'Constitution of Parliament (Tripartite Institutional Architecture)',
+    summary: 'Establishes Parliament as a tripartite institution comprising the President of India and two Houses: the Council of States (Rajya Sabha) and the House of the People (Lok Sabha).',
+    plainEnglish: 'The Indian Parliament consists of three inseparable components: the President, the Rajya Sabha, and the Lok Sabha. Even though the President does not sit in daily parliamentary debates, no bill passed by the two Houses can ever become law without Presidential assent.',
+    textSnippet: 'There shall be a Parliament for the Union which shall consist of the President and two Houses to be known respectively as the Council of States and the House of the People.',
+    realWorldScenario: 'An act passed by both Lok Sabha and Rajya Sabha is challenged as defective because the President was not present during debates. The Supreme Court clarifies that while the President does not sit in legislative debate, the President is constitutionally an organic part of Parliament under Article 79, functioning through assent under Article 111 and summoned addresses under Article 87.',
+    prosecutionNote: 'In statutory construction before criminal courts, every penal statute (such as BNS or BNSS) derives its sovereign validity from enactment by Parliament as constituted under Article 79. Pleading a bill as enforceable law prior to Presidential assent is a fatal legal defect.',
+    clauses: [
+      {
+        clause: 'Tripartite Composition',
+        explanation: 'Follows the British Crown-in-Parliament model: President + Rajya Sabha + Lok Sabha form the single composite legislative organ.',
+        example: 'Assent under Article 111 completes the parliamentary legislative process.'
+      },
+      {
+        clause: 'Bicameral Federal Balance',
+        explanation: 'Rajya Sabha reflects the federal principle representing States/UTs, while Lok Sabha embodies direct democratic popular sovereignty.',
+        example: 'Equal status in constitutional amendments; Lok Sabha dominance in Money Bills.'
+      }
+    ],
+    exceptions: ['The President does not attend ordinary parliamentary proceedings or vote in House divisions.'],
+    landmarkCases: [
+      {
+        caseName: 'R.S. Nayak v. A.R. Antulay',
+        year: 1984,
+        bench: '5-Judge Bench',
+        summary: 'Analyzed the nature of Parliament under Article 79 and the status of Members of Parliament as distinct constitutional functionaries in corruption prosecutions.',
+        significance: 'Clarified the constitutional character of parliamentary office.'
+      }
+    ],
+    doctrineLinks: ['Tripartite Parliament', 'Crown-in-Parliament Adaptation', 'Bicameral Federalism']
+  },
+  {
+    number: '80',
+    title: 'Composition of the Council of States (Rajya Sabha & Federal Representation)',
+    summary: 'Specifies the maximum membership of 250 in the Council of States: 12 members nominated by the President for literature, science, art, and social service, and not more than 238 representatives of States and Union Territories elected through proportional representation by means of single transferable vote.',
+    plainEnglish: 'Rajya Sabha is the permanent federal chamber representing the States and Union Territories. It can never be dissolved; one-third of its members retire every two years. The President nominates 12 distinguished experts from science, arts, literature, and social service.',
+    textSnippet: 'The Council of States shall consist of—(a) twelve members to be nominated by the President in accordance with the provisions of clause (3); and (b) not more than two hundred and thirty-eight representatives of the States and of the Union territories.',
+    realWorldScenario: 'A political party challenges the deletion of the state domicile requirement for Rajya Sabha candidates, arguing that an MP must reside in the State they represent. In Kuldip Nayar (2006), the 5-Judge Constitution Bench held that Parliament has legislative power to delete the state domicile requirement, as Rajya Sabha is a revising federal chamber and domicile is not part of the Basic Structure.',
+    prosecutionNote: 'Elections to the Rajya Sabha under open ballot system (introduced to prevent cross-voting corruption) were upheld by the Supreme Court as constitutional and not violating secret ballot democracy, protecting parliamentary integrity against corrupt bribery.',
+    clauses: [
+      {
+        clause: '80(1)(a) & (3) Presidential Nominations',
+        explanation: '12 members having special knowledge or practical experience in Literature, Science, Art, and Social Service.',
+        example: 'Nomination of eminent artists, scientists, and jurists to the Upper House.'
+      },
+      {
+        clause: '80(1)(b) & (4) Proportional Representation',
+        explanation: 'Representatives of States are elected by the elected members of State Legislative Assemblies (MLAs) via proportional representation by single transferable vote.',
+        example: 'State assembly electoral college allocating Rajya Sabha seats proportionate to state population.'
+      },
+      {
+        clause: 'Permanent House Status (83(1))',
+        explanation: 'Rajya Sabha is not subject to dissolution; one-third members retire every two years, giving each member a 6-year term.',
+        example: 'Continuous institutional memory during general elections when Lok Sabha is dissolved.'
+      }
+    ],
+    exceptions: ['Nominated members do not participate in the election of the President of India (Article 54).'],
+    landmarkCases: [
+      {
+        caseName: 'Kuldip Nayar v. Union of India',
+        year: 2006,
+        bench: '5-Judge Bench (Y.K. Sabharwal CJI, K.G. Balakrishnan, S.H. Kapadia JJ)',
+        summary: 'Upheld amendments to the Representation of the People Act, 1951 removing the domicile requirement for Rajya Sabha candidates and introducing open voting to prevent corruption.',
+        significance: 'Settled the constitutional character of the Council of States and federal representation under Article 80.'
+      }
+    ],
+    doctrineLinks: ['Federal Chamber Doctrine', 'Proportional Representation', 'Permanent Chamber Continuity']
+  },
+  {
+    number: '81',
+    title: 'Composition of the House of the People (Lok Sabha & Direct Suffrage)',
+    summary: 'Governs the composition of the Lok Sabha: not more than 530 members chosen by direct election from territorial constituencies in the States, and not more than 20 representing Union Territories, subject to population ratio parity and constitutional delimitation freezes.',
+    plainEnglish: 'The Lok Sabha is the directly elected house of the people. Each member represents roughly the same proportion of population. State-wise seat allocations have been frozen until the first census after 2026 (84th Amendment) so that states with successful population control are not penalized.',
+    textSnippet: 'Subject to the provisions of article 331, the House of the People shall consist of—(a) not more than five hundred and thirty members chosen by direct election from territorial constituencies in the States; and (b) not more than twenty members to represent the Union territories...',
+    realWorldScenario: 'A voter challenges the frozen state-wise seat allocations in Lok Sabha, arguing that high-population northern states have fewer MPs per capita than southern states. Courts uphold the 84th Amendment freezing inter-state seat reapportionment under Article 81 until post-2026 as a legitimate national demographic policy to prevent disincentivizing family planning.',
+    prosecutionNote: 'Electoral offences such as booth capturing, voter intimidation, or bribery during Lok Sabha elections are prosecuted under Section 171B–171I of BNS and Representation of the People Act, 1951.',
+    clauses: [
+      {
+        clause: 'Territorial Constituencies & Ratio Parity',
+        explanation: 'Each State is allotted seats such that the ratio between the number of seats and the population of the State is, so far as practicable, the same throughout India.',
+        example: 'Single-member territorial constituency mapping.'
+      },
+      {
+        clause: 'Constitutional Delimitation Freezes',
+        explanation: '42nd Amendment 1976 froze total seats at 1971 census; 84th Amendment 2001 extended freeze until the first census after 2026; 87th Amendment 2003 permitted internal constituency readjustment based on 2001 census.',
+        example: 'Preserving inter-state federal equilibrium until 2026.'
+      }
+    ],
+    exceptions: ['104th Constitutional Amendment Act 2020 discontinued the reservation/nomination of up to 2 Anglo-Indian members under Article 331.'],
+    landmarkCases: [
+      {
+        caseName: 'R.C. Poudyal v. Union of India',
+        year: 1994,
+        bench: '5-Judge Bench',
+        summary: 'Analyzed the principle of "one person, one vote" in territorial constituency delimitation under Article 81; held that mathematical exactitude is not mandatory where historical or geographic peculiarities justify variation.',
+        significance: 'Reconciled democratic population parity with regional and historical accommodations.'
+      }
+    ],
+    doctrineLinks: ['Direct Adult Suffrage', 'Delimitation Freeze Doctrine', 'Territorial Constituency Parity']
+  },
+  {
+    number: '85',
+    title: 'Sessions of Parliament, Prorogation, and Dissolution (The 6-Month Mandate)',
+    summary: 'Empowers the President to summon each House of Parliament at intervals ensuring not more than six months elapse between the last sitting in one session and the date appointed for the first sitting in the next session; and governs prorogation and Lok Sabha dissolution.',
+    plainEnglish: 'Parliament must meet at least twice a year. The gap between two sessions can never exceed six months. The President can summon sessions, end a session (prorogue), or dissolve the Lok Sabha on the advice of the Prime Minister.',
+    textSnippet: 'The President shall from time to time summon each House of Parliament to meet at such time and place as he thinks fit, but six months shall not intervene between its last sitting in one session and the date appointed for its first sitting in the next session.',
+    realWorldScenario: 'An embattled government attempts to delay summoning Parliament for 8 months to avoid facing a no-confidence motion. This directly violates the mandatory 6-month ceiling in Article 85(1); the President is constitutionally bound to summon Parliament regardless of executive hesitation.',
+    prosecutionNote: 'Prorogation ends a legislative session, but does NOT dissolve the House or lapse pending bills. In India, under Article 107(3), a bill pending in Parliament does not lapse by reason of the prorogation of the Houses.',
+    clauses: [
+      {
+        clause: '85(1) Mandatory 6-Month Ceiling',
+        explanation: 'Enforces democratic accountability: Parliament cannot be kept in abeyance or suspended by executive decree for more than 6 months.',
+        example: 'Standard parliamentary calendar: Budget Session, Monsoon Session, Winter Session.'
+      },
+      {
+        clause: '85(2)(a) Prorogation',
+        explanation: 'Brings an end to a session of the House by presidential proclamation, distinct from an adjournment (which is done by Speaker/Chairman).',
+        example: 'Proroguing Parliament at the conclusion of the Winter Session.'
+      },
+      {
+        clause: '85(2)(b) Dissolution of Lok Sabha',
+        explanation: 'Brings an end to the life of the House of the People, triggering fresh general elections. Rajya Sabha, being permanent, can never be dissolved.',
+        example: 'Dissolution at the end of a 5-year tenure or upon advice of PM.'
+      }
+    ],
+    exceptions: ['Rajya Sabha is not subject to dissolution under Article 83(1).'],
+    landmarkCases: [
+      {
+        caseName: 'Special Reference No. 1 of 2002 (Gujarat Assembly Election Case)',
+        year: 2002,
+        bench: '5-Judge Bench',
+        summary: 'Held that Article 85/174 (the 6-month rule between sessions) applies to an existing live legislative assembly, and does not limit the Election Commission’s plenary power under Article 324 to schedule elections upon premature dissolution.',
+        significance: 'Harmonized legislative session mandates with autonomous election scheduling.'
+      }
+    ],
+    doctrineLinks: ['Six-Month Session Mandate', 'Adjournment vs Prorogation', 'Dissolution of Popular Chamber']
+  },
+  {
+    number: '100',
+    title: 'Voting in Houses, Proceedings with Vacancies, and Quorum (The 1/10th Rule)',
+    summary: 'Establishes majority voting in parliamentary proceedings, casting vote of the Speaker in case of equality of votes, validity of proceedings notwithstanding vacancies, and the mandatory quorum of one-tenth (10%) of total membership.',
+    plainEnglish: 'All parliamentary decisions are made by majority vote. The Speaker only votes if there is a 50-50 tie (casting vote). A minimum of 10% of members (55 in Lok Sabha, 25 in Rajya Sabha) must be present for Parliament to conduct business; if quorum is missing, the House must be adjourned.',
+    textSnippet: 'Save as otherwise provided in this Constitution, all questions at any sitting of either House or joint sitting of the Houses shall be determined by a majority of votes of the members present and voting, other than the Speaker or person acting as Chairman or Speaker... The quorum to constitute a meeting of either House of Parliament shall be one-tenth of the total number of members of the House.',
+    realWorldScenario: 'Late in the evening, with only 30 MPs present in the Lok Sabha, the ruling party attempts to pass a statutory amendment. An opposition MP raises an objection on lack of quorum. The Speaker counts the members, finds fewer than 55 MPs, and under Article 100(4) is constitutionally obliged to ring the division bells or adjourn the House until quorum is restored.',
+    prosecutionNote: 'Article 100(2) explicitly protects parliamentary validity: proceedings remain fully valid even if it is discovered later that an unqualified or disqualified person sat and voted, preventing collateral statutory invalidation.',
+    clauses: [
+      {
+        clause: '100(1) Ordinary Majority & Speaker Casting Vote',
+        explanation: 'All questions decided by majority of members present and voting. The presiding officer does not vote in the first instance, but exercises a casting vote in the event of an equality of votes.',
+        example: 'Speaker breaking a 200-200 deadlock on a non-money bill.'
+      },
+      {
+        clause: '100(2) Validity During Vacancies',
+        explanation: 'Parliament has full power to act notwithstanding any vacancy in membership; presence or vote of unauthorized persons does not invalidate proceedings.',
+        example: 'Legislation passed while by-elections are pending.'
+      },
+      {
+        clause: '100(3) & (4) Mandatory 1/10th Quorum',
+        explanation: 'Quorum is fixed at 1/10th of total House membership. If quorum is lacking, it is the duty of the presiding officer either to adjourn the House or suspend the sitting until quorum is present.',
+        example: 'Minimum 55 members in Lok Sabha; minimum 25 members in Rajya Sabha.'
+      }
+    ],
+    exceptions: ['Special Majorities (e.g. Article 368 amendments, Article 61 impeachment) override the simple majority rule of Article 100(1).'],
+    landmarkCases: [
+      {
+        caseName: 'Indira Nehru Gandhi v. Raj Narain',
+        year: 1975,
+        bench: '5-Judge Bench',
+        summary: 'Analyzed the validity of parliamentary proceedings passed during emergency detentions of MPs under Article 100(2), confirming that vacancies or detentions do not invalidate parliamentary enactments.',
+        significance: 'Reaffirmed the institutional integrity and procedural validity of Parliament.'
+      }
+    ],
+    doctrineLinks: ['Speaker’s Casting Vote', 'Quorum Rule (1/10th)', 'Presumption of Legislative Regularity']
+  },
+  {
+    number: '102',
+    title: 'Disqualifications for Membership of Parliament (Office of Profit & Anti-Defection)',
+    summary: 'Lays down the constitutional disqualifications for being chosen as, and for being, an MP: holding any office of profit under the Government (other than declared exempt by law), unsoundness of mind, undischarged insolvency, alien citizenship, statutory disqualification under law made by Parliament (RPA 1951), and defection under the Tenth Schedule.',
+    plainEnglish: 'An MP loses their seat if they take a paid government job (office of profit), go bankrupt, lose mental capacity, take foreign citizenship, are convicted of a serious crime for 2+ years (Lily Thomas), or defect from their political party under the Anti-Defection Law.',
+    textSnippet: 'A person shall be disqualified for being chosen as, and for being, a member of either House of Parliament—(a) if he holds any office of profit under the Government of India or the Government of any State... (b) if he is of unsound mind... (c) if he is an undischarged insolvent; (d) if he is not a citizen of India... (e) if he is so disqualified by or under any law made by Parliament.',
+    realWorldScenario: 'An MP is appointed chairperson of a state film development corporation carrying executive perks and honorarium. Because the post is not exempted by the Parliament (Prevention of Disqualification) Act 1959, the MP is disqualified under Article 102(1)(a) for holding an Office of Profit, as established in Jaya Bachchan (2006).',
+    prosecutionNote: 'Criminal conviction disqualification: Under Section 8(4) of the RPA 1951 read with Article 102(1)(e), sitting MPs previously enjoyed 3 months protection to appeal. In Lily Thomas (2013), the Supreme Court struck down Section 8(4) as ultra vires: disqualification is instant and automatic upon criminal conviction of 2+ years imprisonment.',
+    clauses: [
+      {
+        clause: '102(1)(a) Office of Profit Test',
+        explanation: 'Prevents conflict of interest: Executive cannot compromise legislative independence by offering lucrative offices or patronages to MPs.',
+        example: 'Jaya Bachchan (2006) test: whether the office is capable of yielding profit, not whether profit was actually received.'
+      },
+      {
+        clause: '102(1)(e) Statutory Disqualification via RPA 1951',
+        explanation: 'Parliamentary law governs electoral corrupt practices, failure to lodge election accounts, and criminal convictions exceeding 2 years (Section 8 RPA).',
+        example: 'Lily Thomas (2013) automatic immediate disqualification on conviction.'
+      },
+      {
+        clause: '102(2) Tenth Schedule Anti-Defection',
+        explanation: 'Disqualification on grounds of voluntary resignation from party or voting contrary to party whip, decided by Speaker/Chairman under the 10th Schedule (Kihoto Hollohan).',
+        example: 'Cross-voting against official party whip.'
+      }
+    ],
+    exceptions: ['Ministers are expressly exempt from the office of profit disqualification under Article 102(1) Explanation.'],
+    landmarkCases: [
+      {
+        caseName: 'Jaya Bachchan v. Union of India',
+        year: 2006,
+        bench: '3-Judge Bench',
+        summary: 'Held that an "office of profit" is an office capable of yielding a profit or pecuniary gain, regardless of whether the holder actually accepts or receives the emoluments.',
+        significance: 'Established the strict objective test for Article 102(1)(a) office of profit disqualifications.'
+      },
+      {
+        caseName: 'Lily Thomas v. Union of India',
+        year: 2013,
+        bench: '2-Judge Bench (A.K. Patnaik & S.J. Mukhopadhaya JJ)',
+        summary: 'Struck down Section 8(4) of the Representation of the People Act, 1951 as unconstitutional. Ruled that Parliament has no power to defer the disqualification of sitting convicted MPs/MLAs under Art 102(1)(e); disqualification operates instantly upon conviction.',
+        significance: 'Historic anti-criminalization breakthrough in Indian electoral jurisprudence.'
+      },
+      {
+        caseName: 'Kihoto Hollohan v. Zachillhu',
+        year: 1992,
+        bench: '5-Judge Bench',
+        summary: 'Upheld the constitutional validity of the Tenth Schedule (Anti-Defection Law) under Article 102(2), but struck down the clause barring judicial review, holding that the Speaker functions as a tribunal subject to High Court/SC writ review.',
+        significance: 'Brought anti-defection decisions under constitutional judicial review.'
+      }
+    ],
+    doctrineLinks: ['Office of Profit Doctrine', 'Automatic Disqualification on Conviction', 'Anti-Defection Jurisprudence']
+  },
+  {
     number: '105',
     title: 'Powers, Privileges, and Immunities of Parliament and its Members',
     summary: 'Guarantees freedom of speech in Parliament, immunity from court proceedings for speeches and votes cast, and parliamentary privilege to manage internal proceedings.',
@@ -283,6 +509,53 @@ export const PART_5_UNION_EXPANDED: ArticleItem[] = [
       }
     ],
     doctrineLinks: ['Parliamentary Privilege', 'Bribery Non-Immunity Doctrine', 'Internal Autonomy of Legislature']
+  },
+  {
+    number: '108',
+    title: 'Joint Sitting of Both Houses in Certain Cases (Deadlock Resolution)',
+    summary: 'Orchestrates the constitutional mechanism to resolve an impasse between Lok Sabha and Rajya Sabha on an ordinary bill: If a bill passed by one House is rejected by the other, disagreed upon as to amendments, or kept unpassed for more than six months, the President may summon a Joint Sitting of both Houses, presided over by the Speaker of the Lok Sabha.',
+    plainEnglish: 'When the two Houses clash over an ordinary bill and reach a deadlock, the President can call both Houses into a single hall to vote together. Because the Lok Sabha has more than twice the members of the Rajya Sabha, the Lok Sabha\'s will usually prevails. Crucially: Joint Sittings can NEVER be called for Money Bills or Constitutional Amendments!',
+    textSnippet: 'If after a Bill has been passed by one House and transmitted to the other House—(a) the Bill is rejected by the other House; or (b) the Houses have finally disagreed as to the amendments to be made in the Bill; or (c) more than six months elapse from the date of the reception of the Bill by the other House without the Bill being passed by it, the President may... summon the Houses to meet in a joint sitting...',
+    realWorldScenario: 'The Prevention of Terrorism Bill (POTA) 2002 was passed by the Lok Sabha but rejected by the Rajya Sabha. The President summoned a historic Joint Sitting of Parliament under Article 108, where the bill was passed by a combined majority of both Houses.',
+    prosecutionNote: 'In constitutional litigation, notice the absolute exclusions: (1) Article 108 does NOT apply to Money Bills (where Rajya Sabha has only 14 days advisory power); (2) Article 108 does NOT apply to Article 368 Constitutional Amendments (each House must pass separately by 2/3rd special majority - Sankari Prasad / Kesavananda).',
+    clauses: [
+      {
+        clause: '108(1) Three Deadlock Conditions',
+        explanation: 'Joint Sitting can be notified if: (a) Bill rejected by other House; (b) Houses finally disagree on amendments; or (c) More than 6 months elapse without bill being passed.',
+        example: 'Deadlock between Lok Sabha and Rajya Sabha on contentious social legislation.'
+      },
+      {
+        clause: 'Presidential Summons & Lok Sabha Dissolution Protection (108(5))',
+        explanation: 'Once the President notifies intention to summon a joint sitting, neither House can proceed with the bill, and the bill does not lapse even if Lok Sabha is subsequently dissolved.',
+        example: 'Preserving joint sitting summons across general elections.'
+      },
+      {
+        clause: 'Presided by Speaker (Art 118(4)) & Majority Vote',
+        explanation: 'Presided over by the Speaker of Lok Sabha (or Deputy Speaker, or Deputy Chairman of Rajya Sabha; Chairman/VP NEVER presides). Passed by simple majority of total members present and voting.',
+        example: 'Lok Sabha numerical dominance prevailing in joint session.'
+      }
+    ],
+    exceptions: [
+      'Cannot be summoned for Money Bills under Article 109/110.',
+      'Cannot be summoned for Constitutional Amendment Bills under Article 368.'
+    ],
+    landmarkCases: [
+      {
+        caseName: 'POTA Joint Sitting Precedent',
+        year: 2002,
+        bench: 'Parliamentary Precedent',
+        summary: 'Prevention of Terrorism Act (POTA) 2002 was enacted in the third historic joint sitting in Indian history after the Rajya Sabha rejected the bill passed by the Lok Sabha.',
+        significance: 'Confirmed the operational potency of Article 108 in enacting contentious anti-terror criminal legislation.'
+      },
+      {
+        caseName: 'Dowry Prohibition Act Joint Sitting',
+        year: 1961,
+        bench: 'Parliamentary Precedent',
+        summary: 'First joint sitting under Article 108 resolved deadlock between Lok Sabha and Rajya Sabha regarding the definition of "dowry" and penal thresholds.',
+        significance: 'Established the historic procedural precedent for Article 108 joint sittings.'
+      }
+    ],
+    doctrineLinks: ['Bicameral Deadlock Resolution', 'Speaker Joint Session Presidency', 'Exclusion of Money & Amendment Bills']
   },
   {
     number: '110',
@@ -364,6 +637,80 @@ export const PART_5_UNION_EXPANDED: ArticleItem[] = [
       }
     ],
     doctrineLinks: ['Presidential Assent', 'Veto Powers Taxonomy', 'Suspensive vs Pocket Veto']
+  },
+  {
+    number: '112',
+    title: 'Annual Financial Statement (The Union Budget & Charged Expenditure)',
+    summary: 'Mandates the President to cause to be laid before both Houses of Parliament an "Annual Financial Statement" detailing estimated receipts and expenditure of the Government of India for every financial year, dividing expenditures into "Charged on the Consolidated Fund" (non-votable) and "Made from the Consolidated Fund" (votable).',
+    plainEnglish: 'The Constitution never uses the colloquial word "Budget"; it officially calls it the "Annual Financial Statement". It separates spending into two pots: (1) Charged expenditure (such as salaries of Supreme Court judges, President, CAG) which Parliament can discuss but cannot vote against, protecting constitutional independence; and (2) Voted expenditure which requires parliamentary approval.',
+    textSnippet: 'The President shall in respect of every financial year cause to be laid before both the Houses of Parliament a statement of the estimated receipts and expenditure of the Government of India for that year, in this Part referred to as the "annual financial statement".',
+    realWorldScenario: 'During budget cuts, an MP moves a cut motion to reduce the budget allocation for Supreme Court judges\' pensions. The Speaker disallows the motion under Article 112(3)(d), ruling that judicial salaries and pensions are "charged" upon the Consolidated Fund of India and are non-votable to preserve judicial independence.',
+    prosecutionNote: 'Public accounts and fiscal misappropriations (such as in CAG audits or anti-corruption trials under PC Act) are grounded in the statutory accounting heads created pursuant to the Article 112 financial statement.',
+    clauses: [
+      {
+        clause: '112(1) Constitutional Budget Laying Mandate',
+        explanation: 'Mandatory obligation of the Executive to present annual receipts and expenditures to Parliament.',
+        example: 'Presentation of the Union Budget on February 1st.'
+      },
+      {
+        clause: '112(2) Revenue vs Capital Expenditure Dichotomy',
+        explanation: 'Requires distinct differentiation between operational running expenses (revenue) and capital infrastructure asset expenditures.',
+        example: 'Separation of administrative salaries from rail/road infrastructure projects.'
+      },
+      {
+        clause: '112(3) Charged Expenditure Safeguards',
+        explanation: 'Emoluments of President, Chairman/Speaker, SC Judges, CAG, and debt charges are charged and non-votable under Article 113(1).',
+        example: 'Protecting judiciary and constitutional offices from executive fiscal throttling.'
+      }
+    ],
+    exceptions: ['Parliament can freely discuss expenditure charged on the Consolidated Fund, but cannot vote on it or reduce it.'],
+    landmarkCases: [
+      {
+        caseName: 'All India Judges Association v. Union of India',
+        year: 1993,
+        bench: '3-Judge Bench',
+        summary: 'Examined the constitutional purpose of charged expenditures under Articles 112(3) and 202(3), holding that judicial financial independence is an indispensable facet of the Basic Structure.',
+        significance: 'Protected judicial financial provisioning under Article 112.'
+      }
+    ],
+    doctrineLinks: ['Annual Financial Statement', 'Charged vs Voted Expenditure', 'Fiscal Judicial Independence']
+  },
+  {
+    number: '114',
+    title: 'Appropriation Bills (Constitutional Lock on the Consolidated Fund)',
+    summary: 'Enforces the foundational democratic principle of fiscal control: After demands for grants have been voted by the Lok Sabha, an Appropriation Bill is introduced to authorize withdrawals from the Consolidated Fund of India. No money can be withdrawn from the Consolidated Fund except under appropriation made by law.',
+    plainEnglish: 'The government cannot take even one single rupee out of the public treasury without a specific law passed by Parliament called an Appropriation Act. This ensures the executive cannot spend public money without parliamentary authorization.',
+    textSnippet: 'As soon as may be after the grants under article 113 have been made by the House of the People, there shall be introduced a Bill to provide for the appropriation out of the Consolidated Fund of India of all moneys required to meet—(a) the grants so made by the House of the People; and (b) the expenditure charged on the Consolidated Fund of India... no money shall be withdrawn from the Consolidated Fund of India except under appropriation made by law passed in accordance with the provisions of this article.',
+    realWorldScenario: 'An executive ministry faces an urgent project expense before the annual budget is finalized. The secretary orders funds withdrawn from the treasury. This constitutes a severe illegality: under Article 114(3), the treasury officer cannot disburse funds without an Appropriation Act (or an interim Vote on Account under Article 116).',
+    prosecutionNote: 'Unauthorized withdrawal or diverting allocated appropriations to non-sanctioned schemes is a classic ingredient of criminal breach of trust by public servants under Section 316 BNS (formerly Section 409 IPC) and criminal misconduct under Section 13(1)(a) of the Prevention of Corruption Act, 1988.',
+    clauses: [
+      {
+        clause: '114(1) Introduction of Appropriation Bill',
+        explanation: 'Follows voting of demands for grants under Article 113 to consolidate voted grants and charged expenditure into a single statutory enactment.',
+        example: 'Passing the annual central Appropriation Act.'
+      },
+      {
+        clause: '114(2) Ban on Modifying Grants',
+        explanation: 'No amendment can be proposed in either House to an Appropriation Bill which alters the amount or destination of any grant or varies charged expenditure.',
+        example: 'Preventing destabilization of voted fiscal appropriations.'
+      },
+      {
+        clause: '114(3) Ironclad Constitutional Bar',
+        explanation: 'Absolute prohibition: "No money shall be withdrawn from the Consolidated Fund of India except under appropriation made by law."',
+        example: 'Treasury lock preventing executive fiscal appropriation without statute.'
+      }
+    ],
+    exceptions: ['Contingency Fund advances under Article 267 can be made by the President for unforeseen emergencies, to be recouped subsequently by Parliament.'],
+    landmarkCases: [
+      {
+        caseName: 'Ram Jawaya Kapur v. State of Punjab',
+        year: 1955,
+        bench: '5-Judge Bench',
+        summary: 'Held that while executive trade activities do not require prior specific statute, no expenditure can be incurred without an Appropriation Act passed under Article 114/204.',
+        significance: 'Established the absolute indispensability of an Appropriation Act for spending public money.'
+      }
+    ],
+    doctrineLinks: ['No Withdrawal Without Appropriation', 'Consolidated Fund Lock', 'Parliamentary Control of the Purse']
   },
 
   // CHAPTER III: LEGISLATIVE POWERS OF PRESIDENT
@@ -528,6 +875,55 @@ export const PART_5_UNION_EXPANDED: ArticleItem[] = [
     doctrineLinks: ['Federal Original Jurisdiction', 'Exclusive Forum Doctrine']
   },
   {
+    number: '134',
+    title: 'Appellate Jurisdiction of Supreme Court in Criminal Matters (Right of Appeal)',
+    summary: 'Codifies the constitutional right of criminal appeal to the Supreme Court: (1) As of right where the High Court on appeal reverses an acquittal of an accused and sentences them to death; (2) Where the High Court withdraws a trial to itself and sentences the accused to death; (3) Where the High Court certifies under Article 134A that the case is a fit one for appeal to the Supreme Court; expanded by Parliament under the Supreme Court (Enlargement of Criminal Appellate Jurisdiction) Act 1970 to include life imprisonment or 10+ years imprisonment.',
+    plainEnglish: 'Guarantees that when a High Court overturns an acquittal and sentences a person to death or life imprisonment, the accused has an absolute constitutional right to appeal to the Supreme Court without needing special permission.',
+    textSnippet: 'An appeal shall lie to the Supreme Court from any judgment, final order or sentence in a criminal proceeding of a High Court in the territory of India if the High Court—(a) has on appeal reversed an order of acquittal of an accused person and sentenced him to death; or (b) has withdrawn for trial before itself any case from any court subordinate to its authority and has in such trial convicted the accused person and sentenced him to death; or (c) certifies under article 134A that the case is a fit one for appeal to the Supreme Court...',
+    realWorldScenario: 'A Sessions Court acquits an accused in a double homicide trial. On state appeal, the High Court reverses the acquittal, finds the accused guilty, and sentences them to death. Does the accused need to seek a Special Leave Petition under Article 136? No! Under Article 134(1)(a), the accused has a statutory and constitutional appeal as of right to the Supreme Court.',
+    prosecutionNote: 'High-yield for every Prosecuting Officer: (1) Parliament enacted the Supreme Court (Enlargement of Criminal Appellate Jurisdiction) Act 1970, extending the right of appeal under 134(2) to cases where the High Court reverses an acquittal and sentences the accused to life imprisonment or not less than 10 years imprisonment; (2) In all other criminal cases, the route is either a High Court certificate under Article 134A or Special Leave Petition under Article 136.',
+    clauses: [
+      {
+        clause: '134(1)(a) Reversed Acquittal with Death Sentence',
+        explanation: 'Automatic constitutional right of appeal where High Court converts a lower court acquittal into a capital sentence.',
+        example: 'Direct criminal appeal to Supreme Court on capital convictions.'
+      },
+      {
+        clause: '134(1)(b) Withdrawn Trial Conviction with Death Sentence',
+        explanation: 'Automatic appeal where High Court withdraws a trial from a subordinate court to its own docket and sentences the accused to death.',
+        example: 'Direct appeal from High Court original criminal trial.'
+      },
+      {
+        clause: '134(1)(c) Certificate of Fitness (Art 134A)',
+        explanation: 'Appeal lies if the High Court certifies that the case involves a substantial question of law of general importance or fitness for SC adjudication.',
+        example: 'Application for certificate of fitness made immediately upon pronouncement under Article 134A.'
+      },
+      {
+        clause: '134(2) Enlargement of Criminal Jurisdiction by Parliament',
+        explanation: 'Parliament enacted the 1970 Enlargement Act, granting appeal as of right where High Court imposes life imprisonment or 10+ years imprisonment upon reversing an acquittal.',
+        example: 'Direct appeal in non-capital life imprisonment convictions.'
+      }
+    ],
+    exceptions: ['Factual appreciation of evidence is generally not reopened unless gross perversity is established in the High Court judgment.'],
+    landmarkCases: [
+      {
+        caseName: 'Babu v. State of Uttar Pradesh',
+        year: 1965,
+        bench: 'Constitution Bench',
+        summary: 'Analyzed the scope of Article 134(1)(a), establishing that the right of appeal is absolute when an acquittal is converted into a death sentence; Supreme Court re-examines evidence as a court of first appeal.',
+        significance: 'Entrenched the plenary standard of scrutiny in capital criminal appeals.'
+      },
+      {
+        caseName: 'Tarachand Damu Sutar v. State of Maharashtra',
+        year: 1970,
+        bench: '5-Judge Bench',
+        summary: 'Interpreted "acquittal" under Article 134(1)(a), ruling that reversal of an acquittal includes cases where a trial court acquits of murder but convicts of a lesser charge, and High Court converts it back to capital murder.',
+        significance: 'Broadened the protective umbrella of constitutional criminal appeals.'
+      }
+    ],
+    doctrineLinks: ['Constitutional Criminal Appeal as of Right', 'Enlargement of Criminal Appellate Jurisdiction', 'Article 134A Certificate of Fitness']
+  },
+  {
     number: '136',
     title: 'Special Leave to Appeal by the Supreme Court (SLP Plenary Power)',
     summary: 'The sweeping safety-valve jurisdiction of the Supreme Court. Grants discretion to grant special leave to appeal against any judgment, decree, sentence, or order of any court or tribunal in India.',
@@ -565,6 +961,57 @@ export const PART_5_UNION_EXPANDED: ArticleItem[] = [
       }
     ],
     doctrineLinks: ['Plenary Discretionary Power', 'Doctrine of Merger', 'Safety Valve of Constitutional Justice']
+  },
+  {
+    number: '137',
+    title: 'Review of Judgments or Orders by the Supreme Court & The Curative Doctrine',
+    summary: 'Empowers the Supreme Court to review any judgment pronounced or order made by it, subject to parliamentary law and Supreme Court rules under Article 145. Forms the foundational constitutional springboard alongside Article 142 for the historic doctrine of Curative Petitions established in Rupa Ashok Hurra (2002).',
+    plainEnglish: 'The Supreme Court can re-examine its own past judgments if an obvious error is shown on the face of the record. Normally, a review petition is heard in chambers by the same judges within 30 days. If review is dismissed, the extraordinary remedy of a Curative Petition remains open in rarest cases of bias or violation of natural justice.',
+    textSnippet: 'Subject to the provisions of any law made by Parliament or any rules made under article 145, the Supreme Court shall have power to review any judgment pronounced or order made by it.',
+    realWorldScenario: 'After the Supreme Court confirms a conviction in an NDPS narcotics appeal, the defence uncovers clinching forensic proof that the chemical seized was not contraband and that the test was fabricated. The convict files a Review Petition under Article 137 read with Order XLVII of Supreme Court Rules, demonstrating an error apparent on the face of the record.',
+    prosecutionNote: 'Rules of Review in Criminal Proceedings: (1) A review petition must be filed within 30 days; (2) In Mohd. Arif v. Registrar, Supreme Court (2014), the 5-Judge Constitution Bench held that review petitions of death row convicts must be heard in open court for at least 30 minutes, not in private chambers; (3) Review is not a rehearing; it requires discovery of new important matter, error apparent on face of record, or other sufficient reason.',
+    clauses: [
+      {
+        clause: 'Grounds of Review (Order XLVII SC Rules)',
+        explanation: 'Modeled on Order 47 Rule 1 CPC: (1) Discovery of new and important matter or evidence; (2) Mistake or error apparent on the face of the record; or (3) Any other sufficient reason.',
+        example: 'Correcting a patent mathematical or statutory oversight in a decree.'
+      },
+      {
+        clause: 'Mandatory Open Court Hearing in Death Sentences',
+        explanation: '5-Judge Bench in Mohd. Arif (2014) carved out a mandatory exception to chamber hearings: All review petitions involving confirmation of capital punishment must be heard in open court by a bench of at least 3 judges.',
+        example: '30-minute oral argument right for death convicts in Article 137 review.'
+      },
+      {
+        clause: 'The Curative Petition Genesis (Rupa Ashok Hurra 2002)',
+        explanation: 'Where a review petition is dismissed, a final extraordinary Curative Petition lies under Articles 137 and 142 if there is gross violation of natural justice (e.g. judge bias or unheard party).',
+        example: 'Curative petition certified by a Senior Advocate and scrutinized by 3 senior-most judges.'
+      }
+    ],
+    exceptions: ['Review cannot be claimed as a disguised second appeal; a mere difference of opinion or erroneous view is not a ground for review unless the error is glaring on the face of the record.'],
+    landmarkCases: [
+      {
+        caseName: 'Mohd. Arif v. Registrar, Supreme Court of India',
+        year: 2014,
+        bench: '5-Judge Bench (R.M. Lodha CJI, J.S. Khehar, J. Chelameswar, A.K. Sikri, R.F. Nariman JJ - 4:1 Majority)',
+        summary: 'Held that fundamental right to life under Article 21 mandates that review petitions in death penalty cases must be heard in open court by a bench of at least three judges, with limited oral hearing, overruling the practice of chamber dismissals.',
+        significance: 'Historic human rights and due process landmark for capital criminal jurisprudence under Article 137.'
+      },
+      {
+        caseName: 'Rupa Ashok Hurra v. Ashok Hurra',
+        year: 2002,
+        bench: '5-Judge Bench (S.P. Bharucha CJI, Syed Shah Mohammed Quadri, U.C. Banerjee, N. Santosh Hegde, S.N. Variava JJ)',
+        summary: 'Formulated the doctrine of "Curative Petition" to prevent abuse of court process and cure gross miscarriage of justice after review is dismissed under Article 137, where principles of natural justice were violated or judge bias existed.',
+        significance: 'Created the ultimate remedial institution in Indian constitutional jurisprudence.'
+      },
+      {
+        caseName: 'Northern India Caterers (India) Ltd. v. Lt. Governor of Delhi',
+        year: 1980,
+        bench: '3-Judge Bench (R.S. Pathak & V.R. Krishna Iyer JJ)',
+        summary: 'Defined the threshold for Article 137 review: A review proceeding cannot be equated with the hearing of an appeal; it is strictly circumscribed to patent errors apparent on the face of the record.',
+        significance: 'Definitive articulation of review limitations under Supreme Court Rules.'
+      }
+    ],
+    doctrineLinks: ['Review Jurisdiction', 'Error Apparent on the Face of the Record', 'Curative Petition Jurisprudence', 'Open Court Review for Capital Sentences']
   },
   {
     number: '141',
