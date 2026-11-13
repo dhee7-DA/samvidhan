@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { QUIZ_QUESTIONS } from '../../data/quizData';
 import type { QuizQuestion } from '../../types/constitution';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const QuizMasteryView: React.FC = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('All');
@@ -132,7 +133,7 @@ export const QuizMasteryView: React.FC = () => {
 
           {/* Question Text */}
           <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] leading-relaxed">
-            {currentQ.question}
+            <AnnotatedLegalText text={currentQ.question} />
           </h2>
 
           {/* Options List */}
@@ -164,7 +165,7 @@ export const QuizMasteryView: React.FC = () => {
                     {String.fromCharCode(65 + idx)}
                   </span>
                   <span className="text-sm leading-relaxed flex-1">
-                    {opt}
+                    <AnnotatedLegalText text={opt} />
                   </span>
                   {hasAnswered && isCorrect && (
                     <CheckCircle2 className="w-5 h-5 text-[var(--emerald)] shrink-0 mt-0.5" />
@@ -190,7 +191,7 @@ export const QuizMasteryView: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                {currentQ.explanation}
+                <AnnotatedLegalText text={currentQ.explanation} />
               </p>
             </div>
           )}

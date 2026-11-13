@@ -7,9 +7,10 @@ import { DETAILED_CASE_LAWS_BY_TOPIC } from '../../data/caseLawsDetailedData';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { AMENDMENTS_DATA } from '../../data/amendmentsData';
 import { ARTICLES_MASTER_INDEX } from '../../data/articlesMasterData';
+import { LEGAL_DICTIONARY } from '../../data/legalDictionaryData';
 
 interface SearchResult {
-  category: 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule';
+  category: 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule' | 'Legal Lexicon';
   title: string;
   subtitle: string;
   targetTab: string;
@@ -137,6 +138,23 @@ export const SearchModal: React.FC = () => {
           subtitle: `Mnemonic: ${sch.mnemonicKeyword} • ${sch.subject.slice(0, 80)}...`,
           targetTab: 'schedules',
           targetId: `schedule-${sch.number}`
+        });
+      }
+    });
+
+    // Search Legal Dictionary (133+ Terms & Maxims)
+    LEGAL_DICTIONARY.forEach((dict) => {
+      if (
+        dict.term.toLowerCase().includes(q) ||
+        dict.aliases.some((a) => a.toLowerCase().includes(q)) ||
+        dict.detailedMeaning.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Legal Lexicon',
+          title: `${dict.term} (${dict.category})`,
+          subtitle: `${dict.detailedMeaning.slice(0, 85)}...`,
+          targetTab: 'dictionary',
+          targetId: dict.term
         });
       }
     });
