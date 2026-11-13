@@ -230,10 +230,10 @@ export const TopicDetailView: React.FC = () => {
 
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-2">
-              {currentPart.title}
+              <AnnotatedLegalText text={currentPart.title} />
             </h2>
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-              {currentPart.description}
+              <AnnotatedLegalText text={currentPart.description} />
             </p>
           </div>
 
@@ -243,7 +243,7 @@ export const TopicDetailView: React.FC = () => {
               Framing & Historical Context
             </span>
             <p className="text-xs text-[var(--text-primary)] leading-relaxed">
-              {currentPart.historicalBackground}
+              <AnnotatedLegalText text={currentPart.historicalBackground} />
             </p>
           </div>
 
@@ -259,7 +259,9 @@ export const TopicDetailView: React.FC = () => {
                   className="p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] flex items-start gap-2"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] mt-1.5 shrink-0" />
-                  <span className="leading-relaxed">{prin}</span>
+                  <span className="leading-relaxed">
+                    <AnnotatedLegalText text={prin} />
+                  </span>
                 </div>
               ))}
             </div>

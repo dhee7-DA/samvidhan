@@ -709,5 +709,65 @@ export const LEGAL_DICTIONARY: LegalTerm[] = [
     easyExample: 'A masked robber enters a bank and shoots a guard. An eyewitness caught a 5-second glimpse of his face. When police arrest a suspect 2 weeks later, they place him in a lineup of 8 similar-looking men in jail. The eyewitness enters and points to the suspect. This successful "TIP" strongly corroborates the witness\'s courtroom testimony.',
     statutoryOrCaseRef: 'Section 54 BNSS 2023 (Sec 54A CrPC) read with Section 9 Bharatiya Sakshya Adhiniyam, 2023',
     relatedArticles: ['Article 21']
+  },
+  {
+    term: 'Magna Carta',
+    aliases: ['magna carta', 'magna carta of india', 'lex magna'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Latin: "Great Charter of Freedoms" (1215 English royal charter)',
+    detailedMeaning: 'The historic 1215 English royal charter forced upon King John by feudal barons at Runnymede, establishing the foundational global doctrine that the King/Sovereign is not above the law. In Indian jurisprudence, Part III (Fundamental Rights) is universally venerated by the Supreme Court as the "Magna Carta of India" because it guarantees inviolable civil liberties and judicial remedies enforceable against the State.',
+    easyExample: 'In medieval England, the King could seize anyone\'s land or execute them on a whim until the Magna Carta forced the King to obey the law of the land. In modern India, Part III of the Constitution serves as our Magna Carta: the police, ministers, or government cannot arbitrarily arrest you, censor your speech, or confiscate your home without strict due process of law.',
+    statutoryOrCaseRef: 'Part III Constitution of India; A.K. Gopalan (1950); Maneka Gandhi (1978)',
+    relatedArticles: ['Part III', 'Article 21', 'Article 32']
+  },
+  {
+    term: 'Bill of Rights',
+    aliases: ['bill of rights', 'us bill of rights'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Constitutional catalog of inalienable citizen immunities',
+    detailedMeaning: 'Originally the first 10 amendments to the United States Constitution (1791), which served as the primary comparative inspiration for Dr. B.R. Ambedkar and the drafting committee when crafting Part III (Fundamental Rights). Unlike the US Bill of Rights which phrases rights in absolute terms, the Indian Constitution deliberately incorporates explicit reasonable restrictions directly within the clauses.',
+    easyExample: 'When India gained freedom, the framers studied the American Bill of Rights to ensure no future Indian government could ever silence free speech or seize printing presses, adapting those American guarantees into our Fundamental Rights.',
+    statutoryOrCaseRef: 'Part III Constitution of India; Constituent Assembly Debates (1948–49)',
+    relatedArticles: ['Part III', 'Article 19', 'Article 21']
+  },
+  {
+    term: 'Karachi Resolution (1931)',
+    aliases: ['karachi resolution', 'karachi resolution (1931)', 'karachi session'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'The historic 1931 Congress blueprint for Fundamental Rights and National Economic Policy',
+    detailedMeaning: 'A historic resolution adopted at the Karachi Session of the Indian National Congress in March 1931, presided over by Sardar Vallabhbhai Patel and drafted by Pt. Jawaharlal Nehru with Mahatma Gandhi. It was the first formal political declaration in colonial India committing to free speech, religious freedom, universal adult franchise, equality before law, and workers\' rights, directly shaping Parts III & IV of the Constitution.',
+    easyExample: 'Nearly 20 years before the Indian Constitution was written, freedom fighters met at Karachi in 1931 and pledged that a free India would grant equal rights to every citizen, eliminate caste untouchability, and guarantee religious freedom for all.',
+    statutoryOrCaseRef: 'Karachi Congress Session (March 1931); Constituent Assembly Objective Resolution',
+    relatedArticles: ['Preamble', 'Part III', 'Part IV']
+  },
+  {
+    term: 'Golden Triangle',
+    aliases: ['golden triangle', 'golden triangle of the constitution'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'The synergistic constitutional trinity: Articles 14, 19, and 21',
+    detailedMeaning: 'The foundational constitutional doctrine established in Maneka Gandhi (1978) and Minerva Mills (1980) holding that Articles 14 (Equality), 19 (Six Freedoms), and 21 (Life and Liberty) do not operate as separate silos, but form an intertwined, organic whole. Any law depriving personal liberty must simultaneously satisfy Article 14 (non-arbitrariness) and Article 19 (reasonableness).',
+    easyExample: 'If the government passes a law saying "The State can cancel any citizen\'s passport without giving reasons", the State cannot defend it by saying "We followed an official statute". The law must pass all three corners of the Golden Triangle: it must not be arbitrary (Art 14), must be a reasonable restriction (Art 19), and must be just and fair (Art 21).',
+    statutoryOrCaseRef: 'Maneka Gandhi v. Union of India (1978 7-Judge Bench); Minerva Mills (1980 5-Judge Bench)',
+    relatedArticles: ['Article 14', 'Article 19', 'Article 21']
+  },
+  {
+    term: 'Reasonable Restrictions',
+    aliases: ['reasonable restrictions', 'reasonable restriction'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Judicially reviewable statutory boundaries under Article 19(2)–(6)',
+    detailedMeaning: 'The doctrine that fundamental freedoms guaranteed under Article 19(1) are not absolute licenses. The State can impose reasonable restrictions on narrow statutory grounds (e.g. sovereignty/integrity of India, public order, decency, morality). The restriction must satisfy the doctrine of proportionality and have a direct nexus with the statutory objective.',
+    easyExample: 'You have freedom of speech under Article 19(1)(a), but that does not allow you to give a speech inciting a mob to burn down a public building. The State can arrest you under "reasonable restrictions" to preserve public order.',
+    statutoryOrCaseRef: 'Article 19(2)–(6) Constitution of India; Chintaman Rao (1951); Anuradha Bhasin (2020)',
+    relatedArticles: ['Article 19']
+  },
+  {
+    term: 'Civil Liberties',
+    aliases: ['civil liberties', 'civil liberty'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Individual rights and legal protections against state overreach',
+    detailedMeaning: 'Basic individual freedoms guaranteed by law and the Constitution that protect citizens from arbitrary governmental interference, including freedom of speech, assembly, movement, conscience, privacy, and personal liberty.',
+    easyExample: 'Your freedom to walk peacefully in the street, criticize government policy online, keep your phone calls private, and not be detained without being told why are your fundamental civil liberties.',
+    statutoryOrCaseRef: 'Part III Constitution of India; K.S. Puttaswamy (2017 9-Judge Bench)',
+    relatedArticles: ['Article 19', 'Article 21']
   }
 ];
