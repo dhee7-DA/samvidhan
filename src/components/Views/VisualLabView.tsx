@@ -128,7 +128,7 @@ const DIAGRAMS: DiagramItem[] = [
     id: 'precedent-lineage',
     title: 'Precedent Lineage & Judicial Evolution',
     category: 'Judicial Precedent',
-    articles: '5 Landmark Judicial Trees',
+    articles: '8 Landmark Judicial Trees',
     icon: <GitBranch className="w-4 h-4" />,
     component: <PrecedentLineageSVG />,
     summary: 'Evolutionary vector trees tracking how the Supreme Court developed, deepened, and occasionally overruled major constitutional precedents.'

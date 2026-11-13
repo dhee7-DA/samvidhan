@@ -61,7 +61,7 @@ export const OverviewDashboard: React.FC = () => {
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
           >
             <Award className="w-4 h-4 text-[var(--gold)]" />
-            <span>50 LANDMARK CASES LAB</span>
+            <span>100 LANDMARK CASES LAB</span>
           </button>
           <button
             onClick={() => setActiveTab('quiz')}

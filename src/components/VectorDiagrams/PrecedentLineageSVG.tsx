@@ -394,6 +394,189 @@ export const PRECEDENT_LINEAGES: LineageTrack[] = [
         color: '#f59e0b'
       }
     ]
+  },
+  {
+    id: 'environmental-climate-lineage',
+    title: 'Environmental & Climate Constitutionalism',
+    subtitle: 'From Absolute Liability to the 2024 Fundamental Right against Climate Change',
+    articleAnchor: 'Articles 14, 21, 48A, 51A(g)',
+    description: 'How the Supreme Court transformed Article 21 from physical survival into comprehensive environmental rights: formulating Absolute Liability, the Public Trust Doctrine, and the 2024 Climate Change right.',
+    nodes: [
+      {
+        id: 'mehta-oleum-1987',
+        year: 1987,
+        caseName: 'M.C. Mehta v. Union of India (Oleum Gas)',
+        citation: 'AIR 1987 SC 1086',
+        bench: '5-Judge Bench',
+        actionType: 'ORIGIN',
+        relationLabel: 'Absolute Liability Formulation',
+        coreDoctrine: 'No Exceptions to Industrial Liability',
+        ratioDecidendi: 'Formulated the non-derogable doctrine of Absolute Liability. Hazardous industrial enterprises have an absolute, non-delegable duty with no common-law exceptions.',
+        courtroomApplication: 'Universal standard cited in all toxic torts, factory fires, chemical leakages, and environmental disasters across India.',
+        color: '#64748b'
+      },
+      {
+        id: 'vellore-1996',
+        year: 1996,
+        caseName: 'Vellore Citizens Welfare Forum v. UOI',
+        citation: '(1996) 5 SCC 647',
+        bench: '3-Judge Bench',
+        actionType: 'EXPANDED',
+        relationLabel: 'International Law Incorporation',
+        coreDoctrine: 'Precautionary & Polluter Pays Principles',
+        ratioDecidendi: 'The Precautionary Principle and Polluter Pays Principle are essential features of Sustainable Development and part of customary law under Article 21.',
+        courtroomApplication: 'The bedrock precedent applied by the National Green Tribunal (NGT) and High Courts to reverse the burden of proof onto industrial developers.',
+        color: '#38bdf8'
+      },
+      {
+        id: 'kamal-nath-1997',
+        year: 1997,
+        caseName: 'M.C. Mehta v. Kamal Nath',
+        citation: '(1997) 1 SCC 388',
+        bench: '2-Judge Bench',
+        actionType: 'EXPANDED',
+        relationLabel: 'Public Trust Doctrine',
+        coreDoctrine: 'State as Trustee of Natural Resources',
+        ratioDecidendi: 'The State is the trustee of all natural resources meant for public enjoyment. Rivers, forests, and seashore cannot be converted into private ownership or commercially exploited.',
+        courtroomApplication: 'Mandatory authority in all litigations against lake encroachment, coastal deregulation, and commercial privatization of public commons.',
+        color: '#10b981'
+      },
+      {
+        id: 'ranjitsinh-2024',
+        year: 2024,
+        caseName: 'M.K. Ranjitsinh v. Union of India (Climate Change)',
+        citation: '2024 INSC 280 / (2024) 6 SCC 758',
+        bench: '3-Judge Bench (CJI DY Chandrachud)',
+        actionType: 'EXPANDED',
+        relationLabel: '2024 Constitutional Breakthrough',
+        coreDoctrine: 'Right to be Free from Adverse Effects of Climate Change',
+        ratioDecidendi: 'Recognized for the first time in Indian constitutional history the Right to be free from the adverse effects of Climate Change under Articles 14 and 21.',
+        courtroomApplication: 'The pioneering constitutional authority across all environmental, renewable energy, and climate litigation in India post-2024.',
+        color: '#a855f7'
+      }
+    ]
+  },
+  {
+    id: 'criminal-custody-lineage',
+    title: 'Criminal Safeguards & Due Process in Custody',
+    subtitle: 'From Police Excesses to Cognitive Privacy and Bail as the Rule',
+    articleAnchor: 'Articles 20(3), 21, 22',
+    description: 'The judicial construction of inviolable barricades shielding citizens against custodial torture, involuntary neuro-scientific tests, and mechanical arrests.',
+    nodes: [
+      {
+        id: 'nandini-1978',
+        year: 1978,
+        caseName: 'Nandini Satpathy v. P.L. Dani',
+        citation: '(1978) 2 SCC 424',
+        bench: '3-Judge Bench',
+        actionType: 'ORIGIN',
+        relationLabel: 'Silence in Interrogation',
+        coreDoctrine: 'Article 20(3) Extends to Pre-Trial Investigation',
+        ratioDecidendi: 'The constitutional privilege against self-incrimination applies at the threshold of police interrogation under Section 161 CrPC. A suspect has the right to remain silent to incriminatory questions.',
+        courtroomApplication: 'Universal defense in police, CBI, and ED interrogations confirming that silence does not equal guilt.',
+        color: '#64748b'
+      },
+      {
+        id: 'dk-basu-1997',
+        year: 1997,
+        caseName: 'D.K. Basu v. State of West Bengal',
+        citation: '(1997) 1 SCC 416',
+        bench: '2-Judge Bench',
+        actionType: 'EXPANDED',
+        relationLabel: 'Mandatory 11-Point Arrest Rules',
+        coreDoctrine: 'Custodial Torture is Incompatible with Article 21',
+        ratioDecidendi: 'Formulated 11 mandatory guidelines (arrest memo, informing relatives, medical inspection every 48 hours) to prevent custodial deaths and torture in lock-ups.',
+        courtroomApplication: 'Directly codified into Sections 41A–41D and 50A CrPC (now BNSS); non-compliance attracts contempt of court.',
+        color: '#38bdf8'
+      },
+      {
+        id: 'selvi-2010',
+        year: 2010,
+        caseName: 'Selvi v. State of Karnataka',
+        citation: '(2010) 7 SCC 263',
+        bench: '3-Judge Bench (Unanimous)',
+        actionType: 'EXPANDED',
+        relationLabel: 'Cognitive Privacy Shield',
+        coreDoctrine: 'Involuntary Narco & Polygraph Violate Article 20(3)',
+        ratioDecidendi: 'Involuntary administration of narco-analysis, polygraph, or brain electrical activation violates Article 20(3) self-incrimination and Article 21 mental privacy.',
+        courtroomApplication: 'Primary authority cited whenever investigative agencies seek permission for scientific interrogation without explicit voluntary consent.',
+        color: '#10b981'
+      },
+      {
+        id: 'antil-bail-2022',
+        year: 2022,
+        caseName: 'Satender Kumar Antil v. CBI',
+        citation: '(2022) 10 SCC 51',
+        bench: '2-Judge Bench',
+        actionType: 'REASSERTED',
+        relationLabel: 'Bail as Rule, Jail as Exception',
+        coreDoctrine: 'Four-Tier Bail Guidelines & Undertrial Freedom',
+        ratioDecidendi: 'Categorized offences to mandate that no-arrest during probe requires immediate bail without remand upon chargesheet. Strict 2-week timelines for bail applications.',
+        courtroomApplication: 'Governing master-precedent across every criminal court in India preventing unnecessary remand upon filing of chargesheets.',
+        color: '#a855f7'
+      }
+    ]
+  },
+  {
+    id: 'legislative-privilege-lineage',
+    title: 'Legislative Privileges & Bribery Immunity Overruled',
+    subtitle: 'From Parliamentary Immunity to Complete Accountability under Sita Soren',
+    articleAnchor: 'Articles 105, 194, Tenth Schedule',
+    description: 'The dramatic evolution from parliamentary privileges protecting corrupt floor-voting to the 2024 unanimous 7-Judge Constitution Bench ruling that bribery in the House enjoys zero immunity.',
+    nodes: [
+      {
+        id: 'searchlight-1959',
+        year: 1959,
+        caseName: 'M.S.M. Sharma v. Sri Krishna Sinha (Searchlight)',
+        citation: 'AIR 1959 SC 395',
+        bench: '5-Judge Bench',
+        actionType: 'ORIGIN',
+        relationLabel: 'Privilege Over Freedom of Speech',
+        coreDoctrine: 'Harmonious Construction of Articles 19 & 194',
+        ratioDecidendi: 'Legislature\'s internal privilege to prohibit publication of expunged proceedings prevailed over Article 19(1)(a) freedom of press.',
+        courtroomApplication: 'Baseline authority establishing the autonomous internal privileges of legislative chambers in India.',
+        color: '#64748b'
+      },
+      {
+        id: 'kihoto-1992',
+        year: 1992,
+        caseName: 'Kihoto Hollohan v. Zachillhu',
+        citation: '1992 Supp (2) SCC 651',
+        bench: '5-Judge Bench',
+        actionType: 'EXPANDED',
+        relationLabel: 'Judicial Review of Speaker Orders',
+        coreDoctrine: 'Tenth Schedule Speaker Operates as a Tribunal',
+        ratioDecidendi: 'The Speaker deciding disqualification petitions acts as a statutory Tribunal. Final orders are subject to judicial review under Articles 136 and 226.',
+        courtroomApplication: 'The bedrock precedent in every state assembly defection and speaker disqualification battle.',
+        color: '#38bdf8'
+      },
+      {
+        id: 'narasimha-rao-1998',
+        year: 1998,
+        caseName: 'P.V. Narasimha Rao v. State (JMM Bribery)',
+        citation: '(1998) 4 SCC 626',
+        bench: '5-Judge Bench (3:2)',
+        actionType: 'EXPANDED',
+        relationLabel: 'Controversial Bribery Immunity',
+        coreDoctrine: 'Literal Immunity for Speeches and Votes in House',
+        ratioDecidendi: 'Majority held that MPs who took bribes and voted to save the government were immune from criminal prosecution under Article 105(2).',
+        courtroomApplication: 'Historically cited to shield politicians in cash-for-vote scandals, drawing severe academic and judicial criticism.',
+        color: '#ef4444'
+      },
+      {
+        id: 'sita-soren-2024',
+        year: 2024,
+        caseName: 'Sita Soren v. Union of India',
+        citation: '2024 INSC 165 / (2024) 5 SCC 629',
+        bench: '7-Judge Bench (Unanimous)',
+        actionType: 'OVERRULED',
+        relationLabel: 'Overruled P.V. Narasimha Rao (1998)',
+        coreDoctrine: 'Bribery for Vote/Speech Has ZERO Immunity',
+        ratioDecidendi: 'Unanimously overruled P.V. Narasimha Rao 7:0. Bribery is complete upon acceptance and is not essential to casting a vote. Articles 105 and 194 do not shield legislators from criminal penal law.',
+        courtroomApplication: 'Historic landmark stripping all legislative immunity from cash-for-vote and corruption investigations across India.',
+        color: '#10b981'
+      }
+    ]
   }
 ];
 
@@ -421,7 +604,7 @@ export const PrecedentLineageSVG: React.FC = () => {
               Interactive Precedent Lineage Visualizer
             </h3>
             <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-              5 Landmark Judicial Trees
+              8 Landmark Judicial Trees
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">

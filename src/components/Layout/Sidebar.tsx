@@ -28,7 +28,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106' },
   { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic' },
   { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines' },
-  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '50 Cases' },
+  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases' },
   { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" /> },
   { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall' },
 ];

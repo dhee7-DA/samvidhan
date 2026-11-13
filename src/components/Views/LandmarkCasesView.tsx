@@ -18,7 +18,11 @@ import {
   ChevronRight,
   Filter,
   Sparkles,
-  BookMarked
+  BookMarked,
+  Globe2,
+  Vote,
+  Compass,
+  Users
 } from 'lucide-react';
 import {
   DETAILED_CASE_LAWS_BY_TOPIC,
@@ -141,6 +145,11 @@ export const LandmarkCasesView: React.FC = () => {
       case 'Award': return <Award className="w-3.5 h-3.5" />;
       case 'Layers': return <Layers className="w-3.5 h-3.5" />;
       case 'GitBranch': return <GitBranch className="w-3.5 h-3.5" />;
+      case 'Sparkles': return <Sparkles className="w-3.5 h-3.5" />;
+      case 'Users': return <Users className="w-3.5 h-3.5" />;
+      case 'Vote': return <Vote className="w-3.5 h-3.5" />;
+      case 'Globe2': return <Globe2 className="w-3.5 h-3.5" />;
+      case 'Compass': return <Compass className="w-3.5 h-3.5" />;
       default: return <Scale className="w-3.5 h-3.5" />;
     }
   };
@@ -166,7 +175,7 @@ export const LandmarkCasesView: React.FC = () => {
               Landmark Constitutional Precedents Lab
             </h1>
             <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-              50 Authoritative Cases • 5 Per Topic
+              100 Authoritative Cases • 5 Per Topic Across 20 Clusters
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)] max-w-3xl leading-relaxed">
@@ -175,13 +184,13 @@ export const LandmarkCasesView: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-mono text-[var(--text-muted)]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400"></span> 50 Detailed Judgments
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span> 100 Detailed Judgments
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-sky-400"></span> 10 Constitutional Topics
+              <span className="w-2 h-2 rounded-full bg-sky-400"></span> 20 Constitutional Topics
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-purple-400"></span> 5 Interactive Lineage SVGs
+              <span className="w-2 h-2 rounded-full bg-purple-400"></span> 8 Interactive Lineage SVGs
             </span>
             <span className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-amber-400"></span> Courtroom Application Badges
@@ -200,7 +209,7 @@ export const LandmarkCasesView: React.FC = () => {
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            <span>50 Cases</span>
+            <span>100 Cases</span>
           </button>
 
           <button
@@ -337,10 +346,10 @@ export const LandmarkCasesView: React.FC = () => {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)]">
-                  Filter by 10 Constitutional Topics (5 Cases Each)
+                  Filter by 20 Constitutional Topics (5 Cases Each)
                 </span>
                 <span className="text-xs font-mono text-[var(--text-secondary)]">
-                  Showing {filteredCases.length} of 50 Cases
+                  Showing {filteredCases.length} of 100 Cases
                 </span>
               </div>
 
@@ -354,7 +363,7 @@ export const LandmarkCasesView: React.FC = () => {
                   }`}
                 >
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>All 10 Topics (50)</span>
+                  <span>All 20 Topics (100)</span>
                 </button>
 
                 {DETAILED_CASE_LAWS_BY_TOPIC.map((topic) => {

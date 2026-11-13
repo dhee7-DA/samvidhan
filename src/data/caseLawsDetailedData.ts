@@ -1058,5 +1058,1186 @@ export const DETAILED_CASE_LAWS_BY_TOPIC: CaseLawTopicGroup[] = [
         keyQuote: '"The Ninth Schedule cannot be used as a vault to bury the fundamental rights of citizens. The touchstone is the Basic Structure."'
       }
     ]
+  },
+
+  {
+    "id": "environmental-constitutionalism",
+    "name": "Environmental & Climate Constitutionalism",
+    "articlesRange": "Articles 21, 48A, 51A(g)",
+    "description": "Jurisprudence transforming the Right to Life into ecological rights: Absolute Liability, Public Trust, and the 2024 Right against Climate Change.",
+    "iconName": "Sparkles",
+    "color": "#10b981",
+    "cases": [
+      {
+        "id": "case-mc-mehta-oleum",
+        "topicId": "environmental-constitutionalism",
+        "topicName": "Environmental & Climate Constitutionalism",
+        "caseName": "M.C. Mehta v. Union of India (Oleum Gas Leak)",
+        "citation": "AIR 1987 SC 1086",
+        "year": 1987,
+        "benchStrength": 5,
+        "presidingJudges": "P.N. Bhagwati (CJI), R.S. Pathak, D.P. Madon, G.L. Oza",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 32"
+        ],
+        "governingDoctrine": "Doctrine of Absolute Liability",
+        "factualBackground": "Leakage of oleum gas from Shriram Foods and Fertilizer plant in Delhi killed an advocate and affected thousands shortly after Bhopal Gas Disaster. Court was petitioned under Art 32 to determine the standard of liability for hazardous industries.",
+        "constitutionalQuestion": "Is the strict liability rule in Rylands v. Fletcher with its common-law exceptions adequate for modern hazardous industrial activities in India?",
+        "majorityVerdict": "Formulated the non-derogable doctrine of Absolute Liability. Enterprise engaging in inherently dangerous activities has an absolute and non-delegable duty to community with no exceptions.",
+        "ratioDecidendi": "Where an enterprise is engaged in a hazardous or inherently dangerous activity and harm results to anyone, the enterprise is strictly and absolutely liable to compensate all who are affected, and such liability is not subject to any of the exceptions to the rule in Rylands v. Fletcher.",
+        "howCourtsApplyToday": "Universally cited in toxic torts, factory explosions, chemical spills, and industrial disasters across India to defeat pleas of act of God, third-party sabotage, or lack of negligence.",
+        "keyQuote": "\"An enterprise must be held to be under an obligation to provide that the hazardous activity is conducted with the highest standards of safety, and if any harm results, the enterprise must be absolutely liable.\""
+      },
+      {
+        "id": "case-vellore-citizens",
+        "topicId": "environmental-constitutionalism",
+        "topicName": "Environmental & Climate Constitutionalism",
+        "caseName": "Vellore Citizens Welfare Forum v. Union of India",
+        "citation": "(1996) 5 SCC 647",
+        "benchStrength": 3,
+        "year": 1996,
+        "presidingJudges": "Kuldip Singh, Faizan Uddin, K. Venkataswami",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 47",
+          "Article 48A",
+          "Article 51A(g)"
+        ],
+        "governingDoctrine": "Precautionary Principle & Polluter Pays Principle",
+        "factualBackground": "Tanneries in Tamil Nadu discharged untreated toxic effluents into river Palar, poisoning potable drinking water and agricultural lands across hundreds of villages.",
+        "constitutionalQuestion": "Are the international environmental concepts of \"Precautionary Principle\" and \"Polluter Pays\" part of Indian municipal environmental law under Article 21?",
+        "majorityVerdict": "Held that both principles are essential parts of the Sustainable Development law of India and derived from Article 21.",
+        "ratioDecidendi": "The Precautionary Principle and the Polluter Pays Principle are essential features of Sustainable Development and form part of the customary environmental law of India. State authorities must anticipate, prevent, and attack causes of environmental degradation; lack of full scientific certainty shall not be used as a reason for postponing cost-effective preventive measures.",
+        "howCourtsApplyToday": "The foundational precedent cited by the National Green Tribunal (NGT) and High Courts to reverse the burden of proof onto industrial project developers and impose environmental restitution costs.",
+        "keyQuote": "\"The remediation of the damaged environment is part of the process of Sustainable Development and as such polluter is liable to pay the cost to the individual sufferers as well as the cost of reversing the damaged ecology.\""
+      },
+      {
+        "id": "case-kamal-nath-trust",
+        "topicId": "environmental-constitutionalism",
+        "topicName": "Environmental & Climate Constitutionalism",
+        "caseName": "M.C. Mehta v. Kamal Nath",
+        "citation": "(1997) 1 SCC 388",
+        "year": 1997,
+        "benchStrength": 2,
+        "presidingJudges": "Kuldip Singh, Saghir Ahmad",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 48A",
+          "Article 32"
+        ],
+        "governingDoctrine": "The Public Trust Doctrine",
+        "factualBackground": "Span Motels, in which a former Union Minister had family interests, diverted the natural flow of river Beas in Himachal Pradesh to build a luxury resort, causing seasonal flooding.",
+        "constitutionalQuestion": "Can the executive grant commercial leases over ecologically sensitive natural public assets such as riverbeds and forests?",
+        "majorityVerdict": "Cancelled the commercial lease and ordered restoration of the river ecology under the Public Trust Doctrine.",
+        "ratioDecidendi": "The State is the trustee of all natural resources which are by nature meant for public use and enjoyment. The State is under a legal duty to protect the natural resources and these resources cannot be converted into private ownership or commercially exploited to public detriment.",
+        "howCourtsApplyToday": "Invaluable citation in challenges against beach encroachment, privatization of lakes and waterbodies, de-notification of national parks, and commercial leasing of public common lands.",
+        "keyQuote": "\"The Public Trust Doctrine primarily rests on the principle that certain resources like air, sea, waters and the forests have such a great importance to the people as a whole that it would be wholly unjustified to make them a subject of private ownership.\""
+      },
+      {
+        "id": "case-subhash-kumar",
+        "topicId": "environmental-constitutionalism",
+        "topicName": "Environmental & Climate Constitutionalism",
+        "caseName": "Subhash Kumar v. State of Bihar",
+        "citation": "(1991) 1 SCC 598",
+        "year": 1991,
+        "benchStrength": 2,
+        "presidingJudges": "K.N. Singh, Kuldip Singh",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 32"
+        ],
+        "governingDoctrine": "Right to Pollution-Free Water & Air under Article 21",
+        "factualBackground": "Petition under Article 32 alleging discharge of coal slurry and industrial waste into river Bokaro was filed, though with self-serving commercial motives.",
+        "constitutionalQuestion": "Does the Right to Life under Article 21 encompass the right to an unpolluted environment, and can it be invoked by public interest litigants?",
+        "majorityVerdict": "Reaffirmed that Article 21 includes the right to the enjoyment of pollution-free water and air for full enjoyment of life, while warning against mala fide PILs filed for personal vendetta.",
+        "ratioDecidendi": "The right to life is a compendious right which includes the right of enjoyment of pollution-free water and air for full enjoyment of life. If anything endangers or impairs that quality of life in derogation of laws, a citizen has the right to recourse to Article 32.",
+        "howCourtsApplyToday": "The seminal authority that elevated clean air and potable water to the status of a fundamental constitutional right enforceable via writ petitions against municipal corporations and state pollution boards.",
+        "keyQuote": "\"Right to live is a fundamental right under Article 21 of the Constitution and it includes the right of enjoyment of pollution-free water and air for full enjoyment of life.\""
+      },
+      {
+        "id": "case-ranjitsinh-climate",
+        "topicId": "environmental-constitutionalism",
+        "topicName": "Environmental & Climate Constitutionalism",
+        "caseName": "M.K. Ranjitsinh v. Union of India (Great Indian Bustard Case)",
+        "citation": "2024 INSC 280 / (2024) 6 SCC 758",
+        "year": 2024,
+        "benchStrength": 3,
+        "presidingJudges": "D.Y. Chandrachud (CJI), J.B. Pardiwala, Manoj Misra",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 21",
+          "Article 48A",
+          "Article 51A(g)"
+        ],
+        "governingDoctrine": "Fundamental Right to be Free from Adverse Effects of Climate Change",
+        "factualBackground": "Conflict arose in Rajasthan and Gujarat between undergrounding power lines to save the critically endangered Great Indian Bustard (GIB) and India's national commitments to ramp up renewable solar energy grids.",
+        "constitutionalQuestion": "Is there a distinct, enforceable fundamental right under the Constitution against the adverse impacts of anthropogenic climate change?",
+        "majorityVerdict": "Recognized for the first time in Indian constitutional history the Right against adverse effects of climate change under Articles 14 and 21.",
+        "ratioDecidendi": "Without a clean and stable environment that is unimpacted by the ravages of climate change, the right to life guaranteed by Article 21 cannot be fully realized. The right to health and a clean environment are intimately linked with climate stability. Article 14 equality is also violated as marginalized communities disproportionately suffer climate disasters.",
+        "howCourtsApplyToday": "The pioneering constitutional authority across all environmental litigation in India post-2024. Cited to mandate governmental climate mitigation plans, clean energy policies, and climate vulnerability assessments.",
+        "keyQuote": "\"Despite the absence of an explicit provision in the Constitution, it is now well established that the right to life under Article 21 embraces the right to a clean environment. From this right flows the right to be free from the adverse effects of climate change.\""
+      }
+    ]
+  },
+  {
+    "id": "criminal-safeguards-liberty",
+    "name": "Criminal Safeguards, Arrest & Custodial Rights",
+    "articlesRange": "Articles 20, 21, 22",
+    "description": "Constitutional limitations on police powers, custodial interrogation, arbitrary arrest, and the statutory mechanics of personal liberty and bail.",
+    "iconName": "ShieldAlert",
+    "color": "#ef4444",
+    "cases": [
+      {
+        "id": "case-dk-basu-arrest",
+        "topicId": "criminal-safeguards-liberty",
+        "topicName": "Criminal Safeguards, Arrest & Custodial Rights",
+        "caseName": "D.K. Basu v. State of West Bengal",
+        "citation": "(1997) 1 SCC 416",
+        "year": 1997,
+        "benchStrength": 2,
+        "presidingJudges": "Kuldip Singh, A.S. Anand",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 22(1)",
+          "Article 22(2)"
+        ],
+        "governingDoctrine": "Custodial Dignity & Mandatory 11-Point Arrest Safeguards",
+        "factualBackground": "Executive Chairman of Legal Aid Services, West Bengal addressed a letter petition highlighting recurring deaths in police lock-ups and custodial torture, praying for preventative judicial guidelines.",
+        "constitutionalQuestion": "How can the guarantee of personal liberty under Article 21 and protection against arbitrary arrest under Article 22 be made operationally enforceable against police lock-up atrocities?",
+        "majorityVerdict": "Formulated 11 mandatory guidelines binding on all police personnel during arrest, interrogation, and detention.",
+        "ratioDecidendi": "Custodial violence, torture, and lock-up deaths strike at the root of the Rule of Law and violate Article 21. Prescribed mandatory memo of arrest, right of arrestee to inform a friend/relative within 8-12 hours, preparation of inspection memo recording existing injuries, and medical examination every 48 hours.",
+        "howCourtsApplyToday": "Non-compliance with D.K. Basu guidelines renders arresting officers liable to contempt of court and disciplinary proceedings; later codified into Sections 41A–41D and 50A CrPC (now Bharatiya Nagarik Suraksha Sanhita).",
+        "keyQuote": "\"Custodial death is perhaps one of the worst crimes in a civilized society governed by the Rule of Law. The precious right guaranteed by Article 21 cannot be denied to convicts, undertrials, or other prisoners.\""
+      },
+      {
+        "id": "case-selvi-narco",
+        "topicId": "criminal-safeguards-liberty",
+        "topicName": "Criminal Safeguards, Arrest & Custodial Rights",
+        "caseName": "Selvi v. State of Karnataka",
+        "citation": "(2010) 7 SCC 263",
+        "year": 2010,
+        "benchStrength": 3,
+        "presidingJudges": "K.G. Balakrishnan (CJI), R.V. Raveendran, J.M. Panchal",
+        "constitutionalArticles": [
+          "Article 20(3)",
+          "Article 21"
+        ],
+        "governingDoctrine": "Right Against Self-Incrimination & Cognitive Privacy",
+        "factualBackground": "Investigation agencies routinely subjected suspects to involuntary narco-analysis (sodium pentothal), Polygraph Examination (lie-detector), and Brain Electrical Activation Profile (BEAP) testing.",
+        "constitutionalQuestion": "Does the involuntary administration of neuro-scientific investigative techniques violate the right against self-incrimination under Article 20(3) and the right to privacy under Article 21?",
+        "majorityVerdict": "Unanimously held that involuntary administration of narco-analysis, polygraph, or brain mapping violates Articles 20(3) and 21.",
+        "ratioDecidendi": "The phrase \"compelled to be a witness\" in Article 20(3) encompasses involuntary extraction of testimonial responses through physical or psychological coercion. Involuntary subjection violates cognitive privacy and bodily integrity under Article 21. Voluntary tests may be conducted only with informed consent before a judicial magistrate, but results are not substantive evidence (only subsequent discoveries under Sec 27 Evidence Act).",
+        "howCourtsApplyToday": "Primary authority cited whenever investigative agencies seek permission for narco or lie-detector tests without explicit, uncoerced consent.",
+        "keyQuote": "\"The right against self-incrimination under Article 20(3) protects an individual's mental privacy and choice between speaking and remaining silent. Compelling an individual to undergo such techniques invades the bodily and mental integrity of the person.\""
+      },
+      {
+        "id": "case-arnesh-kumar",
+        "topicId": "criminal-safeguards-liberty",
+        "topicName": "Criminal Safeguards, Arrest & Custodial Rights",
+        "caseName": "Arnesh Kumar v. State of Bihar",
+        "citation": "(2014) 8 SCC 273",
+        "year": 2014,
+        "benchStrength": 2,
+        "presidingJudges": "Chandramauli Kumar Prasad, Pinaki Chandra Ghose",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 22"
+        ],
+        "governingDoctrine": "Curb on Mechanical Arrests in Offences under 7 Years",
+        "factualBackground": "Petitioner facing anticipatory bail rejection in an alleged 498A IPC dowry dispute challenged the rampant practice of police mechanically arresting accused persons without verifying necessity.",
+        "constitutionalQuestion": "Can police effectuate immediate arrests in offences punishable with imprisonment of less than 7 years without satisfying the statutory checks of Section 41 CrPC?",
+        "majorityVerdict": "Mandated strict compliance with Section 41 and 41A CrPC; prohibited routine and mechanical arrests in offences carrying sentences up to 7 years.",
+        "ratioDecidendi": "Arrest brings humiliation, curtails freedom and casts scars forever. Police officers cannot arrest mechanically upon receipt of an FIR without satisfying conditions in Section 41(1)(b) CrPC. Notice of appearance under Section 41A must be served. Magistrates must not authorize detention mechanically without recording satisfaction.",
+        "howCourtsApplyToday": "The universal sword invoked in 498A IPC, financial fraud, cheque bounce, and cybercrime anticipatory bail hearings. Failure to serve 41A notice entitles the accused to immediate bail.",
+        "keyQuote": "\"Arrest should not be the rule. No arrest should be made because it is lawful for the police officer to do so. The existence of the power to arrest is one thing, the justification for the exercise of it is quite another.\""
+      },
+      {
+        "id": "case-satender-antil-bail",
+        "topicId": "criminal-safeguards-liberty",
+        "topicName": "Criminal Safeguards, Arrest & Custodial Rights",
+        "caseName": "Satender Kumar Antil v. Central Bureau of Investigation",
+        "citation": "(2022) 10 SCC 51",
+        "year": 2022,
+        "benchStrength": 2,
+        "presidingJudges": "Sanjay Kishan Kaul, M.M. Sundresh",
+        "constitutionalArticles": [
+          "Article 21"
+        ],
+        "governingDoctrine": "Comprehensive Bail Jurisprudence & De-congestion of Prisons",
+        "factualBackground": "Despite Supreme Court orders, magistrates across the country continued to insist on arresting and taking into custody accused persons upon submission of chargesheet even when they were never arrested during investigation.",
+        "constitutionalQuestion": "How should courts structure bail decisions across different offence categories to uphold Article 21 and avoid transforming jails into undertrial warehouses?",
+        "majorityVerdict": "Classified offences into four distinct categories (A, B, C, D) and laid down nationwide binding bail directives.",
+        "ratioDecidendi": "Category A (offences punishable up to 7 years): No arrest during investigation means bail must be granted on appearance/summons without custody. Emphasized that \"bail is the rule, jail is the exception\". Trial courts must decide regular bail applications within two weeks and anticipatory bail within six weeks.",
+        "howCourtsApplyToday": "The governing master-precedent cited in every criminal court in India for expeditious bail disposal and preventing remand upon filing of chargesheets.",
+        "keyQuote": "\"Jails in India are flooded with undertrial prisoners. The concept of personal liberty is enshrined in Article 21 and the code provides for bail as a rule and custody as an exception.\""
+      },
+      {
+        "id": "case-nandini-satpathy",
+        "topicId": "criminal-safeguards-liberty",
+        "topicName": "Criminal Safeguards, Arrest & Custodial Rights",
+        "caseName": "Nandini Satpathy v. P.L. Dani",
+        "citation": "(1978) 2 SCC 424",
+        "year": 1978,
+        "benchStrength": 3,
+        "presidingJudges": "V.R. Krishna Iyer, Jaswant Singh, V.D. Tulzapurkar",
+        "constitutionalArticles": [
+          "Article 20(3)",
+          "Article 21"
+        ],
+        "governingDoctrine": "Right of Silence During Pre-Trial Police Interrogation",
+        "factualBackground": "Former Chief Minister of Odisha was summoned under Section 160 CrPC by vigilance police and handed a questionnaire with over 40 questions regarding disproportionate assets; she refused to answer on grounds of self-incrimination.",
+        "constitutionalQuestion": "Does the constitutional privilege against self-incrimination in Article 20(3) apply to police interrogations and investigation stages, or is it confined to courtroom testimony?",
+        "majorityVerdict": "Held that Article 20(3) extends to police interrogation and investigation stages, shielding suspects from being coerced into furnishing incriminatory answers.",
+        "ratioDecidendi": "The privilege against self-incrimination under Article 20(3) starts at the threshold of police interrogation. An accused or suspect has the constitutional right to keep silent if the answer has a reasonable tendency to expose them to a criminal charge. Compulsion includes physical coercion, psychological duress, or custodial intimidation.",
+        "howCourtsApplyToday": "Standard defense cited during CBI, ED, and police custody interrogations to establish that non-cooperation or silence does not equate to guilt or ground for cancellation of bail.",
+        "keyQuote": "\"The prohibitive sweep of Article 20(3) goes back to the stage of investigation. The right to remain silent is not an obstruction of justice, but a constitutional barricade against forced confessions.\""
+      }
+    ]
+  },
+  {
+    "id": "democracy-electoral-transparency",
+    "name": "Democracy, EVM & Political Transparency",
+    "articlesRange": "Articles 19(1)(a), 324 to 329",
+    "description": "Constitutional jurisprudence governing free and fair elections, voter right to information, political funding transparency, and election commission independence.",
+    "iconName": "Vote",
+    "color": "#8b5cf6",
+    "cases": [
+      {
+        "id": "case-electoral-bonds-2024",
+        "topicId": "democracy-electoral-transparency",
+        "topicName": "Democracy, EVM & Political Transparency",
+        "caseName": "Association for Democratic Reforms v. Union of India (Electoral Bonds Case)",
+        "citation": "2024 INSC 113 / (2024) 5 SCC 1",
+        "year": 2024,
+        "benchStrength": 5,
+        "presidingJudges": "D.Y. Chandrachud (CJI), Sanjiv Khanna, B.R. Gavai, J.B. Pardiwala, Manoj Misra",
+        "constitutionalArticles": [
+          "Article 19(1)(a)",
+          "Article 14"
+        ],
+        "governingDoctrine": "Voter's Right to Information & Political Funding Transparency",
+        "factualBackground": "Finance Act 2017 introduced the Electoral Bond Scheme allowing unlimited, anonymous corporate donations to registered political parties via State Bank of India without public disclosure.",
+        "constitutionalQuestion": "Does the non-disclosure of political campaign contributions through anonymous Electoral Bonds violate the voter's right to information under Article 19(1)(a)?",
+        "majorityVerdict": "Unanimous 5:0: Struck down the Electoral Bond Scheme and related amendments to the Companies Act, RPA, and Income Tax Act as unconstitutional and void.",
+        "ratioDecidendi": "Information about political party funding is essential for an elector to exercise freedom of voting under Article 19(1)(a). The scheme failed the proportionality test: combating black money cannot justify complete deprivation of information from voters. Removing corporate donation caps under Sec 182(1) Companies Act allowed unlimited quid pro quo, violating manifest arbitrariness under Article 14.",
+        "howCourtsApplyToday": "The epochal modern authority asserting that political transparency and voter knowledge of money power are vital facets of democratic sovereignty and free elections.",
+        "keyQuote": "\"The ability of a citizen to participate in democracy is undermined without knowledge of the sources of political funding. Opacity in political finance fosters corruption and quid pro quo arrangements.\""
+      },
+      {
+        "id": "case-adr-voter-info-2002",
+        "topicId": "democracy-electoral-transparency",
+        "topicName": "Democracy, EVM & Political Transparency",
+        "caseName": "Union of India v. Association for Democratic Reforms (ADR)",
+        "citation": "(2002) 5 SCC 294",
+        "year": 2002,
+        "benchStrength": 3,
+        "presidingJudges": "M.B. Shah, Bisheshwar Prasad Singh, H.K. Sema",
+        "constitutionalArticles": [
+          "Article 19(1)(a)",
+          "Article 324"
+        ],
+        "governingDoctrine": "Elector's Right to Candidate Background Disclosures",
+        "factualBackground": "High Court allowed a PIL directing candidate disclosures; Union Government appealed arguing that only Parliament can prescribe qualifications under Representation of the People Act 1951.",
+        "constitutionalQuestion": "Does the fundamental right to freedom of speech and expression under Article 19(1)(a) include the right of a voter to know the antecedents of contesting candidates?",
+        "majorityVerdict": "Affirmed that the right to vote encompasses the right to know. Directed ECI to mandate asset, criminal, and educational affidavits.",
+        "ratioDecidendi": "Freedom of speech and expression includes the right to impart and receive information. A voter cannot participate meaningfully in the democratic process without knowing the character, assets, educational qualifications, and criminal records of candidates aspiring to public office.",
+        "howCourtsApplyToday": "Form 26 affidavit requirement in Indian elections was born from this ruling; cited in disqualification and corrupt election practice election petitions across High Courts.",
+        "keyQuote": "\"Democracy cannot survive without free and fair elections, and elections cannot be fair unless electors are informed about the background of candidates who seek their mandate.\""
+      },
+      {
+        "id": "case-pucl-nota-2013",
+        "topicId": "democracy-electoral-transparency",
+        "topicName": "Democracy, EVM & Political Transparency",
+        "caseName": "People's Union for Civil Liberties (PUCL) v. Union of India (NOTA Case)",
+        "citation": "(2013) 10 SCC 1",
+        "year": 2013,
+        "benchStrength": 3,
+        "presidingJudges": "P. Sathasivam (CJI), Ranjana P. Desai, Ranjan Gogoi",
+        "constitutionalArticles": [
+          "Article 19(1)(a)",
+          "Article 324"
+        ],
+        "governingDoctrine": "Right to Negative Voting (None of the Above)",
+        "factualBackground": "Under Rules 41(2) & 49-O of Conduct of Elections Rules 1961, an elector refusing to vote had to record the refusal in a register, destroying secrecy of ballot.",
+        "constitutionalQuestion": "Does the right to vote under Article 19(1)(a) include the constitutional right to express a negative vote (rejection of all candidates) in absolute secrecy?",
+        "majorityVerdict": "Directed the Election Commission to provide a \"None of the Above\" (NOTA) option on EVMs and ballot papers.",
+        "ratioDecidendi": "Voting is a formal expression of choice under Article 19(1)(a). The right to choose includes the right to reject. Providing a NOTA button encourages wider voter turnout and compels political parties to nominate candidates of integrity.",
+        "howCourtsApplyToday": "Established NOTA as a permanent fixture on all Indian EVMs from panchayat to parliamentary polls.",
+        "keyQuote": "\"Free and fair election is the basic structure of the Constitution. Giving the voter the right to say none of the above preserves secrecy and fosters cleaner democratic competition.\""
+      },
+      {
+        "id": "case-lily-thomas-2013",
+        "topicId": "democracy-electoral-transparency",
+        "topicName": "Democracy, EVM & Political Transparency",
+        "caseName": "Lily Thomas v. Union of India",
+        "citation": "(2013) 7 SCC 653",
+        "year": 2013,
+        "benchStrength": 2,
+        "presidingJudges": "A.K. Patnaik, S.J. Mukhopadhaya",
+        "constitutionalArticles": [
+          "Article 102(1)(e)",
+          "Article 191(1)(e)"
+        ],
+        "governingDoctrine": "Immediate Disqualification of Convicted Legislators",
+        "factualBackground": "Section 8(4) of Representation of the People Act 1951 allowed sitting MPs and MLAs who were convicted of crimes carrying 2+ years imprisonment to continue in office if they filed an appeal within 3 months.",
+        "constitutionalQuestion": "Did Parliament have the legislative competence under Articles 102(1)(e) and 191(1)(e) to create a differential disqualification rule for sitting legislators versus ordinary candidates?",
+        "majorityVerdict": "Struck down Section 8(4) of the RPA as ultra vires the Constitution.",
+        "ratioDecidendi": "Articles 102(1)(e) and 191(1)(e) empower Parliament to lay down disqualifications, but once laid down, the disqualification is automatic and applies identically to a candidate and a sitting member. A convicted legislator cannot retain membership merely by filing an appeal.",
+        "howCourtsApplyToday": "Led directly to the unseating of prominent convicted politicians immediately upon conviction; prevents criminalization of legislative chambers.",
+        "keyQuote": "\"A sitting MP or MLA stands disqualified on the date of conviction by a trial court. Parliament has no power to carve out a special protective enclave for sitting legislators.\""
+      },
+      {
+        "id": "case-anoop-baranwal-eci",
+        "topicId": "democracy-electoral-transparency",
+        "topicName": "Democracy, EVM & Political Transparency",
+        "caseName": "Anoop Baranwal v. Union of India (Election Commission Selection)",
+        "citation": "(2023) 6 SCC 161",
+        "year": 2023,
+        "benchStrength": 5,
+        "presidingJudges": "K.M. Joseph, Ajay Rastogi, Aniruddha Bose, Hrishikesh Roy, C.T. Ravikumar",
+        "constitutionalArticles": [
+          "Article 324(2)"
+        ],
+        "governingDoctrine": "Institutional Independence of the Election Commission",
+        "factualBackground": "Article 324(2) provided that the appointment of Election Commissioners shall be made by the President \"subject to the provisions of any law made in that behalf by Parliament\". For 73 years, no law was enacted, allowing executive monopoly.",
+        "constitutionalQuestion": "Can the Election Commission remain an independent constitutional body if its appointments are entirely controlled by the executive government in power?",
+        "majorityVerdict": "Exercised fill-in jurisdiction directing that appointments be made on advice of a high-powered committee (Prime Minister, Leader of Opposition, and Chief Justice of India) until Parliament enacts a law.",
+        "ratioDecidendi": "An Election Commission subservient to the executive is fatal to democracy. The vacuum created by legislative silence was remedied to protect the basic feature of free and fair elections. Emphasized that institutional independence requires insulation from executive discretion.",
+        "howCourtsApplyToday": "Prompted Parliament to enact the Chief Election Commissioner and other Election Commissioners Act, 2023; cited in challenges to institutional neutrality of regulators.",
+        "keyQuote": "\"The Election Commission has to remain aloof from all forms of subjugation by the executive. Democracy is inextricably intertwined with the independence of the body that conducts elections.\""
+      }
+    ]
+  },
+  {
+    "id": "anti-defection-privileges",
+    "name": "Anti-Defection & Legislative Privileges",
+    "articlesRange": "Tenth Schedule, Articles 105, 194",
+    "description": "Constitutional jurisprudence disciplining floor-crossing, the powers and limits of Assembly Speakers, and the boundaries of parliamentary speech and bribery immunities.",
+    "iconName": "GitBranch",
+    "color": "#06b6d4",
+    "cases": [
+      {
+        "id": "case-sita-soren-2024",
+        "topicId": "anti-defection-privileges",
+        "topicName": "Anti-Defection & Legislative Privileges",
+        "caseName": "Sita Soren v. Union of India",
+        "citation": "2024 INSC 165 / (2024) 5 SCC 629",
+        "year": 2024,
+        "benchStrength": 7,
+        "presidingJudges": "D.Y. Chandrachud (CJI), A.S. Bopanna, M.M. Sundresh, P.S. Narasimha, J.B. Pardiwala, Sanjay Kumar, Manoj Misra",
+        "constitutionalArticles": [
+          "Article 105(2)",
+          "Article 194(2)"
+        ],
+        "governingDoctrine": "No Parliamentary Immunity for Taking Bribes to Vote/Speak",
+        "factualBackground": "JMM MLA Sita Soren was accused of accepting a bribe to vote for an independent candidate in the 2012 Rajya Sabha elections. She sought criminal immunity under Article 194(2) relying on the 5-judge majority ruling in P.V. Narasimha Rao (1998 JMM Bribery Case).",
+        "constitutionalQuestion": "Does the immunity granted to legislators under Articles 105(2) and 194(2) shield an MP or MLA from criminal prosecution for accepting a bribe to cast a vote or speak in the legislature?",
+        "majorityVerdict": "Unanimously overruled P.V. Narasimha Rao (1998) 7:0. Held that taking a bribe is complete the moment it is accepted and has no constitutional immunity.",
+        "ratioDecidendi": "Articles 105 and 194 aim to sustain collective parliamentary functioning, not to confer personal exemption from general criminal law. Bribery is not essential to the casting of a vote or the exercise of legislative function. The offence of bribery is complete upon acceptance, irrespective of whether the vote is subsequently cast.",
+        "howCourtsApplyToday": "Historic modern benchmark eradicating the legal shield for legislative cash-for-vote scandals; directly applicable to corruption probes against sitting legislators across India.",
+        "keyQuote": "\"Corruption and bribery by legislators subvert the foundation of Indian parliamentary democracy. Immunity under Articles 105 and 194 was never intended to create a privileged class above the penal law.\""
+      },
+      {
+        "id": "case-kihoto-hollohan-1992",
+        "topicId": "anti-defection-privileges",
+        "topicName": "Anti-Defection & Legislative Privileges",
+        "caseName": "Kihoto Hollohan v. Zachillhu",
+        "citation": "1992 Supp (2) SCC 651",
+        "year": 1992,
+        "benchStrength": 5,
+        "presidingJudges": "L.M. Sharma, M.N. Venkatachaliah, J.S. Verma, K. Jayachandra Reddy, S.C. Agrawal",
+        "constitutionalArticles": [
+          "Tenth Schedule",
+          "Article 136",
+          "Article 226"
+        ],
+        "governingDoctrine": "Judicial Review of Tenth Schedule Disqualification by Speaker",
+        "factualBackground": "The 52nd Constitutional Amendment introduced the Tenth Schedule (Anti-Defection Law). Paragraph 7 explicitly ousted the jurisdiction of all courts over disqualification proceedings.",
+        "constitutionalQuestion": "Does the Anti-Defection Law destroy democracy or freedom of speech of MPs, and is Paragraph 7 ousting judicial review unconstitutional?",
+        "majorityVerdict": "Upheld the constitutional validity of the Tenth Schedule, but struck down Paragraph 7 for lack of state ratification under Art 368(2). Held the Speaker acts as a tribunal subject to judicial review.",
+        "ratioDecidendi": "The Speaker or Chairman while deciding disqualification petitions functions as a Tribunal. While courts will not intervene at interlocutory stages before the Speaker decides, the final disqualification order is amenable to judicial review under Articles 136 and 226 on grounds of mala fides, perversity, or breach of natural justice.",
+        "howCourtsApplyToday": "The bedrock precedent in every state assembly disqualification battle (e.g. Karnataka, Madhya Pradesh, Maharashtra, Goa).",
+        "keyQuote": "\"The office of the Speaker is held in high esteem, but when deciding questions of disqualification under the Tenth Schedule, the Speaker acts as a statutory Tribunal whose decisions are subject to judicial review.\""
+      },
+      {
+        "id": "case-subhash-desai-maharashtra",
+        "topicId": "anti-defection-privileges",
+        "topicName": "Anti-Defection & Legislative Privileges",
+        "caseName": "Subhash Desai v. Principal Secretary, Governor of Maharashtra",
+        "citation": "(2023) 7 SCC 1",
+        "year": 2023,
+        "benchStrength": 5,
+        "presidingJudges": "D.Y. Chandrachud (CJI), M.R. Shah, Krishna Murari, Hima Kohli, P.S. Narasimha",
+        "constitutionalArticles": [
+          "Article 163",
+          "Article 174",
+          "Tenth Schedule"
+        ],
+        "governingDoctrine": "Whip Tied to Political Party & Governor Neutrality",
+        "factualBackground": "Split in the Shiv Sena party led by Eknath Shinde resulted in rival factions, disqualification notices, and Governor calling for a floor test that prompted Uddhav Thackeray's resignation.",
+        "constitutionalQuestion": "Can the whip and leader of the house be appointed by the legislature party independent of the political party, and can the Governor call for a floor test without objective internal dissent evidence?",
+        "majorityVerdict": "Governor's call for a floor test was illegal; Speaker's recognition of the Shinde whip without political party inquiry was unlawful. However, status quo ante could not be granted because Uddhav Thackeray resigned voluntarily without facing the floor.",
+        "ratioDecidendi": "The whip must be appointed by the \"political party\", not just the \"legislative party\". The Tenth Schedule links the legislator to the political party on whose ticket they were elected. The Governor cannot enter the political arena or act as an umpire in internal intra-party conflicts.",
+        "howCourtsApplyToday": "The reigning precedent governing how Speakers must distinguish between faction splits and illegal defections under the Tenth Schedule.",
+        "keyQuote": "\"To sever the legislative party from the political party would be to sever the umbilical cord that binds a candidate to the electors who voted for the party manifesto.\""
+      },
+      {
+        "id": "case-raja-ram-pal-expulsion",
+        "topicId": "anti-defection-privileges",
+        "topicName": "Anti-Defection & Legislative Privileges",
+        "caseName": "Raja Ram Pal v. Hon'ble Speaker, Lok Sabha (Cash-for-Query Case)",
+        "citation": "(2007) 3 SCC 184",
+        "year": 2007,
+        "benchStrength": 5,
+        "presidingJudges": "Y.K. Sabharwal (CJI), K.G. Balakrishnan, D.K. Jain, C.K. Thakker, R.V. Raveendran",
+        "constitutionalArticles": [
+          "Article 105",
+          "Article 122",
+          "Article 32"
+        ],
+        "governingDoctrine": "Parliamentary Expulsion Power & Judicial Scrutiny Scope",
+        "factualBackground": "Sting operation \"Duryodhana\" showed 11 MPs taking cash to ask questions in Parliament; Parliament expelled all 11 members, who challenged their expulsion under Article 32.",
+        "constitutionalQuestion": "Does Parliament have the inherent power under Article 105 to expel its own members, and can courts review such expulsion resolutions?",
+        "majorityVerdict": "Upheld Parliament's power to expel corrupt members; ruled that parliamentary privileges are subject to judicial review for gross illegality or constitutional breach.",
+        "ratioDecidendi": "Parliament possesses the self-protective power of expulsion under Article 105(3) to purge itself of unfit members who betray public trust. However, internal proceedings enjoy only conditional immunity under Article 122; if the action is tainted by gross illegality or violation of fundamental rights, judicial review under Articles 32 and 226 remains open.",
+        "howCourtsApplyToday": "Cited in high-profile MP disqualification and expulsion litigations (e.g., Mahua Moitra expulsion case 2023).",
+        "keyQuote": "\"The power of expulsion is not a punitive criminal sanction, but a measure of self-protection necessary to maintain the dignity and functioning of the House.\""
+      },
+      {
+        "id": "case-searchlight-privilege",
+        "topicId": "anti-defection-privileges",
+        "topicName": "Anti-Defection & Legislative Privileges",
+        "caseName": "M.S.M. Sharma v. Sri Krishna Sinha (Searchlight Case)",
+        "citation": "AIR 1959 SC 395",
+        "year": 1959,
+        "benchStrength": 5,
+        "presidingJudges": "S.R. Das (CJI), N.H. Bhagwati, B.P. Sinha, K. Subba Rao, K.N. Wanchoo",
+        "constitutionalArticles": [
+          "Article 19(1)(a)",
+          "Article 194(3)"
+        ],
+        "governingDoctrine": "Harmonization of Parliamentary Privilege & Press Freedoms",
+        "factualBackground": "Editor of \"Searchlight\" newspaper in Patna published parts of legislative assembly proceedings that had been expunged by the Speaker; privilege notice was issued against the editor.",
+        "constitutionalQuestion": "Do parliamentary privileges under Article 194(3) override the citizen's fundamental right to freedom of speech and press under Article 19(1)(a)?",
+        "majorityVerdict": "Majority held that parliamentary privileges under Article 194(3) prevailed over Article 19(1)(a). (Subba Rao J dissented strongly).",
+        "ratioDecidendi": "Under the doctrine of harmonious construction, Article 194(3) being a special provision dealing with the functioning of legislatures is not controlled by Article 19(1)(a). A legislature has the privilege to prohibit the publication of expunged proceedings.",
+        "howCourtsApplyToday": "The baseline starting point for the law of parliamentary privileges in India, later qualified by the Keshav Singh Presidential Reference (1965) which confirmed that Article 21 always applies to arrests by legislative warrants.",
+        "keyQuote": "\"The legislature has the sole right to regulate its internal proceedings and prevent the publication of proceedings directed to be expunged.\""
+      }
+    ]
+  },
+  {
+    "id": "gender-justice-workplace",
+    "name": "Gender Equality, Armed Forces & Workplace Dignity",
+    "articlesRange": "Articles 14, 15, 21, 39(d)",
+    "description": "Transformative constitutional rulings dismantling patriarchal stereotypes, ensuring equal opportunity in the military, and guaranteeing safe workspaces.",
+    "iconName": "Users",
+    "color": "#ec4899",
+    "cases": [
+      {
+        "id": "case-vishaka-workplace",
+        "topicId": "gender-justice-workplace",
+        "topicName": "Gender Equality, Armed Forces & Workplace Dignity",
+        "caseName": "Vishaka v. State of Rajasthan",
+        "citation": "(1997) 6 SCC 241",
+        "year": 1997,
+        "benchStrength": 3,
+        "presidingJudges": "J.S. Verma (CJI), Sujata V. Manohar, B.N. Kirpal",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 19(1)(g)",
+          "Article 21",
+          "Article 51(c)"
+        ],
+        "governingDoctrine": "Judicial Law-Making via International Conventions (CEDAW)",
+        "factualBackground": "Gang-rape of Bhanwari Devi, a social worker in Rajasthan who was targeted for attempting to prevent child marriage, revealed a complete statutory vacuum regarding sexual harassment of working women.",
+        "constitutionalQuestion": "Can the Supreme Court in exercise of Article 32 formulate binding guidelines in the absence of enacted legislation to protect gender equality and safe working environments?",
+        "majorityVerdict": "Formulated the landmark Vishaka Guidelines binding on all employers nationwide until Parliament enacted the POSH Act, 2013.",
+        "ratioDecidendi": "Sexual harassment of women at the workplace violates Articles 14, 15, 19(1)(g), and 21. International conventions such as CEDAW can be read into fundamental rights to fill domestic statutory voids under Article 51(c), in the absence of contrary local law. Employers must provide a complaint mechanism with at least 50% women members and an external NGO representative.",
+        "howCourtsApplyToday": "The ultimate precedent for dynamic constitutional interpretation using international human rights law; directly gave birth to the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013.",
+        "keyQuote": "\"Gender equality includes protection from sexual harassment and right to work with dignity, which is a universally recognized basic human right. In the absence of domestic law, the convention must be used to construe fundamental rights.\""
+      },
+      {
+        "id": "case-babita-puniya-army",
+        "topicId": "gender-justice-workplace",
+        "topicName": "Gender Equality, Armed Forces & Workplace Dignity",
+        "caseName": "Secretary, Ministry of Defence v. Babita Puniya",
+        "citation": "(2020) 7 SCC 469",
+        "year": 2020,
+        "benchStrength": 2,
+        "presidingJudges": "D.Y. Chandrachud, Ajay Rastogi",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 15(1)",
+          "Article 16"
+        ],
+        "governingDoctrine": "Substantive Gender Equality in Armed Forces & Deconstruction of Biological Stereotypes",
+        "factualBackground": "Women Short Service Commission (SSC) officers in the Indian Army were denied Permanent Commission (PC) and command appointments, while male counterparts were routinely eligible.",
+        "constitutionalQuestion": "Does the blanket denial of Permanent Commission and command roles to women officers based on arguments of physiological difference and motherhood violate Article 14?",
+        "majorityVerdict": "Ordered that women SSC officers be granted Permanent Commission on par with men and made eligible for command appointments.",
+        "ratioDecidendi": "Arguments founded on physiological limitations, family obligations, and male troops not accepting women commanders rest on entrenched sex stereotypes and affront the dignity of women officers. Constitutional values of human dignity and equality under Articles 14 and 16 require an institutional commitment to equal opportunity without gender discrimination.",
+        "howCourtsApplyToday": "Cited to secure Permanent Commission for women in the Indian Navy, Air Force, and Coast Guard, and entry into National Defence Academy (NDA) in 2021.",
+        "keyQuote": "\"To cast aspersions on the ability of women officers to shoulder responsibilities in the Armed Forces based on their sex is an insult not only to women, but to the profession of the Armed Forces itself.\""
+      },
+      {
+        "id": "case-independent-thought-2017",
+        "topicId": "gender-justice-workplace",
+        "topicName": "Gender Equality, Armed Forces & Workplace Dignity",
+        "caseName": "Independent Thought v. Union of India",
+        "citation": "(2017) 10 SCC 800",
+        "year": 2017,
+        "benchStrength": 2,
+        "presidingJudges": "Madan B. Lokur, Deepak Gupta",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 15",
+          "Article 21"
+        ],
+        "governingDoctrine": "Bodily Autonomy of Minor Wives & Child Marriage Proscription",
+        "factualBackground": "Exception 2 to Section 375 IPC stated that sexual intercourse by a man with his wife, the wife not being under 15 years of age, was not rape, creating an artificial gap with POCSO Act which protected all minors under 18.",
+        "constitutionalQuestion": "Does creating a marital exception that legalizes non-consensual sexual intercourse with girls aged 15-18 violate Articles 14, 15, and 21?",
+        "majorityVerdict": "Struck down Exception 2 to Section 375 IPC to the extent of minor wives aged 15 to 18 as unconstitutional.",
+        "ratioDecidendi": "A child is a child. Creating an artificial fiction where a married girl child aged 15-18 is treated differently from an unmarried minor girl of the same age is arbitrary and discriminatory under Articles 14 and 15. It violates the bodily integrity and reproductive autonomy of the minor girl child under Article 21.",
+        "howCourtsApplyToday": "The leading precedent criminalizing sexual intercourse with minor wives across India regardless of personal law.",
+        "keyQuote": "\"A child is a child. The human rights of a girl child cannot be compromised merely because she has been married off in violation of the Prohibition of Child Marriage Act.\""
+      },
+      {
+        "id": "case-supriyo-marriage-2023",
+        "topicId": "gender-justice-workplace",
+        "topicName": "Gender Equality, Armed Forces & Workplace Dignity",
+        "caseName": "Supriyo @ Supriya Chakraborty v. Union of India (Marriage Equality Case)",
+        "citation": "2023 INSC 920 / (2024) 4 SCC 1",
+        "year": 2023,
+        "benchStrength": 5,
+        "presidingJudges": "D.Y. Chandrachud (CJI), S.K. Kaul, S. Ravindra Bhat, Hima Kohli, P.S. Narasimha",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 15",
+          "Article 19",
+          "Article 21"
+        ],
+        "governingDoctrine": "Right to Enter Civil Unions & Limits of Judicial Legislation",
+        "factualBackground": "Queer couples petitioned under Article 32 to read down the Special Marriage Act 1954 to include gender-neutral marriage recognition for same-sex partners.",
+        "constitutionalQuestion": "Is there a fundamental right to marry under the Constitution, and can the Court read same-sex unions into the Special Marriage Act?",
+        "majorityVerdict": "Unanimous that there is no unqualified fundamental right to marry; 3:2 majority held Court cannot rewrite the Special Marriage Act; unanimously held queer persons have full right against discrimination and right to form relationships.",
+        "ratioDecidendi": "Marriage is a statutory institution created by the legislature, not an autonomous common law fundamental right. However, queer persons have an inalienable right to choose partners, cohabit, and enjoy intimate associations free from state harassment under Article 21. Directed the Union government to constitute a committee headed by Cabinet Secretary to define administrative benefits for queer partnerships.",
+        "howCourtsApplyToday": "The reference text on the constitutional boundaries of separation of powers and judicial restraint when modifying personal and civil status statutes.",
+        "keyQuote": "\"The right to enter into a union or an intimate association is protected by Part III of the Constitution. Queerness is a natural variation of human sexuality.\""
+      },
+      {
+        "id": "case-jagjit-singh-equal-pay",
+        "topicId": "gender-justice-workplace",
+        "topicName": "Gender Equality, Armed Forces & Workplace Dignity",
+        "caseName": "State of Punjab v. Jagjit Singh",
+        "citation": "(2017) 1 SCC 148",
+        "year": 2016,
+        "benchStrength": 2,
+        "presidingJudges": "J.S. Khehar, S.A. Bobde",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 39(d)"
+        ],
+        "governingDoctrine": "Equal Pay for Equal Work as an Article 14 Fundamental Right",
+        "factualBackground": "Temporary, daily-wage, and ad-hoc employees working for years performing identical duties as regular permanent staff were paid vastly lower subsistence wages.",
+        "constitutionalQuestion": "Is the directive principle of \"Equal Pay for Equal Work\" under Article 39(d) enforceable through Article 14 against governmental exploitation of temporary labor?",
+        "majorityVerdict": "Held that temporary employees are entitled to minimum pay scale equivalent to regular staff if discharging identical duties.",
+        "ratioDecidendi": "Denial of equal pay for equal work to temporary employees discharging duties identical to permanent counterparts is exploitative, arbitrary, and an affront to human dignity under Article 14. An employer cannot pay vastly inferior remuneration simply because of unequal bargaining power and unemployment distress.",
+        "howCourtsApplyToday": "Cited in every labor, service law, and government contract worker regularization petition across all High Courts in India.",
+        "keyQuote": "\"An employee engaged for the same work cannot be paid less merely because he is a temporary worker. In a welfare State, paying less for identical work is artificial and offensive to Article 14.\""
+      }
+    ]
+  },
+  {
+    "id": "property-eminent-domain",
+    "name": "Right to Property & Eminent Domain Evolution",
+    "articlesRange": "Articles 19(1)(f), 31, 31C, 300A, 39(b)",
+    "description": "The complex constitutional journey from fundamental property rights to Article 300A human rights, eminent domain limitations, and the 2024 Private Property ruling.",
+    "iconName": "Building",
+    "color": "#d97706",
+    "cases": [
+      {
+        "id": "case-property-owners-2024",
+        "topicId": "property-eminent-domain",
+        "topicName": "Right to Property & Eminent Domain Evolution",
+        "caseName": "Property Owners Association v. State of Maharashtra",
+        "citation": "2024 INSC 834 (9-Judge Constitution Bench)",
+        "year": 2024,
+        "benchStrength": 9,
+        "presidingJudges": "D.Y. Chandrachud (CJI), Hrishikesh Roy, B.V. Nagarathna, Sudhanshu Dhulia, J.B. Pardiwala, Manoj Misra, Rajesh Bindal, S.C. Sharma, A.G. Masih",
+        "constitutionalArticles": [
+          "Article 39(b)",
+          "Article 31C",
+          "Article 300A"
+        ],
+        "governingDoctrine": "Private Resources Are Not Automatically \"Material Resources of Community\"",
+        "factualBackground": "Chapter VIII-A of Maharashtra Housing and Area Development Act (MHADA) 1976 allowed the state to acquire dilapidated private cessed properties in Mumbai with only 70% tenant consent, claiming immunity under Article 31C read with Article 39(b). Reconsidered Justice Krishna Iyer's 1978 Sanjeev Coke ruling.",
+        "constitutionalQuestion": "Does the phrase \"material resources of the community\" in Article 39(b) encompass all privately owned resources and property within the State?",
+        "majorityVerdict": "Overruled Justice Krishna Iyer's expansive socialist interpretation by 8:1 (Dhulia J dissenting). Held private property is not per se community property.",
+        "ratioDecidendi": "The phrase \"material resources of the community\" in Article 39(b) may encompass private resources, but ONLY if they bear an essential public character. The Constitution did not adopt an exclusive socialist economic philosophy. Courts must assess the nature of the resource, the public need, scarcity, and consequences of private ownership before terming it a community resource.",
+        "howCourtsApplyToday": "The landmark 9-judge ruling re-calibrating Indian constitutional economics post-1991 liberalization; prevents wholesale arbitrary state nationalization of private wealth under the shield of Article 31C.",
+        "keyQuote": "\"The Indian Constitution does not subscribe to any single economic ideology. Private ownership of resources is not alien to the constitutional scheme, and private property cannot automatically be subsumed under Article 39(b).\""
+      },
+      {
+        "id": "case-bimal-kumar-shah-2024",
+        "topicId": "property-eminent-domain",
+        "topicName": "Right to Property & Eminent Domain Evolution",
+        "caseName": "Kolkata Municipal Corporation v. Bimal Kumar Shah",
+        "citation": "2024 INSC 435 / (2024) 8 SCC 483",
+        "year": 2024,
+        "benchStrength": 2,
+        "presidingJudges": "P.S. Narasimha, Aravind Kumar",
+        "constitutionalArticles": [
+          "Article 300A"
+        ],
+        "governingDoctrine": "Seven Procedural Sub-Rights under Article 300A",
+        "factualBackground": "Kolkata Municipal Corporation acquired private land without following compulsory acquisition notice or compensation procedures, claiming Section 352 of the Municipal Act allowed direct physical acquisition without procedural formalities.",
+        "constitutionalQuestion": "Is the right to property under Article 300A a mere statutory rule or a constitutional human right requiring fair procedural due process?",
+        "majorityVerdict": "Declared that Article 300A embodies seven mandatory procedural sub-rights before any private citizen can be dispossessed of land.",
+        "ratioDecidendi": "Though no longer a fundamental right, Article 300A is a constitutional and human right. \"Law\" under Article 300A cannot be an arbitrary fiat. The seven mandatory sub-rights are: (1) Duty to inform/notice, (2) Right to be heard/objections, (3) Duty to provide reasons, (4) Acquisition only for public purpose, (5) Duty to award fair compensation, (6) Efficient and timely execution, and (7) Right of conclusion and rehabilitation.",
+        "howCourtsApplyToday": "The modern procedural charter invoked in every land acquisition writ petition across all High Courts challenging municipal encroachment or highway acquisitions.",
+        "keyQuote": "\"Article 300A is not a paper tiger. Compulsory acquisition without following the seven procedural sub-rights is a nullity and a violation of the Rule of Law.\""
+      },
+      {
+        "id": "case-kt-plantation-2011",
+        "topicId": "property-eminent-domain",
+        "topicName": "Right to Property & Eminent Domain Evolution",
+        "caseName": "K.T. Plantation Pvt. Ltd. v. State of Karnataka",
+        "citation": "(2011) 9 SCC 1",
+        "year": 2011,
+        "benchStrength": 5,
+        "presidingJudges": "S.H. Kapadia (CJI), K.S. Radhakrishnan, Swatanter Kumar, Surinder Singh Nijjar, H.L. Dattu",
+        "constitutionalArticles": [
+          "Article 300A",
+          "Article 31C"
+        ],
+        "governingDoctrine": "Eminent Domain Restraints & Public Purpose in Article 300A",
+        "factualBackground": "Karnataka Land Reforms Act acquisition of private plantation lands was challenged on the premise that post-44th Amendment, Article 300A did not contain express words requiring public purpose or compensation.",
+        "constitutionalQuestion": "Does the State possess unrestricted eminent domain power under Article 300A to acquire private property without showing public purpose or paying compensation?",
+        "majorityVerdict": "Held that public purpose and just compensation are implicit conditions embedded within the Rule of Law in Article 300A.",
+        "ratioDecidendi": "The requirement of \"public purpose\" and \"compensation\" are inbuilt in Article 300A through the concept of the Rule of Law. Deprivation of property without public purpose or with illusory compensation is manifestly arbitrary and violates Article 14 and Article 300A.",
+        "howCourtsApplyToday": "Standard citation to prevent confiscatory state legislation and ensure market-rate compensation under the RFCTLARR Act 2013.",
+        "keyQuote": "\"The Rule of Law is the core of our Constitution. Even though Article 300A does not mention the word compensation, the State cannot confiscate private property for private use or without just indemnity.\""
+      },
+      {
+        "id": "case-rc-cooper-1970",
+        "topicId": "property-eminent-domain",
+        "topicName": "Right to Property & Eminent Domain Evolution",
+        "caseName": "R.C. Cooper v. Union of India (Bank Nationalisation Case)",
+        "citation": "(1970) 1 SCC 248",
+        "year": 1970,
+        "benchStrength": 11,
+        "presidingJudges": "J.C. Shah (CJI), S.M. Sikri, J.M. Shelat, V. Bhargava, G.K. Mitter, C.A. Vaidialingam, K.S. Hegde, A.N. Grover, A.N. Ray, P. Jaganmohan Reddy, I.D. Dua",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 19(1)(f)",
+          "Article 31"
+        ],
+        "governingDoctrine": "Effect-Oriented Test & Burial of Mutual Exclusivity",
+        "factualBackground": "Prime Minister Indira Gandhi's government promulgated the Banking Companies (Acquisition and Transfer of Undertakings) Ordinance and Act 1969, nationalizing 14 major commercial banks and providing illusory compensation.",
+        "constitutionalQuestion": "Are Fundamental Rights mutually exclusive silos (as held in Gopalan), and can nationalization laws be tested against Articles 14 and 19(1)(f)?",
+        "majorityVerdict": "Struck down the Bank Nationalisation Act for violating Articles 14, 19(1)(f), and 31.",
+        "ratioDecidendi": "Overruled the \"object-test\" and established the \"effect-test\". It is not the intention of the legislature that matters, but the direct and inevitable effect of state action on fundamental rights. Articles 14, 19, and 31 are not watertight silos; acquisition of property must pass the test of reasonableness under Article 19.",
+        "howCourtsApplyToday": "The seminal constitutional milestone that demolished Gopalan's compartmentalization theory, directly paving the way for the Golden Triangle doctrine in Maneka Gandhi.",
+        "keyQuote": "\"Under our Constitution, it is the performance and effect of the law on the citizen's fundamental rights that determines its constitutional validity, not the legislative label or form.\""
+      },
+      {
+        "id": "case-bela-banerjee-1954",
+        "topicId": "property-eminent-domain",
+        "topicName": "Right to Property & Eminent Domain Evolution",
+        "caseName": "State of West Bengal v. Bella Banerjee",
+        "citation": "AIR 1954 SC 170",
+        "year": 1954,
+        "benchStrength": 5,
+        "presidingJudges": "M. Patanjali Sastri (CJI), M.C. Mahajan, B.K. Mukherjea, S.R. Das, Ghulam Hasan",
+        "constitutionalArticles": [
+          "Article 31(2)"
+        ],
+        "governingDoctrine": "Full Market Value Equivalent as Compensation",
+        "factualBackground": "West Bengal Land Development and Planning Act 1948 acquired land for refugee resettlement but capped compensation to the market value as of December 31, 1946, ignoring post-war inflation.",
+        "constitutionalQuestion": "Did \"compensation\" in original Article 31(2) mean the exact monetary equivalent of the acquired property at market value?",
+        "majorityVerdict": "Held that compensation in Article 31(2) means a \"just equivalent\" or full market value at the time of acquisition.",
+        "ratioDecidendi": "Compensation in Article 31(2) requires the State to pay a just equivalent of what the owner has been deprived of. The legislature cannot fix arbitrary caps that deprive the citizen of real market value.",
+        "howCourtsApplyToday": "Historical catalyst that prompted Parliament to pass the Constitution (Fourth Amendment) Act 1955 and later 44th Amendment deleting Article 19(1)(f) and Article 31.",
+        "keyQuote": "\"Compensation in Article 31(2) means a full and fair money equivalent of the property taken. The State cannot acquire private property at discounted historical rates.\""
+      }
+    ]
+  },
+  {
+    "id": "fiscal-federalism-commerce",
+    "name": "Federal Taxation, Royalties & Interstate Trade",
+    "articlesRange": "Part XII, Part XIII, Articles 265, 286, 301 to 304",
+    "description": "Constitutional architecture of fiscal federalism, state taxing competencies, the 2024 Mineral Royalty 9-judge ruling, and the free flow of trade across borders.",
+    "iconName": "Building",
+    "color": "#0284c7",
+    "cases": [
+      {
+        "id": "case-mada-mineral-tax-2024",
+        "topicId": "fiscal-federalism-commerce",
+        "topicName": "Federal Taxation, Royalties & Interstate Trade",
+        "caseName": "Mineral Area Development Authority (MADA) v. Steel Authority of India (SAIL)",
+        "citation": "2024 INSC 554 (9-Judge Constitution Bench)",
+        "year": 2024,
+        "benchStrength": 9,
+        "presidingJudges": "D.Y. Chandrachud (CJI), Hrishikesh Roy, A.S. Oka, B.V. Nagarathna, J.B. Pardiwala, Manoj Misra, Ujjal Bhuyan, S.C. Sharma, A.G. Masih",
+        "constitutionalArticles": [
+          "Article 246",
+          "Entry 50 List II",
+          "Entry 54 List I",
+          "Article 265"
+        ],
+        "governingDoctrine": "Royalty is Not a Tax & State Sovereign Power to Tax Mineral Rights",
+        "factualBackground": "For 35 years following India Cements (1989), it was held that royalty under Mines and Minerals (Development and Regulation) Act was a tax, preventing States from levying separate cesses on mineral-bearing lands.",
+        "constitutionalQuestion": "Is royalty paid under MMDR Act a tax, and does Parliament's regulatory law oust the States' legislative competence under Entry 50 of List II to tax mineral rights?",
+        "majorityVerdict": "Historic 8:1 ruling (Nagarathna J dissenting): Overruled India Cements. Held royalty is not a tax, and States have independent sovereign power to tax mineral rights.",
+        "ratioDecidendi": "Royalty is a contractual or statutory consideration paid to the mineral owner for extraction, not a tax levied for public purposes. Entry 50 of List II grants State legislatures specific power to tax mineral rights. Section 9 of the MMDR Act does not constitute a limitation on the States' constitutional taxing powers under Article 246.",
+        "howCourtsApplyToday": "The greatest fiscal federalism victory for resource-rich States (Jharkhand, Odisha, Chhattisgarh, Karnataka, Rajasthan) in Indian history, restoring thousands of crores in state revenues.",
+        "keyQuote": "\"Royalty is not a tax. To hold that royalty is a tax would be to misread the basic fiscal scheme of our federal Constitution. State legislatures possess sovereign plenary power to tax mineral-bearing lands.\""
+      },
+      {
+        "id": "case-jindal-stainless-2017",
+        "topicId": "fiscal-federalism-commerce",
+        "topicName": "Federal Taxation, Royalties & Interstate Trade",
+        "caseName": "Jindal Stainless Ltd. v. State of Haryana",
+        "citation": "(2017) 12 SCC 1 (9-Judge Constitution Bench)",
+        "year": 2017,
+        "benchStrength": 9,
+        "presidingJudges": "T.S. Thakur (CJI), A.K. Sikri, S.A. Bobde, Shiva Kirti Singh, N.V. Ramana, R. Banumathi, A.M. Khanwilkar, D.Y. Chandrachud, Ashok Bhushan",
+        "constitutionalArticles": [
+          "Article 301",
+          "Article 304(a)",
+          "Article 304(b)"
+        ],
+        "governingDoctrine": "Non-Discriminatory Tax Is Not a Restriction on Interstate Trade",
+        "factualBackground": "Corporations challenged state entry taxes levied on goods brought into local areas from other states as violative of the free flow of trade under Article 301.",
+        "constitutionalQuestion": "Does a non-discriminatory state entry tax violate Article 301, and is the 5-decade-old doctrine of \"compensatory tax\" valid law?",
+        "majorityVerdict": "Overruled the compensatory tax doctrine by 7:2. Upheld the power of states to levy non-discriminatory entry taxes.",
+        "ratioDecidendi": "Taxes are not restrictions on trade per se unless they are discriminatory in character. A state tax that treats goods imported from other states on an equal footing with goods manufactured locally under Article 304(a) does not violate Article 301. Overruled Automobile Transport's concept of \"compensatory taxes\" as unsupported by the text of Part XIII.",
+        "howCourtsApplyToday": "Governing precedent on Part XIII interstate commerce and border cesses in Indian federalism.",
+        "keyQuote": "\"Taxation is not an impediment to freedom of trade. Only discriminatory taxes that build economic barriers against other States violate Article 301.\""
+      },
+      {
+        "id": "case-automobile-transport-1962",
+        "topicId": "fiscal-federalism-commerce",
+        "topicName": "Federal Taxation, Royalties & Interstate Trade",
+        "caseName": "Automobile Transport (Rajasthan) Ltd. v. State of Rajasthan",
+        "citation": "AIR 1962 SC 1406",
+        "year": 1962,
+        "benchStrength": 7,
+        "presidingJudges": "S.K. Das, J.L. Kapur, A.K. Sarkar, K. Subba Rao, M. Hidayatullah, J.C. Shah, J.R. Mudholkar",
+        "constitutionalArticles": [
+          "Article 301",
+          "Article 302",
+          "Article 304"
+        ],
+        "governingDoctrine": "Regulatory Measures and Compensatory Taxation in Free Trade",
+        "factualBackground": "Rajasthan Motor Vehicles Taxation Act 1951 imposed annual road taxes on vehicles plying on state roads, which transport companies challenged under Article 301.",
+        "constitutionalQuestion": "Do state vehicle and road taxes that charge for facilities provided impede the constitutional freedom of trade and commerce under Article 301?",
+        "majorityVerdict": "Upheld Rajasthan road tax as a compensatory measure facilitating rather than impeding trade.",
+        "ratioDecidendi": "Regulatory measures or compensatory taxes imposed to provide facilities (e.g. roads, bridges, infrastructure) do not hamper the freedom of trade, commerce, and intercourse under Article 301. Such taxes are outside the prohibitive scope of Part XIII.",
+        "howCourtsApplyToday": "Historically guided toll, road tax, and transit fee jurisprudence in India for over 50 years until re-structured by Jindal Stainless.",
+        "keyQuote": "\"Taxes which are compensatory in nature and facilitate the flow of trade by maintaining facilities do not operate as a barrier under Article 301.\""
+      },
+      {
+        "id": "case-atiabari-tea-1961",
+        "topicId": "fiscal-federalism-commerce",
+        "topicName": "Federal Taxation, Royalties & Interstate Trade",
+        "caseName": "Atiabari Tea Co. Ltd. v. State of Assam",
+        "citation": "AIR 1961 SC 232",
+        "year": 1961,
+        "benchStrength": 5,
+        "presidingJudges": "P.B. Gajendragadkar, A.K. Sarkar, K.N. Wanchoo, K.C. Das Gupta, B.P. Sinha (CJI dissented)",
+        "constitutionalArticles": [
+          "Article 301",
+          "Article 304(b)"
+        ],
+        "governingDoctrine": "Direct and Immediate Restriction Test on Interstate Trade",
+        "factualBackground": "Assam Taxation (on Goods Carried by Roads or Inland Waterways) Act 1954 levied tax on manufactured tea carried through the state in transit to the Port of Calcutta.",
+        "constitutionalQuestion": "Can a state tax the movement of goods in transit without obtaining presidential sanction under Article 304(b)?",
+        "majorityVerdict": "Struck down the Assam Act for violating Article 301 without presidential assent.",
+        "ratioDecidendi": "Formulated the \"Direct and Immediate Restriction Test\". If a tax operates directly and immediately on the movement or transit of goods from one state to another, it infringes the freedom of trade guaranteed by Article 301 unless protected by presidential sanction under Article 304(b).",
+        "howCourtsApplyToday": "The foundational precedent establishing that India is an economic single unit where internal state customs barriers cannot be erected.",
+        "keyQuote": "\"Article 301 was designed to break down interstate borders and make India one single economic unit without internal tariff walls.\""
+      },
+      {
+        "id": "case-lalta-prasad-art265",
+        "topicId": "fiscal-federalism-commerce",
+        "topicName": "Federal Taxation, Royalties & Interstate Trade",
+        "caseName": "State of U.P. v. Lalta Prasad",
+        "citation": "(1981) 1 SCC 445",
+        "year": 1981,
+        "benchStrength": 3,
+        "presidingJudges": "V.R. Krishna Iyer, R.S. Pathak, O. Chinnappa Reddy",
+        "constitutionalArticles": [
+          "Article 265"
+        ],
+        "governingDoctrine": "Strict Adherence to Law in Tax Levy and Collection",
+        "factualBackground": "State revenue authorities attempted to levy and attach property for recovery of excise dues without specific statutory authority backed by enacted law.",
+        "constitutionalQuestion": "Can the executive levy or recover monetary demands from citizens through administrative circulars or executive orders under Article 265?",
+        "majorityVerdict": "Invalidated the recovery as violative of Article 265.",
+        "ratioDecidendi": "Article 265 commands that \"no tax shall be levied or collected except by authority of law\". \"Law\" means only validly enacted primary or subordinate legislation, not administrative fiat, executive discretion, or ministerial whims.",
+        "howCourtsApplyToday": "The ultimate shield cited in tax writ petitions against illegal penalties, unauthorized municipal fee hikes, and arbitrary demand notices.",
+        "keyQuote": "\"Article 265 is a fundamental restraint upon governmental power. The executive has no sovereign right to dip into the pocket of the citizen without an express legislative statute.\""
+      }
+    ]
+  },
+  {
+    "id": "detention-national-security",
+    "name": "Preventive Detention, Proportionality & National Security",
+    "articlesRange": "Articles 21, 22, 19",
+    "description": "Constitutional limitations on executive detention without trial, national security orders, internet shutdowns, and the death penalty.",
+    "iconName": "ShieldAlert",
+    "color": "#f43f5e",
+    "cases": [
+      {
+        "id": "case-anuradha-bhasin-2020",
+        "topicId": "detention-national-security",
+        "topicName": "Preventive Detention, Proportionality & National Security",
+        "caseName": "Anuradha Bhasin v. Union of India (J&K Internet Ban Case)",
+        "citation": "(2020) 3 SCC 637",
+        "year": 2020,
+        "benchStrength": 3,
+        "presidingJudges": "N.V. Ramana, R. Subhash Reddy, B.R. Gavai",
+        "constitutionalArticles": [
+          "Article 19(1)(a)",
+          "Article 19(1)(g)",
+          "Article 21"
+        ],
+        "governingDoctrine": "Proportionality Test for Internet Suspensions & Publication of Orders",
+        "factualBackground": "Following the abrogation of Article 370 in August 2019, the government imposed indefinite blanket shutdowns of internet, telecommunications, and movement in Jammu & Kashmir.",
+        "constitutionalQuestion": "Is the right to access the internet protected under Article 19, and can an indefinite internet shutdown be justified on grounds of national security?",
+        "majorityVerdict": "Declared that indefinite suspension of internet is illegal; mandated that all suspension orders must be published and subject to judicial review.",
+        "ratioDecidendi": "Freedom of speech and expression and freedom of trade over the medium of the internet are constitutionally protected under Article 19(1)(a) and 19(1)(g). An indefinite suspension of internet services violates the Constitution; orders can only be temporary and must satisfy the test of necessity and proportionality under Telecom Suspension Rules. Orders must be published so aggrieved citizens can challenge them.",
+        "howCourtsApplyToday": "The governing precedent cited in every state-wide internet blackout challenge (e.g., Manipur, Haryana, Punjab); mandates periodic review committees.",
+        "keyQuote": "\"An indefinite suspension of internet services is impermissible under our constitutional scheme. The State cannot operate in secret; orders affecting citizens must be published.\""
+      },
+      {
+        "id": "case-adm-jabalpur-1976",
+        "topicId": "detention-national-security",
+        "topicName": "Preventive Detention, Proportionality & National Security",
+        "caseName": "ADM Jabalpur v. Shivkant Shukla (Habeas Corpus Case)",
+        "citation": "AIR 1976 SC 1207",
+        "year": 1976,
+        "benchStrength": 5,
+        "presidingJudges": "A.N. Ray (CJI), H.R. Khanna (dissenting), M.H. Beg, Y.V. Chandrachud, P.N. Bhagwati",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 359(1)"
+        ],
+        "governingDoctrine": "The Darkest Hour of Indian Judiciary & Inalienability of Life",
+        "factualBackground": "During the 1975 Internal Emergency, the President issued an order under Article 359(1) suspending the right to move any court for enforcement of Articles 14, 21, and 22. Thousands of political dissidents were detained without trial.",
+        "constitutionalQuestion": "Can a writ of Habeas Corpus under Article 226 be maintained during an Emergency to challenge detention as illegal or mala fide?",
+        "majorityVerdict": "4:1 majority held that no person has any locus standi to move any writ petition for Habeas Corpus to challenge the legality of an order of detention during Emergency. Justice H.R. Khanna dissented.",
+        "ratioDecidendi": "Justice Khanna's celebrated dissent: The right to life and personal liberty is not a gift of the Constitution; it inheres in human beings prior to the Constitution. Even in the absence of Article 21, the State has no power to deprive a person of life or liberty without the authority of law. The rule of law cannot be suspended.",
+        "howCourtsApplyToday": "Formally buried by the 44th Constitutional Amendment (making Arts 20 and 21 non-suspendable under Art 359) and expressly overruled by the 9-judge bench in K.S. Puttaswamy (2017).",
+        "keyQuote": "\"A dissent in a court of last resort is an appeal to the brooding spirit of the law, to the intelligence of a future day, when a later decision may possibly correct the error into which the dissenting judge believes the court to have been betrayed.\" — Justice H.R. Khanna"
+      },
+      {
+        "id": "case-rekha-preventive-2011",
+        "topicId": "detention-national-security",
+        "topicName": "Preventive Detention, Proportionality & National Security",
+        "caseName": "Rekha v. State of Tamil Nadu",
+        "citation": "(2011) 5 SCC 244",
+        "year": 2011,
+        "benchStrength": 2,
+        "presidingJudges": "Markandey Katju, Gyan Sudha Misra",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 22(5)"
+        ],
+        "governingDoctrine": "Strict Procedural Compliance as Sole Justification for Detention",
+        "factualBackground": "Petitioner's husband was detained under the Tamil Nadu Goondas Act for selling expired drugs, even while ordinary criminal bail proceedings were pending.",
+        "constitutionalQuestion": "When an accused is already in judicial custody or ordinary criminal law is adequate, can the State invoke exceptional preventive detention without trial?",
+        "majorityVerdict": "Quashed the detention order as unconstitutional.",
+        "ratioDecidendi": "Preventive detention is by nature repugnant to democratic ideas and an extraordinary exception to Article 21. It can be resorted to only in extreme circumstances. Since the detenu is not afforded a regular criminal trial, the procedural safeguards under Article 22 must be strictly and zealously enforced. Failure to consider existing bail status vitiates the subjective satisfaction.",
+        "howCourtsApplyToday": "The leading precedent for quashing detention orders under PSA, NSA, and Goonda Acts where ordinary penal law suffices.",
+        "keyQuote": "\"Preventive detention is an anachronism in a democratic society. It must be hemmed in with strict constitutional limits so as not to become an instrument of executive tyranny.\""
+      },
+      {
+        "id": "case-bachan-singh-1980",
+        "topicId": "detention-national-security",
+        "topicName": "Preventive Detention, Proportionality & National Security",
+        "caseName": "Bachan Singh v. State of Punjab",
+        "citation": "(1980) 2 SCC 684",
+        "year": 1980,
+        "benchStrength": 5,
+        "presidingJudges": "Y.V. Chandrachud (CJI), A. Gupta, N.L. Untwalia, V.D. Tulzapurkar, P.N. Bhagwati (dissenting)",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 19",
+          "Article 21"
+        ],
+        "governingDoctrine": "Rarest of Rare Doctrine for Capital Punishment",
+        "factualBackground": "Appellant convicted of triple murder challenged the constitutional validity of capital punishment under Section 302 IPC as violative of Articles 14, 19, and 21.",
+        "constitutionalQuestion": "Does the death penalty violate the fundamental right to life under Article 21 and freedom of expression under Article 19?",
+        "majorityVerdict": "Upheld the constitutional validity of the death penalty, but restricted its imposition strictly to the \"Rarest of Rare cases\".",
+        "ratioDecidendi": "The right to life is not absolute under Article 21, as it can be deprived according to procedure established by law. However, death penalty must be awarded only in the \"rarest of rare cases when the alternative option is unquestionably foreclosed\". Courts must draw a balance sheet of aggravating and mitigating circumstances regarding both the crime and the criminal.",
+        "howCourtsApplyToday": "Mandatory standard governing every capital sentencing trial across all Sessions Courts, High Courts, and the Supreme Court.",
+        "keyQuote": "\"A real and abiding concern for the dignity of human life postulates resistance to taking a life through law's instrumentality. That ought not to be done save in the rarest of rare cases.\""
+      },
+      {
+        "id": "case-gautam-navlakha-bail",
+        "topicId": "detention-national-security",
+        "topicName": "Preventive Detention, Proportionality & National Security",
+        "caseName": "Gautam Navlakha v. National Investigation Agency (NIA)",
+        "citation": "(2021) 8 SCC 728",
+        "year": 2021,
+        "benchStrength": 2,
+        "presidingJudges": "U.U. Lalit, K.M. Joseph",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 22(2)"
+        ],
+        "governingDoctrine": "House Arrest as Judicial Custody under Section 167 CrPC",
+        "factualBackground": "Human rights activist detained in the Bhima Koregaon case was kept under house arrest for 34 days pursuant to High Court transit remand stay orders; he claimed default bail under Section 167(2) CrPC.",
+        "constitutionalQuestion": "Can house arrest qualify as custody for the purpose of computing the 90-day statutory default bail period under Section 167(2) CrPC and Article 21?",
+        "majorityVerdict": "Recognized house arrest as a valid form of judicial custody under Section 167 CrPC to mitigate overcrowding and medical vulnerability.",
+        "ratioDecidendi": "Article 21 permits progressive forms of custody that avoid incarceration in crowded prisons. Courts possess the power in appropriate cases (considering age, health, and antecedents) to order house arrest under Section 167 CrPC as an alternative to police or prison custody.",
+        "howCourtsApplyToday": "Pioneered house arrest jurisprudence in Indian criminal law, later used in cases of elderly undertrial prisoners requiring specialized medical care.",
+        "keyQuote": "\"Personal liberty is too precious to be reduced to mechanical jail remands. House arrest is an alternative form of custodial restraint that harmonizes state security with human dignity.\""
+      }
+    ]
+  },
+  {
+    "id": "citizenship-borders-refugees",
+    "name": "Citizenship, Foreigners & Border Laws",
+    "articlesRange": "Articles 5 to 11, 14, 21, 355",
+    "description": "Constitutional jurisprudence on citizenship by domicile and descent, border influx, Assam Accord Section 6A, and rights of non-citizens.",
+    "iconName": "Globe2",
+    "color": "#14b8a6",
+    "cases": [
+      {
+        "id": "case-section-6a-assam-2024",
+        "topicId": "citizenship-borders-refugees",
+        "topicName": "Citizenship, Foreigners & Border Laws",
+        "caseName": "In re Section 6A of the Citizenship Act, 1955 (Assam Accord Case)",
+        "citation": "2024 INSC 790 (5-Judge Constitution Bench)",
+        "year": 2024,
+        "benchStrength": 5,
+        "presidingJudges": "D.Y. Chandrachud (CJI), Surya Kant, M.M. Sundresh, Manoj Misra, J.B. Pardiwala (dissenting)",
+        "constitutionalArticles": [
+          "Article 6",
+          "Article 11",
+          "Article 14",
+          "Article 29(1)",
+          "Article 355"
+        ],
+        "governingDoctrine": "Constitutional Validity of Historical Differential Citizenship Regimes",
+        "factualBackground": "Section 6A was inserted into the Citizenship Act pursuant to the 1985 Assam Accord, setting March 25, 1971 as the cut-off date for granting citizenship to migrants from East Pakistan/Bangladesh in Assam, while the general constitutional cut-off was July 19, 1948.",
+        "constitutionalQuestion": "Does granting a unique citizenship cut-off date for Assam violate Article 14 equality and infringe the cultural conservation rights of indigenous Assamese under Article 29(1)?",
+        "majorityVerdict": "Upheld the constitutional validity of Section 6A by 4:1 majority.",
+        "ratioDecidendi": "Article 11 gives Parliament plenary power to regulate citizenship notwithstanding Articles 5 to 10. Assam faced an unprecedented influx due to the 1971 Bangladesh Liberation War; therefore, treating Assam as a distinct class has an intelligible differentia with a rational nexus to the humanitarian and political objective of peace. Section 6A does not violate Article 29(1) or amount to external aggression under Article 355.",
+        "howCourtsApplyToday": "The authoritative constitutional ruling on citizenship timelines, the National Register of Citizens (NRC), and the sovereign legislative scope of Parliament under Article 11.",
+        "keyQuote": "\"Article 11 is an express constitutional conferment of plenary constituent authority on Parliament to regulate rights of citizenship. The Assam Accord was a political settlement to end ethnic strife, which the Constitution accommodates.\""
+      },
+      {
+        "id": "case-sarbananda-sonowal-2005",
+        "topicId": "citizenship-borders-refugees",
+        "topicName": "Citizenship, Foreigners & Border Laws",
+        "caseName": "Sarbananda Sonowal v. Union of India (IMDT Act Case)",
+        "citation": "(2005) 5 SCC 665",
+        "year": 2005,
+        "benchStrength": 3,
+        "presidingJudges": "R.C. Lahoti (CJI), G.P. Mathur, P.K. Balasubramanyan",
+        "constitutionalArticles": [
+          "Article 355",
+          "Article 14"
+        ],
+        "governingDoctrine": "Duty of Union to Protect States from Influx (Article 355)",
+        "factualBackground": "Illegal Migrants (Determination by Tribunals) (IMDT) Act 1983 applied exclusively to Assam and shifted the burden of proving that a person was a foreigner onto the complainant or police, making deportation practically impossible.",
+        "constitutionalQuestion": "Did the IMDT Act discriminate against Assam under Article 14 and violate the Union's constitutional duty under Article 355 to protect the State against external aggression and internal disturbance?",
+        "majorityVerdict": "Struck down the IMDT Act and its rules as unconstitutional and ultra vires.",
+        "ratioDecidendi": "Large-scale unchecked influx of illegal migrants creates demographic and economic upheaval amounting to \"internal disturbance\" under Article 355. The IMDT Act created a virtually insurmountable barrier to detecting and expelling illegal immigrants, whereas the Foreigners Act 1946 rightly placed the burden of proof under Section 9 on the person asserting citizenship.",
+        "howCourtsApplyToday": "Primary authority cited on state security under Article 355 and the burden of proof in Foreigners Tribunal proceedings.",
+        "keyQuote": "\"The influx of large numbers of undocumented foreigners poses a grave threat to internal peace. Article 355 casts a paramount constitutional duty upon the Union to protect every State against such disturbance.\""
+      },
+      {
+        "id": "case-louis-de-raedt-1991",
+        "topicId": "citizenship-borders-refugees",
+        "topicName": "Citizenship, Foreigners & Border Laws",
+        "caseName": "Louis De Raedt v. Union of India",
+        "citation": "(1991) 3 SCC 554",
+        "year": 1991,
+        "benchStrength": 3,
+        "presidingJudges": "L.M. Sharma, J.S. Verma, S.C. Agrawal",
+        "constitutionalArticles": [
+          "Article 19(1)(e)",
+          "Article 21",
+          "Article 5"
+        ],
+        "governingDoctrine": "Scope of Fundamental Rights Applicable to Foreigners",
+        "factualBackground": "Belgian Christian missionary who had lived in India since 1937 was served an expulsion order under the Foreigners Act; he claimed citizenship by domicile under Article 5 and fundamental freedom to reside.",
+        "constitutionalQuestion": "Do foreign nationals possess the fundamental right to reside and settle in India under Article 19(1)(e), and what is the extent of their Article 21 rights?",
+        "majorityVerdict": "Dismissed the petition; upheld the government's unfettered sovereign power to expel foreigners.",
+        "ratioDecidendi": "The fundamental rights guaranteed under Article 19 (including the right to reside and settle anywhere in India) are available only to citizens of India. Foreigners are entitled to the protection of life and liberty under Article 21, but this does not give them the right to enter or remain in the country without statutory permits. The power of the Government of India to expel foreigners is absolute and unlimited.",
+        "howCourtsApplyToday": "The bedrock precedent cited in every deportation and visa revocation case across Indian High Courts.",
+        "keyQuote": "\"The right to reside and settle in any part of the territory of India under Article 19(1)(e) is available only to citizens. A foreigner has no fundamental right to claim that he should be allowed to stay in India indefinitely.\""
+      },
+      {
+        "id": "case-nhrc-chakma-1996",
+        "topicId": "citizenship-borders-refugees",
+        "topicName": "Citizenship, Foreigners & Border Laws",
+        "caseName": "National Human Rights Commission (NHRC) v. State of Arunachal Pradesh",
+        "citation": "(1996) 1 SCC 742",
+        "year": 1996,
+        "benchStrength": 2,
+        "presidingJudges": "A.M. Ahmadi (CJI), S.C. Sen",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 32"
+        ],
+        "governingDoctrine": "State Duty to Protect Non-Citizens from Extra-Judicial Coercion",
+        "factualBackground": "Chakma and Hajong refugees displaced from the Chittagong Hill Tracts of East Pakistan in 1964 were settled in Arunachal Pradesh by the Union; local tribal groups threatened forceful eviction and boycotts.",
+        "constitutionalQuestion": "Is the State under a constitutional duty to protect refugees and non-citizens from physical violence and arbitrary expulsion under Article 21?",
+        "majorityVerdict": "Directed the State of Arunachal Pradesh to ensure life and liberty of Chakmas and process their citizenship applications under Section 5(1)(a).",
+        "ratioDecidendi": "Our Constitution guarantees the right to life and liberty under Article 21 to all human beings, citizens and non-citizens alike. The State government cannot permit private groups to coerce or evict refugees without the due process of law. The State is under an affirmative obligation to deploy law enforcement to prevent violence.",
+        "howCourtsApplyToday": "Cited in refugee protection, asylum rights, and minority protection litigations in border States.",
+        "keyQuote": "\"Our Constitution is a humane document. Article 21 shines as a beacon light protecting every human being within our borders, regardless of whether they hold Indian citizenship.\""
+      },
+      {
+        "id": "case-salimullah-rohingya-2021",
+        "topicId": "citizenship-borders-refugees",
+        "topicName": "Citizenship, Foreigners & Border Laws",
+        "caseName": "Mohammad Salimullah v. Union of India (Rohingya Deportation)",
+        "citation": "(2021) 13 SCC 588",
+        "year": 2021,
+        "benchStrength": 3,
+        "presidingJudges": "S.A. Bobde (CJI), A.S. Bopanna, V. Ramasubramanian",
+        "constitutionalArticles": [
+          "Article 14",
+          "Article 19(1)(e)",
+          "Article 21"
+        ],
+        "governingDoctrine": "Non-Refoulement and Domestic Statutory Deportation Procedures",
+        "factualBackground": "Rohingya refugees who fled Myanmar and resided in Jammu challenged their detention and impending deportation, invoking the international principle of non-refoulement under Article 21.",
+        "constitutionalQuestion": "Does the international law principle of non-refoulement override domestic laws regarding the deportation of illegal immigrants under the Foreigners Act?",
+        "majorityVerdict": "Refused to stay deportation; directed that deportation must follow the procedure prescribed by law with country-of-origin verification.",
+        "ratioDecidendi": "While Article 21 protects life and liberty of all persons, the right not to be expelled is tied to the right to reside under Article 19(1)(e), which is not available to foreigners. National security concerns and compliance with domestic statutory frameworks take precedence, provided deportation follows due verification procedure with the destination state.",
+        "howCourtsApplyToday": "The current operative authority governing Rohingya detention, verification, and repatriation proceedings.",
+        "keyQuote": "\"National courts must apply domestic statutory law. Expulsion of illegal immigrants must proceed in accordance with the Foreigners Act after following due consular verification.\""
+      }
+    ]
+  },
+  {
+    "id": "tribal-rights-schedules",
+    "name": "Tribal Autonomy, Scheduled Areas & Forest Rights",
+    "articlesRange": "Fifth Schedule, Sixth Schedule, Articles 244, 244A",
+    "description": "Constitutional safeguards protecting indigenous tribal communities, agency tracts, PESA Gram Sabha sovereignty, and environmental rights.",
+    "iconName": "Compass",
+    "color": "#84cc16",
+    "cases": [
+      {
+        "id": "case-samatha-mining-1997",
+        "topicId": "tribal-rights-schedules",
+        "topicName": "Tribal Autonomy, Scheduled Areas & Forest Rights",
+        "caseName": "Samatha v. State of Andhra Pradesh",
+        "citation": "(1997) 8 SCC 191",
+        "year": 1997,
+        "benchStrength": 3,
+        "presidingJudges": "K. Ramaswamy, S. Saghir Ahmad, G.B. Pattanaik (dissenting in part)",
+        "constitutionalArticles": [
+          "Fifth Schedule",
+          "Article 244(1)",
+          "Article 39(b)"
+        ],
+        "governingDoctrine": "Prohibition of Mining Leases to Non-Tribals in Fifth Schedule Areas",
+        "factualBackground": "Andhra Pradesh government granted mining leases in tribal Agency tracts to private corporate mining companies under the premise that state government lands were not owned by individual tribals.",
+        "constitutionalQuestion": "Does the word \"person\" in Section 3(1) of AP Scheduled Areas Land Transfer Regs include the State Government, prohibiting it from leasing tribal lands to non-tribal corporations?",
+        "majorityVerdict": "Held that the State Government is a \"person\" and CANNOT lease government land in Fifth Schedule areas to non-tribals or private companies.",
+        "ratioDecidendi": "The Fifth Schedule is a Constitution within a Constitution, enacted to protect indigenous tribal people from economic exploitation. All transfer of land in Scheduled Areas to non-tribals is null and void. The State cannot do indirectly what is prohibited directly. Mining in Scheduled Areas can only be undertaken by tribals themselves or by State cooperative instrumentalities with 20% profits plowed back into tribal welfare.",
+        "howCourtsApplyToday": "The Magna Carta of Indian tribal rights; cited to resist corporate acquisition of Adivasi lands and safeguard Fifth Schedule autonomy across central India.",
+        "keyQuote": "\"Agriculture is the only source of livelihood for Adivasis. If land is alienated from them to non-tribal industrialists, their economic and cultural existence will be annihilated.\""
+      },
+      {
+        "id": "case-niyamgiri-dongria-2013",
+        "topicId": "tribal-rights-schedules",
+        "topicName": "Tribal Autonomy, Scheduled Areas & Forest Rights",
+        "caseName": "Orissa Mining Corporation v. Ministry of Environment and Forests (Niyamgiri Case)",
+        "citation": "(2013) 6 SCC 476",
+        "year": 2013,
+        "benchStrength": 3,
+        "presidingJudges": "K.S. Radhakrishnan, Chandramauli Kumar Prasad, P.K. Balasubramanyan",
+        "constitutionalArticles": [
+          "Article 21",
+          "Article 25",
+          "Article 26",
+          "Fifth Schedule"
+        ],
+        "governingDoctrine": "Gram Sabha Sovereign Consent & Religious Rights over Sacred Hills",
+        "factualBackground": "Vedanta Resources and OMC sought bauxite mining approval over Niyamgiri hills in Odisha, which is the sacred abode of deity Niyam Raja worshipped by primitive vulnerable tribal group (PVTG) Dongria Kondh.",
+        "constitutionalQuestion": "Do forest-dwelling tribal communities possess the right under Article 25 and the Forest Rights Act (FRA) 2006 to decide whether mining would affect their sacred religious and cultural rights?",
+        "majorityVerdict": "Directed that the Gram Sabhas of Dongria Kondh have the final deciding authority; after all 12 Gram Sabhas unanimously voted against mining, the project was rejected.",
+        "ratioDecidendi": "The religious and cultural rights of indigenous tribals under Articles 25 and 26 to worship hills and natural abodes are inalienable. Under Section 4(1)(d) of the Forest Rights Act, the Gram Sabha is the statutory and constitutional custodian of forest rights. The State cannot grant environmental clearances overriding the democratic veto of the Gram Sabha.",
+        "howCourtsApplyToday": "Pioneered environmental and indigenous democracy in India; mandates free, prior, and informed consent of Gram Sabhas for development projects on forest lands.",
+        "keyQuote": "\"The right of the Dongria Kondh to worship Niyam Raja at the sacred hill is a protected religious right under Articles 25 and 26. The Gram Sabha has a vital democratic role in safeguarding customary rights.\""
+      },
+      {
+        "id": "case-chebrolu-leela-2020",
+        "topicId": "tribal-rights-schedules",
+        "topicName": "Tribal Autonomy, Scheduled Areas & Forest Rights",
+        "caseName": "Chebrolu Leela Prasad Rao v. State of Andhra Pradesh",
+        "citation": "(2021) 11 SCC 401 (5-Judge Constitution Bench)",
+        "year": 2020,
+        "benchStrength": 5,
+        "presidingJudges": "Arun Mishra, Indira Banerjee, Vineet Saran, M.R. Shah, Aniruddha Bose",
+        "constitutionalArticles": [
+          "Fifth Schedule, Para 5(1)",
+          "Article 14",
+          "Article 16"
+        ],
+        "governingDoctrine": "Governor's Power under Fifth Schedule Cannot Destroy Fundamental Rights",
+        "factualBackground": "Governor of Andhra Pradesh issued a notification under Paragraph 5(1) of Fifth Schedule providing 100% reservation for local Scheduled Tribe candidates in posts of teachers in Scheduled Areas.",
+        "constitutionalQuestion": "Can the Governor in exercise of powers under Paragraph 5(1) of the Fifth Schedule override Fundamental Rights and grant 100% reservation?",
+        "majorityVerdict": "Unanimously struck down the 100% reservation notification as arbitrary and violative of Articles 14 and 16.",
+        "ratioDecidendi": "The Governor's power under Paragraph 5(1) of the Fifth Schedule to modify or disapply Acts of Parliament or State Legislature is a non-legislative plenary regulatory power, but it remains subject to the Fundamental Rights in Part III. 100% reservation in any public employment is an absolute anathema to the constitutional guarantee of equality under Article 16(1).",
+        "howCourtsApplyToday": "Clarified the constitutional limits of gubernatorial executive notifications in Scheduled Areas; prevents total exclusion of open category citizens.",
+        "keyQuote": "\"100% reservation is discriminatory and impermissible under our constitutional scheme. The Fifth Schedule cannot be exercised to nullify the basic right to equality under Part III.\""
+      },
+      {
+        "id": "case-dimasa-students-2019",
+        "topicId": "tribal-rights-schedules",
+        "topicName": "Tribal Autonomy, Scheduled Areas & Forest Rights",
+        "caseName": "State of Meghalaya v. All Dimasa Students Union",
+        "citation": "(2019) 8 SCC 177",
+        "year": 2019,
+        "benchStrength": 2,
+        "presidingJudges": "Ashok Bhushan, K.M. Joseph",
+        "constitutionalArticles": [
+          "Sixth Schedule",
+          "Article 21",
+          "Article 48A"
+        ],
+        "governingDoctrine": "Sixth Schedule Autonomy Does Not Exempt Tribal Lands from Central Environmental Laws",
+        "factualBackground": "Unregulated rat-hole coal mining in Meghalaya resulted in miners getting trapped and severe acidification of rivers; state claimed Sixth Schedule autonomous hills were not subject to central environmental laws without Governor assent.",
+        "constitutionalQuestion": "Does the special constitutional status and autonomy of Sixth Schedule Autonomous District Councils exempt tribal lands from central environmental statutes like the Mines and Minerals Act and NGT orders?",
+        "majorityVerdict": "Held that central mining and environmental safety laws apply with full force in Sixth Schedule areas.",
+        "ratioDecidendi": "The Sixth Schedule grants local autonomy and customary protection, but does not create an independent sovereign enclave beyond the reach of environmental laws enacted under Article 21. Natural resources and mineral wealth must be exploited strictly according to safety and environmental standards; rat-hole mining without permits is completely illegal.",
+        "howCourtsApplyToday": "The leading precedent reconciling tribal self-governance under the Sixth Schedule with national environmental protection regimes.",
+        "keyQuote": "\"Autonomy under the Sixth Schedule cannot be converted into an immunity against environmental destruction and human exploitation. The right to a clean environment under Article 21 binds all regions.\""
+      },
+      {
+        "id": "case-pesa-amarendra-2000",
+        "topicId": "tribal-rights-schedules",
+        "topicName": "Tribal Autonomy, Scheduled Areas & Forest Rights",
+        "caseName": "Amarendra Nath Dutta v. State of Bihar",
+        "citation": "AIR 2000 Pat 229 / (2000) 2 BLJR 1341",
+        "year": 2000,
+        "benchStrength": 2,
+        "presidingJudges": "R.A. Sharma, A.K. Prasad",
+        "constitutionalArticles": [
+          "Article 243M",
+          "Article 244(1)",
+          "Fifth Schedule"
+        ],
+        "governingDoctrine": "Sovereign Primacy of PESA 1996 in Fifth Schedule Gram Sabhas",
+        "factualBackground": "Panchayat elections in Bihar were challenged for failing to harmonize state election laws with the Provisions of the Panchayats (Extension to the Scheduled Areas) Act (PESA), 1996.",
+        "constitutionalQuestion": "Can ordinary state panchayat laws be enforced in Fifth Schedule areas without incorporating the customary self-governance provisions of PESA?",
+        "majorityVerdict": "Held that PESA 1996 is a paramount central enactment under Article 243M(4)(b) overriding inconsistent state legislation.",
+        "ratioDecidendi": "Parliament enacted PESA to recognize the traditional rights of tribal communities over community resources and self-governance. State legislation relating to Panchayats in Fifth Schedule areas must conform to customary law, social and religious practices, and traditional management practices of community resources.",
+        "howCourtsApplyToday": "The standard precedent cited in administrative challenges demanding mandatory devolution of powers to tribal Gram Sabhas over minor forest produce, water bodies, and local markets.",
+        "keyQuote": "\"PESA is the legislative realization of the constitutional promise to empower indigenous tribal Gram Sabhas to govern their customary resources and heritage.\""
+      }
+    ]
   }
+
 ];
