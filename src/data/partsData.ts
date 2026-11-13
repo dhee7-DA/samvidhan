@@ -3,6 +3,12 @@ import { PART_3_ARTICLES_EXPANDED } from './part3FundamentalRightsData';
 import { PART_4_DPSP_EXPANDED } from './part4DPSPData';
 import { PART_5_UNION_EXPANDED } from './part5UnionData';
 import { PART_6_STATES_EXPANDED } from './part6StatesData';
+import { PART_11_FEDERAL_EXPANDED } from './part11FederalData';
+import { PART_12_FINANCE_EXPANDED } from './part12FinanceData';
+import { PART_14_SERVICES_EXPANDED } from './part14ServicesData';
+import { PART_18_EMERGENCY_EXPANDED } from './part18EmergencyData';
+import { PART_20_AMENDMENT_EXPANDED } from './part20AmendmentData';
+import { PART_21_SPECIAL_EXPANDED } from './part21SpecialData';
 
 export const CONSTITUTION_PARTS: ConstitutionPart[] = [
   {
@@ -522,38 +528,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'federal-relations',
-    articles: [
-      {
-        number: '246',
-        title: 'Subject-matter of laws made by Parliament and by Legislatures of States',
-        summary: 'Establishes three legislative lists: Union List (exclusive Parliament), State List (exclusive State), and Concurrent List (both).',
-        textSnippet: 'Parliament has exclusive power to make laws with respect to any of the matters enumerated in List I in the Seventh Schedule.'
-      },
-      {
-        number: '248',
-        title: 'Residuary powers of legislation',
-        summary: 'Grants exclusive competence to Parliament to enact laws on any matter not enumerated in the Concurrent or State Lists.',
-        textSnippet: 'Parliament has exclusive power to make any law with respect to any matter not enumerated in the Concurrent List or State List.'
-      },
-      {
-        number: '249',
-        title: 'Power of Parliament to legislate in national interest',
-        summary: 'Allows Parliament to legislate on State List if Rajya Sabha passes a resolution supported by 2/3 members present and voting.',
-        textSnippet: 'If the Council of States has declared by resolution supported by not less than two-thirds of the members present and voting.'
-      },
-      {
-        number: '262',
-        title: 'Adjudication of disputes relating to waters of inter-State rivers',
-        summary: 'Empowers Parliament to enact laws for adjudicating river water disputes and bar Supreme Court jurisdiction (Inter-State River Water Disputes Act 1956).',
-        textSnippet: 'Parliament may by law provide for the adjudication of any dispute with respect to the use, distribution or control of the waters of any inter-State river.'
-      },
-      {
-        number: '263',
-        title: 'Provisions with respect to an inter-State Council',
-        summary: 'President may establish an Inter-State Council to inquire into disputes, investigate common policy subjects, and coordinate recommendations.',
-        textSnippet: 'If at any time it appears to the President that the public interests would be served by the establishment of a Council.'
-      }
-    ]
+    articles: PART_11_FEDERAL_EXPANDED
   },
   {
     id: 'part-12',
@@ -586,44 +561,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'gst-fiscal-federalism',
-    articles: [
-      {
-        number: '265',
-        title: 'Taxes not to be imposed save by authority of law',
-        summary: 'Fundamental fiscal safeguard: No tax shall be levied or collected except by authority of a validly enacted statute.',
-        textSnippet: 'No tax shall be levied or collected except by authority of law.'
-      },
-      {
-        number: '266',
-        title: 'Consolidated Funds and public accounts of India and of the States',
-        summary: 'All revenues, loans, and loan repayments flow into the Consolidated Fund of India; withdrawal requires parliamentary appropriation law.',
-        textSnippet: 'All revenues received by the Government of India, all loans raised by that Government, shall form one consolidated fund.'
-      },
-      {
-        number: '267',
-        title: 'Contingency Fund',
-        summary: 'Authorizes creation of an imprest Contingency Fund placed at the disposal of the President for unforeseen emergency expenditures pending parliamentary sanction.',
-        textSnippet: 'Parliament may by law establish a Contingency Fund in the nature of an imprest to be entitled the Contingency Fund of India.'
-      },
-      {
-        number: '279A',
-        title: 'Goods and Services Tax Council',
-        summary: 'Constitutional federal body comprising Union Finance Minister and State Finance Ministers to make recommendations on GST rates, exemptions, and thresholds.',
-        textSnippet: 'The President shall, within sixty days from the date of commencement of the Constitution (One Hundred and First Amendment) Act, 2016, constitute a Council called the Goods and Services Tax Council.'
-      },
-      {
-        number: '280',
-        title: 'Finance Commission',
-        summary: 'Quasi-judicial body appointed by President every fifth year to recommend net tax proceeds distribution between Union and States and grants-in-aid.',
-        textSnippet: 'The President shall, within two years from the commencement of this Constitution and thereafter at the expiration of every fifth year, constitute a Finance Commission.'
-      },
-      {
-        number: '300A',
-        title: 'Persons not to be deprived of property save by authority of law',
-        summary: 'Inserted by 44th Amendment 1978 replacing Articles 19(1)(f) and 31. Protects private property against unauthorized executive seizure.',
-        textSnippet: 'No person shall be deprived of his property save by authority of law.'
-      }
-    ]
+    articles: PART_12_FINANCE_EXPANDED
   },
   {
     id: 'part-13',
@@ -706,39 +644,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'civil-services-safeguards',
-    articles: [
-      {
-        number: '310',
-        title: 'Tenure of office of persons serving the Union or a State',
-        summary: 'Codifies the Doctrine of Pleasure: civil servants hold office during the pleasure of the President or Governor.',
-        textSnippet: 'Every person who is a member of a defence service or of a civil service holds office during the pleasure of the President or Governor.'
-      },
-      {
-        number: '311',
-        title: 'Dismissal, removal or reduction in rank of civil servants',
-        summary: 'The twin constitutional safeguards: No subordinate authority dismissal, and mandatory reasonable opportunity of being heard.',
-        textSnippet: 'No person who is a member of a civil service shall be dismissed or removed by an authority subordinate to that by which he was appointed, and only after an inquiry.',
-        clauses: [
-          { clause: '311(1)', explanation: 'Protection against dismissal by an authority subordinate to the appointing authority.' },
-          { clause: '311(2)', explanation: 'Mandatory departmental inquiry informing the servant of specific charges and providing a reasonable opportunity of defense.' },
-          { clause: '311(2) Proviso (a)', explanation: 'Exemption from inquiry where a person is dismissed on the ground of conduct which led to conviction on a criminal charge.' },
-          { clause: '311(2) Proviso (b)', explanation: 'Exemption where the disciplinary authority is satisfied for reasons recorded in writing that holding an inquiry is not reasonably practicable.' },
-          { clause: '311(2) Proviso (c)', explanation: 'Exemption where the President or Governor is satisfied that in the interest of the security of the State it is not expedient to hold an inquiry.' }
-        ]
-      },
-      {
-        number: '312',
-        title: 'All-India Services',
-        summary: 'Empowers Parliament to create new All-India Services common to Union and States if Rajya Sabha passes a resolution supported by 2/3 present and voting.',
-        textSnippet: 'If the Council of States has declared by resolution supported by not less than two-thirds of the members present and voting that it is necessary in the national interest.'
-      },
-      {
-        number: '315',
-        title: 'Public Service Commissions for the Union and for the States',
-        summary: 'Mandates a Union Public Service Commission (UPSC) and State Public Service Commissions (SPSCs) for recruitment to civil posts.',
-        textSnippet: 'There shall be a Public Service Commission for the Union and a Public Service Commission for each State.'
-      }
-    ]
+    articles: PART_14_SERVICES_EXPANDED
   },
   {
     id: 'part-14a',
@@ -979,32 +885,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'emergency-matrix',
-    articles: [
-      {
-        number: '352',
-        title: 'Proclamation of Emergency',
-        summary: 'Allows President to declare National Emergency on grounds of war, external aggression, or armed rebellion (written advice required).',
-        textSnippet: 'If the President is satisfied that a grave emergency exists whereby the security of India or of any part of the territory thereof is threatened.'
-      },
-      {
-        number: '356',
-        title: 'Provisions in case of failure of constitutional machinery in States',
-        summary: 'Imposes President’s Rule on report of Governor or otherwise; State executive is suspended and legislative powers shift to Parliament.',
-        textSnippet: 'If the President, on receipt of a report from the Governor of a State or otherwise, is satisfied that the government cannot be carried on in accordance with the Constitution.'
-      },
-      {
-        number: '359',
-        title: 'Suspension of enforcement of Part III rights during emergencies',
-        summary: 'Empowers President to suspend right to move court for enforcement of specified FRs, explicitly excluding Articles 20 and 21.',
-        textSnippet: 'The President may by order declare that the right to move any court for the enforcement of such rights (except articles 20 and 21) shall remain suspended.'
-      },
-      {
-        number: '360',
-        title: 'Provisions as to financial emergency',
-        summary: 'President may proclaim financial emergency if the financial stability or credit of India or any territory is threatened (never declared).',
-        textSnippet: 'If the President is satisfied that a situation has arisen whereby the financial stability or credit of India is threatened.'
-      }
-    ]
+    articles: PART_18_EMERGENCY_EXPANDED
   },
   {
     id: 'part-19',
@@ -1072,14 +953,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'amendment-pipeline',
-    articles: [
-      {
-        number: '368',
-        title: 'Power of Parliament to amend the Constitution and procedure therefor',
-        summary: 'Comprehensive constituent mechanism specifying the procedure and scope for constitutional amendments.',
-        textSnippet: 'Parliament may in exercise of its constituent power amend by way of addition, variation or repeal any provision of this Constitution.'
-      }
-    ]
+    articles: PART_20_AMENDMENT_EXPANDED
   },
   {
     id: 'part-21',
@@ -1104,38 +978,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
       }
     ],
     svgDiagramId: 'asymmetric-federalism',
-    articles: [
-      {
-        number: '370',
-        title: 'Temporary provisions with respect to the State of Jammu and Kashmir [Inoperative]',
-        summary: 'Granted temporary special status to J&K; rendered inoperative in August 2019, extending all provisions of the Indian Constitution uniformly.',
-        textSnippet: 'Temporary provisions with respect to the State of Jammu and Kashmir [Declared inoperative by C.O. 273, 2019].'
-      },
-      {
-        number: '371',
-        title: 'Special provision with respect to the States of Maharashtra and Gujarat',
-        summary: 'Authorizes separate development boards for Vidarbha, Marathwada, Saurashtra, and Kutch with equitable allocation of funds.',
-        textSnippet: 'Special responsibility of the Governor for the establishment of separate development boards for Vidarbha, Marathwada, Saurashtra, Kutch.'
-      },
-      {
-        number: '371A',
-        title: 'Special provision with respect to the State of Nagaland',
-        summary: 'No Act of Parliament respecting religious/social practices, customary law, and land ownership of Nagas shall apply unless Nagaland Assembly decides.',
-        textSnippet: 'No Act of Parliament in respect of religious or social practices of the Nagas, Naga customary law, ownership of land shall apply to Nagaland.'
-      },
-      {
-        number: '371F',
-        title: 'Special provisions with respect to the State of Sikkim',
-        summary: 'Inserted by 36th Amendment 1975 upon Sikkim’s accession as a full state; protects historic laws and creates 32-seat assembly.',
-        textSnippet: 'The Legislative Assembly of the State of Sikkim shall consist of not less than thirty-two members.'
-      },
-      {
-        number: '371J',
-        title: 'Special provisions with respect to the State of Karnataka (Kalyana-Karnataka)',
-        summary: 'Inserted by 98th Amendment 2012: Provides separate development board and educational/employment reservations for 6 backward districts of Hyderabad-Karnataka region.',
-        textSnippet: 'Establishment of a separate development board for Hyderabad-Karnataka region with equitable allocation of funds.'
-      }
-    ]
+    articles: PART_21_SPECIAL_EXPANDED
   },
   {
     id: 'part-22',

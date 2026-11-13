@@ -28,6 +28,10 @@ import { EmergencyMatrixSVG } from '../VectorDiagrams/EmergencyMatrixSVG';
 import { LegislativePassageSVG } from '../VectorDiagrams/LegislativePassageSVG';
 import { CriminalConstitutionalPipelineSVG } from '../VectorDiagrams/CriminalConstitutionalPipelineSVG';
 import { ExecutiveClemencyArchitectureSVG } from '../VectorDiagrams/ExecutiveClemencyArchitectureSVG';
+import { GSTCouncilFiscalSVG } from '../VectorDiagrams/GSTCouncilFiscalSVG';
+import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeguardsSVG';
+import { BasicStructureEvolutionSVG } from '../VectorDiagrams/BasicStructureEvolutionSVG';
+import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
 
 export const TopicDetailView: React.FC = () => {
   const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -284,14 +288,30 @@ export const TopicDetailView: React.FC = () => {
             <FederalRelationsSVG />
           </div>
         )}
+        {currentPart.id === 'part-12' && (
+          <div className="flex flex-col gap-2">
+            <GSTCouncilFiscalSVG />
+          </div>
+        )}
+        {currentPart.id === 'part-14' && (
+          <div className="flex flex-col gap-2">
+            <CivilServicesSafeguardsSVG />
+          </div>
+        )}
         {currentPart.id === 'part-18' && (
           <div className="flex flex-col gap-2">
             <EmergencyMatrixSVG />
           </div>
         )}
         {currentPart.id === 'part-20' && (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-6">
             <AmendmentPipelineSVG />
+            <BasicStructureEvolutionSVG />
+          </div>
+        )}
+        {currentPart.id === 'part-21' && (
+          <div className="flex flex-col gap-2">
+            <AsymmetricFederalismSVG />
           </div>
         )}
 
