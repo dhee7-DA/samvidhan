@@ -44,7 +44,7 @@ export const LegalWordTooltip: React.FC<TooltipProps> = ({ termData, children })
     if (!triggerRef.current) return;
     const rect = triggerRef.current.getBoundingClientRect();
     const tooltipWidth = Math.min(380, window.innerWidth - 32);
-    const tooltipHeight = 260; // Estimated height for boundary check
+    const tooltipHeight = 280; // Estimated height for boundary check
 
     // Check if there is enough space below; if not, place above
     const placeAbove = rect.bottom + tooltipHeight > window.innerHeight && rect.top > tooltipHeight;
@@ -67,16 +67,27 @@ export const LegalWordTooltip: React.FC<TooltipProps> = ({ termData, children })
   };
 
   const handleMouseLeave = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 250); // Small grace period to allow moving mouse into tooltip
+    }, 350); // Generous grace period to allow moving mouse into tooltip
   };
 
   useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (triggerRef.current && !triggerRef.current.contains(target) && !target.closest('.legal-tooltip')) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
     return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <>
@@ -84,12 +95,15 @@ export const LegalWordTooltip: React.FC<TooltipProps> = ({ termData, children })
         ref={triggerRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onPointerEnter={handleMouseEnter}
+        onPointerLeave={handleMouseLeave}
         onClick={(e) => {
           e.stopPropagation();
           calculatePosition();
           setIsOpen((prev) => !prev);
         }}
-        className="inline cursor-help text-[var(--gold)] font-medium underline decoration-dotted decoration-[var(--gold)]/60 hover:decoration-[var(--gold)] underline-offset-4 transition-colors"
+        title={`Hover or click to view definition & example: ${termData.term}`}
+        className="inline cursor-pointer text-[var(--gold)] font-medium underline decoration-dotted decoration-[var(--gold)]/80 hover:decoration-[var(--gold)] hover:bg-[var(--gold)]/10 px-0.5 rounded underline-offset-4 transition-colors"
       >
         {children}
       </span>
@@ -101,16 +115,17 @@ export const LegalWordTooltip: React.FC<TooltipProps> = ({ termData, children })
             onMouseEnter={() => {
               if (timeoutRef.current) clearTimeout(timeoutRef.current);
             }}
-            onMouseLeave={() => setIsOpen(false)}
+            onMouseLeave={handleMouseLeave}
             style={{
               position: 'fixed',
-              top: coords.placeAbove ? 'auto' : `${coords.top}px`,
-              bottom: coords.placeAbove ? `${window.innerHeight - coords.top}px` : 'auto',
+              top: `${coords.top}px`,
               left: `${coords.left}px`,
+              transform: coords.placeAbove ? 'translateY(-100%)' : 'none',
               width: `${Math.min(380, window.innerWidth - 32)}px`,
-              zIndex: 9999
+              zIndex: 99999
             }}
-            className="p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl flex flex-col gap-3 text-left animate-fadeIn backdrop-blur-md"
+            role="tooltip"
+            className="legal-tooltip p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl flex flex-col gap-3 text-left pointer-events-auto backdrop-blur-md"
           >
             {/* Header: Term Title + Category */}
             <div className="flex items-start justify-between gap-2 border-b border-[var(--border-subtle)] pb-2.5">
@@ -183,10 +198,10 @@ export const AnnotatedLegalText: React.FC<AnnotatedLegalTextProps> = ({ text, cl
 
     const elements: React.ReactNode[] = [];
     let lastIndex = 0;
-    DICTIONARY_REGEX.lastIndex = 0;
+    const regex = new RegExp(DICTIONARY_REGEX.source, 'gi');
 
     let match: RegExpExecArray | null;
-    while ((match = DICTIONARY_REGEX.exec(text)) !== null) {
+    while ((match = regex.exec(text)) !== null) {
       const matchIndex = match.index;
       const matchedString = match[0];
 

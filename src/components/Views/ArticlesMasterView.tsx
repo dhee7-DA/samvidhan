@@ -236,7 +236,7 @@ export const ArticlesMasterView: React.FC = () => {
                 </div>
 
                 <h4 className="text-xs font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent)] transition-colors break-words">
-                  {art.title}
+                  <AnnotatedLegalText text={art.title} />
                 </h4>
 
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed break-words">

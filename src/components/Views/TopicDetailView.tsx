@@ -351,7 +351,7 @@ export const TopicDetailView: React.FC = () => {
                         Article {art.number}
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
-                        {art.title}
+                        <AnnotatedLegalText text={art.title} />
                       </h4>
                     </div>
 
@@ -387,7 +387,7 @@ export const TopicDetailView: React.FC = () => {
 
                   {/* Constitutional Text Snippet */}
                   <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] italic leading-relaxed">
-                    "{art.textSnippet}"
+                    "<AnnotatedLegalText text={art.textSnippet} />"
                   </div>
 
                   {/* Real-World Everyday / Courtroom Scenario */}
@@ -453,7 +453,9 @@ export const TopicDetailView: React.FC = () => {
                       </span>
                       <ul className="list-disc list-inside text-xs text-[var(--text-secondary)] space-y-1">
                         {art.exceptions.map((ex, i) => (
-                          <li key={i}>{ex}</li>
+                          <li key={i}>
+                            <AnnotatedLegalText text={ex} />
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -482,11 +484,11 @@ export const TopicDetailView: React.FC = () => {
                                 </span>
                               )}
                               <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
-                                {lc.summary}
+                                <AnnotatedLegalText text={lc.summary} />
                               </p>
                             </div>
                             <span className="text-[10px] font-mono text-[var(--accent)] pt-1 border-t border-[var(--border-subtle)]/60">
-                              Ruling: {lc.significance}
+                              Ruling: <AnnotatedLegalText text={lc.significance} />
                             </span>
                           </div>
                         ))}
@@ -503,7 +505,7 @@ export const TopicDetailView: React.FC = () => {
                           key={i}
                           className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
                         >
-                          {doc}
+                          <AnnotatedLegalText text={doc} />
                         </span>
                       ))}
                     </div>

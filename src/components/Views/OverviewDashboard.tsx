@@ -16,6 +16,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
 import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
 import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureSVG';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const OverviewDashboard: React.FC = () => {
   const { setActiveTab, setSelectedPartId, setSelectedSvgId } = useTheme();
@@ -116,14 +117,14 @@ export const OverviewDashboard: React.FC = () => {
         {/* Verbatim Preamble in Editorial Typography */}
         <div className="p-6 sm:p-8 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-inner text-center">
           <p className="font-editorial text-lg sm:text-xl md:text-2xl text-[var(--text-primary)] leading-relaxed italic max-w-3xl mx-auto whitespace-pre-line tracking-wide">
-            {PREAMBLE_DATA.verbatimText}
+            <AnnotatedLegalText text={PREAMBLE_DATA.verbatimText} />
           </p>
           <div className="mt-6 flex flex-wrap justify-center items-center gap-3 text-xs font-mono text-[var(--text-muted)]">
             <span className="px-2 py-1 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-              42nd Amd (1976): Added Socialist, Secular & Integrity
+              <AnnotatedLegalText text="42nd Amd (1976): Added Socialist, Secular & Integrity" />
             </span>
             <span className="px-2 py-1 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-              Kesavananda Bharati: Part of Basic Structure
+              <AnnotatedLegalText text="Kesavananda Bharati: Part of Basic Structure" />
             </span>
           </div>
         </div>
@@ -140,12 +141,14 @@ export const OverviewDashboard: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-base font-bold text-[var(--text-primary)]">{pillar.title}</h4>
+                  <h4 className="text-base font-bold text-[var(--text-primary)]">
+                    <AnnotatedLegalText text={pillar.title} />
+                  </h4>
                   <span className="text-[10px] font-mono text-[var(--text-muted)]">{pillar.origin}</span>
                 </div>
                 <div className="text-xs font-mono text-[var(--accent)] mb-2">{pillar.scope}</div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  {pillar.description}
+                  <AnnotatedLegalText text={pillar.description} />
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] text-[10px] font-mono text-[var(--text-muted)]">
@@ -194,7 +197,7 @@ export const OverviewDashboard: React.FC = () => {
               Fundamental Rights & Writs
             </h3>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Explore the Golden Triangle of Articles 14, 19, and 21, the 5 Prerogative Writs, and reasonable restrictions.
+              <AnnotatedLegalText text="Explore the Golden Triangle of Articles 14, 19, and 21, the 5 Prerogative Writs, and reasonable restrictions." />
             </p>
           </div>
           <div className="mt-4 text-[11px] font-mono text-[var(--emerald)]">
@@ -217,7 +220,7 @@ export const OverviewDashboard: React.FC = () => {
               Constitutional Doctrines Hub
             </h3>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Deconstruct Basic Structure, Pith & Substance, Colorable Legislation, Eclipse, Severability, and Territorial Nexus.
+              <AnnotatedLegalText text="Deconstruct Basic Structure, Pith & Substance, Colorable Legislation, Eclipse, Severability, and Territorial Nexus." />
             </p>
           </div>
           <div className="mt-4 text-[11px] font-mono text-[var(--gold)]">

@@ -35,6 +35,7 @@ import {
 } from '../../data/caseLawsDetailedData';
 import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
 import { useTheme } from '../../context/ThemeContext';
+import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const LandmarkCasesView: React.FC = () => {
   const { setActiveTab } = useTheme();
@@ -823,7 +824,7 @@ export const LandmarkCasesView: React.FC = () => {
                       Factual Background & Procedural Posture
                     </span>
                     <p className="text-sm text-[var(--text-secondary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)] break-words">
-                      {currentCase.factualBackground}
+                      <AnnotatedLegalText text={currentCase.factualBackground} />
                     </p>
                   </div>
 
@@ -834,7 +835,7 @@ export const LandmarkCasesView: React.FC = () => {
                       The Constitutional Question Before the Bench
                     </span>
                     <p className="text-sm font-semibold text-[var(--text-primary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)] break-words">
-                      {currentCase.constitutionalQuestion}
+                      <AnnotatedLegalText text={currentCase.constitutionalQuestion} />
                     </p>
                   </div>
 
@@ -845,7 +846,7 @@ export const LandmarkCasesView: React.FC = () => {
                       Majority Verdict & Operative Holding
                     </span>
                     <p className="text-sm text-[var(--text-primary)] leading-relaxed bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)] break-words">
-                      {currentCase.majorityVerdict}
+                      <AnnotatedLegalText text={currentCase.majorityVerdict} />
                     </p>
                   </div>
 
@@ -857,11 +858,11 @@ export const LandmarkCasesView: React.FC = () => {
                     </span>
                     <div className="bg-[var(--bg-surface-elevated)] p-5 rounded-xl border-l-4 border-l-[var(--accent)] border border-[var(--border-strong)] flex flex-col gap-2 shadow-sm">
                       <p className="text-sm text-[var(--text-primary)] leading-relaxed font-serif italic break-words">
-                        "{currentCase.ratioDecidendi}"
+                        "<AnnotatedLegalText text={currentCase.ratioDecidendi} />"
                       </p>
                       {currentCase.keyQuote && (
                         <p className="text-xs text-[var(--text-secondary)] font-serif border-t border-[var(--border-subtle)] pt-2 mt-1 break-words">
-                          Key Epigram: {currentCase.keyQuote}
+                          Key Epigram: <AnnotatedLegalText text={currentCase.keyQuote} />
                         </p>
                       )}
                     </div>
@@ -875,7 +876,7 @@ export const LandmarkCasesView: React.FC = () => {
                         Historic Dissenting Opinion
                       </span>
                       <p className="text-xs text-[var(--text-secondary)] leading-relaxed bg-rose-500/5 p-4 rounded-xl border border-rose-500/20 break-words">
-                        {currentCase.notableDissent}
+                        <AnnotatedLegalText text={currentCase.notableDissent} />
                       </p>
                     </div>
                   )}
@@ -887,7 +888,9 @@ export const LandmarkCasesView: React.FC = () => {
                       Courtroom Utility: How Courts Apply & Cite This Precedent Today
                     </span>
                     <div className="bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/20 text-xs text-[var(--text-secondary)] leading-relaxed flex flex-col gap-2 break-words">
-                      <p className="break-words">{currentCase.howCourtsApplyToday}</p>
+                      <p className="break-words">
+                        <AnnotatedLegalText text={currentCase.howCourtsApplyToday} />
+                      </p>
                     </div>
                   </div>
                 </div>

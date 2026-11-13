@@ -475,5 +475,239 @@ export const LEGAL_DICTIONARY: LegalTerm[] = [
     easyExample: 'State Governors and the Attorney-General serve at the "pleasure of the President". When a new government takes power at the Centre, the Prime Minister advises the President to replace the Attorney-General and Governors. Because they hold office at pleasure, they do not have fixed 5-year guarantees like judges.',
     statutoryOrCaseRef: 'Article 310 & 311 Constitution of India; B.P. Singhal (2010); Tulsiram Patel (1985)',
     relatedArticles: ['Article 310', 'Article 311', 'Article 156']
+  },
+
+  // ==================== PREAMBLE & CORE CONSTITUTIONAL PRINCIPLES ====================
+  {
+    term: 'Sovereign',
+    aliases: ['sovereign', 'sovereignty'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Supreme, independent, and unconstrained authority',
+    detailedMeaning: 'India is internally supreme and externally free from any outside control, foreign domination, or superior authority. No external nation or body (e.g. the British Crown or United Nations) can dictate laws or policies to the Republic of India.',
+    easyExample: 'If a foreign power tries to order India to cancel an election or hand over territory, India can outright refuse. Because India is "Sovereign", our Parliament and Constitution hold ultimate domestic power, answerable to no foreign king, country, or corporation.',
+    statutoryOrCaseRef: 'Preamble; Synthetics & Chemicals Ltd. v. State of U.P. (1990)',
+    relatedArticles: ['Preamble', 'Article 1']
+  },
+  {
+    term: 'Socialist',
+    aliases: ['socialist', 'socialism', 'democratic socialism'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Democratic socialism aiming to eliminate poverty, ignorance, disease, and inequality',
+    detailedMeaning: 'Added by the 42nd Constitutional Amendment (1976). Indian socialism is a unique democratic blend of Marxism and Gandhian philosophy (leaning heavily toward Gandhian socialism), envisioning a mixed economy where the state works to end income disparity and provide social welfare rather than abolishing private property entirely.',
+    easyExample: 'The government runs public buses, government hospitals providing free healthcare, and welfare ration shops (PDS) alongside private hospitals and private car companies. The goal is that the poor are not crushed by pure unbridled capitalism.',
+    statutoryOrCaseRef: 'Preamble; D.S. Nakara v. Union of India (1983 5-Judge Bench)',
+    relatedArticles: ['Preamble', 'Article 38', 'Article 39']
+  },
+  {
+    term: 'Secular',
+    aliases: ['secular', 'secularism', 'sarva dharma sambhava'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Sarva Dharma Sambhava — equal respect for all religions without an official state religion',
+    detailedMeaning: 'Added by the 42nd Amendment (1976), though intrinsic to Articles 25–28 from inception. Unlike Western negative secularism (strict wall of separation between church and state), Indian secularism is positive: the State has no official religion, treats all religions equally, and reserves the right to intervene to eliminate regressive social evils (like untouchability or dowry).',
+    easyExample: 'The Indian Government does not declare Hinduism, Islam, or Christianity as the "State Religion". A Muslim, Hindu, Sikh, Christian, or Atheist has the exact same right to run for Prime Minister, open schools, or worship freely without State discrimination.',
+    statutoryOrCaseRef: 'S.R. Bommai v. Union of India (1994 9-Judge Bench); Part of Basic Structure',
+    relatedArticles: ['Preamble', 'Article 25', 'Article 26', 'Article 27', 'Article 28']
+  },
+  {
+    term: 'Democratic',
+    aliases: ['democratic', 'democracy', 'representative democracy'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Rule of the people, by the people, for the people',
+    detailedMeaning: 'A system of representative parliamentary government founded on universal adult suffrage (one person, one vote), periodic free and fair elections, rule of law, and an independent judiciary. Political democracy is intertwined with social and economic democracy.',
+    easyExample: 'Every 5 years, every adult citizen over 18—from a billionaire industrialist to a roadside tea vendor—gets exactly one ballot vote of equal value to elect the government. If citizens are unhappy with their leaders, they can vote them out of office peacefully.',
+    statutoryOrCaseRef: 'Preamble; Indira Nehru Gandhi v. Raj Narain (1975 5-Judge Bench)',
+    relatedArticles: ['Preamble', 'Article 326']
+  },
+  {
+    term: 'Republic',
+    aliases: ['republic', 'republican'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'From Latin "Res publica" (Public affair) — an elected Head of State, not a hereditary monarch',
+    detailedMeaning: 'A constitutional polity where supreme power resides in the people, public offices are open to all citizens without hereditary privilege, and the Head of State (the President of India) is elected by the people\'s representatives for a fixed term, rather than inheriting power by birth (unlike the British monarchy).',
+    easyExample: 'In Britain, King Charles became King simply because his mother was Queen (hereditary monarchy). In India, any ordinary citizen—like Dr. A.P.J. Abdul Kalam or Droupadi Murmu—can be elected President of India through constitutional elections.',
+    statutoryOrCaseRef: 'Preamble; Kesavananda Bharati (1973)',
+    relatedArticles: ['Preamble', 'Article 54', 'Article 56']
+  },
+  {
+    term: 'Justice',
+    aliases: ['justice', 'social justice', 'economic justice', 'political justice'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Fairness and rectification across Social, Economic, and Political spheres',
+    detailedMeaning: 'The highest solemn promise of the Preamble, borrowed from the Russian Revolution (1917). It encompasses: Social Justice (eliminating caste, gender, and communal discrimination), Economic Justice (bridging vast wealth chasms), and Political Justice (equal political rights and access to governance).',
+    easyExample: 'Social justice ensures a Dalit student cannot be denied admission to a law college; economic justice ensures minimum wage laws; political justice ensures every citizen can contest elections without property qualification.',
+    statutoryOrCaseRef: 'Preamble; Air India Statutory Corp. v. United Labour Union (1997)',
+    relatedArticles: ['Preamble', 'Article 38', 'Article 39A']
+  },
+  {
+    term: 'Liberty',
+    aliases: ['liberty', 'liberty of thought'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Absence of arbitrary restraints combined with conditions for individual development',
+    detailedMeaning: 'The fundamental guarantee of freedom of thought, expression, belief, faith, and worship, borrowed from the French Revolution (1789). Liberty in the Indian Constitution is not absolute license to do whatever one pleases, but regulated freedom balanced against public order, morality, and national security.',
+    easyExample: 'You have the liberty to criticize government policies in newspaper articles or tweets, or choose to practice Buddhism or Islam, without fear of arbitrary police arrest, so long as you do not incite riots or violence.',
+    statutoryOrCaseRef: 'Preamble; Maneka Gandhi v. Union of India (1978)',
+    relatedArticles: ['Preamble', 'Article 19', 'Article 21', 'Article 25']
+  },
+  {
+    term: 'Equality',
+    aliases: ['equality', 'equality of status', 'equality before law'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Absence of special privileges and provision of equal opportunity for all',
+    detailedMeaning: 'The dual constitutional principle of "Equality before Law" (negative concept from Britain: no one is above the law) and "Equal Protection of the Laws" (positive concept from America: equals must be treated equally). It strikes down unreasoned arbitrariness and demands affirmative action to lift historically marginalized classes.',
+    easyExample: 'If a traffic police officer catches someone jumping a red light, both a high-ranking politician and an auto-rickshaw driver must receive the exact same traffic ticket. Furthermore, the State can create special reservations for underprivileged students to give them an equal starting line.',
+    statutoryOrCaseRef: 'Articles 14–18; E.P. Royappa (1974); Maneka Gandhi (1978)',
+    relatedArticles: ['Preamble', 'Article 14', 'Article 15', 'Article 16']
+  },
+  {
+    term: 'Fraternity',
+    aliases: ['fraternity', 'brotherhood'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'A sense of common brotherhood and psychological unity transcending narrow barriers',
+    detailedMeaning: 'Dr. B.R. Ambedkar stressed that without fraternity, liberty and equality cannot coexist. Fraternity fosters emotional integration and unity across diverse religions, languages, and castes, ensuring both individual dignity and national unity/integrity.',
+    easyExample: 'Even though an Indian citizen from Kashmir speaks Kashmiri and an Indian from Kerala speaks Malayalam, fraternity is the shared civic bond that makes them recognize each other as fellow equal citizens of one single homeland.',
+    statutoryOrCaseRef: 'Preamble; Nandini Sundar v. State of Chhattisgarh (2011)',
+    relatedArticles: ['Preamble', 'Article 51A(e)']
+  },
+  {
+    term: 'Rule of Law',
+    aliases: ['rule of law', 'supremacy of law'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Dicey\'s Doctrine: Absolute supremacy of regular law over arbitrary prerogative',
+    detailedMeaning: 'The governance foundation holding that no individual—whether the Prime Minister, Police Chief, or President—is above the law, and every executive action must be authorized by valid law. It prohibits arbitrary despotism and guarantees fair, equal legal procedures for all.',
+    easyExample: 'Police cannot bulldoze a suspect’s house or throw someone in prison purely because a Chief Minister or Minister ordered it verbally. Every action must follow due statutory procedure established by law.',
+    statutoryOrCaseRef: 'A.K. Kraipak (1969); Indira Nehru Gandhi (1975); Basic Structure pillar',
+    relatedArticles: ['Article 14', 'Article 21']
+  },
+  {
+    term: 'Judicial Review',
+    aliases: ['judicial review', 'power of judicial review'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Inherent judicial power to examine constitutionality of legislative and executive acts',
+    detailedMeaning: 'The constitutional mechanism whereby the Supreme Court (Art 32) and High Courts (Art 226) review legislative enactments and executive orders, striking them down as null and void (ultra vires) if they violate Fundamental Rights or any provision of the Constitution.',
+    easyExample: 'Parliament passes a law prohibiting journalists from publishing government audit reports. A journalist files a writ under Article 32. The Supreme Court reviews the statute, finds it violates free speech under Article 19(1)(a), and strikes the law down completely.',
+    statutoryOrCaseRef: 'Marbury v. Madison (1803); L. Chandra Kumar v. Union of India (1997 7-Judge Bench)',
+    relatedArticles: ['Article 13', 'Article 32', 'Article 226']
+  },
+  {
+    term: 'Separation of Powers',
+    aliases: ['separation of powers', 'doctrine of separation of powers'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Montesquieu\'s tripartite institutional balance: Legislature, Executive, Judiciary',
+    detailedMeaning: 'The structural constitutional principle where the Legislature makes laws, the Executive administers and executes laws, and the Judiciary interprets laws and adjudicates disputes. While India does not follow strict water-tight separation like the US, it maintains a robust system of checks and balances.',
+    easyExample: 'Judges cannot write new criminal statutes (that is Parliament’s job), the Prime Minister cannot overturn a murder acquittal (that is the court’s job), and Parliament cannot dismiss a judge without a two-thirds impeachment vote.',
+    statutoryOrCaseRef: 'Kesavananda Bharati (1973); Indira Gandhi v. Raj Narain (1975)',
+    relatedArticles: ['Article 50', 'Article 121', 'Article 122', 'Article 211', 'Article 212']
+  },
+  {
+    term: 'Writ / Prerogative Writs',
+    aliases: ['writs', 'writ', 'prerogative writs', 'writ petition'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'From Old English "Gewrit" (formal written judicial order under royal seal)',
+    detailedMeaning: 'Extraordinary constitutional remedies issued by the Supreme Court (Article 32) and High Courts (Article 226) to enforce Fundamental Rights and correct administrative injustice. The 5 constitutional writs are Habeas Corpus, Mandamus, Prohibition, Certiorari, and Quo Warranto.',
+    easyExample: 'If a municipal corporation illegally cancels a vendor’s trading license without notice or reason, the vendor doesn’t need to wait 10 years in a subordinate civil court; they file a "Writ Petition" in the High Court under Article 226, and the High Court immediately orders the municipal corporation to explain its conduct.',
+    statutoryOrCaseRef: 'Article 32 & Article 226 Constitution of India',
+    relatedArticles: ['Article 32', 'Article 226']
+  },
+  {
+    term: 'Fundamental Rights',
+    aliases: ['fundamental rights', 'fundamental right'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Magna Carta of India — judicially enforceable foundational liberties in Part III',
+    detailedMeaning: 'The basic civil liberties guaranteed to all citizens (and in some cases non-citizens) under Articles 12 to 35, enforceable directly against the State before the Supreme Court under Article 32. They are essential for the preservation of human dignity, equality, and democratic freedom.',
+    easyExample: 'If the government passes an order banning women from working night shifts in IT companies, an affected engineer can petition the Supreme Court directly because her Fundamental Right against gender discrimination (Article 15) and right to livelihood (Article 21) are infringed.',
+    statutoryOrCaseRef: 'Part III Constitution of India; Maneka Gandhi (1978)',
+    relatedArticles: ['Article 12', 'Article 13', 'Article 14', 'Article 19', 'Article 21', 'Article 32']
+  },
+  {
+    term: 'Directive Principles of State Policy',
+    aliases: ['directive principles', 'dpsp', 'directive principle'],
+    category: 'Constitutional Law',
+    phoneticOrLiteral: 'Instruments of Instructions for establishing a socio-economic Welfare State',
+    detailedMeaning: 'Constitutional guidelines and socio-economic goals enshrined in Part IV (Articles 36 to 51) borrowed from Ireland. While not directly enforceable by courts (non-justiciable under Article 37), they are fundamental in the governance of the country and guide courts in interpreting Fundamental Rights.',
+    easyExample: 'When Parliament passed the Maternity Benefit Act or the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA), it was fulfilling the Directive Principles under Article 41 (Right to work) and Article 42 (Maternity relief).',
+    statutoryOrCaseRef: 'Part IV Constitution of India; Minerva Mills v. UOI (1980)',
+    relatedArticles: ['Article 36', 'Article 37', 'Article 38', 'Article 39', 'Article 44']
+  },
+
+  // ==================== CRIMINAL PROCEDURE & PROSECUTORIAL TERMS ====================
+  {
+    term: 'First Information Report (FIR)',
+    aliases: ['first information report', 'fir'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'The statutory threshold document initiating criminal investigation in cognizable crimes',
+    detailedMeaning: 'The earliest information given to an officer in charge of a police station relating to the commission of a cognizable offence, recorded under Section 173 BNSS 2023 (Section 154 CrPC). Registration of an FIR is mandatory whenever information discloses the commission of a cognizable offence.',
+    easyExample: 'A shopkeeper’s store is broken into at midnight and ₹2 lakhs in cash is stolen. The shopkeeper rushes to the police station. The police duty officer must immediately record his statement in the official book, register an FIR, hand him a free copy, and start investigating. In Lalita Kumari (2014), the Supreme Court ruled that police cannot refuse to register an FIR for cognizable crimes.',
+    statutoryOrCaseRef: 'Section 173 BNSS 2023 (formerly Section 154 CrPC); Lalita Kumari v. Govt of UP (2014 5-Judge Bench)',
+    relatedArticles: ['Article 21']
+  },
+  {
+    term: 'Bail & Bail Bond',
+    aliases: ['bail', 'bail bond', 'surety'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'From Old French "Baillier" (To deliver / entrust into safe keeping)',
+    detailedMeaning: 'The temporary or conditional release of an accused person awaiting trial or appeal, upon their undertaking (personal bond) with or without financial guarantors (sureties) that they will appear in court whenever required and not tamper with evidence or flee justice.',
+    easyExample: 'A person is arrested on suspicion of fraud. Instead of sitting in jail for 2 years while the trial drags on, the court grants him bail upon signing a ₹50,000 bond with his brother standing as "surety" (guarantor). If the accused skips court, the brother forfeits the ₹50,000 to the government.',
+    statutoryOrCaseRef: 'BNSS 2023 Chapter XXXV (CrPC Chapter XXXIII); Babu Singh v. State of UP (1978)',
+    relatedArticles: ['Article 21']
+  },
+  {
+    term: 'Remand',
+    aliases: ['remand', 'remanded'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'From Latin "Remandare" (To send back into custody under judicial order)',
+    detailedMeaning: 'The judicial order by a Magistrate sending an arrested person back into custody (either police custody or judicial custody) when the police cannot complete an investigation within the statutory 24-hour window under Section 187 BNSS (Section 167 CrPC) and Article 22(2).',
+    easyExample: 'Police arrest a burglary suspect on Monday morning. By Tuesday morning (24 hours), they must produce him physically before the Judicial Magistrate. If police need 2 more days to find the hidden stash of stolen jewelry, the Magistrate signs a "Remand Order" allowing 2 days of police custody.',
+    statutoryOrCaseRef: 'Section 187 BNSS 2023 (formerly Section 167 CrPC); Article 22(2) Constitution',
+    relatedArticles: ['Article 21', 'Article 22(2)']
+  },
+  {
+    term: 'Investigation vs Inquiry vs Trial',
+    aliases: ['investigation', 'inquiry', 'trial', 'criminal trial'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'The three distinct chronological stages of criminal procedure',
+    detailedMeaning: '1. Investigation: Conducted exclusively by police officers to collect evidence (arrests, searches, interrogations, forensic tests). 2. Inquiry: Conducted by a Magistrate or Court (not police) prior to framing charges to examine whether a prima facie case exists. 3. Trial: The judicial determination of guilt or innocence before a competent court concluding in acquittal or conviction.',
+    easyExample: 'Police searching for weapons, taking fingerprints, and recording statements is the "Investigation". The Magistrate reviewing the chargesheet to see if a real case exists is the "Inquiry". The courtroom examination of witnesses under oath, arguments by the prosecutor, and final judgment is the "Trial".',
+    statutoryOrCaseRef: 'BNSS 2023 Section 2(1)(l), (m), and Chapter XIX–XXII',
+    relatedArticles: ['Article 21']
+  },
+  {
+    term: 'Discharge vs Acquittal',
+    aliases: ['discharge', 'acquittal', 'acquitted', 'discharged'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'Pre-trial dismissal for lack of prima facie case vs post-trial verdict of innocence',
+    detailedMeaning: 'Discharge occurs before trial: if the Magistrate or Sessions Court finds that the charge sheet does not disclose even a prima facie case against the accused, they are discharged without framing charges. Acquittal occurs after a full judicial trial: after examining all prosecution evidence and witnesses, the court finds the accused not guilty beyond reasonable doubt.',
+    easyExample: 'If police charge someone with theft, but CCTV footage clearly shows they were out of the country on that date, the judge will "Discharge" them immediately without making them endure a multi-year trial. If a trial actually takes place and witnesses fail to prove guilt, the judge delivers an "Acquittal". An acquitted person is protected by Double Jeopardy; a discharged person can theoretically be recharged if fresh evidence emerges.',
+    statutoryOrCaseRef: 'Section 250 & 255 BNSS (CrPC Sec 227 & 232); State of Karnataka v. L. Muniswamy (1977)',
+    relatedArticles: ['Article 20(2)', 'Article 21']
+  },
+  {
+    term: 'Compoundable Offence',
+    aliases: ['compoundable', 'compoundable offence', 'compounding'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'Statutory settlement and compromise of criminal offences between victim and accused',
+    detailedMeaning: 'A class of offences specified in Section 359 BNSS (Section 320 CrPC) where the victim and accused can reach a compromise or settlement. Compounding has the complete legal effect of an acquittal of the accused person.',
+    easyExample: 'Two neighbors get into a shouting match and one slaps the other (causing simple hurt). Later, they apologize, shake hands, and sign a compromise agreement in court. Because simple hurt is a "compoundable offence", the court allows them to compound it, which completely ends the criminal case with the effect of an acquittal.',
+    statutoryOrCaseRef: 'Section 359 BNSS 2023 (formerly Section 320 CrPC)',
+    relatedArticles: ['Article 21']
+  },
+  {
+    term: 'Dying Declaration',
+    aliases: ['dying declaration'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'Nemo moriturus praesumitur mentiri — A dying man is presumed not to lie',
+    detailedMeaning: 'A statement made by a person as to the cause of their death or as to any of the circumstances of the transaction which resulted in their death, admissible as substantive evidence under Section 26(a) BSA 2023 (Section 32(1) Indian Evidence Act 1872). It can form the sole basis of conviction if found truthful and voluntary.',
+    easyExample: 'A victim is severely burned in a dowry attack. While in hospital, a Magistrate and doctor record her statement where she explicitly names her in-laws as having poured kerosene. Even though the victim dies and cannot be cross-examined in court, her "Dying Declaration" is powerful admissible evidence that can convict the accused.',
+    statutoryOrCaseRef: 'Section 26(a) Bharatiya Sakshya Adhiniyam, 2023 (Sec 32(1) IEA); Sharad Birdhichand Sarda (1984)',
+    relatedArticles: ['Article 21']
+  },
+  {
+    term: 'Test Identification Parade (TIP)',
+    aliases: ['test identification parade', 'tip'],
+    category: 'Criminal Law',
+    phoneticOrLiteral: 'Corroborative forensic identity test under Section 54 BNSS / Section 9 BSA',
+    detailedMeaning: 'A procedural investigative drill conducted usually in prison before a Magistrate where a suspect is placed among several innocent dummy persons of similar age and appearance, and an eyewitness who saw the stranger committing the crime is asked to pick out the perpetrator.',
+    easyExample: 'A masked robber enters a bank and shoots a guard. An eyewitness caught a 5-second glimpse of his face. When police arrest a suspect 2 weeks later, they place him in a lineup of 8 similar-looking men in jail. The eyewitness enters and points to the suspect. This successful "TIP" strongly corroborates the witness\'s courtroom testimony.',
+    statutoryOrCaseRef: 'Section 54 BNSS 2023 (Sec 54A CrPC) read with Section 9 Bharatiya Sakshya Adhiniyam, 2023',
+    relatedArticles: ['Article 21']
   }
 ];
