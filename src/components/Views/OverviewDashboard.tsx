@@ -167,7 +167,7 @@ export const OverviewDashboard: React.FC = () => {
             onClick={() => setActiveTab('visual-lab')}
             className="flex items-center gap-1 text-xs font-mono text-[var(--accent)] hover:underline"
           >
-            <span>View all 15 blueprints</span>
+            <span>View all 16 blueprints</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

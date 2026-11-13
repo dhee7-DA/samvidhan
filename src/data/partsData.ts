@@ -1,4 +1,6 @@
 import type { ConstitutionPart } from '../types/constitution';
+import { PART_3_ARTICLES_EXPANDED } from './part3FundamentalRightsData';
+import { PART_4_DPSP_EXPANDED } from './part4DPSPData';
 
 export const CONSTITUTION_PARTS: ConstitutionPart[] = [
   {
@@ -142,44 +144,7 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
     ],
     svgDiagramId: 'writs-matrix',
     mnemonics: ['E-F-E-R-C-R: Equality, Freedom, Exploitation, Religion, Culture/Education, Remedies'],
-    articles: [
-      {
-        number: '12',
-        title: 'Definition of State for Part III',
-        summary: 'Defines the entities against which fundamental rights can be asserted, including government, parliament, local bodies, and instrumentalities.',
-        textSnippet: 'The State includes the Government and Parliament of India, Government and Legislature of each State, and all local or other authorities.'
-      },
-      {
-        number: '13',
-        title: 'Laws inconsistent with or in derogation of Fundamental Rights',
-        summary: 'The operational engine of Judicial Review: strikes down pre-constitutional and post-constitutional laws that abridge Fundamental Rights.',
-        textSnippet: 'All laws in force in the territory of India immediately before the commencement of this Constitution, in so far as they are inconsistent with the provisions of this Part, shall, to the extent of such inconsistency, be void.'
-      },
-      {
-        number: '14',
-        title: 'Equality before law and equal protection of the laws',
-        summary: 'Guarantees both formal equality before the law (UK origin) and substantive equal protection of laws (US origin) within India.',
-        textSnippet: 'The State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India.'
-      },
-      {
-        number: '19',
-        title: 'Protection of certain rights regarding freedom of speech, etc.',
-        summary: 'Secures six basic civil liberties to citizens, subject to calibrated, exhaustive reasonable restrictions.',
-        textSnippet: 'All citizens shall have the right to freedom of speech, assembly, association, movement, residence, and profession.'
-      },
-      {
-        number: '21',
-        title: 'Protection of life and personal liberty',
-        summary: 'The expansive reservoir of constitutional humanism: life means more than animal existence; it encompasses dignity, privacy, and health.',
-        textSnippet: 'No person shall be deprived of his life or personal liberty except according to procedure established by law.'
-      },
-      {
-        number: '32',
-        title: 'Remedies for enforcement of rights conferred by this Part',
-        summary: 'Dubbed by Dr. Ambedkar as the "heart and soul" of the Constitution; grants right to petition the Supreme Court directly for writ remedies.',
-        textSnippet: 'The right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred by this Part is guaranteed.'
-      }
-    ]
+    articles: PART_3_ARTICLES_EXPANDED
   },
   {
     id: 'part-4',
@@ -201,34 +166,23 @@ export const CONSTITUTION_PARTS: ConstitutionPart[] = [
         bench: '5-Judge Bench',
         summary: 'The balance between Part III and Part IV is a core element of the Basic Structure; one cannot be subordinated to the other.',
         significance: 'Formalized the doctrine of Harmonious Construction between Fundamental Rights and Directive Principles.'
+      },
+      {
+        caseName: 'Mohd. Ahmed Khan v. Shah Bano Begum (1985)',
+        year: 1985,
+        bench: '5-Judge Bench',
+        summary: 'Ruled that Section 125 CrPC maintenance applies to all divorced women; underscored the urgent necessity of enacting a Uniform Civil Code under Article 44.',
+        significance: 'Catalyst for secular family welfare reforms and gender justice.'
+      },
+      {
+        caseName: 'Property Owners Association v. State of Maharashtra (2024)',
+        year: 2024,
+        bench: '9-Judge Bench',
+        summary: 'Held that privately owned resources are not automatically "material resources of the community" under Article 39(b); affirmed Article 31C constitutional validity.',
+        significance: 'Landmark 9-judge bench ruling balancing constitutional socialism with mixed-economy property rights.'
       }
     ],
-    articles: [
-      {
-        number: '38',
-        title: 'State to secure a social order for the promotion of welfare of the people',
-        summary: 'Mandates the State to promote welfare by securing social, economic, and political justice, and minimizing income inequalities.',
-        textSnippet: 'The State shall strive to promote the welfare of the people by securing and protecting a social order informed by justice.'
-      },
-      {
-        number: '39A',
-        title: 'Equal justice and free legal aid',
-        summary: 'Added by the 42nd Amendment (1976); mandates free legal assistance to ensure justice is not denied due to economic hardship (basis of NALSA).',
-        textSnippet: 'The State shall secure that the operation of the legal system promotes justice on a basis of equal opportunity, and shall provide free legal aid.'
-      },
-      {
-        number: '44',
-        title: 'Uniform civil code for the citizens',
-        summary: 'Directs the State to endeavor to secure for citizens a Uniform Civil Code across India in civil matters like marriage, divorce, and inheritance.',
-        textSnippet: 'The State shall endeavour to secure for the citizens a uniform civil code throughout the territory of India.'
-      },
-      {
-        number: '50',
-        title: 'Separation of judiciary from executive',
-        summary: 'Mandates systemic institutional separation of judicial functions from the administrative executive branch in public services.',
-        textSnippet: 'The State shall take steps to separate the judiciary from the executive in the public services of the State.'
-      }
-    ]
+    articles: PART_4_DPSP_EXPANDED
   },
   {
     id: 'part-4a',

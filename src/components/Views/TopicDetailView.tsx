@@ -13,7 +13,9 @@ import {
   Sparkles,
   PanelLeftClose,
   PanelLeftOpen,
-  Filter
+  Filter,
+  Gavel,
+  CheckCircle2
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { CONSTITUTION_PARTS } from '../../data/partsData';
@@ -24,6 +26,7 @@ import { AmendmentPipelineSVG } from '../VectorDiagrams/AmendmentPipelineSVG';
 import { FederalRelationsSVG } from '../VectorDiagrams/FederalRelationsSVG';
 import { EmergencyMatrixSVG } from '../VectorDiagrams/EmergencyMatrixSVG';
 import { LegislativePassageSVG } from '../VectorDiagrams/LegislativePassageSVG';
+import { CriminalConstitutionalPipelineSVG } from '../VectorDiagrams/CriminalConstitutionalPipelineSVG';
 
 export const TopicDetailView: React.FC = () => {
   const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -256,9 +259,10 @@ export const TopicDetailView: React.FC = () => {
           </div>
         </div>
 
-        {/* Embedded SVG Visualizer if matching this Part */}
+        {/* Embedded SVG Visualizers for this Part */}
         {currentPart.id === 'part-3' && (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-6">
+            <CriminalConstitutionalPipelineSVG />
             <WritsMatrixSVG />
           </div>
         )}
@@ -300,7 +304,7 @@ export const TopicDetailView: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5">
             {currentPart.articles.map((art) => {
               const artLabel = `Art ${art.number}`;
               const isBookmarked = bookmarkedArticles.includes(artLabel);
@@ -308,15 +312,15 @@ export const TopicDetailView: React.FC = () => {
               return (
                 <div
                   key={art.number}
-                  className="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-3"
+                  className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-3.5 shadow-sm"
                 >
                   {/* Article Title & Bookmark */}
                   <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded font-mono text-xs font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <span className="px-2.5 py-0.5 rounded-lg font-mono text-xs font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
                         Article {art.number}
                       </span>
-                      <h4 className="text-base font-bold text-[var(--text-primary)]">
+                      <h4 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
                         {art.title}
                       </h4>
                     </div>
@@ -324,7 +328,7 @@ export const TopicDetailView: React.FC = () => {
                     <button
                       onClick={() => toggleBookmark(artLabel)}
                       title={isBookmarked ? 'Remove bookmark' : 'Bookmark article'}
-                      className={`p-1.5 rounded-lg border transition-colors ${
+                      className={`p-1.5 rounded-xl border transition-colors shrink-0 ${
                         isBookmarked
                           ? 'bg-[var(--gold)]/10 border-[var(--gold)]/30 text-[var(--gold)]'
                           : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
@@ -335,36 +339,143 @@ export const TopicDetailView: React.FC = () => {
                   </div>
 
                   {/* Summary */}
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                     {art.summary}
                   </p>
 
+                  {/* Plain English Highlight Box */}
+                  {art.plainEnglish && (
+                    <div className="p-3 rounded-xl bg-[var(--accent)]/5 border border-[var(--accent)]/20 flex flex-col gap-1">
+                      <span className="text-[10px] font-mono font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3" /> In Plain English
+                      </span>
+                      <p className="text-xs text-[var(--text-primary)] leading-relaxed font-medium">
+                        {art.plainEnglish}
+                      </p>
+                    </div>
+                  )}
+
                   {/* Constitutional Text Snippet */}
-                  <div className="p-3 rounded-lg bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] italic leading-relaxed">
+                  <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] italic leading-relaxed">
                     "{art.textSnippet}"
                   </div>
 
-                  {/* Clauses Breakdown if available */}
-                  {art.clauses && art.clauses.length > 0 && (
-                    <div className="mt-2 flex flex-col gap-1.5 pt-2 border-t border-[var(--border-subtle)]">
-                      <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-[var(--text-muted)]">
-                        Clause Breakdown & Interpretation
+                  {/* Real-World Everyday / Courtroom Scenario */}
+                  {art.realWorldScenario && (
+                    <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-1.5">
+                      <span className="text-[10px] font-mono font-bold text-[var(--gold)] uppercase tracking-wider flex items-center gap-1.5">
+                        <Scale className="w-3.5 h-3.5" /> Real-World Everyday / Practical Scenario
                       </span>
-                      <div className="grid grid-cols-1 gap-1.5">
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        {art.realWorldScenario}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Prosecutor / Judicial Litigation Note */}
+                  {art.prosecutionNote && (
+                    <div className="p-3.5 rounded-xl bg-purple-500/5 border border-purple-500/20 flex flex-col gap-1.5">
+                      <span className="text-[10px] font-mono font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <Shield className="w-3.5 h-3.5" /> Prosecutor & Judicial Litigation Note
+                      </span>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        {art.prosecutionNote}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Clauses Breakdown with Examples */}
+                  {art.clauses && art.clauses.length > 0 && (
+                    <div className="mt-1 flex flex-col gap-2 pt-2 border-t border-[var(--border-subtle)]">
+                      <span className="text-[10px] font-semibold font-mono uppercase tracking-wider text-[var(--text-muted)]">
+                        Clause Breakdown & Practical Interpretation
+                      </span>
+                      <div className="grid grid-cols-1 gap-2">
                         {art.clauses.map((c, i) => (
                           <div
                             key={i}
-                            className="p-2 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2"
+                            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs flex flex-col gap-1"
                           >
-                            <span className="font-mono font-bold text-[var(--accent)] text-[11px] shrink-0">
-                              [{c.clause}]
-                            </span>
-                            <span className="text-[var(--text-secondary)]">
-                              {c.explanation}
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="font-mono font-bold text-[var(--accent)] text-[11px] px-1.5 py-0.2 rounded bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                                {c.clause}
+                              </span>
+                              <span className="text-[var(--text-primary)] font-medium">
+                                {c.explanation}
+                              </span>
+                            </div>
+                            {c.example && (
+                              <div className="mt-1 pl-2 border-l-2 border-[var(--accent)]/50 text-[11px] text-[var(--text-muted)] italic">
+                                Example: {c.example}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Exceptions & Provisos */}
+                  {art.exceptions && art.exceptions.length > 0 && (
+                    <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs flex flex-col gap-1.5">
+                      <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider">
+                        Constitutional Exceptions & Provisos
+                      </span>
+                      <ul className="list-disc list-inside text-xs text-[var(--text-secondary)] space-y-1">
+                        {art.exceptions.map((ex, i) => (
+                          <li key={i}>{ex}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Key Landmark Cases for this Article */}
+                  {art.landmarkCases && art.landmarkCases.length > 0 && (
+                    <div className="flex flex-col gap-2 pt-2 border-t border-[var(--border-subtle)]">
+                      <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                        Key Landmark Precedents for Article {art.number}
+                      </span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {art.landmarkCases.map((lc, i) => (
+                          <div
+                            key={i}
+                            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs flex flex-col justify-between gap-1.5"
+                          >
+                            <div>
+                              <div className="flex items-center justify-between gap-1 mb-1">
+                                <span className="font-bold text-[var(--text-primary)] truncate">{lc.caseName}</span>
+                                <span className="text-[10px] font-mono text-[var(--gold)] shrink-0 font-bold">{lc.year}</span>
+                              </div>
+                              {lc.bench && (
+                                <span className="text-[10px] font-mono text-[var(--text-muted)] block mb-1">
+                                  {lc.bench}
+                                </span>
+                              )}
+                              <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                                {lc.summary}
+                              </p>
+                            </div>
+                            <span className="text-[10px] font-mono text-[var(--accent)] pt-1 border-t border-[var(--border-subtle)]/60">
+                              Ruling: {lc.significance}
                             </span>
                           </div>
                         ))}
                       </div>
+                    </div>
+                  )}
+
+                  {/* Associated Doctrines */}
+                  {art.doctrineLinks && art.doctrineLinks.length > 0 && (
+                    <div className="flex items-center gap-1.5 flex-wrap pt-1">
+                      <span className="text-[10px] font-mono text-[var(--text-muted)]">Doctrines:</span>
+                      {art.doctrineLinks.map((doc, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
+                        >
+                          {doc}
+                        </span>
+                      ))}
                     </div>
                   )}
                 </div>

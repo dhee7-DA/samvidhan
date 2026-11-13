@@ -17,10 +17,12 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Grid
+  Grid,
+  Gavel
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
+import { CriminalConstitutionalPipelineSVG } from '../VectorDiagrams/CriminalConstitutionalPipelineSVG';
 import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureSVG';
 import { SeparationOfPowersSVG } from '../VectorDiagrams/SeparationOfPowersSVG';
 import { AmendmentPipelineSVG } from '../VectorDiagrams/AmendmentPipelineSVG';
@@ -47,6 +49,15 @@ interface DiagramItem {
 }
 
 const DIAGRAMS: DiagramItem[] = [
+  {
+    id: 'criminal-pipeline',
+    title: 'Criminal-Constitutional Safeguards Pipeline',
+    category: 'Criminal Due Process',
+    articles: 'Articles 20, 21 & 22 ⟷ BNSS',
+    icon: <Gavel className="w-4 h-4" />,
+    component: <CriminalConstitutionalPipelineSVG />,
+    summary: 'Interactive blueprint mapping constitutional protections to criminal investigation, arrest, forensic discovery, and bail.'
+  },
   {
     id: 'writs-matrix',
     title: 'The 5 Constitutional Writs Matrix',
@@ -212,7 +223,7 @@ export const VisualLabView: React.FC = () => {
               Visual Law Lab
             </h1>
             <span className="text-xs px-2.5 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
-              15 Bespoke Vector Blueprints
+              16 Bespoke Vector Blueprints
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">

@@ -4,6 +4,7 @@ export type FontMode = 'geist' | 'geist-mono' | 'jetbrains';
 export interface ConstitutionalClause {
   clause: string;
   explanation: string;
+  example?: string;
 }
 
 export interface LandmarkCaseReference {
@@ -19,6 +20,9 @@ export interface ArticleItem {
   title: string;
   summary: string;
   textSnippet: string;
+  plainEnglish?: string;
+  realWorldScenario?: string;
+  prosecutionNote?: string;
   clauses?: ConstitutionalClause[];
   exceptions?: string[];
   landmarkCases?: LandmarkCaseReference[];
