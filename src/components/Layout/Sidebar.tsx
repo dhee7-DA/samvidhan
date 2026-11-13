@@ -8,7 +8,8 @@ import {
   Award,
   Globe2,
   CheckSquare,
-  Sparkles
+  GitCommit,
+  Layers
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -21,8 +22,10 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" /> },
-  { id: 'parts', label: 'Constitutional Parts', icon: <BookOpen className="w-4 h-4" />, badge: '22 Parts' },
-  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '8 SVGs' },
+  { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII' },
+  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Master Index' },
+  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '14 SVGs' },
+  { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106' },
   { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic' },
   { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines' },
   { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" /> },
@@ -53,7 +56,7 @@ export const Sidebar: React.FC = () => {
               </span>
               <span>{item.label}</span>
               {item.badge && (
-                <span className="hidden md:inline text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                <span className="hidden xl:inline text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
                   {item.badge}
                 </span>
               )}

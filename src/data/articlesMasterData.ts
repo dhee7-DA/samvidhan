@@ -1,0 +1,168 @@
+export interface ArticleMasterEntry {
+  articleNumber: string;
+  part: string;
+  title: string;
+  conciseSummary: string;
+  category: 'Foundation' | 'Rights' | 'DPSPs & Duties' | 'Union Executive' | 'Parliament' | 'Union Judiciary' | 'States' | 'Local Bodies' | 'Federal Relations' | 'Finance & Property' | 'Services' | 'Elections' | 'Emergency' | 'Amendment' | 'Special & Temporary';
+  isKeyArticle?: boolean;
+}
+
+export const ARTICLES_MASTER_INDEX: ArticleMasterEntry[] = [
+  // PART I
+  { articleNumber: '1', part: 'Part I', title: 'Name and territory of the Union', conciseSummary: 'India, that is Bharat, shall be a Union of States.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '2', part: 'Part I', title: 'Admission or establishment of new States', conciseSummary: 'Parliament power to admit external foreign territories as new States.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '3', part: 'Part I', title: 'Formation of new States and alteration of areas, boundaries or names', conciseSummary: 'Internal reorganization of state boundaries, areas, or names by Parliament.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '4', part: 'Part I', title: 'Laws under Articles 2 and 3 not constitutional amendments under Art 368', conciseSummary: 'Simple majority procedure for state reorganization acts.', category: 'Foundation' },
+
+  // PART II
+  { articleNumber: '5', part: 'Part II', title: 'Citizenship at commencement of Constitution', conciseSummary: 'Citizenship conferred on persons domiciled in India on 26 Jan 1950.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '6', part: 'Part II', title: 'Rights of citizenship of persons who migrated from Pakistan', conciseSummary: 'Permit system and migration rules from West/East Pakistan.', category: 'Foundation' },
+  { articleNumber: '7', part: 'Part II', title: 'Rights of citizenship of certain migrants to Pakistan', conciseSummary: 'Effects of migration to Pakistan after March 1, 1947.', category: 'Foundation' },
+  { articleNumber: '8', part: 'Part II', title: 'Rights of citizenship of persons of Indian origin residing outside India', conciseSummary: 'Registration with diplomatic or consular representative of India.', category: 'Foundation' },
+  { articleNumber: '9', part: 'Part II', title: 'Persons voluntarily acquiring foreign citizenship not to be citizens', conciseSummary: 'Single citizenship rule; loss of Indian citizenship on acquiring foreign nationality.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '10', part: 'Part II', title: 'Continuance of the rights of citizenship', conciseSummary: 'Citizenship subject to the provisions of any law made by Parliament.', category: 'Foundation' },
+  { articleNumber: '11', part: 'Part II', title: 'Parliament to regulate the right of citizenship by law', conciseSummary: 'Plenary power of Parliament (led to Citizenship Act 1955).', category: 'Foundation', isKeyArticle: true },
+
+  // PART III
+  { articleNumber: '12', part: 'Part III', title: 'Definition of State for Fundamental Rights', conciseSummary: 'Government, Parliament, State legislatures, local authorities, and instrumentalities.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '13', part: 'Part III', title: 'Laws inconsistent with or in derogation of fundamental rights', conciseSummary: 'Judicial review engine; doctrines of eclipse, severability, and waiver.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '14', part: 'Part III', title: 'Equality before law and equal protection of laws', conciseSummary: 'Rule of law and anti-arbitrariness doctrine.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '15', part: 'Part III', title: 'Prohibition of discrimination on grounds of religion, race, caste, sex, or place of birth', conciseSummary: 'Equal access to public spaces; reservations under 15(4), 15(5), and 15(6) EWS.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '16', part: 'Part III', title: 'Equality of opportunity in matters of public employment', conciseSummary: 'Affirmative action reservations; 50% ceiling and creamy layer exclusion.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '17', part: 'Part III', title: 'Abolition of Untouchability', conciseSummary: 'Absolute fundamental right against untouchability and enforcement of disabilities.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '18', part: 'Part III', title: 'Abolition of titles', conciseSummary: 'Prohibits State from conferring titles other than military or academic distinctions.', category: 'Rights' },
+  { articleNumber: '19', part: 'Part III', title: 'Protection of six democratic freedoms', conciseSummary: 'Speech, assembly, association, movement, residence, and profession subject to reasonable restrictions.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '20', part: 'Part III', title: 'Protection in respect of conviction for offences', conciseSummary: 'Ex-post facto laws (20(1)), Double jeopardy (20(2)), and Self-incrimination (20(3)).', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '21', part: 'Part III', title: 'Protection of life and personal liberty', conciseSummary: 'Expansive reservoir of dignity, privacy, and just, fair, reasonable procedure.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '21A', part: 'Part III', title: 'Right to free and compulsory education (6 to 14 yrs)', conciseSummary: 'Inserted by 86th Amendment 2002; basis of RTE Act 2009.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '22', part: 'Part III', title: 'Protection against arrest and preventive detention', conciseSummary: 'Informing grounds of arrest, legal representation, 24-hr magistrate presentation, advisory board safeguards.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '23', part: 'Part III', title: 'Prohibition of traffic in human beings and forced labour', conciseSummary: 'Enforceable against both State and private individuals; outlaws begar.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '24', part: 'Part III', title: 'Prohibition of employment of children in hazardous industries', conciseSummary: 'Bars children under 14 from factories, mines, or hazardous employment.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '25', part: 'Part III', title: 'Freedom of conscience and free profession, practice, and propagation of religion', conciseSummary: 'Subject to public order, morality, and health; Essential Religious Practices test.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '26', part: 'Part III', title: 'Freedom to manage religious affairs', conciseSummary: 'Denominational autonomy to establish institutions and manage religious affairs.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '27', part: 'Part III', title: 'Freedom from taxes for promotion of any particular religion', conciseSummary: 'Prohibits State from spending public taxes for specific religious promotion.', category: 'Rights' },
+  { articleNumber: '28', part: 'Part III', title: 'Freedom as to attendance at religious instruction in educational institutions', conciseSummary: 'Bar on compulsory religious instruction in state-aided schools.', category: 'Rights' },
+  { articleNumber: '29', part: 'Part III', title: 'Protection of interests of minorities', conciseSummary: 'Right to conserve distinct language, script, or culture.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '30', part: 'Part III', title: 'Right of minorities to establish and administer educational institutions', conciseSummary: 'Special charter for religious and linguistic minorities.', category: 'Rights', isKeyArticle: true },
+  { articleNumber: '32', part: 'Part III', title: 'Remedies for enforcement of Fundamental Rights (The 5 Writs)', conciseSummary: 'Guaranteed right to move the Supreme Court; Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo-Warranto.', category: 'Rights', isKeyArticle: true },
+
+  // PART IV
+  { articleNumber: '36', part: 'Part IV', title: 'Definition of State for DPSPs', conciseSummary: 'Same definition as Article 12 in Part III.', category: 'DPSPs & Duties' },
+  { articleNumber: '37', part: 'Part IV', title: 'Application of Directive Principles', conciseSummary: 'Non-justiciable in court but fundamental in governance.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '38', part: 'Part IV', title: 'State to secure a social order for promotion of welfare', conciseSummary: 'Promoting justice: social, economic, and political; minimizing inequalities.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '39', part: 'Part IV', title: 'Certain principles of policy to be followed by State', conciseSummary: 'Adequate livelihood, equitable material resources distribution (39b), prevention of wealth concentration (39c), equal pay for equal work (39d).', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '39A', part: 'Part IV', title: 'Equal justice and free legal aid', conciseSummary: 'Added by 42nd Amendment 1976; statutory root of NALSA and Lok Adalats.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '40', part: 'Part IV', title: 'Organisation of village panchayats', conciseSummary: 'Gandhian directive to organize Panchayats as units of self-government.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '44', part: 'Part IV', title: 'Uniform Civil Code for the citizens', conciseSummary: 'Directs State to endeavor to secure a uniform civil code across India.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '45', part: 'Part IV', title: 'Provision for early childhood care and education to children below 6 yrs', conciseSummary: 'Re-framed by 86th Amendment 2002 after Art 21A insertion.', category: 'DPSPs & Duties' },
+  { articleNumber: '48A', part: 'Part IV', title: 'Protection and improvement of environment and safeguarding forests and wildlife', conciseSummary: 'Added by 42nd Amendment 1976; environmental bedrock.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '50', part: 'Part IV', title: 'Separation of judiciary from executive in public services', conciseSummary: 'Mandates institutional judicial independence from administrative executive.', category: 'DPSPs & Duties', isKeyArticle: true },
+  { articleNumber: '51', part: 'Part IV', title: 'Promotion of international peace and security', conciseSummary: 'Fostering respect for treaty obligations and arbitration.', category: 'DPSPs & Duties', isKeyArticle: true },
+
+  // PART IV-A
+  { articleNumber: '51A', part: 'Part IV-A', title: 'Fundamental Duties of citizens', conciseSummary: '11 civic duties added by 42nd (10 duties) & 86th (11th duty) Amendments.', category: 'DPSPs & Duties', isKeyArticle: true },
+
+  // PART V
+  { articleNumber: '52', part: 'Part V', title: 'The President of India', conciseSummary: 'There shall be a President of India as the de jure Head of State.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '53', part: 'Part V', title: 'Executive power of the Union', conciseSummary: 'Vested in the President and supreme command of Defence Forces.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '54', part: 'Part V', title: 'Election of President', conciseSummary: 'Electoral College of elected MPs and elected MLAs of States and UTs (Delhi, Puducherry).', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '55', part: 'Part V', title: 'Manner of election of President', conciseSummary: 'Proportional representation by single transferable vote; weighted vote valuation formula.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '61', part: 'Part V', title: 'Procedure for impeachment of the President', conciseSummary: 'For violation of Constitution; 2/3 of total membership in both Houses.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '63', part: 'Part V', title: 'The Vice-President of India', conciseSummary: 'Constitutional office of Vice-President; ex-officio Chairman of Rajya Sabha (Art 64).', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '72', part: 'Part V', title: 'Power of President to grant pardons, reprieves, respites or remissions', conciseSummary: 'Pardoning powers including death sentences and court-martial verdicts.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '74', part: 'Part V', title: 'Council of Ministers to aid and advise President', conciseSummary: 'President acts on ministerial advice; single reconsideration proviso.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '75', part: 'Part V', title: 'Other provisions as to Ministers', conciseSummary: 'PM appointed by President; collective responsibility to Lok Sabha (75(3)); 15% cabinet ceiling (91st Amd).', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '76', part: 'Part V', title: 'Attorney-General for India', conciseSummary: 'Chief legal adviser to the Union; right of audience in all Indian courts.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '79', part: 'Part V', title: 'Constitution of Parliament', conciseSummary: 'Parliament consists of President, Rajya Sabha, and Lok Sabha.', category: 'Parliament', isKeyArticle: true },
+  { articleNumber: '80', part: 'Part V', title: 'Composition of the Council of States (Rajya Sabha)', conciseSummary: 'Maximum 250 members: 238 state/UT representatives + 12 nominated distinguished members.', category: 'Parliament' },
+  { articleNumber: '81', part: 'Part V', title: 'Composition of the House of the People (Lok Sabha)', conciseSummary: 'Directly elected popular chamber based on territorial constituencies.', category: 'Parliament' },
+  { articleNumber: '85', part: 'Part V', title: 'Sessions of Parliament, prorogation and dissolution', conciseSummary: 'Maximum 6-month gap between two sessions; President summons/prorogues.', category: 'Parliament', isKeyArticle: true },
+  { articleNumber: '108', part: 'Part V', title: 'Joint sitting of both Houses in certain cases', conciseSummary: 'Deadlock resolution on Ordinary Bills; presided by Lok Sabha Speaker.', category: 'Parliament', isKeyArticle: true },
+  { articleNumber: '109', part: 'Part V', title: 'Special procedure in respect of Money Bills', conciseSummary: 'Cannot be introduced in Rajya Sabha; RS gets max 14 days.', category: 'Parliament', isKeyArticle: true },
+  { articleNumber: '110', part: 'Part V', title: 'Definition of "Money Bills"', conciseSummary: 'Taxation, borrowing, Consolidated Fund outlays; conclusive Speaker certificate.', category: 'Parliament', isKeyArticle: true },
+  { articleNumber: '112', part: 'Part V', title: 'Annual financial statement (Union Budget)', conciseSummary: 'Statement of estimated receipts and expenditure presented each fiscal year.', category: 'Parliament', isKeyArticle: true },
+  { articleNumber: '123', part: 'Part V', title: 'Power of President to promulgate Ordinances during recess of Parliament', conciseSummary: 'Temporary executive law-making power; ceases 6 weeks from reassembly.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '124', part: 'Part V', title: 'Establishment and constitution of the Supreme Court', conciseSummary: 'CJI and Supreme Court judges; Collegium appointment and removal procedure.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '129', part: 'Part V', title: 'Supreme Court to be a court of record', conciseSummary: 'Power to punish for contempt of itself.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '131', part: 'Part V', title: 'Original jurisdiction of the Supreme Court', conciseSummary: 'Exclusive federal disputes between Union and States or between States.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '136', part: 'Part V', title: 'Special leave to appeal by the Supreme Court (SLP)', conciseSummary: 'Plenary discretionary appellate power against any court or tribunal order.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '137', part: 'Part V', title: 'Review of judgments or orders by the Supreme Court', conciseSummary: 'Power to review its own decisions; basis of Curative Petition (Rupa Hurra).', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '141', part: 'Part V', title: 'Law declared by Supreme Court to be binding on all courts', conciseSummary: 'Doctrine of binding precedent across the territory of India.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '142', part: 'Part V', title: 'Enforcement of decrees and orders of Supreme Court (Complete Justice)', conciseSummary: 'Inherent equitable power to pass decrees necessary for doing complete justice.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '143', part: 'Part V', title: 'Power of President to consult Supreme Court (Advisory Jurisdiction)', conciseSummary: 'Presidential references on substantial questions of law or fact.', category: 'Union Judiciary', isKeyArticle: true },
+  { articleNumber: '148', part: 'Part V', title: 'Comptroller and Auditor-General of India (CAG)', conciseSummary: 'Independent guardian of the public purse; audits Union and State finances.', category: 'Union Executive', isKeyArticle: true },
+
+  // PART VI
+  { articleNumber: '153', part: 'Part VI', title: 'Governors of States', conciseSummary: 'Head of State executive; same person can be Governor for multiple states.', category: 'States', isKeyArticle: true },
+  { articleNumber: '161', part: 'Part VI', title: 'Power of Governor to grant pardons', conciseSummary: 'State clemency power; does not extend to death sentence pardon or court martial.', category: 'States', isKeyArticle: true },
+  { articleNumber: '163', part: 'Part VI', title: 'Council of Ministers to aid and advise Governor', conciseSummary: 'Cabinet advice standard with explicit discretionary exceptions.', category: 'States', isKeyArticle: true },
+  { articleNumber: '164', part: 'Part VI', title: 'Other provisions as to Ministers in States', conciseSummary: 'CM appointed by Governor; collective responsibility to Legislative Assembly.', category: 'States' },
+  { articleNumber: '169', part: 'Part VI', title: 'Abolition or creation of Legislative Councils in States', conciseSummary: 'State Assembly passes resolution by special majority; Parliament enacts by simple majority.', category: 'States', isKeyArticle: true },
+  { articleNumber: '200', part: 'Part VI', title: 'Assent to Bills passed by State Legislature', conciseSummary: 'Assent, withholding, return for reconsideration, or reservation for President.', category: 'States', isKeyArticle: true },
+  { articleNumber: '213', part: 'Part VI', title: 'Power of Governor to promulgate Ordinances', conciseSummary: 'State ordinance power during recess of state legislature.', category: 'States', isKeyArticle: true },
+  { articleNumber: '214', part: 'Part VI', title: 'High Courts for States', conciseSummary: 'There shall be a High Court for each State (or common High Court).', category: 'States', isKeyArticle: true },
+  { articleNumber: '226', part: 'Part VI', title: 'Power of High Courts to issue certain writs', conciseSummary: 'Plenary writ power for Fundamental Rights and any other legal purpose.', category: 'States', isKeyArticle: true },
+  { articleNumber: '227', part: 'Part VI', title: 'Power of superintendence over all courts by the High Court', conciseSummary: 'Judicial and administrative superintendence over all subordinate courts and tribunals.', category: 'States', isKeyArticle: true },
+
+  // PART VIII, IX, IX-A, IX-B, X
+  { articleNumber: '239AA', part: 'Part VIII', title: 'Special provisions with respect to Delhi', conciseSummary: 'National Capital Territory of Delhi; Legislative Assembly excluding Police, Public Order, Land.', category: 'States', isKeyArticle: true },
+  { articleNumber: '243B', part: 'Part IX', title: 'Constitution of Panchayats', conciseSummary: 'Mandatory 3-tier Panchayati Raj in States.', category: 'Local Bodies', isKeyArticle: true },
+  { articleNumber: '243D', part: 'Part IX', title: 'Reservation of seats in Panchayats', conciseSummary: 'Mandatory minimum 33% reservation for women and proportionate SC/ST quotas.', category: 'Local Bodies', isKeyArticle: true },
+  { articleNumber: '243K', part: 'Part IX', title: 'Elections to the Panchayats', conciseSummary: 'Autonomous State Election Commission.', category: 'Local Bodies', isKeyArticle: true },
+  { articleNumber: '243Q', part: 'Part IX-A', title: 'Constitution of Municipalities', conciseSummary: 'Nagar Panchayats, Municipal Councils, Municipal Corporations.', category: 'Local Bodies', isKeyArticle: true },
+  { articleNumber: '243ZJ', part: 'Part IX-B', title: 'Number and term of members of cooperative board', conciseSummary: 'Maximum 21 directors, 5-year tenure; subject to Rajendra Shah ruling.', category: 'Local Bodies' },
+  { articleNumber: '244', part: 'Part X', title: 'Administration of Scheduled Areas and Tribal Areas', conciseSummary: 'Fifth Schedule (10 states) and Sixth Schedule (AMTM ADCs).', category: 'Special & Temporary', isKeyArticle: true },
+
+  // PART XI & XII
+  { articleNumber: '245', part: 'Part XI', title: 'Extent of laws made by Parliament and State Legislatures', conciseSummary: 'Territorial competence; plenary extraterritorial authority of Parliament.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '246', part: 'Part XI', title: 'Subject-matter of laws (Seventh Schedule Lists)', conciseSummary: 'List I Union, List II State, List III Concurrent lists.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '248', part: 'Part XI', title: 'Residuary powers of legislation', conciseSummary: 'Exclusive residuary competence vested in Union Parliament.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '249', part: 'Part XI', title: 'Parliament power to legislate on State List in national interest', conciseSummary: 'Rajya Sabha 2/3 resolution authorizing central law for 1 yr.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '254', part: 'Part XI', title: 'Doctrine of Repugnancy in Concurrent List', conciseSummary: 'Central law prevails over state law unless state law received Presidential assent.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '262', part: 'Part XI', title: 'Adjudication of inter-State river water disputes', conciseSummary: 'Parliament can exclude Supreme Court jurisdiction under 262(2).', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '263', part: 'Part XI', title: 'Inter-State Council', conciseSummary: 'Presidential body for coordinating inter-state disputes and policies.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '265', part: 'Part XII', title: 'Taxes not to be imposed save by authority of law', conciseSummary: 'Statutory basis mandatory for all taxation.', category: 'Finance & Property', isKeyArticle: true },
+  { articleNumber: '266', part: 'Part XII', title: 'Consolidated Funds and Public Accounts', conciseSummary: 'Revenues collected; withdrawal only by parliamentary appropriation.', category: 'Finance & Property', isKeyArticle: true },
+  { articleNumber: '267', part: 'Part XII', title: 'Contingency Fund', conciseSummary: 'Imprest fund at disposal of President for unforeseen emergencies.', category: 'Finance & Property', isKeyArticle: true },
+  { articleNumber: '279A', part: 'Part XII', title: 'Goods and Services Tax Council', conciseSummary: 'Constitutional fiscal voting body: 1/3 Centre, 2/3 States, 3/4 threshold.', category: 'Finance & Property', isKeyArticle: true },
+  { articleNumber: '280', part: 'Part XII', title: 'Finance Commission', conciseSummary: '5-year presidential body for vertical and horizontal tax devolution.', category: 'Finance & Property', isKeyArticle: true },
+  { articleNumber: '300', part: 'Part XII', title: 'Suits and proceedings', conciseSummary: 'Government of India and States may sue or be sued (sovereign immunity limits).', category: 'Finance & Property' },
+  { articleNumber: '300A', part: 'Part XII', title: 'Persons not to be deprived of property save by authority of law', conciseSummary: 'Constitutional human right to property post-44th Amendment 1978.', category: 'Finance & Property', isKeyArticle: true },
+
+  // PART XIII, XIV, XIV-A, XV, XVI, XVII
+  { articleNumber: '301', part: 'Part XIII', title: 'Freedom of trade, commerce and intercourse', conciseSummary: 'Inter-state economic freedom throughout India.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '310', part: 'Part XIV', title: 'Tenure of office of civil servants (Doctrine of Pleasure)', conciseSummary: 'Civil posts held during pleasure of President/Governor.', category: 'Services', isKeyArticle: true },
+  { articleNumber: '311', part: 'Part XIV', title: 'Dismissal, removal or reduction in rank of civil servants', conciseSummary: 'Two-tier protection: no subordinate dismissal, and mandatory inquiry.', category: 'Services', isKeyArticle: true },
+  { articleNumber: '312', part: 'Part XIV', title: 'All-India Services', conciseSummary: 'Creation of new All-India Services via Rajya Sabha 2/3 resolution.', category: 'Services', isKeyArticle: true },
+  { articleNumber: '315', part: 'Part XIV', title: 'Public Service Commissions (UPSC & SPSC)', conciseSummary: 'Constitutional recruitment bodies.', category: 'Services', isKeyArticle: true },
+  { articleNumber: '323A', part: 'Part XIV-A', title: 'Administrative Tribunals', conciseSummary: 'Central & State Administrative Tribunals (CAT/SAT) for civil servant service disputes.', category: 'Services', isKeyArticle: true },
+  { articleNumber: '324', part: 'Part XV', title: 'Superintendence, direction, and control of elections (ECI)', conciseSummary: 'Autonomous Election Commission of India.', category: 'Elections', isKeyArticle: true },
+  { articleNumber: '326', part: 'Part XV', title: 'Elections on basis of Universal Adult Suffrage', conciseSummary: 'Voting right for every citizen aged 18+ (lowered by 61st Amendment).', category: 'Elections', isKeyArticle: true },
+  { articleNumber: '330', part: 'Part XVI', title: 'Reservation of seats for SC/ST in Lok Sabha', conciseSummary: 'Proportionate political representation quotas.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '338', part: 'Part XVI', title: 'National Commission for Scheduled Castes (NCSC)', conciseSummary: 'Constitutional body for SC safeguards.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '338A', part: 'Part XVI', title: 'National Commission for Scheduled Tribes (NCST)', conciseSummary: 'Constitutional body for ST safeguards (89th Amd).', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '338B', part: 'Part XVI', title: 'National Commission for Backward Classes (NCBC)', conciseSummary: 'Constitutional body for OBC safeguards (102nd Amd).', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '343', part: 'Part XVII', title: 'Official language of the Union', conciseSummary: 'Hindi in Devanagari script with international Indian numerals.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '348', part: 'Part XVII', title: 'Language in Supreme Court and High Courts', conciseSummary: 'English language in higher judiciary until Parliament provides otherwise.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '350A', part: 'Part XVII', title: 'Mother-tongue instruction at primary stage', conciseSummary: 'Directive to provide primary education in mother tongue to linguistic minorities.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '351', part: 'Part XVII', title: 'Directive for development of Hindi language', conciseSummary: 'Enrichment and propagation of Hindi for composite culture.', category: 'Foundation' },
+
+  // PART XVIII, XIX, XX, XXI, XXII
+  { articleNumber: '352', part: 'Part XVIII', title: 'Proclamation of National Emergency', conciseSummary: 'War, external aggression, armed rebellion; 1-month parliamentary approval.', category: 'Emergency', isKeyArticle: true },
+  { articleNumber: '356', part: 'Part XVIII', title: 'President’s Rule in States (State Emergency)', conciseSummary: 'Failure of constitutional machinery; S.R. Bommai judicial check.', category: 'Emergency', isKeyArticle: true },
+  { articleNumber: '358', part: 'Part XVIII', title: 'Suspension of Article 19 during emergencies', conciseSummary: 'Automatic suspension of Art 19 only in war or external aggression.', category: 'Emergency', isKeyArticle: true },
+  { articleNumber: '359', part: 'Part XVIII', title: 'Suspension of enforcement of Part III rights during emergencies', conciseSummary: 'Presidential order; Articles 20 and 21 are never suspendable.', category: 'Emergency', isKeyArticle: true },
+  { articleNumber: '360', part: 'Part XVIII', title: 'Provisions as to financial emergency', conciseSummary: 'Financial credit threat; never proclaimed in India.', category: 'Emergency', isKeyArticle: true },
+  { articleNumber: '361', part: 'Part XIX', title: 'Protection of President and Governors', conciseSummary: 'Personal immunity from criminal proceedings during term of office.', category: 'Union Executive', isKeyArticle: true },
+  { articleNumber: '365', part: 'Part XIX', title: 'Effect of failure to comply with Union directions', conciseSummary: 'State failure to follow central directions triggers Article 356.', category: 'Federal Relations', isKeyArticle: true },
+  { articleNumber: '368', part: 'Part XX', title: 'Power of Parliament to amend the Constitution', conciseSummary: 'Constituent amending procedure bounded by Basic Structure Doctrine.', category: 'Amendment', isKeyArticle: true },
+  { articleNumber: '370', part: 'Part XXI', title: 'Temporary provisions for J&K [Inoperative]', conciseSummary: 'Special status abrogated on August 5-6, 2019.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '371', part: 'Part XXI', title: 'Special provisions for Maharashtra and Gujarat', conciseSummary: 'Separate development boards for Vidarbha, Marathwada, Saurashtra, Kutch.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '371A', part: 'Part XXI', title: 'Special provisions for Nagaland', conciseSummary: 'Customary law and land ownership protections; assembly ratification needed.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '371F', part: 'Part XXI', title: 'Special provisions for Sikkim', conciseSummary: 'Accession provisions under 36th Amendment 1975.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '371J', part: 'Part XXI', title: 'Special provisions for Karnataka (Kalyana-Karnataka)', conciseSummary: 'Hyderabad-Karnataka development board and affirmative action.', category: 'Special & Temporary', isKeyArticle: true },
+  { articleNumber: '393', part: 'Part XXII', title: 'Short title', conciseSummary: 'This Constitution may be called the Constitution of India.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '394', part: 'Part XXII', title: 'Commencement', conciseSummary: '16 articles in force on 26 Nov 1949; remaining on 26 Jan 1950.', category: 'Foundation', isKeyArticle: true },
+  { articleNumber: '394A', part: 'Part XXII', title: 'Authoritative text in Hindi language', conciseSummary: 'Hindi text published under Presidential authority holds equal legal status.', category: 'Foundation' },
+  { articleNumber: '395', part: 'Part XXII', title: 'Repeals', conciseSummary: 'Repealed Indian Independence Act 1947 and GOI Act 1935.', category: 'Foundation', isKeyArticle: true }
+];

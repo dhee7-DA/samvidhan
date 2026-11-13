@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, X, BookOpen, Scale, Award, Calendar, Layers, ChevronRight } from 'lucide-react';
+import { Search, X, ChevronRight } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { CONSTITUTION_PARTS } from '../../data/partsData';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
 import { LANDMARK_JUDGMENTS } from '../../data/judgmentsData';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
+import { AMENDMENTS_DATA } from '../../data/amendmentsData';
+import { ARTICLES_MASTER_INDEX } from '../../data/articlesMasterData';
 
 interface SearchResult {
-  category: 'Article' | 'Part' | 'Doctrine' | 'Landmark Case' | 'Schedule' | 'SVG Diagram';
+  category: 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule';
   title: string;
   subtitle: string;
   targetTab: string;
@@ -15,7 +17,7 @@ interface SearchResult {
 }
 
 export const SearchModal: React.FC = () => {
-  const { searchOpen, setSearchOpen, setActiveTab, setSelectedPartId, setSelectedSvgId } = useTheme();
+  const { searchOpen, setSearchOpen, setActiveTab, setSelectedPartId } = useTheme();
   const [query, setQuery] = useState('');
 
   // Keyboard shortcut listener (Ctrl+K or Cmd+K)
@@ -38,7 +40,43 @@ export const SearchModal: React.FC = () => {
     const q = query.toLowerCase();
     const res: SearchResult[] = [];
 
-    // Search Parts & Articles
+    // Search Articles Master Index (1 to 395)
+    ARTICLES_MASTER_INDEX.forEach((art) => {
+      if (
+        art.articleNumber.toLowerCase() === q ||
+        `article ${art.articleNumber}`.toLowerCase() === q ||
+        art.title.toLowerCase().includes(q) ||
+        art.conciseSummary.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Article',
+          title: `Article ${art.articleNumber}: ${art.title}`,
+          subtitle: `${art.part} • ${art.conciseSummary}`,
+          targetTab: 'articles-master',
+          targetId: art.articleNumber
+        });
+      }
+    });
+
+    // Search Amendments
+    AMENDMENTS_DATA.forEach((amd) => {
+      if (
+        amd.title.toLowerCase().includes(q) ||
+        amd.number.toString() === q ||
+        amd.keyObjectives.toLowerCase().includes(q) ||
+        amd.significance.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Amendment',
+          title: `${amd.title} (${amd.year})`,
+          subtitle: `PM/Era: ${amd.primeMinisterOrEra} • ${amd.keyObjectives.slice(0, 80)}...`,
+          targetTab: 'amendments',
+          targetId: `amd-${amd.number}`
+        });
+      }
+    });
+
+    // Search Parts
     CONSTITUTION_PARTS.forEach((part) => {
       if (part.title.toLowerCase().includes(q) || part.description.toLowerCase().includes(q) || part.partNumber.toLowerCase().includes(q)) {
         res.push({
@@ -49,22 +87,6 @@ export const SearchModal: React.FC = () => {
           targetId: part.id
         });
       }
-
-      part.articles.forEach((art) => {
-        if (
-          art.number.toLowerCase().includes(q) ||
-          art.title.toLowerCase().includes(q) ||
-          art.summary.toLowerCase().includes(q)
-        ) {
-          res.push({
-            category: 'Article',
-            title: `Article ${art.number}: ${art.title}`,
-            subtitle: `${part.partNumber} • ${art.summary.slice(0, 80)}...`,
-            targetTab: 'parts',
-            targetId: part.id
-          });
-        }
-      });
     });
 
     // Search Doctrines
@@ -115,7 +137,7 @@ export const SearchModal: React.FC = () => {
       }
     });
 
-    return res.slice(0, 12);
+    return res.slice(0, 15);
   }, [query]);
 
   if (!searchOpen) return null;
@@ -131,7 +153,7 @@ export const SearchModal: React.FC = () => {
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search articles (e.g. Art 21), doctrines, landmark judgments, schedules..."
+            placeholder="Search articles (1–395), amendments (1–106), doctrines, writs, cases..."
             className="w-full bg-transparent border-none text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none font-mono"
           />
           {query && (
@@ -148,9 +170,9 @@ export const SearchModal: React.FC = () => {
         <div className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-[var(--border-subtle)]">
           {query.trim() === '' ? (
             <div className="p-8 text-center text-sm text-[var(--text-muted)]">
-              <p className="font-mono">Type any constitutional concept, article number, or case name...</p>
+              <p className="font-mono">Search across all 25 Parts, 395 Articles, 12 Schedules, and 106 Amendments...</p>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
-                {['Article 21', 'Basic Structure', 'Writ of Habeas Corpus', 'Money Bill', 'Preamble', 'Tenth Schedule'].map((tag) => (
+                {['Article 21', 'Basic Structure', '42nd Amendment', 'GST Council', 'Article 311', 'Article 371A'].map((tag) => (
                   <button
                     key={tag}
                     onClick={() => setQuery(tag)}

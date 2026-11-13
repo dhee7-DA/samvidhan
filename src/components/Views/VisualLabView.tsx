@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Eye,
   Shield,
@@ -10,7 +10,10 @@ import {
   History,
   FileText,
   Calendar,
-  Sparkles
+  Landmark,
+  UserCheck,
+  Vote,
+  Compass
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
@@ -23,6 +26,10 @@ import { BasicStructureEvolutionSVG } from '../VectorDiagrams/BasicStructureEvol
 import { Article21EvolutionSVG } from '../VectorDiagrams/Article21EvolutionSVG';
 import { LegislativePassageSVG } from '../VectorDiagrams/LegislativePassageSVG';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
+import { GSTCouncilFiscalSVG } from '../VectorDiagrams/GSTCouncilFiscalSVG';
+import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeguardsSVG';
+import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
+import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
 
 interface DiagramItem {
   id: string;
@@ -79,6 +86,42 @@ const DIAGRAMS: DiagramItem[] = [
     icon: <Layers className="w-4 h-4" />,
     component: <FederalRelationsSVG />,
     summary: 'Union, State, and Concurrent lists with the 5 central overriding pathways.'
+  },
+  {
+    id: 'gst-fiscal-federalism',
+    title: 'GST Council & Fiscal Federalism Pipeline',
+    category: 'Financial Architecture',
+    articles: 'Articles 279A, 280, 266',
+    icon: <Landmark className="w-4 h-4" />,
+    component: <GSTCouncilFiscalSVG />,
+    summary: 'Cooperative fiscal voting weights (1/3 Centre, 2/3 States), Finance Commission, and constitutional funds.'
+  },
+  {
+    id: 'civil-services-safeguards',
+    title: 'Civil Services Safeguards & Article 311',
+    category: 'Public Administration',
+    articles: 'Articles 310, 311, 312',
+    icon: <UserCheck className="w-4 h-4" />,
+    component: <CivilServicesSafeguardsSVG />,
+    summary: 'Twin shields under Art 311(1) & (2), the 3 exceptional provisos, and All-India Services.'
+  },
+  {
+    id: 'electoral-architecture',
+    title: 'Electoral Democracy & ECI Structure',
+    category: 'Electoral Governance',
+    articles: 'Articles 324 to 329',
+    icon: <Vote className="w-4 h-4" />,
+    component: <ElectoralArchitectureSVG />,
+    summary: 'Superintendence of elections, adult franchise under Art 326, single general roll, and bar on court interference.'
+  },
+  {
+    id: 'asymmetric-federalism',
+    title: 'Asymmetric Federalism & Special States',
+    category: 'Special Provisions',
+    articles: 'Articles 371 to 371-J',
+    icon: <Compass className="w-4 h-4" />,
+    component: <AsymmetricFederalismSVG />,
+    summary: 'Autonomous constitutional safeguards and customary protections across 11 diverse States.'
   },
   {
     id: 'emergency-matrix',
@@ -142,7 +185,7 @@ export const VisualLabView: React.FC = () => {
               Visual Law Lab
             </h1>
             <span className="text-xs px-2 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-              10 Premium Vector Blueprints
+              14 Bespoke Vector Blueprints
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">
@@ -152,25 +195,25 @@ export const VisualLabView: React.FC = () => {
       </div>
 
       {/* Blueprint Selector Carousel / Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-2.5">
         {DIAGRAMS.map((item) => {
           const isSelected = item.id === activeDiagram.id;
           return (
             <button
               key={item.id}
               onClick={() => setSelectedSvgId(item.id)}
-              className={`p-3 rounded-xl border text-left flex flex-col justify-between transition-all ${
+              className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all ${
                 isSelected
                   ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] shadow-md ring-1 ring-[var(--accent)]/30'
                   : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
               }`}
             >
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between mb-1.5">
                 <span className={`p-1.5 rounded-lg ${isSelected ? 'bg-[var(--accent)] text-[var(--accent-contrast)]' : 'bg-[var(--bg-base)] text-[var(--text-muted)]'}`}>
                   {item.icon}
                 </span>
                 <span className="text-[9px] font-mono text-[var(--text-muted)]">
-                  {item.articles}
+                  {item.articles.split(' ')[0]}
                 </span>
               </div>
               <div>

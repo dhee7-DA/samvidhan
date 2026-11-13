@@ -5,13 +5,15 @@ import { Sidebar } from './components/Layout/Sidebar';
 import { SearchModal } from './components/Common/SearchModal';
 import { OverviewDashboard } from './components/Views/OverviewDashboard';
 import { TopicDetailView } from './components/Views/TopicDetailView';
+import { ArticlesMasterView } from './components/Views/ArticlesMasterView';
 import { VisualLabView } from './components/Views/VisualLabView';
+import { AmendmentsView } from './components/Views/AmendmentsView';
 import { SchedulesView } from './components/Views/SchedulesView';
 import { DoctrinesHubView } from './components/Views/DoctrinesHubView';
 import { LandmarkCasesView } from './components/Views/LandmarkCasesView';
 import { ComparativeLawView } from './components/Views/ComparativeLawView';
 import { QuizMasteryView } from './components/Views/QuizMasteryView';
-import { Compass, Scale, Heart, Shield } from 'lucide-react';
+import { Scale } from 'lucide-react';
 
 const MainContent: React.FC = () => {
   const { activeTab, setActiveTab } = useTheme();
@@ -25,7 +27,9 @@ const MainContent: React.FC = () => {
       <main className="flex-1 pb-16">
         {activeTab === 'overview' && <OverviewDashboard />}
         {activeTab === 'parts' && <TopicDetailView />}
+        {activeTab === 'articles-master' && <ArticlesMasterView />}
         {activeTab === 'visual-lab' && <VisualLabView />}
+        {activeTab === 'amendments' && <AmendmentsView />}
         {activeTab === 'schedules' && <SchedulesView />}
         {activeTab === 'doctrines' && <DoctrinesHubView />}
         {activeTab === 'judgments' && <LandmarkCasesView />}
@@ -48,8 +52,10 @@ const MainContent: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[var(--text-secondary)]">
             <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)]">Overview</button>
-            <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)]">Parts & Articles</button>
+            <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)]">25 Parts</button>
+            <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)]">Articles 1–395</button>
             <button onClick={() => setActiveTab('visual-lab')} className="hover:text-[var(--text-primary)]">Visual Law Lab</button>
+            <button onClick={() => setActiveTab('amendments')} className="hover:text-[var(--text-primary)]">Amendments</button>
             <button onClick={() => setActiveTab('doctrines')} className="hover:text-[var(--text-primary)]">Doctrines</button>
             <button onClick={() => setActiveTab('quiz')} className="hover:text-[var(--text-primary)]">Quiz</button>
           </div>
