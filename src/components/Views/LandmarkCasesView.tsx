@@ -16,6 +16,8 @@ import {
   Bookmark,
   BookmarkCheck,
   ChevronRight,
+  ChevronDown,
+  RotateCcw,
   Filter,
   Sparkles,
   BookMarked,
@@ -52,6 +54,7 @@ export const LandmarkCasesView: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [benchFilter, setBenchFilter] = useState<'all' | 'constitution-5' | 'super-7-plus'>('all');
   const [sortOrder, setSortOrder] = useState<'chronological' | 'reverse-chronological' | 'bench-size'>('chronological');
+  const [isTopicDrawerOpen, setIsTopicDrawerOpen] = useState(false);
 
   // Copied state
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -343,52 +346,138 @@ export const LandmarkCasesView: React.FC = () => {
       {/* CASES EXPLORER / BOOKMARKS VIEW */}
       {(viewMode === 'cases' || viewMode === 'bookmarks') && (
         <div className="flex flex-col gap-6">
-          {/* Topic Cluster Selector Strip (Only in 'cases' mode) */}
+          {/* Collapsible Topic Filter Bar (Only in 'cases' mode) */}
           {viewMode === 'cases' && (
             <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)]">
-                  Filter by 20 Constitutional Topics (5 Cases Each)
-                </span>
-                <span className="text-xs font-mono text-[var(--text-secondary)]">
-                  Showing {filteredCases.length} of 100 Cases
-                </span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                {/* Collapsible Button: Current Active Topic */}
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider hidden sm:inline">
+                    Topic Filter:
+                  </span>
+                  <button
+                    onClick={() => setIsTopicDrawerOpen((prev) => !prev)}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono transition-all border ${
+                      isTopicDrawerOpen
+                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] font-bold shadow-sm'
+                        : selectedTopicId !== 'all'
+                        ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] border-[var(--accent)]/40 font-bold'
+                        : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+                    }`}
+                  >
+                    <Filter className="w-3.5 h-3.5" />
+                    <span>
+                      {selectedTopicId === 'all'
+                        ? 'All 20 Topics (100 Cases)'
+                        : DETAILED_CASE_LAWS_BY_TOPIC.find((t) => t.id === selectedTopicId)?.name || 'Selected Topic'}
+                    </span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full border ${
+                      isTopicDrawerOpen
+                        ? 'bg-black/20 text-white border-transparent'
+                        : 'bg-[var(--bg-base)] text-[var(--text-muted)] border-[var(--border-subtle)]'
+                    }`}>
+                      {selectedTopicId === 'all' ? '100' : '5'}
+                    </span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        isTopicDrawerOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {/* Reset Filter Button if topic is not 'all' */}
+                  {selectedTopicId !== 'all' && (
+                    <button
+                      onClick={() => {
+                        setSelectedTopicId('all');
+                        setIsTopicDrawerOpen(false);
+                      }}
+                      className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--accent)] px-2.5 py-1 rounded-lg hover:bg-[var(--bg-base)] transition-colors flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)]"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>Show All 100 Cases</span>
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-3 text-xs font-mono text-[var(--text-muted)] self-end sm:self-auto">
+                  <span>
+                    Showing <strong className="text-[var(--text-primary)]">{filteredCases.length}</strong> of 100 Cases
+                  </span>
+                  <button
+                    onClick={() => setIsTopicDrawerOpen((prev) => !prev)}
+                    className="text-[11px] text-[var(--accent)] hover:underline flex items-center gap-1 font-semibold"
+                  >
+                    <span>{isTopicDrawerOpen ? 'Close Topics ✕' : 'Browse All 20 Topics'}</span>
+                    <ChevronDown className={`w-3 h-3 transition-transform ${isTopicDrawerOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
               </div>
 
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none px-0.5">
-                <button
-                  onClick={() => setSelectedTopicId('all')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono whitespace-nowrap transition-all shrink-0 ${
-                    selectedTopicId === 'all'
-                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm'
-                      : 'bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
-                  }`}
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>All 20 Topics (100)</span>
-                </button>
-
-                {DETAILED_CASE_LAWS_BY_TOPIC.map((topic) => {
-                  const isSelected = selectedTopicId === topic.id;
-                  return (
+              {/* Collapsible Drawer containing the 20 Topics */}
+              {isTopicDrawerOpen && (
+                <div className="p-4 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-lg animate-fadeIn flex flex-col gap-3">
+                  <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pb-2 border-b border-[var(--border-subtle)]">
+                    <span className="font-bold text-[var(--text-primary)]">
+                      SELECT CONSTITUTIONAL TOPIC CLUSTER (5 PRECEDENTS EACH)
+                    </span>
                     <button
-                      key={topic.id}
-                      onClick={() => setSelectedTopicId(topic.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono whitespace-nowrap transition-all shrink-0 ${
-                        isSelected
-                          ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm'
-                          : 'bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                      onClick={() => setIsTopicDrawerOpen(false)}
+                      className="text-xs hover:text-[var(--text-primary)] px-2 py-0.5 rounded hover:bg-[var(--bg-base)] transition-colors"
+                    >
+                      Close ✕
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                    <button
+                      onClick={() => {
+                        setSelectedTopicId('all');
+                        setIsTopicDrawerOpen(false);
+                      }}
+                      className={`p-2.5 rounded-lg border text-left flex items-center justify-between transition-all ${
+                        selectedTopicId === 'all'
+                          ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm border-[var(--accent)]'
+                          : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
                       }`}
                     >
-                      <span>{getTopicIcon(topic.iconName)}</span>
-                      <span>{topic.name}</span>
-                      <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[var(--bg-base)]/50 text-[var(--text-muted)] border border-[var(--border-subtle)]">
-                        5
+                      <div className="flex items-center gap-2 min-w-0">
+                        <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                        <span className="text-xs font-mono truncate">All 20 Topics Combined</span>
+                      </div>
+                      <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-black/10 shrink-0 ml-1">
+                        100
                       </span>
                     </button>
-                  );
-                })}
-              </div>
+
+                    {DETAILED_CASE_LAWS_BY_TOPIC.map((topic) => {
+                      const isSelected = selectedTopicId === topic.id;
+                      return (
+                        <button
+                          key={topic.id}
+                          onClick={() => {
+                            setSelectedTopicId(topic.id);
+                            setIsTopicDrawerOpen(false);
+                          }}
+                          className={`p-2.5 rounded-lg border text-left flex items-center justify-between transition-all ${
+                            isSelected
+                              ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm border-[var(--accent)]'
+                              : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="shrink-0">{getTopicIcon(topic.iconName)}</span>
+                            <span className="text-xs font-mono truncate">{topic.name}</span>
+                          </div>
+                          <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-black/10 shrink-0 ml-1">
+                            5
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 

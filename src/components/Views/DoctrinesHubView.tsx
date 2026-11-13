@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Scale, CheckCircle2, AlertOctagon, Award, Search, ChevronRight } from 'lucide-react';
+import { Scale, CheckCircle2, AlertOctagon, Award, Search, ChevronRight, ChevronDown } from 'lucide-react';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
 import type { ConstitutionalDoctrine } from '../../types/constitution';
 
 export const DoctrinesHubView: React.FC = () => {
   const [selectedDocId, setSelectedDocId] = useState<string>(DOCTRINES_DATA[0].id);
   const [searchDoc, setSearchDoc] = useState('');
+  const [isMobileDocOpen, setIsMobileDocOpen] = useState(false);
 
   const currentDoctrine = DOCTRINES_DATA.find((d) => d.id === selectedDocId) || DOCTRINES_DATA[0];
 
@@ -20,10 +21,68 @@ export const DoctrinesHubView: React.FC = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col lg:flex-row gap-8 animate-fadeIn">
-      {/* Left Column: Doctrines List */}
-      <div className="lg:w-80 shrink-0 flex flex-col gap-4">
-        <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-3">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
+      {/* Mobile Collapsible Doctrines Trigger */}
+      <div className="lg:hidden flex flex-col gap-2">
+        <button
+          onClick={() => setIsMobileDocOpen((prev) => !prev)}
+          className="flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)]"
+        >
+          <div className="flex items-center gap-2 min-w-0">
+            <Scale className="w-4 h-4 text-[var(--accent)] shrink-0" />
+            <span className="font-bold text-[var(--accent)]">Doctrine:</span>
+            <span className="truncate">{currentDoctrine.name}</span>
+          </div>
+          <div className="flex items-center gap-1.5 shrink-0 ml-2">
+            <span className="text-[10px] text-[var(--text-muted)]">10 Doctrines</span>
+            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileDocOpen ? 'rotate-180 text-[var(--accent)]' : ''}`} />
+          </div>
+        </button>
+
+        {isMobileDocOpen && (
+          <div className="p-4 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-xl flex flex-col gap-3 animate-fadeIn">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <Search className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+              <input
+                type="text"
+                value={searchDoc}
+                onChange={(e) => setSearchDoc(e.target.value)}
+                placeholder="Search doctrines or cases..."
+                className="w-full bg-transparent border-none text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none font-mono"
+              />
+            </div>
+            <div className="flex flex-col gap-2 max-h-60 overflow-y-auto">
+              {filtered.map((doc) => (
+                <button
+                  key={doc.id}
+                  onClick={() => {
+                    setSelectedDocId(doc.id);
+                    setIsMobileDocOpen(false);
+                  }}
+                  className={`p-2.5 rounded-lg text-left text-xs font-mono border transition-all ${
+                    doc.id === currentDoctrine.id
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold border-[var(--accent)]'
+                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)]'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold">{doc.name}</span>
+                    {doc.latinTerm && (
+                      <span className="text-[10px] opacity-75 italic">{doc.latinTerm}</span>
+                    )}
+                  </div>
+                  <p className="text-[11px] truncate mt-0.5 opacity-80">Case: {doc.leadCase}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-8 items-start">
+        {/* Left Column: Doctrines List (Desktop) */}
+        <div className="hidden lg:flex w-80 shrink-0 flex-col gap-4">
+          <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-3">
           <div className="flex items-center gap-2 mb-1">
             <Scale className="w-4 h-4 text-[var(--accent)]" />
             <h3 className="text-sm font-bold text-[var(--text-primary)]">
@@ -177,5 +236,6 @@ export const DoctrinesHubView: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };

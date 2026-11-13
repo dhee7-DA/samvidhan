@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Search, Bookmark, ChevronRight, Check, Sparkles } from 'lucide-react';
+import { BookOpen, Search, Bookmark, ChevronRight, ChevronDown, Check, Sparkles, Filter, RotateCcw } from 'lucide-react';
 import { ARTICLES_MASTER_INDEX, type ArticleMasterEntry } from '../../data/articlesMasterData';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -7,6 +7,7 @@ export const ArticlesMasterView: React.FC = () => {
   const { setActiveTab, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [isCategoryDrawerOpen, setIsCategoryDrawerOpen] = useState(false);
 
   const categories = [
     'All',
@@ -107,21 +108,95 @@ export const ArticlesMasterView: React.FC = () => {
           )}
         </div>
 
-        <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-1">
-          {categories.map((cat) => (
+        {/* Collapsible Category Toolbar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-[var(--border-subtle)]">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">
+              Category:
+            </span>
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-all ${
-                activeCategory === cat
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                  : 'bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+              onClick={() => setIsCategoryDrawerOpen((prev) => !prev)}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
+                isCategoryDrawerOpen
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] font-bold shadow-sm'
+                  : activeCategory !== 'All'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] border-[var(--accent)]/40 font-bold'
+                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
               }`}
             >
-              {cat}
+              <Filter className="w-3.5 h-3.5" />
+              <span>{activeCategory === 'All' ? 'All Categories (14)' : activeCategory}</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  isCategoryDrawerOpen ? 'rotate-180' : ''
+                }`}
+              />
             </button>
-          ))}
+
+            {activeCategory !== 'All' && (
+              <button
+                onClick={() => {
+                  setActiveCategory('All');
+                  setIsCategoryDrawerOpen(false);
+                }}
+                className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--accent)] px-2.5 py-1 rounded-lg hover:bg-[var(--bg-base)] transition-colors flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)]"
+              >
+                <RotateCcw className="w-3 h-3" />
+                <span>Reset to All</span>
+              </button>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3 text-xs font-mono text-[var(--text-muted)] self-end sm:self-auto">
+            <span>Showing <strong className="text-[var(--text-primary)]">{filtered.length}</strong> of {ARTICLES_MASTER_INDEX.length} Articles</span>
+            <button
+              onClick={() => setIsCategoryDrawerOpen((prev) => !prev)}
+              className="text-[11px] text-[var(--accent)] hover:underline flex items-center gap-1 font-semibold"
+            >
+              <span>{isCategoryDrawerOpen ? 'Hide Categories ✕' : 'Browse Categories'}</span>
+              <ChevronDown className={`w-3 h-3 transition-transform ${isCategoryDrawerOpen ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
         </div>
+
+        {/* Collapsible Category Grid Drawer */}
+        {isCategoryDrawerOpen && (
+          <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-lg animate-fadeIn flex flex-col gap-2 mt-1">
+            <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pb-1.5 border-b border-[var(--border-subtle)]">
+              <span className="font-bold text-[var(--text-primary)]">SELECT ARTICLE CATEGORY (14 SUBJECT AREAS)</span>
+              <button
+                onClick={() => setIsCategoryDrawerOpen(false)}
+                className="hover:text-[var(--text-primary)] px-2 py-0.5 rounded hover:bg-[var(--bg-base)] transition-colors text-xs"
+              >
+                Close ✕
+              </button>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1.5">
+              {categories.map((cat) => {
+                const count = cat === 'All' ? ARTICLES_MASTER_INDEX.length : ARTICLES_MASTER_INDEX.filter((a) => a.category === cat).length;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setActiveCategory(cat);
+                      setIsCategoryDrawerOpen(false);
+                    }}
+                    className={`px-2.5 py-1.5 rounded-lg text-xs font-mono transition-all text-left flex items-center justify-between border ${
+                      activeCategory === cat
+                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm border-[var(--accent)]'
+                        : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+                    }`}
+                  >
+                    <span className="truncate">{cat}</span>
+                    <span className="text-[10px] font-mono opacity-80 ml-1 shrink-0">
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Articles Grid */}

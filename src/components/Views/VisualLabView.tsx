@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Eye,
   Shield,
@@ -13,7 +13,11 @@ import {
   Landmark,
   UserCheck,
   Vote,
-  Compass
+  Compass,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Grid
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
@@ -182,10 +186,23 @@ const DIAGRAMS: DiagramItem[] = [
 
 export const VisualLabView: React.FC = () => {
   const { selectedSvgId, setSelectedSvgId } = useTheme();
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
   const activeDiagram = DIAGRAMS.find((d) => d.id === selectedSvgId) || DIAGRAMS[0];
+  const currentIndex = DIAGRAMS.findIndex((d) => d.id === activeDiagram.id);
+
+  const handlePrev = () => {
+    const newIdx = (currentIndex - 1 + DIAGRAMS.length) % DIAGRAMS.length;
+    setSelectedSvgId(DIAGRAMS[newIdx].id);
+  };
+
+  const handleNext = () => {
+    const newIdx = (currentIndex + 1) % DIAGRAMS.length;
+    setSelectedSvgId(DIAGRAMS[newIdx].id);
+  };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-8 animate-fadeIn">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
       {/* Title & Banner */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
@@ -204,62 +221,130 @@ export const VisualLabView: React.FC = () => {
         </div>
       </div>
 
-      {/* Blueprint Selector Grid (15 items: perfectly fills 3x5 or 5x3) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
-        {DIAGRAMS.map((item) => {
-          const isSelected = item.id === activeDiagram.id;
-          return (
+      {/* Collapsible Blueprint Gallery Control Bar */}
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm">
+          {/* Active Blueprint Summary */}
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 flex items-center justify-center shrink-0">
+              {activeDiagram.icon}
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h2 className="text-sm sm:text-base font-bold text-[var(--text-primary)] truncate">
+                  {activeDiagram.title}
+                </h2>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
+                  {activeDiagram.articles}
+                </span>
+              </div>
+              <p className="text-xs text-[var(--text-secondary)] line-clamp-1 mt-0.5">
+                {activeDiagram.category} • {activeDiagram.summary}
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Prev / Next & Collapsible Blueprint Menu Button */}
+          <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+            {/* Quick Prev / Next Arrows */}
+            <div className="flex items-center bg-[var(--bg-base)] rounded-xl border border-[var(--border-subtle)] p-0.5">
+              <button
+                onClick={handlePrev}
+                title="Previous Blueprint"
+                className="p-1.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <span className="text-[11px] font-mono px-2 text-[var(--text-muted)] select-none">
+                {currentIndex + 1} / {DIAGRAMS.length}
+              </span>
+              <button
+                onClick={handleNext}
+                title="Next Blueprint"
+                className="p-1.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] transition-colors"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Collapsible Gallery Toggle Button */}
             <button
-              key={item.id}
-              onClick={() => setSelectedSvgId(item.id)}
-              className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all ${
-                isSelected
-                  ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] shadow-md ring-1 ring-[var(--accent)]/30'
-                  : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+              onClick={() => setIsGalleryOpen((prev) => !prev)}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono transition-all border ${
+                isGalleryOpen
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] font-bold shadow-sm'
+                  : 'bg-[var(--bg-surface-elevated)] hover:bg-[var(--bg-base)] border-[var(--border-strong)] text-[var(--text-primary)]'
               }`}
             >
-              <div className="flex items-center justify-between mb-1.5">
-                <span className={`p-1.5 rounded-lg ${isSelected ? 'bg-[var(--accent)] text-[var(--accent-contrast)]' : 'bg-[var(--bg-base)] text-[var(--text-muted)]'}`}>
-                  {item.icon}
-                </span>
-                <span className="text-[9px] font-mono text-[var(--text-muted)]">
-                  {item.articles.split(' ')[0]}
-                </span>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold text-[var(--text-primary)] line-clamp-1">
-                  {item.title}
-                </h4>
-                <p className="text-[10px] text-[var(--text-secondary)] line-clamp-1 mt-0.5">
-                  {item.category}
-                </p>
-              </div>
+              <Grid className="w-3.5 h-3.5" />
+              <span>{isGalleryOpen ? 'Hide Gallery' : 'All 15 Blueprints'}</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  isGalleryOpen ? 'rotate-180' : ''
+                }`}
+              />
             </button>
-          );
-        })}
+          </div>
+        </div>
+
+        {/* Collapsible Blueprint Gallery Grid */}
+        {isGalleryOpen && (
+          <div className="p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-xl animate-fadeIn flex flex-col gap-3">
+            <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pb-2 border-b border-[var(--border-subtle)]">
+              <span className="font-bold text-[var(--text-primary)]">
+                SELECT BESPOKE CONSTITUTIONAL VECTOR BLUEPRINT (15 AVAILABLE)
+              </span>
+              <button
+                onClick={() => setIsGalleryOpen(false)}
+                className="text-xs hover:text-[var(--text-primary)] px-2 py-0.5 rounded hover:bg-[var(--bg-base)] transition-colors"
+              >
+                Close ✕
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+              {DIAGRAMS.map((item) => {
+                const isSelected = item.id === activeDiagram.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setSelectedSvgId(item.id);
+                      setIsGalleryOpen(false);
+                    }}
+                    className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all ${
+                      isSelected
+                        ? 'bg-[var(--accent)]/15 border-[var(--accent)] shadow-md ring-1 ring-[var(--accent)]/40'
+                        : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:bg-[var(--bg-base)]'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className={`p-1.5 rounded-lg ${isSelected ? 'bg-[var(--accent)] text-[var(--accent-contrast)]' : 'bg-[var(--bg-base)] text-[var(--text-muted)]'}`}>
+                        {item.icon}
+                      </span>
+                      <span className="text-[9px] font-mono text-[var(--text-muted)]">
+                        {item.articles.split(' ')[0]}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[var(--text-primary)] line-clamp-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-[10px] text-[var(--text-secondary)] line-clamp-1 mt-0.5">
+                        {item.category}
+                      </p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Active Blueprint Presentation */}
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-between px-2">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold text-[var(--accent)]">
-              {activeDiagram.category}
-            </span>
-            <span className="text-xs text-[var(--text-muted)]">•</span>
-            <span className="text-xs font-mono text-[var(--text-muted)]">
-              {activeDiagram.articles}
-            </span>
-          </div>
-          <span className="text-xs text-[var(--text-secondary)] hidden sm:block">
-            {activeDiagram.summary}
-          </span>
-        </div>
-
-        {/* The Rendered Interactive Component */}
-        <div className="w-full">
-          {activeDiagram.component}
-        </div>
+      {/* The Rendered Interactive Component */}
+      <div className="w-full">
+        {activeDiagram.component}
       </div>
     </div>
   );

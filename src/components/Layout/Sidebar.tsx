@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Compass,
   BookOpen,
@@ -9,7 +9,9 @@ import {
   Globe2,
   CheckSquare,
   GitCommit,
-  Layers
+  Layers,
+  ChevronDown,
+  Menu
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -35,10 +37,63 @@ const NAV_ITEMS: NavItem[] = [
 
 export const Sidebar: React.FC = () => {
   const { activeTab, setActiveTab } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const currentItem = NAV_ITEMS.find((item) => item.id === activeTab) || NAV_ITEMS[0];
 
   return (
-    <nav className="w-full border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] py-2 px-4 overflow-x-auto scrollbar-none">
-      <div className="max-w-7xl mx-auto flex items-center justify-start sm:justify-center gap-1 sm:gap-2">
+    <nav className="w-full border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] py-2 px-4 transition-colors">
+      {/* Mobile Collapsible Navigation Button */}
+      <div className="md:hidden flex flex-col gap-2">
+        <button
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          className="flex items-center justify-between p-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)]"
+        >
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-[var(--accent)]">{currentItem.icon}</span>
+            <span className="font-bold">{currentItem.label}</span>
+            {currentItem.badge && (
+              <span className="text-[9px] px-1.5 py-0.2 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                {currentItem.badge}
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-1.5 text-[var(--text-muted)] shrink-0 ml-2">
+            <span className="text-[10px]">10 Modules</span>
+            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMobileMenuOpen ? 'rotate-180 text-[var(--accent)]' : ''}`} />
+          </div>
+        </button>
+
+        {isMobileMenuOpen && (
+          <div className="p-3 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-xl grid grid-cols-2 gap-1.5 animate-fadeIn">
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveTab(item.id);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-2 p-2.5 rounded-xl text-xs font-mono text-left transition-all ${
+                    isActive
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm'
+                      : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  <span className={isActive ? 'text-inherit' : 'text-[var(--text-muted)]'}>
+                    {item.icon}
+                  </span>
+                  <span className="truncate">{item.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Navigation Tab Strip */}
+      <div className="hidden md:flex max-w-7xl mx-auto items-center justify-center gap-1 lg:gap-2 overflow-x-auto scrollbar-none">
         {NAV_ITEMS.map((item) => {
           const isActive = activeTab === item.id;
           return (

@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
             <Search className="w-4 h-4" />
           </button>
 
-          <div className="hidden lg:block">
+          <div className="hidden sm:block">
             <FontSelector />
           </div>
 
