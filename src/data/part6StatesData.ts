@@ -382,6 +382,13 @@ export const PART_6_STATES_EXPANDED: ArticleItem[] = [
     ],
     landmarkCases: [
       {
+        caseName: 'High Court Bar Association, Allahabad v. State of Uttar Pradesh',
+        year: 2024,
+        bench: '5-Judge Constitution Bench (Unanimous)',
+        summary: 'Overruled Asian Resurfacing (2018). Held that interim stay orders granted by High Courts in civil/criminal cases do not automatically expire after 6 months without a judicial hearing.',
+        significance: 'Reaffirmed the constitutional autonomy and plenary writ jurisdiction of High Courts under Article 226; SC cannot set automatic administrative clocks via Article 142.'
+      },
+      {
         caseName: 'State of Haryana v. Bhajan Lal',
         year: 1992,
         bench: '2-Judge Bench',
@@ -468,6 +475,13 @@ export const PART_6_STATES_EXPANDED: ArticleItem[] = [
     ],
     exceptions: ['Full-time government servants who are not practicing advocates are not eligible for direct Bar recruitment (Dheeraj Mor).'],
     landmarkCases: [
+      {
+        caseName: 'All India Judges Association v. Union of India (District Judges Appointment Bench)',
+        year: 2025,
+        bench: '5-Judge Constitution Bench',
+        summary: 'Reaffirmed Dheeraj Mor (2020). Held that serving judicial officers in the subordinate judiciary cannot compete in the 25% direct recruitment advocate quota under Article 233(2) without resigning.',
+        significance: 'Mandated 7 years of continuous and active practice at the Bar for direct recruitment as District Judge, protecting the dedicated Bar quota.'
+      },
       {
         caseName: 'Chandra Mohan v. State of U.P.',
         year: 1966,

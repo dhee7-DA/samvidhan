@@ -275,6 +275,13 @@ export const PART_3_ARTICLES_EXPANDED: ArticleItem[] = [
     ],
     landmarkCases: [
       {
+        caseName: 'State of Punjab v. Davinder Singh (SC/ST Sub-Classification Bench)',
+        year: 2024,
+        bench: '7-Judge Constitution Bench (6:1)',
+        summary: 'Overruled E.V. Chinnaiah (2004). Held that States possess constitutional competence under Article 16(4) to sub-classify Scheduled Castes based on empirical data to give preferential benefits to more disadvantaged sub-castes.',
+        significance: 'Allowed sub-classification within SCs/STs and extended the Creamy Layer exclusion principle to SCs and STs for the first time.'
+      },
+      {
         caseName: 'Indra Sawhney v. Union of India (Mandal Case)',
         year: 1992,
         bench: '9-Judge Bench',
@@ -313,6 +320,13 @@ export const PART_3_ARTICLES_EXPANDED: ArticleItem[] = [
     ],
     exceptions: ['None. Absolute and non-derogable right.'],
     landmarkCases: [
+      {
+        caseName: 'Sukanya Shantha v. Union of India (Prison Manuals Caste Case)',
+        year: 2024,
+        bench: '3-Judge Bench (CJI Chandrachud)',
+        summary: 'Struck down caste-based division of labor in State Prison Manuals (assigning lower castes to clean latrines/sweep and upper castes to cook).',
+        significance: 'Held that institutional caste discrimination in state prisons violates Article 17 (Untouchability), Article 15, Article 21, and Article 23 (Forced Labor).'
+      },
       {
         caseName: 'State of Karnataka v. Appa Balu Ingale',
         year: 1993,
@@ -519,6 +533,20 @@ export const PART_3_ARTICLES_EXPANDED: ArticleItem[] = [
     ],
     landmarkCases: [
       {
+        caseName: 'In re: Directions in Demolition of Structures (Bulldozer Justice Guidelines)',
+        year: 2024,
+        bench: '2-Judge Bench (Gavai & Viswanathan JJ)',
+        summary: 'Held that the executive cannot punitively demolish properties of persons accused or convicted of crimes. Demolishing houses without due process violates the Right to Shelter under Article 21 and the separation of powers.',
+        significance: 'Laid down mandatory pan-India guidelines requiring 15-day show-cause notice, personal hearing, and personal restitution liability for erring officers.'
+      },
+      {
+        caseName: 'Frank Vitus v. Narcotics Control Bureau',
+        year: 2024,
+        bench: '2-Judge Bench (Oka & Bhuyan JJ)',
+        summary: 'Held that a bail condition requiring an accused to drop a Google Maps PIN or share continuous live location with the police violates the Right to Privacy under Article 21.',
+        significance: 'Bail conditions under CrPC/BNSS cannot subject an accused to round-the-clock digital surveillance or reduce liberty to virtual detention.'
+      },
+      {
         caseName: 'Maneka Gandhi v. Union of India',
         year: 1978,
         bench: '7-Judge Bench',
@@ -669,6 +697,13 @@ export const PART_3_ARTICLES_EXPANDED: ArticleItem[] = [
     ],
     exceptions: ['Compulsory public service imposed by the State for public purposes under 23(2).'],
     landmarkCases: [
+      {
+        caseName: 'Sukanya Shantha v. Union of India (Prison Forced Labor Case)',
+        year: 2024,
+        bench: '3-Judge Bench',
+        summary: 'Held that compelling lower-caste prisoners to perform hazardous and menial labor like cleaning latrines under prison rules amounts to prohibited forced labor under Article 23.',
+        significance: 'Extended Article 23 protection against State-enforced caste-based manual labor inside correctional facilities.'
+      },
       {
         caseName: 'People’s Union for Democratic Rights (PUDR) v. Union of India (Asiad Workers)',
         year: 1982,
@@ -920,6 +955,13 @@ export const PART_3_ARTICLES_EXPANDED: ArticleItem[] = [
       'Exempt from Article 15(5) reservation quotas and 25% RTE quota (Pramati Educational Trust).'
     ],
     landmarkCases: [
+      {
+        caseName: 'Aligarh Muslim University v. Naresh Agarwal (AMU Minority Status Bench)',
+        year: 2024,
+        bench: '7-Judge Constitution Bench (4:3)',
+        summary: 'Overruled S. Azeez Basha (1967). Held that an educational institution does not lose its minority status under Article 30(1) merely because it was incorporated or recognized by an Act of Parliament.',
+        significance: 'Established the "Genesis Test" to determine whether the minority community established, funded, and nurtured the institution.'
+      },
       {
         caseName: 'T.M.A. Pai Foundation v. State of Karnataka',
         year: 2002,
