@@ -49,6 +49,13 @@ export const OverviewDashboard: React.FC = () => {
             <span>15-DAY PO BOOTCAMP (300 MCQs)</span>
           </button>
           <button
+            onClick={() => setActiveTab('pyqs')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
+          >
+            <FileText className="w-4 h-4 text-emerald-400" />
+            <span>J&K MAINS PYQs (10 YEARS)</span>
+          </button>
+          <button
             onClick={() => setActiveTab('visual-lab')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] font-mono text-xs font-bold hover:opacity-90 transition-opacity shadow-sm"
           >

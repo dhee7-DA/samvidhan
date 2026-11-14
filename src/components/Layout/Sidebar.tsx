@@ -12,7 +12,8 @@ import {
   Layers,
   ChevronDown,
   Sparkles,
-  Flame
+  Flame,
+  FileQuestion
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -27,6 +28,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Architecture & Preamble' },
   { id: 'bootcamp', label: '15-Day Bootcamp', icon: <Flame className="w-4 h-4" />, badge: '300 MCQs + Heatmap', sub: 'Daily Study & Drill' },
+  { id: 'pyqs', label: 'J&K Mains PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10 Years', sub: 'Paper-II Solved Bank' },
   { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII', sub: 'Analytical Breakdown' },
   { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Master Index', sub: 'Complete Directory' },
   { id: 'dictionary', label: 'Legal Dictionary', icon: <BookOpen className="w-4 h-4" />, badge: 'Hover Engine', sub: 'Maxims & Terms' },
@@ -86,7 +88,7 @@ export const Sidebar: React.FC = () => {
             </span>
           </div>
           <div className="flex items-center gap-2 text-[var(--text-muted)] shrink-0 ml-2">
-            <span className="text-[10px] hidden xs:inline">12 Modules</span>
+            <span className="text-[10px] hidden xs:inline">13 Modules</span>
             <div className={`p-1 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] transition-transform duration-200 ${
               isMenuOpen ? 'rotate-180 text-[var(--accent)] border-[var(--accent)]' : ''
             }`}>
