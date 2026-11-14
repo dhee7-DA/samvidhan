@@ -21,18 +21,47 @@ import {
   AlertCircle,
   Clock,
   Compass,
-  Bookmark
+  Bookmark,
+  BookmarkCheck,
+  ExternalLink,
+  Shield,
+  GitCommit,
+  GitBranch,
+  List,
+  LayoutGrid
 } from 'lucide-react';
 import {
   FIFTEEN_DAY_BOOTCAMP_DATA,
   TOTAL_BOOTCAMP_MCQS,
   TOTAL_BOOTCAMP_CASE_STUDIES,
+  BOOTCAMP_DAY_MODULE_LINKS,
+  lookupBootcampArticle,
   type BootcampDay,
-  type BootcampMCQ
+  type BootcampMCQ,
+  type DayModuleLinks,
+  type ResolvedArticleDetails
 } from '../../data/bootcamp';
-import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
+
+// Import all 17 Handcrafted Vector Diagrams
+import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureSVG';
+import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
+import { CriminalConstitutionalPipelineSVG } from '../VectorDiagrams/CriminalConstitutionalPipelineSVG';
+import { Article21EvolutionSVG } from '../VectorDiagrams/Article21EvolutionSVG';
+import { BasicStructureEvolutionSVG } from '../VectorDiagrams/BasicStructureEvolutionSVG';
+import { ExecutiveClemencyArchitectureSVG } from '../VectorDiagrams/ExecutiveClemencyArchitectureSVG';
+import { SeparationOfPowersSVG } from '../VectorDiagrams/SeparationOfPowersSVG';
+import { LegislativePassageSVG } from '../VectorDiagrams/LegislativePassageSVG';
+import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
+import { AsymmetricFederalismSVG } from '../VectorDiagrams/AsymmetricFederalismSVG';
+import { FederalRelationsSVG } from '../VectorDiagrams/FederalRelationsSVG';
+import { GSTCouncilFiscalSVG } from '../VectorDiagrams/GSTCouncilFiscalSVG';
+import { CivilServicesSafeguardsSVG } from '../VectorDiagrams/CivilServicesSafeguardsSVG';
+import { EmergencyMatrixSVG } from '../VectorDiagrams/EmergencyMatrixSVG';
+import { AmendmentPipelineSVG } from '../VectorDiagrams/AmendmentPipelineSVG';
+import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
+import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
 
 interface DayProgress {
   tasks: {
@@ -51,13 +80,22 @@ type BootcampProgressMap = Record<number, DayProgress>;
 const STORAGE_KEY = 'samvidhan_15day_bootcamp_progress';
 
 export const StudyBootcampView: React.FC = () => {
-  const { setActiveTab } = useTheme();
+  const { setActiveTab, setSelectedPartId, setSelectedSvgId, bookmarkedArticles, toggleBookmark } = useTheme();
 
   // Selected Day (1 to 15)
   const [selectedDayNumber, setSelectedDayNumber] = useState<number>(1);
 
-  // Active Sub-Tab: 'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy'
+  // View Layout Mode: 'tabs' (Modular) vs 'all-in-one' (Continuous Comprehensive Dossier)
+  const [viewLayout, setViewLayout] = useState<'tabs' | 'all-in-one'>('tabs');
+
+  // Active Sub-Tab in 'tabs' mode: 'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy'
   const [activeSubTab, setActiveSubTab] = useState<'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy'>('curriculum');
+
+  // Interactive Target Article Reader State
+  const [selectedArticleStr, setSelectedArticleStr] = useState<string>('Art. 1');
+
+  // Toggle for SVG diagram mode in Tab 2 (Day Primary vs Precedent Lineage Tree)
+  const [svgDisplayMode, setSvgDisplayMode] = useState<'day-primary' | 'lineage-tree'>('day-primary');
 
   // Persistence: Load from localStorage
   const [progress, setProgress] = useState<BootcampProgressMap>(() => {
@@ -67,7 +105,6 @@ export const StudyBootcampView: React.FC = () => {
     } catch (e) {
       console.error('Failed to load bootcamp progress:', e);
     }
-    // Default initial progress
     const initial: BootcampProgressMap = {};
     for (let i = 1; i <= 15; i++) {
       initial[i] = {
@@ -100,6 +137,23 @@ export const StudyBootcampView: React.FC = () => {
       FIFTEEN_DAY_BOOTCAMP_DATA[0]
     );
   }, [selectedDayNumber]);
+
+  // Current Day Links & Metadata
+  const currentDayLinks: DayModuleLinks = useMemo(() => {
+    return BOOTCAMP_DAY_MODULE_LINKS[selectedDayNumber] || BOOTCAMP_DAY_MODULE_LINKS[1];
+  }, [selectedDayNumber]);
+
+  // Auto-select first target article on day change
+  useEffect(() => {
+    if (currentDay.targetArticles && currentDay.targetArticles.length > 0) {
+      setSelectedArticleStr(currentDay.targetArticles[0]);
+    }
+  }, [selectedDayNumber, currentDay]);
+
+  // Selected Article Full Details Lookup
+  const activeArticleDetails: ResolvedArticleDetails = useMemo(() => {
+    return lookupBootcampArticle(selectedArticleStr);
+  }, [selectedArticleStr]);
 
   // Current Day Progress
   const currentDayProgress: DayProgress = progress[selectedDayNumber] || {
@@ -139,7 +193,6 @@ export const StudyBootcampView: React.FC = () => {
         [mcqId]: optionIndex
       };
 
-      // Check if all 20 are answered, automatically check off mcqs task
       const allAnswered = currentDay.mcqs.every((m) => updatedAnswers[m.id] !== undefined);
 
       return {
@@ -251,6 +304,48 @@ export const StudyBootcampView: React.FC = () => {
     return { score: Math.max(0, score), answered };
   }, [currentDay, currentDayProgress]);
 
+  // Helper to dynamically render primary vector diagram
+  const renderPrimarySvgDiagram = (svgId: string) => {
+    switch (svgId) {
+      case 'preamble-arch':
+        return <PreambleArchitectureSVG />;
+      case 'writs-matrix':
+        return <WritsMatrixSVG />;
+      case 'criminal-pipeline':
+        return <CriminalConstitutionalPipelineSVG />;
+      case 'article-21-evolution':
+        return <Article21EvolutionSVG />;
+      case 'basic-structure-evolution':
+        return <BasicStructureEvolutionSVG />;
+      case 'clemency-architecture':
+        return <ExecutiveClemencyArchitectureSVG />;
+      case 'separation-powers':
+        return <SeparationOfPowersSVG />;
+      case 'legislative-passage':
+        return <LegislativePassageSVG />;
+      case 'precedent-lineage':
+        return <PrecedentLineageSVG />;
+      case 'asymmetric-federalism':
+        return <AsymmetricFederalismSVG />;
+      case 'federal-relations':
+        return <FederalRelationsSVG />;
+      case 'gst-fiscal-federalism':
+        return <GSTCouncilFiscalSVG />;
+      case 'civil-services-safeguards':
+        return <CivilServicesSafeguardsSVG />;
+      case 'emergency-matrix':
+        return <EmergencyMatrixSVG />;
+      case 'amendment-pipeline':
+        return <AmendmentPipelineSVG />;
+      case 'electoral-architecture':
+        return <ElectoralArchitectureSVG />;
+      case 'schedules-genealogy':
+        return <SchedulesGenealogySVG />;
+      default:
+        return <PrecedentLineageSVG />;
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-fadeIn">
       {/* =========================================================================
@@ -269,15 +364,15 @@ export const StudyBootcampView: React.FC = () => {
               Constitutional Law Sprint Bootcamp
             </h1>
             <p className="text-sm md:text-base text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-              Master the entire Constitution in 15 days with 6 hours of daily focused study: 
+              Master the entire Constitution in 15 days: 
               <strong className="text-[var(--text-primary)]"> 300 MCQs</strong>, 
               <strong className="text-[var(--text-primary)]"> 15 Courtroom Case Studies</strong>, 
-              <strong className="text-[var(--text-primary)]"> 116 Landmark Ratios</strong>, and 
-              <strong className="text-[var(--text-primary)]"> 215 Legal Terms</strong>.
+              <strong className="text-[var(--text-primary)]"> 17 Vector Blueprints</strong>, and 
+              <strong className="text-[var(--text-primary)]"> Direct 1-Click Module Deep-Links</strong>.
             </p>
           </div>
 
-          {/* Quick Action Badges */}
+          {/* Quick Action Buttons */}
           <div className="flex flex-wrap items-center gap-3">
             <button
               onClick={handleResetProgress}
@@ -288,11 +383,18 @@ export const StudyBootcampView: React.FC = () => {
               Reset Tracker
             </button>
             <button
-              onClick={() => setActiveTab('landmark-cases')}
+              onClick={() => setActiveTab('judgments')}
               className="px-4 py-2 text-xs font-semibold rounded-lg bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/30 hover:bg-[var(--accent-primary)]/20 transition-all flex items-center gap-1.5 shadow-sm"
             >
               <Award className="w-3.5 h-3.5" />
-              Landmark Cases Hub
+              100 Landmark Cases
+            </button>
+            <button
+              onClick={() => setActiveTab('visual-lab')}
+              className="px-4 py-2 text-xs font-semibold rounded-lg bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] transition-all flex items-center gap-1.5 shadow-sm"
+            >
+              <Eye className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+              Visual Law Lab
             </button>
           </div>
         </div>
@@ -319,7 +421,7 @@ export const StudyBootcampView: React.FC = () => {
               <span className="text-2xl font-bold text-[var(--text-primary)]">{stats.completedDaysCount}</span>
               <span className="text-xs text-[var(--text-muted)]">/ 15 Days</span>
             </div>
-            <p className="text-[11px] text-[var(--text-muted)]">Complete all 5 tasks per day</p>
+            <p className="text-[11px] text-[var(--text-muted)]">Complete all 5 daily tasks</p>
           </div>
 
           <div className="space-y-1">
@@ -371,7 +473,6 @@ export const StudyBootcampView: React.FC = () => {
             const tasksDone = p ? Object.values(p.tasks).filter(Boolean).length : 0;
             const isSelected = day.dayNumber === selectedDayNumber;
 
-            // Heatmap color logic
             let bgClass = 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
             if (tasksDone === 5) {
               bgClass = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-sm shadow-emerald-500/20 font-bold';
@@ -417,7 +518,7 @@ export const StudyBootcampView: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          SELECTED DAY BANNER & SUB-TABS
+          SELECTED DAY BANNER & VIEW SWITCHER
       ========================================================================= */}
       <div className="space-y-6">
         <div className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -441,27 +542,193 @@ export const StudyBootcampView: React.FC = () => {
             </p>
           </div>
 
-          {/* Day Navigation Controls */}
-          <div className="flex items-center gap-2 self-start md:self-auto">
-            <button
-              onClick={() => setSelectedDayNumber((prev) => Math.max(1, prev - 1))}
-              disabled={selectedDayNumber === 1}
-              className="p-2 rounded-lg border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] disabled:opacity-30 disabled:pointer-events-none transition-colors"
-              title="Previous Day"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <span className="text-xs font-bold px-2 py-1 bg-[var(--bg-base)] rounded border border-[var(--border-subtle)]">
-              {selectedDayNumber} / 15
+          {/* View Mode Switcher & Day Navigation Controls */}
+          <div className="flex flex-wrap items-center gap-3">
+            {/* View Mode Toggle */}
+            <div className="flex items-center p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <button
+                onClick={() => setViewLayout('tabs')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
+                  viewLayout === 'tabs'
+                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                <span>Tabbed Drill</span>
+              </button>
+              <button
+                onClick={() => setViewLayout('all-in-one')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
+                  viewLayout === 'all-in-one'
+                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <List className="w-3.5 h-3.5" />
+                <span>All-in-One Dossier</span>
+              </button>
+            </div>
+
+            {/* Prev / Next Day Controls */}
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setSelectedDayNumber((prev) => Math.max(1, prev - 1))}
+                disabled={selectedDayNumber === 1}
+                className="p-2 rounded-lg border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                title="Previous Day"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <span className="text-xs font-bold px-2.5 py-1.5 bg-[var(--bg-base)] rounded-lg border border-[var(--border-subtle)]">
+                {selectedDayNumber} / 15
+              </span>
+              <button
+                onClick={() => setSelectedDayNumber((prev) => Math.min(15, prev + 1))}
+                disabled={selectedDayNumber === 15}
+                className="p-2 rounded-lg border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                title="Next Day"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            DIRECT PLATFORM MODULE ACCESS STRIP FOR THIS DAY
+        ========================================================================= */}
+        <div className="p-5 rounded-2xl bg-gradient-to-br from-[var(--bg-card)] via-[var(--bg-card)] to-[var(--bg-base)] border-2 border-[var(--accent-primary)]/20 shadow-md space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-3">
+            <div className="flex items-center gap-2">
+              <Compass className="w-4 h-4 text-[var(--accent-primary)]" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
+                Direct Platform Section Links for Day {currentDay.dayNumber}
+              </h3>
+            </div>
+            <span className="text-[11px] text-[var(--text-muted)]">
+              Jump directly into the Constitution parts, master directory, vector blueprints, and doctrines
             </span>
-            <button
-              onClick={() => setSelectedDayNumber((prev) => Math.min(15, prev + 1))}
-              disabled={selectedDayNumber === 15}
-              className="p-2 rounded-lg border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] disabled:opacity-30 disabled:pointer-events-none transition-colors"
-              title="Next Day"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {/* 1. Corresponding Parts in 25 Parts Hub */}
+            <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--accent-primary)]">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>25 Parts Hub:</span>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {currentDayLinks.parts.map((p) => (
+                  <button
+                    key={p.id}
+                    onClick={() => {
+                      setSelectedPartId(p.id);
+                      setActiveTab('parts');
+                    }}
+                    className="p-2 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-[var(--accent-primary)]/10 border border-[var(--border-subtle)] hover:border-[var(--accent-primary)]/40 transition-all flex items-center justify-between group"
+                  >
+                    <div className="truncate">
+                      <span className="font-bold text-[var(--text-primary)] block truncate">{p.partNumber}</span>
+                      <span className="text-[10px] text-[var(--text-muted)] truncate block">{p.title} ({p.articlesRange})</span>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--accent-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Primary Vector Blueprint in Visual Lab */}
+            <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-cyan-400">
+                <Eye className="w-3.5 h-3.5" />
+                <span>Vector Blueprint:</span>
+              </div>
+              <button
+                onClick={() => {
+                  setSelectedSvgId(currentDayLinks.primarySvg.id);
+                  setActiveTab('visual-lab');
+                }}
+                className="w-full p-2.5 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-cyan-500/10 border border-[var(--border-subtle)] hover:border-cyan-400/50 transition-all flex items-start justify-between group"
+              >
+                <div>
+                  <span className="font-bold text-[var(--text-primary)] block">{currentDayLinks.primarySvg.title}</span>
+                  <span className="text-[10px] text-[var(--text-muted)] block mt-0.5">{currentDayLinks.primarySvg.category}</span>
+                  <span className="text-[10px] text-cyan-400/80 block font-mono mt-1">{currentDayLinks.primarySvg.articles}</span>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-cyan-400 shrink-0 ml-1.5 mt-0.5" />
+              </button>
+              <button
+                onClick={() => setActiveTab('articles-master')}
+                className="w-full text-[11px] font-semibold text-[var(--text-muted)] hover:text-[var(--accent-primary)] flex items-center justify-center gap-1 pt-1"
+              >
+                <Layers className="w-3 h-3" />
+                <span>Open Articles 1–395 Master Index &rarr;</span>
+              </button>
+            </div>
+
+            {/* 3. Doctrines Hub & Key Rulings */}
+            <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400">
+                <Scale className="w-3.5 h-3.5" />
+                <span>Doctrines & Precedents:</span>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {currentDayLinks.doctrines.map((doc) => (
+                  <button
+                    key={doc.id}
+                    onClick={() => setActiveTab('doctrines')}
+                    className="p-2 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-amber-500/10 border border-[var(--border-subtle)] hover:border-amber-400/40 transition-all flex items-center justify-between group"
+                  >
+                    <div className="truncate">
+                      <span className="font-bold text-[var(--text-primary)] block truncate">{doc.name}</span>
+                      <span className="text-[10px] text-[var(--text-muted)] truncate block italic">{doc.leadCase}</span>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-amber-400 shrink-0 ml-1.5" />
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={() => setActiveTab('judgments')}
+                className="w-full text-[11px] font-semibold text-[var(--text-muted)] hover:text-amber-400 flex items-center justify-center gap-1 pt-0.5"
+              >
+                <Award className="w-3 h-3" />
+                <span>Open 100 Landmark Cases Hub &rarr;</span>
+              </button>
+            </div>
+
+            {/* 4. Constitutional Amendments & Schedules */}
+            <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-400">
+                <GitCommit className="w-3.5 h-3.5" />
+                <span>Amendments & Schedules:</span>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {currentDayLinks.amendments.slice(0, 2).map((amd) => (
+                  <button
+                    key={amd.number}
+                    onClick={() => setActiveTab('amendments')}
+                    className="p-1.5 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-emerald-500/10 border border-[var(--border-subtle)] hover:border-emerald-400/40 transition-all flex items-center justify-between group"
+                  >
+                    <span className="text-[11px] font-semibold text-[var(--text-primary)] truncate">
+                      {amd.number}th Amd ({amd.year})
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-emerald-400 shrink-0 ml-1" />
+                  </button>
+                ))}
+                {currentDayLinks.schedules && currentDayLinks.schedules.length > 0 && (
+                  <button
+                    onClick={() => setActiveTab('schedules')}
+                    className="p-1.5 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-emerald-500/10 border border-[var(--border-subtle)] hover:border-emerald-400/40 transition-all flex items-center justify-between group"
+                  >
+                    <span className="text-[11px] font-semibold text-emerald-400 truncate">
+                      Schedule {currentDayLinks.schedules[0].roman}: {currentDayLinks.schedules[0].title.slice(0, 24)}...
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-emerald-400 shrink-0 ml-1" />
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -565,99 +832,247 @@ export const StudyBootcampView: React.FC = () => {
           </button>
         </div>
 
-        {/* Sub-Tab Navigation Bar */}
-        <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] overflow-x-auto pb-2">
-          <button
-            onClick={() => setActiveSubTab('curriculum')}
-            className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-              activeSubTab === 'curriculum'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-            }`}
-          >
-            <BookOpen className="w-4 h-4" />
-            1. Study Curriculum & Concepts
-          </button>
+        {/* Sub-Tab Navigation Bar (Active in 'tabs' mode) */}
+        {viewLayout === 'tabs' && (
+          <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] overflow-x-auto pb-2">
+            <button
+              onClick={() => setActiveSubTab('curriculum')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'curriculum'
+                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" />
+              1. Study Curriculum & Articles
+            </button>
 
-          <button
-            onClick={() => setActiveSubTab('svg')}
-            className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-              activeSubTab === 'svg'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-            }`}
-          >
-            <Eye className="w-4 h-4" />
-            2. Visual Precedent Lineage
-          </button>
+            <button
+              onClick={() => setActiveSubTab('svg')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'svg'
+                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <Eye className="w-4 h-4" />
+              2. Vector Blueprint ({currentDayLinks.primarySvg.title.split(' ')[0]})
+            </button>
 
-          <button
-            onClick={() => setActiveSubTab('cases')}
-            className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-              activeSubTab === 'cases'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-            }`}
-          >
-            <Award className="w-4 h-4" />
-            3. Classic vs 2024 Modern Pairs
-          </button>
+            <button
+              onClick={() => setActiveSubTab('cases')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'cases'
+                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <Award className="w-4 h-4" />
+              3. Classic vs 2024 Pairs
+            </button>
 
-          <button
-            onClick={() => setActiveSubTab('mcqs')}
-            className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-              activeSubTab === 'mcqs'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-            }`}
-          >
-            <HelpCircle className="w-4 h-4" />
-            4. 20 Daily MCQs Drill
-            <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-[var(--bg-base)] text-[var(--accent-primary)]">
-              {currentDayMCQScore.answered}/20
-            </span>
-          </button>
+            <button
+              onClick={() => setActiveSubTab('mcqs')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'mcqs'
+                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <HelpCircle className="w-4 h-4" />
+              4. 20 Daily MCQs Drill
+              <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-[var(--bg-base)] text-[var(--accent-primary)]">
+                {currentDayMCQScore.answered}/20
+              </span>
+            </button>
 
-          <button
-            onClick={() => setActiveSubTab('casestudy')}
-            className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-              activeSubTab === 'casestudy'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-            }`}
-          >
-            <Scale className="w-4 h-4" />
-            5. Courtroom Case Problem (Mains)
-          </button>
-        </div>
+            <button
+              onClick={() => setActiveSubTab('casestudy')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'casestudy'
+                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <Scale className="w-4 h-4" />
+              5. Courtroom Case Problem (Mains)
+            </button>
+          </div>
+        )}
       </div>
 
       {/* =========================================================================
-          TAB 1: STUDY CURRICULUM & CORE CONCEPTS
+          SECTION: TARGET ARTICLES INTERACTIVE BROWSER & DEEP-DIVE DOSSIER
       ========================================================================= */}
-      {activeSubTab === 'curriculum' && (
+      {(viewLayout === 'all-in-one' || activeSubTab === 'curriculum') && (
         <div className="space-y-6 animate-fadeIn">
-          {/* Target Articles Badges */}
-          <div className="p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
-              Scheduled Articles for Day {currentDay.dayNumber}
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {currentDay.targetArticles.map((art) => (
-                <span
-                  key={art}
-                  className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] transition-colors"
-                >
-                  {art}
+          {/* Target Articles Selector Strip */}
+          <div className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-3">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] block">
+                  Interactive Target Articles Dossier — Day {currentDay.dayNumber}
                 </span>
-              ))}
+                <p className="text-xs text-[var(--text-muted)] mt-0.5">
+                  Click any article below to inspect verbatim statutory text, clauses, exceptions, and prosecution notes:
+                </p>
+              </div>
+              <button
+                onClick={() => setActiveTab('articles-master')}
+                className="text-xs font-bold text-[var(--accent-primary)] hover:underline flex items-center gap-1 self-start sm:self-auto"
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>Articles 1–395 Master Directory &rarr;</span>
+              </button>
             </div>
-            <p className="text-xs text-[var(--text-muted)] pt-1">
-              {currentDay.overview}
-            </p>
+
+            {/* Clickable Article Badges */}
+            <div className="flex flex-wrap gap-2">
+              {currentDay.targetArticles.map((art) => {
+                const isSelected = selectedArticleStr === art;
+                return (
+                  <button
+                    key={art}
+                    onClick={() => setSelectedArticleStr(art)}
+                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                      isSelected
+                        ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md scale-105'
+                        : 'bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)]'
+                    }`}
+                  >
+                    <span>{art}</span>
+                    {isSelected && <Check className="w-3.5 h-3.5" />}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Selected Article Full Dossier Card */}
+            {activeArticleDetails && (
+              <div className="p-6 rounded-2xl bg-[var(--bg-base)] border-2 border-[var(--accent-primary)]/30 space-y-5 animate-fadeIn shadow-lg">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded text-xs font-black uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)]">
+                        {activeArticleDetails.displayNumber}
+                      </span>
+                      <span className="text-xs font-semibold text-[var(--text-muted)]">
+                        {activeArticleDetails.partName}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-extrabold text-[var(--text-primary)]">
+                      {activeArticleDetails.title}
+                    </h3>
+                  </div>
+
+                  {/* Actions for this Article */}
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => toggleBookmark(activeArticleDetails.number)}
+                      className={`p-2 rounded-xl border transition-colors flex items-center gap-1.5 text-xs font-semibold ${
+                        bookmarkedArticles.includes(activeArticleDetails.number) || bookmarkedArticles.includes(`Art ${activeArticleDetails.number}`)
+                          ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                          : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                      }`}
+                      title="Bookmark Article"
+                    >
+                      <Bookmark className="w-3.5 h-3.5" />
+                      <span>Bookmark</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setSelectedPartId(activeArticleDetails.partId);
+                        setActiveTab('parts');
+                      }}
+                      className="px-3 py-2 rounded-xl text-xs font-bold bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/30 hover:bg-[var(--accent-primary)]/20 transition-all flex items-center gap-1.5"
+                    >
+                      <span>Open in 25 Parts</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Verbatim Text / Statutory Snippet */}
+                <div className="space-y-2 bg-[var(--bg-card)] p-4 rounded-xl border border-[var(--border-subtle)]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                    Constitutional Text & Statutory Definition:
+                  </span>
+                  <p className="font-editorial text-sm md:text-base italic text-[var(--text-primary)] leading-relaxed">
+                    "{activeArticleDetails.verbatimSnippet}"
+                  </p>
+                </div>
+
+                {/* Plain English & Summary */}
+                {activeArticleDetails.plainEnglish && (
+                  <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <strong className="text-[var(--text-primary)]">Analytical Meaning: </strong>
+                    <AnnotatedLegalText text={activeArticleDetails.plainEnglish} />
+                  </div>
+                )}
+
+                {/* Prosecuting Officer Examination Angle */}
+                {activeArticleDetails.prosecutionNote && (
+                  <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-start gap-2.5">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
+                    <div>
+                      <strong className="text-amber-200">Prosecuting Officer Exam Relevance: </strong>
+                      <AnnotatedLegalText text={activeArticleDetails.prosecutionNote} />
+                    </div>
+                  </div>
+                )}
+
+                {/* Sub-Clauses (if available) */}
+                {activeArticleDetails.clauses && activeArticleDetails.clauses.length > 0 && (
+                  <div className="space-y-2.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
+                      Clause-by-Clause Substantive Breakdown:
+                    </span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                      {activeArticleDetails.clauses.map((c, cIdx) => (
+                        <div
+                          key={cIdx}
+                          className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-1 text-xs"
+                        >
+                          <span className="font-bold text-[var(--accent-primary)] block">{c.clause}</span>
+                          <p className="text-[var(--text-secondary)] leading-relaxed">
+                            <AnnotatedLegalText text={c.explanation} />
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Landmark Judgments on this Article */}
+                {activeArticleDetails.landmarkCases && activeArticleDetails.landmarkCases.length > 0 && (
+                  <div className="space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
+                      Leading Precedents Interpreting This Article:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {activeArticleDetails.landmarkCases.map((lc, lcIdx) => (
+                        <button
+                          key={lcIdx}
+                          onClick={() => setActiveTab('judgments')}
+                          className="p-2 rounded-xl text-left bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)]/40 transition-colors flex items-center gap-2 group"
+                        >
+                          <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                          <div>
+                            <span className="text-xs font-bold text-[var(--text-primary)] block group-hover:text-[var(--accent-primary)]">
+                              {lc.caseName} ({lc.year})
+                            </span>
+                            <span className="text-[10px] text-[var(--text-muted)] block truncate max-w-xs">{lc.significance}</span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
-          {/* Core Concept Breakdown Cards */}
+          {/* Substantive Law & Examination Concepts Cards */}
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-[var(--accent-primary)]" />
@@ -711,7 +1126,7 @@ export const StudyBootcampView: React.FC = () => {
             <div className="flex items-center justify-between">
               <h3 className="text-base font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-[var(--accent-primary)]" />
-                Daily Legal Terms & Latin Maxims (Hover for Meanings)
+                Daily Legal Terms & Latin Maxims (Hover for Definitions)
               </h3>
               <button
                 onClick={() => setActiveTab('dictionary')}
@@ -735,32 +1150,89 @@ export const StudyBootcampView: React.FC = () => {
       )}
 
       {/* =========================================================================
-          TAB 2: VISUAL PRECEDENT LINEAGE
+          SECTION: DEDICATED VECTOR BLUEPRINT FOR DAY X
       ========================================================================= */}
-      {activeSubTab === 'svg' && (
+      {(viewLayout === 'all-in-one' || activeSubTab === 'svg') && (
         <div className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-6 animate-fadeIn">
-          <div className="space-y-1">
-            <h3 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-              <Eye className="w-5 h-5 text-[var(--accent-primary)]" />
-              Interactive Precedent Lineage Architecture
-            </h3>
-            <p className="text-xs text-[var(--text-secondary)]">
-              Explore the chronological branches of the Constitution from original classic benchmarks to modern 2024–2025 Constitution Bench overrulings.
-            </p>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  Vector Blueprint {currentDay.dayNumber} of 15
+                </span>
+                <span className="text-xs text-[var(--text-muted)] font-mono">
+                  {currentDayLinks.primarySvg.articles}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                <Eye className="w-5 h-5 text-cyan-400" />
+                {svgDisplayMode === 'day-primary' ? currentDayLinks.primarySvg.title : 'Supreme Court Precedent Lineage Architecture'}
+              </h3>
+            </div>
+
+            {/* Diagram Controls */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-bold">
+                <button
+                  onClick={() => setSvgDisplayMode('day-primary')}
+                  className={`px-3 py-1.5 rounded-lg transition-all ${
+                    svgDisplayMode === 'day-primary'
+                      ? 'bg-cyan-500 text-black shadow-sm'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  Day Blueprint
+                </button>
+                <button
+                  onClick={() => setSvgDisplayMode('lineage-tree')}
+                  className={`px-3 py-1.5 rounded-lg transition-all ${
+                    svgDisplayMode === 'lineage-tree'
+                      ? 'bg-cyan-500 text-black shadow-sm'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  8-Tree Lineage
+                </button>
+              </div>
+
+              <button
+                onClick={() => {
+                  setSelectedSvgId(currentDayLinks.primarySvg.id);
+                  setActiveTab('visual-lab');
+                }}
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 hover:bg-cyan-500/20 transition-all flex items-center gap-1.5 shrink-0"
+              >
+                <span>Full Lab View</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          <PrecedentLineageSVG />
+          {/* Render Active SVG */}
+          <div className="rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-base)] p-2">
+            {svgDisplayMode === 'day-primary'
+              ? renderPrimarySvgDiagram(currentDayLinks.primarySvg.id)
+              : <PrecedentLineageSVG />}
+          </div>
         </div>
       )}
 
       {/* =========================================================================
-          TAB 3: CLASSIC VS 2024 MODERN CASE PAIRS
+          SECTION: CLASSIC VS 2024 MODERN CASE PAIRS
       ========================================================================= */}
-      {activeSubTab === 'cases' && (
+      {(viewLayout === 'all-in-one' || activeSubTab === 'cases') && (
         <div className="space-y-6 animate-fadeIn">
-          <div className="p-4 rounded-xl bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 text-xs text-[var(--text-secondary)] leading-relaxed">
-            <strong className="text-[var(--text-primary)]">Exam Strategy Note: </strong>
-            In JKPSC PO Mains, always introduce the historical foundational landmark first, followed immediately by the modern 2024/2025 Supreme Court Constitution Bench ruling that clarified or overruled it.
+          <div className="p-4 rounded-xl bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 text-xs text-[var(--text-secondary)] leading-relaxed flex items-center justify-between gap-4">
+            <div>
+              <strong className="text-[var(--text-primary)]">Exam Strategy Note: </strong>
+              In JKPSC PO Mains, always introduce the historical foundational landmark first, followed immediately by the modern 2024/2025 Supreme Court Constitution Bench ruling that clarified or overruled it.
+            </div>
+            <button
+              onClick={() => setActiveTab('judgments')}
+              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--accent-primary)]/20 text-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/30 transition-colors shrink-0"
+            >
+              Open 100 Cases &rarr;
+            </button>
           </div>
 
           {currentDay.landmarkEvolutionPairs.map((pair, pIdx) => (
@@ -830,9 +1302,9 @@ export const StudyBootcampView: React.FC = () => {
       )}
 
       {/* =========================================================================
-          TAB 4: 20 DAILY MCQS DRILL (WITH -0.25 NEGATIVE MARKING)
+          SECTION: 20 DAILY MCQS DRILL (PRELIMS MODE WITH -0.25 NEGATIVE MARKING)
       ========================================================================= */}
-      {activeSubTab === 'mcqs' && (
+      {(viewLayout === 'all-in-one' || activeSubTab === 'mcqs') && (
         <div className="space-y-6 animate-fadeIn">
           {/* MCQ Score Banner */}
           <div className="p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -950,9 +1422,9 @@ export const StudyBootcampView: React.FC = () => {
       )}
 
       {/* =========================================================================
-          TAB 5: COURTROOM CASE PROBLEM (MAINS ANSWER PRACTICE)
+          SECTION: COURTROOM CASE PROBLEM (MAINS ANSWER PRACTICE)
       ========================================================================= */}
-      {activeSubTab === 'casestudy' && (
+      {(viewLayout === 'all-in-one' || activeSubTab === 'casestudy') && (
         <div className="space-y-6 animate-fadeIn">
           <div className="p-6 md:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-6 shadow-md">
             <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">

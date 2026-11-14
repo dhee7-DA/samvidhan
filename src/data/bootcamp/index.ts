@@ -4,6 +4,8 @@ import { BOOTCAMP_DAYS_11_TO_15 } from './days11to15';
 import type { BootcampDay } from './bootcampTypes';
 
 export * from './bootcampTypes';
+export * from './bootcampLinks';
+export * from './articleLookup';
 
 export const FIFTEEN_DAY_BOOTCAMP_DATA: BootcampDay[] = [
   ...BOOTCAMP_DAYS_1_TO_5,
