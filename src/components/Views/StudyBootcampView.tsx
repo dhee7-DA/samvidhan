@@ -995,7 +995,7 @@ export const StudyBootcampView: React.FC = () => {
                 {/* Verbatim Text / Statutory Snippet */}
                 <div className="space-y-2 bg-[var(--bg-card)] p-4 rounded-xl border border-[var(--border-subtle)]">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent-primary)]">
-                    Constitutional Text & Statutory Definition:
+                    Bare Act Statutory Text & Constitutional Language:
                   </span>
                   <p className="font-editorial text-sm md:text-base italic text-[var(--text-primary)] leading-relaxed">
                     "{activeArticleDetails.verbatimSnippet}"
@@ -1007,6 +1007,19 @@ export const StudyBootcampView: React.FC = () => {
                   <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
                     <strong className="text-[var(--text-primary)]">Analytical Meaning: </strong>
                     <AnnotatedLegalText text={activeArticleDetails.plainEnglish} />
+                  </div>
+                )}
+
+                {/* Real-World Practical Scenario & Courtroom Example */}
+                {activeArticleDetails.realWorldScenario && (
+                  <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200 space-y-1.5">
+                    <div className="flex items-center gap-1.5 font-bold text-cyan-300 uppercase tracking-wider text-[11px]">
+                      <Scale className="w-3.5 h-3.5" />
+                      <span>Real-World Courtroom Example & Scenario:</span>
+                    </div>
+                    <p className="leading-relaxed">
+                      <AnnotatedLegalText text={activeArticleDetails.realWorldScenario} />
+                    </p>
                   </div>
                 )}
 

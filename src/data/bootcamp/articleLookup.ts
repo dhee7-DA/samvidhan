@@ -12,6 +12,7 @@ export interface ResolvedArticleDetails {
   summary: string;
   verbatimSnippet: string;
   plainEnglish?: string;
+  realWorldScenario?: string;
   prosecutionNote?: string;
   clauses?: { clause: string; explanation: string; example?: string }[];
   exceptions?: string[];
@@ -38,6 +39,7 @@ export function lookupBootcampArticle(artStr: string): ResolvedArticleDetails {
         summary: found.summary,
         verbatimSnippet: found.textSnippet,
         plainEnglish: found.plainEnglish,
+        realWorldScenario: found.realWorldScenario,
         prosecutionNote: found.prosecutionNote,
         clauses: found.clauses,
         exceptions: found.exceptions,
