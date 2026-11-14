@@ -577,7 +577,248 @@ export const PRECEDENT_LINEAGES: LineageTrack[] = [
         color: '#10b981'
       }
     ]
+  },
+  {
+    id: 'sc-st-affirmative-lineage',
+    title: 'SC/ST Sub-Classification & Creamy Layer Evolution',
+    subtitle: 'From Homogeneity in Chinnaiah to Sub-Classification in Davinder Singh (2024)',
+    articleAnchor: 'Articles 14, 15(4), 16(4), 341',
+    description: 'The monumental constitutional transition from holding Scheduled Castes as an indivisible monolithic unit to empowering States to sub-classify and apply the Creamy Layer test.',
+    nodes: [
+      {
+        id: 'indra-sawhney-1992',
+        year: 1992,
+        caseName: 'Indra Sawhney v. Union of India (Mandal Case)',
+        citation: '1992 Supp (3) SCC 217',
+        bench: '9-Judge Bench (6:3)',
+        actionType: 'ORIGIN',
+        relationLabel: 'Foundational Affirmative Action',
+        coreDoctrine: '50% Cap & Creamy Layer in OBCs',
+        ratioDecidendi: 'Backward classes can be classified into backward and more backward. Introduced the Creamy Layer doctrine, but kept it limited to OBCs.',
+        courtroomApplication: 'The universal benchmark for testing validity of all reservation quotas under Articles 15 and 16.',
+        color: '#64748b'
+      },
+      {
+        id: 'chinnaiah-2004',
+        year: 2004,
+        caseName: 'E.V. Chinnaiah v. State of Andhra Pradesh',
+        citation: '(2005) 1 SCC 394',
+        bench: '5-Judge Bench (Unanimous)',
+        actionType: 'EXPANDED',
+        relationLabel: 'Homogeneity Doctrine (Overruled)',
+        coreDoctrine: 'Scheduled Castes Form a Single Indivisible Monolith',
+        ratioDecidendi: 'Held that SCs notified under Article 341 form a single homogenous group. States have no power under Article 16(4) to sub-classify or create sub-quotas.',
+        courtroomApplication: 'Historically barred all States (Punjab, Haryana, AP, Tamil Nadu) from giving preferential quotas to Mahadalits, Valmikis, or Arunthathiyars.',
+        color: '#ef4444'
+      },
+      {
+        id: 'nagaraj-2006',
+        year: 2006,
+        caseName: 'M. Nagaraj v. Union of India',
+        citation: '(2006) 8 SCC 212',
+        bench: '5-Judge Bench (Unanimous)',
+        actionType: 'REASSERTED',
+        relationLabel: 'Compelling State Reasons',
+        coreDoctrine: 'Quantifiable Data Requirement for SC/ST Promotions',
+        ratioDecidendi: 'Upheld reservation in promotions for SCs/STs, but made it conditional on the State demonstrating backwardness, inadequacy of representation, and administrative efficiency.',
+        courtroomApplication: 'Constantly invoked by service lawyers to challenge or defend SC/ST promotion rosters across government departments.',
+        color: '#f59e0b'
+      },
+      {
+        id: 'davinder-singh-2024',
+        year: 2024,
+        caseName: 'State of Punjab v. Davinder Singh',
+        citation: '2024 INSC 562 / (2024) 8 SCC 1',
+        bench: '7-Judge Bench (6:1 Majority)',
+        actionType: 'OVERRULED',
+        relationLabel: 'Overruled E.V. Chinnaiah (2004)',
+        coreDoctrine: 'Sub-Classification & Creamy Layer in SCs/STs Allowed',
+        ratioDecidendi: 'Expressly overruled Chinnaiah. SCs do not constitute a homogenous class. States can create sub-quotas based on empirical data to benefit the most deprived, and Creamy Layer must apply to SCs/STs.',
+        courtroomApplication: 'The ruling governing all state reservation policies, empowering targeted quotas for weaker sub-castes within SC/ST categories.',
+        color: '#10b981'
+      }
+    ]
+  },
+  {
+    id: 'shelter-demolitions-lineage',
+    title: 'Right to Shelter & Anti-Demolition Due Process',
+    subtitle: 'From Olga Tellis (1985) to Pan-India Bulldozer Justice Guidelines (2024)',
+    articleAnchor: 'Articles 14, 21, 300A',
+    description: 'The journey of Article 21 protecting human shelter from summary eviction, culminating in the 2024 pan-India guidelines against extra-judicial punitive demolitions.',
+    nodes: [
+      {
+        id: 'olga-tellis-1985',
+        year: 1985,
+        caseName: 'Olga Tellis v. Bombay Municipal Corporation',
+        citation: '(1985) 3 SCC 545',
+        bench: '5-Judge Bench (Unanimous)',
+        actionType: 'ORIGIN',
+        relationLabel: 'Livelihood & Shelter under Article 21',
+        coreDoctrine: 'Right to Livelihood is Inseparable from Life',
+        ratioDecidendi: 'Evicting pavement and slum dwellers without notice and hearing deprives them of livelihood and violates Article 21. Natural justice is mandatory before any demolition.',
+        courtroomApplication: 'The foundational case cited whenever municipal or urban bodies attempt summary eviction without statutory process.',
+        color: '#64748b'
+      },
+      {
+        id: 'chameli-singh-1996',
+        year: 1996,
+        caseName: 'Chameli Singh v. State of U.P.',
+        citation: '(1996) 2 SCC 549',
+        bench: '3-Judge Bench',
+        actionType: 'EXPANDED',
+        relationLabel: 'Right to Shelter as a Basic Human Right',
+        coreDoctrine: 'Shelter is Integral to Meaningful Existence',
+        ratioDecidendi: 'Right to live under Article 21 is not animal existence. It encompasses adequate nutrition, clothing, and shelter to develop as a human being.',
+        courtroomApplication: 'Bedrock authority cited in land acquisition and public housing entitlement petitions.',
+        color: '#38bdf8'
+      },
+      {
+        id: 'bulldozer-guidelines-2024',
+        year: 2024,
+        caseName: 'In re: Demolition of Structures (Bulldozer Justice Guidelines)',
+        citation: '2024 INSC 866 / 2024 SCC OnLine SC 3291',
+        bench: '2-Judge Bench (Gavai & Viswanathan JJ)',
+        actionType: 'EXPANDED',
+        relationLabel: 'Pan-India Anti-Bulldozer Guidelines',
+        coreDoctrine: 'Separation of Powers & Prohibition of Punitive Demolitions',
+        ratioDecidendi: 'Executive cannot act as judge and raze properties of criminal accused. Mandated 15-day show-cause notice, personal hearing, video recording, and personal restitution liability on erring officers.',
+        courtroomApplication: 'The definitive pan-India protocol governing every demolition drive by police or municipal authorities nationwide.',
+        color: '#10b981'
+      }
+    ]
+  },
+  {
+    id: 'minority-institutions-lineage',
+    title: 'Article 30 Minority Educational Institutions',
+    subtitle: 'From Statutory Negation in Azeez Basha to the Genesis Test in AMU (2024)',
+    articleAnchor: 'Articles 29, 30',
+    description: 'How the Supreme Court dismantled the 57-year-old formalistic view of Azeez Basha and adopted the substantive Genesis Test for minority institutions.',
+    nodes: [
+      {
+        id: 'azeez-basha-1967',
+        year: 1967,
+        caseName: 'S. Azeez Basha v. Union of India',
+        citation: '(1968) 1 SCR 833',
+        bench: '5-Judge Bench (Unanimous)',
+        actionType: 'ORIGIN',
+        relationLabel: 'Statutory Incorporation Bar (Overruled)',
+        coreDoctrine: 'Parliamentary Statute Negates Minority Establishment',
+        ratioDecidendi: 'Held that AMU was established by the British imperial legislature through the 1920 Act, not by Muslims; hence Article 30(1) was unavailable to statutory universities.',
+        courtroomApplication: 'The historical barrier cited by Union Governments to deny minority status to AMU and other statutory universities.',
+        color: '#ef4444'
+      },
+      {
+        id: 'tma-pai-2002',
+        year: 2002,
+        caseName: 'T.M.A. Pai Foundation v. State of Karnataka',
+        citation: '(2002) 8 SCC 481',
+        bench: '11-Judge Bench (6:5)',
+        actionType: 'EXPANDED',
+        relationLabel: 'State as Unit of Minority Determination',
+        coreDoctrine: 'Autonomy of Minority Educational Institutions',
+        ratioDecidendi: 'The unit for determining religious or linguistic minority status is the State, not India as a whole. Aided minority institutions retain core administrative autonomy.',
+        courtroomApplication: 'The magna carta governing all minority schools, colleges, and admission quotas in India.',
+        color: '#38bdf8'
+      },
+      {
+        id: 'amu-2024',
+        year: 2024,
+        caseName: 'Aligarh Muslim University v. Naresh Agarwal',
+        citation: '2024 INSC 856 / 2024 SCC OnLine SC 3230',
+        bench: '7-Judge Bench (4:3 Majority)',
+        actionType: 'OVERRULED',
+        relationLabel: 'Overruled S. Azeez Basha (1967)',
+        coreDoctrine: 'The Genesis Test for Article 30(1)',
+        ratioDecidendi: 'Overruled Azeez Basha. Formal statutory incorporation by Parliament does not extinguish minority character. The true test is who conceived, founded, and funded the institution.',
+        courtroomApplication: 'The modern authority protecting historic minority institutions from being stripped of Article 30 status merely due to statutory recognition.',
+        color: '#10b981'
+      }
+    ]
+  },
+  {
+    id: 'court-stay-writs-lineage',
+    title: 'Writ Remedies & Automatic Stay Expiration',
+    subtitle: 'From Automatic 6-Month Stay Vacation to Judicial Application in 2024',
+    articleAnchor: 'Articles 226, 227, 142',
+    description: 'The rise and fall of the controversial Asian Resurfacing doctrine that automatically vacated court stays after six months.',
+    nodes: [
+      {
+        id: 'asian-resurfacing-2018',
+        year: 2018,
+        caseName: 'Asian Resurfacing of Road Agency v. CBI',
+        citation: '(2018) 16 SCC 299',
+        bench: '3-Judge Bench',
+        actionType: 'ORIGIN',
+        relationLabel: 'Automated Stay Expiration (Overruled)',
+        coreDoctrine: 'Automatic Vacation of Stays in 6 Months',
+        ratioDecidendi: 'Directed under Article 142 that in all civil and criminal cases where a High Court stayed trial proceedings, the stay automatically lapsed after 6 months without an extension order.',
+        courtroomApplication: 'Caused widespread procedural chaos in trial courts, forcing judges to resume stayed trials even when parties were not at fault for delay.',
+        color: '#ef4444'
+      },
+      {
+        id: 'hc-bar-allahabad-2024',
+        year: 2024,
+        caseName: 'High Court Bar Association Allahabad v. State of U.P.',
+        citation: '2024 INSC 150 / (2024) 6 SCC 267',
+        bench: '5-Judge Bench (Unanimous)',
+        actionType: 'OVERRULED',
+        relationLabel: 'Overruled Asian Resurfacing (2018)',
+        coreDoctrine: 'High Court Stays Never Automatically Vacate',
+        ratioDecidendi: 'Unanimously overruled Asian Resurfacing. Article 142 cannot be used to set automatic temporal clocks. A stay granted by a High Court remains valid until heard and vacated on judicial merits.',
+        courtroomApplication: 'Crucial for trial courts and defense counsel: a High Court stay cannot be ignored by a Magistrate or Sessions Judge merely because 6 months have passed.',
+        color: '#10b981'
+      }
+    ]
+  },
+  {
+    id: 'remission-clemency-lineage',
+    title: 'Remission of Sentences & Rule of Law Scrutiny',
+    subtitle: 'From Maru Ram (1980) to the Quashing of Clemency in Bilkis Bano (2024)',
+    articleAnchor: 'Articles 14, 21, 72, 161, Sec 432 CrPC',
+    description: 'How constitutional scrutiny over executive clemency evolved from non-interference to stringent judicial review against arbitrariness and jurisdictional fraud.',
+    nodes: [
+      {
+        id: 'maru-ram-1980',
+        year: 1980,
+        caseName: 'Maru Ram v. Union of India',
+        citation: '(1981) 1 SCC 107',
+        bench: '5-Judge Bench (Unanimous)',
+        actionType: 'ORIGIN',
+        relationLabel: 'Section 433A & Clemency Scrutiny',
+        coreDoctrine: 'Executive Clemency is Subject to Judicial Review',
+        ratioDecidendi: 'Upheld mandatory 14-year minimum imprisonment under Sec 433A CrPC. Held that executive clemency is a public trust, not private largesse, and cannot be exercised arbitrarily.',
+        courtroomApplication: 'The landmark precedent governing life convict premature release policies and prison advisory boards.',
+        color: '#64748b'
+      },
+      {
+        id: 'epuru-sudhakar-2006',
+        year: 2006,
+        caseName: 'Epuru Sudhakar v. Govt. of A.P.',
+        citation: '(2006) 8 SCC 161',
+        bench: '2-Judge Bench',
+        actionType: 'EXPANDED',
+        relationLabel: 'Grounds of Judicial Review in Pardon',
+        coreDoctrine: 'Pardon Vitiated by Mala Fides or Political Bias',
+        ratioDecidendi: 'Pardoning power under Articles 72/161 can be struck down if granted without application of mind, based on extraneous political considerations, or in violation of natural justice.',
+        courtroomApplication: 'Cited whenever a Governor or President grants clemency to politically connected convicts.',
+        color: '#38bdf8'
+      },
+      {
+        id: 'bilkis-rasool-2024',
+        year: 2024,
+        caseName: 'Bilkis Yakub Rasool v. Union of India',
+        citation: '2024 INSC 24 / (2024) 5 SCC 481',
+        bench: '2-Judge Bench (Nagarathna & Bhuyan JJ)',
+        actionType: 'EXPANDED',
+        relationLabel: 'Quashed Remission for Fraud on Power',
+        coreDoctrine: 'Appropriate Government is State of Conviction',
+        ratioDecidendi: 'Quashed remission of 11 life convicts. The State of conviction (Maharashtra) alone has jurisdiction under Section 432(7) CrPC. Orders passed through usurpation of power and fraud on court are null and void.',
+        courtroomApplication: 'Cardinal precedent for Prosecuting Officers on jurisdiction, remission protocols, and victim participation in criminal sentencing.',
+        color: '#10b981'
+      }
+    ]
   }
+
 ];
 
 export const PrecedentLineageSVG: React.FC = () => {
