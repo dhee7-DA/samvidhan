@@ -10,7 +10,8 @@ import {
   Award,
   Calendar,
   CheckCircle2,
-  FileText
+  FileText,
+  Flame
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -40,6 +41,13 @@ export const OverviewDashboard: React.FC = () => {
 
         {/* Quick Action Matrix */}
         <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+          <button
+            onClick={() => setActiveTab('bootcamp')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 text-white font-mono text-xs font-bold hover:brightness-110 transition-all shadow-md"
+          >
+            <Flame className="w-4 h-4 text-amber-200" />
+            <span>15-DAY PO BOOTCAMP (300 MCQs)</span>
+          </button>
           <button
             onClick={() => setActiveTab('visual-lab')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] font-mono text-xs font-bold hover:opacity-90 transition-opacity shadow-sm"
@@ -72,6 +80,39 @@ export const OverviewDashboard: React.FC = () => {
             <span>ACTIVE RECALL QUIZ</span>
           </button>
         </div>
+      </section>
+
+      {/* 15-Day Fast-Track Bootcamp Feature Card */}
+      <section className="p-6 rounded-2xl bg-gradient-to-br from-[var(--bg-surface-elevated)] via-[var(--bg-surface)] to-[var(--bg-surface-elevated)] border-2 border-amber-500/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex items-start gap-4">
+          <div className="p-3.5 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-400 shrink-0">
+            <Flame className="w-8 h-8" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono px-2 py-0.5 rounded font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                15-DAY INTENSIVE REVISION
+              </span>
+              <span className="text-xs font-mono text-[var(--text-muted)]">
+                JKPSC Prosecuting Officer & Judicial Services
+              </span>
+            </div>
+            <h3 className="text-xl font-bold text-[var(--text-primary)]">
+              15-Day Constitutional Law Preparation Bootcamp
+            </h3>
+            <p className="text-sm text-[var(--text-secondary)] max-w-2xl">
+              Daily time-table, 300 rigorous MCQs with statutory explanations, 15 courtroom case studies (Mains format), landmark-to-2024 evolution pairs, vector SVGs, and an interactive consistency heatmap with persistent tracking.
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setActiveTab('bootcamp')}
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-mono text-xs font-bold transition-all shadow-lg shrink-0"
+        >
+          <span>LAUNCH 15-DAY TRACKER</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
       </section>
 
       {/* Constitutional Vital Statistics Banner */}

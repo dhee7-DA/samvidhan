@@ -1,0 +1,1359 @@
+import type { BootcampDay } from './bootcampTypes';
+
+export const BOOTCAMP_DAYS_1_TO_5: BootcampDay[] = [
+  // ==========================================
+  // DAY 1: PREAMBLE, TERRITORY & CITIZENSHIP
+  // ==========================================
+  {
+    dayNumber: 1,
+    title: 'Preamble, Territory, Citizenship & Definition of State',
+    subtitle: 'Constitutional Foundations, Judicial Review & Article 12 Instrumentality',
+    phase: 'Phase 1: Foundational Pillars & Core Rights',
+    estimatedHours: 6,
+    targetArticles: ['Preamble', 'Article 1', 'Article 2', 'Article 3', 'Article 4', 'Article 5', 'Article 9', 'Article 11', 'Article 12', 'Article 13'],
+    overview: 'Day 1 establishes the bedrock architecture of the Indian Republic: the nature of the Preamble as part of the Basic Structure, the indestructible Union of destructible States, single citizenship, the expansive definition of "State" under Article 12, and judicial review under Article 13.',
+    coreConcepts: [
+      {
+        heading: 'Preamble as the Guiding Key to Constitutional Interpretation',
+        articleAnchor: 'Preamble',
+        synopsis: 'The Preamble embodies the philosophy and core values of the Constitution. It was held not to be part of the Constitution in Berubari (1960), but Kesavananda Bharati (1973) decisively held that the Preamble is an integral part of the Constitution and can be amended under Article 368 without altering the Basic Structure.',
+        substantiveLaw: [
+          '42nd Amendment Act 1976 added three words: "Socialist", "Secular", and "Integrity".',
+          'S.R. Bommai (1994) affirmed Secularism as an unalterable Basic Feature of the Constitution.',
+          'Preamble is neither a source of legislative power nor a limitation upon power, but acts as a lodestar for resolving statutory ambiguities.'
+        ],
+        prosecutionAngle: 'Prosecuting officers cite the Preamble when establishing the social purpose of penal statutes and arguing against bail in offenses threatening secular communal harmony or national integrity.'
+      },
+      {
+        heading: 'Territory of the Union & Reorganisation of States',
+        articleAnchor: 'Articles 1–4',
+        synopsis: 'India is an "Indestructible Union of Destructible States". Parliament possesses plenary power under Article 3 to form new States, alter boundaries, and change state names by a simple majority, without requiring the State Legislature\'s consent.',
+        substantiveLaw: [
+          'Article 1: "India, that is Bharat, shall be a Union of States."',
+          'Article 2: Admission or establishment of new States (external territories).',
+          'Article 3: Formation of new States and alteration of areas/names (internal reorganisation).',
+          'Article 4: Laws under Articles 2 and 3 do not require constitutional amendment under Article 368.'
+        ],
+        prosecutionAngle: 'Governed the constitutional restructuring of Jammu & Kashmir under the J&K Reorganisation Act, 2019, abolishing special status and reconstituting the territory into Union Territories.'
+      },
+      {
+        heading: 'Instrumentality of the State & Judicial Review',
+        articleAnchor: 'Articles 12 & 13',
+        synopsis: 'Article 12 defines against whom Fundamental Rights can be enforced. Article 13 provides the tooth to Part III by declaring any law inconsistent with Fundamental Rights to be void ab initio.',
+        substantiveLaw: [
+          'Ajay Hasia (1981): 6-factor test for "other authorities" (deep and pervasive State financial, functional, and administrative control).',
+          'Doctrine of Severability: Only the offending portion of a statute is struck down if the valid portion can operate independently (A.K. Gopalan, R.M.D. Chamarbaugwalla).',
+          'Doctrine of Eclipse: Pre-constitutional laws violating Part III are not dead, but remain dormant/eclipsed until a constitutional amendment removes the shadow (Bhikaji Narain).'
+        ],
+        prosecutionAngle: 'Crucial for defending police manuals, state prosecution directives, and detention orders against writ challenges under Article 226/32.'
+      }
+    ],
+    landmarkEvolutionPairs: [
+      {
+        subject: 'Status of the Preamble in Constitutional Hierarchy',
+        classicCase: {
+          name: 'In re Berubari Union and Exchange of Enclaves',
+          year: 1960,
+          bench: '8-Judge Bench (Gajendragadkar J)',
+          ratio: 'Held that the Preamble is NOT a part of the Constitution and confers no substantive power.'
+        },
+        modernCase: {
+          name: 'Kesavananda Bharati v. State of Kerala',
+          year: 1973,
+          bench: '13-Judge Bench (7:6 Majority)',
+          ratio: 'Overruled Berubari. Held that Preamble is an integral part of the Constitution, embodies the Basic Structure, and can be amended under Article 368 without destroying its core ethos.'
+        },
+        examApplicationNote: 'Always cite Kesavananda alongside S.R. Bommai (1994) to demonstrate that the Preamble reflects the unalterable constitutional identity of India.'
+      }
+    ],
+    dictionaryTerms: [
+      'Actus Reus', 'Mens Rea', 'Audi Alteram Partem', 'Ultra Vires', 'Doctrine of Eclipse',
+      'Doctrine of Severability', 'Basic Structure Doctrine', 'Locus Standi', 'Certiorari', 'Habeas Corpus',
+      'Mandamus', 'Quo Warranto', 'Colorable Legislation', 'Judicial Review', 'Sovereignty'
+    ],
+    svgConceptType: 'territory-citizenship',
+    caseStudy: {
+      title: 'Municipal Parking Toll Enforcement & Article 12 Amenability',
+      factualMatrix: 'The City Municipal Corporation outsourced the entire roadside parking collection, vehicle wheel-clamping, and towing enforcement of Srinagar commercial districts to "Apex Private Urban Mobility Ltd.", a private joint-venture company where the Corporation held 51% equity shares and nominated 3 of the 5 board directors. The private company deployed armed bouncers, levied exorbitant on-the-spot penalty fines without statutory notice, and clamped vehicles arbitrarily without issuing compounding receipts under the Motor Vehicles Act. Mr. T, a practicing advocate whose car was clamped outside the High Court, filed a writ under Article 226 challenging the fines as arbitrary and violative of Articles 14 and 21. The private company objected, arguing that as a registered private company under the Companies Act, it was not "the State" under Article 12 and therefore immune from Fundamental Rights writ petitions.',
+      framingQuestions: [
+        '1. Does Apex Private Urban Mobility Ltd. qualify as an "instrumentality or agency of the State" under Article 12 applying the Ajay Hasia and Pradeep Kumar Biswas principles?',
+        '2. Can sovereign police/regulatory powers (such as impounding property, towing, and levying penal fines) be outsourced to private commercial entities without express statutory sanction?',
+        '3. Is the writ petition maintainable under Article 226 even if the entity claims to be non-statutory?'
+      ],
+      statutoryApplicability: ['Article 12', 'Article 14', 'Article 21', 'Article 226', 'Motor Vehicles Act, 1988'],
+      modelAnswer: '1. AMENABILITY UNDER ARTICLE 12: Applying the 6-factor test in Ajay Hasia v. Khalid Mujib (1981) as refined in Pradeep Kumar Biswas v. Indian Institute of Chemical Biology (2002 7-Judge Bench), an entity is an "authority" under Article 12 if it is functionally, financially, and administratively dominated by the Government. Here, the Municipal Corporation holds 51% equity (majority ownership), nominates 3 out of 5 directors (administrative control), and has delegated a statutory municipal/police function (traffic regulation and parking fines). Thus, the company is an instrumentality of the State under Article 12.\n\n2. ILLEGAL DELEGATION OF SOVEREIGN PENAL POWERS: Sovereign powers involving detention of private property (wheel-clamping/towing) and imposition of pecuniary penalties can only be exercised under express authority of law (Article 265 and Article 300A). In Zee Telefilms (2005) and Ramana Dayaram Shetty (1979), the Supreme Court held that public authorities cannot bypass constitutional discipline by outsourcing sovereign regulatory powers to private agents.\n\n3. WRIT JURISDICTION UNDER ARTICLE 226: Unlike Article 32 which is limited to Part III enforcement, Article 226 empowers High Courts to issue writs to "any person or authority... for any other purpose". In Andi Mukta Sadguru (1989), the Court held that wherever an entity discharges a "public duty", mandamus lies regardless of corporate status. Consequently, the High Court will entertain the writ, quash the arbitrary penalties, and direct regulatory compliance.',
+      markingRubric: [
+        { criterion: 'Application of Ajay Hasia & Pradeep Kumar Biswas 6-factor test', marks: 4 },
+        { criterion: 'Analysis of delegation of sovereign penal/coercive powers under Art 300A', marks: 3 },
+        { criterion: 'Scope of Article 226 writ jurisdiction over private bodies performing public duties (Andi Mukta)', marks: 3 }
+      ]
+    },
+    mcqs: [
+      {
+        id: 'd1-q1',
+        question: 'Which of the following constitutional amendments added the words "Socialist", "Secular", and "Integrity" to the Preamble of the Constitution of India?',
+        options: ['44th Constitutional Amendment Act, 1978', '42nd Constitutional Amendment Act, 1976', '52nd Constitutional Amendment Act, 1985', '86th Constitutional Amendment Act, 2002'],
+        correctIndex: 1,
+        explanation: 'The 42nd Constitutional Amendment Act, 1976 amended the Preamble to introduce the words "Socialist", "Secular", and "Integrity". This remains the sole amendment to the Preamble till date.',
+        articleRef: 'Preamble',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q2',
+        question: 'In which landmark case did the Supreme Court hold that the Preamble is an integral part of the Constitution and can be amended under Article 368 without altering the Basic Structure?',
+        options: ['In re Berubari Union (1960)', 'Golak Nath v. State of Punjab (1967)', 'Kesavananda Bharati v. State of Kerala (1973)', 'Minerva Mills v. Union of India (1980)'],
+        correctIndex: 2,
+        explanation: 'In Kesavananda Bharati (1973), the 13-Judge Constitution Bench explicitly overruled the earlier view in Berubari (1960) and held that the Preamble is part of the Constitution and subject to amending power under Article 368, provided the Basic Structure is intact.',
+        articleRef: 'Preamble & Article 368',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q3',
+        question: 'Under Article 3 of the Constitution of India, Parliament can by law form a new State or alter the boundary of any State. What majority is required in Parliament to pass such a Bill?',
+        options: ['Special Majority under Article 368', 'Special Majority with ratification by half of the State Legislatures', 'Simple majority of members present and voting', 'Absolute majority of the total membership of each House'],
+        correctIndex: 2,
+        explanation: 'By virtue of Article 4(2), laws enacted under Article 2 or Article 3 for the reorganisation of States are passed by a simple majority and are expressly deemed NOT to be constitutional amendments under Article 368.',
+        articleRef: 'Article 3 & Article 4(2)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd1-q4',
+        question: 'Before introducing a Bill for altering the name or boundary of a State under Article 3, which of the following mandatory conditions must be fulfilled?',
+        options: ['Consent of the State Legislative Assembly is mandatory', 'Recommendation of the President of India is mandatory', 'Approval of the Inter-State Council', 'Unanimous resolution passed by the State Cabinet'],
+        correctIndex: 1,
+        explanation: 'The Proviso to Article 3 mandates that no Bill for altering boundaries/names shall be introduced in either House of Parliament except on the recommendation of the President. While the President refers the Bill to the State Legislature for views, those views are not binding on Parliament (Babulal Parate v. State of Bombay).',
+        articleRef: 'Article 3 Proviso',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd1-q5',
+        question: 'Under Article 1 of the Constitution, the Territory of India comprises:',
+        options: ['Only the Territories of the States', 'Territories of States and Union Territories only', 'Territories of States, Union Territories, and such other territories as may be acquired', 'States, Union Territories, and Autonomous Hill Councils'],
+        correctIndex: 2,
+        explanation: 'Article 1(3) specifies that the Territory of India comprises: (a) territories of the States; (b) Union territories specified in the First Schedule; and (c) such other territories as may be acquired.',
+        articleRef: 'Article 1(3)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q6',
+        question: 'Which of the following is NOT an "instrumentality or agency of the State" under the 6-factor test laid down in Ajay Hasia v. Khalid Mujib (1981)?',
+        options: ['Entire share capital held by the Government', 'Deep and pervasive State control', 'A purely private unaided coaching institute with no government funding', 'Monopoly status conferred or protected by the State'],
+        correctIndex: 2,
+        explanation: 'In Ajay Hasia (1981) and Pradeep Kumar Biswas (2002), the Supreme Court ruled that a purely private body having no financial aid, no statutory status, and no governmental control does not fall within "the State" under Article 12.',
+        articleRef: 'Article 12',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd1-q7',
+        question: 'The "Doctrine of Eclipse" propounded under Article 13(1) of the Constitution applies to:',
+        options: ['Only post-constitutional laws', 'Only pre-constitutional laws that violate Fundamental Rights', 'Both pre-constitutional and post-constitutional laws equally', 'Constitutional amendments only'],
+        correctIndex: 1,
+        explanation: 'In Bhikaji Narain Dhakras v. State of M.P. (1955), the Supreme Court held that the Doctrine of Eclipse applies primarily to pre-constitutional laws under Article 13(1). Such laws do not become void ab initio; they remain dormant/shadowed by Fundamental Rights and revive once the constitutional inconsistency is removed.',
+        articleRef: 'Article 13(1)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd1-q8',
+        question: 'In Deep Chand v. State of U.P. (1959) and Mahendra Lal Jaini (1963), what did the Supreme Court hold regarding the applicability of the Doctrine of Eclipse to post-constitutional laws?',
+        options: ['Eclipse applies fully to post-constitutional laws', 'A post-constitutional law violating Part III is a stillborn law (dead from birth) and cannot be revived by amendment', 'The law remains temporarily suspended until sanctioned by the Governor', 'Post-constitutional laws cannot be struck down under Article 13'],
+        correctIndex: 1,
+        explanation: 'A post-constitutional law made in violation of Article 13(2) is ultra vires and stillborn from its inception (born dead). It lacks legislative competence and cannot be revived by a subsequent constitutional amendment, unlike pre-constitutional laws.',
+        articleRef: 'Article 13(2)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd1-q9',
+        question: 'The Doctrine of Severability under Article 13 means that:',
+        options: ['The entire statute must be struck down if any section is invalid', 'Only the invalid provision is struck down if the rest of the statute can function independently', 'The judiciary must sever its connection with Parliament', 'Executive orders can be severed from statutory parent Acts'],
+        correctIndex: 1,
+        explanation: 'In R.M.D. Chamarbaugwalla v. Union of India (1957), the Supreme Court ruled that if the valid and invalid provisions of an Act are distinct and severable, the valid portion remains operative while only the unconstitutional portion is quashed.',
+        articleRef: 'Article 13',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q10',
+        question: 'According to Article 9 of the Constitution, what happens to the Indian citizenship of a person who voluntarily acquires the citizenship of a foreign State?',
+        options: ['They retain dual citizenship automatically', 'They lose Indian citizenship automatically', 'They must pay an exit penalty to the Ministry of Home Affairs', 'The President must pass an executive order of revocation'],
+        correctIndex: 1,
+        explanation: 'Article 9 incorporates the principle of Single Citizenship. Any person who voluntarily acquires foreign citizenship immediately ceases to be a citizen of India by operation of law.',
+        articleRef: 'Article 9',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q11',
+        question: 'Which constitutional provision grants Parliament exclusive plenary power to regulate the right of citizenship by law?',
+        options: ['Article 5', 'Article 8', 'Article 10', 'Article 11'],
+        correctIndex: 3,
+        explanation: 'Article 11 empowers Parliament to make any provision with respect to the acquisition and termination of citizenship and all other matters relating thereto, under which the Citizenship Act, 1955 was enacted.',
+        articleRef: 'Article 11',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q12',
+        question: 'In the landmark 7-Judge Bench decision in Pradeep Kumar Biswas v. Indian Institute of Chemical Biology (2002), the Supreme Court overruled which earlier decision concerning Article 12?',
+        options: ['Sukhdev Singh v. Bhagatram (1975)', 'Sabhajit Tewary v. Union of India (1975)', 'Rajasthan Electricity Board v. Mohan Lal (1967)', 'Som Prakash Rekhi v. Union of India (1981)'],
+        correctIndex: 1,
+        explanation: 'In Pradeep Kumar Biswas (2002), the 7-Judge Bench overruled Sabhajit Tewary (1975) (which had held CSIR not to be State) and ruled that CSIR is an instrumentality of State under Article 12 due to deep financial and administrative dominance by the Government.',
+        articleRef: 'Article 12',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd1-q13',
+        question: 'Does the Judiciary fall within the definition of "State" under Article 12 while performing its judicial adjudicatory functions?',
+        options: ['Yes, always in all capacities', 'No, judicial adjudications cannot be challenged by writ under Article 32 as violating Part III', 'Yes, only if it is a Magistrate Court', 'Judiciary is completely exempt from the Constitution'],
+        correctIndex: 1,
+        explanation: 'In Naresh Shridhar Mirajkar v. State of Maharashtra (1966 9-Judge Bench) and Rupa Ashok Hurra (2002), the Supreme Court held that a judicial order passed by a competent court cannot be questioned as violating Fundamental Rights under Article 32. However, administrative actions of the court fall under Article 12.',
+        articleRef: 'Article 12',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd1-q14',
+        question: 'Which word was substituted for "unity of the Nation" by the 42nd Constitutional Amendment Act, 1976 in the Preamble?',
+        options: ['"Sovereignty and integrity of the Nation"', '"Unity and integrity of the Nation"', '"Federal harmony of the Nation"', '"Fraternity and peace of the Nation"'],
+        correctIndex: 1,
+        explanation: 'The 42nd Amendment Act, 1976 substituted the phrase "unity of the Nation" with the words "unity and integrity of the Nation" in the Preamble.',
+        articleRef: 'Preamble',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd1-q15',
+        question: 'Can the territory of India be ceded to a foreign nation by an ordinary executive agreement without enacting a constitutional amendment under Article 368?',
+        options: ['Yes, under the foreign policy prerogative of the Cabinet', 'No, ceding territory requires a constitutional amendment under Article 368', 'Yes, by a simple resolution passed by Lok Sabha', 'No, it requires approval of the United Nations Security Council'],
+        correctIndex: 1,
+        explanation: 'In In re Berubari Union (1960), the Supreme Court held that Article 3 does not cover ceding Indian territory to a foreign power. Cession of territory requires a constitutional amendment under Article 368 (such as the 9th Amendment 1960 or 100th Amendment 2015 for Indo-Bangladesh enclaves).',
+        articleRef: 'Article 3 & Article 368',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd1-q16',
+        question: 'What is the constitutional significance of the phrase "We, the People of India" in the opening lines of the Preamble?',
+        options: ['Indicates that sovereignty originates from the British Crown', 'Indicates that ultimate political and legal sovereignty resides with the people of India', 'Indicates that the Constitution was framed by the United Nations', 'Denotes that India is an absolute monarchy'],
+        correctIndex: 1,
+        explanation: 'The phrase "We, the People of India" affirms the principle of Popular Sovereignty, establishing that the Constitution derives its authority and legitimacy directly from the people of India.',
+        articleRef: 'Preamble',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd1-q17',
+        question: 'In Zee Telefilms Ltd. v. Union of India (2005), the Board of Control for Cricket in India (BCCI) was held to be:',
+        options: ['An instrumentality of State under Article 12', 'NOT an instrumentality of State under Article 12, but still amenable to Article 226 for public functions', 'A constitutional body under Article 324', 'An administrative tribunal under Article 323B'],
+        correctIndex: 1,
+        explanation: 'In Zee Telefilms (2005 5-Judge Bench), the Supreme Court ruled that BCCI is not an instrumentality of State under Article 12 as it lacks State funding and control, but because it performs public functions (selecting national team), it is amenable to High Court writ jurisdiction under Article 226.',
+        articleRef: 'Article 12 & Article 226',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd1-q18',
+        question: 'Under Article 13(3)(a), "law" includes which of the following?',
+        options: ['Only Acts passed by Parliament', 'Only State Legislative Acts', 'Ordinances, orders, bye-laws, rules, regulations, notifications, customs, or usages having the force of law', 'Only administrative guidelines issued by the Prime Minister'],
+        correctIndex: 2,
+        explanation: 'Article 13(3)(a) provides an expansive definition of "law", including any Ordinance, order, bye-law, rule, regulation, notification, custom, or usage having in the territory of India the force of law.',
+        articleRef: 'Article 13(3)(a)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd1-q19',
+        question: 'In S.R. Bommai v. Union of India (1994), Secularism was declared as:',
+        options: ['An ordinary directive principle', 'An unalterable Basic Feature of the Constitution', 'A temporary provision for communal peace', 'A non-justiciable political aspiration'],
+        correctIndex: 1,
+        explanation: 'In S.R. Bommai (1994 9-Judge Bench), the Supreme Court unequivocally held that Secularism is an essential part of the Basic Structure of the Indian Constitution, and any state government acting against secularism can be dismissed under Article 356.',
+        articleRef: 'Preamble & Article 356',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd1-q20',
+        question: 'Under Article 13(4) inserted by the 24th Amendment Act, 1971, nothing in Article 13 shall apply to:',
+        options: ['Any Ordinance issued under Article 123', 'Any Constitutional Amendment made under Article 368', 'Any criminal law enacted under List III', 'Any police regulation framed under State Acts'],
+        correctIndex: 1,
+        explanation: 'Article 13(4) was inserted by the 24th Amendment Act, 1971 to nullify the Golak Nath ruling. It explicitly states that "Nothing in this article shall apply to any amendment of this Constitution made under article 368", later upheld in Kesavananda subject to the Basic Structure test.',
+        articleRef: 'Article 13(4)',
+        difficulty: 'Intermediate'
+      }
+    ]
+  },
+
+  // ==========================================
+  // DAY 2: RIGHT TO EQUALITY & AFFIRMATIVE ACTION
+  // ==========================================
+  {
+    dayNumber: 2,
+    title: 'Right to Equality & Affirmative Action (Articles 14–18)',
+    subtitle: 'Rule of Law, Non-Arbitrariness, Creamy Layer & 2024 SC/ST Sub-Classification',
+    phase: 'Phase 1: Foundational Pillars & Core Rights',
+    estimatedHours: 6,
+    targetArticles: ['Article 14', 'Article 15', 'Article 16', 'Article 17', 'Article 18', 'Article 341'],
+    overview: 'Day 2 tackles the cornerstone of Indian constitutionalism: Equality before the law, dynamic non-arbitrariness, protective discrimination, reservations in public employment, the creamy layer doctrine, and the historic 7-Judge Bench ruling in State of Punjab v. Davinder Singh (2024).',
+    coreConcepts: [
+      {
+        heading: 'Dual Facets of Article 14: Classification vs. Dynamic Non-Arbitrariness',
+        articleAnchor: 'Article 14',
+        synopsis: 'Article 14 guarantees "Equality before the law" (negative English concept) and "Equal protection of the laws" (affirmative American concept). It permits reasonable classification, but unguided, arbitrary state action is antithetical to equality.',
+        substantiveLaw: [
+          'Old Doctrine (Anwar Ali Sarkar 1952): Two-fold test of Reasonable Classification: (1) Intelligible differentia, and (2) Rational nexus to the legislative object.',
+          'New Dynamic Doctrine (E.P. Royappa 1974 & Maneka Gandhi 1978): "Equality is a dynamic concept with many aspects and dimensions and it cannot be \'cribbed, cabined and confined\' within traditional limits. Equality and arbitrariness are sworn enemies."',
+          'Shayara Bano (2017) & Joseph Shine (2018): "Manifest Arbitrariness" recognized as an independent ground to strike down plenary primary legislation under Article 14.'
+        ],
+        prosecutionAngle: 'Prosecuting officers use Article 14 classification principles to defend special criminal trial procedures, fast-track courts for heinous crimes, and statutory reverse-burden clauses (e.g. NDPS, POCSO, PMLA).'
+      },
+      {
+        heading: 'Protective Discrimination & Reservation Architecture',
+        articleAnchor: 'Articles 15 & 16',
+        synopsis: 'Articles 15(4), 15(5), 15(6), 16(4), 16(4A), 16(4B), and 16(6) are not exceptions to equality, but emphatic restatements of substantive equality to uplift historically disadvantaged sections.',
+        substantiveLaw: [
+          'Indra Sawhney (1992 9-Judge Bench): Upheld 27% OBC quota; ruled reservations cannot exceed 50%; mandated exclusion of the "Creamy Layer"; barred reservations in promotions.',
+          '77th & 81st Amendments: Inserted Article 16(4A) (consequential seniority in promotions for SC/ST) and Article 16(4B) (carry-forward rule exempt from 50% cap).',
+          'M. Nagaraj (2006 5-Judge Bench): Upheld 16(4A) subject to the State demonstrating quantifiable data on backwardness, inadequate representation, and administrative efficiency (Article 335).',
+          'Janhit Abhiyan (2022 5-Judge Bench): Upheld the 103rd Amendment granting 10% EWS quota, holding that the 50% ceiling applies to caste reservations, not economic criteria.'
+        ],
+        prosecutionAngle: 'Directly impacts prosecuting officer eligibility rosters, higher judicial services direct recruitment quotas, and departmental promotion committees.'
+      },
+      {
+        heading: 'The 2024 Revolution: Sub-Classification & Creamy Layer in SCs/STs',
+        articleAnchor: 'Article 16(4) & Article 341',
+        synopsis: 'In August 2024, a 7-Judge Constitution Bench in State of Punjab v. Davinder Singh revolutionized Indian affirmative action jurisprudence by overruling E.V. Chinnaiah (2004).',
+        substantiveLaw: [
+          'Overruled Chinnaiah 6:1: Scheduled Castes do NOT constitute a single homogenous monolithic class.',
+          'States have constitutional power under Article 16(4) to sub-classify SCs to provide preferential sub-quotas to more marginalized groups (e.g. Valmikis, Mazhabis, Arunthathiyars).',
+          'Sub-classification does NOT tinker with the Presidential List under Article 341.',
+          'Crucial Ratio: 4 of the majority judges held that the "Creamy Layer" principle must be applied to SCs and STs to prevent elite capture of affirmative action.'
+        ],
+        prosecutionAngle: 'A top-tier citation for Mains answers: distinguishes candidate answers from candidates citing outdated 2004 law.'
+      }
+    ],
+    landmarkEvolutionPairs: [
+      {
+        subject: 'Sub-Classification within Scheduled Castes & The Creamy Layer',
+        classicCase: {
+          name: 'E.V. Chinnaiah v. State of Andhra Pradesh',
+          year: 2004,
+          bench: '5-Judge Bench (Santosh Hegde J)',
+          ratio: 'Held that SCs notified under Article 341 form a single homogenous indivisible class. States have NO power under Article 16(4) to sub-classify or grant preferential quotas.'
+        },
+        modernCase: {
+          name: 'State of Punjab v. Davinder Singh',
+          year: 2024,
+          bench: '7-Judge Constitution Bench (6:1 Majority)',
+          ratio: 'EXPRESSLY OVERRULED Chinnaiah. Held that SCs are heterogeneous; States possess competence under Article 16(4) to create sub-quotas backed by empirical data; affirmed Creamy Layer application to SC/STs.'
+        },
+        examApplicationNote: 'Mandatory exam pair for any question on Article 14, 16, or affirmative action. Citing Chinnaiah without noting Davinder Singh results in loss of marks.'
+      }
+    ],
+    dictionaryTerms: [
+      'Substantive Equality', 'Intelligible Differentia', 'Rational Nexus', 'Manifest Arbitrariness',
+      'Creamy Layer', 'Protective Discrimination', 'Rule of Law', 'Sub-classification', 'Carry-Forward Rule',
+      'Consequential Seniority', 'Eminent Domain', 'Res Judicata', 'Stare Decisis', 'Obiter Dicta', 'Ratio Decidendi'
+    ],
+    svgConceptType: 'equality-tree',
+    caseStudy: {
+      title: 'State Sub-Quotas for Mahadalits & Creamy Layer Challenge',
+      factualMatrix: 'The State of Jammu & Kashmir enacted the "J&K Backward & Deprived Scheduled Castes (Affirmative Action) Act, 2025". Section 3 of the Act divided the existing 8% Scheduled Caste reservation quota into two equal compartments: 4% reserved exclusively for "Category-A (Extremely Deprived SCs - Safai Karamcharis, Manual Sweepers, and Balmiki communities)" and 4% for "Category-B (Remaining SC communities)". The Act was backed by an exhaustive State Empirical Survey demonstrating that 85% of all government employment under the SC quota had been monopolized by two relatively advanced sub-castes, while Valmiki communities held only 0.4% representation. Furthermore, Section 5 of the Act introduced an income exclusion of Rs 12 Lakhs per annum (Creamy Layer) for both SC sub-categories. An association of SC officers challenged the Act before the High Court, contending that: (1) The State legislature lacks competence to sub-divide the Presidential List under Article 341; (2) Chinnaiah (2004) bars micro-classification within SCs; and (3) Creamy layer cannot constitutionally be applied to SCs who suffered millennia of untouchability.',
+      framingQuestions: [
+        '1. Is the State competent to sub-classify Scheduled Castes under Article 16(4) in light of the 7-Judge Bench ruling in State of Punjab v. Davinder Singh (2024)?',
+        '2. Does the creation of preferential sub-quotas alter or amend the Presidential Order under Article 341?',
+        '3. Can the State validly apply the Creamy Layer exclusion principle to Scheduled Castes?'
+      ],
+      statutoryApplicability: ['Article 14', 'Article 15(4)', 'Article 16(4)', 'Article 341', 'State of Punjab v. Davinder Singh (2024)'],
+      modelAnswer: '1. CONSTITUTIONAL COMPETENCE TO SUB-CLASSIFY: The challenge based on E.V. Chinnaiah (2004) is completely untenable. A 7-Judge Constitution Bench of the Supreme Court in State of Punjab v. Davinder Singh (2024) expressly overruled Chinnaiah. The Court held that Scheduled Castes do not form a single indivisible homogenous class. Profound intra-caste inequalities exist. Under Article 16(4), the State is competent to sub-classify SCs to achieve substantive equality, provided such sub-classification is backed by quantifiable empirical data proving inadequate representation of the sub-group. Here, the State conducted an exhaustive survey demonstrating 0.4% representation; hence, Section 3 is constitutionally valid.\n\n2. NO INFRINGEMENT OF ARTICLE 341: In Davinder Singh (2024), the Supreme Court drew a sharp distinction between the identification of castes under Article 341 (which is the exclusive prerogative of the President/Parliament) and the allocation of reservation benefits under Article 16(4) (which belongs to the States). Sub-classification does not add or remove any caste from the Presidential List; it merely apportions benefits among already notified castes. Therefore, Article 341 is not breached.\n\n3. VALIDITY OF CREAMY LAYER EXCLUSION IN SCs: In Davinder Singh (2024), four judges of the 7-Judge Bench (Gavai, Nath, Sharma, and Mithal JJ) categorically affirmed that the Creamy Layer principle—originally applied to OBCs in Indra Sawhney (1992) and Nagaraj (2006)—must be extended to SCs and STs. Substantive equality mandates that those who have overcome backwardness and reached affluent socioeconomic status should step aside so that truly impoverished brethren can access affirmative benefits. Consequently, Section 5\'s Creamy Layer bar of Rs 12 Lakhs is constitutionally valid.',
+      markingRubric: [
+        { criterion: 'Clear citation and application of State of Punjab v. Davinder Singh (2024 7-Judge Bench)', marks: 4 },
+        { criterion: 'Distinction between Article 341 identification vs Article 16(4) allocation of quotas', marks: 3 },
+        { criterion: 'Constitutional justification for applying Creamy Layer to SCs/STs', marks: 3 }
+      ]
+    },
+    mcqs: [
+      {
+        id: 'd2-q1',
+        question: 'In State of Punjab v. Davinder Singh (2024), which longstanding 5-Judge Constitution Bench precedent on SC/ST reservation was expressly overruled by a 7-Judge Bench?',
+        options: ['Indra Sawhney v. Union of India (1992)', 'E.V. Chinnaiah v. State of Andhra Pradesh (2004)', 'M. Nagaraj v. Union of India (2006)', 'Jarnail Singh v. Lachhmi Narain Gupta (2018)'],
+        correctIndex: 1,
+        explanation: 'In State of Punjab v. Davinder Singh (August 2024), the 7-Judge Constitution Bench (6:1) expressly overruled E.V. Chinnaiah (2004), holding that States possess constitutional competence under Article 16(4) to sub-classify Scheduled Castes.',
+        articleRef: 'Article 16(4) & Article 341',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd2-q2',
+        question: 'Under the majority ruling in State of Punjab v. Davinder Singh (2024), what mandatory condition must the State satisfy before sub-classifying Scheduled Castes for preferential reservation?',
+        options: ['Prior approval from the President of India under Article 341', 'Quantifiable, empirical survey data establishing inadequate representation of the sub-group', 'A two-thirds resolution passed by the Lok Sabha', 'Consultation with the National Commission for Scheduled Tribes'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court ruled that sub-classification cannot be done on political whims or administrative discretion; it must be demonstrably justified by empirical, quantifiable data proving that the sub-group is not adequately represented.',
+        articleRef: 'Article 16(4)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q3',
+        question: 'What did the 7-Judge Bench in Davinder Singh (2024) observe regarding the applicability of the "Creamy Layer" principle to Scheduled Castes and Scheduled Tribes?',
+        options: ['Creamy layer can never apply to SCs and STs', 'The Creamy Layer principle must be applied to SCs/STs to exclude the affluent elite from hogging quotas', 'Creamy layer only applies to OBCs under Indra Sawhney', 'Parliament must pass a constitutional amendment before Creamy Layer applies to SCs'],
+        correctIndex: 1,
+        explanation: 'Four out of the majority judges (Gavai, Nath, Sharma, and Mithal JJ) categorically affirmed that the Creamy Layer doctrine must apply to SCs and STs, ensuring that social justice reaches the weakest members of the community.',
+        articleRef: 'Article 14 & Article 16(4)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd2-q4',
+        question: 'In which landmark judgment did the Supreme Court first introduce the "New Dynamic Doctrine of Equality", declaring that equality and arbitrariness are "sworn enemies"?',
+        options: ['State of West Bengal v. Anwar Ali Sarkar (1952)', 'E.P. Royappa v. State of Tamil Nadu (1974)', 'Indira Nehru Gandhi v. Raj Narain (1975)', 'Minerva Mills v. Union of India (1980)'],
+        correctIndex: 1,
+        explanation: 'In E.P. Royappa (1974), Bhagwati J laid down the dynamic concept of equality: "Equality is a dynamic concept with many aspects... from a positivistic point of view, equality is antithetic to arbitrariness. In fact equality and arbitrariness are sworn enemies."',
+        articleRef: 'Article 14',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd2-q5',
+        question: 'The doctrine of "Manifest Arbitrariness" as an independent ground to strike down plenary Parliamentary legislation was firmly established in which Constitution Bench decision?',
+        options: ['Shayara Bano v. Union of India (Triple Talaq Case 2017)', 'Navtej Singh Johar v. Union of India (2018)', 'Joseph Shine v. Union of India (2018)', 'All of the above collectively'],
+        correctIndex: 3,
+        explanation: 'The doctrine was pioneered by Nariman J in Shayara Bano (2017) and subsequently applied in Navtej Johar (decriminalizing Section 377 IPC) and Joseph Shine (striking down Section 497 IPC adultery), cementing manifest arbitrariness under Article 14.',
+        articleRef: 'Article 14',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd2-q6',
+        question: 'The 103rd Constitutional Amendment Act, 2019 introduced which clauses into the Constitution to provide 10% reservation for Economically Weaker Sections (EWS)?',
+        options: ['Articles 15(3) and 16(3)', 'Articles 15(4) and 16(4)', 'Articles 15(6) and 16(6)', 'Articles 15(5) and 16(5)'],
+        correctIndex: 2,
+        explanation: 'The 103rd Amendment Act, 2019 inserted Articles 15(6) and 16(6), enabling the State to provide up to 10% reservation for Economically Weaker Sections (EWS) of citizens other than SC, ST, and OBCs.',
+        articleRef: 'Articles 15(6) & 16(6)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd2-q7',
+        question: 'In Janhit Abhiyan v. Union of India (2022), the 5-Judge Constitution Bench upheld the 103rd Amendment (EWS Quota) by a 3:2 majority. What did the majority hold regarding the 50% reservation ceiling?',
+        options: ['The 50% ceiling is absolute and cannot be breached under any circumstances', 'The 50% ceiling laid down in Indra Sawhney applies to caste/socially backward reservations and is not inflexible for economic criteria', 'The 50% ceiling was declared void ab initio', 'States can exceed 50% only during financial emergencies'],
+        correctIndex: 1,
+        explanation: 'The majority (Maheshwari, Trivedi, and Pardiwala JJ) held that the 50% ceiling rule in Indra Sawhney was intended for reservations under Articles 15(4) and 16(4) and does not bar separate affirmative classifications based purely on economic criteria under Articles 15(6) and 16(6).',
+        articleRef: 'Articles 15(6) & 16(6)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd2-q8',
+        question: 'In M. Nagaraj v. Union of India (2006), the Supreme Court upheld the constitutional validity of reservations in promotions for SCs/STs under Article 16(4A) subject to which three controlling conditions?',
+        options: ['Prior sanction of the Governor, cabinet approval, and judicial consent', 'Demonstration of backwardness, inadequacy of representation, and overall administrative efficiency under Article 335', '50% marks in competitive examinations, minimum 10 years of service, and clear police verification', 'Annual income below 8 lakhs, caste verification certificate, and union recommendation'],
+        correctIndex: 1,
+        explanation: 'In M. Nagaraj (2006 5-Judge Bench), the Court held that while Article 16(4A) is valid, the State must show quantifiable data regarding: (1) backwardness of the class, (2) inadequacy of representation in service, and (3) maintenance of administrative efficiency under Article 335.',
+        articleRef: 'Article 16(4A) & Article 335',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q9',
+        question: 'In Jarnail Singh v. Lachhmi Narain Gupta (2018), what modification did the 5-Judge Constitution Bench make to the M. Nagaraj (2006) requirements for SC/ST promotion reservations?',
+        options: ['Dispensed with the requirement of proving "backwardness" for SCs and STs', 'Struck down Article 16(4A) completely', 'Made promotion quota mandatory for all private sector companies', 'Abolished consequential seniority'],
+        correctIndex: 0,
+        explanation: 'In Jarnail Singh (2018), the Supreme Court held that since SCs and STs are presumed to be backward under Articles 341 and 342, the State does NOT need to collect quantifiable data on backwardness. However, the requirement to prove inadequate representation remains.',
+        articleRef: 'Article 16(4A)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd2-q10',
+        question: 'Which constitutional provision abolished "Untouchability" and forbade its practice in any form, making its enforcement an offense punishable by law?',
+        options: ['Article 14', 'Article 15', 'Article 17', 'Article 23'],
+        correctIndex: 2,
+        explanation: 'Article 17 completely abolishes "Untouchability" and makes its practice punishable under the Protection of Civil Rights Act, 1955. Article 17 is an absolute right with no exceptions.',
+        articleRef: 'Article 17',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd2-q11',
+        question: 'Article 18 abolishes titles. Which of the following is expressly PERMITTED under Article 18(1)?',
+        options: ['Hereditary titles of nobility (e.g. Rai Bahadur, Maharaja)', 'Military and academic distinctions', 'Titles conferred by foreign sovereign monarchs', 'Honorific titles given by private religious trusts'],
+        correctIndex: 1,
+        explanation: 'Article 18(1) provides: "No title, not being a military or academic distinction, shall be conferred by the State."',
+        articleRef: 'Article 18(1)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd2-q12',
+        question: 'In Balaji Raghavan v. Union of India (1996), what did the Supreme Court hold regarding National Awards like Bharat Ratna, Padma Vibhushan, and Padma Shri vis-a-vis Article 18?',
+        options: ['They are unconstitutional titles and must be revoked', 'They are noble decorations recognizing public excellence and NOT "titles" under Article 18, but cannot be used as prefixes or suffixes to names', 'They can only be conferred on serving Armed Forces officers', 'They confer automatic exemption from income tax and criminal prosecution'],
+        correctIndex: 1,
+        explanation: 'The Constitution Bench held that National Awards do not amount to titles of nobility within the meaning of Article 18. However, recipients cannot use them as prefixes or suffixes to their names in public life.',
+        articleRef: 'Article 18',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q13',
+        question: 'Under Article 16(4B) inserted by the 81st Amendment Act, 2000, what happens to unfilled reserved vacancies of a particular recruitment year?',
+        options: ['They lapse permanently after 6 months', 'They can be carried forward as a special class of vacancies and are NOT subject to the 50% reservation ceiling in subsequent years', 'They must be surrendered to the General category', 'They are converted into contract positions'],
+        correctIndex: 1,
+        explanation: 'Article 16(4B) introduced the "carry forward rule", stipulating that unfilled reserved vacancies carried forward to subsequent years shall be treated as a separate class of vacancies and shall not be combined with regular vacancies for determining the 50% ceiling.',
+        articleRef: 'Article 16(4B)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q14',
+        question: 'Which of the following grounds of non-discrimination is listed in Article 15(1) but is NOT listed in Article 16(2)?',
+        options: ['Caste', 'Religion', 'Descent and Residence', 'Sex'],
+        correctIndex: 2,
+        explanation: 'Notice the reverse: Article 16(2) includes two additional grounds that are NOT in Article 15(1): "Descent" and "Residence". Article 15 lists: religion, race, caste, sex, place of birth. Article 16 lists: religion, race, caste, sex, descent, place of birth, residence.',
+        articleRef: 'Articles 15(1) & 16(2)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q15',
+        question: 'Can Parliament enact a law prescribing a requirement of "residence" within a State or Union Territory prior to appointment to certain public offices under Article 16(3)?',
+        options: ['Yes, only Parliament possesses this power by law', 'Yes, individual State Legislatures possess this power', 'No, residence criteria is completely unconstitutional under Article 14', 'Only the President by executive notification can do so'],
+        correctIndex: 0,
+        explanation: 'Under Article 16(3), only Parliament (and NOT State Legislatures) has the constitutional power to prescribe residence requirements within a State or UT for public employment.',
+        articleRef: 'Article 16(3)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q16',
+        question: 'In the landmark case of State of Kerala v. N.M. Thomas (1976), what was the revolutionary interpretation given to Article 16(4)?',
+        options: ['Article 16(4) is an exception to Article 16(1)', 'Article 16(4) is not an exception, but an emphatic facet of equality of opportunity guaranteed under Article 16(1)', 'Reservations in promotion are totally prohibited', 'Affirmative action must be phased out within 10 years'],
+        correctIndex: 1,
+        explanation: 'Mathew J and Ray CJI established that Article 16(4) is not an exception to Article 16(1), but an illustration and facet of substantive equality ensuring real equality of opportunity.',
+        articleRef: 'Articles 16(1) & 16(4)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd2-q17',
+        question: 'Under Article 15(3), the State is empowered to make special provisions for:',
+        options: ['Socially and educationally backward classes only', 'Women and children', 'Religious minorities only', 'Armed forces veterans only'],
+        correctIndex: 1,
+        explanation: 'Article 15(3) provides: "Nothing in this article shall prevent the State from making any special provision for women and children."',
+        articleRef: 'Article 15(3)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd2-q18',
+        question: 'In Air India v. Nergesh Meerza (1981), service regulations mandating termination of Air Hostesses upon first pregnancy were struck down under which constitutional provision?',
+        options: ['Article 14 as arbitrary, unreasonable, and an open insult to womanhood', 'Article 19(1)(g) only', 'Article 25 freedom of religion', 'Article 311 civil service rules'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court held that the regulation forcing termination upon pregnancy was grossly arbitrary, discriminatory, and offended Article 14 by imposing indignity upon working women.',
+        articleRef: 'Article 14',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q19',
+        question: 'Under Article 16(5), the State can validly enact a law providing that the incumbent of an office connected with a religious or denominational institution shall be a person professing a particular religion. Does this violate Article 16(1)?',
+        options: ['Yes, it is blatant religious discrimination', 'No, Article 16(5) expressly saves such laws to preserve the denominational character of religious institutions', 'Yes, unless approved by the Supreme Court Collegium', 'It is only permitted for Christian and Muslim trusts'],
+        correctIndex: 1,
+        explanation: 'Article 16(5) explicitly saves laws requiring that the manager or trustee of a religious or denominational institution must belong to that specific faith or denomination.',
+        articleRef: 'Article 16(5)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd2-q20',
+        question: 'What is the standard of judicial review applied by constitutional courts when examining whether a classification under Article 14 is arbitrary?',
+        options: ['Strict scrutiny or rational basis test depending on the fundamental right affected', 'Absolute deference to the wisdom of the executive', 'Arbitrary action is presumed to be valid unless challenged by the President', 'Courts cannot review legislative classifications'],
+        correctIndex: 0,
+        explanation: 'Courts apply the two-fold test of reasonable classification (intelligible differentia and rational nexus) and apply heightened strict scrutiny or proportionality when suspect classifications or basic civil liberties are infringed.',
+        articleRef: 'Article 14',
+        difficulty: 'Intermediate'
+      }
+    ]
+  },
+
+  // ==========================================
+  // DAY 3: SIX FUNDAMENTAL FREEDOMS (ARTICLE 19)
+  // ==========================================
+  {
+    dayNumber: 3,
+    title: 'Six Fundamental Freedoms & Reasonable Restrictions (Article 19)',
+    subtitle: 'Free Speech, Press Autonomy, Internet Rights, Electoral Transparency & Hate Speech',
+    phase: 'Phase 1: Foundational Pillars & Core Rights',
+    estimatedHours: 6,
+    targetArticles: ['Article 19(1)(a)', 'Article 19(1)(b)', 'Article 19(1)(c)', 'Article 19(1)(d)', 'Article 19(1)(e)', 'Article 19(1)(g)', 'Article 19(2)–(6)'],
+    overview: 'Day 3 explores the bedrock civil liberties under Article 19: freedom of speech and expression, peaceful assembly, association, movement, residence, and profession. Special focus is placed on the 8 exhaustive grounds of reasonable restrictions under 19(2), digital speech in Shreya Singhal, internet rights in Anuradha Bhasin, horizontal speech in Kaushal Kishor (2023), and the unconstitutionality of Electoral Bonds (2024).',
+    coreConcepts: [
+      {
+        heading: 'Freedom of Speech & The 8 Exhaustive Grounds of Restriction',
+        articleAnchor: 'Article 19(1)(a) & 19(2)',
+        synopsis: 'Freedom of speech is the mother of all liberties. However, unlike the US First Amendment, Article 19(1)(a) is subject to 8 specific, exhaustive grounds of reasonable restrictions in Article 19(2).',
+        substantiveLaw: [
+          'The 8 Exhaustive Grounds under 19(2): (1) Sovereignty and integrity of India, (2) Security of the State, (3) Friendly relations with foreign States, (4) Public order, (5) Decency or morality, (6) Contempt of court, (7) Defamation, (8) Incitement to an offence.',
+          'Romesh Thappar (1950): "Public order" is not synonymous with mere law and order; it requires an apprehension of public peace disruption.',
+          'Shreya Singhal (2015): Struck down Section 66A IT Act. Distinguished between "Discussion", "Advocacy", and "Incitement". Only incitement justifies state criminal restriction.',
+          'Proportionality Test (Modern Standard): Restriction must have a legitimate aim, rational connection, minimal impairment (least intrusive measure), and balance of impact.'
+        ],
+        prosecutionAngle: 'Essential for prosecuting hate speech (Sec 196 BNS), criminal defamation, sedition/subversive acts (Sec 152 BNS), and defending police preventive orders under Section 163 BNSS.'
+      },
+      {
+        heading: 'Right to Information & Electoral Transparency',
+        articleAnchor: 'Article 19(1)(a)',
+        synopsis: 'Freedom of speech encompasses the right to know and receive information. Without informed citizens, democratic voting is an empty ritual.',
+        substantiveLaw: [
+          'Union of India v. ADR (2002 3-Judge Bench): Voters have a Fundamental Right under Article 19(1)(a) to know the criminal antecedents, assets, and education of candidates.',
+          'PUCL (2003) & NOTA Case (2013): Upheld secrecy of voting and the right to register negative vote (None of the Above) under Article 19(1)(a).',
+          'ADR v. Union of India (Electoral Bonds Case, Feb 2024 5-Judge Bench): Unanimously struck down the Electoral Bond Scheme. Anonymity in political donations deprives voters of their Right to Information regarding corporate influence on policy.'
+        ],
+        prosecutionAngle: 'Citing the 2024 Electoral Bonds judgment displays mastery over the expansion of Article 19(1)(a) into political and campaign transparency.'
+      },
+      {
+        heading: 'Internet Rights & Digital Speech Governance',
+        articleAnchor: 'Article 19(1)(a) & 19(1)(g)',
+        synopsis: 'Modern commerce, profession, and speech occur over the internet. Blanket or indefinite internet blackouts violate Article 19.',
+        substantiveLaw: [
+          'Anuradha Bhasin v. Union of India (2020 3-Judge Bench): Freedom of speech and trade over the internet is constitutionally protected under Article 19(1)(a) and 19(1)(g).',
+          'Indefinite internet shutdowns are impermissible; shutdown orders must satisfy the test of necessity and proportionality, and review committee orders must be published.',
+          'Kaushal Kishor (2023 5-Judge Bench): Article 19(1)(a) can be enforced horizontally against private individuals; no additional restrictions beyond 19(2) can be imposed on speech of Ministers.'
+        ],
+        prosecutionAngle: 'Directly impacts prosecuting officers handling cybercrime, telecom interception orders, and preventive public order restrictions.'
+      }
+    ],
+    landmarkEvolutionPairs: [
+      {
+        subject: 'Voter Information & Political Transparency under Article 19(1)(a)',
+        classicCase: {
+          name: 'Union of India v. Association for Democratic Reforms (ADR)',
+          year: 2002,
+          bench: '3-Judge Bench (M.B. Shah J)',
+          ratio: 'Held that voters have a fundamental right under Article 19(1)(a) to know candidates\' criminal antecedents, assets, and liabilities.'
+        },
+        modernCase: {
+          name: 'Association for Democratic Reforms v. Union of India (Electoral Bonds)',
+          year: 2024,
+          bench: '5-Judge Constitution Bench (Unanimous, CJI Chandrachud)',
+          ratio: 'Applied ADR (2002) to party finances. Struck down anonymous Electoral Bonds because voter\'s Right to Information under Article 19(1)(a) extends to knowing who funds political parties.'
+        },
+        examApplicationNote: 'Cite ADR (2002) as the foundational seed and Electoral Bonds (2024) as the modern Constitution Bench fruition.'
+      }
+    ],
+    dictionaryTerms: [
+      'Freedom of Speech', 'Chilling Effect', 'Proportionality Test', 'Public Order', 'Incitement to Offence',
+      'Horizontal Application', 'Manifest Arbitrariness', 'Defamation', 'Contempt of Court', 'Seditions Law',
+      'Prior Restraint', 'Injunction', 'Freedom of Association', 'Reasonable Restrictions', 'Right to Information'
+    ],
+    svgConceptType: 'freedoms-grid',
+    caseStudy: {
+      title: 'Indefinite Mobile Internet Suspension in Border District',
+      factualMatrix: 'Following localized student protests over fee hikes in a sensitive border district of J&K, the District Magistrate issued an order under the Temporary Suspension of Telecom Services (Public Emergency or Public Safety) Rules, 2017 read with Section 163 BNSS (former Section 144 CrPC), completely suspending all 4G/5G mobile internet and broadband connectivity throughout the entire district "until further notice". The order cited "preventing anti-national propaganda and rumors". No periodic review was conducted by the Review Committee, and the order was not published in public newspapers or the district portal. A group of independent investigative journalists and e-commerce traders challenged the suspension under Article 226 before the High Court, asserting that their livelihood and reporting were crippled for 45 consecutive days.',
+      framingQuestions: [
+        '1. Is the freedom to access the internet and conduct trade online protected under Articles 19(1)(a) and 19(1)(g) of the Constitution?',
+        '2. Does an "indefinite" suspension of internet services comply with the proportionality and procedural guidelines settled in Anuradha Bhasin v. Union of India (2020)?',
+        '3. Can the State refuse to publish internet suspension orders citing public security?'
+      ],
+      statutoryApplicability: ['Article 19(1)(a)', 'Article 19(1)(g)', 'Article 19(2)', 'Anuradha Bhasin (2020)', 'Telecom Suspension Rules 2017'],
+      modelAnswer: '1. CONSTITUTIONAL STATUS OF INTERNET ACCESS: In Anuradha Bhasin v. Union of India (2020), a 3-Judge Bench of the Supreme Court categorically ruled that freedom of speech and expression through the medium of the internet is an integral part of Article 19(1)(a). Similarly, the right to carry on any trade, business, or occupation over the internet is constitutionally protected under Article 19(1)(g). Such rights can only be curtailed under valid statutory authority satisfying the reasonable restrictions in Articles 19(2) and 19(6).\n\n2. ILLEGALITY OF INDEFINITE SUSPENSION: In Anuradha Bhasin, the Court held that an indefinite suspension of telecom services is impermissible. Orders suspending the internet must adhere to the principle of Proportionality (Modern 4-prong test: legitimate purpose, rational nexus, necessity/least intrusive measure, and balanced impact). The executive must consider graded restrictions (e.g. blocking specific URLs or throttling speeds to 2G) rather than blanket total blackouts. A 45-day continuous blackout for student protests is disproportionate.\n\n3. MANDATORY PUBLICATION & PROCEDURAL BREACH: The Supreme Court held that the State cannot keep suspension orders secret. All orders suspending internet access must be published promptly to enable affected citizens to exercise their constitutional right of judicial review under Article 226. Furthermore, the Review Committee must meet within 5 working days to assess necessity. Here, the failure to publish the order and absence of periodic review renders the DM\'s order ultra vires and unconstitutional.',
+      markingRubric: [
+        { criterion: 'Recognition of internet rights under Articles 19(1)(a) & 19(1)(g) (Anuradha Bhasin)', marks: 4 },
+        { criterion: 'Application of the 4-prong Proportionality Test against blanket shutdowns', marks: 3 },
+        { criterion: 'Procedural mandates of publication and mandatory Review Committee timelines', marks: 3 }
+      ]
+    },
+    mcqs: [
+      {
+        id: 'd3-q1',
+        question: 'Which of the following grounds is NOT among the 8 exhaustive grounds of reasonable restrictions on Freedom of Speech under Article 19(2)?',
+        options: ['Security of the State', 'Friendly relations with foreign States', 'Public Interest or General Convenience', 'Decency or Morality'],
+        correctIndex: 2,
+        explanation: 'Under Article 19(2), the 8 grounds are: (1) sovereignty and integrity of India, (2) security of the State, (3) friendly relations with foreign States, (4) public order, (5) decency or morality, (6) contempt of court, (7) defamation, (8) incitement to an offence. "Public Interest" is a ground under 19(6) for trade/profession, but NOT under 19(2) for speech!',
+        articleRef: 'Article 19(2)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd3-q2',
+        question: 'In Shreya Singhal v. Union of India (2015), the Supreme Court struck down Section 66A of the Information Technology Act, 2000 primarily because:',
+        options: ['Parliament lacked legislative competence over the internet', 'The provision was unconstitutionally vague, overbroad, and created a severe "chilling effect" on free speech', 'Offenses over the internet can only be tried by military tribunals', 'Internet crimes can only be regulated by State Legislatures'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court struck down Section 66A IT Act because it criminalized information that was merely "annoying" or "grossly offensive" without clear definition, failing the clear and present danger test and violating Article 19(1)(a).',
+        articleRef: 'Article 19(1)(a) & Article 19(2)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q3',
+        question: 'In the landmark Electoral Bonds judgment (Association for Democratic Reforms v. Union of India, Feb 2024), the 5-Judge Constitution Bench held that anonymous political contributions violate which Fundamental Right?',
+        options: ['Right to Equality under Article 14 only', 'Voter\'s Right to Information as a facet of Freedom of Speech under Article 19(1)(a)', 'Freedom of Trade under Article 19(1)(g)', 'Right against Self-Incrimination under Article 20(3)'],
+        correctIndex: 1,
+        explanation: 'The 5-Judge Bench unanimously ruled that the Electoral Bond scheme infringed upon the voters\' Right to Information guaranteed under Article 19(1)(a), as knowing the financial ties and corporate donors of political parties is essential to casting an informed vote.',
+        articleRef: 'Article 19(1)(a)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd3-q4',
+        question: 'In Anuradha Bhasin v. Union of India (2020), what did the Supreme Court hold regarding the freedom of speech and expression over the internet?',
+        options: ['Internet access is a luxury and enjoys no constitutional status', 'Freedom of speech and freedom to practice any profession over the medium of the internet are constitutionally protected under Articles 19(1)(a) and 19(1)(g)', 'Internet can be suspended indefinitely during elections without judicial review', 'Only government websites are protected under Article 19'],
+        correctIndex: 1,
+        explanation: 'In Anuradha Bhasin (2020), the Court held that the medium of the internet is an integral medium for exercising the fundamental rights under Article 19(1)(a) and Article 19(1)(g), and any restriction must satisfy the test of proportionality.',
+        articleRef: 'Articles 19(1)(a) & 19(1)(g)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd3-q5',
+        question: 'In Kaushal Kishor v. State of Uttar Pradesh (2023), the 5-Judge Constitution Bench ruled on which major aspect of Fundamental Rights under Articles 19 and 21?',
+        options: ['Fundamental Rights under Articles 19 and 21 can be enforced horizontally against private non-State entities', 'Ministers have absolute immunity from defamation actions', 'Hate speech is completely protected under Article 19(1)(a)', 'Internet shutdowns can be ordered orally by police inspectors'],
+        correctIndex: 0,
+        explanation: 'In Kaushal Kishor (2023), the Constitution Bench held that the fundamental rights under Articles 19 and 21 can be enforced even against persons other than the State (horizontal application of fundamental rights).',
+        articleRef: 'Articles 19 & 21',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd3-q6',
+        question: 'In Bijoe Emmanuel v. State of Kerala (1986), three children belonging to the Jehovah\'s Witnesses sect were expelled from school for not singing the National Anthem. The Supreme Court protected them under which right?',
+        options: ['Right to silence as part of Freedom of Speech under Article 19(1)(a) and freedom of conscience under Article 25', 'Article 14 only', 'Article 21A right to education', 'Article 30 minority institutional right'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court held that respectfully standing up during the National Anthem without singing does not disrespect the Anthem, and the right to remain silent is protected under Article 19(1)(a) and Article 25.',
+        articleRef: 'Article 19(1)(a) & Article 25',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q7',
+        question: 'Which constitutional amendment removed the "Right to Property" from the list of Fundamental Rights under Article 19(1)(f) and Article 31, converting it into a constitutional right under Article 300A?',
+        options: ['42nd Constitutional Amendment Act, 1976', '44th Constitutional Amendment Act, 1978', '73rd Constitutional Amendment Act, 1992', '86th Constitutional Amendment Act, 2002'],
+        correctIndex: 1,
+        explanation: 'The 44th Constitutional Amendment Act, 1978 deleted Article 19(1)(f) and Article 31 from Part III and inserted Article 300A in Part XII, establishing that no person shall be deprived of his property save by authority of law.',
+        articleRef: 'Article 19(1)(f) & Article 300A',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd3-q8',
+        question: 'Under Article 19(1)(c), all citizens have the right to form associations or unions. Which words were added to Article 19(1)(c) by the 97th Constitutional Amendment Act, 2011?',
+        options: ['"or political parties"', '"or co-operative societies"', '"or armed militias"', '"or charitable trusts"'],
+        correctIndex: 1,
+        explanation: 'The 97th Constitutional Amendment Act, 2011 inserted the words "or co-operative societies" into Article 19(1)(c), giving constitutional recognition to the right to form cooperative societies.',
+        articleRef: 'Article 19(1)(c)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd3-q9',
+        question: 'In Ministry of Information & Broadcasting v. Cricket Association of Bengal (CAB) (1995), the Supreme Court declared that:',
+        options: ['Airwaves and television frequencies are public property and cannot be monopolized by the State', 'Cricket cannot be televised on private channels', 'Doordarshan has exclusive sovereign copyright over all sports in India', 'Sports broadcasting does not fall under Article 19(1)(a)'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court ruled that airwaves are public property and freedom of speech under Article 19(1)(a) includes the right to impart and receive information through electronic telecasting, ending State broadcasting monopoly.',
+        articleRef: 'Article 19(1)(a)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q10',
+        question: 'Can the State restrict the right of a citizen to reside and settle in any part of India under Article 19(1)(e) for the protection of the interests of any Scheduled Tribe?',
+        options: ['No, Article 19(1)(e) is an absolute unrestrictable freedom', 'Yes, Article 19(5) specifically authorizes reasonable restrictions for the protection of the interests of any Scheduled Tribe', 'Only during war or armed rebellion', 'Only if the President issues a special proclamation under Article 370'],
+        correctIndex: 1,
+        explanation: 'Article 19(5) explicitly allows the State to impose reasonable restrictions on the freedoms of movement (19(1)(d)) and residence (19(1)(e)) either in the interests of the general public or for the protection of the interests of any Scheduled Tribe.',
+        articleRef: 'Article 19(5)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q11',
+        question: 'In Romesh Thappar v. State of Madras (1950), the Supreme Court held that the freedom of speech and expression includes:',
+        options: ['Only oral spoken words', 'Freedom of propagation of ideas, which is ensured by the freedom of circulation of publications', 'Only state-censored educational textbooks', 'The right to incite riots in public streets'],
+        correctIndex: 1,
+        explanation: 'Patanjali Sastri J ruled that freedom of speech and expression includes freedom of circulation, for without circulation, the publication is of little value.',
+        articleRef: 'Article 19(1)(a)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q12',
+        question: 'In Bennett Coleman & Co. v. Union of India (1972), the Newsprint Control Policy restricting the page count of newspapers was struck down under Article 19(1)(a) based on which doctrine?',
+        options: ['Pith and Substance', 'Direct and Inevitable Effect Test', 'Doctrine of Repugnancy', 'Basic Structure Doctrine'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court applied the "Direct and Inevitable Effect Test", holding that although the policy ostensibly regulated the supply of newsprint (commerce), its direct effect was to curtail the circulation and pages of newspapers, violating Article 19(1)(a).',
+        articleRef: 'Article 19(1)(a)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd3-q13',
+        question: 'Under Article 19(1)(b), the right to assemble peaceably is guaranteed, but it is qualified by the express constitutional condition that the assembly must be:',
+        options: ['"With permission of the Magistrate"', '"Without arms"', '"Between sunrise and sunset only"', '"Inside private premises only"'],
+        correctIndex: 1,
+        explanation: 'Article 19(1)(b) guarantees to all citizens the right "to assemble peaceably and without arms".',
+        articleRef: 'Article 19(1)(b)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd3-q14',
+        question: 'Does the fundamental right to form associations or unions under Article 19(1)(c) include the fundamental right to go on strike or declare a bandh?',
+        options: ['Yes, right to strike is an inalienable fundamental right', 'No, in T.K. Rangarajan v. Govt. of Tamil Nadu (2003) and Kameshwar Singh, the Supreme Court held that there is no fundamental right to strike', 'Yes, only for government employees', 'Yes, under the 44th Amendment'],
+        correctIndex: 1,
+        explanation: 'In All India Bank Employees\' Association (1962) and T.K. Rangarajan (2003), the Supreme Court ruled that while workers have a right to form trade unions under 19(1)(c), there is NO fundamental right to strike or bandh.',
+        articleRef: 'Article 19(1)(c)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q15',
+        question: 'In S. Rangarajan v. P. Jagjivan Ram (1989), what test was laid down regarding when speech can be suppressed on grounds of public order?',
+        options: ['Speech can be suppressed if anyone objects in writing', 'The anticipated danger must not be remote, conjectural, or far-fetched; it must have a proximate and direct nexus like a "spark in a powder keg"', 'Whenever the police commissioner deems it proper', 'Speech can be banned if it criticizes the ruling government'],
+        correctIndex: 1,
+        explanation: 'K.J. Shetty J held that expression should not be suppressed unless the anticipated danger is proximate, direct, and like a spark in a powder keg, rather than a remote apprehension.',
+        articleRef: 'Article 19(2)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd3-q16',
+        question: 'Under Article 19(6), can the State create a monopoly in favor of the State or a State-owned corporation in respect of any trade, business, industry, or service to the complete exclusion of private citizens?',
+        options: ['No, state monopoly violates Article 14', 'Yes, Article 19(6)(ii) expressly permits the State to create complete or partial state monopolies', 'Only during wartime', 'Only if approved by the Competition Commission of India'],
+        correctIndex: 1,
+        explanation: 'Article 19(6)(ii) explicitly provides that the State can carry on any trade, business, industry, or service, whether to the complete or partial exclusion of citizens or otherwise, and such laws cannot be questioned as violative of Article 19(1)(g).',
+        articleRef: 'Article 19(6)(ii)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q17',
+        question: 'In People\'s Union for Civil Liberties (PUCL) v. Union of India (1997), telephone tapping was held to violate which constitutional rights?',
+        options: ['Article 19(1)(a) freedom of speech and Article 21 right to privacy', 'Article 14 equality only', 'Article 25 freedom of religion', 'Article 300A property rights'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court ruled that telephone tapping infringes both the freedom of speech under Article 19(1)(a) and the right to privacy under Article 21 unless done under strict procedural safeguards in Section 5(2) of the Telegraph Act.',
+        articleRef: 'Articles 19(1)(a) & 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q18',
+        question: 'Which of the following is true regarding the suspension of Article 19 during a proclamation of National Emergency under Article 352?',
+        options: ['Article 19 is suspended automatically only when Emergency is declared on grounds of war or external aggression (Article 358)', 'Article 19 is suspended automatically even on grounds of armed rebellion', 'Article 19 can never be suspended under any emergency', 'Article 19 requires a separate presidential order under Article 359'],
+        correctIndex: 0,
+        explanation: 'By virtue of the 44th Constitutional Amendment Act, 1978, Article 358 provides that Article 19 is suspended automatically ONLY when a National Emergency is declared on the ground of war or external aggression, and NOT on the ground of armed rebellion.',
+        articleRef: 'Article 358 & Article 19',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd3-q19',
+        question: 'In Subramanian Swamy v. Union of India (2016), the Supreme Court upheld the constitutional validity of which penal provisions vis-a-vis Article 19(1)(a)?',
+        options: ['Sections 499 and 500 IPC (Criminal Defamation)', 'Section 124A IPC (Sedition)', 'Section 377 IPC (Unnatural Offenses)', 'Section 309 IPC (Attempt to suicide)'],
+        correctIndex: 0,
+        explanation: 'In Subramanian Swamy (2016), a 2-Judge Bench held that criminal defamation under Sections 499 and 500 IPC (now covered under BNS) is a reasonable restriction under the specific ground of "defamation" in Article 19(2).',
+        articleRef: 'Article 19(2)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd3-q20',
+        question: 'Under the landmark ruling in Justice K.S. Puttaswamy (2017) and Modern Proportionality Jurisprudence, any state restriction on Fundamental Freedoms must satisfy which four-fold test?',
+        options: ['Legality, Legitimate State Aim, Suitability/Rational Nexus, and Necessity/Minimal Impairment', 'Cabinet consent, Governor\'s signature, police discretion, and public notice', 'Majority vote in Parliament, lack of public protests, economic viability, and security clearance', 'None of the above'],
+        correctIndex: 0,
+        explanation: 'The 4-prong Proportionality Test mandates: (1) Legality (prescribed by law), (2) Legitimate state goal, (3) Suitability/rational connection, and (4) Necessity (least intrusive measure balancing the competing rights).',
+        articleRef: 'Article 19 & Article 21',
+        difficulty: 'Intermediate'
+      }
+    ]
+  },
+
+  // ==========================================
+  // DAY 4: CRIMINAL SAFEGUARDS (ARTICLES 20 & 22)
+  // ==========================================
+  {
+    dayNumber: 4,
+    title: 'Criminal Safeguards, Arrest & Custodial Rights (Articles 20 & 22)',
+    subtitle: 'Ex-Post Facto, Double Jeopardy, Self-Incrimination, Written Grounds of Arrest & 2024 Bail Protections',
+    phase: 'Phase 1: Foundational Pillars & Core Rights',
+    estimatedHours: 6,
+    targetArticles: ['Article 20(1)', 'Article 20(2)', 'Article 20(3)', 'Article 22(1)', 'Article 22(2)', 'Article 22(4)–(7)'],
+    overview: 'Day 4 represents the vital heart of the Prosecuting Officer examination: procedural criminal safeguards, protection against retrospective penal laws, double jeopardy, right against self-incrimination, narco/polygraph limits, mandatory written grounds of arrest, and limits on police surveillance in bail conditions.',
+    coreConcepts: [
+      {
+        heading: 'The Triad of Article 20: Inviolable Criminal Protections',
+        articleAnchor: 'Article 20',
+        synopsis: 'Article 20 cannot be suspended even during a National Emergency under Article 359 (44th Amendment). It protects every accused person against state prosecution abuse.',
+        substantiveLaw: [
+          'Article 20(1) Ex-Post Facto Law: No person shall be convicted of any offence except for violation of a law in force at the time of the commission of the act, nor subjected to a greater penalty than that which might have been inflicted. (Rattan Lal v. State of Punjab: Beneficial retrospective laws CAN apply to an accused).',
+          'Article 20(2) Double Jeopardy: "Nemo debet bis vexari pro una et eadem causa" (No one should be twice vexed for one and the same cause). Requires both prosecution AND punishment before a competent judicial court (Maqbool Hussain). Disciplinary departmental inquiry does not bar criminal trial.',
+          'Article 20(3) Right Against Self-Incrimination: "Nemo tenetur seipsum accusare". Protects an accused from being compelled to be a witness against himself.',
+          'Kathi Kalu Oghad (1961 11-Judge Bench): Giving handwriting exemplars, fingerprints, or bodily measurements is NOT self-incrimination because they do not convey personal knowledge.',
+          'Selvi v. State of Karnataka (2010 3-Judge Bench): Involuntary administration of Narco-Analysis, Polygraph Lie-Detector, or BEAP Brain Mapping violates Article 20(3) and Article 21 personal liberty.'
+        ],
+        prosecutionAngle: 'Essential for evaluating witness examination under Section 180 BNSS (former 161 CrPC), polygraph applications, and confession admissibility under BSA 2023.'
+      },
+      {
+        heading: 'Article 22 Arrest Safeguards & 2024 Written Grounds Mandate',
+        articleAnchor: 'Article 22(1) & 22(2)',
+        synopsis: 'Article 22 safeguards personal liberty against executive arrest: right to know grounds of arrest, right to legal counsel of choice, and mandatory production before a Magistrate within 24 hours.',
+        substantiveLaw: [
+          'Article 22(1): No person arrested shall be detained without being informed, as soon as may be, of the grounds for such arrest, nor denied the right to consult and be defended by a legal practitioner.',
+          'Article 22(2): Mandatory production before the nearest Magistrate within 24 hours (excluding journey time). Failure to produce makes further custody illegal (Manoj v. State of M.P.).',
+          'D.K. Basu (1997) & Arnesh Kumar (2014): Mandatory notice under Sec 41A CrPC (Sec 35 BNSS) before arrest for offenses punishable up to 7 years.',
+          'Prabir Purkayastha v. State (NCT of Delhi) (May 2024 2-Judge Bench): Applied Pankaj Bansal (PMLA) across ALL criminal statutes and UAPA: Grounds of arrest MUST be communicated IN WRITING without delay to the accused and their advocate. Merely serving an arrest memo or citing statutory sections violates Article 22(1) and vitiates remand.'
+        ],
+        prosecutionAngle: 'Prosecuting officers must examine remand applications to confirm that written grounds were served; absence of written communication results in immediate discharge or bail.'
+      },
+      {
+        heading: 'Bail Conditions & Digital Surveillance Protections (2024)',
+        articleAnchor: 'Article 21 & Section 480/483 BNSS',
+        synopsis: 'Bail conditions cannot destroy the essence of personal liberty or subject an accused on bail to perpetual surveillance.',
+        substantiveLaw: [
+          'Frank Vitus v. Narcotics Control Bureau (July 2024 2-Judge Bench, Oka & Bhuyan JJ): Struck down bail conditions requiring an accused to drop a Google Maps live location PIN or share 24/7 continuous GPS tracking with police.',
+          'Held: Constant digital tracking violates the Right to Privacy under Article 21. Bail conditions must be reasonable, proportionate, and directed solely at securing trial attendance and preventing tampering.'
+        ],
+        prosecutionAngle: 'Prosecuting officers cannot seek perpetual digital tracking or unrealistic embassy assurances as bail conditions.'
+      }
+    ],
+    landmarkEvolutionPairs: [
+      {
+        subject: 'Communication of Grounds of Arrest under Article 22(1)',
+        classicCase: {
+          name: 'D.K. Basu v. State of West Bengal',
+          year: 1997,
+          bench: '2-Judge Bench (Anand J)',
+          ratio: 'Laid down 11 mandatory guidelines on arrest memos, inspection memos, medical examinations, and notifying relatives.'
+        },
+        modernCase: {
+          name: 'Prabir Purkayastha v. State (NCT of Delhi)',
+          year: 2024,
+          bench: '2-Judge Bench (Gavai & Mehta JJ)',
+          ratio: 'Revolutionized Article 22(1). Mandated that grounds of arrest MUST be communicated in WRITING to the accused without delay across all criminal laws and UAPA; oral intimation is invalid.'
+        },
+        examApplicationNote: 'The single most critical criminal-constitutional pair for a Prosecuting Officer exam. Connect Article 22(1) with Section 35 BNSS and Prabir Purkayastha.'
+      }
+    ],
+    dictionaryTerms: [
+      'Ex Post Facto', 'Double Jeopardy', 'Self-Incrimination', 'Remand', 'Custodial Remand',
+      'Transit Remand', 'Arrest Memo', 'Default Bail', 'Anticipatory Bail', 'Preventive Detention',
+      'Advisory Board', 'Confession', 'Police Custody', 'Judicial Custody', 'Compounding of Offence'
+    ],
+    svgConceptType: 'criminal-shield',
+    caseStudy: {
+      title: 'Arrest under Special Penal Statute without Written Grounds',
+      factualMatrix: 'Acting on intelligence reports of subversive funding, the Anti-Terror Special Cell arrested Mr. R, a local businessman, under Section 13/18 of the UAPA and Section 152 of the Bharatiya Nyaya Sanhita (BNS). At the time of arrest at 11:00 PM, the arresting officer served an "Arrest Memo" which stated: "Arrested in Case FIR No. 42/2025 under Sections 13/18 UAPA and Sec 152 BNS". The officer orally read out that Mr. R was suspected of financing unlawful assemblies, but no separate written document setting out the factual allegations or evidence was given to Mr. R or his family. The next morning at 10:00 AM (within 11 hours), Mr. R was produced before the Judicial Magistrate. The Magistrate remanded Mr. R to 7 days police custody without Mr. R\'s counsel being supplied the written remand grounds. On the 3rd day, Mr. R\'s counsel filed a Habeas Corpus petition under Article 226 before the High Court, asserting that the arrest and remand were void ab initio for non-compliance with Article 22(1) and the recent Supreme Court ruling in Prabir Purkayastha (2024). The State Public Prosecutor argued that oral communication of grounds was sufficient and UAPA being an anti-terror statute does not require written grounds before remand.',
+      framingQuestions: [
+        '1. Does Article 22(1) mandate the communication of grounds of arrest in writing, even under special penal statutes like the UAPA?',
+        '2. What is the legal distinction between an "Arrest Memo" listing penal sections and the "Grounds of Arrest"?',
+        '3. Does the failure to serve written grounds of arrest vitiate the subsequent remand order passed by the Magistrate, entitling the accused to release?'
+      ],
+      statutoryApplicability: ['Article 22(1)', 'Section 35 BNSS', 'UAPA, 1967', 'Prabir Purkayastha v. State (2024)', 'Pankaj Bansal v. UOI (2023)'],
+      modelAnswer: '1. MANDATORY WRITTEN GROUNDS UNDER ARTICLE 22(1): In Prabir Purkayastha v. State (NCT of Delhi) (May 2024), a Division Bench of the Supreme Court categorically held that the fundamental right under Article 22(1) to be informed of the grounds of arrest applies equally to arrests under special penal statutes like the UAPA and PMLA as it does to general offenses under BNS/IPC. The Court explicitly ruled that the grounds of arrest MUST be furnished in writing without delay so that the accused can effectively consult legal counsel and contest detention.\n\n2. ARREST MEMO VS. GROUNDS OF ARREST: Merely handing over an arrest memo containing statutory sections (e.g. "Sections 13/18 UAPA") or orally telling the accused what he is suspected of does NOT satisfy Article 22(1). An arrest memo only notes the factum and time of arrest. The "grounds of arrest" require a clear, written statement of the factual allegations, specific acts attributed, and material upon which the arrest is predicated.\n\n3. EFFECT ON REMAND ORDER & RIGHT TO RELEASE: In Prabir Purkayastha (2024), the Supreme Court ruled that when an arrest is effected without serving written grounds, the arrest itself is unconstitutional and void ab initio. A subsequent remand order passed by the Magistrate cannot cure the initial constitutional illegality. The remand order is vitiated for non-application of mind to Article 22(1). Consequently, the High Court will declare the arrest and detention unlawful and direct the immediate release of Mr. R from custody.',
+      markingRubric: [
+        { criterion: 'Application of Prabir Purkayastha (2024) and Article 22(1) mandate for written grounds', marks: 4 },
+        { criterion: 'Distinction between statutory arrest memo vs substantive factual grounds of arrest', marks: 3 },
+        { criterion: 'Vitiation of subsequent judicial remand order and direction of release', marks: 3 }
+      ]
+    },
+    mcqs: [
+      {
+        id: 'd4-q1',
+        question: 'Under the landmark 2024 ruling in Prabir Purkayastha v. State (NCT of Delhi), what is the mandatory constitutional requirement regarding the communication of grounds of arrest under Article 22(1)?',
+        options: ['Oral intimation in the presence of two independent witnesses is sufficient', 'The grounds of arrest must be communicated IN WRITING to the accused without delay', 'Written grounds are only required after 90 days of filing chargesheet', 'Written grounds are never required in UAPA or anti-terror cases'],
+        correctIndex: 1,
+        explanation: 'In Prabir Purkayastha (May 2024), the Supreme Court held that the constitutional mandate under Article 22(1) to inform an arrested person of the grounds of arrest requires communicating the grounds in writing without delay across all criminal and special statutes.',
+        articleRef: 'Article 22(1)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q2',
+        question: 'In Frank Vitus v. Narcotics Control Bureau (July 2024), which condition imposed by the High Court in a bail order was struck down by the Supreme Court as violative of Article 21?',
+        options: ['Requirement to furnish a personal bail bond of Rs 50,000', 'Requirement to drop a Google Maps PIN and share continuous 24/7 live location with the Investigating Officer', 'Requirement to surrender passport', 'Requirement to appear before the trial court on hearing dates'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court ruled that compelling an accused on bail to share a continuous Google Maps live location PIN amounts to 24/7 digital surveillance, which violates the Right to Privacy guaranteed under Article 21.',
+        articleRef: 'Article 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q3',
+        question: 'Which of the following Fundamental Rights CANNOT be suspended even during a proclamation of National Emergency under Article 352 by virtue of the 44th Constitutional Amendment Act, 1978?',
+        options: ['Articles 14 and 19', 'Articles 19 and 21', 'Articles 20 and 21', 'Articles 21 and 22'],
+        correctIndex: 2,
+        explanation: 'The 44th Amendment Act, 1978 amended Article 359 to provide that the President cannot suspend the enforcement of the Fundamental Rights guaranteed under Article 20 (criminal safeguards) and Article 21 (life and personal liberty).',
+        articleRef: 'Article 359 & Articles 20, 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q4',
+        question: 'Under Article 20(1), protection against "Ex-Post Facto Law" means:',
+        options: ['An accused cannot be convicted of an act that was not an offense at the time of its commission, nor subjected to a greater penalty', 'Police can never file a chargesheet after 3 years', 'Judges cannot write retrospective orders', 'Parliament cannot repeal old criminal codes'],
+        correctIndex: 0,
+        explanation: 'Article 20(1) prohibits retrospective criminalization and retrospective enhancement of punishments. A person can only be convicted for an act that was an offense when committed, with no greater penalty than then prescribed.',
+        articleRef: 'Article 20(1)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q5',
+        question: 'In Rattan Lal v. State of Punjab (1965), what did the Supreme Court hold regarding retrospective penal legislation that REDUCES the punishment or benefits the accused?',
+        options: ['An accused can never receive the benefit of a retrospective change', 'The prohibition in Article 20(1) applies only to enhanced penalties; a beneficial retroactive law reducing punishment or granting probation CAN be extended to an accused', 'All criminal laws are unconstitutional if passed during trial', 'Beneficial laws only apply to civil disputes'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court held that Article 20(1) prohibits only ex-post facto laws that create new offenses or enhance penalties. A law that mitigates punishment, grants probation, or decriminalizes an act can be retrospectively applied to benefit the accused.',
+        articleRef: 'Article 20(1)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd4-q6',
+        question: 'The constitutional protection against "Double Jeopardy" under Article 20(2) requires which of the following essentials?',
+        options: ['The person must have been prosecuted AND punished before a court of law or judicial tribunal for the same offense', 'Mere filing of a police FIR without trial is sufficient', 'Departmental inquiry dismissal automatically bars subsequent criminal trial', 'Double jeopardy applies to civil suits for damages'],
+        correctIndex: 0,
+        explanation: 'In Maqbool Hussain v. State of Bombay (1953) and Venkataraman, the Supreme Court ruled that Article 20(2) requires both: (1) previous prosecution, and (2) punishment before a competent judicial court. Departmental proceedings do not attract Article 20(2).',
+        articleRef: 'Article 20(2)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q7',
+        question: 'In the 11-Judge Constitution Bench ruling in State of Bombay v. Kathi Kalu Oghad (1961), what was held regarding compelling an accused to give handwriting exemplars, thumb impressions, or blood samples?',
+        options: ['It violates Article 20(3) as self-incrimination', 'It does NOT violate Article 20(3) because physical samples do not convey personal testimonial knowledge', 'It is permitted only with prior consent of the President', 'It is totally prohibited under Article 21'],
+        correctIndex: 1,
+        explanation: 'The 11-Judge Bench held that "to be a witness" means imparting personal testimonial knowledge. Furnishing thumb impressions, finger prints, signatures, or physical exhibits does not amount to self-incrimination under Article 20(3).',
+        articleRef: 'Article 20(3)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q8',
+        question: 'In Selvi v. State of Karnataka (2010), the 3-Judge Bench held that the involuntary administration of Narco-Analysis, Polygraph Lie-Detector, and Brain Mapping (BEAP) tests violates:',
+        options: ['Article 20(3) Right against Self-Incrimination and Article 21 Right to Privacy and Mental Autonomy', 'Article 14 equality only', 'Article 19(1)(g) trade rights', 'Medical Council Act only'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court unequivocally ruled that forced neuro-scientific interrogation infringes the right against self-incrimination under Article 20(3) and violates bodily integrity and mental privacy under Article 21.',
+        articleRef: 'Article 20(3) & Article 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q9',
+        question: 'In Nandini Satpathy v. P.L. Dani (1978), the Supreme Court ruled that the protection of Article 20(3) against self-incrimination extends to:',
+        options: ['Only the accused sitting in the witness box during trial', 'The stage of police interrogation and questioning under Section 161 CrPC (now Section 180 BNSS)', 'Only after conviction in High Court', 'Only civil witnesses in partition suits'],
+        correctIndex: 1,
+        explanation: 'Krishna Iyer J held that the shield of Article 20(3) applies not only during courtroom trial, but starts the moment a person is interrogated by police under Section 161 CrPC (Section 180 BNSS). An accused has the right to remain silent when questions have a tendency to expose them to a criminal charge.',
+        articleRef: 'Article 20(3)',
+        difficulty: 'Case Law / Advanced'
+      },
+      {
+        id: 'd4-q10',
+        question: 'Under Article 22(2), an arrested person must be produced before the nearest Magistrate within 24 hours. What period is EXCLUDED from this 24-hour calculation?',
+        options: ['Public holidays and Sundays', 'The time necessary for the journey from the place of arrest to the court of the Magistrate', 'Time spent in medical examination', 'Time spent waiting for the accused\'s lawyer'],
+        correctIndex: 1,
+        explanation: 'Article 22(2) explicitly provides that production must occur within 24 hours "excluding the time necessary for the journey from the place of arrest to the court of the magistrate".',
+        articleRef: 'Article 22(2)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q11',
+        question: 'Under Article 22(3), which two categories of persons are EXCLUDED from the constitutional safeguards of Article 22(1) and 22(2) (written grounds, lawyer, 24-hour production)?',
+        options: ['Government servants and police officers', 'Enemy aliens and persons arrested under any law providing for preventive detention', 'Women and juvenile offenders', 'Foreign tourists and ambassadors'],
+        correctIndex: 1,
+        explanation: 'Article 22(3) states that the protections of clauses (1) and (2) do not apply: (a) to any person who for the time being is an enemy alien; or (b) to any person who is arrested or detained under any law providing for preventive detention.',
+        articleRef: 'Article 22(3)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q12',
+        question: 'Under Article 22(4), what is the maximum period a person can be detained under a Preventive Detention law without obtaining the opinion of an Advisory Board?',
+        options: ['24 hours', '3 months', '6 months', '1 year'],
+        correctIndex: 1,
+        explanation: 'Article 22(4) mandates that no law providing for preventive detention shall authorize detention for a longer period than three months unless an Advisory Board consisting of persons qualified to be High Court judges reports sufficient cause.',
+        articleRef: 'Article 22(4)',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q13',
+        question: 'Under Article 22(5), what are the two constitutional rights guaranteed to a person detained under a Preventive Detention law?',
+        options: ['Right to bail on deposit of bond and right to home food', 'Right to be communicated the grounds of detention as soon as may be, and the earliest opportunity of making a representation against the order', 'Right to a jury trial and right to vote in prison', 'Right to transfer to an open air prison'],
+        correctIndex: 1,
+        explanation: 'Article 22(5) guarantees: (1) communication of grounds on which the detention order was made as soon as may be, and (2) the earliest opportunity to make a representation against the detention order to the government.',
+        articleRef: 'Article 22(5)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q14',
+        question: 'Can the detaining authority refuse to disclose certain facts to a preventive detainee under Article 22(6)?',
+        options: ['No, every single fact must be disclosed under all circumstances', 'Yes, the authority can refuse to disclose facts which it considers against the public interest to disclose', 'Only if the Chief Justice of India permits in writing', 'Only if the detainee is a foreign citizen'],
+        correctIndex: 1,
+        explanation: 'Article 22(6) provides that the detaining authority is not required to disclose facts which such authority considers to be against the public interest to disclose.',
+        articleRef: 'Article 22(6)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q15',
+        question: 'In Arnesh Kumar v. State of Bihar (2014), the Supreme Court held that in all offenses punishable with imprisonment up to 7 years, police officers must:',
+        options: ['Arrest the accused immediately upon registration of FIR', 'Not arrest mechanically, and must issue a notice of appearance under Section 41A CrPC (now Section 35 BNSS)', 'Take approval of the High Court Collegium', 'Mandatorily conduct narco-analysis before arrest'],
+        correctIndex: 1,
+        explanation: 'In Arnesh Kumar (2014), the Supreme Court mandated that for offenses punishable with up to 7 years imprisonment, police must not arrest automatically and must issue notice under Section 41A CrPC (now Section 35 BNSS), recording written reasons for arrest.',
+        articleRef: 'Article 21 & Section 35 BNSS',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q16',
+        question: 'In Satender Kumar Antil v. CBI (2022), the Supreme Court categorized criminal offenses into four categories (A, B, C, D) and issued comprehensive guidelines primarily concerning:',
+        options: ['Capital punishment protocols', 'Bail reforms, compliance with Sections 41/41A CrPC, and minimizing unnecessary undertrial custody', 'Prison manual labor allocation', 'Appointment of Public Prosecutors'],
+        correctIndex: 1,
+        explanation: 'In Satender Kumar Antil (2022), the Supreme Court emphasized that bail is the rule and jail is the exception, categorizing offenses and mandating timely grant of bail without arrest where the accused cooperated with investigation.',
+        articleRef: 'Article 21 & Bail Jurisprudence',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q17',
+        question: 'In D.K. Basu v. State of West Bengal (1997), which of the following is NOT among the mandatory guidelines laid down by the Supreme Court on arrest?',
+        options: ['Police personnel carrying out arrest must bear accurate, visible identification and name tags', 'An arrest memo must be prepared at the time of arrest and signed by at least one witness', 'The arrested person must be medically examined by a trained doctor every 48 hours in custody', 'The arrested person can be subjected to third-degree interrogation if the offense is terrorism'],
+        correctIndex: 3,
+        explanation: 'D.K. Basu strictly prohibited custodial torture and third-degree methods. Custodial violence was held to be a flagrant assault on human dignity under Article 21.',
+        articleRef: 'Articles 21 & 22',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd4-q18',
+        question: 'In Rekha v. State of Tamil Nadu (2011), the Supreme Court held that preventive detention is an extraordinary power and can only be justified if:',
+        options: ['The ordinary penal law of the land is completely insufficient to deal with the situation', 'The accused is an affluent politician', 'The police cannot find witnesses to testify', 'The offense is bailable'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court ruled that preventive detention is a draconian encroachment on Article 21 and cannot be used as an easy substitute for ordinary criminal investigation under CrPC/BNSS.',
+        articleRef: 'Article 21 & Article 22',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q19',
+        question: 'Under Section 187 of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 (former Section 167 CrPC), what is the maximum period of police custody that can be sought across the initial 40 or 60 days of detention?',
+        options: ['15 days in whole or in parts', '30 days continuously', '45 days with magistrate permission', 'Unlimited at the discretion of the Investigating Officer'],
+        correctIndex: 0,
+        explanation: 'Section 187 BNSS allows the 15-day police custody to be taken in whole or in parts during the initial 40 or 60 days of the total detention period, modifying the rigid 15-day initial window in former CrPC.',
+        articleRef: 'Article 22 & Section 187 BNSS',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd4-q20',
+        question: 'What is the constitutional consequence if an arrested person is not produced before a Magistrate within 24 hours of arrest under Article 22(2)?',
+        options: ['The detention becomes illegal and the detainee is entitled to immediate release through a writ of Habeas Corpus', 'The police officer is promoted automatically', 'The case is automatically transferred to the Supreme Court', 'The trial is completed in summary manner'],
+        correctIndex: 0,
+        explanation: 'Detention beyond 24 hours without the authorization of a Magistrate is an unlawful confinement violating Article 21 and Article 22(2), entitling the person to immediate release upon filing a Habeas Corpus petition under Article 226 or 32.',
+        articleRef: 'Article 22(2) & Article 32',
+        difficulty: 'Foundational'
+      }
+    ]
+  },
+
+  // ==========================================
+  // DAY 5: LIFE, LIBERTY, SHELTER & UNTOUCHABILITY
+  // ==========================================
+  {
+    dayNumber: 5,
+    title: 'Life, Liberty, Shelter & Untouchability (Articles 21, 21A, 17, 23)',
+    subtitle: 'Golden Triangle, Anti-Bulldozer Guidelines (2024), Prison Labor Abolition (2024) & Climate Rights (2024)',
+    phase: 'Phase 1: Foundational Pillars & Core Rights',
+    estimatedHours: 6,
+    targetArticles: ['Article 21', 'Article 21A', 'Article 17', 'Article 23', 'Article 24', 'Article 300A'],
+    overview: 'Day 5 investigates the most expansive right in the Indian Constitution: Article 21 Right to Life and Personal Liberty, the Golden Triangle (Articles 14, 19, 21), the 2024 pan-India anti-demolition guidelines ("Bulldozer Justice"), abolition of caste discrimination in prisons under Sukanya Shantha (2024), climate constitutionalism in M.K. Ranjitsinh (2024), and the prohibition of human trafficking and forced labor under Article 23.',
+    coreConcepts: [
+      {
+        heading: 'The Metamorphosis of Article 21 & The Golden Triangle',
+        articleAnchor: 'Article 21',
+        synopsis: 'From the narrow, literal "procedure established by law" in A.K. Gopalan (1950) to the expansive substantive due process in Maneka Gandhi (1978). Article 21 cannot be read in isolation; it must satisfy Articles 14 and 19 (The Golden Triangle).',
+        substantiveLaw: [
+          'A.K. Gopalan (1950): Watertight compartment theory rejected. Held that "procedure established by law" meant any enacted law, however harsh.',
+          'Maneka Gandhi (1978 7-Judge Bench): Overruled Gopalan. Procedure depriving personal liberty must be "just, fair, and reasonable", and not fanciful, oppressive, or arbitrary.',
+          'Expanded Facets of Article 21: Right to privacy (Puttaswamy 2017), right to clean environment (M.C. Mehta 1987), right against adverse climate change (M.K. Ranjitsinh 2024), right to medical care (Parmanand Katara 1989), right to speedy trial (Hussainara Khatoon 1979), right to legal aid (M.H. Hoskot 1978).'
+        ],
+        prosecutionAngle: 'Prosecuting officers must ensure that all procedural steps in investigation, seizure, and remand comply with fairness and natural justice to avoid evidence exclusion.'
+      },
+      {
+        heading: 'Right to Shelter & Anti-Demolition Guidelines (Nov 2024)',
+        articleAnchor: 'Articles 21, 14, 300A',
+        synopsis: 'The Supreme Court in November 2024 dealt a decisive blow to executive punitive demolitions ("Bulldozer Justice"), anchoring the Right to Shelter in Article 21 and the doctrine of separation of powers.',
+        substantiveLaw: [
+          'Olga Tellis (1985 5-Judge Bench): Right to life includes the right to livelihood and shelter; summary demolition without notice violates Article 21.',
+          'In re: Demolition of Structures (Bulldozer Guidelines, Nov 2024 2-Judge Bench, Gavai & Viswanathan JJ): Condemned punitive demolitions as unconstitutional executive overreach. The executive cannot act as judge and punitively demolish properties of an accused or convict.',
+          'Mandatory Pan-India Guidelines: (1) Minimum 15 days show-cause notice registered by speed post and pasted on premises; (2) Personal hearing before quasi-judicial authority; (3) Digital portal with municipal records; (4) Mandatory videography of demolition; (5) Erring officials held personally liable for restitution and contempt.'
+        ],
+        prosecutionAngle: 'A top-tier 2024 precedent: distinguishes candidates who know the latest administrative law constraints on state police and municipal machinery.'
+      },
+      {
+        heading: 'Abolition of Untouchability & Prison Labor Segregation (Oct 2024)',
+        articleAnchor: 'Articles 17, 15, 23, 21',
+        synopsis: 'In October 2024, a 3-Judge Bench in Sukanya Shantha v. Union of India struck down caste-based division of labor and segregation in State Prison Manuals.',
+        substantiveLaw: [
+          'Article 17 completely abolishes "Untouchability". Article 23 prohibits "begar" and other forced labor.',
+          'PUDR v. Union of India (Asiad Workers 1982): Taking labor under economic compulsion or below minimum wages constitutes prohibited "forced labor" under Article 23.',
+          'Sukanya Shantha v. Union of India (Oct 2024 CJI Chandrachud): Struck down prison manual rules in UP, Rajasthan, MP, and WB allocating latrine cleaning/sweeping to lower castes and cooking to upper castes. Held: assigning menial labor on caste lines is a direct manifestation of Untouchability (Art 17) and forced labor (Art 23).'
+        ],
+        prosecutionAngle: 'Directly impacts prison administration, jail inspection by judicial magistrates, and human rights oversight of correctional homes.'
+      }
+    ],
+    landmarkEvolutionPairs: [
+      {
+        subject: 'Right to Shelter & Anti-Demolition Due Process',
+        classicCase: {
+          name: 'Olga Tellis v. Bombay Municipal Corporation',
+          year: 1985,
+          bench: '5-Judge Bench (Y.V. Chandrachud CJI)',
+          ratio: 'Held that Right to Life includes Right to Livelihood and Shelter. Pavement dwellers cannot be evicted without procedural natural justice.'
+        },
+        modernCase: {
+          name: 'In re: Directions in Demolition of Structures (Bulldozer Guidelines)',
+          year: 2024,
+          bench: '2-Judge Bench (Gavai & Viswanathan JJ)',
+          ratio: 'Outlawed punitive demolitions of accused persons\' homes. Mandated 15-day notice, hearing, and personal restitution liability on erring officers under Article 21 & 300A.'
+        },
+        examApplicationNote: 'Pair Olga Tellis (1985) directly with the 2024 Bulldozer Guidelines when answering any question on Article 21, shelter, or separation of powers.'
+      }
+    ],
+    dictionaryTerms: [
+      'Right to Shelter', 'Procedure Established by Law', 'Due Process of Law', 'Untouchability', 'Begar',
+      'Forced Labor', 'Golden Triangle', 'Absolute Liability', 'Strict Liability', 'Public Trust Doctrine',
+      'Precautionary Principle', 'Polluter Pays Principle', 'Custodial Torture', 'Speedy Trial', 'Free Legal Aid'
+    ],
+    svgConceptType: 'due-process-flow',
+    caseStudy: {
+      title: 'Punitive Demolition of Accused\'s Residential Dwelling',
+      factualMatrix: 'Following a communal altercation in an industrial town, an FIR was registered against Mr. K for alleged rioting and assault under Section 191(2) BNS. Within 24 hours of the FIR registration, the Municipal Commissioner, accompanied by heavy police reinforcement and bulldozers, arrived at Mr. K\'s two-story ancestral home where his elderly parents, wife, and minor children resided. The Commissioner pasted a back-dated notice on the outer gate alleging that the ground floor porch was an unauthorized building encroachment, gave the family 30 minutes to vacate their personal belongings, and razed the entire two-story house to the ground while the local police prevented the family from filming the demolition. When Mr. K\'s wife challenged the demolition before the High Court seeking compensation and prosecution of the officials, the Municipal Corporation argued that: (1) The structure had violated municipal building bylaws; and (2) Municipal Acts authorize summary removal of encroachments on public notice without lengthy court hearings.',
+      framingQuestions: [
+        '1. Can the State or municipal authorities punitively demolish the residential home of an individual merely because he is accused of a crime?',
+        '2. Does summary administrative demolition without 15-day notice and hearing violate the binding guidelines laid down in In re: Demolition of Structures (Bulldozer Guidelines, Nov 2024)?',
+        '3. Can the High Court order personal financial restitution and disciplinary action against the erring Municipal Commissioner and police officers?'
+      ],
+      statutoryApplicability: ['Article 21', 'Article 14', 'Article 300A', 'Olga Tellis (1985)', 'In re Demolition of Structures (Nov 2024)'],
+      modelAnswer: '1. UNCONSTITUTIONALITY OF PUNITIVE DEMOLITIONS: In In re: Directions in the Matter of Demolition of Structures (Bulldozer Justice Guidelines, Nov 2024), a Division Bench of the Supreme Court held that the executive branch cannot usurp the judicial function of adjudicating guilt and punishment. An accused is presumed innocent until proven guilty by a competent court of law. Demolishing the home of an accused or convict as a punitive measure violates the Separation of Powers, Rule of Law, and the Right to Shelter guaranteed under Article 21.\n\n2. VIOLATION OF BINDING PAN-INDIA GUIDELINES: The Supreme Court laid down mandatory guidelines that govern all municipal and state authorities: (a) No demolition can be carried out without giving a minimum 15 days prior show-cause notice sent by registered post and pasted on the property; (b) The notice must specify the exact nature of unauthorized construction and grounds for demolition; (c) The noticee must be given a personal hearing before a designated appellate authority; (d) All proceedings must be video-recorded and uploaded onto a digital portal. Pasting a 30-minute notice to raze a full two-story ancestral home is a brazen, criminal contempt of the Supreme Court mandate.\n\n3. PERSONAL RESTITUTION & OFFICIAL ACCOUNTABILITY: The Supreme Court explicitly held that whenever a property is demolished in violation of the guidelines, the erring municipal and police officers shall be held PERSONALLY liable to pay for the complete reconstruction of the demolished structure and restitution of damages from their own pockets, in addition to disciplinary proceedings and contempt of court. The High Court will direct the State to reconstruct the house at the personal cost of the Municipal Commissioner and award exemplary compensation.',
+      markingRubric: [
+        { criterion: 'Application of In re: Demolition of Structures (Nov 2024) and separation of powers', marks: 4 },
+        { criterion: 'Identification of procedural violations (15-day notice, hearing, videography)', marks: 3 },
+        { criterion: 'Personal financial liability and restitution on erring executive officers', marks: 3 }
+      ]
+    },
+    mcqs: [
+      {
+        id: 'd5-q1',
+        question: 'In the landmark judgment on "Bulldozer Justice" (In re: Directions in the Matter of Demolition of Structures, Nov 2024), what minimum notice period did the Supreme Court mandate before any demolition of unauthorized construction can take place?',
+        options: ['24 hours', '7 days', '15 days', '30 days'],
+        correctIndex: 2,
+        explanation: 'In the November 2024 judgment, the Supreme Court laid down mandatory pan-India guidelines requiring a minimum of 15 days prior show-cause notice sent by registered post and pasted on the structure before any demolition can be executed.',
+        articleRef: 'Article 21 & Article 300A',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q2',
+        question: 'Under the November 2024 Bulldozer Guidelines ruling, what liability did the Supreme Court impose on public officials who carry out illegal demolitions in violation of due process?',
+        options: ['Only verbal reprimand from the High Court', 'Personal financial liability to reconstruct the property and pay restitution damages from their own pockets', 'Transfer to another district', 'Complete sovereign immunity from tortious damages'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court ruled that erring officials will not hide behind state immunity; they will be held personally liable for restitution, cost of reconstruction, and face departmental inquiry and contempt of court.',
+        articleRef: 'Article 21 & Rule of Law',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q3',
+        question: 'In Sukanya Shantha v. Union of India (October 2024), the Supreme Court struck down provisions in State Prison Manuals that allocated prison labor and barracks based on:',
+        options: ['Educational qualifications', 'Caste hierarchy (assigning lower castes to clean latrines/sweep and upper castes to cook)', 'Age of the prisoner', 'Physical medical fitness'],
+        correctIndex: 1,
+        explanation: 'CJI Chandrachud held that assigning menial work like latrine cleaning to Dalits and cooking to upper castes violates Article 17 (Untouchability), Article 15 (caste discrimination), Article 21 (human dignity), and Article 23 (forced labor).',
+        articleRef: 'Articles 14, 15, 17, 21, 23',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q4',
+        question: 'In M.K. Ranjitsinh v. Union of India (March 2024), the 3-Judge Bench headed by CJI Chandrachud recognized which right as an independent Fundamental Right under Articles 14 and 21?',
+        options: ['Right to uninterrupted 5G internet', 'Right to be protected against the adverse impacts of climate change', 'Right to free air travel for indigenous tribes', 'Right to private possession of wildlife species'],
+        correctIndex: 1,
+        explanation: 'In M.K. Ranjitsinh (March 2024 Great Indian Bustard Case), the Supreme Court recognized the Right against the adverse impacts of climate change as an integral facet of the Right to Life (Article 21) and Equality (Article 14).',
+        articleRef: 'Articles 14 & 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q5',
+        question: 'In Maneka Gandhi v. Union of India (1978), the Supreme Court overruled A.K. Gopalan (1950) and established that the "Golden Triangle" consists of which three interconnected Articles?',
+        options: ['Articles 12, 13, and 14', 'Articles 14, 19, and 21', 'Articles 19, 21, and 32', 'Articles 20, 21, and 22'],
+        correctIndex: 1,
+        explanation: 'The Golden Triangle connects Article 14 (Equality), Article 19 (Fundamental Freedoms), and Article 21 (Life and Personal Liberty). Any law depriving personal liberty must pass the tests of all three articles simultaneously.',
+        articleRef: 'Articles 14, 19, 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q6',
+        question: 'In Justice K.S. Puttaswamy (Retd.) v. Union of India (2017), the 9-Judge Constitution Bench unanimously held that the Right to Privacy is protected under which constitutional provision?',
+        options: ['As an intrinsic part of the Right to Life and Personal Liberty under Article 21 and the freedoms guaranteed by Part III', 'Only under Article 19(1)(d)', 'Only as a non-justiciable Directive Principle under Article 39A', 'Under Article 300A property rights'],
+        correctIndex: 0,
+        explanation: 'All 9 judges unanimously held that the Right to Privacy is a fundamental right that emanates from the guarantee of life and personal liberty in Article 21 and Part III of the Constitution.',
+        articleRef: 'Article 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q7',
+        question: 'In Olga Tellis v. Bombay Municipal Corporation (1985), what did the Constitution Bench rule regarding the relationship between the Right to Life and the Right to Livelihood?',
+        options: ['Livelihood has no connection with Article 21', 'The Right to Livelihood is an inseparable facet of the Right to Life under Article 21, because no person can live without the means of living', 'Livelihood is only a contractual right governed by labor laws', 'Livelihood is protected only for organized union workers'],
+        correctIndex: 1,
+        explanation: 'Y.V. Chandrachud CJI held: "An important facet of that right is the right to livelihood because, no person can live without the means of living... If the right to livelihood is not treated as a part of the constitutional right to life, the easiest way of depriving a person of his life would be to deprive him of his means of livelihood."',
+        articleRef: 'Article 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q8',
+        question: 'In People\'s Union for Democratic Rights (PUDR) v. Union of India (Asiad Workers Case, 1982), what interpretation was given to the word "force" under Article 23?',
+        options: ['"Force" is restricted to physical violence or chains only', '"Force" includes economic compulsion that forces a person to work for wages lower than the statutory minimum wage', '"Force" only applies to military recruitment', '"Force" does not include contractual employment'],
+        correctIndex: 1,
+        explanation: 'Bhagwati J held that where a person provides labor to another for remuneration which is less than the minimum wage, the labor provided by him clearly falls within the scope of "forced labor" prohibited by Article 23.',
+        articleRef: 'Article 23',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q9',
+        question: 'Which constitutional provision makes the Right to Free and Compulsory Education for all children aged 6 to 14 years a Fundamental Right?',
+        options: ['Article 21', 'Article 21A', 'Article 45', 'Article 51A(k)'],
+        correctIndex: 1,
+        explanation: 'Article 21A was inserted by the 86th Constitutional Amendment Act, 2002, guaranteeing free and compulsory education to all children aged 6 to 14 years.',
+        articleRef: 'Article 21A',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q10',
+        question: 'Under Article 24 of the Constitution, no child below which age shall be employed to work in any factory or mine or engaged in any other hazardous employment?',
+        options: ['12 years', '14 years', '16 years', '18 years'],
+        correctIndex: 1,
+        explanation: 'Article 24 provides: "No child below the age of fourteen years shall be employed to work in any factory or mine or engaged in any other hazardous employment."',
+        articleRef: 'Article 24',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q11',
+        question: 'In Common Cause v. Union of India (2018), what did the 5-Judge Constitution Bench hold regarding the Right to Die with Dignity and Passive Euthanasia under Article 21?',
+        options: ['Euthanasia in any form is murder under Section 302 IPC', 'The Right to Life with dignity under Article 21 includes the Right to Die with Dignity, and recognized the legal validity of Living Wills / Advance Medical Directives for passive euthanasia', 'Active euthanasia by lethal injection was fully legalized', 'Only high court judges can authorize medical treatment termination'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court recognized that the Right to Life under Article 21 includes the right to a dignified death, permitting passive euthanasia and legalizing Advance Medical Directives (Living Wills).',
+        articleRef: 'Article 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q12',
+        question: 'In Navtej Singh Johar v. Union of India (2018), the 5-Judge Constitution Bench decriminalized consensual same-sex adult sexual acts by reading down Section 377 IPC primarily under which Articles?',
+        options: ['Articles 14, 15, 19, and 21 (Dignity, Autonomy, and Identity)', 'Article 25 freedom of religion only', 'Article 300A property rights', 'Article 32 remedies only'],
+        correctIndex: 0,
+        explanation: 'The Supreme Court unanimously held that Section 377 IPC, insofar as it criminalized consensual homosexual sex between adults, violated Articles 14, 15, 19(1)(a), and 21 (right to dignity, privacy, and personal autonomy).',
+        articleRef: 'Articles 14, 15, 19, 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q13',
+        question: 'In M.C. Mehta v. Union of India (Oleum Gas Leak Case, 1987), the Supreme Court evolved which revolutionary doctrine of environmental and tortious liability?',
+        options: ['Strict Liability subject to Rylands v. Fletcher exceptions', 'Absolute Liability where an enterprise engaged in a hazardous industry is strictly and absolutely liable with NO exceptions', 'Negligence liability based on Roman law', 'Vicarious liability of company shareholders'],
+        correctIndex: 1,
+        explanation: 'P.N. Bhagwati CJI formulated the Doctrine of Absolute Liability, holding that an enterprise carrying on a hazardous or inherently dangerous activity owes an absolute, non-delegable duty to the community, subject to no exceptions.',
+        articleRef: 'Article 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q14',
+        question: 'In Parmanand Katara v. Union of India (1989), what did the Supreme Court hold regarding the duty of doctors in medical emergencies vis-a-vis Article 21?',
+        options: ['Doctors must wait for the police to register an FIR before treating injured victims', 'Every doctor, whether in government or private hospital, has a professional and constitutional obligation under Article 21 to treat injured persons immediately without waiting for police formalities', 'Treatment can only be given if family members deposit fees', 'Private doctors are exempt from medical emergency duties'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court held that preservation of human life is of paramount importance under Article 21, and doctors must render immediate medical aid to injured accident victims without waiting for police procedural clearance.',
+        articleRef: 'Article 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q15',
+        question: 'In Hussainara Khatoon v. Home Secretary, State of Bihar (1979), the Supreme Court recognized which right as an integral facet of Article 21, leading to the release of thousands of undertrial prisoners?',
+        options: ['Right to free air travel', 'Right to Speedy Trial', 'Right to conjugal visits in jail', 'Right to contest elections from prison'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court ruled that the Right to a Speedy Trial is a fundamental right implicit in the guarantee of life and personal liberty under Article 21, condemning prolonged undertrial incarceration.',
+        articleRef: 'Article 21',
+        difficulty: 'Foundational'
+      },
+      {
+        id: 'd5-q16',
+        question: 'In M.H. Hoskot v. State of Maharashtra (1978), the Supreme Court derived which constitutional entitlement from Article 21 read with Article 39A?',
+        options: ['Right to free legal aid to an indigent accused at state expense', 'Right to choose any private Senior Advocate on state fees', 'Right to pardon without trial', 'Right to compensation for trial delay'],
+        correctIndex: 0,
+        explanation: 'Krishna Iyer J held that providing free legal services to an indigent prisoner who is unable to engage a lawyer is an imperative constitutional requirement flowing from Article 21 and Article 39A.',
+        articleRef: 'Article 21 & Article 39A',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q17',
+        question: 'Does the State possess the power under Article 23(2) to impose compulsory service for public purposes (such as military conscription or social service)?',
+        options: ['No, all compulsory service is unconstitutional begar', 'Yes, Article 23(2) explicitly allows compulsory service for public purposes, provided the State does not discriminate on grounds only of religion, race, caste, or class', 'Only with approval of the International Labour Organization (ILO)', 'Only during financial emergency under Article 360'],
+        correctIndex: 1,
+        explanation: 'Article 23(2) provides that nothing in Article 23 shall prevent the State from imposing compulsory service for public purposes, provided there is no discrimination on grounds only of religion, race, caste or class or any of them.',
+        articleRef: 'Article 23(2)',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q18',
+        question: 'In Gian Kaur v. State of Punjab (1996), the 5-Judge Constitution Bench overruled P. Rathinam (1994) and held that:',
+        options: ['The Right to Life under Article 21 includes the right to commit suicide', 'The Right to Life does NOT include the right to die or right to be killed; suicide is an extinction of life, not part of life', 'Attempt to suicide is a fundamental right', 'Euthanasia is permitted for all terminally ill infants'],
+        correctIndex: 1,
+        explanation: 'The Constitution Bench held that Article 21 guarantees the right to live with human dignity up to the natural end of life, and does not include the unnatural extinction of life by suicide.',
+        articleRef: 'Article 21',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q19',
+        question: 'In Nilabati Behera v. State of Orissa (1993), what constitutional remedy was awarded by the Supreme Court under Article 32 for custodial death?',
+        options: ['Only an order transferring the police officer', 'Monetary compensation under public law for violation of Article 21, which is independent of private tort claims', 'A direction to the Assembly to pass a new law', 'No compensation can be awarded by writ courts'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court established the public law doctrine of strict liability for state violation of Article 21, awarding monetary compensation for custodial death independent of civil tort suits.',
+        articleRef: 'Article 21 & Article 32',
+        difficulty: 'Intermediate'
+      },
+      {
+        id: 'd5-q20',
+        question: 'In Chameli Singh v. State of U.P. (1996), the Supreme Court held that the Right to Shelter under Article 21 means:',
+        options: ['A mere animal roof over head', 'Adequate living space, safe construction, clean surroundings, and social infrastructure for civilized human development', 'Free five-star accommodation for all citizens', 'Only temporary canvas tents provided by municipalities'],
+        correctIndex: 1,
+        explanation: 'The Supreme Court ruled that shelter for a human being is not mere animal existence, but encompasses a home with adequate living space, clean surroundings, light, water, and sanitation for human dignity.',
+        articleRef: 'Article 21',
+        difficulty: 'Intermediate'
+      }
+    ]
+  }
+];
