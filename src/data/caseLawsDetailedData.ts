@@ -33,7 +33,7 @@ export const DETAILED_CASE_LAWS_BY_TOPIC: CaseLawTopicGroup[] = [
   {
     id: 'preamble-identity',
     name: 'Preamble & Sovereign Identity',
-    articlesRange: 'Preamble, Articles 1–4',
+    articlesRange: 'Preamble, Articles 1–4, 370',
     description: 'Foundational jurisprudence interpreting the legal status of the Preamble, secularism, socialism, and national sovereignty.',
     iconName: 'BookOpen',
     color: '#38bdf8',
@@ -128,6 +128,25 @@ export const DETAILED_CASE_LAWS_BY_TOPIC: CaseLawTopicGroup[] = [
         ratioDecidendi: 'The Preamble is an integral part of the Constitution and, while non-justiciable as an independent cause of action on its own, it animates and gives substantive teeth to Fundamental Rights under Articles 14 and 21.',
         howCourtsApplyToday: 'Regularly cited in consumer protection, public procurement, welfare schemes, and social security litigations to enforce egalitarian public duty.',
         keyQuote: '"Socio-economic justice in the Preamble is the arch of the Constitution to ensure life with dignity under Article 21."'
+      },
+      {
+        id: 'case-art-370-abrogation',
+        topicId: 'preamble-identity',
+        topicName: 'Preamble & Sovereign Identity',
+        caseName: 'In re: Article 370 of the Constitution (Abrogation & Sovereignty Bench)',
+        citation: '2023 INSC 1058; (2024) 4 SCC 1',
+        year: 2023,
+        benchStrength: 5,
+        presidingJudges: 'D.Y. Chandrachud (CJI), Sanjay Kishan Kaul, Sanjiv Khanna, B.R. Gavai, Surya Kant JJ (Unanimous)',
+        constitutionalArticles: ['Article 370', 'Article 1', 'Article 3', 'Article 356', 'Article 367'],
+        governingDoctrine: 'Constitutional Integration, Union Sovereignty & Asymmetric Federalism',
+        factualBackground: 'On 5-6 August 2019, the President issued Constitutional Orders C.O. 272 and C.O. 273, declaring Article 370 inoperative and extending the entire Constitution of India to Jammu & Kashmir. Concurrently, Parliament passed the J&K Reorganisation Act, 2019, bifurcating the State into the Union Territory of Jammu & Kashmir and Union Territory of Ladakh. Petitions challenged these orders as destroying asymmetric federalism and bypassing the J&K Constituent Assembly.',
+        constitutionalQuestion: 'Did Jammu & Kashmir retain internal sovereignty after accession to India? Was Article 370 temporary or permanent? Could the President declare Article 370 inoperative under Article 370(3) after the dissolution of the J&K Constituent Assembly?',
+        majorityVerdict: 'Unanimously (5–0) upheld the cessation of Article 370. Confirmed that J&K retained no sovereignty upon accession; Article 370 was explicitly temporary; the President possessed continuous competence under Article 370(3); upheld the creation of the UT of Ladakh; and directed Assembly elections in J&K by September 30, 2024.',
+        ratioDecidendi: 'Article 370 was a transitional provision designed to facilitate constitutional integration, not to establish permanent asymmetric sovereignty. The Instrument of Accession unconditionally transferred external sovereignty, and with the proclamation of the Constitution of India, all internal sovereignty was surrendered. The Presidential power under Article 370(3) survived the dissolution of the State Constituent Assembly.',
+        notableDissent: 'Unanimous judgment. Justice Sanjay Kishan Kaul authored a historic concurring epilogue recommending an impartial "Truth and Reconciliation Commission" to address generational human rights violations and heal trauma in Jammu & Kashmir.',
+        howCourtsApplyToday: 'The paramount constitutional authority on national sovereignty, federal integration, and the applicability of the Constitution of India throughout Jammu & Kashmir. For Prosecuting Officers, it anchors the repeal of the Ranbir Penal Code (RPC) and the total enforcement of the Bharatiya Nyaya Sanhita (BNS), BNSS, and BSA in J&K.',
+        keyQuote: '"The State of Jammu and Kashmir did not retain an element of sovereignty when it joined the Union of India... Article 370 was introduced as a transitional provision to facilitate the integration of Jammu and Kashmir into the Union."'
       }
     ]
   },
