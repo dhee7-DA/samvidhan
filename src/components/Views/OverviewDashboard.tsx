@@ -43,16 +43,16 @@ export const OverviewDashboard: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
           <button
             onClick={() => setActiveTab('bootcamp')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 text-white font-mono text-xs font-bold hover:brightness-110 transition-all shadow-md"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bootcamp-btn-bg)] text-[var(--bootcamp-btn-text)] font-mono text-xs font-bold hover:opacity-90 transition-all shadow-md"
           >
-            <Flame className="w-4 h-4 text-amber-200" />
-            <span>15-DAY PO BOOTCAMP (300 MCQs)</span>
+            <Flame className="w-4 h-4 opacity-90" />
+            <span>15-DAY PO BOOTCAMP (3,000 MCQs)</span>
           </button>
           <button
             onClick={() => setActiveTab('pyqs')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
           >
-            <FileText className="w-4 h-4 text-emerald-400" />
+            <FileText className="w-4 h-4 text-[var(--emerald)]" />
             <span>J&K MAINS PYQs (10 YEARS)</span>
           </button>
           <button
@@ -90,14 +90,14 @@ export const OverviewDashboard: React.FC = () => {
       </section>
 
       {/* 15-Day Fast-Track Bootcamp Feature Card */}
-      <section className="p-6 rounded-2xl bg-gradient-to-br from-[var(--bg-surface-elevated)] via-[var(--bg-surface)] to-[var(--bg-surface-elevated)] border-2 border-amber-500/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <section className="p-6 rounded-2xl bg-gradient-to-br from-[var(--bg-surface-elevated)] via-[var(--bg-surface)] to-[var(--bg-surface-elevated)] border-2 border-[var(--bootcamp-accent-border)] shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-start gap-4">
-          <div className="p-3.5 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-400 shrink-0">
+          <div className="p-3.5 rounded-2xl bg-[var(--bootcamp-accent-subtle)] border border-[var(--bootcamp-accent-border)] text-[var(--bootcamp-accent-text)] shrink-0">
             <Flame className="w-8 h-8" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono px-2 py-0.5 rounded font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+              <span className="text-xs font-mono px-2 py-0.5 rounded font-bold bg-[var(--bootcamp-accent-subtle)] text-[var(--bootcamp-accent-text)] border border-[var(--bootcamp-accent-border)]">
                 15-DAY INTENSIVE REVISION
               </span>
               <span className="text-xs font-mono text-[var(--text-muted)]">
@@ -108,14 +108,14 @@ export const OverviewDashboard: React.FC = () => {
               15-Day Constitutional Law Preparation Bootcamp
             </h3>
             <p className="text-sm text-[var(--text-secondary)] max-w-2xl">
-              Daily time-table, 300 rigorous MCQs with statutory explanations, 15 courtroom case studies (Mains format), landmark-to-2024 evolution pairs, vector SVGs, and an interactive consistency heatmap with persistent tracking.
+              Daily time-table, 3,000 rigorous MCQs with statutory explanations, 150 courtroom case studies (Mains format), landmark-to-2024 evolution pairs, vector SVGs, and an interactive consistency heatmap with persistent tracking.
             </p>
           </div>
         </div>
 
         <button
           onClick={() => setActiveTab('bootcamp')}
-          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-mono text-xs font-bold transition-all shadow-lg shrink-0"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--bootcamp-btn-bg)] hover:opacity-90 text-[var(--bootcamp-btn-text)] font-mono text-xs font-bold transition-all shadow-lg shrink-0"
         >
           <span>LAUNCH 15-DAY TRACKER</span>
           <ArrowRight className="w-4 h-4" />

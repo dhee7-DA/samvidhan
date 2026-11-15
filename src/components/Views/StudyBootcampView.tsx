@@ -674,9 +674,9 @@ export const StudyBootcampView: React.FC = () => {
           <div className="flex items-center gap-3 text-xs text-[var(--text-muted)]">
             <span>Progress Scale:</span>
             <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[var(--bg-base)] border border-[var(--border-subtle)]" /> 0%</span>
-            <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-amber-500/30 border border-amber-500/50" /> 20–60%</span>
-            <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-cyan-500/40 border border-cyan-400" /> 80%</span>
-            <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-emerald-500 border border-emerald-400" /> 100%</span>
+            <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[var(--bootcamp-accent-subtle)] border border-[var(--bootcamp-accent-border)]" /> 20–60%</span>
+            <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[var(--info-bg)] border border-[var(--info-border)]" /> 80%</span>
+            <span className="inline-flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[var(--success-bg)] border border-[var(--success-border)]" /> 100%</span>
           </div>
         </div>
 
@@ -687,15 +687,15 @@ export const StudyBootcampView: React.FC = () => {
             const tasksDone = p ? Object.values(p.tasks).filter(Boolean).length : 0;
             const isSelected = day.dayNumber === selectedDayNumber;
 
-            let bgClass = 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
+            let bgClass = 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent)]';
             if (tasksDone === 5) {
-              bgClass = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-sm shadow-emerald-500/20 font-bold';
+              bgClass = 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] shadow-sm font-bold';
             } else if (tasksDone >= 4) {
-              bgClass = 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-semibold';
+              bgClass = 'bg-[var(--info-bg)] border-[var(--info-border)] text-[var(--info-text)] font-semibold';
             } else if (tasksDone >= 2) {
-              bgClass = 'bg-amber-500/20 border-amber-400/60 text-amber-300 font-medium';
+              bgClass = 'bg-[var(--bootcamp-accent-subtle)] border-[var(--bootcamp-accent-border)] text-[var(--bootcamp-accent-text)] font-medium';
             } else if (tasksDone === 1) {
-              bgClass = 'bg-[var(--accent-primary)]/10 border-[var(--accent-primary)]/30 text-[var(--accent-primary)]';
+              bgClass = 'bg-[var(--accent-subtle)] border-[var(--accent)]/30 text-[var(--text-primary)]';
             }
 
             return (
@@ -744,7 +744,7 @@ export const StudyBootcampView: React.FC = () => {
               <span className="text-xs text-[var(--text-muted)] font-medium">
                 {currentDay.phase}
               </span>
-              <span className="inline-flex items-center gap-1 text-xs text-amber-400">
+              <span className="inline-flex items-center gap-1 text-xs text-[var(--bootcamp-accent-text)] font-medium">
                 <Clock className="w-3 h-3" /> ~{currentDay.estimatedHours} hrs study
               </span>
             </div>
@@ -764,7 +764,7 @@ export const StudyBootcampView: React.FC = () => {
                 onClick={() => setViewLayout('tabs')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
                   viewLayout === 'tabs'
-                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -775,7 +775,7 @@ export const StudyBootcampView: React.FC = () => {
                 onClick={() => setViewLayout('all-in-one')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
                   viewLayout === 'all-in-one'
-                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -854,7 +854,7 @@ export const StudyBootcampView: React.FC = () => {
 
             {/* 2. Primary Vector Blueprint in Visual Lab */}
             <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-cyan-400">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--info-text)]">
                 <Eye className="w-3.5 h-3.5" />
                 <span>Vector Blueprint:</span>
               </div>
@@ -863,14 +863,14 @@ export const StudyBootcampView: React.FC = () => {
                   setSelectedSvgId(currentDayLinks.primarySvg.id);
                   setActiveTab('visual-lab');
                 }}
-                className="w-full p-2.5 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-cyan-500/10 border border-[var(--border-subtle)] hover:border-cyan-400/50 transition-all flex items-start justify-between group"
+                className="w-full p-2.5 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-[var(--info-bg)] border border-[var(--border-subtle)] hover:border-[var(--info-border)] transition-all flex items-start justify-between group"
               >
                 <div>
                   <span className="font-bold text-[var(--text-primary)] block">{currentDayLinks.primarySvg.title}</span>
                   <span className="text-[10px] text-[var(--text-muted)] block mt-0.5">{currentDayLinks.primarySvg.category}</span>
-                  <span className="text-[10px] text-cyan-400/80 block font-mono mt-1">{currentDayLinks.primarySvg.articles}</span>
+                  <span className="text-[10px] text-[var(--info-text)] block font-mono mt-1">{currentDayLinks.primarySvg.articles}</span>
                 </div>
-                <ExternalLink className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-cyan-400 shrink-0 ml-1.5 mt-0.5" />
+                <ExternalLink className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--info-text)] shrink-0 ml-1.5 mt-0.5" />
               </button>
               <button
                 onClick={() => setActiveTab('articles-master')}
@@ -883,7 +883,7 @@ export const StudyBootcampView: React.FC = () => {
 
             {/* 3. Doctrines Hub & Key Rulings */}
             <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--bootcamp-accent-text)]">
                 <Scale className="w-3.5 h-3.5" />
                 <span>Doctrines & Precedents:</span>
               </div>
@@ -892,19 +892,19 @@ export const StudyBootcampView: React.FC = () => {
                   <button
                     key={doc.id}
                     onClick={() => setActiveTab('doctrines')}
-                    className="p-2 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-amber-500/10 border border-[var(--border-subtle)] hover:border-amber-400/40 transition-all flex items-center justify-between group"
+                    className="p-2 rounded-lg text-left text-xs bg-[var(--bg-card)] hover:bg-[var(--bootcamp-accent-subtle)] border border-[var(--border-subtle)] hover:border-[var(--bootcamp-accent-border)] transition-all flex items-center justify-between group"
                   >
                     <div className="truncate">
                       <span className="font-bold text-[var(--text-primary)] block truncate">{doc.name}</span>
                       <span className="text-[10px] text-[var(--text-muted)] truncate block italic">{doc.leadCase}</span>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-amber-400 shrink-0 ml-1.5" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--bootcamp-accent-text)] shrink-0 ml-1.5" />
                   </button>
                 ))}
               </div>
               <button
                 onClick={() => setActiveTab('judgments')}
-                className="w-full text-[11px] font-semibold text-[var(--text-muted)] hover:text-amber-400 flex items-center justify-center gap-1 pt-0.5"
+                className="w-full text-[11px] font-semibold text-[var(--text-muted)] hover:text-[var(--bootcamp-accent-text)] flex items-center justify-center gap-1 pt-0.5"
               >
                 <Award className="w-3 h-3" />
                 <span>Open 100 Landmark Cases Hub &rarr;</span>
@@ -952,7 +952,7 @@ export const StudyBootcampView: React.FC = () => {
             onClick={() => toggleTask('articles')}
             className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
               currentDayProgress.tasks.articles
-                ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-300'
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
                 : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
             }`}
           >
@@ -961,7 +961,7 @@ export const StudyBootcampView: React.FC = () => {
               <p className="text-xs font-semibold text-[var(--text-primary)]">Read Target Articles</p>
             </div>
             {currentDayProgress.tasks.articles ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
             ) : (
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
@@ -971,7 +971,7 @@ export const StudyBootcampView: React.FC = () => {
             onClick={() => toggleTask('cases')}
             className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
               currentDayProgress.tasks.cases
-                ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-300'
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
                 : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
             }`}
           >
@@ -980,7 +980,7 @@ export const StudyBootcampView: React.FC = () => {
               <p className="text-xs font-semibold text-[var(--text-primary)]">Master Case Law Pairs</p>
             </div>
             {currentDayProgress.tasks.cases ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
             ) : (
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
@@ -990,7 +990,7 @@ export const StudyBootcampView: React.FC = () => {
             onClick={() => toggleTask('terms')}
             className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
               currentDayProgress.tasks.terms
-                ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-300'
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
                 : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
             }`}
           >
@@ -999,7 +999,7 @@ export const StudyBootcampView: React.FC = () => {
               <p className="text-xs font-semibold text-[var(--text-primary)]">15 Legal Terms & Maxims</p>
             </div>
             {currentDayProgress.tasks.terms ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
             ) : (
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
@@ -1009,7 +1009,7 @@ export const StudyBootcampView: React.FC = () => {
             onClick={() => toggleTask('mcqs')}
             className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
               currentDayProgress.tasks.mcqs
-                ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-300'
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
                 : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
             }`}
           >
@@ -1020,7 +1020,7 @@ export const StudyBootcampView: React.FC = () => {
               </p>
             </div>
             {currentDayProgress.tasks.mcqs ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
             ) : (
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
@@ -1030,7 +1030,7 @@ export const StudyBootcampView: React.FC = () => {
             onClick={() => toggleTask('caseStudy')}
             className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
               currentDayProgress.tasks.caseStudy
-                ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-300'
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
                 : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
             }`}
           >
@@ -1041,7 +1041,7 @@ export const StudyBootcampView: React.FC = () => {
               </p>
             </div>
             {currentDayProgress.tasks.caseStudy ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
             ) : (
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
@@ -1055,7 +1055,7 @@ export const StudyBootcampView: React.FC = () => {
               onClick={() => setActiveSubTab('curriculum')}
               className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
                 activeSubTab === 'curriculum'
-                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
@@ -1067,7 +1067,7 @@ export const StudyBootcampView: React.FC = () => {
               onClick={() => setActiveSubTab('svg')}
               className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
                 activeSubTab === 'svg'
-                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
@@ -1079,7 +1079,7 @@ export const StudyBootcampView: React.FC = () => {
               onClick={() => setActiveSubTab('cases')}
               className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
                 activeSubTab === 'cases'
-                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
@@ -1091,7 +1091,7 @@ export const StudyBootcampView: React.FC = () => {
               onClick={() => setActiveSubTab('mcqs')}
               className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
                 activeSubTab === 'mcqs'
-                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
@@ -1106,7 +1106,7 @@ export const StudyBootcampView: React.FC = () => {
               onClick={() => setActiveSubTab('casestudy')}
               className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
                 activeSubTab === 'casestudy'
-                  ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
@@ -1152,7 +1152,7 @@ export const StudyBootcampView: React.FC = () => {
                     onClick={() => setSelectedArticleStr(art)}
                     className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                       isSelected
-                        ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md scale-105'
+                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md scale-105'
                         : 'bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)]'
                     }`}
                   >
@@ -1169,7 +1169,7 @@ export const StudyBootcampView: React.FC = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded text-xs font-black uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)]">
+                      <span className="px-2.5 py-0.5 rounded text-xs font-black uppercase tracking-wider bg-[var(--accent)] text-[var(--accent-contrast)]">
                         {activeArticleDetails.displayNumber}
                       </span>
                       <span className="text-xs font-semibold text-[var(--text-muted)]">
@@ -1187,7 +1187,7 @@ export const StudyBootcampView: React.FC = () => {
                       onClick={() => toggleBookmark(activeArticleDetails.number)}
                       className={`p-2 rounded-xl border transition-colors flex items-center gap-1.5 text-xs font-semibold ${
                         bookmarkedArticles.includes(activeArticleDetails.number) || bookmarkedArticles.includes(`Art ${activeArticleDetails.number}`)
-                          ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                          ? 'bg-[var(--bootcamp-accent-subtle)] text-[var(--bootcamp-accent-text)] border-[var(--bootcamp-accent-border)]'
                           : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                       }`}
                       title="Bookmark Article"
@@ -1228,8 +1228,8 @@ export const StudyBootcampView: React.FC = () => {
 
                 {/* Real-World Practical Scenario & Courtroom Example */}
                 {activeArticleDetails.realWorldScenario && (
-                  <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200 space-y-1.5">
-                    <div className="flex items-center gap-1.5 font-bold text-cyan-300 uppercase tracking-wider text-[11px]">
+                  <div className="p-4 rounded-xl bg-[var(--info-bg)] border border-[var(--info-border)]/30 text-xs text-[var(--text-primary)] space-y-1.5">
+                    <div className="flex items-center gap-1.5 font-bold text-[var(--info-text)] uppercase tracking-wider text-[11px]">
                       <Scale className="w-3.5 h-3.5" />
                       <span>Real-World Courtroom Example & Scenario:</span>
                     </div>
@@ -1241,10 +1241,10 @@ export const StudyBootcampView: React.FC = () => {
 
                 {/* Prosecuting Officer Examination Angle */}
                 {activeArticleDetails.prosecutionNote && (
-                  <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-start gap-2.5">
-                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
+                  <div className="p-3.5 rounded-xl bg-[var(--bootcamp-accent-subtle)] border border-[var(--bootcamp-accent-border)] text-xs text-[var(--text-primary)] flex items-start gap-2.5">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-[var(--bootcamp-accent-text)]" />
                     <div>
-                      <strong className="text-amber-200">Prosecuting Officer Exam Relevance: </strong>
+                      <strong className="text-[var(--bootcamp-accent-text)]">Prosecuting Officer Exam Relevance: </strong>
                       <AnnotatedLegalText text={activeArticleDetails.prosecutionNote} />
                     </div>
                   </div>
@@ -1342,7 +1342,7 @@ export const StudyBootcampView: React.FC = () => {
                 <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-start gap-2.5">
                   <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
                   <div>
-                    <strong className="text-amber-200">Prosecuting Officer Exam Angle: </strong>
+                    <strong className="text-[var(--bootcamp-accent-text)]">Prosecuting Officer Exam Angle: </strong>
                     <AnnotatedLegalText text={concept.prosecutionAngle} />
                   </div>
                 </div>
@@ -1386,7 +1386,7 @@ export const StudyBootcampView: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--info-bg)] text-[var(--info-text)] border border-[var(--info-border)]/40">
                   Vector Blueprint {currentDay.dayNumber} of 15
                 </span>
                 <span className="text-xs text-[var(--text-muted)] font-mono">
@@ -1394,7 +1394,7 @@ export const StudyBootcampView: React.FC = () => {
                 </span>
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                <Eye className="w-5 h-5 text-cyan-400" />
+                <Eye className="w-5 h-5 text-[var(--info-text)]" />
                 {svgDisplayMode === 'day-primary' ? currentDayLinks.primarySvg.title : 'Supreme Court Precedent Lineage Architecture'}
               </h3>
             </div>
@@ -1406,7 +1406,7 @@ export const StudyBootcampView: React.FC = () => {
                   onClick={() => setSvgDisplayMode('day-primary')}
                   className={`px-3 py-1.5 rounded-lg transition-all ${
                     svgDisplayMode === 'day-primary'
-                      ? 'bg-cyan-500 text-black shadow-sm'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -1416,7 +1416,7 @@ export const StudyBootcampView: React.FC = () => {
                   onClick={() => setSvgDisplayMode('lineage-tree')}
                   className={`px-3 py-1.5 rounded-lg transition-all ${
                     svgDisplayMode === 'lineage-tree'
-                      ? 'bg-cyan-500 text-black shadow-sm'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -1429,7 +1429,7 @@ export const StudyBootcampView: React.FC = () => {
                   setSelectedSvgId(currentDayLinks.primarySvg.id);
                   setActiveTab('visual-lab');
                 }}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 hover:bg-cyan-500/20 transition-all flex items-center gap-1.5 shrink-0"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--info-bg)] text-[var(--info-text)] border border-[var(--info-border)]/40 hover:opacity-90 transition-all flex items-center gap-1.5 shrink-0"
               >
                 <span>Full Lab View</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -1499,10 +1499,10 @@ export const StudyBootcampView: React.FC = () => {
                 {/* Modern 2024 Ruling */}
                 <div className="p-5 rounded-xl bg-[var(--bg-base)] border border-emerald-500/40 space-y-3 relative shadow-sm shadow-emerald-500/10">
                   <div className="flex items-center justify-between">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[var(--success-bg)] text-[var(--success-text)] border border-[var(--success-border)]">
                       2024–2025 Modern Precedent
                     </span>
-                    <span className="text-xs font-semibold text-emerald-400">
+                    <span className="text-xs font-semibold text-[var(--success-text)]">
                       {pair.modernCase.year} ({pair.modernCase.bench})
                     </span>
                   </div>
@@ -1510,7 +1510,7 @@ export const StudyBootcampView: React.FC = () => {
                     {pair.modernCase.name}
                   </h5>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    <strong className="text-emerald-300">Modern Constitutional Ratio: </strong>
+                    <strong className="text-[var(--success-text)]">Modern Constitutional Ratio: </strong>
                     <AnnotatedLegalText text={pair.modernCase.ratio} />
                   </p>
                 </div>
@@ -1601,7 +1601,7 @@ export const StudyBootcampView: React.FC = () => {
                   onClick={() => setSelectedRound('all')}
                   className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
                     selectedRound === 'all'
-                      ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-sm'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent-primary)] shadow-sm'
                       : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50'
                   }`}
                 >
@@ -1622,7 +1622,7 @@ export const StudyBootcampView: React.FC = () => {
                       onClick={() => setSelectedRound(r.id)}
                       className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
                         isSelected
-                          ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-sm'
+                          ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent-primary)] shadow-sm'
                           : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50'
                       }`}
                     >
@@ -1657,7 +1657,7 @@ export const StudyBootcampView: React.FC = () => {
                 onClick={() => setMcqFilter('all')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   mcqFilter === 'all'
-                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
                     : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
                 }`}
               >
@@ -1678,7 +1678,7 @@ export const StudyBootcampView: React.FC = () => {
                 onClick={() => setMcqFilter('unanswered')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   mcqFilter === 'unanswered'
-                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
                     : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
                 }`}
               >
@@ -1729,9 +1729,9 @@ export const StudyBootcampView: React.FC = () => {
                   let btnBg = 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)]';
                   if (userAns !== undefined) {
                     if (userAns === mcq.correctIndex) {
-                      btnBg = 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold';
+                      btnBg = 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-bold';
                     } else {
-                      btnBg = 'bg-rose-500/20 border-rose-500 text-rose-300 font-bold';
+                      btnBg = 'bg-[var(--error-bg)] border-[var(--error-border)] text-[var(--error-text)] font-bold';
                     }
                   }
 
@@ -1765,7 +1765,7 @@ export const StudyBootcampView: React.FC = () => {
                 </p>
                 <button
                   onClick={() => setMcqFilter('all')}
-                  className="px-4 py-2 rounded-lg text-xs font-bold bg-[var(--accent-primary)] text-[var(--bg-base)]"
+                  className="px-4 py-2 rounded-lg text-xs font-bold bg-[var(--accent)] text-[var(--accent-contrast)]"
                 >
                   Show All Questions
                 </button>
@@ -1797,10 +1797,10 @@ export const StudyBootcampView: React.FC = () => {
                               <span
                                 className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
                                   mcq.difficulty === 'Foundational'
-                                    ? 'bg-blue-500/10 text-blue-400 border-blue-500/20'
+                                    ? 'bg-[var(--info-bg)] text-[var(--info-text)] border-[var(--info-border)]/30'
                                     : mcq.difficulty === 'Intermediate'
-                                    ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                                    : 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+                                    ? 'bg-[var(--bootcamp-accent-subtle)] text-[var(--bootcamp-accent-text)] border-[var(--bootcamp-accent-border)]'
+                                    : 'bg-[var(--badge-bg)] text-[var(--accent)] border-[var(--badge-border)]'
                                 }`}
                               >
                                 {mcq.difficulty}
@@ -1824,15 +1824,15 @@ export const StudyBootcampView: React.FC = () => {
                         const isCorrect = optIdx === mcq.correctIndex;
 
                         let btnStyle =
-                          'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
+                          'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-[var(--accent)]';
 
                         if (isAnswered) {
                           if (isCorrect) {
-                            btnStyle = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold';
+                            btnStyle = 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-bold shadow-sm';
                           } else if (isChosen && !isCorrect) {
-                            btnStyle = 'bg-rose-500/20 border-rose-500 text-rose-300 font-medium';
+                            btnStyle = 'bg-[var(--error-bg)] border-[var(--error-border)] text-[var(--error-text)] font-medium';
                           } else {
-                            btnStyle = 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-40';
+                            btnStyle = 'bg-[var(--bg-surface)] border-[var(--border-subtle)] opacity-40 text-[var(--text-muted)]';
                           }
                         }
 
@@ -1857,11 +1857,11 @@ export const StudyBootcampView: React.FC = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-1.5 font-bold">
                             {selectedOpt === mcq.correctIndex ? (
-                              <span className="text-emerald-400 flex items-center gap-1">
+                              <span className="text-[var(--success-text)] flex items-center gap-1 font-bold">
                                 <Check className="w-4 h-4" /> Correct Answer (+1.0)
                               </span>
                             ) : (
-                              <span className="text-rose-400 flex items-center gap-1">
+                              <span className="text-[var(--error-text)] flex items-center gap-1 font-bold">
                                 <AlertCircle className="w-4 h-4" /> Incorrect Answer (-0.25) — Correct: Option {String.fromCharCode(65 + mcq.correctIndex)}
                               </span>
                             )}
@@ -1924,7 +1924,7 @@ export const StudyBootcampView: React.FC = () => {
                         onClick={() => setActiveCaseStudyIndex(csIdx)}
                         className={`px-3 py-2.5 rounded-xl text-left border shrink-0 transition-all text-xs flex flex-col gap-1 min-w-[160px] max-w-[210px] ${
                           isSelected
-                            ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-md'
+                            ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent-primary)] shadow-md'
                             : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50'
                         }`}
                       >
@@ -1995,8 +1995,8 @@ export const StudyBootcampView: React.FC = () => {
                   {/* Questions to Address */}
                   <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
                     <div className="flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 text-amber-400" />
-                      <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                      <AlertCircle className="w-4 h-4 text-[var(--bootcamp-accent-text)]" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-[var(--bootcamp-accent-text)]">
                         Framing Issues for Prosecution / Adjudication:
                       </span>
                     </div>
@@ -2011,7 +2011,7 @@ export const StudyBootcampView: React.FC = () => {
                   <div className="space-y-4 pt-2">
                     <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2">
                       <div className="flex items-center gap-2">
-                        <CheckCheck className="w-4 h-4 text-emerald-400" />
+                        <CheckCheck className="w-4 h-4 text-[var(--success-text)]" />
                         <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
                           Comprehension Verification (4 Sub-MCQs)
                         </span>
@@ -2046,15 +2046,15 @@ export const StudyBootcampView: React.FC = () => {
                                 const isCorrect = oIdx === subQ.correctIndex;
 
                                 let btnStyle =
-                                  'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
+                                  'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-[var(--accent)]';
 
                                 if (isAnswered) {
                                   if (isCorrect) {
-                                    btnStyle = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold';
+                                    btnStyle = 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-bold shadow-sm';
                                   } else if (isChosen && !isCorrect) {
-                                    btnStyle = 'bg-rose-500/20 border-rose-500 text-rose-300 font-medium';
+                                    btnStyle = 'bg-[var(--error-bg)] border-[var(--error-border)] text-[var(--error-text)] font-medium';
                                   } else {
-                                    btnStyle = 'bg-[var(--bg-card)] border-[var(--border-subtle)] opacity-40';
+                                    btnStyle = 'bg-[var(--bg-surface)] border-[var(--border-subtle)] opacity-40 text-[var(--text-muted)]';
                                   }
                                 }
 
@@ -2077,11 +2077,11 @@ export const StudyBootcampView: React.FC = () => {
                               <div className="p-3 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs space-y-1 animate-fadeIn">
                                 <div className="flex items-center gap-1.5 font-bold">
                                   {userSubAns === subQ.correctIndex ? (
-                                    <span className="text-emerald-400 flex items-center gap-1">
+                                    <span className="text-[var(--success-text)] flex items-center gap-1 font-bold">
                                       <Check className="w-3.5 h-3.5" /> Correct (+1.0)
                                     </span>
                                   ) : (
-                                    <span className="text-rose-400 flex items-center gap-1">
+                                    <span className="text-[var(--error-text)] flex items-center gap-1 font-bold">
                                       <AlertCircle className="w-3.5 h-3.5" /> Incorrect (-0.25) — Correct: Option {String.fromCharCode(65 + subQ.correctIndex)}
                                     </span>
                                   )}
@@ -2125,7 +2125,7 @@ export const StudyBootcampView: React.FC = () => {
                           [activeCaseStudyIndex]: !prev[activeCaseStudyIndex]
                         }))
                       }
-                      className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+                      className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
                     >
                       <Trophy className="w-4 h-4" />
                       {showModelAnswerMap[activeCaseStudyIndex]
@@ -2158,8 +2158,8 @@ export const StudyBootcampView: React.FC = () => {
                   {/* Collapsible Model Answer & Marking Rubric */}
                   {showModelAnswerMap[activeCaseStudyIndex] && (
                     <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)] animate-fadeIn">
-                      <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-emerald-500/30">
-                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                      <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--success-border)]/40">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[var(--success-text)] font-bold">
                           Official Examiner's Model Solution:
                         </span>
                         <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
@@ -2215,7 +2215,7 @@ export const StudyBootcampView: React.FC = () => {
 
               {/* Questions to Address */}
               <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--bootcamp-accent-text)]">
                   Framing Issues for Prosecution / Adjudication:
                 </span>
                 <ol className="space-y-2 text-xs md:text-sm text-[var(--text-primary)] font-semibold list-decimal pl-4">
@@ -2248,7 +2248,7 @@ export const StudyBootcampView: React.FC = () => {
               <div className="pt-2">
                 <button
                   onClick={() => setShowModelAnswer((prev) => !prev)}
-                  className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+                  className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
                 >
                   <Trophy className="w-4 h-4" />
                   {showModelAnswer ? "Hide Examiner's Model Answer" : "Reveal Examiner's Model Answer & Marking Rubric"}
@@ -2258,8 +2258,8 @@ export const StudyBootcampView: React.FC = () => {
               {/* Collapsible Model Answer & Marking Rubric */}
               {showModelAnswer && (
                 <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)] animate-fadeIn">
-                  <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-emerald-500/30">
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--success-border)]/40">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--success-text)] font-bold">
                       Official Examiner's Model Solution:
                     </span>
                     <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
