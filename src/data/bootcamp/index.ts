@@ -18,4 +18,7 @@ export const TOTAL_BOOTCAMP_MCQS = FIFTEEN_DAY_BOOTCAMP_DATA.reduce(
   0
 );
 
-export const TOTAL_BOOTCAMP_CASE_STUDIES = FIFTEEN_DAY_BOOTCAMP_DATA.length;
+export const TOTAL_BOOTCAMP_CASE_STUDIES = FIFTEEN_DAY_BOOTCAMP_DATA.reduce(
+  (total, day) => total + (day.comprehensionCaseStudies ? day.comprehensionCaseStudies.length : 1),
+  0
+);

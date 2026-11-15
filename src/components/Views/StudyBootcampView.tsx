@@ -28,7 +28,15 @@ import {
   GitCommit,
   GitBranch,
   List,
-  LayoutGrid
+  LayoutGrid,
+  Filter,
+  BrainCircuit,
+  CheckCheck,
+  Flag,
+  ChevronDown,
+  ChevronUp,
+  RefreshCw,
+  SlidersHorizontal
 } from 'lucide-react';
 import {
   FIFTEEN_DAY_BOOTCAMP_DATA,
@@ -38,6 +46,9 @@ import {
   lookupBootcampArticle,
   type BootcampDay,
   type BootcampMCQ,
+  type BootcampMCQRoundType,
+  type BootcampComprehensionCaseStudy,
+  type CaseStudySubMCQ,
   type DayModuleLinks,
   type ResolvedArticleDetails
 } from '../../data/bootcamp';
@@ -73,11 +84,45 @@ interface DayProgress {
   };
   mcqAnswers: Record<string, number>; // questionId -> selectedIndex
   userCaseAnswer?: string;
+  caseStudyMcqAnswers?: Record<string, number>; // subMcqId -> selectedIndex
 }
 
 type BootcampProgressMap = Record<number, DayProgress>;
 
 const STORAGE_KEY = 'samvidhan_15day_bootcamp_progress';
+
+const ROUND_LIST: { id: BootcampMCQRoundType; number: number; label: string; subtitle: string }[] = [
+  {
+    id: 'Bare Act Nuance',
+    number: 1,
+    label: 'Bare Act Nuances',
+    subtitle: 'Textual phrasing, sub-clauses, statutory provisos & textual exceptions'
+  },
+  {
+    id: 'Landmark Precedents',
+    number: 2,
+    label: 'Landmark Precedents',
+    subtitle: 'Constitution Bench evolutions, judicial tests & foundational ratios'
+  },
+  {
+    id: 'Assertion-Reasoning',
+    number: 3,
+    label: 'Assertion & Reasoning',
+    subtitle: 'Multi-statement propositions, cross-article synthesis & deductive logic'
+  },
+  {
+    id: 'Negative Traps',
+    number: 4,
+    label: 'Negative Traps & Exceptions',
+    subtitle: 'Deceptive qualifiers: "NOT", "INCORRECT", "EXCEPT" & constitutional traps'
+  },
+  {
+    id: 'Applied Courtroom',
+    number: 5,
+    label: 'Applied Courtroom Scenarios',
+    subtitle: 'Practical prosecutorial challenges, factual problems & litigation strategy'
+  }
+];
 
 export const StudyBootcampView: React.FC = () => {
   const { setActiveTab, setSelectedPartId, setSelectedSvgId, bookmarkedArticles, toggleBookmark } = useTheme();
@@ -96,6 +141,15 @@ export const StudyBootcampView: React.FC = () => {
 
   // Toggle for SVG diagram mode in Tab 2 (Day Primary vs Precedent Lineage Tree)
   const [svgDisplayMode, setSvgDisplayMode] = useState<'day-primary' | 'lineage-tree'>('day-primary');
+
+  // 5-Round MCQ Arena State
+  const [selectedRound, setSelectedRound] = useState<'all' | BootcampMCQRoundType>('all');
+  const [mcqFilter, setMcqFilter] = useState<'all' | 'mistakes' | 'unanswered'>('all');
+  const [showQuickJump, setShowQuickJump] = useState<boolean>(false);
+
+  // Comprehension Case Studies Navigation & Reveal State
+  const [activeCaseStudyIndex, setActiveCaseStudyIndex] = useState<number>(0);
+  const [showModelAnswerMap, setShowModelAnswerMap] = useState<Record<number, boolean>>({});
 
   // Persistence: Load from localStorage
   const [progress, setProgress] = useState<BootcampProgressMap>(() => {
@@ -193,7 +247,10 @@ export const StudyBootcampView: React.FC = () => {
         [mcqId]: optionIndex
       };
 
-      const allAnswered = currentDay.mcqs.every((m) => updatedAnswers[m.id] !== undefined);
+      const threshold = Math.min(20, currentDay.mcqs.length);
+      const answeredCount = Object.keys(updatedAnswers).filter((id) =>
+        currentDay.mcqs.some((m) => m.id === id)
+      ).length;
 
       return {
         ...prev,
@@ -202,7 +259,7 @@ export const StudyBootcampView: React.FC = () => {
           mcqAnswers: updatedAnswers,
           tasks: {
             ...dayProg.tasks,
-            mcqs: allAnswered ? true : dayProg.tasks.mcqs
+            mcqs: answeredCount >= threshold ? true : dayProg.tasks.mcqs
           }
         }
       };
@@ -290,19 +347,176 @@ export const StudyBootcampView: React.FC = () => {
   const currentDayMCQScore = useMemo(() => {
     let score = 0;
     let answered = 0;
+    let correct = 0;
+    let incorrect = 0;
     currentDay.mcqs.forEach((mcq) => {
       const userAns = currentDayProgress.mcqAnswers[mcq.id];
       if (userAns !== undefined) {
         answered++;
         if (userAns === mcq.correctIndex) {
           score += 1.0;
+          correct++;
         } else {
           score -= 0.25; // JKPSC PO negative marking
+          incorrect++;
         }
       }
     });
-    return { score: Math.max(0, score), answered };
+    return { score: Math.max(0, score), answered, correct, incorrect };
   }, [currentDay, currentDayProgress]);
+
+  // Round configuration & metadata
+  const dayRounds = useMemo(() => {
+    const rounds = new Set<BootcampMCQRoundType>();
+    currentDay.mcqs.forEach((m) => {
+      if (m.round) rounds.add(m.round);
+    });
+    return ROUND_LIST.filter((r) => rounds.has(r.id));
+  }, [currentDay]);
+
+  // Round-wise performance stats
+  const roundStats = useMemo(() => {
+    const map: Record<
+      BootcampMCQRoundType,
+      { total: number; answered: number; correct: number; incorrect: number; score: number }
+    > = {
+      'Bare Act Nuance': { total: 0, answered: 0, correct: 0, incorrect: 0, score: 0 },
+      'Landmark Precedents': { total: 0, answered: 0, correct: 0, incorrect: 0, score: 0 },
+      'Assertion-Reasoning': { total: 0, answered: 0, correct: 0, incorrect: 0, score: 0 },
+      'Negative Traps': { total: 0, answered: 0, correct: 0, incorrect: 0, score: 0 },
+      'Applied Courtroom': { total: 0, answered: 0, correct: 0, incorrect: 0, score: 0 }
+    };
+    currentDay.mcqs.forEach((m) => {
+      if (m.round && map[m.round]) {
+        map[m.round].total++;
+        const userAns = currentDayProgress.mcqAnswers[m.id];
+        if (userAns !== undefined) {
+          map[m.round].answered++;
+          if (userAns === m.correctIndex) {
+            map[m.round].correct++;
+            map[m.round].score += 1.0;
+          } else {
+            map[m.round].incorrect++;
+            map[m.round].score = Math.max(0, map[m.round].score - 0.25);
+          }
+        }
+      }
+    });
+    return map;
+  }, [currentDay, currentDayProgress]);
+
+  // Filtered MCQs based on selected round and filter (all / mistakes / unanswered)
+  const filteredMCQs = useMemo(() => {
+    let list = currentDay.mcqs;
+    if (selectedRound !== 'all') {
+      list = list.filter((m) => m.round === selectedRound);
+    }
+    if (mcqFilter === 'mistakes') {
+      list = list.filter((m) => {
+        const userAns = currentDayProgress.mcqAnswers[m.id];
+        return userAns !== undefined && userAns !== m.correctIndex;
+      });
+    } else if (mcqFilter === 'unanswered') {
+      list = list.filter((m) => currentDayProgress.mcqAnswers[m.id] === undefined);
+    }
+    return list;
+  }, [currentDay, selectedRound, mcqFilter, currentDayProgress]);
+
+  // Mistake count across current day
+  const currentMistakesCount = useMemo(() => {
+    return currentDay.mcqs.filter((m) => {
+      const userAns = currentDayProgress.mcqAnswers[m.id];
+      return userAns !== undefined && userAns !== m.correctIndex;
+    }).length;
+  }, [currentDay, currentDayProgress]);
+
+  // Clear single MCQ for retrying
+  const handleClearMCQ = (mcqId: string) => {
+    setProgress((prev) => {
+      const dayProg = prev[selectedDayNumber] || {
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        mcqAnswers: {}
+      };
+      const updatedAnswers = { ...dayProg.mcqAnswers };
+      delete updatedAnswers[mcqId];
+      return {
+        ...prev,
+        [selectedDayNumber]: {
+          ...dayProg,
+          mcqAnswers: updatedAnswers
+        }
+      };
+    });
+  };
+
+  // Clear all mistakes in current day for re-drill
+  const handleResetMistakes = () => {
+    setProgress((prev) => {
+      const dayProg = prev[selectedDayNumber] || {
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        mcqAnswers: {}
+      };
+      const updatedAnswers = { ...dayProg.mcqAnswers };
+      currentDay.mcqs.forEach((m) => {
+        if (updatedAnswers[m.id] !== undefined && updatedAnswers[m.id] !== m.correctIndex) {
+          delete updatedAnswers[m.id];
+        }
+      });
+      return {
+        ...prev,
+        [selectedDayNumber]: {
+          ...dayProg,
+          mcqAnswers: updatedAnswers
+        }
+      };
+    });
+  };
+
+  // Active Comprehension Case Study
+  const activeComprehensionCaseStudy: BootcampComprehensionCaseStudy | null = useMemo(() => {
+    if (currentDay.comprehensionCaseStudies && currentDay.comprehensionCaseStudies.length > 0) {
+      return (
+        currentDay.comprehensionCaseStudies[activeCaseStudyIndex] ||
+        currentDay.comprehensionCaseStudies[0]
+      );
+    }
+    return null;
+  }, [currentDay, activeCaseStudyIndex]);
+
+  // Case Study Sub-MCQ Answer Handler
+  const handleAnswerCaseStudyMCQ = (subMcqId: string, optionIndex: number) => {
+    setProgress((prev) => {
+      const dayProg = prev[selectedDayNumber] || {
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        mcqAnswers: {},
+        caseStudyMcqAnswers: {}
+      };
+      const updatedCaseAnswers = {
+        ...(dayProg.caseStudyMcqAnswers || {}),
+        [subMcqId]: optionIndex
+      };
+
+      const allCaseStudies = currentDay.comprehensionCaseStudies || [];
+      const totalCaseSubMCQs = allCaseStudies.reduce((sum, cs) => sum + cs.comprehensionMCQs.length, 0);
+      const answeredCaseSubMCQs = Object.keys(updatedCaseAnswers).length;
+      const caseStudyTaskDone =
+        totalCaseSubMCQs > 0
+          ? answeredCaseSubMCQs >= Math.min(10, totalCaseSubMCQs)
+          : dayProg.tasks.caseStudy;
+
+      return {
+        ...prev,
+        [selectedDayNumber]: {
+          ...dayProg,
+          caseStudyMcqAnswers: updatedCaseAnswers,
+          tasks: {
+            ...dayProg.tasks,
+            caseStudy: caseStudyTaskDone ? true : dayProg.tasks.caseStudy
+          }
+        }
+      };
+    });
+  };
 
   // Helper to dynamically render primary vector diagram
   const renderPrimarySvgDiagram = (svgId: string) => {
@@ -802,7 +1016,7 @@ export const StudyBootcampView: React.FC = () => {
             <div className="space-y-0.5">
               <span className="text-[10px] uppercase font-bold tracking-wider">Task 4 (0.5 hr)</span>
               <p className="text-xs font-semibold text-[var(--text-primary)]">
-                Solve 20 MCQs ({currentDayMCQScore.answered}/20)
+                Solve MCQs ({currentDayMCQScore.answered}/{currentDay.mcqs.length})
               </p>
             </div>
             {currentDayProgress.tasks.mcqs ? (
@@ -822,7 +1036,9 @@ export const StudyBootcampView: React.FC = () => {
           >
             <div className="space-y-0.5">
               <span className="text-[10px] uppercase font-bold tracking-wider">Task 5 (0.5 hr)</span>
-              <p className="text-xs font-semibold text-[var(--text-primary)]">Draft Case Study</p>
+              <p className="text-xs font-semibold text-[var(--text-primary)]">
+                Master Case Studies ({currentDay.comprehensionCaseStudies?.length || 1})
+              </p>
             </div>
             {currentDayProgress.tasks.caseStudy ? (
               <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -880,9 +1096,9 @@ export const StudyBootcampView: React.FC = () => {
               }`}
             >
               <HelpCircle className="w-4 h-4" />
-              4. 20 Daily MCQs Drill
-              <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-[var(--bg-base)] text-[var(--accent-primary)]">
-                {currentDayMCQScore.answered}/20
+              4. MCQ Arena ({currentDay.mcqs.length} Qs)
+              <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-[var(--bg-base)] text-[var(--accent-primary)] font-bold">
+                {currentDayMCQScore.answered}/{currentDay.mcqs.length}
               </span>
             </button>
 
@@ -895,7 +1111,7 @@ export const StudyBootcampView: React.FC = () => {
               }`}
             >
               <Scale className="w-4 h-4" />
-              5. Courtroom Case Problem (Mains)
+              5. Case Studies ({currentDay.comprehensionCaseStudies?.length || 1} Scenarios)
             </button>
           </div>
         )}
@@ -1315,226 +1531,765 @@ export const StudyBootcampView: React.FC = () => {
       )}
 
       {/* =========================================================================
-          SECTION: 20 DAILY MCQS DRILL (PRELIMS MODE WITH -0.25 NEGATIVE MARKING)
+          SECTION: HIGH-YIELD OBJECTIVE ARENA (200 MCQS ACROSS 5 SPECIALIZED ROUNDS)
       ========================================================================= */}
       {(viewLayout === 'all-in-one' || activeSubTab === 'mcqs') && (
         <div className="space-y-6 animate-fadeIn">
-          {/* MCQ Score Banner */}
-          <div className="p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="space-y-1 text-center sm:text-left">
-              <span className="text-xs uppercase font-bold text-[var(--accent-primary)] tracking-wider">
-                JKPSC PO Preliminary Simulation
-              </span>
-              <h3 className="text-lg font-bold text-[var(--text-primary)]">
-                20 High-Yield Objective Questions (Day {currentDay.dayNumber})
+          {/* MCQ Arena Banner */}
+          <div className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+            <div className="space-y-1.5 text-center md:text-left">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                  Judicial & Preliminary Examination Arena
+                </span>
+                <span className="text-xs text-[var(--text-muted)]">Day {currentDay.dayNumber}</span>
+              </div>
+              <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)]">
+                {currentDay.mcqs.length} High-Yield Objective Questions (5 Rounds)
               </h3>
               <p className="text-xs text-[var(--text-muted)]">
-                Standard Marking: +1.0 for Correct, -0.25 for Incorrect
+                Official Marking Standard: <strong className="text-emerald-400">+1.0</strong> for Correct, <strong className="text-rose-400">-0.25</strong> for Incorrect
               </p>
             </div>
 
-            <div className="flex items-center gap-6">
-              <div className="text-center">
-                <span className="text-xs text-[var(--text-muted)] block">Answered</span>
-                <span className="text-xl font-bold text-[var(--text-primary)]">
-                  {currentDayMCQScore.answered} / 20
+            {/* Score & Progress Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+              <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+                <span className="text-[11px] text-[var(--text-muted)] block font-medium">Answered</span>
+                <span className="text-lg font-bold text-[var(--text-primary)]">
+                  {currentDayMCQScore.answered} / {currentDay.mcqs.length}
                 </span>
               </div>
-              <div className="text-center">
-                <span className="text-xs text-[var(--text-muted)] block">Net Score</span>
-                <span className="text-2xl font-black text-[var(--accent-primary)]">
+              <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+                <span className="text-[11px] text-[var(--text-muted)] block font-medium">Accuracy</span>
+                <span className="text-lg font-bold text-emerald-400">
+                  {currentDayMCQScore.answered > 0
+                    ? Math.round(((currentDayMCQScore.correct || 0) / currentDayMCQScore.answered) * 100)
+                    : 0}%
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+                <span className="text-[11px] text-[var(--text-muted)] block font-medium">Mistakes</span>
+                <span className="text-lg font-bold text-rose-400">
+                  {currentMistakesCount}
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+                <span className="text-[11px] text-[var(--text-muted)] block font-medium">Net Score</span>
+                <span className="text-lg font-black text-[var(--accent-primary)]">
                   {currentDayMCQScore.score.toFixed(2)}
                 </span>
               </div>
             </div>
           </div>
 
+          {/* 5 Focus Rounds Tabs (When Day has multi-rounds) */}
+          {dayRounds.length > 0 && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                  Select Practice Round:
+                </span>
+                <span className="text-xs text-[var(--text-muted)]">
+                  {selectedRound === 'all' ? 'Showing all questions' : `Round ${selectedRound} (${filteredMCQs.length} questions)`}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+                <button
+                  onClick={() => setSelectedRound('all')}
+                  className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                    selectedRound === 'all'
+                      ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-sm'
+                      : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50'
+                  }`}
+                >
+                  <span className="text-xs font-bold block">All 5 Rounds</span>
+                  <div className="flex items-center justify-between text-[11px] mt-1 opacity-90">
+                    <span>{currentDay.mcqs.length} Qs</span>
+                    <span>{currentDayMCQScore.answered}/{currentDay.mcqs.length}</span>
+                  </div>
+                </button>
+
+                {dayRounds.map((r) => {
+                  const isSelected = selectedRound === r.id;
+                  const st = roundStats[r.id];
+
+                  return (
+                    <button
+                      key={r.id}
+                      onClick={() => setSelectedRound(r.id)}
+                      className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                        isSelected
+                          ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-sm'
+                          : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50'
+                      }`}
+                    >
+                      <div>
+                        <span className="text-[10px] uppercase font-bold tracking-wider opacity-80 block">
+                          Round {r.number}
+                        </span>
+                        <span className="text-xs font-bold block truncate">
+                          {r.label}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[11px] mt-2 opacity-90">
+                        <span>{st?.total || 0} Qs</span>
+                        <span className="font-semibold">
+                          {st?.answered || 0}/{st?.total || 0}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Filter Bar & Quick Tools */}
+          <div className="p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-xs text-[var(--text-muted)] font-medium mr-1 flex items-center gap-1">
+                <Filter className="w-3.5 h-3.5" /> Filter:
+              </span>
+              <button
+                onClick={() => setMcqFilter('all')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  mcqFilter === 'all'
+                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                }`}
+              >
+                All in View ({filteredMCQs.length})
+              </button>
+              <button
+                onClick={() => setMcqFilter('mistakes')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  mcqFilter === 'mistakes'
+                    ? 'bg-rose-500 text-white'
+                    : 'bg-[var(--bg-base)] text-rose-400 hover:bg-rose-500/10 border border-rose-500/30'
+                }`}
+              >
+                <AlertCircle className="w-3.5 h-3.5" />
+                Mistake Notebook ({currentMistakesCount})
+              </button>
+              <button
+                onClick={() => setMcqFilter('unanswered')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  mcqFilter === 'unanswered'
+                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                }`}
+              >
+                Unattempted ({currentDay.mcqs.length - currentDayMCQScore.answered})
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowQuickJump((prev) => !prev)}
+                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-[var(--text-primary)] flex items-center gap-1.5"
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                {showQuickJump ? 'Hide Quick Jump' : 'Quick Jump'}
+              </button>
+              {currentMistakesCount > 0 && (
+                <button
+                  onClick={handleResetMistakes}
+                  className="px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30 hover:bg-rose-500/20 flex items-center gap-1.5"
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                  Retake Mistakes
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Quick Jump Number Matrix (Collapsible) */}
+          {showQuickJump && (
+            <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2 animate-fadeIn">
+              <div className="flex items-center justify-between text-xs text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-2">
+                <span>Jump to Question in Current View ({filteredMCQs.length} questions):</span>
+                <div className="flex items-center gap-3">
+                  <span className="flex items-center gap-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> Correct
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span> Wrong
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[var(--border-subtle)] inline-block"></span> Unattempted
+                  </span>
+                </div>
+              </div>
+              <div className="grid grid-cols-8 sm:grid-cols-10 md:grid-cols-20 gap-1.5 max-h-48 overflow-y-auto pt-2">
+                {filteredMCQs.map((mcq, idx) => {
+                  const userAns = currentDayProgress.mcqAnswers[mcq.id];
+                  let btnBg = 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)]';
+                  if (userAns !== undefined) {
+                    if (userAns === mcq.correctIndex) {
+                      btnBg = 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold';
+                    } else {
+                      btnBg = 'bg-rose-500/20 border-rose-500 text-rose-300 font-bold';
+                    }
+                  }
+
+                  return (
+                    <button
+                      key={mcq.id}
+                      onClick={() => {
+                        const el = document.getElementById(`mcq-${mcq.id}`);
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }}
+                      className={`h-7 rounded border text-[11px] flex items-center justify-center transition-all hover:scale-105 ${btnBg}`}
+                    >
+                      {idx + 1}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* MCQ Question List */}
           <div className="space-y-6">
-            {currentDay.mcqs.map((mcq, mIdx) => {
-              const selectedOpt = currentDayProgress.mcqAnswers[mcq.id];
-              const isAnswered = selectedOpt !== undefined;
-
-              return (
-                <div
-                  key={mcq.id}
-                  className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-4 shadow-sm"
+            {filteredMCQs.length === 0 ? (
+              <div className="p-12 text-center rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3">
+                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto opacity-70" />
+                <h4 className="text-base font-bold text-[var(--text-primary)]">
+                  {mcqFilter === 'mistakes' ? 'Zero Mistakes! You answered all attempted questions correctly.' : 'No questions match the current filter.'}
+                </h4>
+                <p className="text-xs text-[var(--text-muted)] max-w-md mx-auto">
+                  Switch filters to review all questions or proceed to another round.
+                </p>
+                <button
+                  onClick={() => setMcqFilter('all')}
+                  className="px-4 py-2 rounded-lg text-xs font-bold bg-[var(--accent-primary)] text-[var(--bg-base)]"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-start gap-3">
-                      <span className="w-7 h-7 rounded-full bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center font-bold text-xs shrink-0 text-[var(--text-primary)]">
-                        {mIdx + 1}
-                      </span>
-                      <h4 className="text-sm md:text-base font-bold text-[var(--text-primary)] leading-relaxed">
-                        {mcq.question}
-                      </h4>
-                    </div>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] shrink-0">
-                      {mcq.articleRef}
-                    </span>
-                  </div>
+                  Show All Questions
+                </button>
+              </div>
+            ) : (
+              filteredMCQs.map((mcq, mIdx) => {
+                const selectedOpt = currentDayProgress.mcqAnswers[mcq.id];
+                const isAnswered = selectedOpt !== undefined;
 
-                  {/* Options Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    {mcq.options.map((opt, optIdx) => {
-                      const isChosen = selectedOpt === optIdx;
-                      const isCorrect = optIdx === mcq.correctIndex;
-
-                      let btnStyle =
-                        'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
-
-                      if (isAnswered) {
-                        if (isCorrect) {
-                          btnStyle = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold';
-                        } else if (isChosen && !isCorrect) {
-                          btnStyle = 'bg-red-500/20 border-red-500 text-red-300 font-medium';
-                        } else {
-                          btnStyle = 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-40';
-                        }
-                      }
-
-                      return (
-                        <button
-                          key={optIdx}
-                          onClick={() => handleAnswerMCQ(mcq.id, optIdx)}
-                          className={`p-3 rounded-xl border text-left text-xs md:text-sm transition-all flex items-start gap-2.5 ${btnStyle}`}
-                        >
-                          <span className="font-bold text-xs shrink-0 mt-0.5">
-                            {String.fromCharCode(65 + optIdx)}.
-                          </span>
-                          <span className="leading-snug">{opt}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Explanation (Revealed when answered) */}
-                  {isAnswered && (
-                    <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs space-y-1.5 animate-fadeIn">
-                      <div className="flex items-center gap-1.5 font-bold">
-                        {selectedOpt === mcq.correctIndex ? (
-                          <span className="text-emerald-400 flex items-center gap-1">
-                            <Check className="w-4 h-4" /> Correct Answer (+1.0)
-                          </span>
-                        ) : (
-                          <span className="text-red-400 flex items-center gap-1">
-                            <AlertCircle className="w-4 h-4" /> Incorrect Answer (-0.25)
-                          </span>
-                        )}
+                return (
+                  <div
+                    id={`mcq-${mcq.id}`}
+                    key={mcq.id}
+                    className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-4 shadow-sm"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-3">
+                        <span className="w-8 h-8 rounded-full bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center font-bold text-xs shrink-0 text-[var(--text-primary)]">
+                          {mIdx + 1}
+                        </span>
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            {mcq.round && (
+                              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                                Round {mcq.round}
+                              </span>
+                            )}
+                            {mcq.difficulty && (
+                              <span
+                                className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
+                                  mcq.difficulty === 'Foundational'
+                                    ? 'bg-blue-500/10 text-blue-400 border-blue-500/20'
+                                    : mcq.difficulty === 'Intermediate'
+                                    ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                                    : 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+                                }`}
+                              >
+                                {mcq.difficulty}
+                              </span>
+                            )}
+                          </div>
+                          <h4 className="text-sm md:text-base font-bold text-[var(--text-primary)] leading-relaxed">
+                            {mcq.question}
+                          </h4>
+                        </div>
                       </div>
-                      <p className="text-[var(--text-secondary)] leading-relaxed">
-                        <AnnotatedLegalText text={mcq.explanation} />
-                      </p>
+                      <span className="px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] shrink-0">
+                        {mcq.articleRef}
+                      </span>
                     </div>
-                  )}
-                </div>
-              );
-            })}
+
+                    {/* Options Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                      {mcq.options.map((opt, optIdx) => {
+                        const isChosen = selectedOpt === optIdx;
+                        const isCorrect = optIdx === mcq.correctIndex;
+
+                        let btnStyle =
+                          'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
+
+                        if (isAnswered) {
+                          if (isCorrect) {
+                            btnStyle = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold';
+                          } else if (isChosen && !isCorrect) {
+                            btnStyle = 'bg-rose-500/20 border-rose-500 text-rose-300 font-medium';
+                          } else {
+                            btnStyle = 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-40';
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={optIdx}
+                            onClick={() => handleAnswerMCQ(mcq.id, optIdx)}
+                            className={`p-3 rounded-xl border text-left text-xs md:text-sm transition-all flex items-start gap-2.5 ${btnStyle}`}
+                          >
+                            <span className="font-bold text-xs shrink-0 mt-0.5">
+                              {String.fromCharCode(65 + optIdx)}.
+                            </span>
+                            <span className="leading-snug">{opt}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Explanation (Revealed when answered) */}
+                    {isAnswered && (
+                      <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs space-y-2 animate-fadeIn">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1.5 font-bold">
+                            {selectedOpt === mcq.correctIndex ? (
+                              <span className="text-emerald-400 flex items-center gap-1">
+                                <Check className="w-4 h-4" /> Correct Answer (+1.0)
+                              </span>
+                            ) : (
+                              <span className="text-rose-400 flex items-center gap-1">
+                                <AlertCircle className="w-4 h-4" /> Incorrect Answer (-0.25) — Correct: Option {String.fromCharCode(65 + mcq.correctIndex)}
+                              </span>
+                            )}
+                          </div>
+                          <button
+                            onClick={() => handleClearMCQ(mcq.id)}
+                            className="text-[11px] text-[var(--text-muted)] hover:text-[var(--text-primary)] flex items-center gap-1 hover:underline"
+                          >
+                            <RotateCcw className="w-3 h-3" /> Retry
+                          </button>
+                        </div>
+                        <p className="text-[var(--text-secondary)] leading-relaxed">
+                          <AnnotatedLegalText text={mcq.explanation} />
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       )}
 
       {/* =========================================================================
-          SECTION: COURTROOM CASE PROBLEM (MAINS ANSWER PRACTICE)
+          SECTION: COURTROOM CASE PROBLEMS (10 MASTER CASE STUDIES WITH COMPREHENSION DRILLS)
       ========================================================================= */}
       {(viewLayout === 'all-in-one' || activeSubTab === 'casestudy') && (
         <div className="space-y-6 animate-fadeIn">
-          <div className="p-6 md:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-6 shadow-md">
-            <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
-              <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
-                JKPSC PO Mains Case Formulation Drill
-              </span>
-              <h3 className="text-xl md:text-2xl font-black text-[var(--text-primary)]">
-                {currentDay.caseStudy.title}
-              </h3>
-            </div>
-
-            {/* Factual Matrix */}
-            <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
-                Factual Matrix (Case Briefing):
-              </span>
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
-                <AnnotatedLegalText text={currentDay.caseStudy.factualMatrix} />
-              </p>
-            </div>
-
-            {/* Questions to Address */}
-            <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                Framing Issues for Prosecution / Adjudication:
-              </span>
-              <ol className="space-y-2 text-xs md:text-sm text-[var(--text-primary)] font-semibold list-decimal pl-4">
-                {currentDay.caseStudy.framingQuestions.map((q, qIdx) => (
-                  <li key={qIdx}>{q}</li>
-                ))}
-              </ol>
-            </div>
-
-            {/* Student Scratchpad Answer Area */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                  Draft Your Mains Answer:
-                </label>
-                <span className="text-xs text-[var(--text-muted)]">
-                  Word Count: {(currentDayProgress.userCaseAnswer || '').split(/\s+/).filter(Boolean).length} words
-                </span>
-              </div>
-              <textarea
-                value={currentDayProgress.userCaseAnswer || ''}
-                onChange={(e) => handleSaveCaseStudyAnswer(e.target.value)}
-                placeholder="Structure your answer: 1. Relevant Constitutional & Statutory Provisions... 2. Foundational Classic Landmark... 3. 2024-2025 Supreme Court Ratio... 4. Concrete Prosecutorial Conclusion..."
-                rows={8}
-                className="w-full p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
-              />
-            </div>
-
-            {/* Reveal Model Answer Button */}
-            <div className="pt-2">
-              <button
-                onClick={() => setShowModelAnswer((prev) => !prev)}
-                className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
-              >
-                <Trophy className="w-4 h-4" />
-                {showModelAnswer ? 'Hide Examiner\'s Model Answer' : 'Reveal Examiner\'s Model Answer & Marking Rubric'}
-              </button>
-            </div>
-
-            {/* Collapsible Model Answer & Marking Rubric */}
-            {showModelAnswer && (
-              <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)] animate-fadeIn">
-                <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-emerald-500/30">
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                    Official Examiner's Model Solution:
-                  </span>
-                  <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
-                    <AnnotatedLegalText text={currentDay.caseStudy.modelAnswer} />
+          {currentDay.comprehensionCaseStudies && currentDay.comprehensionCaseStudies.length > 0 ? (
+            <div className="space-y-6">
+              {/* Header & Case Study Selector Carousel */}
+              <div className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-4 shadow-md">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
+                  <div className="space-y-1">
+                    <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                      10 Master Case Studies & Judicial Comprehension Arena
+                    </span>
+                    <h3 className="text-lg md:text-xl font-black text-[var(--text-primary)]">
+                      Constitutional Case Formulation Lab (Day {currentDay.dayNumber})
+                    </h3>
+                  </div>
+                  <div className="text-xs text-[var(--text-muted)] font-medium">
+                    Case {activeCaseStudyIndex + 1} of {currentDay.comprehensionCaseStudies.length}
                   </div>
                 </div>
 
-                {/* Marking Rubric Breakdown */}
-                <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
-                    Official Marking Rubric (Max: 10 Marks):
-                  </span>
-                  <div className="space-y-2">
-                    {currentDay.caseStudy.markingRubric.map((item, rIdx) => (
-                      <div
-                        key={rIdx}
-                        className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)]"
+                {/* 10 Case Navigation Tabs */}
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+                  {currentDay.comprehensionCaseStudies.map((cs, csIdx) => {
+                    const isSelected = csIdx === activeCaseStudyIndex;
+                    const subAnsweredCount = cs.comprehensionMCQs.filter(
+                      (sm) => currentDayProgress.caseStudyMcqAnswers?.[sm.id] !== undefined
+                    ).length;
+                    const isFullyDone = subAnsweredCount === cs.comprehensionMCQs.length;
+
+                    return (
+                      <button
+                        key={cs.id}
+                        onClick={() => setActiveCaseStudyIndex(csIdx)}
+                        className={`px-3 py-2.5 rounded-xl text-left border shrink-0 transition-all text-xs flex flex-col gap-1 min-w-[160px] max-w-[210px] ${
+                          isSelected
+                            ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-md'
+                            : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50'
+                        }`}
                       >
-                        <span className="text-[var(--text-secondary)]">{item.criterion}</span>
-                        <span className="font-bold text-[var(--accent-primary)] shrink-0 ml-4">
-                          {item.marks} Marks
+                        <div className="flex items-center justify-between w-full">
+                          <span className="font-bold text-[11px] truncate">Case {csIdx + 1}</span>
+                          {isFullyDone ? (
+                            <CheckCircle2
+                              className={`w-3.5 h-3.5 ${
+                                isSelected ? 'text-[var(--bg-base)]' : 'text-emerald-400'
+                              }`}
+                            />
+                          ) : (
+                            <span
+                              className={`text-[10px] px-1.5 py-0.2 rounded ${
+                                isSelected
+                                  ? 'bg-black/20 text-white'
+                                  : 'bg-[var(--bg-card)] text-[var(--text-muted)]'
+                              }`}
+                            >
+                              {subAnsweredCount}/4
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-[11px] font-medium truncate opacity-90">
+                          {cs.title.replace(/^Case Study \d+:\s*/i, '')}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Active Case Study Details */}
+              {activeComprehensionCaseStudy && (
+                <div className="p-6 md:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-6 shadow-md animate-fadeIn">
+                  <div className="space-y-3 border-b border-[var(--border-subtle)] pb-4">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                        Case Study {activeCaseStudyIndex + 1} of {currentDay.comprehensionCaseStudies.length}
+                      </span>
+                      {activeComprehensionCaseStudy.statutoryApplicability.map((stat, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)]"
+                        >
+                          {stat}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-black text-[var(--text-primary)]">
+                      {activeComprehensionCaseStudy.title}
+                    </h3>
+                  </div>
+
+                  {/* Factual Matrix */}
+                  <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
+                    <div className="flex items-center gap-2">
+                      <Scale className="w-4 h-4 text-[var(--accent-primary)]" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                        Factual Matrix (Case Briefing):
+                      </span>
+                    </div>
+                    <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
+                      <AnnotatedLegalText text={activeComprehensionCaseStudy.factualMatrix} />
+                    </p>
+                  </div>
+
+                  {/* Questions to Address */}
+                  <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
+                    <div className="flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-amber-400" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                        Framing Issues for Prosecution / Adjudication:
+                      </span>
+                    </div>
+                    <ol className="space-y-2 text-xs md:text-sm text-[var(--text-primary)] font-semibold list-decimal pl-4">
+                      {activeComprehensionCaseStudy.framingQuestions.map((q, qIdx) => (
+                        <li key={qIdx}>{q}</li>
+                      ))}
+                    </ol>
+                  </div>
+
+                  {/* 4 Comprehension Sub-MCQs Drill */}
+                  <div className="space-y-4 pt-2">
+                    <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCheck className="w-4 h-4 text-emerald-400" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
+                          Comprehension Verification (4 Sub-MCQs)
                         </span>
                       </div>
-                    ))}
+                      <span className="text-xs font-semibold text-[var(--text-muted)]">
+                        Standard Marking (+1.0 / -0.25)
+                      </span>
+                    </div>
+
+                    <div className="space-y-4">
+                      {activeComprehensionCaseStudy.comprehensionMCQs.map((subQ, sqIdx) => {
+                        const userSubAns = currentDayProgress.caseStudyMcqAnswers?.[subQ.id];
+                        const isAnswered = userSubAns !== undefined;
+
+                        return (
+                          <div
+                            key={subQ.id}
+                            className="p-5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3"
+                          >
+                            <div className="flex items-start gap-3">
+                              <span className="w-6 h-6 rounded-full bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center font-bold text-xs shrink-0 text-[var(--text-primary)]">
+                                {sqIdx + 1}
+                              </span>
+                              <h5 className="text-xs md:text-sm font-bold text-[var(--text-primary)] leading-snug">
+                                {subQ.question}
+                              </h5>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                              {subQ.options.map((opt, oIdx) => {
+                                const isChosen = userSubAns === oIdx;
+                                const isCorrect = oIdx === subQ.correctIndex;
+
+                                let btnStyle =
+                                  'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-primary)]/50';
+
+                                if (isAnswered) {
+                                  if (isCorrect) {
+                                    btnStyle = 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold';
+                                  } else if (isChosen && !isCorrect) {
+                                    btnStyle = 'bg-rose-500/20 border-rose-500 text-rose-300 font-medium';
+                                  } else {
+                                    btnStyle = 'bg-[var(--bg-card)] border-[var(--border-subtle)] opacity-40';
+                                  }
+                                }
+
+                                return (
+                                  <button
+                                    key={oIdx}
+                                    onClick={() => handleAnswerCaseStudyMCQ(subQ.id, oIdx)}
+                                    className={`p-2.5 rounded-lg border text-left text-xs transition-all flex items-start gap-2 ${btnStyle}`}
+                                  >
+                                    <span className="font-bold text-xs shrink-0 mt-0.5">
+                                      {String.fromCharCode(65 + oIdx)}.
+                                    </span>
+                                    <span className="leading-snug">{opt}</span>
+                                  </button>
+                                );
+                              })}
+                            </div>
+
+                            {isAnswered && (
+                              <div className="p-3 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs space-y-1 animate-fadeIn">
+                                <div className="flex items-center gap-1.5 font-bold">
+                                  {userSubAns === subQ.correctIndex ? (
+                                    <span className="text-emerald-400 flex items-center gap-1">
+                                      <Check className="w-3.5 h-3.5" /> Correct (+1.0)
+                                    </span>
+                                  ) : (
+                                    <span className="text-rose-400 flex items-center gap-1">
+                                      <AlertCircle className="w-3.5 h-3.5" /> Incorrect (-0.25) — Correct: Option {String.fromCharCode(65 + subQ.correctIndex)}
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-[var(--text-secondary)] leading-relaxed text-[11px]">
+                                  <AnnotatedLegalText text={subQ.explanation} />
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Student Scratchpad Answer Area */}
+                  <div className="space-y-2 pt-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                        Draft Your Mains Answer:
+                      </label>
+                      <span className="text-xs text-[var(--text-muted)]">
+                        Word Count: {(currentDayProgress.userCaseAnswer || '').split(/\s+/).filter(Boolean).length} words
+                      </span>
+                    </div>
+                    <textarea
+                      value={currentDayProgress.userCaseAnswer || ''}
+                      onChange={(e) => handleSaveCaseStudyAnswer(e.target.value)}
+                      placeholder="Structure your answer: 1. Relevant Constitutional & Statutory Provisions... 2. Foundational Classic Landmark... 3. 2024-2025 Supreme Court Ratio... 4. Concrete Prosecutorial Conclusion..."
+                      rows={6}
+                      className="w-full p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
+                    />
+                  </div>
+
+                  {/* Reveal Model Answer Button & Prev/Next Bar */}
+                  <div className="pt-2 flex items-center justify-between flex-wrap gap-3">
+                    <button
+                      onClick={() =>
+                        setShowModelAnswerMap((prev) => ({
+                          ...prev,
+                          [activeCaseStudyIndex]: !prev[activeCaseStudyIndex]
+                        }))
+                      }
+                      className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+                    >
+                      <Trophy className="w-4 h-4" />
+                      {showModelAnswerMap[activeCaseStudyIndex]
+                        ? "Hide Examiner's Model Answer"
+                        : "Reveal Examiner's Model Answer & Marking Rubric"}
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        disabled={activeCaseStudyIndex === 0}
+                        onClick={() => setActiveCaseStudyIndex((i) => Math.max(0, i - 1))}
+                        className="px-3 py-2 rounded-xl text-xs font-semibold border border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-secondary)] disabled:opacity-30 flex items-center gap-1 hover:border-[var(--accent-primary)]"
+                      >
+                        <ChevronLeft className="w-4 h-4" /> Prev Case
+                      </button>
+                      <button
+                        disabled={activeCaseStudyIndex === currentDay.comprehensionCaseStudies.length - 1}
+                        onClick={() =>
+                          setActiveCaseStudyIndex((i) =>
+                            Math.min(currentDay.comprehensionCaseStudies!.length - 1, i + 1)
+                          )
+                        }
+                        className="px-3 py-2 rounded-xl text-xs font-semibold border border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-secondary)] disabled:opacity-30 flex items-center gap-1 hover:border-[var(--accent-primary)]"
+                      >
+                        Next Case <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Collapsible Model Answer & Marking Rubric */}
+                  {showModelAnswerMap[activeCaseStudyIndex] && (
+                    <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)] animate-fadeIn">
+                      <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-emerald-500/30">
+                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                          Official Examiner's Model Solution:
+                        </span>
+                        <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
+                          <AnnotatedLegalText text={activeComprehensionCaseStudy.modelAnswer} />
+                        </div>
+                      </div>
+
+                      {/* Marking Rubric Breakdown */}
+                      <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                          Official Marking Rubric (Max: 10 Marks):
+                        </span>
+                        <div className="space-y-2">
+                          {activeComprehensionCaseStudy.markingRubric.map((item, rIdx) => (
+                            <div
+                              key={rIdx}
+                              className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)]"
+                            >
+                              <span className="text-[var(--text-secondary)]">{item.criterion}</span>
+                              <span className="font-bold text-[var(--accent-primary)] shrink-0 ml-4">
+                                {item.marks} Marks
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            /* Fallback single case study for Days 2 to 15 */
+            <div className="p-6 md:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-6 shadow-md">
+              <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
+                <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                  JKPSC PO Mains Case Formulation Drill
+                </span>
+                <h3 className="text-xl md:text-2xl font-black text-[var(--text-primary)]">
+                  {currentDay.caseStudy.title}
+                </h3>
+              </div>
+
+              {/* Factual Matrix */}
+              <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                  Factual Matrix (Case Briefing):
+                </span>
+                <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
+                  <AnnotatedLegalText text={currentDay.caseStudy.factualMatrix} />
+                </p>
+              </div>
+
+              {/* Questions to Address */}
+              <div className="space-y-2 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                  Framing Issues for Prosecution / Adjudication:
+                </span>
+                <ol className="space-y-2 text-xs md:text-sm text-[var(--text-primary)] font-semibold list-decimal pl-4">
+                  {currentDay.caseStudy.framingQuestions.map((q, qIdx) => (
+                    <li key={qIdx}>{q}</li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Student Scratchpad Answer Area */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    Draft Your Mains Answer:
+                  </label>
+                  <span className="text-xs text-[var(--text-muted)]">
+                    Word Count: {(currentDayProgress.userCaseAnswer || '').split(/\s+/).filter(Boolean).length} words
+                  </span>
+                </div>
+                <textarea
+                  value={currentDayProgress.userCaseAnswer || ''}
+                  onChange={(e) => handleSaveCaseStudyAnswer(e.target.value)}
+                  placeholder="Structure your answer: 1. Relevant Constitutional & Statutory Provisions... 2. Foundational Classic Landmark... 3. 2024-2025 Supreme Court Ratio... 4. Concrete Prosecutorial Conclusion..."
+                  rows={8}
+                  className="w-full p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
+                />
+              </div>
+
+              {/* Reveal Model Answer Button */}
+              <div className="pt-2">
+                <button
+                  onClick={() => setShowModelAnswer((prev) => !prev)}
+                  className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+                >
+                  <Trophy className="w-4 h-4" />
+                  {showModelAnswer ? "Hide Examiner's Model Answer" : "Reveal Examiner's Model Answer & Marking Rubric"}
+                </button>
+              </div>
+
+              {/* Collapsible Model Answer & Marking Rubric */}
+              {showModelAnswer && (
+                <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)] animate-fadeIn">
+                  <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-emerald-500/30">
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                      Official Examiner's Model Solution:
+                    </span>
+                    <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
+                      <AnnotatedLegalText text={currentDay.caseStudy.modelAnswer} />
+                    </div>
+                  </div>
+
+                  {/* Marking Rubric Breakdown */}
+                  <div className="space-y-3 bg-[var(--bg-base)] p-5 rounded-xl border border-[var(--border-subtle)]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                      Official Marking Rubric (Max: 10 Marks):
+                    </span>
+                    <div className="space-y-2">
+                      {currentDay.caseStudy.markingRubric.map((item, rIdx) => (
+                        <div
+                          key={rIdx}
+                          className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)]"
+                        >
+                          <span className="text-[var(--text-secondary)]">{item.criterion}</span>
+                          <span className="font-bold text-[var(--accent-primary)] shrink-0 ml-4">
+                            {item.marks} Marks
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>
