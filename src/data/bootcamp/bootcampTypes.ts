@@ -41,7 +41,8 @@ export interface CaseStudySubMCQ {
   options: [string, string, string, string];
   correctIndex: number;
   explanation: string;
-  testedDimension: 'Article Threshold' | 'Legal Doctrine' | 'Landmark Ratio' | 'Judicial Remedy';
+  testedDimension?: 'Article Threshold' | 'Legal Doctrine' | 'Landmark Ratio' | 'Judicial Remedy';
+  articleRef?: string;
 }
 
 export interface BootcampComprehensionCaseStudy {
