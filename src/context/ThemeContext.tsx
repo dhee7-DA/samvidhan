@@ -14,6 +14,12 @@ interface ThemeContextType {
   setSelectedSvgId: (id: string | null) => void;
   searchOpen: boolean;
   setSearchOpen: (open: boolean) => void;
+  dictionaryModalOpen: boolean;
+  setDictionaryModalOpen: (open: boolean) => void;
+  dictionaryInitialQuery: string;
+  setDictionaryInitialQuery: (query: string) => void;
+  wordInspectorEnabled: boolean;
+  setWordInspectorEnabled: (enabled: boolean | ((prev: boolean) => boolean)) => void;
   bookmarkedArticles: string[];
   toggleBookmark: (artNumber: string) => void;
 }
@@ -35,6 +41,16 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [selectedPartId, setSelectedPartId] = useState<string | null>(null);
   const [selectedSvgId, setSelectedSvgId] = useState<string | null>('writs-matrix');
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
+  const [dictionaryModalOpen, setDictionaryModalOpen] = useState<boolean>(false);
+  const [dictionaryInitialQuery, setDictionaryInitialQuery] = useState<string>('');
+  const [wordInspectorEnabled, setWordInspectorEnabled] = useState<boolean>(() => {
+    const saved = localStorage.getItem('samvidhan_word_inspector');
+    return saved !== null ? saved === 'true' : true;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('samvidhan_word_inspector', String(wordInspectorEnabled));
+  }, [wordInspectorEnabled]);
   const [bookmarkedArticles, setBookmarkedArticles] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('samvidhan_bookmarks');
@@ -79,6 +95,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setSelectedSvgId,
         searchOpen,
         setSearchOpen,
+        dictionaryModalOpen,
+        setDictionaryModalOpen,
+        dictionaryInitialQuery,
+        setDictionaryInitialQuery,
+        wordInspectorEnabled,
+        setWordInspectorEnabled,
         bookmarkedArticles,
         toggleBookmark,
       }}

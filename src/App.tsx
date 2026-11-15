@@ -3,6 +3,8 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Header } from './components/Layout/Header';
 import { Sidebar } from './components/Layout/Sidebar';
 import { SearchModal } from './components/Common/SearchModal';
+import { UniversalDictionaryPopover } from './components/Common/UniversalDictionaryPopover';
+import { GlobalDictionaryModal } from './components/Common/GlobalDictionaryModal';
 import { OverviewDashboard } from './components/Views/OverviewDashboard';
 import { TopicDetailView } from './components/Views/TopicDetailView';
 import { ArticlesMasterView } from './components/Views/ArticlesMasterView';
@@ -26,6 +28,8 @@ const MainContent: React.FC = () => {
       <Header />
       <Sidebar />
       <SearchModal />
+      <GlobalDictionaryModal />
+      <UniversalDictionaryPopover />
 
       <main className="flex-1 pb-16">
         {activeTab === 'overview' && <OverviewDashboard />}

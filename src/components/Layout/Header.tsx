@@ -5,7 +5,13 @@ import { ThemeSelector } from './ThemeSelector';
 import { FontSelector } from './FontSelector';
 
 export const Header: React.FC = () => {
-  const { setSearchOpen, bookmarkedArticles, activeTab, setActiveTab } = useTheme();
+  const {
+    setSearchOpen,
+    bookmarkedArticles,
+    activeTab,
+    setActiveTab,
+    setDictionaryModalOpen
+  } = useTheme();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-base)]/80 backdrop-blur-md transition-colors">
@@ -59,6 +65,18 @@ export const Header: React.FC = () => {
           <div className="hidden sm:block">
             <FontSelector />
           </div>
+
+          <button
+            onClick={() => setDictionaryModalOpen(true)}
+            title="Universal Legal & English Dictionary (Alt + D)"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] text-xs font-mono transition-colors"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-[var(--accent)]" />
+            <span className="hidden md:inline">Dictionary</span>
+            <kbd className="text-[9px] px-1 py-0.2 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hidden xl:inline">
+              Alt+D
+            </kbd>
+          </button>
 
           <ThemeSelector />
 
