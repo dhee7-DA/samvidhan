@@ -492,6 +492,9 @@ export const PyqVaultView: React.FC = () => {
                     <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
                       Standard {activeCommonQ.typicalMarks} Marks Question
                     </span>
+                    <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                      Target: {activeCommonQ.targetWordLimit}
+                    </span>
                     <span className="px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                       Appeared In: {activeCommonQ.examsAppeared.join(' | ')}
                     </span>
@@ -588,7 +591,7 @@ export const PyqVaultView: React.FC = () => {
                     Interactive Answer Drafting Scratchpad
                   </span>
                   <span className="text-xs font-mono text-[var(--text-muted)]">
-                    {allIndiaWordCount} Words
+                    {allIndiaWordCount} Words (Target: {activeCommonQ.targetWordLimit.split('|')[0].trim()})
                   </span>
                 </div>
 
@@ -600,6 +603,63 @@ export const PyqVaultView: React.FC = () => {
                   className="w-full p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
                 />
               </div>
+
+              {/* Master Model Answer Toggle Button */}
+              <div className="pt-2 flex items-center gap-3">
+                <button
+                  onClick={() => toggleSolution(activeCommonQ.id)}
+                  className="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+                >
+                  <Trophy className="w-4 h-4" />
+                  <span>
+                    {revealedSolutions[activeCommonQ.id]
+                      ? 'Hide Official Model Answer'
+                      : `Reveal Examiner's Framed Model Answer (${activeCommonQ.typicalMarks} Marks) & Rubric`}
+                  </span>
+                </button>
+              </div>
+
+              {/* Master Model Answer & Scoring Rubric */}
+              {revealedSolutions[activeCommonQ.id] && (
+                <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)] animate-fadeIn">
+                  {/* Model Solution Box */}
+                  <div className="p-6 rounded-2xl bg-[var(--bg-base)] border border-emerald-500/30 space-y-4">
+                    <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
+                      <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                        <Sparkles className="w-4 h-4" />
+                        Examiner-Grade Model Solution ({activeCommonQ.typicalMarks} Marks | {activeCommonQ.targetWordLimit})
+                      </span>
+                      <span className="text-xs font-mono text-[var(--text-muted)]">
+                        Standard All-India Judicial Format
+                      </span>
+                    </div>
+
+                    <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line font-normal space-y-3">
+                      <AnnotatedLegalText text={activeCommonQ.fullModelAnswer} />
+                    </div>
+                  </div>
+
+                  {/* Rubric Breakdown */}
+                  <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] block">
+                      Official Scoring Rubric & Allocation of Marks ({activeCommonQ.typicalMarks}M Total):
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {activeCommonQ.scoringRubric.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-between text-xs"
+                        >
+                          <span className="text-[var(--text-secondary)] pr-2">{item.criterion}</span>
+                          <span className="font-extrabold text-[var(--accent-primary)] shrink-0">
+                            {item.marks} Marks
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
