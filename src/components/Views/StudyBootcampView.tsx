@@ -75,6 +75,7 @@ import { EmergencyMatrixSVG } from '../VectorDiagrams/EmergencyMatrixSVG';
 import { AmendmentPipelineSVG } from '../VectorDiagrams/AmendmentPipelineSVG';
 import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
+import { BootcampDayMemoryGame } from './BootcampDayMemoryGame';
 
 interface DayProgress {
   tasks: {
@@ -83,6 +84,7 @@ interface DayProgress {
     terms: boolean;
     mcqs: boolean;
     caseStudy: boolean;
+    memoryGame?: boolean;
   };
   mcqAnswers: Record<string, number>; // questionId -> selectedIndex
   userCaseAnswer?: string;
@@ -147,8 +149,8 @@ export const StudyBootcampView: React.FC = () => {
   // View Layout Mode: 'tabs' (Modular) vs 'all-in-one' (Continuous Comprehensive Dossier)
   const [viewLayout, setViewLayout] = useState<'tabs' | 'all-in-one'>('tabs');
 
-  // Active Sub-Tab in 'tabs' mode: 'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy'
-  const [activeSubTab, setActiveSubTab] = useState<'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy'>('curriculum');
+  // Active Sub-Tab in 'tabs' mode: 'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy' | 'memory-game'
+  const [activeSubTab, setActiveSubTab] = useState<'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy' | 'memory-game'>('curriculum');
 
   // Interactive Target Article Reader State
   const [selectedArticleStr, setSelectedArticleStr] = useState<string>('Art. 1');
@@ -225,7 +227,7 @@ export const StudyBootcampView: React.FC = () => {
 
   // Current Day Progress
   const currentDayProgress: DayProgress = progress[selectedDayNumber] || {
-    tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+    tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
     mcqAnswers: {}
   };
 
@@ -233,7 +235,7 @@ export const StudyBootcampView: React.FC = () => {
   const toggleTask = (taskKey: keyof DayProgress['tasks']) => {
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
-        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
         mcqAnswers: {}
       };
       return {
@@ -275,7 +277,7 @@ export const StudyBootcampView: React.FC = () => {
 
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
-        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
         mcqAnswers: {}
       };
       const updatedAnswers = {
@@ -306,7 +308,7 @@ export const StudyBootcampView: React.FC = () => {
   const handleSaveCaseStudyAnswer = (text: string) => {
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
-        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
         mcqAnswers: {}
       };
       return {
@@ -330,7 +332,7 @@ export const StudyBootcampView: React.FC = () => {
   const stats = useMemo(() => {
     let completedDaysCount = 0;
     let totalTasksCompleted = 0;
-    const totalPossibleTasks = 15 * 5; // 75 tasks total
+    const totalPossibleTasks = 15 * 6; // 90 tasks total (6 tasks per day)
     let totalMCQsAnswered = 0;
     let totalMCQsCorrect = 0;
 
@@ -339,7 +341,7 @@ export const StudyBootcampView: React.FC = () => {
       if (p) {
         const tasksDone = Object.values(p.tasks).filter(Boolean).length;
         totalTasksCompleted += tasksDone;
-        if (tasksDone === 5) completedDaysCount++;
+        if (tasksDone >= 5) completedDaysCount++;
 
         day.mcqs.forEach((mcq) => {
           const userAns = p.mcqAnswers[mcq.id];
@@ -470,7 +472,7 @@ export const StudyBootcampView: React.FC = () => {
   const handleClearMCQ = (mcqId: string) => {
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
-        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
         mcqAnswers: {}
       };
       const updatedAnswers = { ...dayProg.mcqAnswers };
@@ -489,7 +491,7 @@ export const StudyBootcampView: React.FC = () => {
   const handleResetMistakes = () => {
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
-        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
         mcqAnswers: {}
       };
       const updatedAnswers = { ...dayProg.mcqAnswers };
@@ -549,7 +551,7 @@ export const StudyBootcampView: React.FC = () => {
 
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
-        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
+        tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false, memoryGame: false },
         mcqAnswers: {},
         caseStudyMcqAnswers: {}
       };
@@ -681,7 +683,7 @@ export const StudyBootcampView: React.FC = () => {
             <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Overall Progress</span>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl font-bold text-[var(--accent-primary)]">{stats.completionPercentage}%</span>
-              <span className="text-xs text-[var(--text-muted)]">({stats.totalTasksCompleted}/75 tasks)</span>
+              <span className="text-xs text-[var(--text-muted)]">({stats.totalTasksCompleted}/90 tasks)</span>
             </div>
             <div className="w-full bg-[var(--bg-base)] h-2 rounded-full overflow-hidden border border-[var(--border-subtle)]">
               <div
@@ -810,9 +812,9 @@ export const StudyBootcampView: React.FC = () => {
                 <Clock className="w-3 h-3" /> ~{currentDay.estimatedHours} hrs study
               </span>
               <button
-                onClick={() => launchGameDeck(getDayTileDeck(currentDay.dayNumber))}
+                onClick={() => setActiveSubTab('memory-game')}
                 className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm"
-                title={`Launch memory tile matcher for Day ${currentDay.dayNumber}`}
+                title={`Play memory tile matcher for Day ${currentDay.dayNumber}`}
               >
                 <Gamepad2 className="w-3.5 h-3.5" />
                 <span>Day {currentDay.dayNumber} Matcher</span>
@@ -1016,8 +1018,8 @@ export const StudyBootcampView: React.FC = () => {
           </div>
         </div>
 
-        {/* 5 Daily Checkbox Tasks Strip */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+        {/* 6 Daily Checkbox Tasks Strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
           <button
             onClick={() => toggleTask('articles')}
             className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
@@ -1116,6 +1118,30 @@ export const StudyBootcampView: React.FC = () => {
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
           </button>
+
+          <button
+            onClick={() => {
+              toggleTask('memoryGame');
+              setActiveSubTab('memory-game');
+            }}
+            className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
+              currentDayProgress.tasks.memoryGame
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
+                : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
+            }`}
+          >
+            <div className="space-y-0.5">
+              <span className="text-[10px] uppercase font-bold tracking-wider">Task 6 (0.5 hr)</span>
+              <p className="text-xs font-semibold text-[var(--text-primary)]">
+                Memory Tile Matcher
+              </p>
+            </div>
+            {currentDayProgress.tasks.memoryGame ? (
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
+            ) : (
+              <Circle className="w-5 h-5 text-gray-500 shrink-0" />
+            )}
+          </button>
         </div>
 
         {/* Sub-Tab Navigation Bar (Active in 'tabs' mode) */}
@@ -1182,6 +1208,21 @@ export const StudyBootcampView: React.FC = () => {
             >
               <Scale className="w-4 h-4" />
               5. Case Studies ({currentDay.comprehensionCaseStudies?.length || 1} Scenarios)
+            </button>
+
+            <button
+              onClick={() => setActiveSubTab('memory-game')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'memory-game'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <Gamepad2 className="w-4 h-4" />
+              6. Memory Tile Matcher
+              {currentDayProgress.tasks.memoryGame && (
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 ml-0.5" />
+              )}
             </button>
           </div>
         )}
@@ -2360,6 +2401,23 @@ export const StudyBootcampView: React.FC = () => {
               )}
             </div>
           )}
+        </div>
+      )}
+
+      {/* =========================================================================
+          SECTION 6: DAY SYNAPTIC MEMORY MATCHER DRILL
+      ========================================================================= */}
+      {(viewLayout === 'all-in-one' || activeSubTab === 'memory-game') && (
+        <div className="space-y-6 animate-fadeIn">
+          <BootcampDayMemoryGame
+            day={currentDay}
+            isCompleted={!!currentDayProgress.tasks.memoryGame}
+            onComplete={() => {
+              if (!currentDayProgress.tasks.memoryGame) {
+                toggleTask('memoryGame');
+              }
+            }}
+          />
         </div>
       )}
     </div>
