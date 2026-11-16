@@ -23,13 +23,15 @@ export interface PyqQuestion {
   }[];
 }
 
+import { PYQ_2023_DATA } from './pyqs/pyq2023';
 import { PYQ_2022_DATA } from './pyqs/pyq2022';
 import { PYQ_2018_DATA } from './pyqs/pyq2018';
 import { PYQ_2014_DATA } from './pyqs/pyq2014';
 
-export { PYQ_2022_DATA, PYQ_2018_DATA, PYQ_2014_DATA };
+export { PYQ_2023_DATA, PYQ_2022_DATA, PYQ_2018_DATA, PYQ_2014_DATA };
 
 export const JKPSC_MAINS_PYQ_DATA: PyqQuestion[] = [
+  ...PYQ_2023_DATA,
   ...PYQ_2022_DATA,
   ...PYQ_2018_DATA,
   ...PYQ_2014_DATA,

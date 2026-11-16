@@ -15,7 +15,10 @@ import {
   Timer,
   AlertTriangle,
   PenTool,
-  Printer
+  Printer,
+  BrainCircuit,
+  GitBranch,
+  Radio
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -89,6 +92,27 @@ export const OverviewDashboard: React.FC = () => {
           >
             <Scale className="w-4 h-4 text-[var(--text-secondary)]" />
             <span>ACTIVE RECALL QUIZ</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('flashcards')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 border border-purple-500/30 font-mono text-xs font-semibold transition-colors"
+          >
+            <BrainCircuit className="w-4 h-4" />
+            <span>LEITNER FLASHCARDS</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('lineage')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/30 font-mono text-xs font-semibold transition-colors"
+          >
+            <GitBranch className="w-4 h-4" />
+            <span>PRECEDENT TREES (1950–2026)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('audio-lab')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30 font-mono text-xs font-semibold transition-colors"
+          >
+            <Radio className="w-4 h-4" />
+            <span>AUDIO LAB & VIVA</span>
           </button>
         </div>
       </section>

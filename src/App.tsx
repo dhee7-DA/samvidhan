@@ -22,6 +22,9 @@ import { MockExamSimulatorView } from './components/Views/MockExamSimulatorView'
 import { MistakesNotebookView } from './components/Views/MistakesNotebookView';
 import { MainsAnswerWritingLabView } from './components/Views/MainsAnswerWritingLabView';
 import { PrintableRevisionView } from './components/Views/PrintableRevisionView';
+import { FlashcardsView } from './components/Views/FlashcardsView';
+import { PrecedentLineageView } from './components/Views/PrecedentLineageView';
+import { AudioBriefingsView } from './components/Views/AudioBriefingsView';
 import { Scale } from 'lucide-react';
 
 const MainContent: React.FC = () => {
@@ -48,6 +51,9 @@ const MainContent: React.FC = () => {
         )}
         {activeTab === 'mains-lab' && <MainsAnswerWritingLabView />}
         {activeTab === 'revision-sheets' && <PrintableRevisionView />}
+        {activeTab === 'flashcards' && <FlashcardsView />}
+        {activeTab === 'lineage' && <PrecedentLineageView />}
+        {activeTab === 'audio-lab' && <AudioBriefingsView />}
         {activeTab === 'pyqs' && <PyqVaultView />}
         {activeTab === 'parts' && <TopicDetailView />}
         {activeTab === 'articles-master' && <ArticlesMasterView />}
@@ -81,6 +87,9 @@ const MainContent: React.FC = () => {
             <button onClick={() => setActiveTab('mistakes-notebook')} className="hover:text-[var(--text-primary)] text-rose-400 font-semibold">Mistakes Bank</button>
             <button onClick={() => setActiveTab('mains-lab')} className="hover:text-[var(--text-primary)] text-purple-400 font-semibold">Mains Writing Lab</button>
             <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-amber-400 font-semibold">Revision Sheets</button>
+            <button onClick={() => setActiveTab('flashcards')} className="hover:text-[var(--text-primary)] text-purple-400 font-semibold">Flashcards</button>
+            <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-indigo-400 font-semibold">Precedent Trees</button>
+            <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-emerald-400 font-semibold">Audio Lab</button>
             <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-emerald-400 font-semibold">J&K Mains PYQs</button>
             <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)]">25 Parts</button>
             <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)]">Articles 1–395</button>
