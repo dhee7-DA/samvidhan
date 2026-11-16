@@ -1,266 +1,974 @@
-import React, { useState } from 'react';
-import { BookOpen, Search, Bookmark, ChevronRight, ChevronDown, Check, Sparkles, Filter, RotateCcw } from 'lucide-react';
-import { ARTICLES_MASTER_INDEX, type ArticleMasterEntry } from '../../data/articlesMasterData';
+import React, { useState, useMemo } from 'react';
+import {
+  BookOpen,
+  Search,
+  Bookmark,
+  ChevronRight,
+  ChevronLeft,
+  Check,
+  Filter,
+  RotateCcw,
+  Copy,
+  ExternalLink,
+  GitCommit,
+  Scale,
+  AlertTriangle,
+  Layers,
+  History,
+  FileText,
+  Award
+} from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { bareActService, type BareActArticle } from '../../services/bareActService';
 
 export const ArticlesMasterView: React.FC = () => {
   const { setActiveTab, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [isCategoryDrawerOpen, setIsCategoryDrawerOpen] = useState(false);
 
-  const categories = [
-    'All',
-    'Rights',
-    'DPSPs & Duties',
-    'Union Executive',
-    'Parliament',
-    'Union Judiciary',
-    'States',
-    'Federal Relations',
-    'Finance & Property',
-    'Services',
-    'Elections',
-    'Emergency',
-    'Amendment',
-    'Special & Temporary'
-  ];
+  // Mode: 'reader' (Clause-by-Clause Bare Act Explorer) vs 'grid' (Directory Cards)
+  const [viewMode, setViewMode] = useState<'reader' | 'grid'>('reader');
 
-  const filtered = ARTICLES_MASTER_INDEX.filter((a) => {
-    if (activeCategory !== 'All' && a.category !== activeCategory) return false;
-    if (searchTerm) {
-      const q = searchTerm.toLowerCase();
-      return (
-        a.articleNumber.toLowerCase().includes(q) ||
-        a.title.toLowerCase().includes(q) ||
-        a.conciseSummary.toLowerCase().includes(q) ||
-        a.part.toLowerCase().includes(q)
-      );
+  // Selected Article for Reader mode
+  const [selectedArticleNum, setSelectedArticleNum] = useState<string>('21');
+
+  // Active Tab inside Reader view
+  const [readerTab, setReaderTab] = useState<'statutory' | 'diff' | 'analysis' | 'amendments'>('statutory');
+
+  // Search and Filters
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedPart, setSelectedPart] = useState<string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [onlyAmended, setOnlyAmended] = useState<boolean>(false);
+  const [onlyDiffs, setOnlyDiffs] = useState<boolean>(false);
+  const [onlyBookmarked, setOnlyBookmarked] = useState<boolean>(false);
+  const [copiedCitation, setCopiedCitation] = useState<boolean>(false);
+
+  // Jump to article state
+  const [jumpInput, setJumpInput] = useState<string>('');
+
+  const partsList = useMemo(() => bareActService.getPartsList(), []);
+  const categoriesList = useMemo(() => bareActService.getCategoriesList(), []);
+
+  // Filtered Articles
+  const filteredArticles = useMemo(() => {
+    let list = bareActService.searchArticles(
+      searchTerm,
+      selectedPart,
+      selectedCategory,
+      onlyAmended,
+      onlyDiffs
+    );
+
+    if (onlyBookmarked) {
+      list = list.filter((a) => bookmarkedArticles.includes(`Art ${a.number}`));
     }
-    return true;
-  });
+
+    return list;
+  }, [searchTerm, selectedPart, selectedCategory, onlyAmended, onlyDiffs, onlyBookmarked, bookmarkedArticles]);
+
+  // Current active article object
+  const activeArticle: BareActArticle = useMemo(() => {
+    const found = bareActService.getArticleByNumber(selectedArticleNum);
+    if (found) return found;
+    return filteredArticles[0] || bareActService.getArticleByNumber('21')!;
+  }, [selectedArticleNum, filteredArticles]);
+
+  const { prev, next } = useMemo(
+    () => bareActService.getAdjacentArticles(activeArticle.number),
+    [activeArticle.number]
+  );
+
+  const relatedDoctrines = useMemo(
+    () => bareActService.getRelatedDoctrines(activeArticle.number),
+    [activeArticle.number]
+  );
+
+  const relatedLandmarkJudgments = useMemo(
+    () => bareActService.getRelatedLandmarkJudgments(activeArticle.number),
+    [activeArticle.number]
+  );
+
+  const isCurrentBookmarked = bookmarkedArticles.includes(`Art ${activeArticle.number}`);
+
+  const handleCopyCitation = () => {
+    const citation = `Article ${activeArticle.number}, Constitution of India (1950) — "${activeArticle.title}"`;
+    navigator.clipboard.writeText(citation);
+    setCopiedCitation(true);
+    setTimeout(() => setCopiedCitation(false), 2000);
+  };
+
+  const handleJumpToArticle = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!jumpInput.trim()) return;
+    const clean = jumpInput.trim().toUpperCase();
+    const target = bareActService.getArticleByNumber(clean);
+    if (target) {
+      setSelectedArticleNum(target.number);
+      setJumpInput('');
+    } else {
+      alert(`Article "${jumpInput}" not found in Constitution catalog (1 to 395).`);
+    }
+  };
 
   const getPartId = (partName: string) => {
-    if (partName === 'Part I') return 'part-1';
-    if (partName === 'Part II') return 'part-2';
-    if (partName === 'Part III') return 'part-3';
-    if (partName === 'Part IV') return 'part-4';
-    if (partName === 'Part IV-A') return 'part-4a';
-    if (partName === 'Part V') return 'part-5';
-    if (partName === 'Part VI') return 'part-6';
-    if (partName === 'Part VII') return 'part-7';
-    if (partName === 'Part VIII') return 'part-8';
-    if (partName === 'Part IX') return 'part-9';
-    if (partName === 'Part IX-A') return 'part-9a';
-    if (partName === 'Part IX-B') return 'part-9b';
-    if (partName === 'Part X') return 'part-10';
-    if (partName === 'Part XI') return 'part-11';
-    if (partName === 'Part XII') return 'part-12';
-    if (partName === 'Part XIII') return 'part-13';
-    if (partName === 'Part XIV') return 'part-14';
-    if (partName === 'Part XIV-A') return 'part-14a';
-    if (partName === 'Part XV') return 'part-15';
-    if (partName === 'Part XVI') return 'part-16';
-    if (partName === 'Part XVII') return 'part-17';
-    if (partName === 'Part XVIII') return 'part-18';
-    if (partName === 'Part XIX') return 'part-19';
-    if (partName === 'Part XX') return 'part-20';
-    if (partName === 'Part XXI') return 'part-21';
-    if (partName === 'Part XXII') return 'part-22';
-    return 'part-3';
+    const map: Record<string, string> = {
+      'Part I': 'part-1',
+      'Part II': 'part-2',
+      'Part III': 'part-3',
+      'Part IV': 'part-4',
+      'Part IV-A': 'part-4a',
+      'Part V': 'part-5',
+      'Part VI': 'part-6',
+      'Part VII': 'part-7',
+      'Part VIII': 'part-8',
+      'Part IX': 'part-9',
+      'Part IX-A': 'part-9a',
+      'Part IX-B': 'part-9b',
+      'Part X': 'part-10',
+      'Part XI': 'part-11',
+      'Part XII': 'part-12',
+      'Part XIII': 'part-13',
+      'Part XIV': 'part-14',
+      'Part XIV-A': 'part-14a',
+      'Part XV': 'part-15',
+      'Part XVI': 'part-16',
+      'Part XVII': 'part-17',
+      'Part XVIII': 'part-18',
+      'Part XIX': 'part-19',
+      'Part XX': 'part-20',
+      'Part XXI': 'part-21',
+      'Part XXII': 'part-22'
+    };
+    return map[partName] || 'part-3';
+  };
+
+  const resetAllFilters = () => {
+    setSearchTerm('');
+    setSelectedPart('All');
+    setSelectedCategory('All');
+    setOnlyAmended(false);
+    setOnlyDiffs(false);
+    setOnlyBookmarked(false);
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
+      {/* Top Banner & Mode Toggle */}
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <BookOpen className="w-5 h-5 text-[var(--accent)]" />
             <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
-              Comprehensive Articles Directory (1 to 395)
+              Bare Act Explorer (Articles 1–395)
             </h1>
-            <span className="text-xs px-2 py-0.5 rounded font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-              Master Index
+            <span className="text-xs px-2.5 py-0.5 rounded font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+              Full Text Verbatim
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">
-            Search, filter, and explore all constitutional articles across all 25 Parts of the Indian Constitution.
+            High-density statutory reader with clause-by-clause statutory breakdowns, 1950 vs amended diffs, and legislative footnotes.
           </p>
+        </div>
+
+        {/* View Mode Switcher */}
+        <div className="flex items-center gap-2 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)] shrink-0 self-stretch sm:self-auto justify-end">
+          <button
+            onClick={() => setViewMode('reader')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              viewMode === 'reader'
+                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+            }`}
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>Clause Explorer</span>
+          </button>
+          <button
+            onClick={() => setViewMode('grid')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              viewMode === 'grid'
+                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>Directory Grid</span>
+          </button>
         </div>
       </div>
 
-      {/* Filter and Search Bar */}
+      {/* Global Filter Bar */}
       <div className="flex flex-col gap-3 p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
-        <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-          <Search className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by article number (e.g. 21, 142, 324, 368) or keyword..."
-            className="w-full bg-transparent border-none text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none font-mono"
-          />
-          {searchTerm && (
-            <button onClick={() => setSearchTerm('')} className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)]">
-              CLEAR
-            </button>
-          )}
-        </div>
-
-        {/* Collapsible Category Toolbar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-[var(--border-subtle)]">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">
-              Category:
-            </span>
-            <button
-              onClick={() => setIsCategoryDrawerOpen((prev) => !prev)}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
-                isCategoryDrawerOpen
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] font-bold shadow-sm'
-                  : activeCategory !== 'All'
-                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] border-[var(--accent)]/40 font-bold'
-                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
-              }`}
-            >
-              <Filter className="w-3.5 h-3.5" />
-              <span>{activeCategory === 'All' ? 'All Categories (14)' : activeCategory}</span>
-              <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  isCategoryDrawerOpen ? 'rotate-180' : ''
-                }`}
-              />
-            </button>
-
-            {activeCategory !== 'All' && (
+        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
+          {/* Search Input */}
+          <div className="flex-1 flex items-center gap-3 px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] focus-within:border-[var(--accent)] transition-colors">
+            <Search className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search by article number (e.g. 21, 368, 123), keyword, doctrine, or amending act..."
+              className="w-full bg-transparent border-none text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none font-mono"
+            />
+            {searchTerm && (
               <button
-                onClick={() => {
-                  setActiveCategory('All');
-                  setIsCategoryDrawerOpen(false);
-                }}
-                className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--accent)] px-2.5 py-1 rounded-lg hover:bg-[var(--bg-base)] transition-colors flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)]"
+                onClick={() => setSearchTerm('')}
+                className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)] px-1"
               >
-                <RotateCcw className="w-3 h-3" />
-                <span>Reset to All</span>
+                CLEAR
               </button>
             )}
           </div>
 
-          <div className="flex items-center gap-3 text-xs font-mono text-[var(--text-muted)] self-end sm:self-auto">
-            <span>Showing <strong className="text-[var(--text-primary)]">{filtered.length}</strong> of {ARTICLES_MASTER_INDEX.length} Articles</span>
-            <button
-              onClick={() => setIsCategoryDrawerOpen((prev) => !prev)}
-              className="text-[11px] text-[var(--accent)] hover:underline flex items-center gap-1 font-semibold"
+          {/* Part Filter Dropdown */}
+          <div className="flex items-center gap-2 shrink-0">
+            <label className="text-xs font-mono text-[var(--text-muted)] uppercase">Part:</label>
+            <select
+              value={selectedPart}
+              onChange={(e) => setSelectedPart(e.target.value)}
+              className="px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
             >
-              <span>{isCategoryDrawerOpen ? 'Hide Categories ✕' : 'Browse Categories'}</span>
-              <ChevronDown className={`w-3 h-3 transition-transform ${isCategoryDrawerOpen ? 'rotate-180' : ''}`} />
-            </button>
+              <option value="All">All Parts (26 Parts)</option>
+              {partsList.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.label} ({p.count})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Category Dropdown */}
+          <div className="flex items-center gap-2 shrink-0">
+            <label className="text-xs font-mono text-[var(--text-muted)] uppercase">Category:</label>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+            >
+              <option value="All">All Categories</option>
+              {categoriesList.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
-        {/* Collapsible Category Grid Drawer */}
-        {isCategoryDrawerOpen && (
-          <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-lg animate-fadeIn flex flex-col gap-2 mt-1">
-            <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pb-1.5 border-b border-[var(--border-subtle)]">
-              <span className="font-bold text-[var(--text-primary)]">SELECT ARTICLE CATEGORY (14 SUBJECT AREAS)</span>
+        {/* Quick Filter Badges */}
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[var(--border-subtle)] text-xs font-mono">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <button
+              onClick={() => setOnlyDiffs((prev) => !prev)}
+              className={`px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 ${
+                onlyDiffs
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold border-[var(--accent)]'
+                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+              }`}
+            >
+              <GitCommit className="w-3 h-3" />
+              <span>1950 vs Modern Diffs (12 Landmark Articles)</span>
+            </button>
+
+            <button
+              onClick={() => setOnlyAmended((prev) => !prev)}
+              className={`px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 ${
+                onlyAmended
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold border-[var(--accent)]'
+                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+              }`}
+            >
+              <History className="w-3 h-3" />
+              <span>Amended Articles Only</span>
+            </button>
+
+            <button
+              onClick={() => setOnlyBookmarked((prev) => !prev)}
+              className={`px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 ${
+                onlyBookmarked
+                  ? 'bg-[var(--gold)]/20 text-[var(--gold)] font-bold border-[var(--gold)]/50'
+                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+              }`}
+            >
+              <Bookmark className="w-3 h-3" />
+              <span>Bookmarked ({bookmarkedArticles.length})</span>
+            </button>
+
+            {(searchTerm || selectedPart !== 'All' || selectedCategory !== 'All' || onlyAmended || onlyDiffs || onlyBookmarked) && (
               <button
-                onClick={() => setIsCategoryDrawerOpen(false)}
-                className="hover:text-[var(--text-primary)] px-2 py-0.5 rounded hover:bg-[var(--bg-base)] transition-colors text-xs"
+                onClick={resetAllFilters}
+                className="px-2.5 py-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--bg-base)] flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)] transition-colors"
               >
-                Close ✕
+                <RotateCcw className="w-3 h-3" />
+                <span>Reset Filters</span>
               </button>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1.5">
-              {categories.map((cat) => {
-                const count = cat === 'All' ? ARTICLES_MASTER_INDEX.length : ARTICLES_MASTER_INDEX.filter((a) => a.category === cat).length;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => {
-                      setActiveCategory(cat);
-                      setIsCategoryDrawerOpen(false);
-                    }}
-                    className={`px-2.5 py-1.5 rounded-lg text-xs font-mono transition-all text-left flex items-center justify-between border ${
-                      activeCategory === cat
-                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm border-[var(--accent)]'
-                        : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
-                    }`}
-                  >
-                    <span className="truncate">{cat}</span>
-                    <span className="text-[10px] font-mono opacity-80 ml-1 shrink-0">
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+            )}
           </div>
-        )}
+
+          <div className="text-[var(--text-muted)]">
+            Showing <strong className="text-[var(--text-primary)]">{filteredArticles.length}</strong> Articles
+          </div>
+        </div>
       </div>
 
-      {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filtered.map((art) => {
-          const artLabel = `Art ${art.articleNumber}`;
-          const isBookmarked = bookmarkedArticles.includes(artLabel);
+      {/* VIEW MODE 1: CLAUSE-BY-CLAUSE BARE ACT EXPLORER */}
+      {viewMode === 'reader' && (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left Column: Article Selector Pane */}
+          <div className="lg:col-span-4 flex flex-col gap-3 bg-[var(--bg-surface)] p-3 rounded-xl border border-[var(--border-subtle)] max-h-[820px] overflow-y-auto">
+            {/* Quick jump by number */}
+            <form onSubmit={handleJumpToArticle} className="flex items-center gap-2 pb-2 border-b border-[var(--border-subtle)]">
+              <input
+                type="text"
+                value={jumpInput}
+                onChange={(e) => setJumpInput(e.target.value)}
+                placeholder="Jump to Art # (e.g. 21, 368)..."
+                className="w-full px-2.5 py-1.5 text-xs font-mono rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
+              />
+              <button
+                type="submit"
+                className="px-2.5 py-1.5 text-xs font-mono font-bold bg-[var(--accent)] text-[var(--accent-contrast)] rounded hover:opacity-90 shrink-0"
+              >
+                GO
+              </button>
+            </form>
 
-          return (
-            <div
-              key={art.articleNumber}
-              className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col justify-between group"
-            >
+            <div className="flex flex-col gap-1.5">
+              {filteredArticles.length === 0 ? (
+                <div className="p-6 text-center text-xs font-mono text-[var(--text-muted)]">
+                  No constitutional articles match the current search filters.
+                </div>
+              ) : (
+                filteredArticles.map((art) => {
+                  const isSelected = art.number === activeArticle.number;
+                  const isBk = bookmarkedArticles.includes(`Art ${art.number}`);
+
+                  return (
+                    <button
+                      key={art.number}
+                      onClick={() => setSelectedArticleNum(art.number)}
+                      className={`p-3 rounded-lg text-left transition-all flex flex-col gap-1 border ${
+                        isSelected
+                          ? 'bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--text-primary)] shadow-sm'
+                          : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5">
+                          <span
+                            className={`px-1.5 py-0.5 rounded text-[11px] font-mono font-bold border ${
+                              isSelected
+                                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
+                                : 'bg-[var(--bg-surface)] text-[var(--accent)] border-[var(--badge-border)]'
+                            }`}
+                          >
+                            Art {art.number}
+                          </span>
+                          <span className="text-[10px] font-mono text-[var(--text-muted)] truncate max-w-[120px]">
+                            {art.part}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                          {art.hasDiff && (
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                              DIFF
+                            </span>
+                          )}
+                          {art.isAmended && (
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20">
+                              AMD
+                            </span>
+                          )}
+                          {isBk && (
+                            <Bookmark className="w-3 h-3 text-[var(--gold)] fill-current shrink-0" />
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="text-xs font-bold truncate text-[var(--text-primary)]">
+                        {art.title}
+                      </div>
+
+                      <div className="text-[11px] text-[var(--text-muted)] line-clamp-1">
+                        {art.summary}
+                      </div>
+                    </button>
+                  );
+                })
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Deep Statutory Bare Act Reader */}
+          <div className="lg:col-span-8 flex flex-col gap-4 bg-[var(--bg-surface)] p-5 sm:p-6 rounded-xl border border-[var(--border-subtle)]">
+            {/* Active Article Header */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-[var(--border-subtle)]">
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded font-mono text-xs font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-                      Article {art.articleNumber}
+                <div className="flex items-center gap-2 flex-wrap mb-1">
+                  <span className="px-2.5 py-1 rounded font-mono font-bold text-sm bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                    Article {activeArticle.number}
+                  </span>
+                  <span className="text-xs font-mono text-[var(--text-muted)]">
+                    {activeArticle.part} • {activeArticle.partTitle}
+                  </span>
+                  {activeArticle.chapter && (
+                    <span className="text-xs font-mono text-[var(--text-muted)]">
+                      ({activeArticle.chapter})
                     </span>
-                    <span className="text-[10px] font-mono text-[var(--text-muted)]">
-                      {art.part}
+                  )}
+                  {activeArticle.isAmended && (
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 font-semibold">
+                      Amended Article
                     </span>
-                  </div>
-
-                  <button
-                    onClick={() => toggleBookmark(artLabel)}
-                    title={isBookmarked ? 'Bookmarked' : 'Add bookmark'}
-                    className={`p-1 rounded-lg border transition-colors ${
-                      isBookmarked
-                        ? 'bg-[var(--gold)]/10 border-[var(--gold)]/30 text-[var(--gold)]'
-                        : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                    }`}
-                  >
-                    <Bookmark className="w-3.5 h-3.5 fill-current" />
-                  </button>
+                  )}
+                  {activeArticle.isRepealed && (
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-500 border border-rose-500/30 font-semibold">
+                      Repealed
+                    </span>
+                  )}
                 </div>
 
-                <h4 className="text-xs font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent)] transition-colors break-words">
-                  <AnnotatedLegalText text={art.title} />
-                </h4>
-
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed break-words">
-                  <AnnotatedLegalText text={art.conciseSummary} />
-                </p>
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] leading-tight">
+                  <AnnotatedLegalText text={activeArticle.title} />
+                </h2>
               </div>
 
-              <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono">
-                <span className="text-[var(--text-muted)]">{art.category}</span>
+              {/* Action Toolbar */}
+              <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto">
+                <button
+                  onClick={handleCopyCitation}
+                  title="Copy Statutory Citation"
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-colors"
+                >
+                  {copiedCitation ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-500" />
+                      <span className="text-emerald-500 font-bold">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy Citation</span>
+                    </>
+                  )}
+                </button>
+
+                <button
+                  onClick={() => toggleBookmark(`Art ${activeArticle.number}`)}
+                  title={isCurrentBookmarked ? 'Remove Bookmark' : 'Add Bookmark'}
+                  className={`p-1.5 rounded-lg border transition-colors ${
+                    isCurrentBookmarked
+                      ? 'bg-[var(--gold)]/10 border-[var(--gold)]/30 text-[var(--gold)]'
+                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  <Bookmark className="w-4 h-4 fill-current" />
+                </button>
+
                 <button
                   onClick={() => {
-                    setSelectedPartId(getPartId(art.part));
+                    setSelectedPartId(getPartId(activeArticle.part));
                     setActiveTab('parts');
                   }}
-                  className="flex items-center gap-0.5 text-[var(--accent)] hover:underline"
+                  title={`Open ${activeArticle.part} in Topic Detail View`}
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--accent)] hover:underline"
                 >
-                  <span>Open {art.part}</span>
-                  <ChevronRight className="w-3 h-3" />
+                  <span>Open Part</span>
+                  <ExternalLink className="w-3 h-3" />
                 </button>
               </div>
             </div>
-          );
-        })}
-      </div>
+
+            {/* 4-Way Tab Bar */}
+            <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] pb-2 flex-wrap">
+              <button
+                onClick={() => setReaderTab('statutory')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'statutory'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>Statutory Bare Act</span>
+              </button>
+
+              <button
+                onClick={() => setReaderTab('diff')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'diff'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <GitCommit className="w-3.5 h-3.5" />
+                <span>1950 vs Amended Diff</span>
+                {activeArticle.hasDiff && (
+                  <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                )}
+              </button>
+
+              <button
+                onClick={() => setReaderTab('analysis')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'analysis'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Scale className="w-3.5 h-3.5" />
+                <span>Trial Analysis & Cases</span>
+              </button>
+
+              <button
+                onClick={() => setReaderTab('amendments')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'amendments'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <History className="w-3.5 h-3.5" />
+                <span>Legislative Footnotes</span>
+              </button>
+            </div>
+
+            {/* TAB 1: STATUTORY BARE ACT VERBATIM */}
+            {readerTab === 'statutory' && (
+              <div className="flex flex-col gap-4 animate-fadeIn">
+                {/* Official Statutory Snippet Card */}
+                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-1.5">
+                    <span className="font-bold uppercase tracking-wider text-[var(--accent)]">
+                      VERBATIM STATUTORY TEXT (BARE ACT)
+                    </span>
+                    <span>OFFICIAL TEXT</span>
+                  </div>
+                  <p className="text-sm font-serif leading-relaxed text-[var(--text-primary)] whitespace-pre-line selection:bg-[var(--accent)] selection:text-[var(--accent-contrast)]">
+                    <AnnotatedLegalText text={activeArticle.statutorySnippet} />
+                  </p>
+                </div>
+
+                {/* Clauses Breakdown Accordion */}
+                <div className="flex flex-col gap-3">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    Clause-by-Clause Statutory Breakdown ({activeArticle.clauses.length} Clauses)
+                  </h4>
+
+                  <div className="flex flex-col gap-2.5">
+                    {activeArticle.clauses.map((c, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-2"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20">
+                            Clause {idx + 1}
+                          </span>
+                          <span className="text-xs font-bold font-mono text-[var(--text-primary)]">
+                            {c.clause}
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                          <AnnotatedLegalText text={c.explanation} />
+                        </p>
+
+                        {c.example && (
+                          <div className="p-2 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[11px] text-[var(--text-muted)] font-mono">
+                            <span className="font-bold text-[var(--accent)]">Practical Application: </span>
+                            <AnnotatedLegalText text={c.example} />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 2: 1950 ORIGINAL VS AMENDED DIFF */}
+            {readerTab === 'diff' && (
+              <div className="flex flex-col gap-4 animate-fadeIn">
+                {activeArticle.diffData ? (
+                  <>
+                    {/* Summary of Changes Banner */}
+                    <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col gap-1.5">
+                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-500">
+                        <GitCommit className="w-4 h-4" />
+                        <span>CONSTITUTIONAL AMENDMENT DIFF & EVOLUTION</span>
+                      </div>
+                      <p className="text-xs text-[var(--text-primary)] leading-relaxed">
+                        {activeArticle.diffData.summaryOfChanges}
+                      </p>
+                    </div>
+
+                    {/* Key Amending Acts */}
+                    <div className="flex flex-col gap-2">
+                      <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                        Constitutional Amendment Acts Affecting Article {activeArticle.number}
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                        {activeArticle.diffData.keyAmendments.map((ka, i) => (
+                          <div
+                            key={i}
+                            className="p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-1"
+                          >
+                            <div className="flex items-center justify-between text-xs font-mono">
+                              <span className="font-bold text-[var(--accent)]">{ka.act}</span>
+                              <span className="text-[var(--text-muted)]">{ka.year}</span>
+                            </div>
+                            <span className="text-[11px] font-mono text-amber-500">
+                              Target: {ka.clauseAffected}
+                            </span>
+                            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                              {ka.description}
+                            </p>
+                            {ka.landmarkCase && (
+                              <span className="text-[10px] font-mono text-[var(--text-muted)] mt-1">
+                                Overcame/Settled in: <em>{ka.landmarkCase}</em>
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Side-by-Side or Sequential Diff Box */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Original 1950 Text */}
+                      <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-rose-500/20 flex flex-col gap-2">
+                        <div className="flex items-center justify-between text-xs font-mono text-rose-500 pb-1.5 border-b border-rose-500/20 font-bold">
+                          <span>1950 ORIGINAL TEXT (AT COMMENCEMENT)</span>
+                          <span>JAN 26, 1950</span>
+                        </div>
+                        <p className="text-xs font-serif leading-relaxed text-[var(--text-secondary)] whitespace-pre-line">
+                          {activeArticle.diffData.original1950Text}
+                        </p>
+                      </div>
+
+                      {/* Current In-Force Text */}
+                      <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-emerald-500/20 flex flex-col gap-2">
+                        <div className="flex items-center justify-between text-xs font-mono text-emerald-500 pb-1.5 border-b border-emerald-500/20 font-bold">
+                          <span>CURRENT IN-FORCE TEXT (AS AMENDED)</span>
+                          <span>PRESENT</span>
+                        </div>
+                        <p className="text-xs font-serif leading-relaxed text-[var(--text-primary)] whitespace-pre-line">
+                          {activeArticle.diffData.currentText}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Constitutional Impact */}
+                    <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] leading-relaxed flex flex-col gap-1">
+                      <span className="font-mono font-bold text-[var(--text-primary)] uppercase text-[11px]">
+                        Constitutional & Jurisprudential Impact:
+                      </span>
+                      <p>{activeArticle.diffData.constitutionalImpact}</p>
+                    </div>
+                  </>
+                ) : (
+                  <div className="p-8 text-center rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col items-center gap-2">
+                    <Check className="w-8 h-8 text-[var(--accent)] opacity-60" />
+                    <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                      Article {activeArticle.number} Text Status
+                    </h4>
+                    <p className="text-xs text-[var(--text-secondary)] max-w-md">
+                      {activeArticle.isAmended
+                        ? 'This article was amended by Act of Parliament. Check the "Legislative Footnotes" tab for specific historical amendments.'
+                        : 'This article retains its original statutory text as enacted by the Constituent Assembly on 26 January 1950 without textual variation.'}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 3: TRIAL ANALYSIS & CASE LAWS */}
+            {readerTab === 'analysis' && (
+              <div className="flex flex-col gap-4 animate-fadeIn">
+                {/* Plain English & Real World Scenario */}
+                {activeArticle.plainEnglish && (
+                  <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2">
+                    <span className="text-xs font-mono font-bold text-[var(--accent)] uppercase">
+                      PLAIN ENGLISH MEANING
+                    </span>
+                    <p className="text-xs text-[var(--text-primary)] leading-relaxed">
+                      <AnnotatedLegalText text={activeArticle.plainEnglish} />
+                    </p>
+                  </div>
+                )}
+
+                {/* Prosecution & Trial Litigation Note */}
+                {activeArticle.prosecutionNote && (
+                  <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-500 uppercase">
+                      <AlertTriangle className="w-3.5 h-3.5" />
+                      <span>Courtroom & Prosecution Practice Note</span>
+                    </div>
+                    <p className="text-xs text-[var(--text-primary)] leading-relaxed">
+                      <AnnotatedLegalText text={activeArticle.prosecutionNote} />
+                    </p>
+                  </div>
+                )}
+
+                {/* Real-World Scenario */}
+                {activeArticle.realWorldScenario && (
+                  <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2">
+                    <span className="text-xs font-mono font-bold text-[var(--text-muted)] uppercase">
+                      Factual Application Scenario
+                    </span>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                      <AnnotatedLegalText text={activeArticle.realWorldScenario} />
+                    </p>
+                  </div>
+                )}
+
+                {/* Constitutional Exceptions */}
+                {activeArticle.exceptions && activeArticle.exceptions.length > 0 && (
+                  <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-rose-500/20 flex flex-col gap-2">
+                    <span className="text-xs font-mono font-bold text-rose-400 uppercase">
+                      Constitutional Exceptions & Inapplicability
+                    </span>
+                    <ul className="list-disc list-inside text-xs text-[var(--text-secondary)] space-y-1">
+                      {activeArticle.exceptions.map((ex, i) => (
+                        <li key={i}>
+                          <AnnotatedLegalText text={ex} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Landmark Precedents for this Article */}
+                <div className="flex flex-col gap-2.5">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
+                    <Award className="w-3.5 h-3.5 text-[var(--accent)]" />
+                    <span>Authoritative Landmark Precedents</span>
+                  </h4>
+
+                  {activeArticle.landmarkCases && activeArticle.landmarkCases.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {activeArticle.landmarkCases.map((lc, i) => (
+                        <div
+                          key={i}
+                          className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-1.5"
+                        >
+                          <div className="flex items-center justify-between text-xs font-mono">
+                            <span className="font-bold text-[var(--text-primary)]">{lc.caseName}</span>
+                            <span className="text-[var(--text-muted)]">{lc.year}</span>
+                          </div>
+                          {lc.bench && (
+                            <span className="text-[10px] font-mono text-[var(--accent)]">
+                              {lc.bench}
+                            </span>
+                          )}
+                          <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            {lc.summary}
+                          </p>
+                          <div className="mt-1 pt-1 border-t border-[var(--border-subtle)] text-[10px] font-mono text-[var(--text-muted)]">
+                            <strong>Ratio: </strong> {lc.significance}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : relatedLandmarkJudgments.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {relatedLandmarkJudgments.map((j) => (
+                        <div
+                          key={j.id}
+                          className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-1"
+                        >
+                          <div className="flex items-center justify-between text-xs font-mono">
+                            <span className="font-bold text-[var(--text-primary)]">{j.caseName}</span>
+                            <span className="text-[var(--text-muted)]">{j.year}</span>
+                          </div>
+                          <span className="text-[10px] font-mono text-[var(--accent)]">
+                            {j.benchStrength}-Judge Bench • {j.citation}
+                          </span>
+                          <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            {j.ratioDecidendi}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-4 text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-base)] rounded-xl border border-[var(--border-subtle)]">
+                      Standard statutory interpretation governs this provision. Refer to the Landmark Cases lab for broader constitutional bench rulings.
+                    </div>
+                  )}
+                </div>
+
+                {/* Related Doctrines */}
+                {relatedDoctrines.length > 0 && (
+                  <div className="flex flex-col gap-2 pt-2 border-t border-[var(--border-subtle)]">
+                    <span className="text-xs font-mono font-bold uppercase text-[var(--text-muted)]">
+                      Linked Constitutional Doctrines:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {relatedDoctrines.map((d) => (
+                        <button
+                          key={d.id}
+                          onClick={() => setActiveTab('doctrines')}
+                          className="px-2.5 py-1 rounded-lg text-xs font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors flex items-center gap-1"
+                        >
+                          <Scale className="w-3 h-3" />
+                          <span>{d.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 4: LEGISLATIVE AMENDMENT HISTORY FOOTNOTES */}
+            {readerTab === 'amendments' && (
+              <div className="flex flex-col gap-4 animate-fadeIn">
+                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] pb-1.5 border-b border-[var(--border-subtle)]">
+                    <span className="font-bold uppercase tracking-wider text-[var(--accent)]">
+                      OFFICIAL LEGISLATIVE FOOTNOTE CITATIONS
+                    </span>
+                    <span>GAZETTE NOTIFICATION CHRONOLOGY</span>
+                  </div>
+
+                  {activeArticle.diffData ? (
+                    <div className="flex flex-col gap-3">
+                      {activeArticle.diffData.keyAmendments.map((ka, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-3 p-3 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono"
+                        >
+                          <span className="px-1.5 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] font-bold text-[10px] shrink-0 mt-0.5">
+                            [{idx + 1}]
+                          </span>
+                          <div className="flex flex-col gap-1">
+                            <span className="font-bold text-[var(--text-primary)]">
+                              {ka.act} ({ka.year})
+                            </span>
+                            <span className="text-[11px] text-amber-500">
+                              Effect: {ka.clauseAffected}
+                            </span>
+                            <p className="text-xs text-[var(--text-secondary)] font-sans">
+                              {ka.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-6 text-center text-xs font-mono text-[var(--text-muted)]">
+                      {activeArticle.isAmended
+                        ? 'Subject to legislative modifications under parliamentary amendment acts.'
+                        : 'No legislative amendments enacted for this article. Enacted verbatim at constitutional commencement on 26 January 1950.'}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Bottom Article Navigation Controls */}
+            <div className="flex items-center justify-between gap-3 pt-4 border-t border-[var(--border-subtle)] mt-2">
+              {prev ? (
+                <button
+                  onClick={() => setSelectedArticleNum(prev.number)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5" />
+                  <span>Art {prev.number}</span>
+                </button>
+              ) : (
+                <div />
+              )}
+
+              <div className="text-xs font-mono text-[var(--text-muted)] text-center hidden sm:block">
+                Article <strong className="text-[var(--text-primary)]">{activeArticle.number}</strong> of 395
+              </div>
+
+              {next ? (
+                <button
+                  onClick={() => setSelectedArticleNum(next.number)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                >
+                  <span>Art {next.number}</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              ) : (
+                <div />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* VIEW MODE 2: DIRECTORY GRID */}
+      {viewMode === 'grid' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fadeIn">
+          {filteredArticles.map((art) => {
+            const isBookmarked = bookmarkedArticles.includes(`Art ${art.number}`);
+
+            return (
+              <div
+                key={art.number}
+                className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded font-mono text-xs font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                        Article {art.number}
+                      </span>
+                      <span className="text-[10px] font-mono text-[var(--text-muted)]">
+                        {art.part}
+                      </span>
+                      {art.hasDiff && (
+                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                          DIFF
+                        </span>
+                      )}
+                    </div>
+
+                    <button
+                      onClick={() => toggleBookmark(`Art ${art.number}`)}
+                      title={isBookmarked ? 'Bookmarked' : 'Add bookmark'}
+                      className={`p-1 rounded-lg border transition-colors ${
+                        isBookmarked
+                          ? 'bg-[var(--gold)]/10 border-[var(--gold)]/30 text-[var(--gold)]'
+                          : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      <Bookmark className="w-3.5 h-3.5 fill-current" />
+                    </button>
+                  </div>
+
+                  <h4 className="text-xs font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent)] transition-colors break-words">
+                    <AnnotatedLegalText text={art.title} />
+                  </h4>
+
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed break-words line-clamp-3">
+                    <AnnotatedLegalText text={art.summary} />
+                  </p>
+                </div>
+
+                <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-[var(--text-muted)]">{art.category}</span>
+                  <button
+                    onClick={() => {
+                      setSelectedArticleNum(art.number);
+                      setViewMode('reader');
+                    }}
+                    className="flex items-center gap-0.5 text-[var(--accent)] hover:underline font-semibold"
+                  >
+                    <span>Read Bare Act</span>
+                    <ChevronRight className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

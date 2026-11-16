@@ -1,0 +1,4648 @@
+[
+  {
+    "number": "1",
+    "part": "Part I",
+    "partTitle": "The Union and its Territory",
+    "title": "Name and territory of the Union",
+    "summary": "India, that is Bharat, shall be a Union of States.",
+    "category": "Foundation",
+    "isAmended": true
+  },
+  {
+    "number": "2",
+    "part": "Part I",
+    "partTitle": "The Union and its Territory",
+    "title": "Admission or establishment of new States",
+    "summary": "Parliament may by law admit into the Union, or establish, new States on such terms and conditions as it thinks fit.",
+    "category": "Foundation"
+  },
+  {
+    "number": "2A",
+    "part": "Part I",
+    "partTitle": "The Union and its Territory",
+    "title": "Sikkim to be associated with the Union",
+    "summary": "[Repealed by the Constitution (Thirty-sixth Amendment) Act, 1975].",
+    "category": "Foundation",
+    "isRepealed": true
+  },
+  {
+    "number": "3",
+    "part": "Part I",
+    "partTitle": "The Union and its Territory",
+    "title": "Formation of new States and alteration of areas, boundaries or names of existing States",
+    "summary": "Parliamentary reorganization of states and boundaries with presidential reference to state legislatures.",
+    "category": "Foundation",
+    "isAmended": true
+  },
+  {
+    "number": "4",
+    "part": "Part I",
+    "partTitle": "The Union and its Territory",
+    "title": "Laws made under articles 2 and 3 to provide for amendment of First and Fourth Schedules",
+    "summary": "Reorganization laws are enacted by simple majority and are not deemed amendments under Article 368.",
+    "category": "Foundation"
+  },
+  {
+    "number": "5",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Citizenship at the commencement of the Constitution",
+    "summary": "Conferment of citizenship on persons domiciled in India on 26 January 1950.",
+    "category": "Foundation"
+  },
+  {
+    "number": "6",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Rights of citizenship of certain persons who have migrated to India from Pakistan",
+    "summary": "Permit system and migration conditions prior to and after 19 July 1948.",
+    "category": "Foundation"
+  },
+  {
+    "number": "7",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Rights of citizenship of certain migrants to Pakistan",
+    "summary": "Loss and restoration of citizenship for persons who migrated to Pakistan after 1 March 1947.",
+    "category": "Foundation"
+  },
+  {
+    "number": "8",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Rights of citizenship of certain persons of Indian origin residing outside India",
+    "summary": "Registration with diplomatic or consular representatives of India abroad.",
+    "category": "Foundation"
+  },
+  {
+    "number": "9",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Persons voluntarily acquiring citizenship of a foreign State not to be citizens",
+    "summary": "Absolute single citizenship rule; immediate termination upon acquiring foreign nationality.",
+    "category": "Foundation"
+  },
+  {
+    "number": "10",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Continuance of the rights of citizenship",
+    "summary": "Citizenship continues subject to parliamentary legislation.",
+    "category": "Foundation"
+  },
+  {
+    "number": "11",
+    "part": "Part II",
+    "partTitle": "Citizenship",
+    "title": "Parliament to regulate the right of citizenship by law",
+    "summary": "Plenary power of Parliament to regulate acquisition, termination, and all other citizenship matters.",
+    "category": "Foundation"
+  },
+  {
+    "number": "12",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "General",
+    "title": "Definition of \"State\"",
+    "summary": "Inclusive definition of State for Part III enforcement: Union, States, local and other authorities.",
+    "category": "Rights"
+  },
+  {
+    "number": "13",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "General",
+    "title": "Laws inconsistent with or in derogation of the fundamental rights",
+    "summary": "Judicial review bedrock: pre- and post-constitutional laws void to extent of inconsistency; basic structure limits.",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "14",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Equality",
+    "title": "Equality before law",
+    "summary": "Equality before law and equal protection of laws; prohibition against state arbitrariness.",
+    "category": "Rights"
+  },
+  {
+    "number": "15",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Equality",
+    "title": "Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth",
+    "summary": "Non-discrimination in access to public venues; affirmative action clauses (15(4), 15(5), 15(6)).",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "16",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Equality",
+    "title": "Equality of opportunity in matters of public employment",
+    "summary": "Equal opportunity in state service; reservations for backward classes and EWS.",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "17",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Equality",
+    "title": "Abolition of Untouchability",
+    "summary": "Untouchability abolished and its practice in any form forbidden and punishable by law.",
+    "category": "Rights"
+  },
+  {
+    "number": "18",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Equality",
+    "title": "Abolition of titles",
+    "summary": "Prohibition on State conferring titles other than military or academic distinctions.",
+    "category": "Rights"
+  },
+  {
+    "number": "19",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom",
+    "title": "Protection of certain rights regarding freedom of speech, etc.",
+    "summary": "Protection of six democratic freedoms subject to reasonable restrictions under clauses (2) to (6).",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "20",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom",
+    "title": "Protection in respect of conviction for offences",
+    "summary": "Prohibition of ex-post facto laws (20(1)), double jeopardy (20(2)), and self-incrimination (20(3)).",
+    "category": "Rights"
+  },
+  {
+    "number": "21",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom",
+    "title": "Protection of life and personal liberty",
+    "summary": "No person shall be deprived of life or personal liberty except according to procedure established by law.",
+    "category": "Rights"
+  },
+  {
+    "number": "21A",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom",
+    "title": "Right to education",
+    "summary": "Free and compulsory education for all children between 6 and 14 years as determined by law.",
+    "category": "Rights",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "22",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom",
+    "title": "Protection against arrest and detention in certain cases",
+    "summary": "Procedural safeguards upon arrest; legal representation; 24-hr magistrate production; preventive detention limits.",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "23",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right against Exploitation",
+    "title": "Prohibition of traffic in human beings and forced labour",
+    "summary": "Prohibition of human trafficking, begar, and involuntary labour punishable under statutory penal law.",
+    "category": "Rights"
+  },
+  {
+    "number": "24",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right against Exploitation",
+    "title": "Prohibition of employment of children in factories, etc.",
+    "summary": "Ban on employing children below the age of 14 years in factories, mines, or other hazardous occupations.",
+    "category": "Rights"
+  },
+  {
+    "number": "25",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom of Religion",
+    "title": "Freedom of conscience and free profession, practice and propagation of religion",
+    "summary": "Individual religious freedom subject to public order, morality, and health; essential religious practices test.",
+    "category": "Rights"
+  },
+  {
+    "number": "26",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom of Religion",
+    "title": "Freedom to manage religious affairs",
+    "summary": "Denominational autonomy to establish and maintain institutions and own property for religious purposes.",
+    "category": "Rights"
+  },
+  {
+    "number": "27",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom of Religion",
+    "title": "Freedom as to payment of taxes for promotion of any particular religion",
+    "summary": "Bar on utilizing public tax revenues for the promotion or maintenance of any specific religion.",
+    "category": "Rights"
+  },
+  {
+    "number": "28",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Freedom of Religion",
+    "title": "Freedom as to attendance at religious instruction in certain educational institutions",
+    "summary": "Prohibition and regulation of religious instruction in state-maintained or state-aided schools.",
+    "category": "Rights"
+  },
+  {
+    "number": "29",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Cultural and Educational Rights",
+    "title": "Protection of interests of minorities",
+    "summary": "Right of any section of citizens to conserve distinct language, script, or culture; non-discrimination in admissions.",
+    "category": "Rights"
+  },
+  {
+    "number": "30",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Cultural and Educational Rights",
+    "title": "Right of minorities to establish and administer educational institutions",
+    "summary": "Right of all religious and linguistic minorities to establish and run educational institutions with state aid parity.",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "31",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Property",
+    "title": "Compulsory acquisition of property",
+    "summary": "[Repealed by the Constitution (Forty-fourth Amendment) Act, 1978; converted to Article 300A].",
+    "category": "Rights",
+    "isRepealed": true,
+    "isAmended": true
+  },
+  {
+    "number": "31A",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Saving of Certain Laws",
+    "title": "Saving of laws providing for acquisition of estates, etc.",
+    "summary": "Protection of agrarian reform and estate takeover laws from Articles 14 and 19 challenge.",
+    "category": "Rights",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "31B",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Saving of Certain Laws",
+    "title": "Validation of certain Acts and Regulations (Ninth Schedule)",
+    "summary": "Immunization of statutes placed in the Ninth Schedule from fundamental rights judicial review (subject to I.R. Coelho).",
+    "category": "Rights",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "31C",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Saving of Certain Laws",
+    "title": "Saving of laws giving effect to certain directive principles",
+    "summary": "Laws implementing Articles 39(b) and 39(c) shielded from Articles 14 and 19 challenge.",
+    "category": "Rights",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "31D",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Saving of Certain Laws",
+    "title": "Saving of laws in respect of anti-national activities",
+    "summary": "[Repealed by the Constitution (Forty-third Amendment) Act, 1977].",
+    "category": "Rights",
+    "isRepealed": true
+  },
+  {
+    "number": "32",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Constitutional Remedies",
+    "title": "Remedies for enforcement of rights conferred by this Part",
+    "summary": "Guaranteed right to move the Supreme Court for prerogative writs (Habeas Corpus, Mandamus, Prohibition, Quo Warranto, Certiorari).",
+    "category": "Rights"
+  },
+  {
+    "number": "32A",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Constitutional Remedies",
+    "title": "Constitutional validity of State laws not to be considered in proceedings under article 32",
+    "summary": "[Repealed by the Constitution (Forty-third Amendment) Act, 1977].",
+    "category": "Rights",
+    "isRepealed": true
+  },
+  {
+    "number": "33",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Constitutional Remedies",
+    "title": "Power of Parliament to modify the rights in their application to Forces, etc.",
+    "summary": "Parliamentary power to restrict or abrogate fundamental rights for Armed Forces, Police, and intelligence agencies.",
+    "category": "Rights",
+    "isAmended": true
+  },
+  {
+    "number": "34",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Constitutional Remedies",
+    "title": "Restriction on rights while martial law is in force in any area",
+    "summary": "Parliamentary indemnification of actions taken during martial law administration.",
+    "category": "Rights"
+  },
+  {
+    "number": "35",
+    "part": "Part III",
+    "partTitle": "Fundamental Rights",
+    "chapter": "Right to Constitutional Remedies",
+    "title": "Legislation to give effect to the provisions of this Part",
+    "summary": "Exclusive legislative competence of Parliament to prescribe punishments for offences under Part III.",
+    "category": "Rights"
+  },
+  {
+    "number": "36",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Definition",
+    "summary": "In this Part, unless the context otherwise requires, \"the State\" has the same meaning as in Part III.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "37",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Application of the principles contained in this Part",
+    "summary": "Directive principles are non-justiciable in court but fundamental in the governance of the country.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "38",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "State to secure a social order for the promotion of welfare of the people",
+    "summary": "Promotion of social, economic, and political justice and minimization of income inequalities.",
+    "category": "DPSPs & Duties",
+    "isAmended": true
+  },
+  {
+    "number": "39",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Certain principles of policy to be followed by the State",
+    "summary": "Adequate livelihood, equitable material resources distribution (39b), avoidance of wealth concentration (39c), equal pay for equal work.",
+    "category": "DPSPs & Duties",
+    "isAmended": true
+  },
+  {
+    "number": "39A",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Equal justice and free legal aid",
+    "summary": "Mandate for free legal aid and access to justice regardless of economic disabilities; bedrock of Legal Services Authorities Act.",
+    "category": "DPSPs & Duties",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "40",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Organisation of village panchayats",
+    "summary": "Directs the State to organize village panchayats and endow them with powers of self-government.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "41",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Right to work, to education and to public assistance in certain cases",
+    "summary": "Public assistance in cases of unemployment, old age, sickness and disablement.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "42",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Provision for just and humane conditions of work and maternity relief",
+    "summary": "Securing humane conditions of work and statutory maternity relief for women workers.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "43",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Living wage, etc., for workers",
+    "summary": "Securing a living wage, decent standard of life, and full enjoyment of leisure and social opportunities.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "43A",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Participation of workers in management of industries",
+    "summary": "Steps to secure workers participation in the management of industrial undertakings and establishments.",
+    "category": "DPSPs & Duties",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "43B",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Promotion of co-operative societies",
+    "summary": "State promotion of voluntary formation, autonomous functioning, and democratic control of co-operative societies.",
+    "category": "DPSPs & Duties",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "44",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Uniform civil code for the citizens",
+    "summary": "State shall endeavour to secure for the citizens a uniform civil code throughout the territory of India.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "45",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Provision for early childhood care and education to children below six years",
+    "summary": "State shall endeavour to provide early childhood care and education for all children until they complete the age of six years.",
+    "category": "DPSPs & Duties",
+    "isAmended": true
+  },
+  {
+    "number": "46",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Promotion of educational and economic interests of Scheduled Castes, Scheduled Tribes and other weaker sections",
+    "summary": "Special care for educational and economic advancement and protection from social injustice and exploitation.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "47",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Duty of the State to raise the level of nutrition and the standard of living and to improve public health",
+    "summary": "Prohibition of the consumption of intoxicating drinks and drugs injurious to health.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "48",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Organisation of agriculture and animal husbandry",
+    "summary": "Modern scientific agriculture and animal husbandry; preservation of breeds and prohibiting slaughter of cows and calves.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "48A",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Protection and improvement of environment and safeguarding of forests and wild life",
+    "summary": "Duty of State to protect and improve the environment and safeguard the forests and wild life of the country.",
+    "category": "DPSPs & Duties",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "49",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Protection of monuments and places and objects of national importance",
+    "summary": "Obligation to protect monuments and historical places declared to be of national importance.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "50",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Separation of judiciary from executive",
+    "summary": "State shall take steps to separate the judiciary from the executive in the public services of the State.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "51",
+    "part": "Part IV",
+    "partTitle": "Directive Principles of State Policy",
+    "title": "Promotion of international peace and security",
+    "summary": "Foster international peace, just relations, treaty obligations, and international arbitration settlement.",
+    "category": "DPSPs & Duties"
+  },
+  {
+    "number": "51A",
+    "part": "Part IV-A",
+    "partTitle": "Fundamental Duties",
+    "title": "Fundamental duties",
+    "summary": "11 civic duties of every Indian citizen (respecting the Constitution, national symbols, scientific temper, environment, education).",
+    "category": "DPSPs & Duties",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "52",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "The President of India",
+    "summary": "There shall be a President of India as the de jure Head of State.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "53",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Executive power of the Union",
+    "summary": "Executive power of the Union vested in the President; Supreme Command of Defence Forces.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "54",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Election of President",
+    "summary": "Electoral college of elected MPs and elected MLAs of States and UTs.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "55",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Manner of election of President",
+    "summary": "Proportional representation by single transferable vote; uniform state-union value parity formula.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "56",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Term of office of President",
+    "summary": "Five-year tenure from date of entering office; holds office until successor enters.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "57",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Eligibility for re-election",
+    "summary": "A person who holds, or has held, office as President is eligible for re-election.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "58",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Qualifications for election as President",
+    "summary": "Citizen of India, 35 years of age, qualified for election as Lok Sabha member.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "59",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Conditions of President's office",
+    "summary": "Shall not be a member of either House; shall not hold any office of profit; official residence emoluments.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "60",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Oath or affirmation by the President",
+    "summary": "Preserve, protect and defend the Constitution and devote to service and well-being of the people.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "61",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Procedure for impeachment of the President",
+    "summary": "Impeachment for violation of the Constitution; two-thirds total membership special majority in both Houses.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "62",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Time of holding election to fill vacancy in the office of President",
+    "summary": "Election must be completed before expiration of term; within 6 months upon death or resignation.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "63",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "The Vice-President of India",
+    "summary": "Constitutional office of the Vice-President of India.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "64",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "The Vice-President to be ex officio Chairman of the Council of States",
+    "summary": "Vice-President is ex officio Chairman of Rajya Sabha and holds no other office of profit.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "65",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "The Vice-President to act as President or discharge functions",
+    "summary": "Acts as President during casual vacancy until new President enters upon office.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "66",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Election of Vice-President",
+    "summary": "Elected by electoral college comprising members of both Houses of Parliament.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "67",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Term of office of Vice-President",
+    "summary": "Five-year tenure; removal by Rajya Sabha effective majority resolution agreed to by Lok Sabha.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "68",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Time of holding election to fill vacancy in Vice-President office",
+    "summary": "Election to fill term expiry or casual vacancy.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "69",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Oath or affirmation by the Vice-President",
+    "summary": "Administered by the President or person appointed on his behalf.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "70",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Discharge of President's functions in other contingencies",
+    "summary": "Parliamentary provision for unforeseen contingencies (President Succession Act 1969).",
+    "category": "Union Executive"
+  },
+  {
+    "number": "71",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Matters relating to, or connected with, election of President or Vice-President",
+    "summary": "Exclusive jurisdiction of the Supreme Court to inquire into and decide presidential election disputes.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "72",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Power of President to grant pardons, etc.",
+    "summary": "Presidential clemency powers: pardons, reprieves, respites, remissions, and commutations.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "73",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Extent of executive power of the Union",
+    "summary": "Executive power co-extensive with legislative competence of Parliament.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "74",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Council of Ministers to aid and advise President",
+    "summary": "President acts in accordance with advice of Council of Ministers with PM as head; single reconsideration proviso.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "75",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Other provisions as to Ministers",
+    "summary": "Appointment of PM; collective responsibility to Lok Sabha (75(3)); 15% cabinet limit (75(1A)).",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "76",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Attorney-General for India",
+    "summary": "Chief legal adviser to Union Government; right of audience in all courts in India.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "77",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Conduct of business of the Government of India",
+    "summary": "All executive actions taken in the name of President; Allocation of Business Rules.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "78",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter I: The Executive",
+    "title": "Duties of Prime Minister as respects furnishing information to President",
+    "summary": "Constitutional bridge: PM communicates cabinet decisions and affairs of administration to President.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "79",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Constitution of Parliament",
+    "summary": "Parliament consists of the President and two Houses: Rajya Sabha and Lok Sabha.",
+    "category": "Parliament"
+  },
+  {
+    "number": "80",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Composition of the Council of States",
+    "summary": "Maximum 250 members: 12 nominated by President for arts/science/literature/service + 238 state/UT representatives.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "81",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Composition of the House of the People",
+    "summary": "Directly elected popular chamber based on territorial constituencies with population allocation quotas.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "82",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Readjustment after each census",
+    "summary": "Delimitation of territorial constituencies after decennial census (frozen until 2026).",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "83",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Duration of Houses of Parliament",
+    "summary": "Rajya Sabha permanent non-dissolving body (1/3 retire every 2 yrs); Lok Sabha 5-year term.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "84",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Qualification for membership of Parliament",
+    "summary": "Citizen of India, prescribed oath, minimum 30 years for Rajya Sabha and 25 years for Lok Sabha.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "85",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Sessions of Parliament, prorogation and dissolution",
+    "summary": "Maximum 6-month interval between two sessions; President summons, prorogues, and dissolves Lok Sabha.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "86",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Right of President to address and send messages to Houses",
+    "summary": "Presidential addresses to either House and right to send legislative messages.",
+    "category": "Parliament"
+  },
+  {
+    "number": "87",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Special address by the President",
+    "summary": "Presidential address at commencement of first session after general election and first session of each year.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "88",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Rights of Ministers and Attorney-General as respects Houses",
+    "summary": "Right to speak and participate in proceedings of either House or joint committees without voting right.",
+    "category": "Parliament"
+  },
+  {
+    "number": "89",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "The Chairman and Deputy Chairman of the Council of States",
+    "summary": "Vice-President is ex officio Chairman; Council chooses a member to be Deputy Chairman.",
+    "category": "Parliament"
+  },
+  {
+    "number": "90",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Vacation and resignation of, and removal from, the office of Deputy Chairman",
+    "summary": "Procedures for resignation and removal of Deputy Chairman of Rajya Sabha.",
+    "category": "Parliament"
+  },
+  {
+    "number": "91",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Power of Deputy Chairman or other person to perform duties of Chairman",
+    "summary": "Presiding powers during vacancy or absence of Chairman.",
+    "category": "Parliament"
+  },
+  {
+    "number": "92",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "The Chairman or Deputy Chairman not to preside while removal resolution under consideration",
+    "summary": "Chairman/Deputy Chairman barred from presiding when his removal resolution is under consideration.",
+    "category": "Parliament"
+  },
+  {
+    "number": "93",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "The Speaker and Deputy Speaker of the House of the People",
+    "summary": "Lok Sabha chooses two of its members to be Speaker and Deputy Speaker.",
+    "category": "Parliament"
+  },
+  {
+    "number": "94",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Vacation and resignation of, and removal from, offices of Speaker and Deputy Speaker",
+    "summary": "Resignation, vacation, and 14-day notice removal resolution mechanics.",
+    "category": "Parliament"
+  },
+  {
+    "number": "95",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Power of Deputy Speaker or other person to perform duties of Speaker",
+    "summary": "Presiding powers during vacancy or absence of Speaker.",
+    "category": "Parliament"
+  },
+  {
+    "number": "96",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Speaker or Deputy Speaker not to preside while removal resolution under consideration",
+    "summary": "Bar on presiding during personal removal debate; right to speak and vote in first instance.",
+    "category": "Parliament"
+  },
+  {
+    "number": "97",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Salaries and allowances of Chairman and Deputy Chairman and Speaker and Deputy Speaker",
+    "summary": "Determined by Parliament by law and charged on the Consolidated Fund of India.",
+    "category": "Parliament"
+  },
+  {
+    "number": "98",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Secretariat of Parliament",
+    "summary": "Independent secretarial staff for each House of Parliament.",
+    "category": "Parliament"
+  },
+  {
+    "number": "99",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Oath or affirmation by members",
+    "summary": "Mandatory third schedule oath before taking seat in either House.",
+    "category": "Parliament"
+  },
+  {
+    "number": "100",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Voting in Houses, power of Houses to act notwithstanding vacancies and quorum",
+    "summary": "Majority decision; Speaker casting vote; mandatory 10% (one-tenth) quorum requirement.",
+    "category": "Parliament"
+  },
+  {
+    "number": "101",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Vacation of seats",
+    "summary": "Prohibition of double membership; resignation procedure and voluntary vacancy rules.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "102",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Disqualifications for membership",
+    "summary": "Office of profit, unsound mind, undischarged insolvent, foreign citizenship, and Tenth Schedule defection.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "103",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Decision on questions as to disqualifications of members",
+    "summary": "Decided by President acting on the opinion of the Election Commission of India.",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "104",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Penalty for sitting and voting before making oath or when not qualified",
+    "summary": "Daily monetary penalty of 500 rupees recoverable as a debt to the Union.",
+    "category": "Parliament"
+  },
+  {
+    "number": "105",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Powers, privileges, etc., of Houses of Parliament and members",
+    "summary": "Freedom of speech in Parliament; immunity for speech/vote; parliamentary privileges (Sita Soren 2024 limits).",
+    "category": "Parliament",
+    "isAmended": true
+  },
+  {
+    "number": "106",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Salaries and allowances of members",
+    "summary": "Parliamentary authority to fix salaries and allowances of MPs.",
+    "category": "Parliament"
+  },
+  {
+    "number": "107",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Provisions as to introduction and passing of Bills",
+    "summary": "Ordinary bills may originate in either House; lapse upon Lok Sabha dissolution rules.",
+    "category": "Parliament"
+  },
+  {
+    "number": "108",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Joint sitting of both Houses in certain cases",
+    "summary": "Deadlock resolution mechanism for ordinary bills presided over by Lok Sabha Speaker.",
+    "category": "Parliament"
+  },
+  {
+    "number": "109",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Special procedure in respect of Money Bills",
+    "summary": "Money bills cannot be introduced in Rajya Sabha; 14-day return deadline.",
+    "category": "Parliament"
+  },
+  {
+    "number": "110",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Definition of \"Money Bills\"",
+    "summary": "Substantive taxation, borrowing, and Consolidated Fund criteria; conclusive Speaker certificate.",
+    "category": "Parliament"
+  },
+  {
+    "number": "111",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Assent to Bills",
+    "summary": "Presidential options: assent, withhold, or return for reconsideration (mandatory assent on second passage).",
+    "category": "Parliament"
+  },
+  {
+    "number": "112",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Annual financial statement",
+    "summary": "The Union Budget: statement of estimated receipts and expenditure for the financial year.",
+    "category": "Parliament"
+  },
+  {
+    "number": "113",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Procedure in Parliament with respect to estimates",
+    "summary": "Expenditure charged not submitted to vote; demands for grants voted by Lok Sabha.",
+    "category": "Parliament"
+  },
+  {
+    "number": "114",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Appropriation Bills",
+    "summary": "No money withdrawn from Consolidated Fund without statutory Appropriation Act passed by Parliament.",
+    "category": "Parliament"
+  },
+  {
+    "number": "115",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Supplementary, additional or excess grants",
+    "summary": "Provisions for unforeseen financial demands during current fiscal year.",
+    "category": "Parliament"
+  },
+  {
+    "number": "116",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Votes on account, votes of credit and exceptional grants",
+    "summary": "Interim spending approvals pending budget debate completion.",
+    "category": "Parliament"
+  },
+  {
+    "number": "117",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Special provisions as to financial Bills",
+    "summary": "Presidential recommendation required for introduction of bills involving taxation or public spending.",
+    "category": "Parliament"
+  },
+  {
+    "number": "118",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Rules of procedure",
+    "summary": "Power of each House to make rules for regulating its procedure and conduct of business.",
+    "category": "Parliament"
+  },
+  {
+    "number": "119",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Regulation by law of procedure in Parliament in relation to financial business",
+    "summary": "Parliamentary legislation overriding general procedural rules for financial business.",
+    "category": "Parliament"
+  },
+  {
+    "number": "120",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Language to be used in Parliament",
+    "summary": "Hindi and English in parliamentary proceedings; permission of Presiding Officer for mother tongue.",
+    "category": "Parliament"
+  },
+  {
+    "number": "121",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Restriction on discussion in Parliament",
+    "summary": "Prohibition on discussing conduct of Supreme Court or High Court judge except upon impeachment motion.",
+    "category": "Parliament"
+  },
+  {
+    "number": "122",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter II: Parliament",
+    "title": "Courts not to inquire into proceedings of Parliament",
+    "summary": "Judicial immunity of parliamentary proceedings on ground of alleged procedural irregularity.",
+    "category": "Parliament"
+  },
+  {
+    "number": "123",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter III: Legislative Powers of President",
+    "title": "Power of President to promulgate Ordinances during recess of Parliament",
+    "summary": "Executive ordinance-making power during parliamentary recess; ceases 6 weeks from reassembly (D.C. Wadhwa).",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "124",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Establishment and constitution of Supreme Court",
+    "summary": "Chief Justice and Judges of Supreme Court; Collegium appointment system and impeachment removal procedure.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "124A",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "National Judicial Appointments Commission",
+    "summary": "[Inserted by 99th Amendment 2014; struck down as unconstitutional by Supreme Court in 2015].",
+    "category": "Union Judiciary",
+    "isRepealed": true,
+    "isAmended": true
+  },
+  {
+    "number": "124B",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Functions of Commission",
+    "summary": "[Struck down in NJAC Case (2015)].",
+    "category": "Union Judiciary",
+    "isRepealed": true
+  },
+  {
+    "number": "124C",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Power of Parliament to make law",
+    "summary": "[Struck down in NJAC Case (2015)].",
+    "category": "Union Judiciary",
+    "isRepealed": true
+  },
+  {
+    "number": "125",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Salaries, etc., of Judges",
+    "summary": "Judicial salaries fixed by law and charged on the Consolidated Fund; cannot be varied to disadvantage.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "126",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Appointment of acting Chief Justice",
+    "summary": "Presidential appointment of Supreme Court judge to perform duties during CJI vacancy or absence.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "127",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Appointment of ad hoc Judges",
+    "summary": "CJI appointment of High Court judge to attend Supreme Court sittings with President consent when quorum lacks.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "128",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Attendance of retired Judges at sittings of the Supreme Court",
+    "summary": "CJI request to retired Supreme Court or Federal Court judge to sit and act as judge.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "129",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Supreme Court to be a court of record",
+    "summary": "Court of record with plenary inherent power to punish for contempt of itself.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "130",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Seat of Supreme Court",
+    "summary": "Delhi as seat of Supreme Court, or such other places appointed by CJI with approval of President.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "131",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Original jurisdiction of the Supreme Court",
+    "summary": "Exclusive federal jurisdiction over disputes between Government of India and States or between States.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "131A",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Exclusive jurisdiction of the Supreme Court in regard to questions as to constitutional validity of Central laws",
+    "summary": "[Repealed by the Constitution (Forty-third Amendment) Act, 1977].",
+    "category": "Union Judiciary",
+    "isRepealed": true
+  },
+  {
+    "number": "132",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Appellate jurisdiction of Supreme Court in appeals from High Courts in certain cases",
+    "summary": "Constitutional appeal on High Court certificate involving substantial question of constitutional law.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "133",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Appellate jurisdiction of Supreme Court in appeals from High Courts in regard to civil matters",
+    "summary": "Appeals from High Courts on substantial questions of law of general importance.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "134",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Appellate jurisdiction of Supreme Court in regard to criminal matters",
+    "summary": "Criminal appeal as of right where High Court reverses acquittal to death or life imprisonment sentence.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "134A",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Certificate for appeal to the Supreme Court",
+    "summary": "High Court certificate procedure under Articles 132, 133, and 134.",
+    "category": "Union Judiciary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "135",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Jurisdiction and powers of the Federal Court under existing law to be exercisable by Supreme Court",
+    "summary": "Succession to Federal Court jurisdiction existing prior to 1950.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "136",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Special leave to appeal by the Supreme Court",
+    "summary": "Plenary discretionary constitutional jurisdiction (SLP) against any judgment, decree, or order of any court or tribunal.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "137",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Review of judgments or orders by the Supreme Court",
+    "summary": "Power to review any judgment pronounced or order made; foundation of Curative Petition (Rupa Hurra).",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "138",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Enlargement of the jurisdiction of the Supreme Court",
+    "summary": "Parliamentary authority to enlarge Supreme Court jurisdiction regarding Union List matters.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "139",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Conferment on the Supreme Court of powers to issue certain writs",
+    "summary": "Parliamentary power to confer writ-issuing powers for purposes other than fundamental rights.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "139A",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Transfer of certain cases",
+    "summary": "Power of Supreme Court to withdraw cases involving substantially the same questions of law from High Courts.",
+    "category": "Union Judiciary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "140",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Ancillary powers of Supreme Court",
+    "summary": "Parliamentary conferment of supplemental powers to enable effective judicial exercise.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "141",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Law declared by Supreme Court to be binding on all courts",
+    "summary": "Doctrine of binding precedent (stare decisis) binding on all courts within the territory of India.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "142",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Enforcement of decrees and orders of Supreme Court and orders as to discovery, etc.",
+    "summary": "Plenary equitable power to pass decrees and orders necessary for doing \"complete justice\" in any cause or matter.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "143",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Power of President to consult Supreme Court",
+    "summary": "Advisory jurisdiction: presidential reference on substantial questions of law or public fact.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "144",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Civil and judicial authorities to act in aid of the Supreme Court",
+    "summary": "Constitutional mandate commanding all civil and judicial authorities in India to act in aid of the Supreme Court.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "144A",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Special provisions as to disposal of questions relating to constitutional validity of laws",
+    "summary": "[Repealed by the Constitution (Forty-third Amendment) Act, 1977].",
+    "category": "Union Judiciary",
+    "isRepealed": true
+  },
+  {
+    "number": "145",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Rules of Court, etc.",
+    "summary": "Supreme Court rule-making powers with presidential approval; minimum 5-judge Constitution Bench requirement.",
+    "category": "Union Judiciary",
+    "isAmended": true
+  },
+  {
+    "number": "146",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Officers and servants and the expenses of the Supreme Court",
+    "summary": "Appointments and administration of Supreme Court staff vested in Chief Justice of India.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "147",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter IV: The Union Judiciary",
+    "title": "Interpretation",
+    "summary": "Interpretation of constitutional references and Government of India Act 1935.",
+    "category": "Union Judiciary"
+  },
+  {
+    "number": "148",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter V: CAG",
+    "title": "Comptroller and Auditor-General of India",
+    "summary": "Independent guardian of public finances appointed by President with removal security equivalent to SC Judge.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "149",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter V: CAG",
+    "title": "Duties and powers of the Comptroller and Auditor-General",
+    "summary": "Statutory duty to audit all receipts and expenditure of Union, States, and public sector undertakings.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "150",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter V: CAG",
+    "title": "Form of accounts of the Union and of the States",
+    "summary": "Accounts kept in prescribed form advised by the CAG of India.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "151",
+    "part": "Part V",
+    "partTitle": "The Union",
+    "chapter": "Chapter V: CAG",
+    "title": "Audit reports",
+    "summary": "Audit reports submitted to President and Governors to be laid before Parliament and State Legislatures.",
+    "category": "Union Executive"
+  },
+  {
+    "number": "152",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter I: General",
+    "title": "Definition",
+    "summary": "Definition of State for Part VI purposes.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "153",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Governors of States",
+    "summary": "There shall be a Governor for each State; same person may be appointed Governor for two or more States.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "154",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Executive power of State",
+    "summary": "Executive power of the State vested in the Governor exercisable directly or through subordinate officers.",
+    "category": "States"
+  },
+  {
+    "number": "155",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Appointment of Governor",
+    "summary": "Governor appointed by the President by warrant under hand and seal.",
+    "category": "States"
+  },
+  {
+    "number": "156",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Term of office of Governor",
+    "summary": "Governor holds office during the pleasure of the President; 5-year tenure baseline.",
+    "category": "States"
+  },
+  {
+    "number": "157",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Qualifications for appointment as Governor",
+    "summary": "Citizen of India and completed age of thirty-five years.",
+    "category": "States"
+  },
+  {
+    "number": "158",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Conditions of Governor's office",
+    "summary": "Bar on legislative membership and holding offices of profit; official emoluments and allowances.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "159",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Oath or affirmation by the Governor",
+    "summary": "Solemn oath to preserve, protect and defend the Constitution administered by High Court Chief Justice.",
+    "category": "States"
+  },
+  {
+    "number": "160",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Discharge of the functions of the Governor in certain contingencies",
+    "summary": "Presidential provision for discharge of gubernatorial functions in unforeseen contingencies.",
+    "category": "States"
+  },
+  {
+    "number": "161",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Power of Governor to grant pardons, etc.",
+    "summary": "Governor clemency power over state law offences (excluding death sentence pardons and court-martial).",
+    "category": "States"
+  },
+  {
+    "number": "162",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Extent of executive power of State",
+    "summary": "Executive power of State co-extensive with legislative competence of State Legislature.",
+    "category": "States"
+  },
+  {
+    "number": "163",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Council of Ministers to aid and advise Governor",
+    "summary": "Cabinet advice with explicit gubernatorial discretionary exceptions (Shamsher Singh, Nabam Rebia).",
+    "category": "States"
+  },
+  {
+    "number": "164",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Other provisions as to Ministers",
+    "summary": "CM appointed by Governor; collective responsibility to Legislative Assembly; 15% cabinet limit (164(1A)).",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "165",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Advocate-General for the State",
+    "summary": "Highest law officer of the State appointed by Governor with High Court Judge qualifications.",
+    "category": "States"
+  },
+  {
+    "number": "166",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Conduct of business of the Government of a State",
+    "summary": "Executive actions expressed in the name of Governor; state rules of business.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "167",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter II: The Executive",
+    "title": "Duties of Chief Minister as respects furnishing of information to Governor",
+    "summary": "Constitutional communication bridge between State Cabinet and the Governor.",
+    "category": "States"
+  },
+  {
+    "number": "168",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Constitution of Legislatures in States",
+    "summary": "Legislature consists of Governor and one or two Houses (Legislative Assembly and Legislative Council).",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "169",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Abolition or creation of Legislative Councils in States",
+    "summary": "State Assembly resolution by special majority followed by simple majority Act of Parliament.",
+    "category": "States"
+  },
+  {
+    "number": "170",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Composition of the Legislative Assemblies",
+    "summary": "Directly elected popular chamber: between 60 and 500 members based on territorial constituencies.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "171",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Composition of the Legislative Councils",
+    "summary": "Upper chamber: max one-third of Assembly strength; 5/6 indirectly elected and 1/6 nominated by Governor.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "172",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Duration of State Legislatures",
+    "summary": "Legislative Assembly 5-year duration; Legislative Council permanent body with 1/3 retiring biennially.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "173",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Qualification for membership of the State Legislature",
+    "summary": "Citizen of India, minimum 25 years for Assembly and 30 years for Council.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "174",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Sessions of the State Legislature, prorogation and dissolution",
+    "summary": "Summoned by Governor with maximum 6-month gap between sessions; dissolution of Legislative Assembly.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "175",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Right of Governor to address and send messages to the House or Houses",
+    "summary": "Governor right to address and send legislative messages to state legislative houses.",
+    "category": "States"
+  },
+  {
+    "number": "176",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Special address by the Governor",
+    "summary": "Address at commencement of first session after general election and first session of each calendar year.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "177",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Rights of Ministers and Advocate-General as respects the Houses",
+    "summary": "Right to speak and participate in proceedings without voting right unless a member.",
+    "category": "States"
+  },
+  {
+    "number": "178",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "The Speaker and Deputy Speaker of the Legislative Assembly",
+    "summary": "Assembly chooses two members to be Speaker and Deputy Speaker.",
+    "category": "States"
+  },
+  {
+    "number": "179",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Vacation and resignation of, and removal from, offices of Speaker and Deputy Speaker",
+    "summary": "Resignation, vacation, and 14-day notice removal resolution mechanics.",
+    "category": "States"
+  },
+  {
+    "number": "180",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Power of Deputy Speaker or other person to perform duties of Speaker",
+    "summary": "Presiding powers during vacancy or absence of Speaker.",
+    "category": "States"
+  },
+  {
+    "number": "181",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Speaker or Deputy Speaker not to preside while removal resolution under consideration",
+    "summary": "Bar on presiding during personal removal debate.",
+    "category": "States"
+  },
+  {
+    "number": "182",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "The Chairman and Deputy Chairman of the Legislative Council",
+    "summary": "Legislative Council chooses Chairman and Deputy Chairman.",
+    "category": "States"
+  },
+  {
+    "number": "183",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Vacation and resignation of, and removal from, offices of Chairman and Deputy Chairman",
+    "summary": "Procedures for vacation, resignation, and removal in Legislative Council.",
+    "category": "States"
+  },
+  {
+    "number": "184",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Power of Deputy Chairman or other person to perform duties of Chairman",
+    "summary": "Presiding powers during vacancy or absence of Chairman.",
+    "category": "States"
+  },
+  {
+    "number": "185",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Chairman or Deputy Chairman not to preside while removal resolution under consideration",
+    "summary": "Bar on presiding during personal removal debate.",
+    "category": "States"
+  },
+  {
+    "number": "186",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Salaries and allowances of Speaker and Deputy Speaker and Chairman and Deputy Chairman",
+    "summary": "Fixed by State Legislature by law and charged on State Consolidated Fund.",
+    "category": "States"
+  },
+  {
+    "number": "187",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Secretariat of State Legislature",
+    "summary": "Independent secretarial staff for State legislative houses.",
+    "category": "States"
+  },
+  {
+    "number": "188",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Oath or affirmation by members",
+    "summary": "Mandatory constitutional oath before Governor before taking seat in State Legislature.",
+    "category": "States"
+  },
+  {
+    "number": "189",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Voting in Houses, power of Houses to act notwithstanding vacancies and quorum",
+    "summary": "Majority vote; Presiding officer casting vote; mandatory 10 members or 1/10th quorum.",
+    "category": "States"
+  },
+  {
+    "number": "190",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Vacation of seats",
+    "summary": "Prohibition on dual membership; vacation upon disqualification or unexcused 60-day absence.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "191",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Disqualifications for membership",
+    "summary": "Office of profit, unsound mind, insolvency, foreign allegiance, and Tenth Schedule defection.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "192",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Decision on questions as to disqualifications of members",
+    "summary": "Decided by Governor acting in accordance with opinion of the Election Commission.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "193",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Penalty for sitting and voting before making oath or when not qualified",
+    "summary": "Daily penalty of 500 rupees recoverable as debt to the State.",
+    "category": "States"
+  },
+  {
+    "number": "194",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Powers, privileges, etc., of the Houses of Legislatures and members",
+    "summary": "Legislative free speech and immunity from court proceedings for state legislators.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "195",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Salaries and allowances of members",
+    "summary": "Determined by State Legislature by law.",
+    "category": "States"
+  },
+  {
+    "number": "196",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Provisions as to introduction and passing of Bills",
+    "summary": "Bills may originate in either House except Money Bills; lapse rules upon dissolution.",
+    "category": "States"
+  },
+  {
+    "number": "197",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Restriction on powers of Legislative Council as to Bills other than Money Bills",
+    "summary": "Legislative Council has only suspensive delay power (maximum 4 months total).",
+    "category": "States"
+  },
+  {
+    "number": "198",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Special procedure in respect of Money Bills",
+    "summary": "Money Bills cannot be introduced in Council; 14-day return deadline for Council.",
+    "category": "States"
+  },
+  {
+    "number": "199",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Definition of \"Money Bills\"",
+    "summary": "State financial definition; Speaker certificate conclusive.",
+    "category": "States"
+  },
+  {
+    "number": "200",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Assent to Bills",
+    "summary": "Governor options: assent, withhold, return for reconsideration, or reserve for President consideration.",
+    "category": "States"
+  },
+  {
+    "number": "201",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Bills reserved for consideration",
+    "summary": "Presidential discretion over state bills reserved by Governor; no time-limit pocket veto.",
+    "category": "States"
+  },
+  {
+    "number": "202",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Annual financial statement",
+    "summary": "State Budget: statement of estimated receipts and expenditure laid before State Legislature.",
+    "category": "States"
+  },
+  {
+    "number": "203",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Procedure in Legislature with respect to estimates",
+    "summary": "Expenditure charged not voted; demands for grants voted by Legislative Assembly.",
+    "category": "States"
+  },
+  {
+    "number": "204",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Appropriation Bills",
+    "summary": "No withdrawal from Consolidated Fund of the State without statutory Appropriation Act.",
+    "category": "States"
+  },
+  {
+    "number": "205",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Supplementary, additional or excess grants",
+    "summary": "Provisions for additional state financial requirements.",
+    "category": "States"
+  },
+  {
+    "number": "206",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Votes on account, votes of credit and exceptional grants",
+    "summary": "Interim state spending authority pending full budget passage.",
+    "category": "States"
+  },
+  {
+    "number": "207",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Special provisions as to financial Bills",
+    "summary": "Gubernatorial recommendation required for introducing state financial legislation.",
+    "category": "States"
+  },
+  {
+    "number": "208",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Rules of procedure",
+    "summary": "Power of State Legislative Houses to make rules for regulating procedure and conduct.",
+    "category": "States"
+  },
+  {
+    "number": "209",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Regulation by law of procedure in the Legislature in relation to financial business",
+    "summary": "Statutory regulation overriding general procedural rules for state financial matters.",
+    "category": "States"
+  },
+  {
+    "number": "210",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Language to be used in the Legislature",
+    "summary": "Official language of the State or Hindi or English; mother tongue permission.",
+    "category": "States"
+  },
+  {
+    "number": "211",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Restriction on discussion in the Legislature",
+    "summary": "Absolute bar on discussing conduct of Supreme Court or High Court judges.",
+    "category": "States"
+  },
+  {
+    "number": "212",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter III: The State Legislature",
+    "title": "Courts not to inquire into proceedings of the Legislature",
+    "summary": "Immunity of state legislative proceedings from judicial inquiry on procedural grounds.",
+    "category": "States"
+  },
+  {
+    "number": "213",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter IV: Legislative Power of Governor",
+    "title": "Power of Governor to promulgate Ordinances during recess of Legislature",
+    "summary": "State ordinance-making power during legislative recess; subject to D.C. Wadhwa re-promulgation bar.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "214",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "High Courts for States",
+    "summary": "There shall be a High Court for each State (or common High Court for multiple States).",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "215",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "High Courts to be courts of record",
+    "summary": "Court of record with inherent power to punish for contempt of itself.",
+    "category": "States"
+  },
+  {
+    "number": "216",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Constitution of High Courts",
+    "summary": "Chief Justice and such other Judges as the President may from time to time deem necessary.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "217",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Appointment and conditions of the office of a Judge of a High Court",
+    "summary": "Appointed by President after consultation with CJI, Governor, and High Court CJ; 62-year retirement age.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "218",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Application of certain provisions relating to Supreme Court to High Courts",
+    "summary": "Impeachment and removal procedure identical to Supreme Court judges.",
+    "category": "States"
+  },
+  {
+    "number": "219",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Oath or affirmation by Judges of High Courts",
+    "summary": "Constitutional oath before Governor or designated representative.",
+    "category": "States"
+  },
+  {
+    "number": "220",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Restriction on practice after being a permanent Judge",
+    "summary": "Bar on practicing in the same High Court where permanent judge served.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "221",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Salaries, etc., of Judges",
+    "summary": "Judicial salaries fixed by law and charged on State Consolidated Fund.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "222",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Transfer of a Judge from one High Court to another",
+    "summary": "Presidential transfer of High Court judges following CJI Collegium recommendation.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "223",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Appointment of acting Chief Justice",
+    "summary": "Presidential appointment of High Court judge to perform Chief Justice duties.",
+    "category": "States"
+  },
+  {
+    "number": "224",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Appointment of additional and acting Judges",
+    "summary": "Additional judges appointed for temporary arrears not exceeding two years.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "224A",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Appointment of retired Judges at sittings of High Courts",
+    "summary": "Request to retired High Court judge to sit and act as judge with presidential consent.",
+    "category": "States",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "225",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Jurisdiction of existing High Courts",
+    "summary": "Continuance of existing High Court jurisdiction and power to make court rules.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "226",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Power of High Courts to issue certain writs",
+    "summary": "Plenary constitutional writ power for Fundamental Rights and for \"any other purpose\"; broader scope than Art 32.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "226A",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Constitutional validity of Central laws not to be considered in proceedings under article 226",
+    "summary": "[Repealed by the Constitution (Forty-third Amendment) Act, 1977].",
+    "category": "States",
+    "isRepealed": true
+  },
+  {
+    "number": "227",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Power of superintendence over all courts by the High Court",
+    "summary": "Judicial and administrative superintendence over all subordinate courts and tribunals within its territory.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "228",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Transfer of certain cases to High Court",
+    "summary": "High Court withdrawal of subordinate court cases involving substantial question of constitutional law.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "228A",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Special provisions as to disposal of questions relating to constitutional validity of State laws",
+    "summary": "[Repealed by the Constitution (Forty-third Amendment) Act, 1977].",
+    "category": "States",
+    "isRepealed": true
+  },
+  {
+    "number": "229",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Officers and servants and the expenses of High Courts",
+    "summary": "Appointments and administration of High Court staff vested in Chief Justice of the High Court.",
+    "category": "States"
+  },
+  {
+    "number": "230",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Extension of jurisdiction of High Courts to Union territories",
+    "summary": "Parliamentary law extending or excluding High Court jurisdiction over Union Territories.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "231",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Establishment of a common High Court for two or more States",
+    "summary": "Parliamentary authority to establish a common High Court for multiple States and Union Territories.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "232",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter V: High Courts",
+    "title": "Interpretation",
+    "summary": "[Repealed by 7th Constitutional Amendment Act, 1956].",
+    "category": "States",
+    "isRepealed": true
+  },
+  {
+    "number": "233",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter VI: Subordinate Courts",
+    "title": "Appointment of district judges",
+    "summary": "District Judges appointed by Governor in consultation with the High Court.",
+    "category": "States"
+  },
+  {
+    "number": "233A",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter VI: Subordinate Courts",
+    "title": "Validation of appointments of, and judgments, etc., delivered by, certain district judges",
+    "summary": "Retrospective validation of appointments and judicial decrees.",
+    "category": "States",
+    "isInserted": true
+  },
+  {
+    "number": "234",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter VI: Subordinate Courts",
+    "title": "Recruitment of persons other than district judges to the judicial service",
+    "summary": "State judicial service examinations conducted under rules framed with High Court and SPSC.",
+    "category": "States"
+  },
+  {
+    "number": "235",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter VI: Subordinate Courts",
+    "title": "Control over subordinate courts",
+    "summary": "Posting, promotion, leave, and disciplinary control over subordinate judiciary vested exclusively in High Court.",
+    "category": "States"
+  },
+  {
+    "number": "236",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter VI: Subordinate Courts",
+    "title": "Interpretation",
+    "summary": "Definitions of \"district judge\" and \"judicial service\".",
+    "category": "States"
+  },
+  {
+    "number": "237",
+    "part": "Part VI",
+    "partTitle": "The States",
+    "chapter": "Chapter VI: Subordinate Courts",
+    "title": "Application of the provisions of this Chapter to certain class or classes of magistrates",
+    "summary": "Gubernatorial notification applying judicial service provisions to judicial magistrates.",
+    "category": "States"
+  },
+  {
+    "number": "238",
+    "part": "Part VII",
+    "partTitle": "The States in Part B of the First Schedule",
+    "title": "Application of provisions of Part VI to States in Part B",
+    "summary": "[Repealed by the Constitution (Seventh Amendment) Act, 1956, section 29 and Schedule].",
+    "category": "Foundation",
+    "isRepealed": true
+  },
+  {
+    "number": "239",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Administration of Union territories",
+    "summary": "Administered by President acting through Administrator or Lieutenant Governor.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "239A",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Creation of local Legislatures or Council of Ministers or both for certain Union territories",
+    "summary": "Parliamentary creation of assemblies and council of ministers for Puducherry.",
+    "category": "States",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "239AA",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Special provisions with respect to Delhi",
+    "summary": "National Capital Territory of Delhi: Legislative Assembly and Council of Ministers excluding Public Order, Police, and Land.",
+    "category": "States",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "239AB",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Provision in case of failure of constitutional machinery (Delhi)",
+    "summary": "Suspension of Article 239AA governance in NCT of Delhi by President.",
+    "category": "States",
+    "isInserted": true
+  },
+  {
+    "number": "239B",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Power of administrator to promulgate Ordinances during recess of Legislature",
+    "summary": "Ordinance-making power for UT administrators with legislative assemblies.",
+    "category": "States",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "240",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Power of President to make regulations for certain Union territories",
+    "summary": "Presidential regulation power having equal force to Act of Parliament for Andaman, Lakshadweep, Ladakh, etc.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "241",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "High Courts for Union territories",
+    "summary": "Parliamentary authority to constitute High Court or extend existing High Court jurisdiction for UTs.",
+    "category": "States",
+    "isAmended": true
+  },
+  {
+    "number": "242",
+    "part": "Part VIII",
+    "partTitle": "The Union Territories",
+    "title": "Coorg",
+    "summary": "[Repealed by the Constitution (Seventh Amendment) Act, 1956].",
+    "category": "States",
+    "isRepealed": true
+  },
+  {
+    "number": "243",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Definitions",
+    "summary": "Definitions of District, Gram Sabha, Intermediate level, Panchayat, and Village.",
+    "category": "Local Bodies",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "243A",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Gram Sabha",
+    "summary": "Constitutional status of Gram Sabha exercising village-level powers.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243B",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Constitution of Panchayats",
+    "summary": "Mandatory 3-tier Panchayati Raj system: Village, Intermediate, and District levels.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243C",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Composition of Panchayats",
+    "summary": "Direct territorial election of members; chairperson election mechanics.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243D",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Reservation of seats",
+    "summary": "Mandatory 33% reservation for women and proportionate reservations for SC/ST.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243E",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Duration of Panchayats, etc.",
+    "summary": "Mandatory 5-year tenure; mandatory elections within 6 months upon dissolution.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243F",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Disqualifications for membership",
+    "summary": "Disqualification criteria; minimum age of 21 years.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243G",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Powers, authority and responsibilities of Panchayats",
+    "summary": "Endowment of powers over 29 subjects listed in the Eleventh Schedule.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243H",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Powers to impose taxes by, and Funds of, the Panchayats",
+    "summary": "State legislative authorization to levy, collect, and appropriate local taxes.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243I",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Constitution of Finance Commission to review financial position",
+    "summary": "Quinquennial State Finance Commission to review financial status and tax-sharing.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243J",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Audit of accounts of Panchayats",
+    "summary": "State provisions for keeping and auditing Panchayat accounts.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243K",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Elections to the Panchayats",
+    "summary": "Independent State Election Commission; superintendence and conduct of Panchayat elections.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243L",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Application to Union territories",
+    "summary": "Application of Panchayat provisions to UTs with presidential modifications.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243M",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Part not to apply to certain areas",
+    "summary": "Exemptions for Nagaland, Meghalaya, Mizoram, Fifth Schedule areas (governed by PESA 1996).",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243N",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Continuance of existing laws and Panchayats",
+    "summary": "One-year transitional period to align existing state laws with 73rd Amendment.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243O",
+    "part": "Part IX",
+    "partTitle": "The Panchayats",
+    "title": "Bar to interference by courts in electoral matters",
+    "summary": "Judicial bar on questioning delimitation or questioning elections except by election petition.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243P",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Definitions",
+    "summary": "Definitions for urban local governance: Committee, Municipality, Metropolitan area.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243Q",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Constitution of Municipalities",
+    "summary": "Three-tier urban structure: Nagar Panchayat (transitional), Municipal Council (smaller urban), Municipal Corporation (larger urban).",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243R",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Composition of Municipalities",
+    "summary": "Direct election of councillors and nominated persons with special knowledge.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243S",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Constitution and composition of Wards Committees, etc.",
+    "summary": "Mandatory Wards Committees for municipalities having population of 3 lakhs or more.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243T",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Reservation of seats",
+    "summary": "Mandatory 33% reservation for women and proportionate SC/ST seats in Municipalities.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243U",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Duration of Municipalities, etc.",
+    "summary": "Mandatory 5-year tenure; mandatory reconstitution elections within 6 months of dissolution.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243V",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Disqualifications for membership",
+    "summary": "Disqualifications aligned with State Legislature requirements; minimum age 21 years.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243W",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Powers, authority and responsibilities of Municipalities, etc.",
+    "summary": "Twelfth Schedule 18 functional subjects including town planning, water supply, and public health.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243X",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Power to impose taxes by, and Funds of, the Municipalities",
+    "summary": "State authorization to levy octroi, property taxes, tolls, and user charges.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243Y",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Finance Commission",
+    "summary": "State Finance Commission reviews municipal financial position and tax sharing.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243Z",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Audit of accounts of Municipalities",
+    "summary": "Maintenance and audit of municipal accounts under state legislation.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZA",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Elections to the Municipalities",
+    "summary": "Superintendence and conduct of municipal polls by State Election Commission.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZB",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Application to Union territories",
+    "summary": "Application of municipal provisions to UTs.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZC",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Part not to apply to certain areas",
+    "summary": "Exemption of Scheduled Areas and tribal areas.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZD",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Committee for district planning",
+    "summary": "District Planning Committee (DPC) consolidating rural and urban development plans.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZE",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Committee for Metropolitan planning",
+    "summary": "Metropolitan Planning Committee (MPC) drafting development plans for large metro areas.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZF",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Continuance of existing laws and Municipalities",
+    "summary": "One-year transitional window for conforming state municipal statutes.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZG",
+    "part": "Part IX-A",
+    "partTitle": "The Municipalities",
+    "title": "Bar to interference by courts in electoral matters",
+    "summary": "Judicial bar on questioning municipal wards delimitation or elections.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZH",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Definitions",
+    "summary": "Definitions for co-operative societies (state vs multi-state).",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZJ",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Number and term of members of board and its office bearers",
+    "summary": "Maximum 21 directors, 5-year tenure (subject to Union of India v. Rajendra Shah 2021).",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZK",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Election of members of board",
+    "summary": "Autonomous election conduction for co-operatives.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZL",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Supersession and suspension of board and interim management",
+    "summary": "Maximum 6-month supersession of cooperative boards.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZM",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Audit of accounts of co-operative societies",
+    "summary": "Statutory auditor qualifications and annual audit requirement.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZN",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Convening of general body meetings",
+    "summary": "Mandatory annual general body meeting within 6 months of fiscal year close.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZO",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Right of a member to get information",
+    "summary": "Member right of access to books, accounts, and co-operative information.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZP",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Returns",
+    "summary": "Annual filing of cooperative audited returns.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZQ",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Offences and penalties",
+    "summary": "Penal consequences for corruption or non-compliance.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZR",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Application to multi-State co-operative societies",
+    "summary": "Operative in full for Multi-State Co-operatives under central law.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZS",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Application to Union territories",
+    "summary": "Application to UTs.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "243ZT",
+    "part": "Part IX-B",
+    "partTitle": "The Co-operative Societies",
+    "title": "Continuance of existing laws",
+    "summary": "Transitional continuance of state cooperative statutes.",
+    "category": "Local Bodies",
+    "isInserted": true
+  },
+  {
+    "number": "244",
+    "part": "Part X",
+    "partTitle": "The Scheduled and Tribal Areas",
+    "title": "Administration of Scheduled Areas and Tribal Areas",
+    "summary": "Fifth Schedule (10 states) and Sixth Schedule (AMTM Autonomous District Councils).",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "244A",
+    "part": "Part X",
+    "partTitle": "The Scheduled and Tribal Areas",
+    "title": "Formation of an autonomous State comprising certain tribal areas in Assam",
+    "summary": "Parliamentary power to form autonomous state within Assam.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "245",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Extent of laws made by Parliament and by Legislatures of States",
+    "summary": "Territorial competence; plenary extraterritorial operation of parliamentary laws.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "246",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Subject-matter of laws made by Parliament and Legislatures of States",
+    "summary": "Seventh Schedule 3 Lists: List I (Union), List II (State), List III (Concurrent).",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "246A",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Special provision with respect to goods and services tax",
+    "summary": "Simultaneous power of Parliament and State Legislatures to make laws with respect to GST.",
+    "category": "Federal Relations",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "247",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Power of Parliament to provide for establishment of certain additional courts",
+    "summary": "Parliamentary authority to establish additional courts for administration of Union laws.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "248",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Residuary powers of legislation",
+    "summary": "Exclusive residuary legislative power vested in Union Parliament (Entry 97 List I).",
+    "category": "Federal Relations",
+    "isAmended": true
+  },
+  {
+    "number": "249",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Power of Parliament to legislate with respect to a matter in State List in national interest",
+    "summary": "Rajya Sabha resolution supported by two-thirds majority authorizing central law for 1 year.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "250",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Power of Parliament to legislate with respect to any matter in State List if Proclamation of Emergency is in operation",
+    "summary": "Plenary central legislative power over State List during National Emergency.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "251",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Inconsistency between laws made by Parliament under articles 249 and 250 and laws made by Legislatures of States",
+    "summary": "Parliamentary law prevails; state law remains inoperative during conflict.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "252",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Power of Parliament to legislate for two or more States by consent",
+    "summary": "State legislatures passing consenting resolutions authorizing uniform central enactment.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "253",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Legislation for giving effect to international agreements",
+    "summary": "Plenary power of Parliament to enact laws across any list to implement treaties, conventions, or agreements.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "254",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Inconsistency between laws made by Parliament and laws made by Legislatures of States",
+    "summary": "Doctrine of Repugnancy in Concurrent List: central law prevails unless state law obtained Presidential assent under 254(2).",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "255",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter I: Legislative Relations",
+    "title": "Requirements as to recommendations and previous sanctions to be regarded as matters of procedure only",
+    "summary": "Procedural cure for omitted prior presidential or gubernatorial recommendations.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "256",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Obligation of States and the Union",
+    "summary": "States must ensure compliance with parliamentary laws; Union executive directives.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "257",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Control of the Union over States in certain cases",
+    "summary": "Union directions regarding communications of national/military importance and railways.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "257A",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Assistance to States by deployment of armed forces or other forces of the Union",
+    "summary": "[Repealed by the Constitution (Forty-fourth Amendment) Act, 1978].",
+    "category": "Federal Relations",
+    "isRepealed": true
+  },
+  {
+    "number": "258",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Power of the Union to confer powers, etc., on States in certain cases",
+    "summary": "Presidential entrustment of Union executive functions to State Governments with their consent.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "258A",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Power of the States to entrust functions to the Union",
+    "summary": "Governor entrustment of State functions to Union Government with Union consent.",
+    "category": "Federal Relations",
+    "isInserted": true
+  },
+  {
+    "number": "259",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Armed Forces in States in Part B of the First Schedule",
+    "summary": "[Repealed by the Constitution (Seventh Amendment) Act, 1956].",
+    "category": "Federal Relations",
+    "isRepealed": true
+  },
+  {
+    "number": "260",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Jurisdiction of the Union in relation to territories outside India",
+    "summary": "Executive agreements for exercising jurisdiction over foreign territories.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "261",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Public acts, records and judicial proceedings",
+    "summary": "Full faith and credit clause throughout India; civil court decrees executable nationwide.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "262",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Adjudication of disputes relating to waters of inter-State rivers or river valleys",
+    "summary": "Inter-State River Water Disputes Act 1956; bar on Supreme Court/court jurisdiction under 262(2).",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "263",
+    "part": "Part XI",
+    "partTitle": "Relations Between the Union and the States",
+    "chapter": "Chapter II: Administrative Relations",
+    "title": "Provisions with respect to an inter-State Council",
+    "summary": "Constitutional Inter-State Council established by President for investigating and resolving federal conflicts.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "264",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Interpretation",
+    "summary": "Definition of Finance Commission and fiscal terms.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "265",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Taxes not to be imposed save by authority of law",
+    "summary": "No tax shall be levied or collected except by authority of valid law enacted by competent legislature.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "266",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Consolidated Funds and public accounts of India and of the States",
+    "summary": "Consolidated Fund of India and States; withdrawal only by statutory parliamentary/state appropriation.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "267",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Contingency Fund",
+    "summary": "Imprest funds placed at the disposal of President and Governors for unforeseen urgent expenditure.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "268",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Duties levied by the Union but collected and appropriated by the States",
+    "summary": "Stamp duties on bills of exchange, cheques, promissory notes levied by Centre and kept by States.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "268A",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Service tax levied by Union and collected and appropriated by the Union and the States",
+    "summary": "[Repealed by 101st Amendment Act, 2016 upon introduction of GST].",
+    "category": "Finance & Property",
+    "isRepealed": true
+  },
+  {
+    "number": "269",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Taxes levied and collected by the Union but assigned to the States",
+    "summary": "Taxes on inter-state sale/consignment of goods assigned to States.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "269A",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Levy and collection of goods and services tax in course of inter-State trade or commerce",
+    "summary": "IGST levied and collected by Government of India and apportioned between Union and States.",
+    "category": "Finance & Property",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "270",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Taxes levied and distributed between the Union and the States",
+    "summary": "Divisible pool of central taxes shared with States upon Finance Commission recommendation.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "271",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Surcharge on certain duties and taxes for purposes of the Union",
+    "summary": "Parliamentary surcharges and cesses retained exclusively by the Union.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "272",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Taxes which are levied and collected by the Union and may be distributed between Union and States",
+    "summary": "[Repealed by the Constitution (Eightieth Amendment) Act, 2000].",
+    "category": "Finance & Property",
+    "isRepealed": true
+  },
+  {
+    "number": "273",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Grants in lieu of export duty on jute and jute products",
+    "summary": "Grants-in-aid to Assam, Bihar, Odisha, and West Bengal.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "274",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Prior recommendation of President required to Bills affecting taxation in which States are interested",
+    "summary": "Presidential consent prerequisite for bills modifying state-shared taxes or definitions.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "275",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Grants from the Union to certain States",
+    "summary": "Statutory grants-in-aid charged on Consolidated Fund of India for states in need of assistance.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "276",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Taxes on professions, trades, callings and employments",
+    "summary": "State professional tax capped at maximum 2,500 rupees per annum.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "277",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Savings",
+    "summary": "Continuation of pre-constitutional local taxes until Parliament legislates.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "278",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Agreement with States in Part B of the First Schedule with regard to certain financial matters",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Finance & Property",
+    "isRepealed": true
+  },
+  {
+    "number": "279",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Calculation of \"net proceeds\", etc.",
+    "summary": "Calculation and certification of net tax proceeds by the CAG of India.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "279A",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Goods and Services Tax Council",
+    "summary": "Constitutional GST Council: Union Finance Minister + State Finance Ministers; 3/4 voting majority threshold.",
+    "category": "Finance & Property",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "280",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Finance Commission",
+    "summary": "Quinquennial presidential body recommending vertical devolution and horizontal tax distribution among States.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "281",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Recommendations of the Finance Commission",
+    "summary": "Finance Commission recommendations and explanatory memorandum laid before Parliament.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "282",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Expenditure defrayable by the Union or a State out of its revenues",
+    "summary": "Discretionary public purpose grants by Union or States.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "283",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Custody, etc., of Consolidated Funds, Contingency Funds and moneys credited to public accounts",
+    "summary": "Statutory regulation of custody and withdrawal of public funds.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "284",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Custody of suitors' deposits and other moneys received by public servants and courts",
+    "summary": "Deposit into Public Account of India or State.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "285",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Exemption of property of the Union from State taxation",
+    "summary": "Immunity of Union properties from local/state property taxes save as Parliament provides.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "286",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Restrictions as to imposition of tax on sale or purchase of goods",
+    "summary": "Bar on state taxation of sales outside the State or in course of import/export.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "287",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Exemption from taxes on electricity",
+    "summary": "Exemption of electricity consumed by Government of India or railways.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "288",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Exemption from taxation by States in respect of water or electricity in certain cases",
+    "summary": "Presidential assent requirement for state taxes on inter-state river valley authorities.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "289",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Exemption of property and income of a State from Union taxation",
+    "summary": "State governmental property and income immune from central taxes; trade/business exception.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "290",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Adjustment in respect of certain expenses and pensions",
+    "summary": "Financial adjustments between Union and States for courts or pensions.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "290A",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Annual payment to certain Devaswom Funds",
+    "summary": "Statutory annual payments to Travancore and Cochin Devaswom Funds.",
+    "category": "Finance & Property",
+    "isInserted": true
+  },
+  {
+    "number": "291",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter I: Finance",
+    "title": "Privy purse sums of Rulers",
+    "summary": "[Repealed by the Constitution (Twenty-sixth Amendment) Act, 1971].",
+    "category": "Finance & Property",
+    "isRepealed": true
+  },
+  {
+    "number": "292",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter II: Borrowing",
+    "title": "Borrowing by the Government of India",
+    "summary": "Union executive borrowing upon security of Consolidated Fund of India within parliamentary limits.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "293",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter II: Borrowing",
+    "title": "Borrowing by States",
+    "summary": "State borrowing upon Consolidated Fund of State; mandatory Union consent if central loan outstanding (Art 293(3)).",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "294",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Succession to property, assets, rights, liabilities and obligations in certain cases",
+    "summary": "Vesting of assets of British Crown in Union of India or corresponding States.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "295",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Succession to property, assets, rights, liabilities and obligations in other cases",
+    "summary": "Succession from Indian princely states into Union or States.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "296",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Property accruing by escheat or lapse or as bona vacantia",
+    "summary": "Property lacking lawful heir or rightful owner vests in State or Union.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "297",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Things of value within territorial waters or continental shelf and resources of exclusive economic zone to vest in Union",
+    "summary": "All lands, minerals, and resources within territorial waters (12 nm) and EEZ (200 nm) vest in the Union.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "298",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Power to carry on trade, etc.",
+    "summary": "Plenary executive power of Union and States to carry on commercial business, hold property, and enter contracts.",
+    "category": "Finance & Property",
+    "isAmended": true
+  },
+  {
+    "number": "299",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Contracts",
+    "summary": "Government contracts must be expressed in name of President/Governor and executed by authorized officer.",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "300",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter III: Property, Contracts and Suits",
+    "title": "Suits and proceedings",
+    "summary": "Government of India and State Governments may sue or be sued (statutory successor to East India Company; Kasturi Lal sovereign immunity limits).",
+    "category": "Finance & Property"
+  },
+  {
+    "number": "300A",
+    "part": "Part XII",
+    "partTitle": "Finance, Property, Contracts and Suits",
+    "chapter": "Chapter IV: Right to Property",
+    "title": "Persons not to be deprived of property save by authority of law",
+    "summary": "Constitutional and human right to property: no person shall be deprived of his property save by authority of valid law.",
+    "category": "Finance & Property",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "301",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Freedom of trade, commerce and intercourse",
+    "summary": "Trade, commerce and intercourse throughout the territory of India shall be free (inter-state economic unity).",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "302",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Power of Parliament to impose restrictions on trade, commerce and intercourse",
+    "summary": "Parliamentary authority to impose reasonable restrictions in public interest.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "303",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Restrictions on legislative powers of Union and States with regard to trade and commerce",
+    "summary": "Prohibition of inter-state trade discrimination or preference except during commodity scarcity.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "304",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Restrictions on trade, commerce and intercourse among States",
+    "summary": "State non-discriminatory taxation on imported goods and reasonable restrictions with presidential sanction.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "305",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Saving of existing laws and laws providing for State monopolies",
+    "summary": "Protection of state transport monopolies and existing legislation from Article 301.",
+    "category": "Federal Relations",
+    "isAmended": true
+  },
+  {
+    "number": "306",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Power of certain States in Part B to impose restrictions",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Federal Relations",
+    "isRepealed": true
+  },
+  {
+    "number": "307",
+    "part": "Part XIII",
+    "partTitle": "Trade, Commerce and Intercourse",
+    "title": "Appointment of authority for carrying out purposes of articles 301 to 304",
+    "summary": "Parliamentary authority to establish trade regulatory bodies.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "308",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Interpretation",
+    "summary": "Definition of State for civil service provisions.",
+    "category": "Services",
+    "isAmended": true
+  },
+  {
+    "number": "309",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Recruitment and conditions of service of persons serving the Union or a State",
+    "summary": "Recruitment rules framed by President/Governor subject to Acts of Parliament or State Legislature.",
+    "category": "Services"
+  },
+  {
+    "number": "310",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Tenure of office of persons serving the Union or a State",
+    "summary": "The Doctrine of Pleasure: civil servants hold office during the pleasure of President or Governor.",
+    "category": "Services"
+  },
+  {
+    "number": "311",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Dismissal, removal or reduction in rank of persons employed in civil capacities under Union or State",
+    "summary": "Constitutional shield: no dismissal by subordinate authority; mandatory departmental inquiry and reasonable opportunity (exceptions: conviction, security of State).",
+    "category": "Services",
+    "isAmended": true
+  },
+  {
+    "number": "312",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "All-India services",
+    "summary": "Creation of new All-India Services (IAS, IPS, IFoS) via Rajya Sabha two-thirds resolution.",
+    "category": "Services",
+    "isAmended": true
+  },
+  {
+    "number": "312A",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Power of Parliament to vary or revoke conditions of service of officers of certain services",
+    "summary": "Parliamentary revocation of former Secretary of State services privileges (28th Amd).",
+    "category": "Services",
+    "isInserted": true
+  },
+  {
+    "number": "313",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Transitional provisions",
+    "summary": "Continuation of pre-1950 public service laws consistent with the Constitution.",
+    "category": "Services"
+  },
+  {
+    "number": "314",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter I: Services",
+    "title": "Provision for protection of existing officers of certain services",
+    "summary": "[Repealed by the Constitution (Twenty-eighth Amendment) Act, 1972].",
+    "category": "Services",
+    "isRepealed": true
+  },
+  {
+    "number": "315",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Public Service Commissions for the Union and for the States",
+    "summary": "UPSC for the Union and SPSC for each State; Joint Public Service Commission for multiple States.",
+    "category": "Services"
+  },
+  {
+    "number": "316",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Appointment and term of office of members",
+    "summary": "Members appointed by President/Governor; 6-year tenure (65 yrs for UPSC, 62 yrs for SPSC).",
+    "category": "Services",
+    "isAmended": true
+  },
+  {
+    "number": "317",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Removal and suspension of a member of a Public Service Commission",
+    "summary": "Removal on ground of misbehaviour only after Supreme Court inquiry report on presidential reference.",
+    "category": "Services"
+  },
+  {
+    "number": "318",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Power to make regulations as to conditions of service of members and staff",
+    "summary": "Regulations framed by President or Governor.",
+    "category": "Services"
+  },
+  {
+    "number": "319",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Prohibition as to the holding of offices by members of Commission on ceasing to be such members",
+    "summary": "Ineligibility for further employment under Government of India or State Governments to preserve independence.",
+    "category": "Services"
+  },
+  {
+    "number": "320",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Functions of Public Service Commissions",
+    "summary": "Conduct recruitment examinations and mandatory consultation on appointments, promotions, and disciplinary matters.",
+    "category": "Services",
+    "isAmended": true
+  },
+  {
+    "number": "321",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Power to extend functions of Public Service Commissions",
+    "summary": "Parliament or State Legislature may provide for exercise of additional functions regarding public services.",
+    "category": "Services"
+  },
+  {
+    "number": "322",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Expenses of Public Service Commissions",
+    "summary": "Expenses charged on the Consolidated Fund of India or State.",
+    "category": "Services"
+  },
+  {
+    "number": "323",
+    "part": "Part XIV",
+    "partTitle": "Services Under the Union and the States",
+    "chapter": "Chapter II: Public Service Commissions",
+    "title": "Reports of Public Service Commissions",
+    "summary": "Annual reports presented to President or Governor with explanatory memorandum on non-accepted advice.",
+    "category": "Services"
+  },
+  {
+    "number": "323A",
+    "part": "Part XIV-A",
+    "partTitle": "Tribunals",
+    "title": "Administrative tribunals",
+    "summary": "Parliamentary establishment of CAT and State Administrative Tribunals (subject to L. Chandra Kumar judicial review).",
+    "category": "Services",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "323B",
+    "part": "Part XIV-A",
+    "partTitle": "Tribunals",
+    "title": "Tribunals for other matters",
+    "summary": "Tribunals for taxation, foreign exchange, industrial disputes, customs, elections, and land reforms.",
+    "category": "Services",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "324",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "Superintendence, direction and control of elections to be vested in an Election Commission",
+    "summary": "Constitutional reservoir of power vested in Election Commission of India (Mohinder Singh Gill, Anoop Baranwal).",
+    "category": "Elections",
+    "isAmended": true
+  },
+  {
+    "number": "325",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "No person to be ineligible for inclusion in electoral roll on grounds of religion, race, caste or sex",
+    "summary": "Universal single general electoral roll for each constituency; no separate religious electorates.",
+    "category": "Elections"
+  },
+  {
+    "number": "326",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "Elections to House of the People and Legislative Assemblies on basis of adult suffrage",
+    "summary": "Universal Adult Suffrage: constitutional voting right for every citizen aged 18+ (lowered from 21 by 61st Amd 1988).",
+    "category": "Elections",
+    "isAmended": true
+  },
+  {
+    "number": "327",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "Power of Parliament to make provision with respect to elections to Legislatures",
+    "summary": "Representation of the People Acts 1950 & 1951 enacted under Article 327.",
+    "category": "Elections"
+  },
+  {
+    "number": "328",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "Power of Legislature of a State to make provision with respect to elections",
+    "summary": "State legislative supplementary powers for state elections.",
+    "category": "Elections"
+  },
+  {
+    "number": "329",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "Bar to interference by courts in electoral matters",
+    "summary": "No court can question delimitation orders or interfere with ongoing election process save by election petition.",
+    "category": "Elections",
+    "isAmended": true
+  },
+  {
+    "number": "329A",
+    "part": "Part XV",
+    "partTitle": "Elections",
+    "title": "Special provision as to elections to Parliament in the case of Prime Minister and Speaker",
+    "summary": "[Inserted by 39th Amendment 1975; struck down in Indira Gandhi v. Raj Narain; repealed by 44th Amendment 1978].",
+    "category": "Elections",
+    "isRepealed": true
+  },
+  {
+    "number": "330",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Reservation of seats for Scheduled Castes and Scheduled Tribes in House of the People",
+    "summary": "Proportionate political representation quotas for SCs and STs in Lok Sabha.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "330A",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Reservation of seats for women in the House of the People",
+    "summary": "Inserted by 106th Amendment Act 2023: one-third (33%) reservation for women in Lok Sabha.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "331",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Representation of the Anglo-Indian community in the House of the People",
+    "summary": "Presidential nomination of up to 2 Anglo-Indians [discontinued post-January 2020 by 104th Amendment].",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "332",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Reservation of seats for Scheduled Castes and Scheduled Tribes in Legislative Assemblies",
+    "summary": "Proportionate political reservation for SC/ST in State Assemblies.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "332A",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Reservation of seats for women in the Legislative Assemblies of the States",
+    "summary": "Inserted by 106th Amendment Act 2023: one-third (33%) reservation for women in State Assemblies.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "333",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Representation of the Anglo-Indian community in Legislative Assemblies",
+    "summary": "Governor nomination of 1 Anglo-Indian [discontinued post-2020 by 104th Amendment].",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "334",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Reservation of seats and special representation to cease after eighty years",
+    "summary": "Sunsetting clause for SC/ST political reservations extended to 2030 by 104th Amendment Act 2019.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "334A",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Reservation of seats for women to take effect",
+    "summary": "Women reservation takes effect after census delimitation following 106th Amendment Act 2023 for 15-year period.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "335",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Claims of Scheduled Castes and Scheduled Tribes to services and posts",
+    "summary": "Claims taken into consideration consistently with the maintenance of efficiency of administration.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "336",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Special provision for Anglo-Indian community in certain services",
+    "summary": "Transitional posts in railways, customs, and postal services.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "337",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Special provision with respect to educational grants for benefit of Anglo-Indian community",
+    "summary": "Transitional educational grants for 10-year period.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "338",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "National Commission for Scheduled Castes",
+    "summary": "Constitutional body investigating rights violations and monitoring socio-economic development of SCs.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "338A",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "National Commission for Scheduled Tribes",
+    "summary": "Autonomous constitutional commission for Scheduled Tribes created by 89th Amendment Act 2003.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "338B",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "National Commission for Backward Classes",
+    "summary": "Constitutional body for Socially and Educationally Backward Classes inserted by 102nd Amendment Act 2018.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "339",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Control of the Union over administration of Scheduled Areas and welfare of Scheduled Tribes",
+    "summary": "Presidential appointment of Commission and Union executive directions to States.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "340",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Appointment of a Commission to investigate conditions of backward classes",
+    "summary": "Presidential commission (Kaka Kalelkar 1953; Mandal Commission 1979) to identify backward classes.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "341",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Scheduled Castes",
+    "summary": "Presidential notification specifying Scheduled Castes; modifications only by parliamentary legislation.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "342",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Scheduled Tribes",
+    "summary": "Presidential notification specifying Scheduled Tribes with parliamentary inclusion/exclusion power.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "342A",
+    "part": "Part XVI",
+    "partTitle": "Special Provisions Relating to Certain Classes",
+    "title": "Socially and educationally backward classes",
+    "summary": "Central SEBC list by President; State SEBC list restored by 105th Amendment Act 2021.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "343",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter I: Language of the Union",
+    "title": "Official language of the Union",
+    "summary": "Official language of the Union shall be Hindi in Devanagari script; international form of Indian numerals.",
+    "category": "Foundation"
+  },
+  {
+    "number": "344",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter I: Language of the Union",
+    "title": "Commission and Committee of Parliament on official language",
+    "summary": "Presidential Commission and 30-member Parliamentary Committee on progressive use of Hindi.",
+    "category": "Foundation"
+  },
+  {
+    "number": "345",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter II: Regional Languages",
+    "title": "Official language or languages of a State",
+    "summary": "State Legislature power to adopt any one or more languages or Hindi as official language.",
+    "category": "Foundation"
+  },
+  {
+    "number": "346",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter II: Regional Languages",
+    "title": "Official language for communication between one State and another or between a State and the Union",
+    "summary": "Authorized communication medium between States and Centre.",
+    "category": "Foundation"
+  },
+  {
+    "number": "347",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter II: Regional Languages",
+    "title": "Special provision relating to language spoken by a section of population of a State",
+    "summary": "Presidential directive recognizing minority spoken languages within a State.",
+    "category": "Foundation"
+  },
+  {
+    "number": "348",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter III: Higher Judiciary Language",
+    "title": "Language to be used in the Supreme Court and in the High Courts and for Acts, Bills, etc.",
+    "summary": "Authoritative texts of all Supreme Court and High Court proceedings, Acts, and Bills in English until Parliament provides otherwise.",
+    "category": "Foundation",
+    "isAmended": true
+  },
+  {
+    "number": "349",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter III: Higher Judiciary Language",
+    "title": "Special procedure for enactment of certain laws relating to language",
+    "summary": "Presidential sanction prerequisite for language reform bills during first 15 years.",
+    "category": "Foundation"
+  },
+  {
+    "number": "350",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter IV: Special Directives",
+    "title": "Language to be used in representations for redress of grievances",
+    "summary": "Right to submit representation in any language used in the Union or State without rejection.",
+    "category": "Foundation"
+  },
+  {
+    "number": "350A",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter IV: Special Directives",
+    "title": "Facilities for instruction in mother-tongue at primary stage",
+    "summary": "State duty to provide primary education in mother tongue to linguistic minority children.",
+    "category": "Foundation",
+    "isInserted": true
+  },
+  {
+    "number": "350B",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter IV: Special Directives",
+    "title": "Special Officer for linguistic minorities",
+    "summary": "Presidential appointment of Special Officer reporting on constitutional safeguards for linguistic minorities.",
+    "category": "Foundation",
+    "isInserted": true
+  },
+  {
+    "number": "351",
+    "part": "Part XVII",
+    "partTitle": "Official Language",
+    "chapter": "Chapter IV: Special Directives",
+    "title": "Directive for development of the Hindi language",
+    "summary": "Duty of the Union to promote the spread of Hindi as a medium of expression for the composite culture of India.",
+    "category": "Foundation"
+  },
+  {
+    "number": "352",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Proclamation of Emergency",
+    "summary": "National Emergency for war, external aggression, or armed rebellion; 1-month parliamentary approval by special majority.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "353",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Effect of Proclamation of Emergency",
+    "summary": "Union executive power extends to giving directions to any State; Parliament may make laws on State List.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "354",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Application of provisions relating to distribution of revenues while Proclamation of Emergency is in operation",
+    "summary": "Presidential modification of financial allocation provisions under Arts 268 to 279.",
+    "category": "Emergency"
+  },
+  {
+    "number": "355",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Duty of the Union to protect States against external aggression and internal disturbance",
+    "summary": "Constitutional obligation of the Union to protect every State and ensure governance in accordance with the Constitution.",
+    "category": "Emergency"
+  },
+  {
+    "number": "356",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Provisions in case of failure of constitutional machinery in States (President's Rule)",
+    "summary": "Imposition of President's Rule on failure of constitutional machinery; S.R. Bommai (1994) judicial standards and floor test mandatory.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "357",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Exercise of legislative powers under Proclamation issued under article 356",
+    "summary": "Parliamentary exercise or delegation of state legislative powers to President.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "358",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Suspension of provisions of article 19 during emergencies",
+    "summary": "Automatic suspension of Article 19 freedoms only during emergency proclaimed on grounds of war or external aggression.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "359",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Suspension of the enforcement of the rights conferred by Part III during emergencies",
+    "summary": "Presidential order suspending judicial enforcement of fundamental rights, but Articles 20 and 21 can never be suspended.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "359A",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Application of this Part to the State of Punjab",
+    "summary": "[Repealed by the Constitution (Sixty-third Amendment) Act, 1989].",
+    "category": "Emergency",
+    "isRepealed": true
+  },
+  {
+    "number": "360",
+    "part": "Part XVIII",
+    "partTitle": "Emergency Provisions",
+    "title": "Provisions as to financial emergency",
+    "summary": "Financial Emergency where financial stability or credit of India or any part is threatened; never proclaimed in India.",
+    "category": "Emergency",
+    "isAmended": true
+  },
+  {
+    "number": "361",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Protection of President and Governors and Rajpramukhs",
+    "summary": "Personal immunity from court proceedings for exercise of official powers; no criminal proceedings during office tenure.",
+    "category": "Union Executive",
+    "isAmended": true
+  },
+  {
+    "number": "361A",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Protection of publication of proceedings of Parliament and State Legislatures",
+    "summary": "Constitutional immunity for substantially true newspaper and broadcast reports of legislative debates.",
+    "category": "Union Executive",
+    "isInserted": true
+  },
+  {
+    "number": "361B",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Disqualification for appointment on remunerative political post",
+    "summary": "Disqualified defecting legislators barred from holding remunerative political posts until re-election.",
+    "category": "Union Executive",
+    "isInserted": true
+  },
+  {
+    "number": "362",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Rights and privileges of Rulers of Indian States",
+    "summary": "[Repealed by the Constitution (Twenty-sixth Amendment) Act, 1971].",
+    "category": "Foundation",
+    "isRepealed": true
+  },
+  {
+    "number": "363",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Bar to interference by courts in disputes arising out of certain treaties, agreements, etc.",
+    "summary": "Judicial bar over pre-1950 accession treaties and agreements with princely rulers.",
+    "category": "Foundation"
+  },
+  {
+    "number": "363A",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Recognition granted to Rulers of Indian States to cease and privy purses to be abolished",
+    "summary": "Abolition of princely titles and privy purses inserted by 26th Amendment Act 1971.",
+    "category": "Foundation",
+    "isInserted": true
+  },
+  {
+    "number": "364",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Special provisions as to major ports and aerodromes",
+    "summary": "Presidential notifications regulating application of parliamentary and state statutes to ports/airports.",
+    "category": "Foundation"
+  },
+  {
+    "number": "365",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Effect of failure to comply with, or to give effect to, directions given by the Union",
+    "summary": "State failure to comply with Union directives deemed failure of constitutional machinery triggering Article 356.",
+    "category": "Federal Relations"
+  },
+  {
+    "number": "366",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Definitions",
+    "summary": "Constitutional definitions (Agricultural income, Debt, Goods, Proclamation of Emergency, Scheduled Castes/Tribes, etc.).",
+    "category": "Foundation",
+    "isAmended": true
+  },
+  {
+    "number": "367",
+    "part": "Part XIX",
+    "partTitle": "Miscellaneous",
+    "title": "Interpretation",
+    "summary": "Application of General Clauses Act 1897 for constitutional interpretation.",
+    "category": "Foundation",
+    "isAmended": true
+  },
+  {
+    "number": "368",
+    "part": "Part XX",
+    "partTitle": "Amendment of the Constitution",
+    "title": "Power of Parliament to amend the Constitution and procedure therefor",
+    "summary": "Constituent amending power bounded by the Basic Structure Doctrine (Kesavananda Bharati, Minerva Mills).",
+    "category": "Amendment",
+    "isAmended": true
+  },
+  {
+    "number": "369",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Temporary power to Parliament to make laws with respect to certain matters in State List",
+    "summary": "5-year temporary central power over essential commodities.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "370",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Temporary provisions with respect to the State of Jammu and Kashmir",
+    "summary": "Special status rendered inoperative by Constitution Orders C.O. 272 and 273 on 5-6 August 2019.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "371",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to States of Maharashtra and Gujarat",
+    "summary": "Separate development boards for Vidarbha, Marathwada, Saurashtra, and Kutch.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "371A",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to the State of Nagaland",
+    "summary": "Protection of Naga customary law, religious practices, and land ownership; Assembly resolution required for central laws.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371B",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to the State of Assam",
+    "summary": "Assembly committee for tribal areas.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371C",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to the State of Manipur",
+    "summary": "Committee for hill areas in Manipur Legislative Assembly.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371D",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provisions with respect to the State of Andhra Pradesh or the State of Telangana",
+    "summary": "Equitable opportunities in public employment and education.",
+    "category": "Special & Temporary",
+    "isInserted": true,
+    "isAmended": true
+  },
+  {
+    "number": "371E",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Establishment of Central University in Andhra Pradesh",
+    "summary": "Parliamentary establishment of central university.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371F",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provisions with respect to the State of Sikkim",
+    "summary": "Full statehood accession terms under 36th Amendment Act 1975.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371G",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to the State of Mizoram",
+    "summary": "Customary law and religious practices safeguards for Mizoram.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371H",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to the State of Arunachal Pradesh",
+    "summary": "Special law and order responsibility for Governor of Arunachal Pradesh.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371I",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision with respect to the State of Goa",
+    "summary": "Minimum 30 members for Goa Legislative Assembly.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "371J",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provisions with respect to State of Karnataka",
+    "summary": "Hyderabad-Karnataka (Kalyana-Karnataka) regional development board and affirmative quotas (98th Amd).",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "372",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Continuance in force of existing laws and their adaptation",
+    "summary": "Pre-1950 colonial laws continue in force until altered, repealed, or amended by competent legislature.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "372A",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Power of the President to adapt laws",
+    "summary": "Adaptation of laws following States Reorganisation Act 1956.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "373",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Power of President to make order in respect of persons under preventive detention",
+    "summary": "Transitional preventive detention orders.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "374",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to Judges of the Federal Court and proceedings pending in Federal Court or Privy Council",
+    "summary": "Succession of Federal Court judges and transfer of pending appeals to Supreme Court.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "375",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Courts, authorities and officers to continue to function subject to provisions of Constitution",
+    "summary": "Continuance of judicial and administrative offices.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "376",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to Judges of High Courts",
+    "summary": "Continuance of High Court judges holding office prior to 1950.",
+    "category": "Special & Temporary",
+    "isAmended": true
+  },
+  {
+    "number": "377",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to Comptroller and Auditor-General of India",
+    "summary": "Continuance of Auditor-General of India.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "378",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to Public Service Commissions",
+    "summary": "Continuance of members of Public Service Commission.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "378A",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision as to duration of Andhra Pradesh Legislative Assembly",
+    "summary": "Duration of AP Assembly.",
+    "category": "Special & Temporary",
+    "isInserted": true
+  },
+  {
+    "number": "379",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to provisional Parliament and Speaker and Deputy Speaker",
+    "summary": "[Repealed by the Constitution (Seventh Amendment) Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "380",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provision as to President",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "381",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Council of Ministers of the President",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "382",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to provisional Legislatures for States in Part A of First Schedule",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "383",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provision as to Governors of Provinces",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "384",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Council of Ministers of the Governors",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "385",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provision as to provisional Legislatures in States in Part B of First Schedule",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "386",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Council of Ministers for States in Part B of First Schedule",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "387",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Special provision as to determination of population for certain elections",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "388",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provisions as to the filling of casual vacancies in provisional Parliament and provisional Legislatures",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "389",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Provision as to Bills pending in the Dominion Legislature and in the Legislatures of Provinces",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "390",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Moneys received or raised or expenditure incurred between commencement and 31st March 1950",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "391",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Power of the President to amend the First and Fourth Schedules in certain contingencies",
+    "summary": "[Repealed by 7th Amendment Act, 1956].",
+    "category": "Special & Temporary",
+    "isRepealed": true
+  },
+  {
+    "number": "392",
+    "part": "Part XXI",
+    "partTitle": "Temporary, Transitional and Special Provisions",
+    "title": "Power of the President to remove difficulties",
+    "summary": "Henry VIII clause: presidential order power to remove constitutional transition difficulties.",
+    "category": "Special & Temporary"
+  },
+  {
+    "number": "393",
+    "part": "Part XXII",
+    "partTitle": "Short Title, Commencement, Authoritative Text in Hindi and Repeals",
+    "title": "Short title",
+    "summary": "This Constitution may be called the Constitution of India.",
+    "category": "Foundation"
+  },
+  {
+    "number": "394",
+    "part": "Part XXII",
+    "partTitle": "Short Title, Commencement, Authoritative Text in Hindi and Repeals",
+    "title": "Commencement",
+    "summary": "Articles 5, 6, 7, 8, 9, 60, 324, 366, 367, 379, 380, 388, 391, 392, 393 and 394 came into force on 26 November 1949; remainder on 26 January 1950.",
+    "category": "Foundation"
+  },
+  {
+    "number": "394A",
+    "part": "Part XXII",
+    "partTitle": "Short Title, Commencement, Authoritative Text in Hindi and Repeals",
+    "title": "Authoritative text in the Hindi language",
+    "summary": "Authoritative text of the Constitution and every amendment published in Hindi under presidential authority.",
+    "category": "Foundation",
+    "isInserted": true
+  },
+  {
+    "number": "395",
+    "part": "Part XXII",
+    "partTitle": "Short Title, Commencement, Authoritative Text in Hindi and Repeals",
+    "title": "Repeals",
+    "summary": "Repealed the Indian Independence Act, 1947, and the Government of India Act, 1935, together with all enactments amending or supplementing the latter.",
+    "category": "Foundation"
+  }
+]
