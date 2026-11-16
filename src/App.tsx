@@ -25,6 +25,7 @@ import { PrintableRevisionView } from './components/Views/PrintableRevisionView'
 import { FlashcardsView } from './components/Views/FlashcardsView';
 import { PrecedentLineageView } from './components/Views/PrecedentLineageView';
 import { AudioBriefingsView } from './components/Views/AudioBriefingsView';
+import { TileMatcherGameView } from './components/Views/TileMatcherGameView';
 import { Scale } from 'lucide-react';
 
 const MainContent: React.FC = () => {
@@ -52,6 +53,7 @@ const MainContent: React.FC = () => {
         {activeTab === 'mains-lab' && <MainsAnswerWritingLabView />}
         {activeTab === 'revision-sheets' && <PrintableRevisionView />}
         {activeTab === 'flashcards' && <FlashcardsView />}
+        {activeTab === 'tile-matcher' && <TileMatcherGameView />}
         {activeTab === 'lineage' && <PrecedentLineageView />}
         {activeTab === 'audio-lab' && <AudioBriefingsView />}
         {activeTab === 'pyqs' && <PyqVaultView />}

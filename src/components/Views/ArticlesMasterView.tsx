@@ -171,29 +171,38 @@ export const ArticlesMasterView: React.FC = () => {
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex items-center gap-2 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)] shrink-0 self-stretch sm:self-auto justify-end">
+        <div className="flex items-center gap-2 shrink-0 self-stretch sm:self-auto justify-end flex-wrap">
           <button
-            onClick={() => setViewMode('reader')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
-              viewMode === 'reader'
-                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
+            onClick={() => setActiveTab('tile-matcher')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors shadow-sm"
           >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Clause Explorer</span>
+            <span>🎮 Play Tile Matcher Arena</span>
           </button>
-          <button
-            onClick={() => setViewMode('grid')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
-              viewMode === 'grid'
-                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Directory Grid</span>
-          </button>
+
+          <div className="flex items-center gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
+            <button
+              onClick={() => setViewMode('reader')}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+                viewMode === 'reader'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Clause Explorer</span>
+            </button>
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+                viewMode === 'grid'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <Layers className="w-3.5 h-3.5" />
+              <span>Directory Grid</span>
+            </button>
+          </div>
         </div>
       </div>
 

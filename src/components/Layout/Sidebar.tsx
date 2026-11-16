@@ -20,7 +20,8 @@ import {
   Printer,
   BrainCircuit,
   Radio,
-  GitBranch
+  GitBranch,
+  Gamepad2
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -40,6 +41,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics' },
   { id: 'revision-sheets', label: 'Revision Sheets', icon: <Printer className="w-4 h-4" />, badge: 'Printable PDF', sub: 'Rapid Cheat Sheets' },
   { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: 'Leitner SRS', sub: 'Spaced Recall' },
+  { id: 'tile-matcher', label: 'Synaptic Matcher', icon: <Gamepad2 className="w-4 h-4" />, badge: 'Gamified Blitz', sub: 'Tile Memory Arena' },
   { id: 'lineage', label: 'Precedent Trees', icon: <GitBranch className="w-4 h-4" />, badge: '1950–2026', sub: 'Case Lineage' },
   { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy' },
   { id: 'pyqs', label: 'J&K Mains PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10 Years', sub: 'Paper-II Solved Bank' },
