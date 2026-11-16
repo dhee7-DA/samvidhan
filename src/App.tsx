@@ -18,6 +18,10 @@ import { QuizMasteryView } from './components/Views/QuizMasteryView';
 import { DictionaryView } from './components/Views/DictionaryView';
 import { StudyBootcampView } from './components/Views/StudyBootcampView';
 import { PyqVaultView } from './components/Views/PyqVaultView';
+import { MockExamSimulatorView } from './components/Views/MockExamSimulatorView';
+import { MistakesNotebookView } from './components/Views/MistakesNotebookView';
+import { MainsAnswerWritingLabView } from './components/Views/MainsAnswerWritingLabView';
+import { PrintableRevisionView } from './components/Views/PrintableRevisionView';
 import { Scale } from 'lucide-react';
 
 const MainContent: React.FC = () => {
@@ -34,6 +38,16 @@ const MainContent: React.FC = () => {
       <main className="flex-1 pb-16">
         {activeTab === 'overview' && <OverviewDashboard />}
         {activeTab === 'bootcamp' && <StudyBootcampView />}
+        {activeTab === 'mock-exam' && <MockExamSimulatorView />}
+        {activeTab === 'mistakes-notebook' && (
+          <MistakesNotebookView
+            onNavigateToBootcampDay={() => {
+              setActiveTab('bootcamp');
+            }}
+          />
+        )}
+        {activeTab === 'mains-lab' && <MainsAnswerWritingLabView />}
+        {activeTab === 'revision-sheets' && <PrintableRevisionView />}
         {activeTab === 'pyqs' && <PyqVaultView />}
         {activeTab === 'parts' && <TopicDetailView />}
         {activeTab === 'articles-master' && <ArticlesMasterView />}
@@ -63,6 +77,10 @@ const MainContent: React.FC = () => {
           <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[var(--text-secondary)]">
             <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)]">Overview</button>
             <button onClick={() => setActiveTab('bootcamp')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold">15-Day Bootcamp</button>
+            <button onClick={() => setActiveTab('mock-exam')} className="hover:text-[var(--text-primary)] text-indigo-400 font-semibold">Mock Exam</button>
+            <button onClick={() => setActiveTab('mistakes-notebook')} className="hover:text-[var(--text-primary)] text-rose-400 font-semibold">Mistakes Bank</button>
+            <button onClick={() => setActiveTab('mains-lab')} className="hover:text-[var(--text-primary)] text-purple-400 font-semibold">Mains Writing Lab</button>
+            <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-amber-400 font-semibold">Revision Sheets</button>
             <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-emerald-400 font-semibold">J&K Mains PYQs</button>
             <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)]">25 Parts</button>
             <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)]">Articles 1–395</button>

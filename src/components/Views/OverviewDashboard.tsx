@@ -11,7 +11,11 @@ import {
   Calendar,
   CheckCircle2,
   FileText,
-  Flame
+  Flame,
+  Timer,
+  AlertTriangle,
+  PenTool,
+  Printer
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -120,6 +124,109 @@ export const OverviewDashboard: React.FC = () => {
           <span>LAUNCH 15-DAY TRACKER</span>
           <ArrowRight className="w-4 h-4" />
         </button>
+      </section>
+
+      {/* Advanced Exam Engines Grid */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* 1. Timed Mock Exam */}
+        <div
+          onClick={() => setActiveTab('mock-exam')}
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-indigo-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+        >
+          <div className="space-y-2">
+            <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Timer className="w-5 h-5" />
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-bold block w-fit">
+              PRELIMS SIMULATOR
+            </span>
+            <h4 className="text-sm font-bold text-[var(--text-primary)]">
+              Timed Mock Exam Hall
+            </h4>
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              100–200 questions, -0.25 negative marking, 120-min countdown, and interactive palette.
+            </p>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-indigo-400 pt-3 group-hover:translate-x-1 transition-transform">
+            <span>Enter Exam Hall</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </div>
+
+        {/* 2. Mistakes Bank */}
+        <div
+          onClick={() => setActiveTab('mistakes-notebook')}
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-rose-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+        >
+          <div className="space-y-2">
+            <div className="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <AlertTriangle className="w-5 h-5" />
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 font-bold block w-fit">
+              SMART DIAGNOSTIC
+            </span>
+            <h4 className="text-sm font-bold text-[var(--text-primary)]">
+              Error Notebook & Bank
+            </h4>
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Auto-logs wrong answers across all 3,600 questions. Drill mistakes until mastered.
+            </p>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-rose-400 pt-3 group-hover:translate-x-1 transition-transform">
+            <span>Review Error Bank</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </div>
+
+        {/* 3. Mains Writing Lab */}
+        <div
+          onClick={() => setActiveTab('mains-lab')}
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-purple-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+        >
+          <div className="space-y-2">
+            <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <PenTool className="w-5 h-5" />
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 font-bold block w-fit">
+              MAINS CASE STUDIES
+            </span>
+            <h4 className="text-sm font-bold text-[var(--text-primary)]">
+              Mains Answer Writing Lab
+            </h4>
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              150 case matrices, timed writing canvas, model solutions, and scoring rubrics.
+            </p>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 pt-3 group-hover:translate-x-1 transition-transform">
+            <span>Start Answer Writing</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </div>
+
+        {/* 4. Revision Sheets */}
+        <div
+          onClick={() => setActiveTab('revision-sheets')}
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-amber-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+        >
+          <div className="space-y-2">
+            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Printer className="w-5 h-5" />
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-bold block w-fit">
+              PRINTABLE DOSSIERS
+            </span>
+            <h4 className="text-sm font-bold text-[var(--text-primary)]">
+              Revision Sheets & PDF
+            </h4>
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              High-density 1-page dossiers with articles, doctrines, exceptions, and printable A4 formatting.
+            </p>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 pt-3 group-hover:translate-x-1 transition-transform">
+            <span>View Printable PDF</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </div>
       </section>
 
       {/* Constitutional Vital Statistics Banner */}

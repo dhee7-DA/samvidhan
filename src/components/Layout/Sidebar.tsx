@@ -13,7 +13,11 @@ import {
   ChevronDown,
   Sparkles,
   Flame,
-  FileQuestion
+  FileQuestion,
+  Timer,
+  AlertTriangle,
+  PenTool,
+  Printer
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -28,6 +32,10 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Architecture & Preamble' },
   { id: 'bootcamp', label: '15-Day Bootcamp', icon: <Flame className="w-4 h-4" />, badge: '3,000 MCQs + Cases', sub: 'Daily Study & Drill' },
+  { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine' },
+  { id: 'mistakes-notebook', label: 'Mistakes Bank', icon: <AlertTriangle className="w-4 h-4" />, badge: 'Smart Diagnostic', sub: 'Re-Attempt Errors' },
+  { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics' },
+  { id: 'revision-sheets', label: 'Revision Sheets', icon: <Printer className="w-4 h-4" />, badge: 'Printable PDF', sub: 'Rapid Cheat Sheets' },
   { id: 'pyqs', label: 'J&K Mains PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10 Years', sub: 'Paper-II Solved Bank' },
   { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII', sub: 'Analytical Breakdown' },
   { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Master Index', sub: 'Complete Directory' },

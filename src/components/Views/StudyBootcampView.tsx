@@ -52,6 +52,7 @@ import {
   type DayModuleLinks,
   type ResolvedArticleDetails
 } from '../../data/bootcamp';
+import { recordMistake, recordSuccess } from '../../services/mistakesService';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -237,6 +238,28 @@ export const StudyBootcampView: React.FC = () => {
 
   // Answer MCQ
   const handleAnswerMCQ = (mcqId: string, optionIndex: number) => {
+    // Record into Mistakes Bank
+    const mcqObj = currentDay.mcqs.find((m) => m.id === mcqId);
+    if (mcqObj) {
+      if (optionIndex !== mcqObj.correctIndex) {
+        recordMistake({
+          id: `${currentDay.dayNumber}-${mcqObj.id}`,
+          questionId: mcqObj.id,
+          dayNumber: currentDay.dayNumber,
+          dayTitle: currentDay.title,
+          round: mcqObj.round || 1,
+          question: mcqObj.question,
+          options: mcqObj.options,
+          correctAnswer: mcqObj.correctIndex,
+          userAnswer: optionIndex,
+          explanation: mcqObj.explanation,
+          statutoryAnchor: mcqObj.articleRef,
+        });
+      } else {
+        recordSuccess(`${currentDay.dayNumber}-${mcqObj.id}`);
+      }
+    }
+
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
         tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
@@ -485,6 +508,32 @@ export const StudyBootcampView: React.FC = () => {
 
   // Case Study Sub-MCQ Answer Handler
   const handleAnswerCaseStudyMCQ = (subMcqId: string, optionIndex: number) => {
+    // Record into Mistakes Bank
+    const allCases = currentDay.comprehensionCaseStudies || [];
+    for (const cs of allCases) {
+      const subQ = cs.comprehensionMCQs.find((q) => q.id === subMcqId);
+      if (subQ) {
+        if (optionIndex !== subQ.correctIndex) {
+          recordMistake({
+            id: `${currentDay.dayNumber}-case-${subQ.id}`,
+            questionId: subQ.id,
+            dayNumber: currentDay.dayNumber,
+            dayTitle: `${currentDay.title} · ${cs.title}`,
+            round: 5,
+            question: subQ.question,
+            options: subQ.options,
+            correctAnswer: subQ.correctIndex,
+            userAnswer: optionIndex,
+            explanation: subQ.explanation,
+            statutoryAnchor: cs.statutoryApplicability?.join(', ') || '',
+          });
+        } else {
+          recordSuccess(`${currentDay.dayNumber}-case-${subQ.id}`);
+        }
+        break;
+      }
+    }
+
     setProgress((prev) => {
       const dayProg = prev[selectedDayNumber] || {
         tasks: { articles: false, cases: false, terms: false, mcqs: false, caseStudy: false },
