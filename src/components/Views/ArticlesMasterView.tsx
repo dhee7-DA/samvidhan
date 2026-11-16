@@ -23,7 +23,7 @@ import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { bareActService, type BareActArticle } from '../../services/bareActService';
 
 export const ArticlesMasterView: React.FC = () => {
-  const { setActiveTab, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
+  const { setActiveTab, setSelectedPartId, bookmarkedArticles, toggleBookmark, launchGameDeck } = useTheme();
 
   // Mode: 'reader' (Clause-by-Clause Bare Act Explorer) vs 'grid' (Directory Cards)
   const [viewMode, setViewMode] = useState<'reader' | 'grid'>('reader');
@@ -173,10 +173,22 @@ export const ArticlesMasterView: React.FC = () => {
         {/* View Mode Switcher */}
         <div className="flex items-center gap-2 shrink-0 self-stretch sm:self-auto justify-end flex-wrap">
           <button
-            onClick={() => setActiveTab('tile-matcher')}
+            onClick={() => {
+              if (activeArticle?.part === 'Part III') {
+                launchGameDeck('part3-rights');
+              } else if (activeArticle?.part === 'Part IV' || activeArticle?.part === 'Part IVA') {
+                launchGameDeck('part4-dpsp');
+              } else if (activeArticle?.part === 'Part V') {
+                launchGameDeck('part5-union');
+              } else if (['Part VI', 'Part VIII', 'Part XI'].includes(activeArticle?.part || '')) {
+                launchGameDeck('part6-federal');
+              } else {
+                launchGameDeck('master-shuffle');
+              }
+            }}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors shadow-sm"
           >
-            <span>🎮 Play Tile Matcher Arena</span>
+            <span>🎮 Practice Synaptic Matcher</span>
           </button>
 
           <div className="flex items-center gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">

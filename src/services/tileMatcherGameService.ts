@@ -25,13 +25,18 @@ export type DeckTheme =
   | 'part5-union'
   | 'part6-federal'
   | 'part-special'
+  | 'schedules'
+  | 'doctrines'
+  | 'landmark-cases'
+  | 'amendments'
   | 'master-shuffle';
 
 export interface GameDeck {
-  id: DeckTheme;
+  id: string;
   title: string;
   description: string;
   icon: string;
+  category: 'Constitutional Parts' | 'Constitutional Architecture' | 'Jurisprudence & Precedents' | 'Grand Shuffle';
   pairs: TileCardPair[];
 }
 
@@ -677,12 +682,462 @@ export const MATCH_PAIRS_FEDERAL_SPECIAL: TileCardPair[] = [
   }
 ];
 
+// THE 12 SCHEDULES OF THE CONSTITUTION
+export const MATCH_PAIRS_SCHEDULES: TileCardPair[] = [
+  {
+    id: 'sch-1',
+    articleNumber: 'Schedule I',
+    articleLabel: 'First Schedule',
+    conceptLabel: 'Territories of 28 States & 8 Union Territories',
+    part: 'Schedules',
+    explanation: 'Lists the names of the States and Union Territories and their respective territorial extents.',
+    mnemonicHint: 'T in TEARS: Territories.'
+  },
+  {
+    id: 'sch-2',
+    articleNumber: 'Schedule II',
+    articleLabel: 'Second Schedule',
+    conceptLabel: 'Salaries & Emoluments of Constitutional Dignitaries',
+    part: 'Schedules',
+    explanation: 'Salaries of President, Governors, Judges of SC/HC, CAG, Speaker, and Chairman.',
+    mnemonicHint: 'E in TEARS: Emoluments & Salaries.'
+  },
+  {
+    id: 'sch-3',
+    articleNumber: 'Schedule III',
+    articleLabel: 'Third Schedule',
+    conceptLabel: 'Forms of Oaths & Solemn Affirmations',
+    part: 'Schedules',
+    explanation: 'Prescribed oath formats for Ministers, Judges, MPs, MLAs, and CAG before entering office.',
+    mnemonicHint: 'A in TEARS: Affirmations & Oaths.'
+  },
+  {
+    id: 'sch-4',
+    articleNumber: 'Schedule IV',
+    articleLabel: 'Fourth Schedule',
+    conceptLabel: 'Allocation of Rajya Sabha Seats to States & UTs',
+    part: 'Schedules',
+    explanation: 'Distribution of the 238 state and UT representative seats in the Council of States.',
+    mnemonicHint: 'R in TEARS: Rajya Sabha Seat Quotas.'
+  },
+  {
+    id: 'sch-5',
+    articleNumber: 'Schedule V',
+    articleLabel: 'Fifth Schedule',
+    conceptLabel: 'Administration of Scheduled Areas & STs (10 States)',
+    part: 'Schedules',
+    explanation: 'Tribes Advisory Councils and Governor\'s special powers across mainland scheduled areas.',
+    mnemonicHint: 'S in TEARS: Scheduled Areas.'
+  },
+  {
+    id: 'sch-6',
+    articleNumber: 'Schedule VI',
+    articleLabel: 'Sixth Schedule',
+    conceptLabel: 'Tribal Autonomous District Councils (Assam, Meghalaya, Tripura, Mizoram)',
+    part: 'Schedules',
+    explanation: 'Autonomous District Councils (ADCs) in AMTM north-eastern tribal areas with legislative powers.',
+    mnemonicHint: 'O in OF: Other Tribal Areas (AMTM).'
+  },
+  {
+    id: 'sch-7',
+    articleNumber: 'Schedule VII',
+    articleLabel: 'Seventh Schedule',
+    conceptLabel: 'Federal Legislative Lists (Union, State, Concurrent)',
+    part: 'Schedules',
+    explanation: 'List I (Union: 100 items), List II (State: 61 items), and List III (Concurrent: 52 items).',
+    mnemonicHint: 'F in OF: Federal Lists.'
+  },
+  {
+    id: 'sch-8',
+    articleNumber: 'Schedule VIII',
+    articleLabel: 'Eighth Schedule',
+    conceptLabel: '22 Officially Recognized Languages of India',
+    part: 'Schedules',
+    explanation: 'Originally 14 languages; expanded to 22 by 21st, 71st, and 92nd Constitutional Amendments.',
+    mnemonicHint: 'O in OLD: Official Languages.'
+  },
+  {
+    id: 'sch-9',
+    articleNumber: 'Schedule IX',
+    articleLabel: 'Ninth Schedule',
+    conceptLabel: 'Validation of Land Reform Acts (Article 31B)',
+    part: 'Schedules',
+    explanation: 'Immunized listed laws from Part III challenge (subject to I.R. Coelho 2007 judicial review cutoff).',
+    mnemonicHint: 'L in OLD: Land Reform Immunities.'
+  },
+  {
+    id: 'sch-10',
+    articleNumber: 'Schedule X',
+    articleLabel: 'Tenth Schedule',
+    conceptLabel: 'Anti-Defection Law for Legislators (52nd Amd 1985)',
+    part: 'Schedules',
+    explanation: 'Disqualification of MPs and MLAs on ground of defection; Speaker decisions reviewable under Kihoto Hollohan.',
+    mnemonicHint: 'D in OLD: Defection Disqualifications.'
+  },
+  {
+    id: 'sch-11',
+    articleNumber: 'Schedule XI',
+    articleLabel: 'Eleventh Schedule',
+    conceptLabel: '29 Functional Subjects of Panchayats (73rd Amd 1992)',
+    part: 'Schedules',
+    explanation: 'Endows rural local self-governments with powers over agriculture, water, rural housing, and health.',
+    mnemonicHint: 'P in PM: Panchayats (29 subjects).'
+  },
+  {
+    id: 'sch-12',
+    articleNumber: 'Schedule XII',
+    articleLabel: 'Twelfth Schedule',
+    conceptLabel: '18 Urban Functional Subjects of Municipalities (74th Amd 1992)',
+    part: 'Schedules',
+    explanation: 'Urban planning, water supply, town roads, and public sanitation for urban local bodies.',
+    mnemonicHint: 'M in PM: Municipalities (18 subjects).'
+  }
+];
+
+// THE 10 LANDMARK CONSTITUTIONAL DOCTRINES
+export const MATCH_PAIRS_DOCTRINES: TileCardPair[] = [
+  {
+    id: 'doc-basic-structure',
+    articleNumber: 'Basic Structure',
+    articleLabel: 'Basic Structure Doctrine',
+    conceptLabel: 'Kesavananda Bharati (1973) & Minerva Mills (1980)',
+    part: 'Doctrines',
+    explanation: 'Parliament cannot destroy or emasculate the core identity of the Constitution under Article 368.',
+    mnemonicHint: 'The unbreachable judicial shield.'
+  },
+  {
+    id: 'doc-pith-substance',
+    articleNumber: 'Pith & Substance',
+    articleLabel: 'Doctrine of Pith and Substance',
+    conceptLabel: 'State of Bombay v. F.N. Balsara (1951)',
+    part: 'Doctrines',
+    explanation: 'True nature and character of a law determines validity, disregarding incidental list encroachments.',
+    mnemonicHint: 'Core substance over incidental overlap.'
+  },
+  {
+    id: 'doc-severability',
+    articleNumber: 'Severability',
+    articleLabel: 'Doctrine of Severability',
+    conceptLabel: 'R.M.D.C. v. Union of India (1957) & A.K. Gopalan',
+    part: 'Doctrines',
+    explanation: 'Only the unconstitutional provision is struck down if the valid portion can operate independently.',
+    mnemonicHint: 'Cut the bad part, keep the good.'
+  },
+  {
+    id: 'doc-eclipse',
+    articleNumber: 'Eclipse',
+    articleLabel: 'Doctrine of Eclipse',
+    conceptLabel: 'Bhikaji Narain Dhakras v. State of M.P. (1955)',
+    part: 'Doctrines',
+    explanation: 'Pre-1950 laws violating Part III are shadowed/dormant; they revive once the constitutional impediment is lifted.',
+    mnemonicHint: 'Sun covered by moon, revives later.'
+  },
+  {
+    id: 'doc-colorable',
+    articleNumber: 'Colorable Law',
+    articleLabel: 'Doctrine of Colorable Legislation',
+    conceptLabel: 'K.C. Gajapati Narayan Deo v. State of Orissa (1953)',
+    part: 'Doctrines',
+    explanation: 'What cannot be done directly cannot be done indirectly; tests constitutional legislative competence.',
+    mnemonicHint: 'Disguised transgression of power.'
+  },
+  {
+    id: 'doc-nexus',
+    articleNumber: 'Territorial Nexus',
+    articleLabel: 'Doctrine of Territorial Nexus',
+    conceptLabel: 'Tata Iron & Steel Co. v. State of Bihar (1958)',
+    part: 'Doctrines',
+    explanation: 'State laws can have extra-territorial application if there is a real, legitimate connection with the State.',
+    mnemonicHint: 'Real connection across state borders.'
+  },
+  {
+    id: 'doc-harmonious',
+    articleNumber: 'Harmonious Construction',
+    articleLabel: 'Doctrine of Harmonious Construction',
+    conceptLabel: 'Sri Venkataramana Devaru v. State of Mysore (1958)',
+    part: 'Doctrines',
+    explanation: 'Conflicting provisions must be read together so effect is given to both without rendering either dead letter.',
+    mnemonicHint: 'Reconcile two clashing clauses.'
+  },
+  {
+    id: 'doc-pleasure',
+    articleNumber: 'Pleasure Doctrine',
+    articleLabel: 'The Doctrine of Pleasure',
+    conceptLabel: 'Union of India v. Tulsiram Patel (1985) & Art 310',
+    part: 'Doctrines',
+    explanation: 'Civil posts held at the pleasure of President/Governor subject to Article 311 procedural inquiry shields.',
+    mnemonicHint: 'Crown privilege tempered by inquiry.'
+  },
+  {
+    id: 'doc-eminent-domain',
+    articleNumber: 'Eminent Domain',
+    articleLabel: 'Doctrine of Eminent Domain',
+    conceptLabel: 'K.T. Plantation Pvt. Ltd. v. State of Karnataka (2011)',
+    part: 'Doctrines',
+    explanation: 'Sovereign power of the State to acquire private property for public use subject to statutory authority of law.',
+    mnemonicHint: 'State acquisition for public utility.'
+  },
+  {
+    id: 'doc-promissory-estoppel',
+    articleNumber: 'Promissory Estoppel',
+    articleLabel: 'Doctrine of Promissory Estoppel',
+    conceptLabel: 'Motilal Padampat Sugar Mills v. State of U.P. (1979)',
+    part: 'Doctrines',
+    explanation: 'The Government is bound by promises it makes where citizens alter their position relying upon the promise.',
+    mnemonicHint: 'State cannot back out of clear promises.'
+  }
+];
+
+// THE TOP 12 LANDMARK JUDGMENTS
+export const MATCH_PAIRS_LANDMARK_JUDGMENTS: TileCardPair[] = [
+  {
+    id: 'case-kesavananda',
+    articleNumber: '1973 Case',
+    articleLabel: 'Kesavananda Bharati (1973)',
+    conceptLabel: 'Basic Structure Doctrine (13-Judge Bench)',
+    part: 'Judgments',
+    explanation: 'Held that Parliament\'s constituent power cannot destroy the basic features of the Constitution.',
+    mnemonicHint: 'Largest 13-Judge Bench in history.'
+  },
+  {
+    id: 'case-maneka',
+    articleNumber: '1978 Case',
+    articleLabel: 'Maneka Gandhi v. UOI (1978)',
+    conceptLabel: 'Golden Triangle & Just, Fair, Reasonable Due Process (Art 21)',
+    part: 'Judgments',
+    explanation: 'Interlinked Articles 14, 19, and 21 into the Golden Triangle and established substantive due process.',
+    mnemonicHint: 'Passport impounding redefined personal liberty.'
+  },
+  {
+    id: 'case-indra-sawhney',
+    articleNumber: '1992 Case',
+    articleLabel: 'Indra Sawhney v. UOI (1992)',
+    conceptLabel: '50% Reservation Ceiling & Creamy Layer Exclusion',
+    part: 'Judgments',
+    explanation: 'Upheld 27% OBC reservations with creamy layer exclusion and strict 50% quota ceiling.',
+    mnemonicHint: 'Mandal Commission landmark.'
+  },
+  {
+    id: 'case-bommai',
+    articleNumber: '1994 Case',
+    articleLabel: 'S.R. Bommai v. UOI (1994)',
+    conceptLabel: 'Judicial Review of Article 356 & Assembly Floor Test Mandatory',
+    part: 'Judgments',
+    explanation: 'Made President\'s Rule subject to strict judicial scrutiny and made the floor test on the assembly floor sole proof of majority.',
+    mnemonicHint: 'Ended arbitrary dismissal of state cabinets.'
+  },
+  {
+    id: 'case-puttaswamy',
+    articleNumber: '2017 Case',
+    articleLabel: 'K.S. Puttaswamy v. UOI (2017)',
+    conceptLabel: 'Right to Privacy as a Fundamental Right under Article 21 (9-Judge)',
+    part: 'Judgments',
+    explanation: 'Unanimous 9-Judge bench ruling that privacy is intrinsic to life and personal liberty, establishing proportionality test.',
+    mnemonicHint: 'Informational & bodily privacy bedrock.'
+  },
+  {
+    id: 'case-minerva',
+    articleNumber: '1980 Case',
+    articleLabel: 'Minerva Mills v. UOI (1980)',
+    conceptLabel: 'Harmony Between Rights & DPSPs as Basic Structure',
+    part: 'Judgments',
+    explanation: 'Struck down 42nd Amendment clauses immunizing constitutional amendments from judicial review.',
+    mnemonicHint: 'Two wheels of the constitutional chariot.'
+  },
+  {
+    id: 'case-shayara-bano',
+    articleNumber: '2017 Case',
+    articleLabel: 'Shayara Bano v. UOI (2017)',
+    conceptLabel: 'Invalidation of Instant Triple Talaq (Talaq-e-Biddat)',
+    part: 'Judgments',
+    explanation: 'Declared instant triple talaq unconstitutional for being manifestly arbitrary under Article 14.',
+    mnemonicHint: 'Manifest arbitrariness doctrine.'
+  },
+  {
+    id: 'case-navtej-johar',
+    articleNumber: '2018 Case',
+    articleLabel: 'Navtej Singh Johar v. UOI (2018)',
+    conceptLabel: 'Decriminalization of Section 377 & Constitutional Morality',
+    part: 'Judgments',
+    explanation: 'Overruled Suresh Koushal; held that criminalizing consensual adult same-sex relations violates Articles 14, 15, 19, and 21.',
+    mnemonicHint: 'Constitutional morality over majoritarian social morality.'
+  },
+  {
+    id: 'case-sita-soren',
+    articleNumber: '2024 Case',
+    articleLabel: 'Sita Soren v. Union of India (2024)',
+    conceptLabel: 'No Parliamentary Privilege Immunity for Taking Bribes (Art 105/194)',
+    part: 'Judgments',
+    explanation: '7-Judge bench overruled P.V. Narasimha Rao; bribery for casting votes in legislative chambers is not protected by privilege.',
+    mnemonicHint: 'Bribery is never parliamentary business.'
+  },
+  {
+    id: 'case-art-370',
+    articleNumber: '2023 Case',
+    articleLabel: 'In Re: Article 370 of the Constitution (2023)',
+    conceptLabel: 'Upheld Complete Constitutional Integration of Jammu & Kashmir',
+    part: 'Judgments',
+    explanation: '5-Judge bench held J&K held no internal sovereignty after accession; upheld C.O. 272 & 273.',
+    mnemonicHint: 'Asymmetric autonomy transition settled.'
+  },
+  {
+    id: 'case-selvi',
+    articleNumber: '2010 Case',
+    articleLabel: 'Selvi v. State of Karnataka (2010)',
+    conceptLabel: 'Involuntary Narco-Analysis Violates Article 20(3) Self-Incrimination',
+    part: 'Judgments',
+    explanation: 'Involuntary polygraph, brain mapping, or narco tests violate mental privacy and testimonial compulsion safeguards.',
+    mnemonicHint: 'Mental privacy is inviolable.'
+  },
+  {
+    id: 'case-janhit-abhiyan',
+    articleNumber: '2022 Case',
+    articleLabel: 'Janhit Abhiyan v. UOI (2022)',
+    conceptLabel: 'Upheld 103rd Amendment 10% EWS Reservation',
+    part: 'Judgments',
+    explanation: '5-Judge bench upheld economic criteria alone for reservations under Articles 15(6) and 16(6).',
+    mnemonicHint: 'Economic backwardness recognized.'
+  }
+];
+
+// HISTORIC CONSTITUTIONAL AMENDMENTS
+export const MATCH_PAIRS_AMENDMENTS: TileCardPair[] = [
+  {
+    id: 'amd-1',
+    articleNumber: '1st Amd',
+    articleLabel: '1st Amendment (1951)',
+    conceptLabel: 'Inserted Ninth Schedule, Art 31A/B & Art 15(4) Reservations',
+    part: 'Amendments',
+    explanation: 'Overcame Champakam Dorairajan and Kameshwar Singh; protected Zamindari abolition laws from Part III challenge.',
+    mnemonicHint: 'The first constituent reaction.'
+  },
+  {
+    id: 'amd-7',
+    articleNumber: '7th Amd',
+    articleLabel: '7th Amendment (1956)',
+    conceptLabel: 'States Reorganisation along Linguistic Lines & Abolished Part VII',
+    part: 'Amendments',
+    explanation: 'Fazal Ali Commission implementation; 14 States & 6 UTs created; common High Courts established.',
+    mnemonicHint: 'The Linguistic map of India.'
+  },
+  {
+    id: 'amd-24',
+    articleNumber: '24th Amd',
+    articleLabel: '24th Amendment (1971)',
+    conceptLabel: 'Affirmed Constituent Amending Power & Mandatory Presidential Assent',
+    part: 'Amendments',
+    explanation: 'Nullified Golak Nath; clarified nothing in Art 13 applies to Art 368 amendments.',
+    mnemonicHint: 'Parliament strikes back after Golak Nath.'
+  },
+  {
+    id: 'amd-42',
+    articleNumber: '42nd Amd',
+    articleLabel: '42nd Amendment (1976)',
+    conceptLabel: 'The Mini-Constitution: Preamble Socialist/Secular & Part IV-A Duties',
+    part: 'Amendments',
+    explanation: 'Swaran Singh Committee; bound President to cabinet advice; added Fundamental Duties and Administrative Tribunals.',
+    mnemonicHint: 'The Mini-Constitution of 1976.'
+  },
+  {
+    id: 'amd-44',
+    articleNumber: '44th Amd',
+    articleLabel: '44th Amendment (1978)',
+    conceptLabel: 'Abolished Art 19(1)(f) Property Right & Added "Armed Rebellion"',
+    part: 'Amendments',
+    explanation: 'Restored civil liberties; replaced internal disturbance with armed rebellion; Arts 20 & 21 made non-suspendable.',
+    mnemonicHint: 'The Democratic Restoration amendment.'
+  },
+  {
+    id: 'amd-52',
+    articleNumber: '52nd Amd',
+    articleLabel: '52nd Amendment (1985)',
+    conceptLabel: 'Introduced Tenth Schedule Anti-Defection Law',
+    part: 'Amendments',
+    explanation: 'Curbed political floor-crossing; presiding officer disqualification mechanism.',
+    mnemonicHint: 'Aaya Ram, Gaya Ram ended.'
+  },
+  {
+    id: 'amd-61',
+    articleNumber: '61st Amd',
+    articleLabel: '61st Amendment (1988)',
+    conceptLabel: 'Reduced Voting Age from 21 to 18 Years in Article 326',
+    part: 'Amendments',
+    explanation: 'Empowered youth with Universal Adult Suffrage at 18 years.',
+    mnemonicHint: 'Youth ballot revolution.'
+  },
+  {
+    id: 'amd-73',
+    articleNumber: '73rd Amd',
+    articleLabel: '73rd Amendment (1992)',
+    conceptLabel: 'Constitutional Status to Panchayati Raj (Part IX & 11th Schedule)',
+    part: 'Amendments',
+    explanation: 'Mandatory 3-tier Panchayats, State Election Commission, State Finance Commission, and 33% women quota.',
+    mnemonicHint: 'Grassroots rural self-government.'
+  },
+  {
+    id: 'amd-74',
+    articleNumber: '74th Amd',
+    articleLabel: '74th Amendment (1992)',
+    conceptLabel: 'Constitutional Status to Municipalities (Part IX-A & 12th Schedule)',
+    part: 'Amendments',
+    explanation: 'Nagar Panchayats, Municipal Councils, Municipal Corporations, and Wards Committees.',
+    mnemonicHint: 'Urban municipal empowerment.'
+  },
+  {
+    id: 'amd-86',
+    articleNumber: '86th Amd',
+    articleLabel: '86th Amendment (2002)',
+    conceptLabel: 'Inserted Article 21A Right to Free & Compulsory Education',
+    part: 'Amendments',
+    explanation: 'Elevated education for ages 6–14 into an enforceable fundamental right and added 51A(k) duty.',
+    mnemonicHint: 'Education fundamental charter.'
+  },
+  {
+    id: 'amd-91',
+    articleNumber: '91st Amd',
+    articleLabel: '91st Amendment (2003)',
+    conceptLabel: '15% Cabinet Size Ceiling in Lok Sabha and State Assemblies',
+    part: 'Amendments',
+    explanation: 'Council of Ministers cannot exceed 15% of total membership of Lower House; barred defectors from cabinet berths.',
+    mnemonicHint: 'Cabinet expansion cap.'
+  },
+  {
+    id: 'amd-101',
+    articleNumber: '101st Amd',
+    articleLabel: '101st Amendment (2016)',
+    conceptLabel: 'Goods and Services Tax (GST) & GST Council (Art 279A)',
+    part: 'Amendments',
+    explanation: 'One Nation One Tax: concurrent legislative competence under 246A and constitutional voting body under 279A.',
+    mnemonicHint: 'Fiscal federal revolution.'
+  },
+  {
+    id: 'amd-103',
+    articleNumber: '103rd Amd',
+    articleLabel: '103rd Amendment (2019)',
+    conceptLabel: '10% EWS Reservation under Articles 15(6) and 16(6)',
+    part: 'Amendments',
+    explanation: 'Economic criteria affirmative action in educational admissions and public employment.',
+    mnemonicHint: 'Economically weaker sections.'
+  },
+  {
+    id: 'amd-106',
+    articleNumber: '106th Amd',
+    articleLabel: '106th Amendment (2023)',
+    conceptLabel: 'Nari Shakti Vandan Adhiniyam: 33% Women Quota in LS & Assemblies',
+    part: 'Amendments',
+    explanation: 'Inserted Arts 330A, 332A, and 334A reserving one-third seats for women for 15-year period.',
+    mnemonicHint: 'Women\'s parliamentary reservation.'
+  }
+];
+
 export const GAME_DECKS: GameDeck[] = [
+  // 1. Part-wise Core Constitutional Decks
   {
     id: 'part3-rights',
     title: 'Part III: Fundamental Rights & Writs',
     description: 'Master Articles 12 to 35, reasonable restrictions, and the 5 prerogative writs.',
     icon: 'Shield',
+    category: 'Constitutional Parts',
     pairs: MATCH_PAIRS_PART3
   },
   {
@@ -690,6 +1145,7 @@ export const GAME_DECKS: GameDeck[] = [
     title: 'Part IV & IV-A: DPSPs & Duties',
     description: 'Directive Principles, welfare socialist directives, UCC, and the 11 Fundamental Duties.',
     icon: 'Scale',
+    category: 'Constitutional Parts',
     pairs: MATCH_PAIRS_PART4_DPSP
   },
   {
@@ -697,6 +1153,7 @@ export const GAME_DECKS: GameDeck[] = [
     title: 'Part V: The Union Executive & Judiciary',
     description: 'President, Cabinet, Ordinances, Parliament quorum, and Supreme Court powers.',
     icon: 'Building2',
+    category: 'Constitutional Parts',
     pairs: MATCH_PAIRS_PART5_UNION
   },
   {
@@ -704,6 +1161,7 @@ export const GAME_DECKS: GameDeck[] = [
     title: 'Part VI & XI: States & Federal Relations',
     description: 'High Courts, Governor, Legislative Lists, River Water disputes, and Delhi 239AA.',
     icon: 'GitBranch',
+    category: 'Constitutional Parts',
     pairs: MATCH_PAIRS_FEDERAL_SPECIAL.filter(p => ['Part VI', 'Part VIII', 'Part XI'].includes(p.part))
   },
   {
@@ -711,18 +1169,60 @@ export const GAME_DECKS: GameDeck[] = [
     title: 'Emergency, Finance, Services & Amendments',
     description: 'Arts 280, 300A, 311, 324, 352, 356, 359, and 368 Basic Structure ceiling.',
     icon: 'Zap',
+    category: 'Constitutional Parts',
     pairs: MATCH_PAIRS_FEDERAL_SPECIAL.filter(p => !['Part VI', 'Part VIII', 'Part XI'].includes(p.part))
   },
+
+  // 2. Specialized Constitutional Topics
+  {
+    id: 'schedules',
+    title: 'The 12 Schedules (TEARS OF OLD PM)',
+    description: 'Territories, Emoluments, Affirmations, Rajya Sabha, Tribal regimes, Official Languages, and Anti-Defection.',
+    icon: 'Calendar',
+    category: 'Constitutional Architecture',
+    pairs: MATCH_PAIRS_SCHEDULES
+  },
+  {
+    id: 'amendments',
+    title: 'Constitutional Amendments (1 to 106)',
+    description: 'The monumental constitutional shifts: 1st, 24th, 42nd, 44th, 52nd, 73rd, 86th, 101st, 103rd, and 106th.',
+    icon: 'GitCommit',
+    category: 'Constitutional Architecture',
+    pairs: MATCH_PAIRS_AMENDMENTS
+  },
+  {
+    id: 'doctrines',
+    title: '10 Landmark Constitutional Doctrines',
+    description: 'Basic Structure, Pith & Substance, Severability, Eclipse, Colorable Law, and Territorial Nexus.',
+    icon: 'Scale',
+    category: 'Jurisprudence & Precedents',
+    pairs: MATCH_PAIRS_DOCTRINES
+  },
+  {
+    id: 'landmark-cases',
+    title: 'Top Supreme Court Landmark Judgments',
+    description: 'Kesavananda, Maneka Gandhi, Indra Sawhney, S.R. Bommai, Puttaswamy, Navtej Johar, and Sita Soren.',
+    icon: 'Award',
+    category: 'Jurisprudence & Precedents',
+    pairs: MATCH_PAIRS_LANDMARK_JUDGMENTS
+  },
+
+  // 3. Grand Shuffle
   {
     id: 'master-shuffle',
     title: 'All-Constitution Grand Shuffle (1 to 395)',
-    description: 'The ultimate constitutional master drill across all 26 Parts of the Constitution.',
+    description: 'The ultimate constitutional master drill shuffling articles, doctrines, schedules, and case laws.',
     icon: 'Sparkles',
+    category: 'Grand Shuffle',
     pairs: [
       ...MATCH_PAIRS_PART3,
       ...MATCH_PAIRS_PART4_DPSP,
       ...MATCH_PAIRS_PART5_UNION,
-      ...MATCH_PAIRS_FEDERAL_SPECIAL
+      ...MATCH_PAIRS_FEDERAL_SPECIAL,
+      ...MATCH_PAIRS_SCHEDULES,
+      ...MATCH_PAIRS_DOCTRINES,
+      ...MATCH_PAIRS_LANDMARK_JUDGMENTS,
+      ...MATCH_PAIRS_AMENDMENTS
     ]
   }
 ];
@@ -738,14 +1238,14 @@ export function shuffleArray<T>(array: T[]): T[] {
 }
 
 // Generate tiles for a round
-export function createGameTiles(deckTheme: DeckTheme, pairCount: number): GameTile[] {
+export function createGameTiles(deckTheme: string, pairCount: number): GameTile[] {
   const deck = GAME_DECKS.find(d => d.id === deckTheme) || GAME_DECKS[0];
   const selectedPairs = shuffleArray(deck.pairs).slice(0, Math.min(pairCount, deck.pairs.length));
 
   const tiles: GameTile[] = [];
 
   selectedPairs.forEach((pair, idx) => {
-    // Article Number Tile
+    // Article / Lead Tile
     tiles.push({
       uid: `tile-${pair.id}-art-${idx}`,
       pairId: pair.id,
@@ -773,7 +1273,7 @@ export function createGameTiles(deckTheme: DeckTheme, pairCount: number): GameTi
   return shuffleArray(tiles);
 }
 
-// Simple Web Audio Sound Effects Synthesizer (Zero Dependencies)
+// Web Audio Sound Effects Synthesizer (Zero Dependencies)
 class AudioSynthesizer {
   private ctx: AudioContext | null = null;
 

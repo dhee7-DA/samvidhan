@@ -22,6 +22,9 @@ interface ThemeContextType {
   setWordInspectorEnabled: (enabled: boolean | ((prev: boolean) => boolean)) => void;
   bookmarkedArticles: string[];
   toggleBookmark: (artNumber: string) => void;
+  activeGameDeck: string;
+  setActiveGameDeck: (deck: string) => void;
+  launchGameDeck: (deck: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -47,6 +50,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const saved = localStorage.getItem('samvidhan_word_inspector');
     return saved !== null ? saved === 'true' : true;
   });
+  const [activeGameDeck, setActiveGameDeck] = useState<string>('part3-rights');
+
+  const launchGameDeck = (deck: string) => {
+    setActiveGameDeck(deck);
+    setActiveTab('tile-matcher');
+  };
 
   useEffect(() => {
     localStorage.setItem('samvidhan_word_inspector', String(wordInspectorEnabled));
@@ -103,6 +112,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setWordInspectorEnabled,
         bookmarkedArticles,
         toggleBookmark,
+        activeGameDeck,
+        setActiveGameDeck,
+        launchGameDeck,
       }}
     >
       {children}

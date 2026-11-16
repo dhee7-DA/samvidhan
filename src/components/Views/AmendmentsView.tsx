@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { GitCommit, Search, Sparkles, Award, ExternalLink, Calendar, ChevronRight, ChevronDown } from 'lucide-react';
+import { GitCommit, Search, Sparkles, Award, ExternalLink, Calendar, ChevronRight, ChevronDown, Gamepad2 } from 'lucide-react';
 import { AMENDMENTS_DATA, type ConstitutionalAmendment } from '../../data/amendmentsData';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { useTheme } from '../../context/ThemeContext';
 
 export const AmendmentsView: React.FC = () => {
+  const { launchGameDeck } = useTheme();
   const [query, setQuery] = useState('');
   const [selectedAmd, setSelectedAmd] = useState<ConstitutionalAmendment>(AMENDMENTS_DATA[0]);
   const [isMobileListOpen, setIsMobileListOpen] = useState(false);
@@ -102,6 +104,13 @@ export const AmendmentsView: React.FC = () => {
               className="w-full bg-transparent border-none text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none font-mono"
             />
           </div>
+          <button
+            onClick={() => launchGameDeck('amendments')}
+            className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm"
+          >
+            <Gamepad2 className="w-3.5 h-3.5" />
+            <span>Play Amendments Matcher</span>
+          </button>
         </div>
 
         <div className="flex flex-col gap-2 max-h-[70vh] overflow-y-auto pr-1">

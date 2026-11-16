@@ -26,7 +26,8 @@ import {
   Compass,
   Users,
   ArrowLeft,
-  List
+  List,
+  Gamepad2
 } from 'lucide-react';
 import {
   DETAILED_CASE_LAWS_BY_TOPIC,
@@ -38,7 +39,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const LandmarkCasesView: React.FC = () => {
-  const { setActiveTab } = useTheme();
+  const { setActiveTab, launchGameDeck } = useTheme();
 
   // Mode: 'cases' | 'lineage' | 'principles' | 'bookmarks'
   const [viewMode, setViewMode] = useState<'cases' | 'lineage' | 'principles' | 'bookmarks'>('cases');
@@ -187,9 +188,18 @@ export const LandmarkCasesView: React.FC = () => {
               </p>
             </div>
           </div>
-          <span className="text-xs px-3 py-1 rounded-lg font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] w-fit shrink-0">
-            100 Authoritative Cases • 20 Clusters • 5 Per Topic
-          </span>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs px-3 py-1.5 rounded-lg font-mono bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] w-fit shrink-0">
+              100 Authoritative Cases • 20 Clusters • 5 Per Topic
+            </span>
+            <button
+              onClick={() => launchGameDeck('landmark-cases')}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm shrink-0"
+            >
+              <Gamepad2 className="w-3.5 h-3.5" />
+              <span>Play Precedents Matcher</span>
+            </button>
+          </div>
         </div>
 
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-4xl">

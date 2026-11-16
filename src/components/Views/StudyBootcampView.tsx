@@ -36,7 +36,8 @@ import {
   ChevronDown,
   ChevronUp,
   RefreshCw,
-  SlidersHorizontal
+  SlidersHorizontal,
+  Gamepad2
 } from 'lucide-react';
 import {
   FIFTEEN_DAY_BOOTCAMP_DATA,
@@ -126,7 +127,19 @@ const ROUND_LIST: { id: BootcampMCQRoundType; number: number; label: string; sub
 ];
 
 export const StudyBootcampView: React.FC = () => {
-  const { setActiveTab, setSelectedPartId, setSelectedSvgId, bookmarkedArticles, toggleBookmark } = useTheme();
+  const { setActiveTab, setSelectedPartId, setSelectedSvgId, bookmarkedArticles, toggleBookmark, launchGameDeck } = useTheme();
+
+  const getDayTileDeck = (day: number): string => {
+    if (day <= 4) return 'part3-rights';
+    if (day === 5) return 'part4-dpsp';
+    if (day <= 8) return 'part5-union';
+    if (day <= 10) return 'part6-federal';
+    if (day === 11) return 'part-special';
+    if (day === 12) return 'amendments';
+    if (day === 13) return 'schedules';
+    if (day === 14) return 'landmark-cases';
+    return 'master-shuffle';
+  };
 
   // Selected Day (1 to 15)
   const [selectedDayNumber, setSelectedDayNumber] = useState<number>(1);
@@ -786,7 +799,7 @@ export const StudyBootcampView: React.FC = () => {
       <div className="space-y-6">
         <div className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
                 Day {currentDay.dayNumber} of 15
               </span>
@@ -796,6 +809,14 @@ export const StudyBootcampView: React.FC = () => {
               <span className="inline-flex items-center gap-1 text-xs text-[var(--bootcamp-accent-text)] font-medium">
                 <Clock className="w-3 h-3" /> ~{currentDay.estimatedHours} hrs study
               </span>
+              <button
+                onClick={() => launchGameDeck(getDayTileDeck(currentDay.dayNumber))}
+                className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm"
+                title={`Launch memory tile matcher for Day ${currentDay.dayNumber}`}
+              >
+                <Gamepad2 className="w-3.5 h-3.5" />
+                <span>Day {currentDay.dayNumber} Matcher</span>
+              </button>
             </div>
             <h2 className="text-2xl font-extrabold text-[var(--text-primary)]">
               {currentDay.title}

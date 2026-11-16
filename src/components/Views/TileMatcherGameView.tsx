@@ -27,13 +27,28 @@ import {
 import { useTheme } from '../../context/ThemeContext';
 
 export const TileMatcherGameView: React.FC = () => {
-  const { setActiveTab } = useTheme();
+  const { setActiveTab, activeGameDeck, setActiveGameDeck } = useTheme();
 
   // Settings
-  const [selectedDeck, setSelectedDeck] = useState<DeckTheme>('part3-rights');
+  const [selectedDeck, setSelectedDeck] = useState<DeckTheme>(() => {
+    return (activeGameDeck as DeckTheme) || 'part3-rights';
+  });
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [gameMode, setGameMode] = useState<'blitz' | 'zen'>('blitz');
   const [pairCount, setPairCount] = useState<number>(8); // 8 = 16 tiles (4x4), 12 = 24 tiles, 16 = 32 tiles
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+
+  // Sync selectedDeck if external launcher (ThemeContext) changes activeGameDeck
+  useEffect(() => {
+    if (activeGameDeck && activeGameDeck !== selectedDeck) {
+      setSelectedDeck(activeGameDeck as DeckTheme);
+    }
+  }, [activeGameDeck]);
+
+  const handleSelectDeck = (deckId: DeckTheme) => {
+    setSelectedDeck(deckId);
+    setActiveGameDeck(deckId);
+  };
 
   // Game state
   const [tiles, setTiles] = useState<GameTile[]>([]);
@@ -276,65 +291,94 @@ export const TileMatcherGameView: React.FC = () => {
       </div>
 
       {/* Deck Selector & Difficulty Toolbar */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
-        {/* Deck Dropdown / Tabs */}
-        <div className="flex items-center gap-2 flex-wrap flex-1">
+      <div className="flex flex-col gap-3 p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+        {/* Category Pills & Grid Size */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-[11px] font-mono text-[var(--text-muted)] uppercase tracking-wider mr-1">
+              Category:
+            </span>
+            {['All', 'Constitutional Parts', 'Constitutional Architecture', 'Jurisprudence & Precedents', 'Grand Shuffle'].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-all ${
+                  selectedCategory === cat
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Difficulty (Grid Size) */}
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">
+              Grid Size:
+            </span>
+            <div className="flex items-center gap-1 bg-[var(--bg-base)] p-1 rounded-lg border border-[var(--border-subtle)]">
+              <button
+                onClick={() => setPairCount(8)}
+                className={`px-2.5 py-1 rounded text-xs font-mono font-bold transition-all ${
+                  pairCount === 8
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
+                    : 'text-[var(--text-secondary)]'
+                }`}
+              >
+                8 Pairs (16)
+              </button>
+              <button
+                onClick={() => setPairCount(12)}
+                className={`px-2.5 py-1 rounded text-xs font-mono font-bold transition-all ${
+                  pairCount === 12
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
+                    : 'text-[var(--text-secondary)]'
+                }`}
+              >
+                12 Pairs (24)
+              </button>
+              <button
+                onClick={() => setPairCount(16)}
+                className={`px-2.5 py-1 rounded text-xs font-mono font-bold transition-all ${
+                  pairCount === 16
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
+                    : 'text-[var(--text-secondary)]'
+                }`}
+              >
+                16 Pairs (32)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Deck Buttons */}
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider shrink-0">
-            Select Deck:
+            Select Topic Deck:
           </span>
           <div className="flex items-center gap-1.5 flex-wrap">
-            {GAME_DECKS.map((d) => (
+            {GAME_DECKS.filter(
+              (d) => selectedCategory === 'All' || d.category === selectedCategory
+            ).map((d) => (
               <button
                 key={d.id}
-                onClick={() => setSelectedDeck(d.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
+                onClick={() => handleSelectDeck(d.id as DeckTheme)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all border flex items-center gap-1.5 ${
                   selectedDeck === d.id
                     ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm border-[var(--accent)]'
                     : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                {d.title}
+                <span>{d.title}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
+                  selectedDeck === d.id ? 'bg-black/20 text-white' : 'bg-[var(--badge-bg)] text-[var(--text-muted)]'
+                }`}>
+                  {d.pairs.length}p
+                </span>
               </button>
             ))}
-          </div>
-        </div>
-
-        {/* Difficulty (Grid Size) */}
-        <div className="flex items-center gap-2 shrink-0 border-t lg:border-t-0 pt-2 lg:pt-0 border-[var(--border-subtle)]">
-          <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">
-            Grid Size:
-          </span>
-          <div className="flex items-center gap-1 bg-[var(--bg-base)] p-1 rounded-lg border border-[var(--border-subtle)]">
-            <button
-              onClick={() => setPairCount(8)}
-              className={`px-2.5 py-1 rounded text-xs font-mono font-bold transition-all ${
-                pairCount === 8
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
-                  : 'text-[var(--text-secondary)]'
-              }`}
-            >
-              8 Pairs (16)
-            </button>
-            <button
-              onClick={() => setPairCount(12)}
-              className={`px-2.5 py-1 rounded text-xs font-mono font-bold transition-all ${
-                pairCount === 12
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
-                  : 'text-[var(--text-secondary)]'
-              }`}
-            >
-              12 Pairs (24)
-            </button>
-            <button
-              onClick={() => setPairCount(16)}
-              className={`px-2.5 py-1 rounded text-xs font-mono font-bold transition-all ${
-                pairCount === 16
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)]'
-                  : 'text-[var(--text-secondary)]'
-              }`}
-            >
-              16 Pairs (32)
-            </button>
           </div>
         </div>
       </div>

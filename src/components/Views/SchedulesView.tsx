@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, Bookmark, ExternalLink, Sparkles } from 'lucide-react';
+import { Calendar, CheckCircle2, Bookmark, ExternalLink, Sparkles, Gamepad2 } from 'lucide-react';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { useTheme } from '../../context/ThemeContext';
 
 export const SchedulesView: React.FC = () => {
+  const { launchGameDeck } = useTheme();
   const [filterQuery, setFilterQuery] = useState('');
 
   const filtered = SCHEDULES_DATA.filter((s) => {
@@ -36,6 +38,13 @@ export const SchedulesView: React.FC = () => {
             Explore functional distribution, special tribal regimes, official languages, and anti-defection provisions.
           </p>
         </div>
+        <button
+          onClick={() => launchGameDeck('schedules')}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm shrink-0"
+        >
+          <Gamepad2 className="w-4 h-4" />
+          <span>Play 12 Schedules Matcher</span>
+        </button>
       </div>
 
       {/* Embedded SVG Architecture Diagram */}

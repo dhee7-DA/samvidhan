@@ -15,7 +15,9 @@ import {
   PanelLeftOpen,
   Filter,
   Gavel,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight,
+  Gamepad2
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { CONSTITUTION_PARTS } from '../../data/partsData';
@@ -36,7 +38,7 @@ import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectur
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const TopicDetailView: React.FC = () => {
-  const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark } = useTheme();
+  const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark, launchGameDeck } = useTheme();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -44,6 +46,14 @@ export const TopicDetailView: React.FC = () => {
 
   // Selected Part or default to Part III
   const currentPart = CONSTITUTION_PARTS.find((p) => p.id === selectedPartId) || CONSTITUTION_PARTS[2];
+
+  const getPartDeckId = (partId: string): string => {
+    if (partId === 'part-3') return 'part3-rights';
+    if (partId === 'part-4' || partId === 'part-4a') return 'part4-dpsp';
+    if (partId === 'part-5') return 'part5-union';
+    if (['part-6', 'part-8', 'part-11'].includes(partId)) return 'part6-federal';
+    return 'part-special';
+  };
 
   const categories = ['All', 'Foundation', 'Rights & Duties', 'Governance', 'Federalism', 'Special & Emergency'];
 
@@ -265,6 +275,30 @@ export const TopicDetailView: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Memory Matcher Rapid Recall Trigger */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--accent)] transition-all">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center shrink-0 border border-[var(--accent)]/20">
+                <Gamepad2 className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold font-mono text-[var(--text-primary)]">
+                  Constitutional Synaptic Matcher: {currentPart.partNumber}
+                </h4>
+                <p className="text-[11px] text-[var(--text-muted)]">
+                  Test instant article-to-principle memory recall for {currentPart.title}
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => launchGameDeck(getPartDeckId(currentPart.id))}
+              className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-[var(--accent)] hover:opacity-90 text-[var(--accent-contrast)] text-xs font-mono font-bold transition-all shadow-sm shrink-0"
+            >
+              <span>Play {currentPart.partNumber} Matcher</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
 
