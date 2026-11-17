@@ -33,31 +33,38 @@ interface NavItem {
   icon: React.ReactNode;
   badge?: string;
   sub?: string;
-  category: 'prep' | 'recall' | 'core';
+  category: 'study' | 'cases' | 'practice' | 'bootcamp';
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Architecture & Preamble', category: 'core' },
-  { id: 'bootcamp', label: '15-Day Bootcamp', icon: <Flame className="w-4 h-4" />, badge: '3,000 MCQs + Cases', sub: 'Daily Study & Drill', category: 'prep' },
-  { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'prep' },
-  { id: 'mistakes-notebook', label: 'Mistakes Bank', icon: <AlertTriangle className="w-4 h-4" />, badge: 'Smart Diagnostic', sub: 'Re-Attempt Errors', category: 'prep' },
-  { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics', category: 'prep' },
-  { id: 'revision-sheets', label: 'Revision Sheets', icon: <Printer className="w-4 h-4" />, badge: 'Printable PDF', sub: 'Rapid Cheat Sheets', category: 'prep' },
-  { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: 'Leitner SRS', sub: 'Spaced Recall', category: 'recall' },
-  { id: 'tile-matcher', label: 'Synaptic Matcher', icon: <Gamepad2 className="w-4 h-4" />, badge: 'Gamified Blitz', sub: 'Tile Memory Arena', category: 'recall' },
-  { id: 'lineage', label: 'Precedent Trees', icon: <GitBranch className="w-4 h-4" />, badge: '1950–2026', sub: 'Case Lineage', category: 'core' },
-  { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy', category: 'recall' },
-  { id: 'pyqs', label: 'J&K Mains PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10 Years', sub: 'Paper-II Solved Bank', category: 'prep' },
-  { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII', sub: 'Analytical Breakdown', category: 'core' },
-  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Bare Act Explorer', sub: 'Verbatim Clauses & Diffs', category: 'core' },
-  { id: 'dictionary', label: 'Legal Dictionary', icon: <BookOpen className="w-4 h-4" />, badge: 'Hover Engine', sub: 'Maxims & Terms', category: 'core' },
-  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '17 Blueprints', sub: 'Vector Blueprints', category: 'core' },
-  { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106', sub: 'Constituent Shifts', category: 'core' },
-  { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic', sub: 'TEARS OF OLD PM', category: 'core' },
-  { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines', sub: 'Judicial Tests', category: 'core' },
-  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases', sub: 'Authoritative Ratios', category: 'core' },
-  { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" />, sub: 'Comparative Sources', category: 'core' },
-  { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall', sub: 'Conceptual Drills', category: 'recall' },
+  // 1. Foundational Study Material (Whole Study Material First)
+  { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Architecture & Preamble', category: 'study' },
+  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Bare Act Explorer', sub: 'Verbatim Clauses & Diffs', category: 'study' },
+  { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII', sub: 'Analytical Breakdown', category: 'study' },
+  { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic', sub: 'TEARS OF OLD PM', category: 'study' },
+  { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106', sub: 'Constituent Shifts', category: 'study' },
+  { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines', sub: 'Judicial Tests', category: 'study' },
+  { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '17 Blueprints', sub: 'Vector Blueprints', category: 'study' },
+  { id: 'dictionary', label: 'Legal Dictionary', icon: <BookOpen className="w-4 h-4" />, badge: 'Hover Engine', sub: 'Maxims & Terms', category: 'study' },
+  { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" />, sub: 'Comparative Sources', category: 'study' },
+
+  // 2. Landmark Cases & Precedents
+  { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases', sub: 'Authoritative Ratios', category: 'cases' },
+  { id: 'lineage', label: 'Precedent Trees', icon: <GitBranch className="w-4 h-4" />, badge: '1950–2026', sub: 'Case Lineage', category: 'cases' },
+  { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy', category: 'cases' },
+
+  // 3. Practice, Drills & Exam Simulation
+  { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: 'Leitner SRS', sub: 'Spaced Recall', category: 'practice' },
+  { id: 'tile-matcher', label: 'Synaptic Matcher', icon: <Gamepad2 className="w-4 h-4" />, badge: 'Gamified Blitz', sub: 'Tile Memory Arena', category: 'practice' },
+  { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'practice' },
+  { id: 'mistakes-notebook', label: 'Mistakes Bank', icon: <AlertTriangle className="w-4 h-4" />, badge: 'Smart Diagnostic', sub: 'Re-Attempt Errors', category: 'practice' },
+  { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics', category: 'practice' },
+  { id: 'pyqs', label: 'J&K Mains PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10 Years', sub: 'Paper-II Solved Bank', category: 'practice' },
+  { id: 'revision-sheets', label: 'Revision Sheets', icon: <Printer className="w-4 h-4" />, badge: 'Printable PDF', sub: 'Rapid Cheat Sheets', category: 'practice' },
+  { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall', sub: 'Conceptual Drills', category: 'practice' },
+
+  // 4. Capstone 15-Day Bootcamp
+  { id: 'bootcamp', label: '15-Day Bootcamp', icon: <Flame className="w-4 h-4" />, badge: '3,000 MCQs + Cases', sub: 'Daily Study & Drill', category: 'bootcamp' },
 ];
 
 export const Sidebar: React.FC = () => {

@@ -2,7 +2,6 @@ import React from 'react';
 import { Search, Bookmark, Compass, Sparkles, BookOpen, Layers } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { ThemeSelector } from './ThemeSelector';
-import { FontSelector } from './FontSelector';
 
 export const Header: React.FC = () => {
   const {
@@ -42,18 +41,18 @@ export const Header: React.FC = () => {
         {/* Search trigger button */}
         <button
           onClick={() => setSearchOpen(true)}
-          className="flex-1 max-w-xs hidden md:flex items-center justify-between px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-mono text-xs min-w-0 btn-tactile shadow-sm hover:shadow"
+          className="flex-1 max-w-sm lg:max-w-md hidden md:flex items-center justify-between px-3.5 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-mono text-xs min-w-0 btn-tactile shadow-sm hover:shadow"
         >
           <div className="flex items-center gap-2 min-w-0">
             <Search className="w-3.5 h-3.5 text-[var(--text-secondary)] shrink-0" />
-            <span className="truncate whitespace-nowrap text-[var(--text-secondary)]">Search law, articles, cases...</span>
+            <span className="truncate whitespace-nowrap text-[var(--text-secondary)]">Search law, articles, cases, doctrines...</span>
           </div>
           <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 hidden lg:inline font-mono">
             ⌘K
           </kbd>
         </button>
 
-        {/* Right Controls: Font, Theme, Bookmarks */}
+        {/* Right Controls: Dictionary, Theme & Typography, Bookmarks */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => setSearchOpen(true)}
@@ -61,10 +60,6 @@ export const Header: React.FC = () => {
           >
             <Search className="w-4 h-4" />
           </button>
-
-          <div className="hidden sm:block">
-            <FontSelector />
-          </div>
 
           <button
             onClick={() => setDictionaryModalOpen(true)}
