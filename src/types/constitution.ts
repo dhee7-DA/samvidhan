@@ -63,6 +63,10 @@ export interface ConstitutionalDoctrine {
   origin: string;
   leadCase: string;
   essence: string;
+  plainEnglish?: string;
+  analogy?: string;
+  realWorldScenario?: string;
+  simpleJudgeQuestions?: string[];
   testMechanism: string[];
   applicabilityInIndia: string;
   constitutionalArticles: string[];

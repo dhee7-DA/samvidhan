@@ -43,6 +43,7 @@ export const TopicDetailView: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobilePartsOpen, setIsMobilePartsOpen] = useState(false);
+  const [articleDisplayMode, setArticleDisplayMode] = useState<'all' | 'eli5_focus'>('all');
 
   // Selected Part or default to Part III
   const currentPart = CONSTITUTION_PARTS.find((p) => p.id === selectedPartId) || CONSTITUTION_PARTS[2];
@@ -360,14 +361,41 @@ export const TopicDetailView: React.FC = () => {
 
         {/* Articles Clause-by-Clause Explorer */}
         <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <div className="flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-[var(--accent)]" />
-              <span>Articles in {currentPart.partNumber}</span>
-            </h3>
-            <span className="text-xs font-mono text-[var(--text-muted)]">
-              {currentPart.articles.length} key articles cataloged
-            </span>
+              <h3 className="text-xl font-bold text-[var(--text-primary)]">
+                Articles in {currentPart.partNumber}
+              </h3>
+              <span className="text-xs font-mono text-[var(--text-muted)] hidden sm:inline">
+                ({currentPart.articles.length} key articles cataloged)
+              </span>
+            </div>
+
+            {/* Quick Display Mode Toggle */}
+            <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+              <button
+                onClick={() => setArticleDisplayMode('all')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  articleDisplayMode === 'all'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-xs'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <span>Standard Bare Act</span>
+              </button>
+              <button
+                onClick={() => setArticleDisplayMode('eli5_focus')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  articleDisplayMode === 'eli5_focus'
+                    ? 'bg-amber-500 text-black font-bold shadow-xs'
+                    : 'text-amber-500 hover:text-amber-400 font-bold'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>ELI5 & Scenarios</span>
+              </button>
+            </div>
           </div>
 
           <div className="flex flex-col gap-5">
@@ -378,12 +406,20 @@ export const TopicDetailView: React.FC = () => {
               return (
                 <div
                   key={art.number}
-                  className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-3.5 shadow-sm"
+                  className={`p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border transition-all flex flex-col gap-3.5 shadow-sm ${
+                    articleDisplayMode === 'eli5_focus'
+                      ? 'border-amber-500/30 ring-1 ring-amber-500/20'
+                      : 'border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+                  }`}
                 >
                   {/* Article Title & Bookmark */}
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-2.5 flex-wrap">
-                      <span className="px-2.5 py-0.5 rounded-lg font-mono text-xs font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                      <span className={`px-2.5 py-0.5 rounded-lg font-mono text-xs font-bold border ${
+                        articleDisplayMode === 'eli5_focus'
+                          ? 'bg-amber-500/20 text-amber-500 border-amber-500/40'
+                          : 'bg-[var(--badge-bg)] text-[var(--accent)] border-[var(--badge-border)]'
+                      }`}>
                         Article {art.number}
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
@@ -404,38 +440,77 @@ export const TopicDetailView: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* Summary */}
-                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                    <AnnotatedLegalText text={art.summary} />
-                  </p>
+                  {/* IF ELI5 FOCUS MODE: Surface Plain English and Real-World First */}
+                  {articleDisplayMode === 'eli5_focus' ? (
+                    <>
+                      {/* Plain English Banner First */}
+                      <div className="p-4 rounded-xl bg-gradient-to-br from-amber-500/10 via-[var(--bg-base)] to-[var(--bg-base)] border border-amber-500/30 flex flex-col gap-1.5">
+                        <span className="text-[10px] font-mono font-bold text-amber-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5" /> Plain-English Meaning (ELI5)
+                        </span>
+                        <p className="text-xs sm:text-sm text-[var(--text-primary)] leading-relaxed font-sans font-medium">
+                          <AnnotatedLegalText text={art.plainEnglish || art.summary} />
+                        </p>
+                      </div>
 
-                  {/* Plain English Highlight Box */}
-                  {art.plainEnglish && (
-                    <div className="p-3 rounded-xl bg-[var(--accent)]/5 border border-[var(--accent)]/20 flex flex-col gap-1">
-                      <span className="text-[10px] font-mono font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3" /> In Plain English
-                      </span>
-                      <p className="text-xs text-[var(--text-primary)] leading-relaxed font-medium">
-                        <AnnotatedLegalText text={art.plainEnglish} />
-                      </p>
-                    </div>
-                  )}
+                      {/* Real-World Scenario Second */}
+                      {art.realWorldScenario && (
+                        <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-emerald-500/30 flex flex-col gap-1.5">
+                          <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <Scale className="w-3.5 h-3.5" /> Real-World Everyday / Practical Scenario
+                          </span>
+                          <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            <AnnotatedLegalText text={art.realWorldScenario} />
+                          </p>
+                        </div>
+                      )}
 
-                  {/* Constitutional Text Snippet */}
-                  <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] italic leading-relaxed">
-                    "<AnnotatedLegalText text={art.textSnippet} />"
-                  </div>
-
-                  {/* Real-World Everyday / Courtroom Scenario */}
-                  {art.realWorldScenario && (
-                    <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-1.5">
-                      <span className="text-[10px] font-mono font-bold text-[var(--gold)] uppercase tracking-wider flex items-center gap-1.5">
-                        <Scale className="w-3.5 h-3.5" /> Real-World Everyday / Practical Scenario
-                      </span>
+                      {/* Summary */}
                       <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                        <AnnotatedLegalText text={art.realWorldScenario} />
+                        <AnnotatedLegalText text={art.summary} />
                       </p>
-                    </div>
+
+                      {/* Constitutional Text Snippet */}
+                      <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-muted)] italic leading-relaxed">
+                        Statutory Text: "<AnnotatedLegalText text={art.textSnippet} />"
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Standard Layout */}
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        <AnnotatedLegalText text={art.summary} />
+                      </p>
+
+                      {/* Plain English Highlight Box */}
+                      {art.plainEnglish && (
+                        <div className="p-3 rounded-xl bg-[var(--accent)]/5 border border-[var(--accent)]/20 flex flex-col gap-1">
+                          <span className="text-[10px] font-mono font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5">
+                            <Sparkles className="w-3 h-3" /> In Plain English
+                          </span>
+                          <p className="text-xs text-[var(--text-primary)] leading-relaxed font-medium">
+                            <AnnotatedLegalText text={art.plainEnglish} />
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Constitutional Text Snippet */}
+                      <div className="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] italic leading-relaxed">
+                        "<AnnotatedLegalText text={art.textSnippet} />"
+                      </div>
+
+                      {/* Real-World Everyday / Courtroom Scenario */}
+                      {art.realWorldScenario && (
+                        <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-1.5">
+                          <span className="text-[10px] font-mono font-bold text-[var(--gold)] uppercase tracking-wider flex items-center gap-1.5">
+                            <Scale className="w-3.5 h-3.5" /> Real-World Everyday / Practical Scenario
+                          </span>
+                          <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            <AnnotatedLegalText text={art.realWorldScenario} />
+                          </p>
+                        </div>
+                      )}
+                    </>
                   )}
 
                   {/* Prosecutor / Judicial Litigation Note */}

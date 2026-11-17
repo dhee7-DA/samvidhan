@@ -111,6 +111,22 @@ export const BARE_ACT_CATALOG: BareActArticle[] = rawCatalog.map(entry => {
   const expanded = expandedArticlesMap.get(numKey);
   const diffData = AMENDMENT_DIFFS_DATA[entry.number];
 
+  const plainEnglish = expanded?.plainEnglish || (
+    entry.isRepealed
+      ? `Article ${entry.number} was formally repealed by Parliament through a constitutional amendment and is no longer an active, enforceable statutory provision.`
+      : `In plain language, Article ${entry.number} establishes the constitutional framework for "${entry.title}". It ensures that in matters of ${entry.partTitle.toLowerCase()}, the law guarantees that ${entry.summary.replace(/^Provides that /i, '').replace(/^States that /i, '').replace(/^Deals with /i, '')}`
+  );
+
+  const realWorldScenario = expanded?.realWorldScenario || (
+    entry.isRepealed
+      ? `Since Article ${entry.number} has been repealed, courts and executive bodies cannot issue directions or orders under this provision today.`
+      : `In everyday governance and judicial proceedings concerning ${entry.partTitle}, whenever questions arise regarding "${entry.title}", public authorities, magistrates, and citizens are bound by the procedure set out in Article ${entry.number}.`
+  );
+
+  const prosecutionNote = expanded?.prosecutionNote || (
+    `When evaluating official state actions, administrative orders, or statutory rules under ${entry.partTitle}, ensure compliance with the constitutional benchmarks of Article ${entry.number}.`
+  );
+
   return {
     number: entry.number,
     part: entry.part,
@@ -131,9 +147,9 @@ export const BARE_ACT_CATALOG: BareActArticle[] = rawCatalog.map(entry => {
         example: `Statutory mandate of Article ${entry.number} in ${entry.partTitle}.`
       }
     ],
-    plainEnglish: expanded?.plainEnglish,
-    realWorldScenario: expanded?.realWorldScenario,
-    prosecutionNote: expanded?.prosecutionNote,
+    plainEnglish,
+    realWorldScenario,
+    prosecutionNote,
     exceptions: expanded?.exceptions,
     landmarkCases: expanded?.landmarkCases,
     doctrineLinks: expanded?.doctrineLinks,

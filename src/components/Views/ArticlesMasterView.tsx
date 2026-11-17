@@ -16,7 +16,10 @@ import {
   Layers,
   History,
   FileText,
-  Award
+  Award,
+  Sparkles,
+  Lightbulb,
+  Shield
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
@@ -32,7 +35,7 @@ export const ArticlesMasterView: React.FC = () => {
   const [selectedArticleNum, setSelectedArticleNum] = useState<string>('21');
 
   // Active Tab inside Reader view
-  const [readerTab, setReaderTab] = useState<'statutory' | 'diff' | 'analysis' | 'amendments'>('statutory');
+  const [readerTab, setReaderTab] = useState<'statutory' | 'eli5' | 'diff' | 'analysis' | 'amendments'>('statutory');
 
   // Search and Filters
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -456,7 +459,35 @@ export const ArticlesMasterView: React.FC = () => {
               </div>
 
               {/* Action Toolbar */}
-              <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto">
+              <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto flex-wrap">
+                {/* ELI5 / Bare Act Quick Toggle */}
+                <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+                  <button
+                    onClick={() => setReaderTab('statutory')}
+                    title="Read statutory Bare Act verbatim"
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
+                      readerTab === 'statutory'
+                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-xs'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                    }`}
+                  >
+                    <FileText className="w-3 h-3" />
+                    <span>Bare Act</span>
+                  </button>
+                  <button
+                    onClick={() => setReaderTab('eli5')}
+                    title="Read simplified plain-English breakdown with practical scenarios"
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
+                      readerTab === 'eli5'
+                        ? 'bg-amber-500 text-black font-bold shadow-xs'
+                        : 'text-amber-500 hover:text-amber-400 font-bold'
+                    }`}
+                  >
+                    <Sparkles className="w-3 h-3" />
+                    <span>ELI5</span>
+                  </button>
+                </div>
+
                 <button
                   onClick={handleCopyCitation}
                   title="Copy Statutory Citation"
@@ -470,7 +501,7 @@ export const ArticlesMasterView: React.FC = () => {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Copy Citation</span>
+                      <span className="hidden sm:inline">Citation</span>
                     </>
                   )}
                 </button>
@@ -495,13 +526,13 @@ export const ArticlesMasterView: React.FC = () => {
                   title={`Open ${activeArticle.part} in Topic Detail View`}
                   className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--accent)] hover:underline"
                 >
-                  <span>Open Part</span>
+                  <span className="hidden sm:inline">Open</span> Part
                   <ExternalLink className="w-3 h-3" />
                 </button>
               </div>
             </div>
 
-            {/* 4-Way Tab Bar */}
+            {/* 5-Way Tab Bar */}
             <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] pb-2 flex-wrap">
               <button
                 onClick={() => setReaderTab('statutory')}
@@ -513,6 +544,21 @@ export const ArticlesMasterView: React.FC = () => {
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Statutory Bare Act</span>
+              </button>
+
+              <button
+                onClick={() => setReaderTab('eli5')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'eli5'
+                    ? 'bg-amber-500 text-black border-amber-500 shadow-sm'
+                    : 'bg-[var(--bg-base)] text-amber-500 border-amber-500/30 hover:border-amber-500/60'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Plain-English (ELI5)</span>
+                <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold">
+                  Simplified
+                </span>
               </button>
 
               <button
@@ -559,7 +605,7 @@ export const ArticlesMasterView: React.FC = () => {
             {readerTab === 'statutory' && (
               <div className="flex flex-col gap-4 animate-fadeIn">
                 {/* Official Statutory Snippet Card */}
-                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2">
+                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2.5">
                   <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-1.5">
                     <span className="font-bold uppercase tracking-wider text-[var(--accent)]">
                       VERBATIM STATUTORY TEXT (BARE ACT)
@@ -569,6 +615,15 @@ export const ArticlesMasterView: React.FC = () => {
                   <p className="text-sm font-serif leading-relaxed text-[var(--text-primary)] whitespace-pre-line selection:bg-[var(--accent)] selection:text-[var(--accent-contrast)]">
                     <AnnotatedLegalText text={activeArticle.statutorySnippet} />
                   </p>
+
+                  {/* Switch to ELI5 Invitation Link */}
+                  <button
+                    onClick={() => setReaderTab('eli5')}
+                    className="flex items-center gap-1.5 text-xs font-mono text-amber-500 hover:text-amber-400 font-bold pt-1 transition-colors group self-start"
+                  >
+                    <Lightbulb className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                    <span>Confused by legal jargon? Switch to Plain-English ELI5 breakdown & practical scenario →</span>
+                  </button>
                 </div>
 
                 {/* Clauses Breakdown Accordion */}
@@ -605,6 +660,140 @@ export const ArticlesMasterView: React.FC = () => {
                       </div>
                     ))}
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB: PLAIN-ENGLISH ELI5 & PRACTICAL SCENARIO */}
+            {readerTab === 'eli5' && (
+              <div className="flex flex-col gap-5 animate-fadeIn">
+                {/* Mode Indicator Banner */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-[var(--bg-surface-elevated)] to-[var(--accent)]/15 border-2 border-amber-500/30 shadow-md flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-amber-500/20 text-amber-500 border border-amber-500/30 shrink-0">
+                    <Sparkles className="w-6 h-6 animate-pulse" />
+                  </div>
+                  <div className="flex flex-col gap-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500 text-black uppercase">
+                        ELI5 Plain English Mode
+                      </span>
+                      <span className="text-xs font-mono text-[var(--text-muted)]">
+                        Zero Legal Jargon • Practical Life Application
+                      </span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
+                      Article {activeArticle.number}: Explained In Plain Human Language
+                    </h3>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                      Stripping away centuries of Latin phrases and legislative formalities so you can understand the exact constitutional principle, the reason it exists, and how it protects citizens in real daily life.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Section 1: The Core Plain-English Translation */}
+                <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-3 shadow-xs">
+                  <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2 text-xs font-mono">
+                    <span className="font-bold text-[var(--accent)] uppercase flex items-center gap-1.5">
+                      <Lightbulb className="w-4 h-4 text-amber-400" />
+                      The Plain-English Meaning (What This Actually Says)
+                    </span>
+                    <span className="text-[10px] text-[var(--text-muted)] font-mono">Simplicity Grade: High</span>
+                  </div>
+                  <p className="text-sm sm:text-base text-[var(--text-primary)] leading-relaxed font-sans font-medium">
+                    <AnnotatedLegalText text={activeArticle.plainEnglish || activeArticle.summary} />
+                  </p>
+                </div>
+
+                {/* Section 2: Real-World Practical Application Scenario */}
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[var(--bg-surface-elevated)] to-[var(--bg-base)] border border-emerald-500/30 flex flex-col gap-3 shadow-xs">
+                  <div className="flex items-center justify-between border-b border-emerald-500/20 pb-2 text-xs font-mono">
+                    <span className="font-bold text-emerald-500 uppercase flex items-center gap-1.5">
+                      <Scale className="w-4 h-4" />
+                      Real-World Practical Scenario (How It Plays Out In Real Life)
+                    </span>
+                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+                      Case In Point
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <AnnotatedLegalText text={activeArticle.realWorldScenario || activeArticle.summary} />
+                  </p>
+                </div>
+
+                {/* Section 3: Prosecutor & Trial Courtroom Practice Note */}
+                {activeArticle.prosecutionNote && (
+                  <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/25 flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 uppercase">
+                      <Shield className="w-3.5 h-3.5" />
+                      <span>Courtroom & Prosecutor Litigation Angle</span>
+                    </div>
+                    <p className="text-xs text-[var(--text-primary)] leading-relaxed">
+                      <AnnotatedLegalText text={activeArticle.prosecutionNote} />
+                    </p>
+                  </div>
+                )}
+
+                {/* Section 4: Plain-English Clause-by-Clause Translation */}
+                <div className="flex flex-col gap-3 pt-2">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Sub-Clauses Translated Into Everyday English ({activeArticle.clauses.length} Clauses)</span>
+                  </h4>
+
+                  <div className="flex flex-col gap-3">
+                    {activeArticle.clauses.map((c, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2"
+                      >
+                        <div className="flex items-center justify-between text-xs font-mono">
+                          <span className="font-bold text-[var(--text-primary)]">
+                            Clause {idx + 1}: {c.clause}
+                          </span>
+                          <span className="text-[10px] px-2 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                            Key Rule
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                          <AnnotatedLegalText text={c.explanation} />
+                        </p>
+                        {c.example && (
+                          <div className="p-2.5 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs text-[var(--text-muted)]">
+                            <strong className="text-[var(--accent)]">Example in Practice: </strong>
+                            <AnnotatedLegalText text={c.example} />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Section 5: Common Traps & Exceptions */}
+                {activeArticle.exceptions && activeArticle.exceptions.length > 0 && (
+                  <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex flex-col gap-2">
+                    <span className="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <AlertTriangle className="w-3.5 h-3.5" />
+                      Constitutional Exceptions & When This Rule Does NOT Apply
+                    </span>
+                    <ul className="list-disc list-inside text-xs text-[var(--text-secondary)] space-y-1">
+                      {activeArticle.exceptions.map((ex, i) => (
+                        <li key={i}>
+                          <AnnotatedLegalText text={ex} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Return to Bare Act Button */}
+                <div className="flex justify-end pt-2">
+                  <button
+                    onClick={() => setReaderTab('statutory')}
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all btn-tactile"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Compare with Statutory Bare Act (Verbatim Text)</span>
+                  </button>
                 </div>
               </div>
             )}

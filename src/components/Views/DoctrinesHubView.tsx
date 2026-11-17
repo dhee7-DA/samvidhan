@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
-import { Scale, CheckCircle2, AlertOctagon, Award, Search, ChevronRight, ChevronDown, Gamepad2 } from 'lucide-react';
+import {
+  Scale,
+  CheckCircle2,
+  AlertOctagon,
+  Award,
+  Search,
+  ChevronRight,
+  ChevronDown,
+  Gamepad2,
+  Sparkles,
+  Lightbulb,
+  Check,
+  FileText
+} from 'lucide-react';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
 import type { ConstitutionalDoctrine } from '../../types/constitution';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
@@ -10,6 +23,7 @@ export const DoctrinesHubView: React.FC = () => {
   const [selectedDocId, setSelectedDocId] = useState<string>(DOCTRINES_DATA[0].id);
   const [searchDoc, setSearchDoc] = useState('');
   const [isMobileDocOpen, setIsMobileDocOpen] = useState(false);
+  const [doctrineMode, setDoctrineMode] = useState<'eli5' | 'juristic'>('eli5');
 
   const currentDoctrine = DOCTRINES_DATA.find((d) => d.id === selectedDocId) || DOCTRINES_DATA[0];
 
@@ -146,9 +160,9 @@ export const DoctrinesHubView: React.FC = () => {
       {/* Right Column: In-Depth Doctrine Inspector */}
       <div className="flex-1 flex flex-col gap-6 min-w-0">
         <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-5">
-          <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[var(--border-subtle)]">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[var(--border-subtle)]">
             <div>
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
                 <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--gold)] border border-[var(--gold)]/30">
                   Judicial Doctrine
                 </span>
@@ -157,25 +171,58 @@ export const DoctrinesHubView: React.FC = () => {
                     "{currentDoctrine.latinTerm}"
                   </span>
                 )}
+                {doctrineMode === 'eli5' && (
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                    ELI5 ACTIVE
+                  </span>
+                )}
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
                 {currentDoctrine.name}
               </h2>
             </div>
 
-            <div className="flex items-center gap-1.5 flex-wrap">
-              {currentDoctrine.constitutionalArticles.map((art) => (
-                <span key={art} className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-subtle)]">
-                  {art}
-                </span>
-              ))}
+            {/* Quick Toggle: ELI5 vs Juristic */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+                <button
+                  onClick={() => setDoctrineMode('eli5')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    doctrineMode === 'eli5'
+                      ? 'bg-amber-500 text-black font-bold shadow-xs'
+                      : 'text-amber-500 hover:text-amber-400 font-bold'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>ELI5 & Analogy</span>
+                </button>
+                <button
+                  onClick={() => setDoctrineMode('juristic')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    doctrineMode === 'juristic'
+                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-xs'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  <Scale className="w-3.5 h-3.5" />
+                  <span>Juristic Text</span>
+                </button>
+              </div>
+
+              <div className="hidden sm:flex items-center gap-1.5 flex-wrap">
+                {currentDoctrine.constitutionalArticles.map((art) => (
+                  <span key={art} className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-subtle)]">
+                    {art}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Lead Case Citation Box */}
           <div className="p-4 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] flex items-start gap-3">
             <Award className="w-5 h-5 text-[var(--gold)] shrink-0 mt-0.5" />
-            <div>
+            <div className="min-w-0">
               <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
                 Leading Judicial Precedent & Origin
               </span>
@@ -188,61 +235,153 @@ export const DoctrinesHubView: React.FC = () => {
             </div>
           </div>
 
-          {/* Core Essence */}
-          <div className="flex flex-col gap-2">
-            <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
-              Constitutional Essence
-            </span>
-            <p className="text-sm text-[var(--text-primary)] leading-relaxed">
-              <AnnotatedLegalText text={currentDoctrine.essence} />
-            </p>
-          </div>
-
-          {/* Legal Test Mechanism */}
-          <div className="flex flex-col gap-3 pt-3 border-t border-[var(--border-subtle)]">
-            <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
-              Litmus Test & Judicial Mechanism
-            </span>
-            <div className="flex flex-col gap-2">
-              {currentDoctrine.testMechanism.map((step, idx) => (
-                <div
-                  key={idx}
-                  className="p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] flex items-start gap-2.5"
-                >
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
-                    {idx + 1}
-                  </span>
-                  <span className="leading-relaxed">{step}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Applicability & Exceptions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-[var(--border-subtle)]">
-            <div className="flex flex-col gap-1.5">
-              <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
-                Operational Scope in India
-              </span>
-              <p className="text-xs text-[var(--text-primary)] leading-relaxed bg-[var(--bg-surface-elevated)] p-3 rounded-lg border border-[var(--border-subtle)]">
-                {currentDoctrine.applicabilityInIndia}
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-              <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
-                Recognized Exceptions & Caveats
-              </span>
-              <div className="flex flex-col gap-2 bg-[var(--bg-surface-elevated)] p-3 rounded-lg border border-[var(--border-subtle)]">
-                {currentDoctrine.exceptions.map((exc, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs text-[var(--text-secondary)]">
-                    <AlertOctagon className="w-3.5 h-3.5 text-[var(--crimson)] shrink-0 mt-0.5" />
-                    <span>{exc}</span>
+          {/* MODE 1: PLAIN-ENGLISH ELI5 & REAL-LIFE ANALOGY */}
+          {doctrineMode === 'eli5' && (
+            <div className="flex flex-col gap-5 animate-fadeIn">
+              {/* Everyday Metaphor / Analogy Card */}
+              {currentDoctrine.analogy && (
+                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-500/15 via-[var(--bg-surface-elevated)] to-[var(--bg-base)] border-2 border-amber-500/40 shadow-sm flex flex-col gap-2.5">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-500 uppercase tracking-wider">
+                    <Lightbulb className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span>Everyday Analogy (How to Remember This Forever)</span>
                   </div>
-                ))}
+                  <p className="text-xs sm:text-sm text-[var(--text-primary)] leading-relaxed font-sans font-medium">
+                    <AnnotatedLegalText text={currentDoctrine.analogy} />
+                  </p>
+                </div>
+              )}
+
+              {/* In Plain English Breakdown */}
+              <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2 shadow-xs">
+                <span className="text-xs font-mono font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  In Plain English (Zero Legalese Definition)
+                </span>
+                <p className="text-sm text-[var(--text-primary)] leading-relaxed">
+                  <AnnotatedLegalText text={currentDoctrine.plainEnglish || currentDoctrine.essence} />
+                </p>
+              </div>
+
+              {/* Real-World Courtroom Dispute */}
+              {currentDoctrine.realWorldScenario && (
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[var(--bg-surface-elevated)] to-[var(--bg-base)] border border-emerald-500/30 flex flex-col gap-2 shadow-xs">
+                  <span className="text-xs font-mono font-bold text-emerald-500 uppercase tracking-wider flex items-center gap-1.5">
+                    <Scale className="w-3.5 h-3.5" />
+                    Real-World Courtroom & Practical Dispute
+                  </span>
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <AnnotatedLegalText text={currentDoctrine.realWorldScenario} />
+                  </p>
+                </div>
+              )}
+
+              {/* Judge's 3-Step Litmus Test Checklist */}
+              {currentDoctrine.simpleJudgeQuestions && currentDoctrine.simpleJudgeQuestions.length > 0 && (
+                <div className="flex flex-col gap-3 pt-2">
+                  <span className="text-xs font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    Judge's 3-Step Litmus Test (The 3 Questions A Court Asks)
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    {currentDoctrine.simpleJudgeQuestions.map((q, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] flex items-start gap-2.5"
+                      >
+                        <span className="w-5 h-5 rounded-full bg-amber-500 text-black text-[11px] font-mono font-bold flex items-center justify-center shrink-0">
+                          {idx + 1}
+                        </span>
+                        <span className="leading-relaxed font-sans">{q}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Switch to Juristic Mode Button */}
+              <div className="flex justify-end pt-2">
+                <button
+                  onClick={() => setDoctrineMode('juristic')}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all btn-tactile"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>View Academic & Juristic Formulation →</span>
+                </button>
               </div>
             </div>
-          </div>
+          )}
+
+          {/* MODE 2: JURISTIC ACADEMIC DOCTRINE */}
+          {doctrineMode === 'juristic' && (
+            <div className="flex flex-col gap-5 animate-fadeIn">
+              {/* Core Essence */}
+              <div className="flex flex-col gap-2">
+                <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
+                  Constitutional Essence
+                </span>
+                <p className="text-sm text-[var(--text-primary)] leading-relaxed">
+                  <AnnotatedLegalText text={currentDoctrine.essence} />
+                </p>
+              </div>
+
+              {/* Legal Test Mechanism */}
+              <div className="flex flex-col gap-3 pt-3 border-t border-[var(--border-subtle)]">
+                <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
+                  Litmus Test & Judicial Mechanism
+                </span>
+                <div className="flex flex-col gap-2">
+                  {currentDoctrine.testMechanism.map((step, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] flex items-start gap-2.5"
+                    >
+                      <span className="w-5 h-5 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
+                        {idx + 1}
+                      </span>
+                      <span className="leading-relaxed">{step}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Applicability & Exceptions Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-[var(--border-subtle)]">
+                <div className="flex flex-col gap-1.5">
+                  <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
+                    Operational Scope in India
+                  </span>
+                  <p className="text-xs text-[var(--text-primary)] leading-relaxed bg-[var(--bg-surface-elevated)] p-3 rounded-lg border border-[var(--border-subtle)]">
+                    {currentDoctrine.applicabilityInIndia}
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <span className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
+                    Recognized Exceptions & Caveats
+                  </span>
+                  <div className="flex flex-col gap-2 bg-[var(--bg-surface-elevated)] p-3 rounded-lg border border-[var(--border-subtle)]">
+                    {currentDoctrine.exceptions.map((exc, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs text-[var(--text-secondary)]">
+                        <AlertOctagon className="w-3.5 h-3.5 text-[var(--crimson)] shrink-0 mt-0.5" />
+                        <span>{exc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Switch to ELI5 Button */}
+              <div className="flex justify-end pt-2">
+                <button
+                  onClick={() => setDoctrineMode('eli5')}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-xs font-mono text-amber-500 font-bold transition-all btn-tactile"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Switch to Plain-English ELI5 & Analogies →</span>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
