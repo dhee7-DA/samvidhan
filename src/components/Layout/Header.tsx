@@ -52,7 +52,7 @@ export const Header: React.FC = () => {
           </kbd>
         </button>
 
-        {/* Right Controls: Dictionary, Theme & Typography, Bookmarks */}
+        {/* Right Controls: Dictionary, Theme (Color Icon Only), Saved (Icon Only) */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => setSearchOpen(true)}
@@ -73,18 +73,21 @@ export const Header: React.FC = () => {
             </kbd>
           </button>
 
+          {/* Theme option with just colour icon only, small and compact */}
           <ThemeSelector />
 
+          {/* Save option with just icon only */}
           <button
             onClick={() => setActiveTab('parts')}
-            title="Saved Articles"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono transition-all btn-tactile shadow-sm"
+            title={`Saved Articles (${bookmarkedArticles.length})`}
+            className="w-9 h-9 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-all btn-tactile shadow-sm shrink-0 relative"
           >
-            <Bookmark className="w-3.5 h-3.5 text-[var(--gold)]" />
-            <span className="hidden sm:inline">Saved</span>
-            <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] tabular-nums">
-              {bookmarkedArticles.length}
-            </span>
+            <Bookmark className="w-4 h-4 text-[var(--gold)]" />
+            {bookmarkedArticles.length > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[9px] font-bold font-mono flex items-center justify-center shadow-xs">
+                {bookmarkedArticles.length}
+              </span>
+            )}
           </button>
         </div>
       </div>

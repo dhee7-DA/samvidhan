@@ -95,28 +95,19 @@ export const ThemeSelector: React.FC = () => {
 
   return (
     <div className="relative" ref={containerRef}>
-      {/* Collapsible Trigger Button */}
+      {/* Compact Colour Icon Trigger (Small, no text) */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        title="Theme & Typography Settings"
-        className={`flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono transition-all duration-150 border btn-tactile ${
+        title={`Theme & Display: ${currentTheme.name} (${currentFont.label})`}
+        className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-150 border btn-tactile shadow-sm shrink-0 ${
           isOpen
-            ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] text-[var(--accent)] shadow-sm'
-            : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+            ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] shadow-md ring-2 ring-[var(--accent)]/30'
+            : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
         }`}
       >
         <span
-          className="w-2.5 h-2.5 rounded-full ring-2 ring-black/20 shrink-0"
+          className="w-4 h-4 rounded-full ring-2 ring-black/40 dark:ring-white/20 transition-transform hover:scale-110 shadow-xs"
           style={{ backgroundColor: currentTheme.sampleColor }}
-        />
-        <span className="font-semibold">{currentTheme.name}</span>
-        <span className="hidden md:inline text-[10px] px-1 py-0.2 rounded bg-[var(--badge-bg)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
-          {currentFont.label.split(' ')[0]}
-        </span>
-        <ChevronDown
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${
-            isOpen ? 'rotate-180 text-[var(--accent)]' : 'text-[var(--text-muted)]'
-          }`}
         />
       </button>
 
