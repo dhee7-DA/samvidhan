@@ -542,14 +542,14 @@ export const BootcampDayMemoryGame: React.FC<BootcampDayMemoryGameProps> = ({
               <div
                 key={tile.uid}
                 onClick={() => handleTileClick(tile)}
-                className={`group relative min-h-[115px] sm:min-h-[125px] p-3.5 rounded-xl border flex flex-col justify-between cursor-pointer transition-all duration-200 select-none ${
+                className={`group relative min-h-[115px] sm:min-h-[125px] p-3.5 rounded-xl border flex flex-col justify-between cursor-pointer transition-all duration-200 select-none btn-tactile ${
                   tile.isMatched
-                    ? 'bg-emerald-500/10 border-emerald-500/40 opacity-70 cursor-default shadow-none pointer-events-none'
+                    ? 'bg-emerald-500/10 border-emerald-500/40 opacity-70 cursor-default shadow-none pointer-events-none ring-1 ring-emerald-500/30'
                     : isMismatched
-                    ? 'bg-red-500/10 border-red-500 text-red-400 animate-shake shadow-md'
+                    ? 'bg-red-500/10 border-red-500 text-red-400 animate-shake shadow-md ring-2 ring-red-500/40'
                     : isSelected
                     ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-lg scale-[1.02] ring-2 ring-[var(--accent)]/40'
-                    : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-[var(--accent)]/60 hover:shadow-md hover:-translate-y-0.5'
+                    : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-[var(--accent)]/60 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97]'
                 }`}
               >
                 {/* Top Badge: Type & Category */}
@@ -562,7 +562,7 @@ export const BootcampDayMemoryGame: React.FC<BootcampDayMemoryGameProps> = ({
                         ? 'bg-black/20 text-white'
                         : tile.type === 'article'
                         ? 'bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]'
-                        : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
+                        : 'bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)]'
                     }`}
                   >
                     {tile.type === 'article' ? 'Article / Precedent' : 'Concept / Ratio'}

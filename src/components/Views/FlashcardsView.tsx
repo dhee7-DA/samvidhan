@@ -504,10 +504,10 @@ export const FlashcardsView: React.FC = () => {
                         e.stopPropagation();
                         setActiveTab('judgments');
                       }}
-                      className="px-3 py-1 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-300 hover:opacity-80 flex items-center gap-1.5 transition-all"
+                      className="px-3 py-1 rounded-lg bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] hover:text-[var(--accent)] flex items-center gap-1.5 transition-all btn-tactile shadow-sm"
                       title="Open in Landmark Precedents Lab"
                     >
-                      <Award className="w-3.5 h-3.5" />
+                      <Award className="w-3.5 h-3.5 text-[var(--gold)]" />
                       <span>Ruling: {currentCard.back.precedentRef}</span>
                       <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
                     </button>
@@ -528,42 +528,42 @@ export const FlashcardsView: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 animate-fadeIn">
               <button
                 onClick={() => handleGrade('again')}
-                className="py-3.5 px-4 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-300 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm"
+                className="py-3.5 px-4 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-400 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm btn-tactile"
               >
                 <div className="flex items-center gap-1">
                   <span>[1] Again</span>
                 </div>
-                <span className="text-[10px] font-normal text-rose-400/80">Lapse · Reset to Box 1</span>
+                <span className="text-[10px] font-normal opacity-80">Lapse · Reset to Box 1</span>
               </button>
 
               <button
                 onClick={() => handleGrade('hard')}
-                className="py-3.5 px-4 rounded-2xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-300 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm"
+                className="py-3.5 px-4 rounded-2xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-400 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm btn-tactile"
               >
                 <div className="flex items-center gap-1">
                   <span>[2] Hard</span>
                 </div>
-                <span className="text-[10px] font-normal text-amber-400/80">1 Day · Same Box</span>
+                <span className="text-[10px] font-normal opacity-80">1 Day · Same Box</span>
               </button>
 
               <button
                 onClick={() => handleGrade('good')}
-                className="py-3.5 px-4 rounded-2xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-500/30 text-sky-300 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm"
+                className="py-3.5 px-4 rounded-2xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-500/30 text-sky-400 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm btn-tactile"
               >
                 <div className="flex items-center gap-1">
                   <span>[3] Good</span>
                 </div>
-                <span className="text-[10px] font-normal text-sky-400/80">3–14 Days · Box +1</span>
+                <span className="text-[10px] font-normal opacity-80">3–14 Days · Box +1</span>
               </button>
 
               <button
                 onClick={() => handleGrade('easy')}
-                className="py-3.5 px-4 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm"
+                className="py-3.5 px-4 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-bold text-xs font-mono transition-all flex flex-col items-center gap-1 shadow-sm btn-tactile"
               >
                 <div className="flex items-center gap-1">
                   <span>[4] Easy</span>
                 </div>
-                <span className="text-[10px] font-normal text-emerald-400/80">21–35 Days · Fast Track</span>
+                <span className="text-[10px] font-normal opacity-80">21–35 Days · Fast Track</span>
               </button>
             </div>
           ) : (
@@ -571,7 +571,7 @@ export const FlashcardsView: React.FC = () => {
               <button
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
-                className="px-4 py-2.5 rounded-xl border border-[var(--border-subtle)] text-xs font-mono font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] disabled:opacity-30 disabled:pointer-events-none flex items-center gap-1.5 transition-colors"
+                className="px-4 py-2.5 rounded-xl border border-[var(--border-subtle)] text-xs font-mono font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] disabled:opacity-30 disabled:pointer-events-none flex items-center gap-1.5 transition-colors btn-tactile"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Prev</span>
@@ -579,7 +579,7 @@ export const FlashcardsView: React.FC = () => {
 
               <button
                 onClick={handleFlip}
-                className="px-6 py-2.5 rounded-xl bg-[var(--accent)] hover:opacity-90 text-[var(--accent-contrast)] font-bold text-xs font-mono shadow-md transition-all flex items-center gap-2"
+                className="px-6 py-2.5 rounded-xl bg-[var(--accent)] hover:opacity-90 text-[var(--accent-contrast)] font-bold text-xs font-mono shadow-md transition-all flex items-center gap-2 btn-tactile"
               >
                 <span>Flip to Reveal</span>
                 <RotateCcw className="w-3.5 h-3.5" />

@@ -82,24 +82,25 @@ const MainContent: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[var(--text-secondary)]">
-            <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)]">Overview</button>
-            <button onClick={() => setActiveTab('bootcamp')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold">15-Day Bootcamp</button>
-            <button onClick={() => setActiveTab('mock-exam')} className="hover:text-[var(--text-primary)] text-indigo-400 font-semibold">Mock Exam</button>
-            <button onClick={() => setActiveTab('mistakes-notebook')} className="hover:text-[var(--text-primary)] text-rose-400 font-semibold">Mistakes Bank</button>
-            <button onClick={() => setActiveTab('mains-lab')} className="hover:text-[var(--text-primary)] text-purple-400 font-semibold">Mains Writing Lab</button>
-            <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-amber-400 font-semibold">Revision Sheets</button>
-            <button onClick={() => setActiveTab('flashcards')} className="hover:text-[var(--text-primary)] text-purple-400 font-semibold">Flashcards</button>
-            <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-indigo-400 font-semibold">Precedent Trees</button>
-            <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-emerald-400 font-semibold">Audio Lab</button>
-            <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-emerald-400 font-semibold">J&K Mains PYQs</button>
-            <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)]">25 Parts</button>
-            <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)]">Articles 1–395</button>
-            <button onClick={() => setActiveTab('dictionary')} className="hover:text-[var(--text-primary)]">Legal Dictionary</button>
-            <button onClick={() => setActiveTab('visual-lab')} className="hover:text-[var(--text-primary)]">Visual Law Lab</button>
-            <button onClick={() => setActiveTab('amendments')} className="hover:text-[var(--text-primary)]">Amendments</button>
-            <button onClick={() => setActiveTab('doctrines')} className="hover:text-[var(--text-primary)]">Doctrines</button>
-            <button onClick={() => setActiveTab('quiz')} className="hover:text-[var(--text-primary)]">Quiz</button>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-[var(--text-secondary)]">
+            <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)] btn-tactile">Overview</button>
+            <button onClick={() => setActiveTab('bootcamp')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold btn-tactile">15-Day Bootcamp</button>
+            <button onClick={() => setActiveTab('mock-exam')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Mock Exam</button>
+            <button onClick={() => setActiveTab('mistakes-notebook')} className="hover:text-[var(--text-primary)] text-[var(--error-text)] font-semibold btn-tactile">Mistakes Bank</button>
+            <button onClick={() => setActiveTab('mains-lab')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Mains Writing Lab</button>
+            <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Revision Sheets</button>
+            <button onClick={() => setActiveTab('flashcards')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold btn-tactile">Flashcards (SRS)</button>
+            <button onClick={() => setActiveTab('tile-matcher')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Synaptic Matcher</button>
+            <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Precedent Trees</button>
+            <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Audio Lab</button>
+            <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">J&K Mains PYQs</button>
+            <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)] btn-tactile">25 Parts</button>
+            <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)] btn-tactile">Articles 1–395</button>
+            <button onClick={() => setActiveTab('dictionary')} className="hover:text-[var(--text-primary)] btn-tactile">Legal Dictionary</button>
+            <button onClick={() => setActiveTab('visual-lab')} className="hover:text-[var(--text-primary)] btn-tactile">Visual Law Lab</button>
+            <button onClick={() => setActiveTab('amendments')} className="hover:text-[var(--text-primary)] btn-tactile">Amendments</button>
+            <button onClick={() => setActiveTab('doctrines')} className="hover:text-[var(--text-primary)] btn-tactile">Doctrines</button>
+            <button onClick={() => setActiveTab('quiz')} className="hover:text-[var(--text-primary)] btn-tactile">Quiz</button>
           </div>
 
           <div className="text-[11px] font-mono text-[var(--text-muted)] text-center sm:text-right">

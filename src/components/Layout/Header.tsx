@@ -19,17 +19,17 @@ export const Header: React.FC = () => {
         {/* Brand / Logo */}
         <div
           onClick={() => setActiveTab('overview')}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer group btn-tactile select-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--accent)] shadow-sm group-hover:scale-105 transition-transform">
-            <Compass className="w-5 h-5" />
+          <div className="w-9 h-9 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--accent)] shadow-sm group-hover:scale-110 group-hover:border-[var(--accent)] transition-all duration-300">
+            <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform duration-500 ease-out" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-bold tracking-tight text-base sm:text-lg text-[var(--text-primary)]">
+              <span className="font-bold tracking-tight text-base sm:text-lg text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
                 SAMVIDHAN
               </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] group-hover:border-[var(--accent)] transition-colors">
                 LEX MAGNA
               </span>
             </div>
@@ -42,13 +42,13 @@ export const Header: React.FC = () => {
         {/* Search trigger button */}
         <button
           onClick={() => setSearchOpen(true)}
-          className="flex-1 max-w-xs hidden md:flex items-center justify-between px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] transition-all font-mono text-xs min-w-0"
+          className="flex-1 max-w-xs hidden md:flex items-center justify-between px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-mono text-xs min-w-0 btn-tactile shadow-sm hover:shadow"
         >
           <div className="flex items-center gap-2 min-w-0">
             <Search className="w-3.5 h-3.5 text-[var(--text-secondary)] shrink-0" />
             <span className="truncate whitespace-nowrap text-[var(--text-secondary)]">Search law, articles, cases...</span>
           </div>
-          <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 hidden lg:inline">
+          <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 hidden lg:inline font-mono">
             ⌘K
           </kbd>
         </button>
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => setSearchOpen(true)}
-            className="md:hidden p-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
+            className="md:hidden p-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] btn-tactile"
           >
             <Search className="w-4 h-4" />
           </button>
@@ -69,7 +69,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setDictionaryModalOpen(true)}
             title="Universal Legal & English Dictionary (Alt + D)"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] text-xs font-mono transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono transition-all btn-tactile shadow-sm"
           >
             <BookOpen className="w-3.5 h-3.5 text-[var(--accent)]" />
             <span className="hidden md:inline">Dictionary</span>
@@ -83,11 +83,11 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setActiveTab('parts')}
             title="Saved Articles"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] text-xs font-mono transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono transition-all btn-tactile shadow-sm"
           >
             <Bookmark className="w-3.5 h-3.5 text-[var(--gold)]" />
             <span className="hidden sm:inline">Saved</span>
-            <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)]">
+            <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] tabular-nums">
               {bookmarkedArticles.length}
             </span>
           </button>

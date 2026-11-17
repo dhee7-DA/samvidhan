@@ -466,16 +466,16 @@ export const TileMatcherGameView: React.FC = () => {
               key={tile.uid}
               onClick={() => handleTileClick(tile)}
               disabled={tile.isMatched || isSelected}
-              className={`min-h-[110px] sm:min-h-[130px] p-3 rounded-xl text-left transition-all duration-300 relative flex flex-col justify-between border cursor-pointer select-none group ${
+              className={`min-h-[110px] sm:min-h-[130px] p-3 rounded-xl text-left transition-all duration-200 relative flex flex-col justify-between border cursor-pointer select-none group btn-tactile ${
                 tile.isMatched
-                  ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-400 opacity-60 cursor-default scale-[0.98]'
+                  ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-400 opacity-60 cursor-default scale-[0.98] ring-1 ring-emerald-500/30'
                   : isMismatched
-                  ? 'bg-rose-500/20 border-rose-500 text-rose-300 animate-shake'
+                  ? 'bg-rose-500/20 border-rose-500 text-rose-300 animate-shake ring-2 ring-rose-500/40'
                   : isSelected || tile.isFlipped
                   ? tile.type === 'article'
-                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-lg scale-105'
-                    : 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] text-[var(--text-primary)] shadow-lg scale-105 ring-2 ring-[var(--accent)]/30'
-                  : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:shadow-md hover:scale-[1.02]'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-lg scale-105 ring-2 ring-[var(--accent)]/40'
+                    : 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] text-[var(--text-primary)] shadow-lg scale-105 ring-2 ring-[var(--accent)]/40'
+                  : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:shadow-md hover:scale-[1.02] active:scale-[0.97]'
               }`}
             >
               {/* Card Header */}

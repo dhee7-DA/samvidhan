@@ -47,24 +47,45 @@ export const OverviewDashboard: React.FC = () => {
         </p>
 
         {/* Quick Action Matrix */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-6">
           <button
             onClick={() => setActiveTab('bootcamp')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bootcamp-btn-bg)] text-[var(--bootcamp-btn-text)] font-mono text-xs font-bold hover:opacity-90 transition-all shadow-md"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bootcamp-btn-bg)] text-[var(--bootcamp-btn-text)] font-mono text-xs font-bold hover:opacity-95 transition-all shadow-md btn-tactile"
           >
-            <Flame className="w-4 h-4 opacity-90" />
+            <Flame className="w-4 h-4 opacity-90 animate-pulse" />
             <span>15-DAY PO BOOTCAMP (3,000 MCQs)</span>
           </button>
           <button
+            onClick={() => setActiveTab('mock-exam')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <Timer className="w-4 h-4 text-[var(--info-text)]" />
+            <span>EXAM SIMULATOR (TIMED)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('flashcards')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <BrainCircuit className="w-4 h-4 text-[var(--accent)]" />
+            <span>5-BOX LEITNER SRS</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('tile-matcher')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <Sparkles className="w-4 h-4 text-[var(--warning-text)]" />
+            <span>SYNAPTIC MATCHER</span>
+          </button>
+          <button
             onClick={() => setActiveTab('pyqs')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
             <FileText className="w-4 h-4 text-[var(--emerald)]" />
             <span>J&K MAINS PYQs (10 YEARS)</span>
           </button>
           <button
             onClick={() => setActiveTab('visual-lab')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] font-mono text-xs font-bold hover:opacity-90 transition-opacity shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] font-mono text-xs font-bold hover:opacity-90 transition-all shadow-sm btn-tactile"
           >
             <Shield className="w-4 h-4" />
             <span>EXPLORE VISUAL LAW LAB</span>
@@ -74,44 +95,30 @@ export const OverviewDashboard: React.FC = () => {
               setActiveTab('parts');
               setSelectedPartId('part-3');
             }}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
             <BookOpen className="w-4 h-4 text-[var(--text-secondary)]" />
             <span>PART III: FUNDAMENTAL RIGHTS</span>
           </button>
           <button
             onClick={() => setActiveTab('judgments')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
             <Award className="w-4 h-4 text-[var(--gold)]" />
             <span>100 LANDMARK CASES LAB</span>
           </button>
           <button
-            onClick={() => setActiveTab('quiz')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors"
-          >
-            <Scale className="w-4 h-4 text-[var(--text-secondary)]" />
-            <span>ACTIVE RECALL QUIZ</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('flashcards')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 border border-purple-500/30 font-mono text-xs font-semibold transition-colors"
-          >
-            <BrainCircuit className="w-4 h-4" />
-            <span>LEITNER FLASHCARDS</span>
-          </button>
-          <button
             onClick={() => setActiveTab('lineage')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/30 font-mono text-xs font-semibold transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <GitBranch className="w-4 h-4" />
+            <GitBranch className="w-4 h-4 text-[var(--info-text)]" />
             <span>PRECEDENT TREES (1950–2026)</span>
           </button>
           <button
             onClick={() => setActiveTab('audio-lab')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30 font-mono text-xs font-semibold transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Radio className="w-4 h-4" />
+            <Radio className="w-4 h-4 text-[var(--success-text)]" />
             <span>AUDIO LAB & VIVA</span>
           </button>
         </div>
@@ -155,13 +162,13 @@ export const OverviewDashboard: React.FC = () => {
         {/* 1. Timed Mock Exam */}
         <div
           onClick={() => setActiveTab('mock-exam')}
-          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-indigo-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--info-border)] hover:bg-[var(--bg-surface-elevated)] cursor-pointer card-interactive shadow-sm flex flex-col justify-between group"
         >
           <div className="space-y-2">
-            <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-[var(--info-bg)] border border-[var(--info-border)] text-[var(--info-text)] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Timer className="w-5 h-5" />
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-bold block w-fit">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--info-bg)] text-[var(--info-text)] font-bold block w-fit border border-[var(--info-border)]">
               PRELIMS SIMULATOR
             </span>
             <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -171,7 +178,7 @@ export const OverviewDashboard: React.FC = () => {
               100–200 questions, -0.25 negative marking, 120-min countdown, and interactive palette.
             </p>
           </div>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-indigo-400 pt-3 group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--info-text)] pt-3 group-hover:translate-x-1 transition-transform">
             <span>Enter Exam Hall</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </div>
@@ -180,13 +187,13 @@ export const OverviewDashboard: React.FC = () => {
         {/* 2. Mistakes Bank */}
         <div
           onClick={() => setActiveTab('mistakes-notebook')}
-          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-rose-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--error-border)] hover:bg-[var(--bg-surface-elevated)] cursor-pointer card-interactive shadow-sm flex flex-col justify-between group"
         >
           <div className="space-y-2">
-            <div className="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-[var(--error-bg)] border border-[var(--error-border)] text-[var(--error-text)] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <AlertTriangle className="w-5 h-5" />
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 font-bold block w-fit">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--error-bg)] text-[var(--error-text)] font-bold block w-fit border border-[var(--error-border)]">
               SMART DIAGNOSTIC
             </span>
             <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -196,7 +203,7 @@ export const OverviewDashboard: React.FC = () => {
               Auto-logs wrong answers across all 3,600 questions. Drill mistakes until mastered.
             </p>
           </div>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-rose-400 pt-3 group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--error-text)] pt-3 group-hover:translate-x-1 transition-transform">
             <span>Review Error Bank</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </div>
@@ -205,13 +212,13 @@ export const OverviewDashboard: React.FC = () => {
         {/* 3. Mains Writing Lab */}
         <div
           onClick={() => setActiveTab('mains-lab')}
-          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-purple-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--warning-border)] hover:bg-[var(--bg-surface-elevated)] cursor-pointer card-interactive shadow-sm flex flex-col justify-between group"
         >
           <div className="space-y-2">
-            <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-[var(--warning-bg)] border border-[var(--warning-border)] text-[var(--warning-text)] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <PenTool className="w-5 h-5" />
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 font-bold block w-fit">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--warning-bg)] text-[var(--warning-text)] font-bold block w-fit border border-[var(--warning-border)]">
               MAINS CASE STUDIES
             </span>
             <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -221,7 +228,7 @@ export const OverviewDashboard: React.FC = () => {
               150 case matrices, timed writing canvas, model solutions, and scoring rubrics.
             </p>
           </div>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 pt-3 group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--warning-text)] pt-3 group-hover:translate-x-1 transition-transform">
             <span>Start Answer Writing</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </div>
@@ -230,13 +237,13 @@ export const OverviewDashboard: React.FC = () => {
         {/* 4. Revision Sheets */}
         <div
           onClick={() => setActiveTab('revision-sheets')}
-          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-amber-500/50 hover:bg-[var(--bg-surface-elevated)] cursor-pointer transition-all shadow-sm flex flex-col justify-between group"
+          className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--bootcamp-accent-border)] hover:bg-[var(--bg-surface-elevated)] cursor-pointer card-interactive shadow-sm flex flex-col justify-between group"
         >
           <div className="space-y-2">
-            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-[var(--bootcamp-accent-subtle)] border border-[var(--bootcamp-accent-border)] text-[var(--bootcamp-accent-text)] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Printer className="w-5 h-5" />
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-bold block w-fit">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bootcamp-accent-subtle)] text-[var(--bootcamp-accent-text)] font-bold block w-fit border border-[var(--bootcamp-accent-border)]">
               PRINTABLE DOSSIERS
             </span>
             <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -246,7 +253,7 @@ export const OverviewDashboard: React.FC = () => {
               High-density 1-page dossiers with articles, doctrines, exceptions, and printable A4 formatting.
             </p>
           </div>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 pt-3 group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--bootcamp-accent-text)] pt-3 group-hover:translate-x-1 transition-transform">
             <span>View Printable PDF</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </div>
@@ -263,10 +270,10 @@ export const OverviewDashboard: React.FC = () => {
         ].map((stat, idx) => (
           <div
             key={idx}
-            className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between"
+            className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between card-interactive"
           >
             <span className="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">{stat.label}</span>
-            <div className="text-2xl font-bold font-mono my-1" style={{ color: stat.color }}>{stat.value}</div>
+            <div className="text-2xl font-bold font-mono my-1 tabular-nums" style={{ color: stat.color }}>{stat.value}</div>
             <span className="text-[11px] text-[var(--text-muted)]">{stat.sub}</span>
           </div>
         ))}
