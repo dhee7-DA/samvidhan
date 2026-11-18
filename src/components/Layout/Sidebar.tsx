@@ -55,7 +55,7 @@ const NAV_ITEMS: NavItem[] = [
 
   // 3. Practice, Drills & Exam Simulation
   { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: '900+ SRS Cards', sub: 'Full-App Leitner', category: 'practice' },
-  { id: 'tile-matcher', label: 'Synaptic Matcher', icon: <Gamepad2 className="w-4 h-4" />, badge: 'Gamified Blitz', sub: 'Tile Memory Arena', category: 'practice' },
+  { id: 'arcade', label: 'Constitutional Arcade', icon: <Gamepad2 className="w-4 h-4" />, badge: '4 Games + XP', sub: 'Bench Sim, Blitz & Writs', category: 'practice' },
   { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'practice' },
   { id: 'mistakes-notebook', label: 'Mistakes Bank', icon: <AlertTriangle className="w-4 h-4" />, badge: 'Smart Diagnostic', sub: 'Re-Attempt Errors', category: 'practice' },
   { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics', category: 'practice' },

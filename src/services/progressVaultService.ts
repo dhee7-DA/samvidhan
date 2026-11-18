@@ -10,6 +10,9 @@ export interface ProgressVaultSnapshot {
   mistakesMastered: number;
   bookmarkedArticlesCount: number;
   bookmarkedCasesCount: number;
+  judicialRankTitle?: string;
+  judicialXP?: number;
+  badgesCount?: number;
   totalKeysBackedUp: number;
   estimatedSizeKB: number;
   lastBackupDate: string | null;
@@ -57,6 +60,26 @@ export function getStudyReadinessSnapshot(): ProgressVaultSnapshot {
   let mistakesMastered = 0;
   let bookmarkedArticlesCount = 0;
   let bookmarkedCasesCount = 0;
+  let judicialRankTitle = 'Law Student / Intern';
+  let judicialXP = 0;
+  let badgesCount = 0;
+
+  try {
+    const rawCareer = data['samvidhan_judicial_career_v1'];
+    if (rawCareer) {
+      const c = JSON.parse(rawCareer);
+      judicialXP = Number(c.xp || 0);
+      badgesCount = Array.isArray(c.unlockedBadgeIds) ? c.unlockedBadgeIds.length : 0;
+      if (c.currentRankLevel === 7) judicialRankTitle = 'Chief Justice of India';
+      else if (c.currentRankLevel === 6) judicialRankTitle = 'Supreme Court Justice';
+      else if (c.currentRankLevel === 5) judicialRankTitle = 'High Court Judge';
+      else if (c.currentRankLevel === 4) judicialRankTitle = 'Senior Advocate';
+      else if (c.currentRankLevel === 3) judicialRankTitle = 'Advocate-on-Record';
+      else if (c.currentRankLevel === 2) judicialRankTitle = 'Junior Advocate';
+    }
+  } catch {
+    // ignore
+  }
 
   try {
     const rawBootcamp = data['samvidhan_15day_bootcamp_progress'];
@@ -147,6 +170,9 @@ export function getStudyReadinessSnapshot(): ProgressVaultSnapshot {
     mistakesMastered,
     bookmarkedArticlesCount,
     bookmarkedCasesCount,
+    judicialRankTitle,
+    judicialXP,
+    badgesCount,
     totalKeysBackedUp: Object.keys(data).length,
     estimatedSizeKB: Math.max(1, Math.round((serializedBytes / 1024) * 10) / 10),
     lastBackupDate: localStorage.getItem(LAST_BACKUP_KEY),

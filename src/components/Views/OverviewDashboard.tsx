@@ -322,14 +322,16 @@ export const OverviewDashboard: React.FC = () => {
                 <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--info-text)] group-hover:translate-x-1 transition-all" />
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                Leitner SRS, Tile Matcher & Exam Hall
+                Constitutional Arcade & Leitner SRS
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed text-pretty">
-                Scientific 5-Box Leitner spaced repetition flashcards, gamified Synaptic Matcher arena, 120-minute timed mock exams with -0.25 negative marking, and the automated diagnostic Mistakes Bank.
+                Chief Justice Bench Simulator, 60s Article Blitz, Writs Emergency Room, Synaptic Matcher, 900+ Leitner SRS flashcards, timed mock exams, and judicial career level progression.
               </p>
             </div>
             <div className="mt-5 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--info-text)] font-semibold">
-              <span>Drill Flashcards & Exam Simulator</span>
+              <span onClick={(e) => { e.stopPropagation(); setActiveTab('arcade'); }} className="hover:underline">
+                Enter Constitutional Arcade (4 Games + XP) →
+              </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>

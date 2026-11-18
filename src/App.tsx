@@ -67,8 +67,8 @@ const PrecedentLineageView = lazy(() =>
 const AudioBriefingsView = lazy(() =>
   import('./components/Views/AudioBriefingsView').then((m) => ({ default: m.AudioBriefingsView }))
 );
-const TileMatcherGameView = lazy(() =>
-  import('./components/Views/TileMatcherGameView').then((m) => ({ default: m.TileMatcherGameView }))
+const ArcadeHubView = lazy(() =>
+  import('./components/Views/ArcadeHubView').then((m) => ({ default: m.ArcadeHubView }))
 );
 
 const ViewLoadingFallback: React.FC = () => (
@@ -109,7 +109,7 @@ const MainContent: React.FC = () => {
             {activeTab === 'mains-lab' && <MainsAnswerWritingLabView />}
             {activeTab === 'revision-sheets' && <PrintableRevisionView />}
             {activeTab === 'flashcards' && <FlashcardsView />}
-            {activeTab === 'tile-matcher' && <TileMatcherGameView />}
+            {(activeTab === 'arcade' || activeTab === 'tile-matcher') && <ArcadeHubView />}
             {activeTab === 'lineage' && <PrecedentLineageView />}
             {activeTab === 'audio-lab' && <AudioBriefingsView />}
             {activeTab === 'pyqs' && <PyqVaultView />}
@@ -148,7 +148,7 @@ const MainContent: React.FC = () => {
             <button onClick={() => setActiveTab('mains-lab')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Mains Writing Lab</button>
             <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Revision Sheets</button>
             <button onClick={() => setActiveTab('flashcards')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold btn-tactile">Flashcards (SRS)</button>
-            <button onClick={() => setActiveTab('tile-matcher')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Synaptic Matcher</button>
+            <button onClick={() => setActiveTab('arcade')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Constitutional Arcade</button>
             <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Precedent Trees</button>
             <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Audio Lab</button>
             <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">J&K Mains PYQs</button>
