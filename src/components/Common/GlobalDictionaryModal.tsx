@@ -11,12 +11,18 @@ import {
   Copy,
   Check,
   ArrowRight,
-  HelpCircle
+  HelpCircle,
+  BrainCircuit
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { lookupUniversalWord, cleanLookupWord, type DictionaryDefinition } from '../../services/dictionaryService';
 import { LEGAL_DICTIONARY } from '../../data/legalDictionaryData';
 import { FORENSIC_VOCABULARY } from '../../data/forensicVocabularyData';
+import {
+  createCustomFlashcard,
+  getCardIdForDictionaryTerm,
+  getStoredFlashcards
+} from '../../services/flashcardService';
 
 const POPULAR_QUICK_TERMS = [
   'promulgate',
@@ -39,10 +45,13 @@ export const GlobalDictionaryModal: React.FC = () => {
     setDictionaryInitialQuery,
     setActiveTab,
     wordInspectorEnabled,
-    setWordInspectorEnabled
+    setWordInspectorEnabled,
+    launchFlashcardDeck,
+    togglePinFlashcard
   } = useTheme();
 
   const [query, setQuery] = useState('');
+  const [srsSavedToast, setSrsSavedToast] = useState(false);
   const [loading, setLoading] = useState(false);
   const [definition, setDefinition] = useState<DictionaryDefinition | null>(null);
   const [copied, setCopied] = useState(false);
@@ -265,6 +274,34 @@ export const GlobalDictionaryModal: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => {
+                      const candidateId = getCardIdForDictionaryTerm(definition.word);
+                      const exists = getStoredFlashcards().some((c) => c.id === candidateId);
+                      if (exists) {
+                        togglePinFlashcard(candidateId);
+                        setDictionaryModalOpen(false);
+                        launchFlashcardDeck('maxims', 'all', candidateId);
+                      } else {
+                        createCustomFlashcard({
+                          front: `${definition.word}: What does this term mean in legal/constitutional usage?`,
+                          coreRule: definition.meaning,
+                          statutoryDetails: definition.phonetic ? `Origin/Phonetic: ${definition.phonetic}` : definition.meaning,
+                          plainEnglish: definition.example,
+                          statutoryAnchor: definition.statutoryOrCaseRef || definition.category || 'Legal Vocabulary',
+                          deck: 'maxims',
+                          category: definition.category || 'Vocabulary',
+                        });
+                        setSrsSavedToast(true);
+                        setTimeout(() => setSrsSavedToast(false), 2500);
+                      }
+                    }}
+                    title="Save or Drill this word in Leitner SRS Flashcards"
+                    className="flex items-center gap-1 px-2.5 py-2 rounded-xl border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] text-xs font-mono font-bold transition-colors"
+                  >
+                    <BrainCircuit className="w-3.5 h-3.5" />
+                    <span>{srsSavedToast ? 'Added!' : '+ SRS'}</span>
+                  </button>
                   <button
                     onClick={handlePronounce}
                     title="Pronounce Word"

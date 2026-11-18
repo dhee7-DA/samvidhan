@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Search, Lightbulb, Scale, Sparkles, Filter, X, ArrowUpRight } from 'lucide-react';
+import { BookOpen, Search, Lightbulb, Scale, Filter, X, BrainCircuit, Star } from 'lucide-react';
 import { LEGAL_DICTIONARY } from '../../data/legalDictionaryData';
-import type { LegalTerm } from '../../types/dictionary';
 import { useTheme } from '../../context/ThemeContext';
+import { getCardIdForDictionaryTerm } from '../../services/flashcardService';
 
 export const DictionaryView: React.FC = () => {
-  const { setSelectedPartId, setActiveTab } = useTheme();
+  const { launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedLetter, setSelectedLetter] = useState<string>('All');
@@ -61,8 +61,17 @@ export const DictionaryView: React.FC = () => {
             </p>
           </div>
 
-          <div className="px-3.5 py-1.5 rounded-xl bg-[var(--badge-bg)] border border-[var(--badge-border)] text-xs font-mono font-bold text-[var(--accent)] self-start sm:self-auto shrink-0">
-            {filteredTerms.length} of {LEGAL_DICTIONARY.length} Terms
+          <div className="flex items-center gap-2 flex-wrap self-start sm:self-auto shrink-0">
+            <div className="px-3.5 py-1.5 rounded-xl bg-[var(--badge-bg)] border border-[var(--badge-border)] text-xs font-mono font-bold text-[var(--accent)]">
+              {filteredTerms.length} of {LEGAL_DICTIONARY.length} Terms
+            </div>
+            <button
+              onClick={() => launchFlashcardDeck('maxims', selectedCategory === 'All' ? 'all' : selectedCategory)}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm"
+            >
+              <BrainCircuit className="w-3.5 h-3.5" />
+              <span>Drill in SRS Flashcards</span>
+            </button>
           </div>
         </div>
       </div>
@@ -203,27 +212,53 @@ export const DictionaryView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Footer: Statutory Reference and Related Articles */}
+              {/* Footer: Statutory Reference, Related Articles & SRS Actions */}
               <div className="pt-3 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-                {termItem.statutoryOrCaseRef && (
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[var(--text-muted)]">
-                    <Scale className="w-3.5 h-3.5 shrink-0" />
-                    <span className="truncate">{termItem.statutoryOrCaseRef}</span>
-                  </div>
-                )}
+                <div className="flex flex-col gap-1.5 min-w-0">
+                  {termItem.statutoryOrCaseRef && (
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[var(--text-muted)]">
+                      <Scale className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">{termItem.statutoryOrCaseRef}</span>
+                    </div>
+                  )}
 
-                {termItem.relatedArticles && termItem.relatedArticles.length > 0 && (
-                  <div className="flex items-center gap-1 flex-wrap shrink-0">
-                    {termItem.relatedArticles.map((art) => (
-                      <span
-                        key={art}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
-                      >
-                        {art}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                  {termItem.relatedArticles && termItem.relatedArticles.length > 0 && (
+                    <div className="flex items-center gap-1 flex-wrap">
+                      {termItem.relatedArticles.map((art) => (
+                        <span
+                          key={art}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
+                        >
+                          {art}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-center">
+                  <button
+                    onClick={() => togglePinFlashcard(getCardIdForDictionaryTerm(termItem.term))}
+                    title={pinnedFlashcardIds.includes(getCardIdForDictionaryTerm(termItem.term)) ? 'Pinned in SRS' : 'Pin term to SRS Flashcards'}
+                    className={`p-1.5 rounded-lg border transition-colors ${
+                      pinnedFlashcardIds.includes(getCardIdForDictionaryTerm(termItem.term))
+                        ? 'bg-amber-500/15 border-amber-500/40 text-amber-400'
+                        : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-amber-400'
+                    }`}
+                  >
+                    <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForDictionaryTerm(termItem.term)) ? 'fill-current' : ''}`} />
+                  </button>
+                  <button
+                    onClick={() =>
+                      launchFlashcardDeck('maxims', termItem.category, getCardIdForDictionaryTerm(termItem.term))
+                    }
+                    title={`Study "${termItem.term}" in Leitner SRS Flashcards`}
+                    className="flex items-center gap-1 px-2 py-1 rounded-lg border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] text-[11px] font-mono font-bold transition-colors"
+                  >
+                    <BrainCircuit className="w-3.5 h-3.5" />
+                    <span>SRS</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -17,11 +17,14 @@ import {
   Gavel,
   CheckCircle2,
   ArrowRight,
-  Gamepad2
+  Gamepad2,
+  BrainCircuit,
+  Star
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { CONSTITUTION_PARTS } from '../../data/partsData';
 import type { ConstitutionPart, ArticleItem } from '../../types/constitution';
+import { getCardIdForArticle } from '../../services/flashcardService';
 import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
 import { SeparationOfPowersSVG } from '../VectorDiagrams/SeparationOfPowersSVG';
 import { AmendmentPipelineSVG } from '../VectorDiagrams/AmendmentPipelineSVG';
@@ -38,7 +41,16 @@ import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectur
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 
 export const TopicDetailView: React.FC = () => {
-  const { selectedPartId, setSelectedPartId, bookmarkedArticles, toggleBookmark, launchGameDeck } = useTheme();
+  const {
+    selectedPartId,
+    setSelectedPartId,
+    bookmarkedArticles,
+    toggleBookmark,
+    launchGameDeck,
+    launchFlashcardDeck,
+    pinnedFlashcardIds,
+    togglePinFlashcard
+  } = useTheme();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -278,7 +290,7 @@ export const TopicDetailView: React.FC = () => {
             </div>
           </div>
 
-          {/* Memory Matcher Rapid Recall Trigger */}
+          {/* Memory Matcher & Leitner SRS Rapid Recall Triggers */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--accent)] transition-all">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center shrink-0 border border-[var(--accent)]/20">
@@ -286,20 +298,29 @@ export const TopicDetailView: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-xs font-bold font-mono text-[var(--text-primary)]">
-                  Constitutional Synaptic Matcher: {currentPart.partNumber}
+                  Active Recall Lab: {currentPart.partNumber}
                 </h4>
                 <p className="text-[11px] text-[var(--text-muted)]">
-                  Test instant article-to-principle memory recall for {currentPart.title}
+                  Drill {currentPart.title} via Synaptic Tile Matcher or 5-Box Leitner SRS Flashcards
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => launchGameDeck(getPartDeckId(currentPart.id))}
-              className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-[var(--accent)] hover:opacity-90 text-[var(--accent-contrast)] text-xs font-mono font-bold transition-all shadow-sm shrink-0"
-            >
-              <span>Play {currentPart.partNumber} Matcher</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            <div className="flex items-center gap-2 flex-wrap shrink-0">
+              <button
+                onClick={() => launchFlashcardDeck('articles', currentPart.partNumber.replace('-', ''))}
+                className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-[var(--badge-bg)] border border-[var(--badge-border)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] text-xs font-mono font-bold transition-all shadow-sm"
+              >
+                <BrainCircuit className="w-3.5 h-3.5" />
+                <span>SRS Flashcards</span>
+              </button>
+              <button
+                onClick={() => launchGameDeck(getPartDeckId(currentPart.id))}
+                className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-[var(--accent)] hover:opacity-90 text-[var(--accent-contrast)] text-xs font-mono font-bold transition-all shadow-sm"
+              >
+                <span>Play {currentPart.partNumber} Matcher</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -427,17 +448,41 @@ export const TopicDetailView: React.FC = () => {
                       </h4>
                     </div>
 
-                    <button
-                      onClick={() => toggleBookmark(artLabel)}
-                      title={isBookmarked ? 'Remove bookmark' : 'Bookmark article'}
-                      className={`p-1.5 rounded-xl border transition-colors shrink-0 ${
-                        isBookmarked
-                          ? 'bg-[var(--gold)]/10 border-[var(--gold)]/30 text-[var(--gold)]'
-                          : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                      }`}
-                    >
-                      <Bookmark className="w-4 h-4 fill-current" />
-                    </button>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <button
+                        onClick={() => togglePinFlashcard(getCardIdForArticle(art.number))}
+                        title={pinnedFlashcardIds.includes(getCardIdForArticle(art.number)) ? 'Unpin from SRS Flashcards' : 'Pin Article to SRS Flashcards'}
+                        className={`p-1.5 rounded-xl border transition-colors ${
+                          pinnedFlashcardIds.includes(getCardIdForArticle(art.number))
+                            ? 'bg-amber-500/15 border-amber-500/40 text-amber-400'
+                            : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-amber-400'
+                        }`}
+                      >
+                        <Star className={`w-4 h-4 ${pinnedFlashcardIds.includes(getCardIdForArticle(art.number)) ? 'fill-current' : ''}`} />
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          launchFlashcardDeck('articles', currentPart.partNumber.replace('-', ''), getCardIdForArticle(art.number))
+                        }
+                        title={`Drill Article ${art.number} in SRS Flashcards`}
+                        className="p-1.5 rounded-xl border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors"
+                      >
+                        <BrainCircuit className="w-4 h-4" />
+                      </button>
+
+                      <button
+                        onClick={() => toggleBookmark(artLabel)}
+                        title={isBookmarked ? 'Remove bookmark' : 'Bookmark article'}
+                        className={`p-1.5 rounded-xl border transition-colors ${
+                          isBookmarked
+                            ? 'bg-[var(--gold)]/10 border-[var(--gold)]/30 text-[var(--gold)]'
+                            : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                        }`}
+                      >
+                        <Bookmark className="w-4 h-4 fill-current" />
+                      </button>
+                    </div>
                   </div>
 
                   {/* IF ELI5 FOCUS MODE: Surface Plain English and Real-World First */}

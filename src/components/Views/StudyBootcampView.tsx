@@ -76,6 +76,7 @@ import { AmendmentPipelineSVG } from '../VectorDiagrams/AmendmentPipelineSVG';
 import { ElectoralArchitectureSVG } from '../VectorDiagrams/ElectoralArchitectureSVG';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
 import { BootcampDayMemoryGame } from './BootcampDayMemoryGame';
+import { BootcampDayFlashcards } from './BootcampDayFlashcards';
 
 interface DayProgress {
   tasks: {
@@ -85,6 +86,7 @@ interface DayProgress {
     mcqs: boolean;
     caseStudy: boolean;
     memoryGame?: boolean;
+    flashcards?: boolean;
   };
   mcqAnswers: Record<string, number>; // questionId -> selectedIndex
   userCaseAnswer?: string;
@@ -149,8 +151,8 @@ export const StudyBootcampView: React.FC = () => {
   // View Layout Mode: 'tabs' (Modular) vs 'all-in-one' (Continuous Comprehensive Dossier)
   const [viewLayout, setViewLayout] = useState<'tabs' | 'all-in-one'>('tabs');
 
-  // Active Sub-Tab in 'tabs' mode: 'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy' | 'memory-game'
-  const [activeSubTab, setActiveSubTab] = useState<'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy' | 'memory-game'>('curriculum');
+  // Active Sub-Tab in 'tabs' mode: 'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy' | 'memory-game' | 'flashcards'
+  const [activeSubTab, setActiveSubTab] = useState<'curriculum' | 'svg' | 'cases' | 'mcqs' | 'casestudy' | 'memory-game' | 'flashcards'>('curriculum');
 
   // Interactive Target Article Reader State
   const [selectedArticleStr, setSelectedArticleStr] = useState<string>('Art. 1');
@@ -819,6 +821,14 @@ export const StudyBootcampView: React.FC = () => {
                 <Gamepad2 className="w-3.5 h-3.5" />
                 <span>Day {currentDay.dayNumber} Matcher</span>
               </button>
+              <button
+                onClick={() => setActiveSubTab('flashcards')}
+                className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] font-mono text-xs font-bold transition-all shadow-sm"
+                title={`Drill Leitner SRS flashcards for Day ${currentDay.dayNumber}`}
+              >
+                <BrainCircuit className="w-3.5 h-3.5" />
+                <span>Day {currentDay.dayNumber} SRS</span>
+              </button>
             </div>
             <h2 className="text-2xl font-extrabold text-[var(--text-primary)]">
               {currentDay.title}
@@ -1142,6 +1152,30 @@ export const StudyBootcampView: React.FC = () => {
               <Circle className="w-5 h-5 text-gray-500 shrink-0" />
             )}
           </button>
+
+          <button
+            onClick={() => {
+              toggleTask('flashcards');
+              setActiveSubTab('flashcards');
+            }}
+            className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
+              currentDayProgress.tasks.flashcards
+                ? 'bg-[var(--success-bg)] border-[var(--success-border)] text-[var(--success-text)] font-semibold'
+                : 'bg-[var(--bg-card)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:border-[var(--accent-primary)]/40'
+            }`}
+          >
+            <div className="space-y-0.5">
+              <span className="text-[10px] uppercase font-bold tracking-wider">Task 7 (0.5 hr)</span>
+              <p className="text-xs font-semibold text-[var(--text-primary)]">
+                SRS Flashcards
+              </p>
+            </div>
+            {currentDayProgress.tasks.flashcards ? (
+              <CheckCircle2 className="w-5 h-5 text-[var(--success-text)] shrink-0" />
+            ) : (
+              <Circle className="w-5 h-5 text-gray-500 shrink-0" />
+            )}
+          </button>
         </div>
 
         {/* Sub-Tab Navigation Bar (Active in 'tabs' mode) */}
@@ -1221,6 +1255,21 @@ export const StudyBootcampView: React.FC = () => {
               <Gamepad2 className="w-4 h-4" />
               6. Memory Tile Matcher
               {currentDayProgress.tasks.memoryGame && (
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 ml-0.5" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setActiveSubTab('flashcards')}
+              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+                activeSubTab === 'flashcards'
+                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+              }`}
+            >
+              <BrainCircuit className="w-4 h-4" />
+              7. SRS Flashcards
+              {currentDayProgress.tasks.flashcards && (
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 ml-0.5" />
               )}
             </button>
@@ -2415,6 +2464,23 @@ export const StudyBootcampView: React.FC = () => {
             onComplete={() => {
               if (!currentDayProgress.tasks.memoryGame) {
                 toggleTask('memoryGame');
+              }
+            }}
+          />
+        </div>
+      )}
+
+      {/* =========================================================================
+          SECTION 7: DAY LEITNER SRS FLASHCARDS LAB
+      ========================================================================= */}
+      {(viewLayout === 'all-in-one' || activeSubTab === 'flashcards') && (
+        <div className="space-y-6 animate-fadeIn">
+          <BootcampDayFlashcards
+            day={currentDay}
+            isCompleted={!!currentDayProgress.tasks.flashcards}
+            onComplete={() => {
+              if (!currentDayProgress.tasks.flashcards) {
+                toggleTask('flashcards');
               }
             }}
           />

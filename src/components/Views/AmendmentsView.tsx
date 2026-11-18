@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { GitCommit, Search, Sparkles, Award, ExternalLink, Calendar, ChevronRight, ChevronDown, Gamepad2 } from 'lucide-react';
+import { GitCommit, Search, Award, ChevronDown, Gamepad2, BrainCircuit, Star } from 'lucide-react';
 import { AMENDMENTS_DATA, type ConstitutionalAmendment } from '../../data/amendmentsData';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
+import { getCardIdForAmendment } from '../../services/flashcardService';
 
 export const AmendmentsView: React.FC = () => {
-  const { launchGameDeck } = useTheme();
+  const { launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
   const [query, setQuery] = useState('');
   const [selectedAmd, setSelectedAmd] = useState<ConstitutionalAmendment>(AMENDMENTS_DATA[0]);
   const [isMobileListOpen, setIsMobileListOpen] = useState(false);
@@ -111,6 +112,13 @@ export const AmendmentsView: React.FC = () => {
             <Gamepad2 className="w-3.5 h-3.5" />
             <span>Play Amendments Matcher</span>
           </button>
+          <button
+            onClick={() => launchFlashcardDeck('amendments', 'all')}
+            className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] font-mono text-xs font-bold transition-all shadow-sm"
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            <span>Drill Amendments in SRS</span>
+          </button>
         </div>
 
         <div className="flex flex-col gap-2 max-h-[70vh] overflow-y-auto pr-1">
@@ -162,6 +170,29 @@ export const AmendmentsView: React.FC = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
                 <AnnotatedLegalText text={selectedAmd.title} />
               </h2>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => togglePinFlashcard(getCardIdForAmendment(selectedAmd.number))}
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg border text-xs font-mono font-bold transition-colors ${
+                  pinnedFlashcardIds.includes(getCardIdForAmendment(selectedAmd.number))
+                    ? 'bg-amber-500/15 text-amber-400 border-amber-500/40'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-amber-400'
+                }`}
+                title="Pin Amendment to SRS Flashcards"
+              >
+                <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForAmendment(selectedAmd.number)) ? 'fill-current' : ''}`} />
+                <span>{pinnedFlashcardIds.includes(getCardIdForAmendment(selectedAmd.number)) ? 'Pinned' : 'SRS Pin'}</span>
+              </button>
+              <button
+                onClick={() => launchFlashcardDeck('amendments', 'all', getCardIdForAmendment(selectedAmd.number))}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] text-xs font-mono font-bold transition-colors"
+                title="Study this Amendment in Leitner SRS"
+              >
+                <BrainCircuit className="w-3.5 h-3.5" />
+                <span>Drill Card</span>
+              </button>
             </div>
           </div>
 

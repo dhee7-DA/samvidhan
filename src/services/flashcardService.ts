@@ -1,3 +1,12 @@
+import { BARE_ACT_CATALOG } from './bareActService';
+import { DETAILED_CASE_LAWS_BY_TOPIC } from '../data/caseLawsDetailedData';
+import { SCHEDULES_DATA } from '../data/schedulesData';
+import { DOCTRINES_DATA } from '../data/doctrinesData';
+import { AMENDMENTS_DATA } from '../data/amendmentsData';
+import { LEGAL_DICTIONARY } from '../data/legalDictionaryData';
+import { FIFTEEN_DAY_BOOTCAMP_DATA } from '../data/bootcamp';
+import type { BootcampDay } from '../data/bootcamp/bootcampTypes';
+
 export type FlashcardDeckType =
   | 'articles'
   | 'cases'
@@ -5,6 +14,7 @@ export type FlashcardDeckType =
   | 'doctrines'
   | 'amendments'
   | 'maxims'
+  | 'bootcamp'
   | 'mistakes';
 
 export interface Flashcard {
@@ -13,9 +23,16 @@ export interface Flashcard {
   front: string;
   subheading?: string;
   category: string;
+  partTag?: string;
+  sourceId?: string;
+  isPriority?: boolean;
+  isCustom?: boolean;
+  pinned?: boolean;
   back: {
     coreRule: string;
     statutoryDetails: string;
+    plainEnglish?: string;
+    realWorldExample?: string;
     statutoryAnchor?: string;
     precedentRef?: string;
   };
@@ -26,8 +43,19 @@ export interface Flashcard {
   lapses?: number;
 }
 
-const STORAGE_KEY = 'samvidhan_flashcards_v2';
-const LEGACY_STORAGE_KEY = 'samvidhan_flashcards_v1';
+interface CardProgressRecord {
+  box: 1 | 2 | 3 | 4 | 5;
+  lastReviewed: number | null;
+  nextReview: number;
+  reps: number;
+  lapses?: number;
+  pinned?: boolean;
+}
+
+const PROGRESS_STORAGE_KEY = 'samvidhan_flashcard_progress_v3';
+const CUSTOM_CARDS_STORAGE_KEY = 'samvidhan_flashcard_custom_v3';
+const LEGACY_V2_STORAGE_KEY = 'samvidhan_flashcards_v2';
+const LEGACY_V1_STORAGE_KEY = 'samvidhan_flashcards_v1';
 
 export const INITIAL_FLASHCARDS: Flashcard[] = [
   // =========================================================================
@@ -1245,65 +1273,802 @@ export const INITIAL_FLASHCARDS: Flashcard[] = [
   }
 ];
 
-// Helper: load stored flashcards with legacy migration
-export const getStoredFlashcards = (): Flashcard[] => {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      // Check legacy key
-      const legacyRaw = localStorage.getItem(LEGACY_STORAGE_KEY);
-      let list = INITIAL_FLASHCARDS;
-      if (legacyRaw) {
-        try {
-          const parsedLegacy: Flashcard[] = JSON.parse(legacyRaw);
-          const legacyMap = new Map(parsedLegacy.map((c) => [c.id, c]));
-          list = INITIAL_FLASHCARDS.map((c) => {
-            if (legacyMap.has(c.id)) {
-              const leg = legacyMap.get(c.id)!;
-              return {
-                ...c,
-                box: Math.min(5, Math.max(1, leg.box)) as 1 | 2 | 3 | 4 | 5,
-                reps: leg.reps,
-                lastReviewed: leg.lastReviewed,
-                nextReview: leg.nextReview
-              };
-            }
-            return c;
-          });
-        } catch {
-          list = INITIAL_FLASHCARDS;
-        }
-      }
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-      return list;
-    }
+// =========================================================================
+// DYNAMIC APP-WIDE FLASHCARD CATALOG GENERATOR (ZERO DUPLICATES)
+// Hydrates all 505 Bare Act Articles, 136 Landmark Cases, 12 Schedules,
+// 10 Constitutional Doctrines, 20 Landmark Amendments, 215 Legal Dictionary
+// Terms & Maxims, and all 15 Bootcamp Days while preserving the 71 flagship
+// handcrafted cards & migrating existing SRS Box 1-5 progress seamlessly.
+// =========================================================================
 
-    const parsed: Flashcard[] = JSON.parse(raw);
-    const existingIds = new Set(parsed.map((c) => c.id));
-    let hasNew = false;
-    INITIAL_FLASHCARDS.forEach((card) => {
-      if (!existingIds.has(card.id)) {
-        parsed.push(card);
-        hasNew = true;
-      }
-    });
+const normalizeKey = (value: string): string =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, '');
 
-    if (hasNew) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
-    }
-    return parsed;
-  } catch (e) {
-    console.error('Failed to load flashcards', e);
-    return INITIAL_FLASHCARDS;
-  }
+const normalizeArticleNum = (raw: string): string =>
+  raw.replace(/^art(?:icle)?s?\.?\s*/i, '').trim().toUpperCase();
+
+// Canonical mapping from flagship handcrafted card IDs to source items
+const FLAGSHIP_ARTICLE_MAP: Record<string, { articleNum: string; part: string }> = {
+  'art-1': { articleNum: '1', part: 'Part I' },
+  'art-3': { articleNum: '3', part: 'Part I' },
+  'art-12': { articleNum: '12', part: 'Part III' },
+  'art-13': { articleNum: '13', part: 'Part III' },
+  'art-14': { articleNum: '14', part: 'Part III' },
+  'art-15': { articleNum: '15', part: 'Part III' },
+  'art-16': { articleNum: '16', part: 'Part III' },
+  'art-17': { articleNum: '17', part: 'Part III' },
+  'art-19-1-a': { articleNum: '19', part: 'Part III' },
+  'art-20-1': { articleNum: '20', part: 'Part III' },
+  'art-20-2': { articleNum: '20', part: 'Part III' },
+  'art-20-3': { articleNum: '20', part: 'Part III' },
+  'art-21': { articleNum: '21', part: 'Part III' },
+  'art-22': { articleNum: '22', part: 'Part III' },
+  'art-32': { articleNum: '32', part: 'Part III' },
+  'art-44': { articleNum: '44', part: 'Part IV' },
+  'art-51a': { articleNum: '51A', part: 'Part IVA' },
+  'art-72-161': { articleNum: '72', part: 'Part V' },
+  'art-74': { articleNum: '74', part: 'Part V' },
+  'art-105': { articleNum: '105', part: 'Part V' },
+  'art-110': { articleNum: '110', part: 'Part V' },
+  'art-123-213': { articleNum: '123', part: 'Part V' },
+  'art-141-142': { articleNum: '141', part: 'Part V' },
+  'art-356': { articleNum: '356', part: 'Part XVIII' },
+  'art-368': { articleNum: '368', part: 'Part XX' },
 };
 
-export const saveFlashcards = (cards: Flashcard[]): void => {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
-  } catch (e) {
-    console.error('Failed to save flashcards', e);
+const FLAGSHIP_DOCTRINE_TO_DATA_ID: Record<string, string> = {
+  'doc-basic-structure': 'basic-structure',
+  'doc-pith-substance': 'pith-and-substance',
+  'doc-severability': 'severability',
+  'doc-eclipse': 'eclipse',
+  'doc-colorable': 'colorable-legislation',
+  'doc-territorial-nexus': 'territorial-nexus',
+};
+
+const FLAGSHIP_AMENDMENT_NUMBER_MAP: Record<string, number[]> = {
+  'amend-1': [1],
+  'amend-24': [24],
+  'amend-42': [42],
+  'amend-44': [44],
+  'amend-52-91': [52, 91],
+  'amend-73-74': [73, 74],
+  'amend-86': [86],
+  'amend-101': [101],
+  'amend-103': [103],
+  'amend-106': [106],
+};
+
+// Lookup indexes populated once when catalog builds
+const articleNumToCardId = new Map<string, string>();
+const caseIdToCardId = new Map<string, string>();
+const doctrineIdToCardId = new Map<string, string>();
+const scheduleNumToCardId = new Map<number, string>();
+const amendmentNumToCardId = new Map<number, string>();
+const dictTermToCardId = new Map<string, string>();
+
+let cachedMasterCatalog: Flashcard[] | null = null;
+
+function buildMasterFlashcardCatalog(): Flashcard[] {
+  if (cachedMasterCatalog) return cachedMasterCatalog;
+
+  const catalog: Flashcard[] = [];
+  const bareActByNum = new Map(BARE_ACT_CATALOG.map((a) => [normalizeArticleNum(a.number), a]));
+  const doctrineById = new Map(DOCTRINES_DATA.map((d) => [d.id, d]));
+  const scheduleByNum = new Map(SCHEDULES_DATA.map((s) => [s.number, s]));
+  const dictByNormalized = new Map(LEGAL_DICTIONARY.map((t) => [normalizeKey(t.term), t]));
+
+  const coveredArticleNums = new Set<string>();
+  const coveredCaseKeys = new Set<string>();
+  const coveredScheduleNums = new Set<number>();
+  const coveredDoctrineIds = new Set<string>();
+  const coveredAmendmentNums = new Set<number>();
+  const coveredDictKeys = new Set<string>();
+
+  // 1. Seed & enrich all flagship curated cards first (preserving exact IDs)
+  for (const rawCard of INITIAL_FLASHCARDS) {
+    // Replace combined sch-11-12 with dedicated sch-11 and sch-12 below so all 12 Schedules exist cleanly
+    if (rawCard.id === 'sch-11-12') continue;
+
+    const card: Flashcard = {
+      ...rawCard,
+      isPriority: true,
+      back: { ...rawCard.back },
+    };
+
+    if (card.deck === 'articles') {
+      const mapping = FLAGSHIP_ARTICLE_MAP[card.id];
+      if (mapping) {
+        card.partTag = mapping.part;
+        card.sourceId = mapping.articleNum;
+        coveredArticleNums.add(mapping.articleNum);
+        if (!articleNumToCardId.has(mapping.articleNum)) {
+          articleNumToCardId.set(mapping.articleNum, card.id);
+        }
+        const bare = bareActByNum.get(mapping.articleNum);
+        if (bare) {
+          card.back.plainEnglish = bare.plainEnglish;
+          card.back.realWorldExample = bare.realWorldScenario;
+        }
+      }
+    } else if (card.deck === 'cases') {
+      const frontKey = normalizeKey(card.front.replace(/\(\d{4}\)/g, ''));
+      coveredCaseKeys.add(frontKey);
+      card.partTag = card.category;
+      // Match to DETAILED_CASE_LAWS_BY_TOPIC if available
+      for (const group of DETAILED_CASE_LAWS_BY_TOPIC) {
+        const match = group.cases.find((c) => {
+          const ck = normalizeKey(c.caseName);
+          return frontKey.includes(ck.slice(0, 14)) || ck.includes(frontKey.slice(0, 14));
+        });
+        if (match) {
+          card.partTag = group.name;
+          card.sourceId = match.id;
+          caseIdToCardId.set(match.id, card.id);
+          coveredCaseKeys.add(normalizeKey(match.caseName));
+          card.back.plainEnglish = match.constitutionalQuestion;
+          card.back.realWorldExample = match.howCourtsApplyToday;
+          break;
+        }
+      }
+    } else if (card.deck === 'schedules') {
+      const matchNum = Number(card.id.replace('sch-', ''));
+      if (!Number.isNaN(matchNum)) {
+        coveredScheduleNums.add(matchNum);
+        scheduleNumToCardId.set(matchNum, card.id);
+        card.partTag = `Schedule ${matchNum}`;
+        card.sourceId = String(matchNum);
+        const sch = scheduleByNum.get(matchNum);
+        if (sch) {
+          card.back.plainEnglish = `Mnemonic "${sch.mnemonicLetter}" (${sch.mnemonicKeyword}) — ${sch.title}: ${sch.subject}`;
+          card.back.realWorldExample = sch.historicalEvolution;
+        }
+      }
+    } else if (card.deck === 'doctrines') {
+      const dataId = FLAGSHIP_DOCTRINE_TO_DATA_ID[card.id];
+      if (dataId) {
+        coveredDoctrineIds.add(dataId);
+        doctrineIdToCardId.set(dataId, card.id);
+        card.partTag = 'Constitutional Doctrines';
+        card.sourceId = dataId;
+        const doc = doctrineById.get(dataId);
+        if (doc) {
+          card.back.plainEnglish = doc.plainEnglish;
+          card.back.realWorldExample = doc.realWorldScenario || doc.analogy;
+        }
+      }
+    } else if (card.deck === 'amendments') {
+      const nums = FLAGSHIP_AMENDMENT_NUMBER_MAP[card.id] || [];
+      nums.forEach((n) => {
+        coveredAmendmentNums.add(n);
+        amendmentNumToCardId.set(n, card.id);
+      });
+      card.partTag = card.subheading || 'Constitutional Amendment';
+      if (nums[0]) card.sourceId = String(nums[0]);
+    } else if (card.deck === 'maxims') {
+      card.partTag = 'Latin Maxims';
+      const norm = normalizeKey(card.front.split('(')[0]);
+      coveredDictKeys.add(norm);
+      dictTermToCardId.set(norm, card.id);
+      const dictMatch = dictByNormalized.get(norm);
+      if (dictMatch) {
+        card.back.plainEnglish = dictMatch.detailedMeaning;
+        card.back.realWorldExample = dictMatch.easyExample;
+      }
+    }
+
+    catalog.push(card);
   }
+
+  // 2. Complete all 505 Bare Act Articles (Part I to Part XXII)
+  for (const art of BARE_ACT_CATALOG) {
+    const normNum = normalizeArticleNum(art.number);
+    if (coveredArticleNums.has(normNum)) continue;
+
+    const cardId = `bare-art-${art.number.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+    articleNumToCardId.set(normNum, cardId);
+    coveredArticleNums.add(normNum);
+
+    const caseRefs = art.landmarkCases?.map((c) => `${c.caseName} (${c.year})`).join('; ');
+    const detailsParts = [art.statutorySnippet || art.summary];
+    if (art.prosecutionNote) detailsParts.push(`Exam / Courtroom Note: ${art.prosecutionNote}`);
+    if (art.exceptions && art.exceptions.length > 0) {
+      detailsParts.push(`Key Exceptions: ${art.exceptions.slice(0, 2).join(' • ')}`);
+    }
+
+    catalog.push({
+      id: cardId,
+      deck: 'articles',
+      category: art.category || art.partTitle,
+      subheading: `Article ${art.number} • ${art.part}${art.isRepealed ? ' (Repealed)' : ''}`,
+      partTag: art.part,
+      sourceId: normNum,
+      isPriority: false,
+      front: `Article ${art.number}: What is the constitutional mandate of "${art.title}"?`,
+      back: {
+        coreRule: art.summary,
+        statutoryDetails: detailsParts.join('\n\n'),
+        plainEnglish: art.plainEnglish,
+        realWorldExample: art.realWorldScenario,
+        statutoryAnchor: `Article ${art.number}, ${art.part} (${art.partTitle})`,
+        precedentRef: caseRefs || (art.doctrineLinks?.length ? `Doctrines: ${art.doctrineLinks.join(', ')}` : undefined),
+      },
+      box: 1,
+      lastReviewed: null,
+      nextReview: 0,
+      reps: 0,
+    });
+  }
+
+  // 3. Complete all 136 Detailed Landmark Cases across all 20 Constitutional Topics
+  for (const group of DETAILED_CASE_LAWS_BY_TOPIC) {
+    for (const c of group.cases) {
+      const ck = normalizeKey(c.caseName);
+      if (caseIdToCardId.has(c.id) || coveredCaseKeys.has(ck)) {
+        if (!caseIdToCardId.has(c.id)) {
+          // map duplicate case name to existing card if present
+          const existing = catalog.find(
+            (card) => card.deck === 'cases' && normalizeKey(card.front).includes(ck.slice(0, 14))
+          );
+          if (existing) caseIdToCardId.set(c.id, existing.id);
+        }
+        continue;
+      }
+
+      const cardId = `case-law-${c.id}`;
+      caseIdToCardId.set(c.id, cardId);
+      coveredCaseKeys.add(ck);
+
+      catalog.push({
+        id: cardId,
+        deck: 'cases',
+        category: group.name,
+        subheading: `${c.benchStrength}-Judge Bench • ${c.year} • ${c.citation}`,
+        partTag: group.name,
+        sourceId: c.id,
+        isPriority: c.benchStrength >= 7,
+        front: `${c.caseName} (${c.year}): What was the constitutional question and binding ratio?`,
+        back: {
+          coreRule: c.majorityVerdict,
+          statutoryDetails: `${c.ratioDecidendi}${c.notableDissent ? `\n\nNotable Dissent: ${c.notableDissent}` : ''}`,
+          plainEnglish: `Constitutional Question: ${c.constitutionalQuestion}`,
+          realWorldExample: `Modern Courtroom Application: ${c.howCourtsApplyToday}`,
+          statutoryAnchor: c.constitutionalArticles.join(', '),
+          precedentRef: `${c.citation} (${c.governingDoctrine})`,
+        },
+        box: 1,
+        lastReviewed: null,
+        nextReview: 0,
+        reps: 0,
+      });
+    }
+  }
+
+  // 4. Complete all 12 Schedules (including dedicated 11th & 12th Schedule cards)
+  for (const sch of SCHEDULES_DATA) {
+    if (coveredScheduleNums.has(sch.number)) continue;
+
+    const cardId = `sch-${sch.number}`;
+    scheduleNumToCardId.set(sch.number, cardId);
+    coveredScheduleNums.add(sch.number);
+
+    catalog.push({
+      id: cardId,
+      deck: 'schedules',
+      category: '12 Schedules',
+      subheading: `Letter "${sch.mnemonicLetter}" — ${sch.mnemonicKeyword}`,
+      partTag: `Schedule ${sch.number}`,
+      sourceId: String(sch.number),
+      isPriority: true,
+      front: `${sch.roman} (${sch.mnemonicLetter} — ${sch.mnemonicKeyword}): What subjects & constitutional provisions does it govern?`,
+      back: {
+        coreRule: `${sch.title}: ${sch.subject}`,
+        statutoryDetails: sch.details.join(' '),
+        plainEnglish: `Remember via TEARS OF OLD PM → "${sch.mnemonicLetter}" stands for ${sch.mnemonicKeyword} (${sch.title}).`,
+        realWorldExample: sch.historicalEvolution,
+        statutoryAnchor: sch.articlesCovered,
+        precedentRef: sch.roman,
+      },
+      box: 1,
+      lastReviewed: null,
+      nextReview: 0,
+      reps: 0,
+    });
+  }
+
+  // 5. Complete all 10 Constitutional Doctrines (adds the 4 missing doctrines + ELI5 analogies)
+  for (const doc of DOCTRINES_DATA) {
+    if (coveredDoctrineIds.has(doc.id)) continue;
+
+    const cardId = `doc-${doc.id}`;
+    doctrineIdToCardId.set(doc.id, cardId);
+    coveredDoctrineIds.add(doc.id);
+
+    catalog.push({
+      id: cardId,
+      deck: 'doctrines',
+      category: 'Constitutional Doctrines',
+      subheading: doc.latinTerm ? `${doc.name} (${doc.latinTerm})` : doc.name,
+      partTag: 'Constitutional Doctrines',
+      sourceId: doc.id,
+      isPriority: true,
+      front: `${doc.name}: What is the judicial test and constitutional essence?`,
+      back: {
+        coreRule: doc.essence,
+        statutoryDetails: `Judicial Test: ${doc.testMechanism.join(' → ')}\n\nApplication in India: ${doc.applicabilityInIndia}`,
+        plainEnglish: doc.plainEnglish,
+        realWorldExample: doc.realWorldScenario || doc.analogy,
+        statutoryAnchor: doc.constitutionalArticles.join(', '),
+        precedentRef: doc.leadCase,
+      },
+      box: 1,
+      lastReviewed: null,
+      nextReview: 0,
+      reps: 0,
+    });
+  }
+
+  // 6. Complete all 20 Detailed Constitutional Amendments
+  for (const amd of AMENDMENTS_DATA) {
+    if (coveredAmendmentNums.has(amd.number)) continue;
+
+    const cardId = `amend-${amd.number}`;
+    amendmentNumToCardId.set(amd.number, cardId);
+    coveredAmendmentNums.add(amd.number);
+
+    const ordinal =
+      amd.number % 100 >= 11 && amd.number % 100 <= 13
+        ? `${amd.number}th`
+        : amd.number % 10 === 1
+          ? `${amd.number}st`
+          : amd.number % 10 === 2
+            ? `${amd.number}nd`
+            : amd.number % 10 === 3
+              ? `${amd.number}rd`
+              : `${amd.number}th`;
+
+    catalog.push({
+      id: cardId,
+      deck: 'amendments',
+      category: `${ordinal} Amendment`,
+      subheading: `Year: ${amd.year} • ${amd.primeMinisterOrEra}`,
+      partTag: `Year: ${amd.year}`,
+      sourceId: String(amd.number),
+      isPriority: [1, 7, 24, 42, 44, 52, 61, 73, 74, 86, 91, 99, 101, 103, 106].includes(amd.number),
+      front: `${ordinal} Constitutional Amendment Act (${amd.year}): What were its core objectives and impact?`,
+      back: {
+        coreRule: amd.keyObjectives,
+        statutoryDetails: amd.significance,
+        plainEnglish: `Enacted in ${amd.year} (${amd.primeMinisterOrEra}) modifying ${amd.articlesAffected.join(', ')}.`,
+        realWorldExample: amd.landmarkJudicialImpact,
+        statutoryAnchor: amd.articlesAffected.join(', '),
+        precedentRef: amd.landmarkJudicialImpact || amd.title,
+      },
+      box: 1,
+      lastReviewed: null,
+      nextReview: 0,
+      reps: 0,
+    });
+  }
+
+  // 7. Complete all 215 Legal Dictionary Terms & Latin Maxims
+  for (const term of LEGAL_DICTIONARY) {
+    const norm = normalizeKey(term.term);
+    if (coveredDictKeys.has(norm)) continue;
+
+    const cardId = `dict-${norm}`;
+    dictTermToCardId.set(norm, cardId);
+    coveredDictKeys.add(norm);
+
+    catalog.push({
+      id: cardId,
+      deck: 'maxims',
+      category: term.category,
+      subheading: term.phoneticOrLiteral || term.category,
+      partTag: term.category,
+      sourceId: term.term,
+      isPriority: term.category === 'Latin Maxims',
+      front: `${term.term}: What does this legal term/maxim mean in practice?`,
+      back: {
+        coreRule: term.detailedMeaning,
+        statutoryDetails: term.phoneticOrLiteral
+          ? `Literal / Origin: ${term.phoneticOrLiteral}`
+          : `Category: ${term.category}`,
+        realWorldExample: term.easyExample,
+        statutoryAnchor: term.statutoryOrCaseRef || term.relatedArticles?.join(', '),
+        precedentRef: term.relatedArticles?.length ? `Related: ${term.relatedArticles.join(', ')}` : undefined,
+      },
+      box: 1,
+      lastReviewed: null,
+      nextReview: 0,
+      reps: 0,
+    });
+  }
+
+  // 8. All 15 Bootcamp Days (Core Concepts + Landmark Evolution Pairs)
+  for (const day of FIFTEEN_DAY_BOOTCAMP_DATA) {
+    const dayTag = `Day ${day.dayNumber}`;
+    day.coreConcepts.forEach((concept, idx) => {
+      catalog.push({
+        id: `bootcamp-d${day.dayNumber}-concept-${idx + 1}`,
+        deck: 'bootcamp',
+        category: `Day ${day.dayNumber}: ${day.title}`,
+        subheading: `${concept.articleAnchor} • ${day.phase}`,
+        partTag: dayTag,
+        sourceId: `day-${day.dayNumber}`,
+        isPriority: true,
+        front: `[Day ${day.dayNumber}] ${concept.heading} (${concept.articleAnchor}): Explain the constitutional framework & exam angle.`,
+        back: {
+          coreRule: concept.synopsis,
+          statutoryDetails: concept.substantiveLaw.join(' • '),
+          realWorldExample: `Courtroom / Exam Angle: ${concept.prosecutionAngle}`,
+          statutoryAnchor: concept.articleAnchor,
+          precedentRef: `Bootcamp Day ${day.dayNumber} — ${day.title}`,
+        },
+        box: 1,
+        lastReviewed: null,
+        nextReview: 0,
+        reps: 0,
+      });
+    });
+
+    day.landmarkEvolutionPairs.forEach((pair, idx) => {
+      catalog.push({
+        id: `bootcamp-d${day.dayNumber}-evo-${idx + 1}`,
+        deck: 'bootcamp',
+        category: `Day ${day.dayNumber} Evolution`,
+        subheading: `${pair.subject} • Classic → Modern`,
+        partTag: dayTag,
+        sourceId: `day-${day.dayNumber}`,
+        isPriority: true,
+        front: `[Day ${day.dayNumber}] ${pair.subject}: How did the law evolve from ${pair.classicCase.name} (${pair.classicCase.year}) to ${pair.modernCase.name} (${pair.modernCase.year})?`,
+        back: {
+          coreRule: `Classic (${pair.classicCase.name}, ${pair.classicCase.year}): ${pair.classicCase.ratio}`,
+          statutoryDetails: `Modern (${pair.modernCase.name}, ${pair.modernCase.year}): ${pair.modernCase.ratio}`,
+          plainEnglish: pair.examApplicationNote,
+          realWorldExample: `Exam Tip: Contrast ${pair.classicCase.bench} with ${pair.modernCase.bench}.`,
+          statutoryAnchor: `Day ${day.dayNumber} Precedent Evolution`,
+          precedentRef: `${pair.classicCase.name} → ${pair.modernCase.name}`,
+        },
+        box: 1,
+        lastReviewed: null,
+        nextReview: 0,
+        reps: 0,
+      });
+    });
+  }
+
+  cachedMasterCatalog = catalog;
+  return catalog;
+}
+
+// =========================================================================
+// CANONICAL ID RESOLVERS FOR APP-WIDE PINNING & DEEP-LINKING
+// =========================================================================
+
+export const getCardIdForArticle = (articleNumber: string): string => {
+  buildMasterFlashcardCatalog();
+  const norm = normalizeArticleNum(articleNumber);
+  return articleNumToCardId.get(norm) || `bare-art-${articleNumber.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+};
+
+export const getCardIdForCase = (caseId: string): string => {
+  buildMasterFlashcardCatalog();
+  return caseIdToCardId.get(caseId) || `case-law-${caseId}`;
+};
+
+export const getCardIdForDoctrine = (doctrineId: string): string => {
+  buildMasterFlashcardCatalog();
+  return doctrineIdToCardId.get(doctrineId) || `doc-${doctrineId}`;
+};
+
+export const getCardIdForSchedule = (scheduleNumber: number): string => {
+  buildMasterFlashcardCatalog();
+  return scheduleNumToCardId.get(scheduleNumber) || `sch-${scheduleNumber}`;
+};
+
+export const getCardIdForAmendment = (amendmentNumber: number): string => {
+  buildMasterFlashcardCatalog();
+  return amendmentNumToCardId.get(amendmentNumber) || `amend-${amendmentNumber}`;
+};
+
+export const getCardIdForDictionaryTerm = (term: string): string => {
+  buildMasterFlashcardCatalog();
+  const norm = normalizeKey(term);
+  return dictTermToCardId.get(norm) || `dict-${norm}`;
+};
+
+// =========================================================================
+// LIGHTWEIGHT V3 PROGRESS STORE (WITH SEAMLESS V1/V2 MIGRATION)
+// =========================================================================
+
+function loadProgressMap(): Record<string, CardProgressRecord> {
+  try {
+    const raw = localStorage.getItem(PROGRESS_STORAGE_KEY);
+    if (raw) {
+      return JSON.parse(raw);
+    }
+
+    // Migrate from legacy v2 or v1 full-card storage so zero user progress is lost
+    const migrated: Record<string, CardProgressRecord> = {};
+    const legacyRaw = localStorage.getItem(LEGACY_V2_STORAGE_KEY) || localStorage.getItem(LEGACY_V1_STORAGE_KEY);
+    if (legacyRaw) {
+      try {
+        const parsedLegacy: Flashcard[] = JSON.parse(legacyRaw);
+        if (Array.isArray(parsedLegacy)) {
+          for (const leg of parsedLegacy) {
+            if (!leg?.id) continue;
+            if (leg.reps > 0 || leg.box > 1 || leg.lastReviewed || leg.lapses) {
+              const targetId = leg.id === 'sch-11-12' ? 'sch-11' : leg.id;
+              migrated[targetId] = {
+                box: Math.min(5, Math.max(1, leg.box || 1)) as 1 | 2 | 3 | 4 | 5,
+                lastReviewed: leg.lastReviewed ?? null,
+                nextReview: leg.nextReview ?? 0,
+                reps: leg.reps ?? 0,
+                lapses: leg.lapses ?? 0,
+              };
+            }
+          }
+        }
+      } catch {
+        // ignore corrupted legacy data
+      }
+    }
+    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(migrated));
+    return migrated;
+  } catch (e) {
+    console.error('Failed to load flashcard progress', e);
+    return {};
+  }
+}
+
+function saveProgressMap(map: Record<string, CardProgressRecord>): void {
+  try {
+    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(map));
+  } catch (e) {
+    console.error('Failed to save flashcard progress', e);
+  }
+}
+
+function loadCustomCards(): Flashcard[] {
+  try {
+    const raw = localStorage.getItem(CUSTOM_CARDS_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCustomCards(cards: Flashcard[]): void {
+  try {
+    localStorage.setItem(CUSTOM_CARDS_STORAGE_KEY, JSON.stringify(cards));
+  } catch (e) {
+    console.error('Failed to save custom flashcards', e);
+  }
+}
+
+function buildLiveMistakeCards(): Flashcard[] {
+  const result: Flashcard[] = [];
+  try {
+    const rawMistakes = localStorage.getItem('samvidhan_mistakes_bank_v1');
+    if (!rawMistakes) return result;
+    const mistakes = JSON.parse(rawMistakes);
+    if (!Array.isArray(mistakes)) return result;
+
+    const seen = new Set<string>();
+    for (const m of mistakes) {
+      if (m.mastered) continue;
+      const cardId = `mistake-${m.id || m.questionId}`;
+      if (seen.has(cardId)) continue;
+      seen.add(cardId);
+      result.push({
+        id: cardId,
+        deck: 'mistakes',
+        category: `Day ${m.dayNumber || 1} Error`,
+        subheading: m.dayTitle || 'Mistakes Bank',
+        partTag: `Day ${m.dayNumber || 1}`,
+        sourceId: String(m.id || m.questionId),
+        isPriority: true,
+        front: m.question,
+        back: {
+          coreRule: m.options ? m.options[m.correctAnswer] : 'Correct answer',
+          statutoryDetails: m.explanation || 'Statutory reason for this rule.',
+          plainEnglish: m.explanation,
+          statutoryAnchor: m.statutoryAnchor || `Day ${m.dayNumber || 1}`,
+        },
+        box: 1,
+        lastReviewed: null,
+        nextReview: 0,
+        reps: 0,
+        lapses: 1,
+      });
+    }
+  } catch (e) {
+    console.error('Failed to hydrate mistake flashcards', e);
+  }
+  return result;
+}
+
+function hydrateWithProgress(baseCards: Flashcard[], progressMap: Record<string, CardProgressRecord>): Flashcard[] {
+  return baseCards.map((c) => {
+    const p = progressMap[c.id];
+    if (!p) return c;
+    return {
+      ...c,
+      box: p.box,
+      lastReviewed: p.lastReviewed,
+      nextReview: p.nextReview,
+      reps: p.reps,
+      lapses: p.lapses ?? c.lapses,
+      pinned: Boolean(p.pinned),
+    };
+  });
+}
+
+// Primary loader: full app-wide catalog + custom cards + live mistakes merged with SRS progress
+export const getStoredFlashcards = (): Flashcard[] => {
+  const progressMap = loadProgressMap();
+  const baseCatalog = buildMasterFlashcardCatalog();
+  const customCards = loadCustomCards();
+  const mistakeCards = buildLiveMistakeCards();
+
+  // Order: live mistakes & user custom cards first, then full master catalog
+  const combined = [...mistakeCards, ...customCards, ...baseCatalog];
+  return hydrateWithProgress(combined, progressMap);
+};
+
+// Keep backwards-compatible signature
+export const saveFlashcards = (cards: Flashcard[]): void => {
+  const progressMap = loadProgressMap();
+  const customCards: Flashcard[] = [];
+  for (const c of cards) {
+    if (c.isCustom) customCards.push(c);
+    if (c.reps > 0 || c.box > 1 || c.lastReviewed || c.lapses || c.pinned) {
+      progressMap[c.id] = {
+        box: c.box,
+        lastReviewed: c.lastReviewed,
+        nextReview: c.nextReview,
+        reps: c.reps,
+        lapses: c.lapses,
+        pinned: c.pinned,
+      };
+    }
+  }
+  saveProgressMap(progressMap);
+  saveCustomCards(customCards);
+};
+
+// Build a focused, live-synced SRS deck for any specific Bootcamp Day (1–15)
+export const getFlashcardsForBootcampDay = (day: BootcampDay): Flashcard[] => {
+  const allCards = getStoredFlashcards();
+  const byId = new Map(allCards.map((c) => [c.id, c]));
+  const result: Flashcard[] = [];
+  const addedIds = new Set<string>();
+
+  const pushCard = (card?: Flashcard) => {
+    if (card && !addedIds.has(card.id)) {
+      addedIds.add(card.id);
+      result.push(card);
+    }
+  };
+
+  // 1. Any unmastered Mistakes from this specific day (highest priority!)
+  allCards
+    .filter((c) => c.deck === 'mistakes' && c.partTag === `Day ${day.dayNumber}`)
+    .forEach(pushCard);
+
+  // 2. This day's Core Concepts & Landmark Evolution Pairs
+  allCards
+    .filter((c) => c.deck === 'bootcamp' && c.partTag === `Day ${day.dayNumber}`)
+    .forEach(pushCard);
+
+  // 3. This day's Target Articles (resolved directly to their Bare Act / Flagship cards!)
+  for (const rawArt of day.targetArticles || []) {
+    const clean = normalizeArticleNum(rawArt);
+    // Handle ranges like "12–18" or single articles like "Art. 21"
+    const rangeMatch = clean.match(/^(\d+)\s*[–-]\s*(\d+)$/);
+    if (rangeMatch) {
+      const start = Number(rangeMatch[1]);
+      const end = Math.min(Number(rangeMatch[2]), start + 12);
+      for (let n = start; n <= end; n++) {
+        pushCard(byId.get(getCardIdForArticle(String(n))));
+      }
+    } else {
+      const single = clean.replace(/[^0-9A-Z]/g, '');
+      if (single) pushCard(byId.get(getCardIdForArticle(single)));
+    }
+  }
+
+  // 4. This day's Key Legal Dictionary Terms
+  for (const term of day.dictionaryTerms || []) {
+    pushCard(byId.get(getCardIdForDictionaryTerm(term)));
+  }
+
+  return result;
+};
+
+// Pin / unpin any card anywhere in the app
+export const getPinnedFlashcardIds = (): string[] => {
+  const progressMap = loadProgressMap();
+  return Object.entries(progressMap)
+    .filter(([, rec]) => Boolean(rec.pinned))
+    .map(([id]) => id);
+};
+
+export const togglePinFlashcardInStore = (cardId: string): { pinned: boolean; pinnedIds: string[] } => {
+  const progressMap = loadProgressMap();
+  const existing = progressMap[cardId];
+  const nextPinned = !(existing?.pinned);
+
+  progressMap[cardId] = {
+    box: existing?.box ?? 1,
+    lastReviewed: existing?.lastReviewed ?? null,
+    nextReview: nextPinned ? 0 : (existing?.nextReview ?? 0),
+    reps: existing?.reps ?? 0,
+    lapses: existing?.lapses ?? 0,
+    pinned: nextPinned,
+  };
+
+  saveProgressMap(progressMap);
+  return { pinned: nextPinned, pinnedIds: getPinnedFlashcardIds() };
+};
+
+// Create / Delete personal user flashcards
+export const createCustomFlashcard = (input: {
+  front: string;
+  coreRule: string;
+  statutoryDetails?: string;
+  plainEnglish?: string;
+  statutoryAnchor?: string;
+  deck?: FlashcardDeckType;
+  category?: string;
+}): Flashcard[] => {
+  const customCards = loadCustomCards();
+  const newCard: Flashcard = {
+    id: `custom-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+    deck: input.deck || 'articles',
+    category: input.category || 'Personal Note',
+    subheading: 'Custom SRS Card',
+    partTag: 'Custom',
+    isPriority: true,
+    isCustom: true,
+    pinned: true,
+    front: input.front.trim(),
+    back: {
+      coreRule: input.coreRule.trim(),
+      statutoryDetails: (input.statutoryDetails || '').trim() || 'Personal study note.',
+      plainEnglish: input.plainEnglish?.trim() || undefined,
+      statutoryAnchor: input.statutoryAnchor?.trim() || 'Personal Revision Card',
+    },
+    box: 1,
+    lastReviewed: null,
+    nextReview: 0,
+    reps: 0,
+  };
+  customCards.unshift(newCard);
+  saveCustomCards(customCards);
+
+  const progressMap = loadProgressMap();
+  progressMap[newCard.id] = {
+    box: 1,
+    lastReviewed: null,
+    nextReview: 0,
+    reps: 0,
+    lapses: 0,
+    pinned: true,
+  };
+  saveProgressMap(progressMap);
+  return getStoredFlashcards();
+};
+
+export const deleteCustomFlashcard = (cardId: string): Flashcard[] => {
+  const customCards = loadCustomCards().filter((c) => c.id !== cardId);
+  saveCustomCards(customCards);
+  const progressMap = loadProgressMap();
+  delete progressMap[cardId];
+  saveProgressMap(progressMap);
+  return getStoredFlashcards();
 };
 
 export type GradeQuality = 'again' | 'hard' | 'good' | 'easy';
@@ -1317,15 +2082,20 @@ export type GradeQuality = 'again' | 'hard' | 'good' | 'easy';
  * Box 5: 30+ Days (Permanent Synapse / Mastered)
  */
 export const reviewCard = (cardId: string, grade: GradeQuality): Flashcard[] => {
-  const cards = getStoredFlashcards();
-  const index = cards.findIndex((c) => c.id === cardId);
-  if (index === -1) return cards;
+  const progressMap = loadProgressMap();
+  const prev = progressMap[cardId] || {
+    box: 1 as const,
+    lastReviewed: null,
+    nextReview: 0,
+    reps: 0,
+    lapses: 0,
+    pinned: false,
+  };
 
-  const card = cards[index];
   const now = Date.now();
-  let nextBox: 1 | 2 | 3 | 4 | 5 = card.box;
+  let nextBox: 1 | 2 | 3 | 4 | 5 = prev.box;
   let intervalDays = 1;
-  let lapses = card.lapses || 0;
+  let lapses = prev.lapses || 0;
 
   switch (grade) {
     case 'again':
@@ -1335,91 +2105,99 @@ export const reviewCard = (cardId: string, grade: GradeQuality): Flashcard[] => 
       break;
 
     case 'hard':
-      nextBox = Math.max(1, card.box) as 1 | 2 | 3 | 4 | 5;
+      nextBox = Math.max(1, prev.box) as 1 | 2 | 3 | 4 | 5;
       intervalDays = 1; // 1-day retention check
       break;
 
     case 'good':
-      nextBox = Math.min(5, card.box + 1) as 1 | 2 | 3 | 4 | 5;
+      nextBox = Math.min(5, prev.box + 1) as 1 | 2 | 3 | 4 | 5;
       intervalDays = nextBox === 2 ? 3 : nextBox === 3 ? 7 : nextBox === 4 ? 14 : 30;
       break;
 
     case 'easy':
-      nextBox = Math.min(5, card.box + 2) as 1 | 2 | 3 | 4 | 5;
+      nextBox = Math.min(5, prev.box + 2) as 1 | 2 | 3 | 4 | 5;
       intervalDays = nextBox >= 5 ? 35 : nextBox === 4 ? 21 : 10;
       break;
   }
 
-  const updatedCard: Flashcard = {
-    ...card,
+  progressMap[cardId] = {
     box: nextBox,
     lastReviewed: now,
     nextReview: now + intervalDays * 24 * 60 * 60 * 1000,
-    reps: card.reps + 1,
-    lapses
+    reps: prev.reps + 1,
+    lapses,
+    pinned: prev.pinned,
   };
 
-  cards[index] = updatedCard;
-  saveFlashcards(cards);
-
-  // Update study stats
+  saveProgressMap(progressMap);
   recordSRSStudySession();
 
-  return cards;
+  return getStoredFlashcards();
 };
 
-// Reset flashcards
+// Reset all Leitner box progress (preserves custom cards & pins if desired, resets boxes to 1)
 export const resetFlashcards = (): Flashcard[] => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_FLASHCARDS));
-  return INITIAL_FLASHCARDS;
+  const progressMap = loadProgressMap();
+  const resetMap: Record<string, CardProgressRecord> = {};
+  for (const [id, rec] of Object.entries(progressMap)) {
+    if (rec.pinned) {
+      resetMap[id] = {
+        box: 1,
+        lastReviewed: null,
+        nextReview: 0,
+        reps: 0,
+        lapses: 0,
+        pinned: true,
+      };
+    }
+  }
+  saveProgressMap(resetMap);
+  return getStoredFlashcards();
 };
 
-// Sync mistakes from Mistakes Bank into Box 1 flashcards
+// Sync mistakes from Mistakes Bank into Box 1 flashcards (ensures all unmastered mistakes are due immediately)
 export const syncMistakesToFlashcards = (): { cards: Flashcard[]; addedCount: number } => {
-  const currentCards = getStoredFlashcards();
-  const existingIds = new Set(currentCards.map((c) => c.id));
+  const progressMap = loadProgressMap();
+  const mistakes = buildLiveMistakeCards();
   let addedCount = 0;
 
-  try {
-    const rawMistakes = localStorage.getItem('samvidhan_mistakes_bank_v1');
-    if (rawMistakes) {
-      const mistakes = JSON.parse(rawMistakes);
-      if (Array.isArray(mistakes)) {
-        mistakes.forEach((m: any) => {
-          const cardId = `mistake-${m.id || m.questionId}`;
-          if (!existingIds.has(cardId) && !m.mastered) {
-            currentCards.unshift({
-              id: cardId,
-              deck: 'mistakes',
-              category: `Day ${m.dayNumber || 1} Error`,
-              subheading: m.dayTitle || 'Mistakes Bank',
-              front: m.question,
-              back: {
-                coreRule: m.options ? m.options[m.correctAnswer] : 'Correct answer',
-                statutoryDetails: m.explanation || 'Statutory reason for this rule.',
-                statutoryAnchor: m.statutoryAnchor || `Day ${m.dayNumber}`
-              },
-              box: 1, // Start directly in Box 1 for rapid rehabilitation
-              lastReviewed: null,
-              nextReview: 0,
-              reps: 0,
-              lapses: 1
-            });
-            existingIds.add(cardId);
-            addedCount++;
-          }
-        });
-      }
+  for (const m of mistakes) {
+    if (!progressMap[m.id]) {
+      progressMap[m.id] = {
+        box: 1,
+        lastReviewed: null,
+        nextReview: 0,
+        reps: 0,
+        lapses: 1,
+        pinned: false,
+      };
+      addedCount++;
     }
-  } catch (e) {
-    console.error('Failed to sync mistakes to flashcards', e);
   }
 
   if (addedCount > 0) {
-    saveFlashcards(currentCards);
+    saveProgressMap(progressMap);
   }
 
-  return { cards: currentCards, addedCount };
+  return { cards: getStoredFlashcards(), addedCount };
+};
+
+// Lightweight summary metrics for Sidebar & Overview badges
+export const getFlashcardOverviewStats = () => {
+  const cards = getStoredFlashcards();
+  const now = Date.now();
+  const total = cards.length;
+  const reviewedCount = cards.filter((c) => c.reps > 0).length;
+  const masteredCount = cards.filter((c) => c.box === 5).length;
+  const pinnedCount = cards.filter((c) => c.pinned).length;
+  const dueReviewedCount = cards.filter((c) => c.lastReviewed !== null && c.nextReview <= now).length;
+  return {
+    total,
+    reviewedCount,
+    masteredCount,
+    pinnedCount,
+    dueReviewedCount,
+  };
 };
 
 // SRS Session & Daily Streak Tracking
@@ -1463,7 +2241,7 @@ const recordSRSStudySession = () => {
     const updated: SRSMetrics = {
       totalReviews: metrics.totalReviews + 1,
       lastReviewDate: todayStr,
-      streakDays: newStreak
+      streakDays: newStreak,
     };
 
     localStorage.setItem(SRS_METRICS_KEY, JSON.stringify(updated));

@@ -27,7 +27,9 @@ import {
   Users,
   ArrowLeft,
   List,
-  Gamepad2
+  Gamepad2,
+  BrainCircuit,
+  Star
 } from 'lucide-react';
 import {
   DETAILED_CASE_LAWS_BY_TOPIC,
@@ -37,9 +39,10 @@ import {
 import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { getCardIdForCase } from '../../services/flashcardService';
 
 export const LandmarkCasesView: React.FC = () => {
-  const { setActiveTab, launchGameDeck } = useTheme();
+  const { setActiveTab, launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
 
   // Mode: 'cases' | 'lineage' | 'principles' | 'bookmarks'
   const [viewMode, setViewMode] = useState<'cases' | 'lineage' | 'principles' | 'bookmarks'>('cases');
@@ -198,6 +201,13 @@ export const LandmarkCasesView: React.FC = () => {
             >
               <Gamepad2 className="w-3.5 h-3.5" />
               <span>Play Precedents Matcher</span>
+            </button>
+            <button
+              onClick={() => launchFlashcardDeck('cases', 'all')}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] font-mono text-xs font-bold transition-all shadow-sm shrink-0"
+            >
+              <BrainCircuit className="w-3.5 h-3.5" />
+              <span>Drill Cases in SRS</span>
             </button>
           </div>
         </div>
@@ -764,6 +774,35 @@ export const LandmarkCasesView: React.FC = () => {
                               <span>Copy Citation</span>
                             </>
                           )}
+                        </button>
+
+                        {/* SRS Flashcard Pin & Drill Buttons */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            togglePinFlashcard(getCardIdForCase(currentCase.id));
+                          }}
+                          className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono border transition-colors ${
+                            pinnedFlashcardIds.includes(getCardIdForCase(currentCase.id))
+                              ? 'bg-amber-500/15 text-amber-400 border-amber-500/40 font-bold'
+                              : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-amber-400 border-[var(--border-subtle)]'
+                          }`}
+                          title="Pin this Landmark Case to your SRS Flashcards Focus Queue"
+                        >
+                          <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForCase(currentCase.id)) ? 'fill-current' : ''}`} />
+                          <span>{pinnedFlashcardIds.includes(getCardIdForCase(currentCase.id)) ? 'SRS Pinned' : 'SRS Pin'}</span>
+                        </button>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            launchFlashcardDeck('cases', currentCase.topicName, getCardIdForCase(currentCase.id));
+                          }}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors"
+                          title="Open this Landmark Case directly in Leitner SRS Flashcards"
+                        >
+                          <BrainCircuit className="w-3.5 h-3.5" />
+                          <span>Drill SRS</span>
                         </button>
 
                         {/* Bookmark Button */}

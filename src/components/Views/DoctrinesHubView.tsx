@@ -11,15 +11,18 @@ import {
   Sparkles,
   Lightbulb,
   Check,
-  FileText
+  FileText,
+  BrainCircuit,
+  Star
 } from 'lucide-react';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
 import type { ConstitutionalDoctrine } from '../../types/constitution';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
+import { getCardIdForDoctrine } from '../../services/flashcardService';
 
 export const DoctrinesHubView: React.FC = () => {
-  const { launchGameDeck } = useTheme();
+  const { launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
   const [selectedDocId, setSelectedDocId] = useState<string>(DOCTRINES_DATA[0].id);
   const [searchDoc, setSearchDoc] = useState('');
   const [isMobileDocOpen, setIsMobileDocOpen] = useState(false);
@@ -123,6 +126,13 @@ export const DoctrinesHubView: React.FC = () => {
             <Gamepad2 className="w-3.5 h-3.5" />
             <span>Play 10 Doctrines Matcher</span>
           </button>
+          <button
+            onClick={() => launchFlashcardDeck('doctrines', 'all')}
+            className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] font-mono text-xs font-bold transition-all shadow-sm"
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            <span>Drill 10 Doctrines in SRS</span>
+          </button>
         </div>
 
         <div className="flex flex-col gap-2 max-h-[70vh] overflow-y-auto pr-1">
@@ -182,8 +192,30 @@ export const DoctrinesHubView: React.FC = () => {
               </h2>
             </div>
 
-            {/* Quick Toggle: ELI5 vs Juristic */}
-            <div className="flex items-center gap-2">
+            {/* Quick Toggle: ELI5 vs Juristic + SRS Pin/Drill */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <button
+                onClick={() => togglePinFlashcard(getCardIdForDoctrine(currentDoctrine.id))}
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg border text-xs font-mono font-bold transition-colors ${
+                  pinnedFlashcardIds.includes(getCardIdForDoctrine(currentDoctrine.id))
+                    ? 'bg-amber-500/15 text-amber-400 border-amber-500/40'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-amber-400'
+                }`}
+                title="Pin this Doctrine to SRS Flashcards"
+              >
+                <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForDoctrine(currentDoctrine.id)) ? 'fill-current' : ''}`} />
+                <span>{pinnedFlashcardIds.includes(getCardIdForDoctrine(currentDoctrine.id)) ? 'Pinned' : 'SRS Pin'}</span>
+              </button>
+
+              <button
+                onClick={() => launchFlashcardDeck('doctrines', 'all', getCardIdForDoctrine(currentDoctrine.id))}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] text-xs font-mono font-bold transition-colors"
+                title="Study this Doctrine card in Leitner SRS"
+              >
+                <BrainCircuit className="w-3.5 h-3.5" />
+                <span>Drill Card</span>
+              </button>
+
               <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
                 <button
                   onClick={() => setDoctrineMode('eli5')}

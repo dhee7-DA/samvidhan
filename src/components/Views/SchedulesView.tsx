@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, Bookmark, ExternalLink, Sparkles, Gamepad2 } from 'lucide-react';
+import { Calendar, CheckCircle2, Gamepad2, BrainCircuit, Star } from 'lucide-react';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
+import { getCardIdForSchedule } from '../../services/flashcardService';
 
 export const SchedulesView: React.FC = () => {
-  const { launchGameDeck } = useTheme();
+  const { launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
   const [filterQuery, setFilterQuery] = useState('');
 
   const filtered = SCHEDULES_DATA.filter((s) => {
@@ -38,13 +39,22 @@ export const SchedulesView: React.FC = () => {
             Explore functional distribution, special tribal regimes, official languages, and anti-defection provisions.
           </p>
         </div>
-        <button
-          onClick={() => launchGameDeck('schedules')}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm shrink-0"
-        >
-          <Gamepad2 className="w-4 h-4" />
-          <span>Play 12 Schedules Matcher</span>
-        </button>
+        <div className="flex items-center gap-2 flex-wrap shrink-0">
+          <button
+            onClick={() => launchFlashcardDeck('schedules', 'all')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] font-mono text-xs font-bold transition-all shadow-sm"
+          >
+            <BrainCircuit className="w-4 h-4" />
+            <span>Drill 12 Schedules SRS</span>
+          </button>
+          <button
+            onClick={() => launchGameDeck('schedules')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold transition-all shadow-sm"
+          >
+            <Gamepad2 className="w-4 h-4" />
+            <span>Play 12 Schedules Matcher</span>
+          </button>
+        </div>
       </div>
 
       {/* Embedded SVG Architecture Diagram */}
@@ -114,8 +124,30 @@ export const SchedulesView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] text-[10px] italic text-[var(--text-muted)]">
-                <AnnotatedLegalText text={sch.historicalEvolution} />
+              <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between gap-2">
+                <span className="text-[10px] italic text-[var(--text-muted)] line-clamp-2">
+                  <AnnotatedLegalText text={sch.historicalEvolution} />
+                </span>
+                <div className="flex items-center gap-1 shrink-0">
+                  <button
+                    onClick={() => togglePinFlashcard(getCardIdForSchedule(sch.number))}
+                    title={pinnedFlashcardIds.includes(getCardIdForSchedule(sch.number)) ? 'Pinned in SRS' : 'Pin Schedule to SRS'}
+                    className={`p-1.5 rounded-lg border transition-colors ${
+                      pinnedFlashcardIds.includes(getCardIdForSchedule(sch.number))
+                        ? 'bg-amber-500/15 border-amber-500/40 text-amber-400'
+                        : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-amber-400'
+                    }`}
+                  >
+                    <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForSchedule(sch.number)) ? 'fill-current' : ''}`} />
+                  </button>
+                  <button
+                    onClick={() => launchFlashcardDeck('schedules', 'all', getCardIdForSchedule(sch.number))}
+                    title={`Drill ${sch.roman} in SRS Flashcards`}
+                    className="p-1.5 rounded-lg border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors"
+                  >
+                    <BrainCircuit className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -12,7 +12,8 @@ import {
   Sparkles,
   ExternalLink,
   HelpCircle,
-  Clock
+  Clock,
+  BrainCircuit
 } from 'lucide-react';
 import {
   getStoredMistakes,
@@ -23,6 +24,8 @@ import {
   recordMistake,
   type MistakeEntry
 } from '../../services/mistakesService';
+import { useTheme } from '../../context/ThemeContext';
+import { syncMistakesToFlashcards } from '../../services/flashcardService';
 
 interface MistakesNotebookViewProps {
   onNavigateToBootcampDay?: (dayNumber: number) => void;
@@ -31,6 +34,7 @@ interface MistakesNotebookViewProps {
 export const MistakesNotebookView: React.FC<MistakesNotebookViewProps> = ({
   onNavigateToBootcampDay,
 }) => {
+  const { launchFlashcardDeck } = useTheme();
   const [mistakes, setMistakes] = useState<MistakeEntry[]>([]);
   const [filterDay, setFilterDay] = useState<number | 'all'>('all');
   const [filterStatus, setFilterStatus] = useState<'all' | 'unmastered' | 'mastered'>('unmastered');
@@ -153,15 +157,27 @@ export const MistakesNotebookView: React.FC<MistakesNotebookViewProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 flex-wrap">
             {unmasteredCount > 0 && !drillMode && (
-              <button
-                onClick={handleStartDrill}
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2"
-              >
-                <RotateCcw className="w-4 h-4" />
-                <span>Drill Mistakes ({unmasteredCount})</span>
-              </button>
+              <>
+                <button
+                  onClick={handleStartDrill}
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  <span>Drill Mistakes ({unmasteredCount})</span>
+                </button>
+                <button
+                  onClick={() => {
+                    syncMistakesToFlashcards();
+                    launchFlashcardDeck('mistakes', 'all');
+                  }}
+                  className="px-4 py-2.5 rounded-xl bg-[var(--badge-bg)] border border-[var(--badge-border)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] font-mono font-bold text-xs shadow-sm transition-all flex items-center gap-1.5"
+                >
+                  <BrainCircuit className="w-4 h-4" />
+                  <span>Drill in SRS Flashcards</span>
+                </button>
+              </>
             )}
             {totalErrors > 0 && (
               <button

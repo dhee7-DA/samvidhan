@@ -1,5 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import type { ThemeMode, FontMode } from '../types/constitution';
+import {
+  getPinnedFlashcardIds,
+  togglePinFlashcardInStore,
+  type FlashcardDeckType,
+} from '../services/flashcardService';
 
 interface ThemeContextType {
   theme: ThemeMode;
@@ -25,6 +30,15 @@ interface ThemeContextType {
   activeGameDeck: string;
   setActiveGameDeck: (deck: string) => void;
   launchGameDeck: (deck: string) => void;
+  activeFlashcardDeck: FlashcardDeckType | 'all';
+  setActiveFlashcardDeck: (deck: FlashcardDeckType | 'all') => void;
+  activeFlashcardFilter: string;
+  setActiveFlashcardFilter: (filter: string) => void;
+  activeFlashcardCardId: string | null;
+  clearFlashcardFocusCard: () => void;
+  launchFlashcardDeck: (deck: FlashcardDeckType | 'all', subFilter?: string, focusCardId?: string) => void;
+  pinnedFlashcardIds: string[];
+  togglePinFlashcard: (cardId: string) => boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -51,10 +65,35 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return saved !== null ? saved === 'true' : true;
   });
   const [activeGameDeck, setActiveGameDeck] = useState<string>('part3-rights');
+  const [activeFlashcardDeck, setActiveFlashcardDeck] = useState<FlashcardDeckType | 'all'>('all');
+  const [activeFlashcardFilter, setActiveFlashcardFilter] = useState<string>('all');
+  const [activeFlashcardCardId, setActiveFlashcardCardId] = useState<string | null>(null);
+  const [pinnedFlashcardIds, setPinnedFlashcardIds] = useState<string[]>(() => getPinnedFlashcardIds());
 
   const launchGameDeck = (deck: string) => {
     setActiveGameDeck(deck);
     setActiveTab('tile-matcher');
+  };
+
+  const launchFlashcardDeck = (
+    deck: FlashcardDeckType | 'all',
+    subFilter: string = 'all',
+    focusCardId?: string
+  ) => {
+    setActiveFlashcardDeck(deck);
+    setActiveFlashcardFilter(subFilter);
+    setActiveFlashcardCardId(focusCardId || null);
+    setActiveTab('flashcards');
+  };
+
+  const clearFlashcardFocusCard = () => {
+    setActiveFlashcardCardId(null);
+  };
+
+  const togglePinFlashcard = (cardId: string): boolean => {
+    const res = togglePinFlashcardInStore(cardId);
+    setPinnedFlashcardIds(res.pinnedIds);
+    return res.pinned;
   };
 
   useEffect(() => {
@@ -115,6 +154,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         activeGameDeck,
         setActiveGameDeck,
         launchGameDeck,
+        activeFlashcardDeck,
+        setActiveFlashcardDeck,
+        activeFlashcardFilter,
+        setActiveFlashcardFilter,
+        activeFlashcardCardId,
+        clearFlashcardFocusCard,
+        launchFlashcardDeck,
+        pinnedFlashcardIds,
+        togglePinFlashcard,
       }}
     >
       {children}

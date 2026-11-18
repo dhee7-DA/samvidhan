@@ -19,14 +19,26 @@ import {
   Award,
   Sparkles,
   Lightbulb,
-  Shield
+  Shield,
+  BrainCircuit,
+  Star
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { bareActService, type BareActArticle } from '../../services/bareActService';
+import { getCardIdForArticle } from '../../services/flashcardService';
 
 export const ArticlesMasterView: React.FC = () => {
-  const { setActiveTab, setSelectedPartId, bookmarkedArticles, toggleBookmark, launchGameDeck } = useTheme();
+  const {
+    setActiveTab,
+    setSelectedPartId,
+    bookmarkedArticles,
+    toggleBookmark,
+    launchGameDeck,
+    launchFlashcardDeck,
+    pinnedFlashcardIds,
+    togglePinFlashcard
+  } = useTheme();
 
   // Mode: 'reader' (Clause-by-Clause Bare Act Explorer) vs 'grid' (Directory Cards)
   const [viewMode, setViewMode] = useState<'reader' | 'grid'>('reader');
@@ -192,6 +204,15 @@ export const ArticlesMasterView: React.FC = () => {
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors shadow-sm"
           >
             <span>🎮 Practice Synaptic Matcher</span>
+          </button>
+
+          <button
+            onClick={() => launchFlashcardDeck('articles', activeArticle?.part || 'all')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 transition-all shadow-sm"
+            title={`Drill ${activeArticle?.part || 'All'} Articles in Leitner SRS Flashcards`}
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            <span>SRS Flashcards ({activeArticle?.part || 'All'})</span>
           </button>
 
           <div className="flex items-center gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
@@ -504,6 +525,28 @@ export const ArticlesMasterView: React.FC = () => {
                       <span className="hidden sm:inline">Citation</span>
                     </>
                   )}
+                </button>
+
+                <button
+                  onClick={() => togglePinFlashcard(getCardIdForArticle(activeArticle.number))}
+                  title={pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number)) ? 'Pinned in SRS Flashcards' : 'Pin Article to SRS Flashcards'}
+                  className={`flex items-center gap-1 px-2 py-1.5 rounded-lg border text-xs font-mono font-bold transition-colors ${
+                    pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number))
+                      ? 'bg-amber-500/15 border-amber-500/40 text-amber-400'
+                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-amber-400'
+                  }`}
+                >
+                  <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number)) ? 'fill-current' : ''}`} />
+                  <span className="hidden sm:inline">{pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number)) ? 'Pinned' : 'SRS Pin'}</span>
+                </button>
+
+                <button
+                  onClick={() => launchFlashcardDeck('articles', activeArticle.part, getCardIdForArticle(activeArticle.number))}
+                  title={`Open Article ${activeArticle.number} directly in SRS Flashcards`}
+                  className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-[var(--badge-border)] bg-[var(--badge-bg)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] text-xs font-mono font-bold transition-colors"
+                >
+                  <BrainCircuit className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Drill</span>
                 </button>
 
                 <button
