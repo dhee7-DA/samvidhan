@@ -27,6 +27,8 @@ import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { bareActService, type BareActArticle } from '../../services/bareActService';
 import { getCardIdForArticle } from '../../services/flashcardService';
+import { caseStoryService } from '../../services/caseStoryService';
+import { ArticleRealCaseStoryTab } from './ArticleRealCaseStoryTab';
 
 export const ArticlesMasterView: React.FC = () => {
   const {
@@ -47,7 +49,7 @@ export const ArticlesMasterView: React.FC = () => {
   const [selectedArticleNum, setSelectedArticleNum] = useState<string>('21');
 
   // Active Tab inside Reader view
-  const [readerTab, setReaderTab] = useState<'statutory' | 'eli5' | 'diff' | 'analysis' | 'amendments'>('statutory');
+  const [readerTab, setReaderTab] = useState<'statutory' | 'story' | 'eli5' | 'diff' | 'analysis' | 'amendments'>('statutory');
 
   // Search and Filters
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -425,6 +427,11 @@ export const ArticlesMasterView: React.FC = () => {
                               AMD
                             </span>
                           )}
+                          {caseStoryService.hasStory(art.number) && (
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-amber-500/15 text-amber-500 border border-amber-500/30 font-bold">
+                              STORY
+                            </span>
+                          )}
                           {isBk && (
                             <Bookmark className="w-3 h-3 text-[var(--gold)] fill-current shrink-0" />
                           )}
@@ -481,7 +488,7 @@ export const ArticlesMasterView: React.FC = () => {
 
               {/* Action Toolbar */}
               <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto flex-wrap">
-                {/* ELI5 / Bare Act Quick Toggle */}
+                {/* Bare Act / Story / ELI5 Quick Toggle */}
                 <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
                   <button
                     onClick={() => setReaderTab('statutory')}
@@ -494,6 +501,18 @@ export const ArticlesMasterView: React.FC = () => {
                   >
                     <FileText className="w-3 h-3" />
                     <span>Bare Act</span>
+                  </button>
+                  <button
+                    onClick={() => setReaderTab('story')}
+                    title="Read authentic documented courtroom case drama"
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
+                      readerTab === 'story'
+                        ? 'bg-amber-500 text-black font-bold shadow-xs'
+                        : 'text-amber-500 hover:text-amber-400 font-bold'
+                    }`}
+                  >
+                    <BookOpen className="w-3 h-3" />
+                    <span>Story</span>
                   </button>
                   <button
                     onClick={() => setReaderTab('eli5')}
@@ -587,6 +606,23 @@ export const ArticlesMasterView: React.FC = () => {
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Statutory Bare Act</span>
+              </button>
+
+              <button
+                onClick={() => setReaderTab('story')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'story'
+                    ? 'bg-amber-500 text-black border-amber-500 shadow-sm'
+                    : 'bg-[var(--bg-base)] text-amber-500 border-amber-500/30 hover:border-amber-500/60'
+                }`}
+              >
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Real Case Story</span>
+                {caseStoryService.hasStory(activeArticle.number) && (
+                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold animate-pulse">
+                    Courtroom Drama
+                  </span>
+                )}
               </button>
 
               <button
@@ -705,6 +741,19 @@ export const ArticlesMasterView: React.FC = () => {
                   </div>
                 </div>
               </div>
+            )}
+
+            {/* TAB: REAL-LIFE COURTROOM CASE LAW STORY */}
+            {readerTab === 'story' && (
+              <ArticleRealCaseStoryTab
+                articleNumber={activeArticle.number}
+                articleTitle={activeArticle.title}
+                part={activeArticle.part}
+                onSelectArticleStory={(num) => {
+                  setSelectedArticleNum(num);
+                  setReaderTab('story');
+                }}
+              />
             )}
 
             {/* TAB: PLAIN-ENGLISH ELI5 & PRACTICAL SCENARIO */}

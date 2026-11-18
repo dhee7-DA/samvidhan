@@ -8,11 +8,11 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-19 00:25:55 (+05:30) |
+| **Last Log Sync** | 2026-11-19 01:36:06 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `8554304` (2026-11-19T00:25:47+05:30) |
-| **Total Commits** | 64 |
-| **Total Files Indexed** | 249 (249 tracked, 0 new untracked) |
+| **Branch / HEAD** | `main` @ `e3a6613` (2026-11-19T01:35:59+05:30) |
+| **Total Commits** | 65 |
+| **Total Files Indexed** | 252 (252 tracked, 0 new untracked) |
 | **Working Tree** | Clean |
 <!-- AUTO:SNAPSHOT:END -->
 
@@ -21,6 +21,21 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-19 01:36:06 (+05:30)] Add 100% Authentic Real Case Law Stories across Bare Act Articles (DONE)
+- **Details:** Finalized commit e3a6613 with full real case stories dataset, 4-chapter narrative UI, directory badges, and seamless Bare Act integration.
+- **Files Touched:** No working-tree file diffs
+- **Git HEAD:** `main` @ `e3a6613`
+
+### [2026-11-19 01:35:23 (+05:30)] Add 100% Authentic Real Case Law Stories across Bare Act Articles (DONE)
+- **Details:** Implemented comprehensive authentic Indian Law Reports (AIR/SCC/SCR) case stories across Parts I-XXI with 4-chapter narrative structure, courtroom debate, landmark verbatim holdings, living legacy, directory badges, and seamless reader integration. Zero build errors.
+- **Files Touched (4):** `M src/components/Views/ArticlesMasterView.tsx`, `?? src/components/Views/ArticleRealCaseStoryTab.tsx`, `?? src/data/realCaseStoriesData.ts`, `?? src/services/caseStoryService.ts`
+- **Git HEAD:** `main` @ `7aac50b`
+
+### [2026-11-19 01:28:37 (+05:30)] Add 100% Authentic Real Case Law Stories for Constitutional Articles (DONE)
+- **Details:** Created RealCaseStoriesData with 100% documented law report records (AIR/SCC/SCR), CaseStoryService, ArticleRealCaseStoryTab with 4-chapter narrative dossiers (Ground Facts, Courtroom Clash, Verbatim Ratio, Living Legacy), integrated Real Case Story tab and STORY badges into Bare Act Explorer
+- **Files Touched (4):** `M src/components/Views/ArticlesMasterView.tsx`, `?? src/components/Views/ArticleRealCaseStoryTab.tsx`, `?? src/data/realCaseStoriesData.ts`, `?? src/services/caseStoryService.ts`
+- **Git HEAD:** `main` @ `7aac50b`
 
 ### [2026-11-19 00:25:55 (+05:30)] Committed Constitutional Arcade (8554304) (DONE)
 - **Details:** Ready for GitHub push sync
@@ -74,7 +89,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **249** project files across **31** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **252** project files across **31** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -86,7 +101,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 40.3 KB | 553 | `8554304` (2026-11-19) |
+| `PROJECT_LOG.md` | 42.3 KB | 572 | `e3a6613` (2026-11-19) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -113,7 +128,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 10.3 KB | 181 | `8554304` (2026-11-19) |
+| `src/App.tsx` | 10.3 KB | 181 | `7aac50b` (2026-11-19) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -140,7 +155,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 13.2 KB | 261 | `8554304` (2026-11-19) |
+| `src/components/Layout/Sidebar.tsx` | 13.2 KB | 261 | `7aac50b` (2026-11-19) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -165,13 +180,14 @@
 | `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.1 KB | 279 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
 
-### `src/components/Views` (24 files)
+### `src/components/Views` (25 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 23.3 KB | 467 | `3ce9f3d` (2026-11-18) |
-| `src/components/Views/ArcadeHubView.tsx` | 9.4 KB | 221 | `8554304` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 64.0 KB | 1228 | `9e33658` (2026-11-18) |
+| `src/components/Views/ArcadeHubView.tsx` | 9.4 KB | 221 | `7aac50b` (2026-11-19) |
+| `src/components/Views/ArticleRealCaseStoryTab.tsx` | 9.8 KB | 221 | `e3a6613` (2026-11-19) |
+| `src/components/Views/ArticlesMasterView.tsx` | 66.5 KB | 1277 | `e3a6613` (2026-11-19) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -183,7 +199,7 @@
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 20.1 KB | 463 | `a058cc1` (2026-11-16) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
-| `src/components/Views/OverviewDashboard.tsx` | 22.1 KB | 368 | `8554304` (2026-11-19) |
+| `src/components/Views/OverviewDashboard.tsx` | 22.1 KB | 368 | `7aac50b` (2026-11-19) |
 | `src/components/Views/PrecedentLineageView.tsx` | 27.0 KB | 502 | `ea3d899` (2026-11-16) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 53.9 KB | 1023 | `196ed49` (2026-11-15) |
@@ -198,10 +214,10 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.3 KB | 504 | `8554304` (2026-11-19) |
-| `src/components/Views/Arcade/CareerBadgesModal.tsx` | 5.9 KB | 135 | `8554304` (2026-11-19) |
-| `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.3 KB | 574 | `8554304` (2026-11-19) |
-| `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `8554304` (2026-11-19) |
+| `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.3 KB | 504 | `7aac50b` (2026-11-19) |
+| `src/components/Views/Arcade/CareerBadgesModal.tsx` | 5.9 KB | 135 | `7aac50b` (2026-11-19) |
+| `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.3 KB | 574 | `7aac50b` (2026-11-19) |
+| `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `7aac50b` (2026-11-19) |
 
 ### `src/context` (1 file)
 
@@ -209,7 +225,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (43 files)
+### `src/data` (44 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -217,9 +233,9 @@
 | `src/data/allIndiaJudicialTopics.ts` | 48.4 KB | 651 | `196ed49` (2026-11-15) |
 | `src/data/amendmentDiffsData.ts` | 39.9 KB | 459 | `3db5394` (2026-11-16) |
 | `src/data/amendmentsData.ts` | 101.9 KB | 1413 | `3ce9f3d` (2026-11-18) |
-| `src/data/articleBlitzData.ts` | 15.0 KB | 337 | `8554304` (2026-11-19) |
+| `src/data/articleBlitzData.ts` | 15.0 KB | 337 | `7aac50b` (2026-11-19) |
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
-| `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `8554304` (2026-11-19) |
+| `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
@@ -254,8 +270,9 @@
 | `src/data/preambleData.ts` | 6.9 KB | 121 | `3c486dd` (2026-11-13) |
 | `src/data/pyqData.ts` | 1.1 KB | 39 | `ea3d899` (2026-11-16) |
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
+| `src/data/realCaseStoriesData.ts` | 72.8 KB | 612 | `e3a6613` (2026-11-19) |
 | `src/data/schedulesData.ts` | 10.5 KB | 189 | `3c486dd` (2026-11-13) |
-| `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `8554304` (2026-11-19) |
+| `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `7aac50b` (2026-11-19) |
 
 ### `src/data/bootcamp` (7 files)
 
@@ -458,18 +475,19 @@
 | `src/data/pyqs/pyq2022.ts` | 40.3 KB | 437 | `e401e54` (2026-11-14) |
 | `src/data/pyqs/pyq2023.ts` | 7.8 KB | 110 | `ea3d899` (2026-11-16) |
 
-### `src/services` (10 files)
+### `src/services` (11 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/services/arcadeAudioService.ts` | 5.4 KB | 193 | `8554304` (2026-11-19) |
+| `src/services/arcadeAudioService.ts` | 5.4 KB | 193 | `7aac50b` (2026-11-19) |
 | `src/services/bareActService.ts` | 10.6 KB | 289 | `c4ae501` (2026-11-17) |
+| `src/services/caseStoryService.ts` | 2.0 KB | 60 | `e3a6613` (2026-11-19) |
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 11.0 KB | 397 | `8554304` (2026-11-19) |
+| `src/services/judicialCareerService.ts` | 11.0 KB | 397 | `7aac50b` (2026-11-19) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
-| `src/services/progressVaultService.ts` | 6.9 KB | 239 | `8554304` (2026-11-19) |
+| `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
 
@@ -487,11 +505,12 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**64** commits, newest first).
+> Complete git history (**65** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
-| 64 | 2026-11-19 | `8554304` | 15 | feat(arcade): build Constitutional Arcade with Chief Justice Bench Sim, 60s Article Blitz, Writs Emergency Room, and Judicial Career Progression |
+| 65 | 2026-11-19 | `e3a6613` | 5 | feat(cases): add 100% authentic real case law stories across Bare Act articles |
+| 64 | 2026-11-19 | `7aac50b` | 15 | feat(arcade): build Constitutional Arcade with Chief Justice Bench Sim, 60s Article Blitz, Writs Emergency Room, and Judicial Career Progression |
 | 63 | 2026-11-18 | `3ce9f3d` | 15 | feat: complete all 106 Amendments, ELI5 modes, Progress Vault backup, and code-split lazy loading |
 | 62 | 2026-11-18 | `9e33658` | 16 | feat(flashcards): expand 5-Box Leitner SRS app-wide across all datasets, views, and all 15 Bootcamp Days |
 | 61 | 2026-11-18 | `7da595c` | 4 | chore(logging): add persistent PROJECT_LOG.md, automated log:update script, and AGENTS.md logging rule |
