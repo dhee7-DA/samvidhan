@@ -46,6 +46,7 @@ export const LandmarkCasesView: React.FC = () => {
 
   // Mode: 'cases' | 'lineage' | 'principles' | 'bookmarks'
   const [viewMode, setViewMode] = useState<'cases' | 'lineage' | 'principles' | 'bookmarks'>('cases');
+  const [caseExemplarMode, setCaseExemplarMode] = useState<'eli5' | 'juristic'>('eli5');
 
   // Selected Topic (or 'all')
   const [selectedTopicId, setSelectedTopicId] = useState<string>('all');
@@ -776,6 +777,32 @@ export const LandmarkCasesView: React.FC = () => {
                           )}
                         </button>
 
+                        {/* ELI5 vs Juristic Toggle */}
+                        <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono">
+                          <button
+                            onClick={() => setCaseExemplarMode('eli5')}
+                            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
+                              caseExemplarMode === 'eli5'
+                                ? 'bg-amber-500 text-black font-bold'
+                                : 'text-amber-500 hover:text-amber-400 font-bold'
+                            }`}
+                          >
+                            <Sparkles className="w-3 h-3" />
+                            <span>ELI5</span>
+                          </button>
+                          <button
+                            onClick={() => setCaseExemplarMode('juristic')}
+                            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
+                              caseExemplarMode === 'juristic'
+                                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
+                                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                            }`}
+                          >
+                            <Scale className="w-3 h-3" />
+                            <span>Juristic</span>
+                          </button>
+                        </div>
+
                         {/* SRS Flashcard Pin & Drill Buttons */}
                         <button
                           onClick={(e) => {
@@ -864,6 +891,40 @@ export const LandmarkCasesView: React.FC = () => {
                         </span>
                       </div>
                     </div>
+
+                    {/* ELI5 Plain-English Breakdown & Courtroom Analogy Banner */}
+                    {caseExemplarMode === 'eli5' && (
+                      <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-[var(--bg-base)] to-[var(--bg-base)] border border-amber-500/30 space-y-3 animate-fadeIn">
+                        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>Plain-English Breakdown & Real-World Utility (ELI5)</span>
+                        </div>
+                        <div className="space-y-1">
+                          <span className="text-[10px] font-mono uppercase font-bold text-[var(--text-muted)]">
+                            Core Constitutional Question in Everyday Words:
+                          </span>
+                          <p className="text-sm font-semibold text-[var(--text-primary)] leading-relaxed">
+                            <AnnotatedLegalText text={currentCase.constitutionalQuestion} />
+                          </p>
+                        </div>
+                        <div className="p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-1">
+                          <span className="text-[10px] font-mono uppercase font-bold text-emerald-400 flex items-center gap-1">
+                            <Check className="w-3 h-3" /> How the Supreme Court Decided:
+                          </span>
+                          <p className="text-xs sm:text-sm text-[var(--text-primary)] leading-relaxed">
+                            <AnnotatedLegalText text={currentCase.majorityVerdict} />
+                          </p>
+                        </div>
+                        <div className="p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-0.5">
+                          <span className="text-[10px] font-mono uppercase font-bold text-[var(--accent)]">
+                            How Lawyers & Courts Apply This Precedent Today:
+                          </span>
+                          <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            <AnnotatedLegalText text={currentCase.howCourtsApplyToday} />
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Section 1: Factual Background */}

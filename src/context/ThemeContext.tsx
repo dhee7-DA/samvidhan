@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import type { ThemeMode, FontMode } from '../types/constitution';
+import type { FlashcardDeckType } from '../services/flashcardService';
 import {
   getPinnedFlashcardIds,
   togglePinFlashcardInStore,
-  type FlashcardDeckType,
-} from '../services/flashcardService';
+} from '../services/flashcardPinStore';
 
 interface ThemeContextType {
   theme: ThemeMode;
@@ -39,6 +39,8 @@ interface ThemeContextType {
   launchFlashcardDeck: (deck: FlashcardDeckType | 'all', subFilter?: string, focusCardId?: string) => void;
   pinnedFlashcardIds: string[];
   togglePinFlashcard: (cardId: string) => boolean;
+  vaultModalOpen: boolean;
+  setVaultModalOpen: (open: boolean) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -69,6 +71,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [activeFlashcardFilter, setActiveFlashcardFilter] = useState<string>('all');
   const [activeFlashcardCardId, setActiveFlashcardCardId] = useState<string | null>(null);
   const [pinnedFlashcardIds, setPinnedFlashcardIds] = useState<string[]>(() => getPinnedFlashcardIds());
+  const [vaultModalOpen, setVaultModalOpen] = useState<boolean>(false);
 
   const launchGameDeck = (deck: string) => {
     setActiveGameDeck(deck);
@@ -163,6 +166,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         launchFlashcardDeck,
         pinnedFlashcardIds,
         togglePinFlashcard,
+        vaultModalOpen,
+        setVaultModalOpen,
       }}
     >
       {children}

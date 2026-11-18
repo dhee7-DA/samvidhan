@@ -112,7 +112,7 @@ export const FlashcardsView: React.FC = () => {
 
   // Dynamic sub-filter options based on active deck
   const availableSubFilters = useMemo(() => {
-    if (selectedDeck === 'all' || selectedDeck === 'schedules' || selectedDeck === 'doctrines' || selectedDeck === 'amendments' || selectedDeck === 'mistakes') {
+    if (selectedDeck === 'all' || selectedDeck === 'schedules' || selectedDeck === 'doctrines' || selectedDeck === 'mistakes') {
       return [];
     }
     const tags = new Set<string>();

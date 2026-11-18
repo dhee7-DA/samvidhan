@@ -1,33 +1,27 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
-  BookOpen,
-  Scale,
-  Shield,
-  Compass,
   ArrowRight,
   Sparkles,
   Layers,
   Award,
-  Calendar,
-  CheckCircle2,
-  FileText,
   Flame,
   Timer,
   AlertTriangle,
-  PenTool,
   BrainCircuit,
-  GitBranch,
-  Radio,
-  Gamepad2,
-  GitCommit
+  ShieldCheck,
+  Star,
+  Compass,
+  CheckCircle2
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
 import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureSVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { getStudyReadinessSnapshot } from '../../services/progressVaultService';
 
 export const OverviewDashboard: React.FC = () => {
-  const { setActiveTab, setSelectedPartId } = useTheme();
+  const { setActiveTab, setVaultModalOpen, launchFlashcardDeck, pinnedFlashcardIds } = useTheme();
+  const readiness = useMemo(() => getStudyReadinessSnapshot(), [pinnedFlashcardIds]);
 
   return (
     <div className="flex flex-col gap-10 py-6 max-w-7xl mx-auto px-4 sm:px-6 animate-fadeIn">
@@ -86,6 +80,76 @@ export const OverviewDashboard: React.FC = () => {
             <span>TIMED EXAM HALL</span>
           </button>
         </div>
+      </section>
+
+      {/* =========================================================================
+          LIVE STUDY READINESS & BACKUP STRIP
+          ========================================================================= */}
+      <section className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1">
+          <button
+            onClick={() => setActiveTab('bootcamp')}
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-left transition-all"
+          >
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-amber-400">
+              <Flame className="w-3.5 h-3.5" /> Bootcamp
+            </div>
+            <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
+              {readiness.bootcampDaysCompleted}/15 <span className="text-[11px] font-normal text-[var(--text-muted)]">days</span>
+            </div>
+            <div className="text-[10px] font-mono text-[var(--text-muted)]">{readiness.bootcampMcqsAnswered} MCQs answered</div>
+          </button>
+
+          <button
+            onClick={() => launchFlashcardDeck('all', 'all')}
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-sky-400 text-left transition-all"
+          >
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-sky-400">
+              <BrainCircuit className="w-3.5 h-3.5" /> Leitner SRS
+            </div>
+            <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
+              {readiness.srsTotalReviews} <span className="text-[11px] font-normal text-[var(--text-muted)]">reviews</span>
+            </div>
+            <div className="text-[10px] font-mono text-[var(--text-muted)]">
+              {readiness.srsStreakDays}-day streak · {readiness.srsCardsMastered} Box 5
+            </div>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('mistakes-notebook')}
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-rose-400 text-left transition-all"
+          >
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-rose-400">
+              <AlertTriangle className="w-3.5 h-3.5" /> Mistakes Bank
+            </div>
+            <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
+              {readiness.mistakesUnmastered} <span className="text-[11px] font-normal text-[var(--text-muted)]">active</span>
+            </div>
+            <div className="text-[10px] font-mono text-[var(--text-muted)]">{readiness.mistakesMastered} mastered</div>
+          </button>
+
+          <button
+            onClick={() => launchFlashcardDeck('all', 'pinned')}
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-400 text-left transition-all"
+          >
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-amber-400">
+              <Star className="w-3.5 h-3.5" /> Pinned SRS
+            </div>
+            <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
+              {readiness.srsPinnedCount} <span className="text-[11px] font-normal text-[var(--text-muted)]">cards</span>
+            </div>
+            <div className="text-[10px] font-mono text-[var(--text-muted)]">Focus recall queue</div>
+          </button>
+        </div>
+
+        <button
+          onClick={() => setVaultModalOpen(true)}
+          className="px-4 py-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold flex items-center justify-center gap-2 transition-all shrink-0 btn-tactile"
+          title="Export or restore your study progress as a local JSON backup"
+        >
+          <ShieldCheck className="w-4 h-4" />
+          <span>Backup / Restore Progress</span>
+        </button>
       </section>
 
       {/* =========================================================================

@@ -43,19 +43,18 @@ export interface Flashcard {
   lapses?: number;
 }
 
-interface CardProgressRecord {
-  box: 1 | 2 | 3 | 4 | 5;
-  lastReviewed: number | null;
-  nextReview: number;
-  reps: number;
-  lapses?: number;
-  pinned?: boolean;
-}
+export {
+  getPinnedFlashcardIds,
+  togglePinFlashcardInStore,
+  type CardProgressRecord,
+} from './flashcardPinStore';
+import {
+  loadFlashcardProgressMap,
+  saveFlashcardProgressMap,
+  type CardProgressRecord,
+} from './flashcardPinStore';
 
-const PROGRESS_STORAGE_KEY = 'samvidhan_flashcard_progress_v3';
 const CUSTOM_CARDS_STORAGE_KEY = 'samvidhan_flashcard_custom_v3';
-const LEGACY_V2_STORAGE_KEY = 'samvidhan_flashcards_v2';
-const LEGACY_V1_STORAGE_KEY = 'samvidhan_flashcards_v1';
 
 export const INITIAL_FLASHCARDS: Flashcard[] = [
   // =========================================================================
@@ -1607,7 +1606,7 @@ function buildMasterFlashcardCatalog(): Flashcard[] {
     });
   }
 
-  // 6. Complete all 20 Detailed Constitutional Amendments
+  // 6. Complete all 106 Constitutional Amendments (1951–2023)
   for (const amd of AMENDMENTS_DATA) {
     if (coveredAmendmentNums.has(amd.number)) continue;
 
@@ -1629,17 +1628,17 @@ function buildMasterFlashcardCatalog(): Flashcard[] {
     catalog.push({
       id: cardId,
       deck: 'amendments',
-      category: `${ordinal} Amendment`,
-      subheading: `Year: ${amd.year} • ${amd.primeMinisterOrEra}`,
-      partTag: `Year: ${amd.year}`,
+      category: `${ordinal} Amendment (${amd.year})`,
+      subheading: `${amd.category} • ${amd.primeMinisterOrEra}`,
+      partTag: amd.category,
       sourceId: String(amd.number),
-      isPriority: [1, 7, 24, 42, 44, 52, 61, 73, 74, 86, 91, 99, 101, 103, 106].includes(amd.number),
+      isPriority: Boolean(amd.isLandmark),
       front: `${ordinal} Constitutional Amendment Act (${amd.year}): What were its core objectives and impact?`,
       back: {
         coreRule: amd.keyObjectives,
         statutoryDetails: amd.significance,
-        plainEnglish: `Enacted in ${amd.year} (${amd.primeMinisterOrEra}) modifying ${amd.articlesAffected.join(', ')}.`,
-        realWorldExample: amd.landmarkJudicialImpact,
+        plainEnglish: amd.plainEnglish,
+        realWorldExample: amd.realWorldExample,
         statutoryAnchor: amd.articlesAffected.join(', '),
         precedentRef: amd.landmarkJudicialImpact || amd.title,
       },
@@ -1778,56 +1777,11 @@ export const getCardIdForDictionaryTerm = (term: string): string => {
 };
 
 // =========================================================================
-// LIGHTWEIGHT V3 PROGRESS STORE (WITH SEAMLESS V1/V2 MIGRATION)
+// LIGHTWEIGHT V3 PROGRESS STORE (DELEGATED TO flashcardPinStore)
 // =========================================================================
 
-function loadProgressMap(): Record<string, CardProgressRecord> {
-  try {
-    const raw = localStorage.getItem(PROGRESS_STORAGE_KEY);
-    if (raw) {
-      return JSON.parse(raw);
-    }
-
-    // Migrate from legacy v2 or v1 full-card storage so zero user progress is lost
-    const migrated: Record<string, CardProgressRecord> = {};
-    const legacyRaw = localStorage.getItem(LEGACY_V2_STORAGE_KEY) || localStorage.getItem(LEGACY_V1_STORAGE_KEY);
-    if (legacyRaw) {
-      try {
-        const parsedLegacy: Flashcard[] = JSON.parse(legacyRaw);
-        if (Array.isArray(parsedLegacy)) {
-          for (const leg of parsedLegacy) {
-            if (!leg?.id) continue;
-            if (leg.reps > 0 || leg.box > 1 || leg.lastReviewed || leg.lapses) {
-              const targetId = leg.id === 'sch-11-12' ? 'sch-11' : leg.id;
-              migrated[targetId] = {
-                box: Math.min(5, Math.max(1, leg.box || 1)) as 1 | 2 | 3 | 4 | 5,
-                lastReviewed: leg.lastReviewed ?? null,
-                nextReview: leg.nextReview ?? 0,
-                reps: leg.reps ?? 0,
-                lapses: leg.lapses ?? 0,
-              };
-            }
-          }
-        }
-      } catch {
-        // ignore corrupted legacy data
-      }
-    }
-    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(migrated));
-    return migrated;
-  } catch (e) {
-    console.error('Failed to load flashcard progress', e);
-    return {};
-  }
-}
-
-function saveProgressMap(map: Record<string, CardProgressRecord>): void {
-  try {
-    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(map));
-  } catch (e) {
-    console.error('Failed to save flashcard progress', e);
-  }
-}
+const loadProgressMap = loadFlashcardProgressMap;
+const saveProgressMap = saveFlashcardProgressMap;
 
 function loadCustomCards(): Flashcard[] {
   try {
@@ -1986,32 +1940,6 @@ export const getFlashcardsForBootcampDay = (day: BootcampDay): Flashcard[] => {
   }
 
   return result;
-};
-
-// Pin / unpin any card anywhere in the app
-export const getPinnedFlashcardIds = (): string[] => {
-  const progressMap = loadProgressMap();
-  return Object.entries(progressMap)
-    .filter(([, rec]) => Boolean(rec.pinned))
-    .map(([id]) => id);
-};
-
-export const togglePinFlashcardInStore = (cardId: string): { pinned: boolean; pinnedIds: string[] } => {
-  const progressMap = loadProgressMap();
-  const existing = progressMap[cardId];
-  const nextPinned = !(existing?.pinned);
-
-  progressMap[cardId] = {
-    box: existing?.box ?? 1,
-    lastReviewed: existing?.lastReviewed ?? null,
-    nextReview: nextPinned ? 0 : (existing?.nextReview ?? 0),
-    reps: existing?.reps ?? 0,
-    lapses: existing?.lapses ?? 0,
-    pinned: nextPinned,
-  };
-
-  saveProgressMap(progressMap);
-  return { pinned: nextPinned, pinnedIds: getPinnedFlashcardIds() };
 };
 
 // Create / Delete personal user flashcards

@@ -18,11 +18,6 @@ import { useTheme } from '../../context/ThemeContext';
 import { lookupUniversalWord, cleanLookupWord, type DictionaryDefinition } from '../../services/dictionaryService';
 import { LEGAL_DICTIONARY } from '../../data/legalDictionaryData';
 import { FORENSIC_VOCABULARY } from '../../data/forensicVocabularyData';
-import {
-  createCustomFlashcard,
-  getCardIdForDictionaryTerm,
-  getStoredFlashcards
-} from '../../services/flashcardService';
 
 const POPULAR_QUICK_TERMS = [
   'promulgate',
@@ -275,7 +270,12 @@ export const GlobalDictionaryModal: React.FC = () => {
 
                 <div className="flex items-center gap-1.5">
                   <button
-                    onClick={() => {
+                    onClick={async () => {
+                      const {
+                        createCustomFlashcard,
+                        getCardIdForDictionaryTerm,
+                        getStoredFlashcards
+                      } = await import('../../services/flashcardService');
                       const candidateId = getCardIdForDictionaryTerm(definition.word);
                       const exists = getStoredFlashcards().some((c) => c.id === candidateId);
                       if (exists) {

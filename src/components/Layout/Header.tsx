@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Bookmark, Compass, Sparkles, BookOpen, Layers } from 'lucide-react';
+import { Search, Bookmark, Compass, BookOpen, ShieldCheck } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { ThemeSelector } from './ThemeSelector';
 
@@ -7,9 +7,9 @@ export const Header: React.FC = () => {
   const {
     setSearchOpen,
     bookmarkedArticles,
-    activeTab,
     setActiveTab,
-    setDictionaryModalOpen
+    setDictionaryModalOpen,
+    setVaultModalOpen
   } = useTheme();
 
   return (
@@ -75,6 +75,15 @@ export const Header: React.FC = () => {
 
           {/* Theme option with just colour icon only, small and compact */}
           <ThemeSelector />
+
+          {/* Backup / Progress Vault compact icon */}
+          <button
+            onClick={() => setVaultModalOpen(true)}
+            title="Study Progress Backup & Restore Vault (.json)"
+            className="w-9 h-9 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-emerald-400 border border-[var(--border-subtle)] hover:border-emerald-500/40 flex items-center justify-center transition-all btn-tactile shadow-sm shrink-0"
+          >
+            <ShieldCheck className="w-4 h-4" />
+          </button>
 
           {/* Save option with just icon only */}
           <button

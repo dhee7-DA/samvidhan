@@ -1,14 +1,66 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, Gamepad2, BrainCircuit, Star } from 'lucide-react';
+import { Calendar, CheckCircle2, Gamepad2, BrainCircuit, Star, Sparkles, Scale, Lightbulb } from 'lucide-react';
 import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
 import { getCardIdForSchedule } from '../../services/flashcardService';
 
+const SCHEDULE_ELI5_MAP: Record<number, { plain: string; example: string }> = {
+  1: {
+    plain: 'India’s official address book of all 28 States and 8 Union Territories—whenever Parliament splits a state or renames a border, this list gets edited.',
+    example: 'When Telangana was carved out in 2014 or J&K was reorganized in 2019, Parliament updated the First Schedule.'
+  },
+  2: {
+    plain: 'The constitutional pay-scale sheet for top guardians of democracy (President, Governors, Speakers, SC/HC Judges, CAG) so politicians can’t cut their salaries as revenge.',
+    example: 'Parliament cannot cut a sitting Supreme Court Judge’s salary after they rule against the government.'
+  },
+  3: {
+    plain: 'The exact oath scripts sworn by Ministers, MPs, MLAs, Judges, and CAG before taking office (note: President, VP, and Governors have separate oaths in Arts 60, 69, 159!).',
+    example: 'When a new Cabinet Minister takes oath at Rashtrapati Bhavan, they read the exact Secrecy & Office script from the Third Schedule.'
+  },
+  4: {
+    plain: 'The seating chart showing how many Rajya Sabha MPs each State and UT gets based on population—big states get more seats, unlike the US Senate.',
+    example: 'Uttar Pradesh sends 31 Rajya Sabha MPs while Goa or Sikkim sends 1.'
+  },
+  5: {
+    plain: 'Protective shield for tribal-majority Scheduled Areas across 10 mainland states—letting the Governor modify laws and stop tribal land from being grabbed by outsiders.',
+    example: 'In Samatha (1997), the Supreme Court blocked private mining leases on Fifth Schedule tribal land in Andhra Pradesh.'
+  },
+  6: {
+    plain: 'Super-autonomy for tribal hill regions of 4 North-East states—Assam, Meghalaya, Tripura, Mizoram (AMTM)—giving Autonomous District Councils their own local laws and tribal courts.',
+    example: 'District Councils in Meghalaya or Mizoram directly manage local forests, village councils, and customary law.'
+  },
+  7: {
+    plain: 'The federal job-description table splitting lawmaking powers into 3 buckets: Union List (Defence/Railways), State List (Police/Agriculture), and Concurrent List (Education/Criminal Law).',
+    example: 'Only the Centre can print currency (List I), States run state police (List II), and both can pass education laws (List III).'
+  },
+  8: {
+    plain: 'India’s roster of 22 officially recognized regional languages (started with 14 in 1950; expanded by 21st, 71st, and 92nd Amendments—note English is NOT on it!).',
+    example: 'Candidates can write UPSC Mains exams in any of the 22 Eighth Schedule languages (including Dogri, Sindhi, Tamil, Marathi, etc.).'
+  },
+  9: {
+    plain: 'Originally created in 1951 as a "litigation shield" to protect land-reform laws from Fundamental Rights lawsuits—but after I.R. Coelho (2007), post-1973 laws here are still reviewable under Basic Structure.',
+    example: 'Tamil Nadu’s 69% quota law and early Zamindari abolition laws sit in the Ninth Schedule.'
+  },
+  10: {
+    plain: 'The Anti-Defection Law (1985): stops elected MPs and MLAs from switching political parties after winning elections or defying their party whip.',
+    example: 'If an MLA votes against their party whip in a floor test without a 2/3rd merger, the Speaker can disqualify them under the Tenth Schedule.'
+  },
+  11: {
+    plain: 'The 29 village-level powers (agriculture, rural roads, drinking water, primary schools, sanitation) handed to Gram, Block, and Zila Panchayats by the 73rd Amendment.',
+    example: 'A Gram Panchayat building village drainage or maintaining local water tanks exercises Eleventh Schedule subjects.'
+  },
+  12: {
+    plain: 'The 18 city-level powers (urban planning, streetlights, public health, waste collection, fire services, parks) handed to Municipalities by the 74th Amendment.',
+    example: 'Your city Municipal Corporation handling garbage collection, street lighting, and building approvals runs on the Twelfth Schedule.'
+  }
+};
+
 export const SchedulesView: React.FC = () => {
   const { launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
   const [filterQuery, setFilterQuery] = useState('');
+  const [scheduleMode, setScheduleMode] = useState<'eli5' | 'juristic'>('eli5');
 
   const filtered = SCHEDULES_DATA.filter((s) => {
     if (!filterQuery) return true;
@@ -63,9 +115,36 @@ export const SchedulesView: React.FC = () => {
       {/* Grid of All 12 Schedules */}
       <div className="flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
-            Complete Schedule Catalog
-          </h3>
+          <div className="flex items-center gap-3">
+            <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
+              Complete Schedule Catalog
+            </h3>
+            {/* ELI5 vs Juristic Toggle */}
+            <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono">
+              <button
+                onClick={() => setScheduleMode('eli5')}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
+                  scheduleMode === 'eli5'
+                    ? 'bg-amber-500 text-black font-bold'
+                    : 'text-amber-500 hover:text-amber-400 font-bold'
+                }`}
+              >
+                <Sparkles className="w-3 h-3" />
+                <span>ELI5</span>
+              </button>
+              <button
+                onClick={() => setScheduleMode('juristic')}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
+                  scheduleMode === 'juristic'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Scale className="w-3 h-3" />
+                <span>Juristic</span>
+              </button>
+            </div>
+          </div>
           <input
             type="text"
             value={filterQuery}
@@ -105,9 +184,25 @@ export const SchedulesView: React.FC = () => {
                   <AnnotatedLegalText text={sch.title} />
                 </h4>
 
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
-                  <AnnotatedLegalText text={sch.subject} />
-                </p>
+                {/* ELI5 Plain English & Real-World Analogy Block */}
+                {scheduleMode === 'eli5' && SCHEDULE_ELI5_MAP[sch.number] ? (
+                  <div className="p-3.5 rounded-xl bg-gradient-to-br from-amber-500/10 via-[var(--bg-base)] to-[var(--bg-base)] border border-amber-500/30 space-y-2 mb-4 animate-fadeIn">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" /> Plain-English Meaning (ELI5):
+                    </span>
+                    <p className="text-xs text-[var(--text-primary)] leading-relaxed font-medium">
+                      {SCHEDULE_ELI5_MAP[sch.number].plain}
+                    </p>
+                    <div className="pt-1.5 border-t border-amber-500/20 text-[11px] text-[var(--text-secondary)] italic flex items-start gap-1">
+                      <Lightbulb className="w-3 h-3 text-[var(--gold)] shrink-0 mt-0.5" />
+                      <span>{SCHEDULE_ELI5_MAP[sch.number].example}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
+                    <AnnotatedLegalText text={sch.subject} />
+                  </p>
+                )}
 
                 <div className="flex flex-col gap-1.5 pt-3 border-t border-[var(--border-subtle)]">
                   <span className="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-wider">
