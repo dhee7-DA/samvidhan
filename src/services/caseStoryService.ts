@@ -3,22 +3,60 @@ import { REAL_CASE_STORIES, type RealArticleStory } from '../data/realCaseStorie
 
 class CaseStoryService {
   private storyMap: Map<string, RealArticleStory> = new Map();
+  private multiStoryMap: Map<string, RealArticleStory[]> = new Map();
 
   constructor() {
     for (const story of REAL_CASE_STORIES) {
-      // Normalize number, e.g. "21", "21A", "19(1)(a)" -> key "21", "21a", etc.
       const cleanNum = story.articleNumber.toUpperCase().trim();
-      this.storyMap.set(cleanNum, story);
+      
+      // Store exact match
+      if (!this.storyMap.has(cleanNum)) {
+        this.storyMap.set(cleanNum, story);
+      }
+      const list = this.multiStoryMap.get(cleanNum) || [];
+      list.push(story);
+      this.multiStoryMap.set(cleanNum, list);
+
+      // Also extract base article number (e.g. "19(1)(A)" -> "19", "39(B)" -> "39")
+      const baseMatch = cleanNum.match(/^([0-9]+[A-Z]?)/);
+      if (baseMatch && baseMatch[1] !== cleanNum) {
+        const baseNum = baseMatch[1];
+        if (!this.storyMap.has(baseNum)) {
+          this.storyMap.set(baseNum, story);
+        }
+        const baseList = this.multiStoryMap.get(baseNum) || [];
+        if (!baseList.includes(story)) {
+          baseList.push(story);
+        }
+        this.multiStoryMap.set(baseNum, baseList);
+      }
     }
   }
 
   /**
-   * Retrieves the authentic case law story for a specific constitutional article number.
+   * Retrieves all authentic case law stories for a specific constitutional article number.
+   * Handles clauses and base numbers (e.g., "19" returns both Shreya Singhal and Romesh Thappar).
+   */
+  public getStoriesForArticle(articleNumber: string): RealArticleStory[] {
+    const clean = articleNumber.replace(/^(Article|Art|\s)+/i, '').toUpperCase().trim();
+    if (this.multiStoryMap.has(clean)) {
+      return this.multiStoryMap.get(clean) || [];
+    }
+    // Try base number extraction
+    const baseMatch = clean.match(/^([0-9]+[A-Z]?)/);
+    if (baseMatch && this.multiStoryMap.has(baseMatch[1])) {
+      return this.multiStoryMap.get(baseMatch[1]) || [];
+    }
+    return [];
+  }
+
+  /**
+   * Retrieves the primary authentic case law story for a specific constitutional article number.
    * Handles variations like "21", "Art 21", "21A", "Article 21A".
    */
   public getStoryForArticle(articleNumber: string): RealArticleStory | undefined {
-    const clean = articleNumber.replace(/^(Article|Art|\s)+/i, '').toUpperCase().trim();
-    return this.storyMap.get(clean);
+    const stories = this.getStoriesForArticle(articleNumber);
+    return stories.length > 0 ? stories[0] : undefined;
   }
 
   /**
@@ -51,8 +89,7 @@ class CaseStoryService {
    * Checks if an article has an authentic courtroom story available.
    */
   public hasStory(articleNumber: string): boolean {
-    const clean = articleNumber.replace(/^(Article|Art|\s)+/i, '').toUpperCase().trim();
-    return this.storyMap.has(clean);
+    return this.getStoriesForArticle(articleNumber).length > 0;
   }
 }
 

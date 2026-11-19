@@ -607,5 +607,782 @@ export const REAL_CASE_STORIES: RealArticleStory[] = [
     livingLegacy:
       'Confirmed the full application of the Constitution of India to Jammu & Kashmir and directed the Election Commission of India to conduct Legislative Assembly elections by September 30, 2024, alongside restoration of statehood at the earliest.',
     thematicTags: ['Article 370', 'Asymmetric Federalism', 'Sovereignty', 'Integration']
+  },
+  {
+    articleNumber: '5',
+    articleTitle: 'Citizenship at the commencement of the Constitution',
+    headline: 'The Minor from Malabar & The Constitutional Meaning of Migration',
+    caseName: 'Kulathil Mammu v. State of Kerala & Ors.',
+    officialCitation: 'AIR 1966 SC 1614; (1966) 3 SCR 654',
+    decisionYear: 1966,
+    bench: '5-Judge Constitution Bench: K. Subba Rao, K.N. Wanchoo, J.C. Shah, J.R. Mudholkar, S.M. Sikri JJ.',
+    theRealCitizen: 'Kulathil Mammu, born in Malabar in 1936, who departed for Karachi as a 12-year-old boy in 1948 and returned on a Pakistani passport in 1956.',
+    theGroundFacts:
+      'Kulathil Mammu left his ancestral home in Malabar (Kerala) in May 1948 as a boy of 12 to find work in Karachi. In 1956, he obtained a Pakistani passport and an Indian visa to visit his parents in Malabar. Overstaying his visa, he was served a deportation notice under the Foreigners Act 1946. Mammu filed a writ petition under Article 226, arguing that he had never intended to abandon his Indian domicile, was born an Indian citizen under Article 5, and could not be expelled as a foreigner.',
+    theCourtroomClash:
+      'Counsel for Mammu argued that under private international law, a minor cannot form an independent intention to change domicile; hence his domicile remained Indian. The State of Kerala argued that under Article 7, anyone who migrated from India to Pakistan after March 1, 1947 ceased to be a citizen of India, regardless of technical rules of domicile.',
+    verbatimRatio:
+      'By a 4–1 majority, the Supreme Court ruled that the word "migrated" in Articles 6 and 7 of the Constitution is not used in the strict, technical sense of "domicile" in private international law. It carries its ordinary, natural meaning of voluntary departure from India to Pakistan to settle or reside indefinitely. Since Mammu departed voluntarily after March 1, 1947, he lost Indian citizenship under Article 7.',
+    keyQuote:
+      '"The word \'migrated\' in Article 7 is not used in the sense of change of domicile in private international law. It simply means going from one territory to the other with the intention of residing there for an indefinite period. Article 7 overrides Article 5."',
+    livingLegacy:
+      'Established the permanent judicial standard for determining post-Partition nationality disputes and clarified that Article 7 operates as a constitutional bar over citizenship claims under Article 5.',
+    thematicTags: ['Citizenship', 'Partition', 'Article 5', 'Article 7', 'Domicile']
+  },
+  {
+    articleNumber: '9',
+    articleTitle: 'Persons voluntarily acquiring citizenship of a foreign State not to be citizens',
+    headline: 'The Border Demographic Shift & The Striking Down of the IMDT Act',
+    caseName: 'Sarbananda Sonowal v. Union of India & Anr.',
+    officialCitation: 'AIR 2005 SC 2920; (2005) 5 SCC 665',
+    decisionYear: 2005,
+    bench: '3-Judge Bench: R.C. Lahoti (CJI), G.P. Mathur, P.K. Balasubramanyan JJ.',
+    theRealCitizen: 'Sarbananda Sonowal, citizen of Assam, activist, and Member of Parliament.',
+    theGroundFacts:
+      'The Illegal Migrants (Determination by Tribunals) Act 1983 (IMDT Act) was enacted exclusively for Assam, while the Foreigners Act 1946 applied to the rest of India. Under the Foreigners Act, the burden of proving citizenship lies on the suspect. Under the IMDT Act, the burden of proving that someone was an illegal migrant was shifted entirely onto the local complainant or police, requiring residential proof within a 3-km radius. Out of 3.1 lakh inquiries initiated over two decades, only 1,481 illegal migrants were actually deported, creating a national security crisis.',
+    theCourtroomClash:
+      'Sonowal argued that the IMDT Act created a statutory sanctuary for unauthorized foreign nationals in Assam, violating Articles 14, 355, and the single citizenship framework of the Constitution. The Union and state authorities argued the Act protected genuine linguistic and religious minorities from police harassment.',
+    verbatimRatio:
+      'The Supreme Court unanimously struck down the IMDT Act 1983 as unconstitutional. The Court held that unchecked large-scale illegal influx into Assam amounted to "external aggression" within the meaning of Article 355, and the discriminatory burden of proof violated Article 14 by denying equal protection of the law to the people of Assam.',
+    keyQuote:
+      '"The influx of large numbers of undocumented foreigners into the State of Assam poses a grave threat to the integrity and security of the nation. The IMDT Act has failed to achieve its purpose and acts as an insuperable barrier to deportation. It is struck down as ultra vires the Constitution."',
+    livingLegacy:
+      'Restored the uniform application of the Foreigners Act 1946 across India and led directly to the Supreme Court-monitored National Register of Citizens (NRC) verification process in Assam.',
+    thematicTags: ['Citizenship', 'Article 9', 'Article 355', 'IMDT Act', 'National Security']
+  },
+  {
+    articleNumber: '18',
+    articleTitle: 'Abolition of titles',
+    headline: 'Are National Honors Feudal Titles? The Challenge to Bharat Ratna',
+    caseName: 'Balaji Raghavan v. Union of India & Ors.',
+    officialCitation: 'AIR 1996 SC 770; (1996) 1 SCC 361',
+    decisionYear: 1995,
+    bench: '5-Judge Constitution Bench: A.M. Ahmadi (CJI), Kuldip Singh, B.P. Jeevan Reddy, N.P. Singh, M.K. Mukherjee JJ.',
+    theRealCitizen: 'Balaji Raghavan and Santosh Kumar, public-spirited citizens seeking to uphold republican equality.',
+    theGroundFacts:
+      'Two public interest writ petitions challenged the conferment of civilian national awards—the Bharat Ratna, Padma Vibhushan, Padma Bhushan, and Padma Shri—introduced by presidential notifications in 1954. The petitioners argued that conferring state decorations created a privileged, aristocratic class of citizens, directly violating Article 18(1) which mandates: "No title, not being a military or academic distinction, shall be conferred by the State."',
+    theCourtroomClash:
+      'Petitioners argued that the Constituent Assembly intended to establish absolute republican equality by abolishing British knighthoods and titles of nobility (Rai Bahadur, Sir), and state-conferred civilian awards revived an elite class. Attorney General argued awards do not confer privileges, titles, or ranks, but recognize extraordinary merit and humanitarian service.',
+    verbatimRatio:
+      'The 5-judge Constitution Bench held that National Awards are NOT "titles" within the meaning of Article 18(1). Article 18 prohibits titles of nobility that carry hereditary status, special legal privileges, or feudal rank. However, to preserve constitutional purity, the Court strictly ruled that recipients CANNOT use these awards as prefixes or suffixes to their names on stationery, business cards, books, or invitations; any such misuse forfeits the award.',
+    keyQuote:
+      '"The National Awards do not amount to \'titles\' within the meaning of Article 18(1) and do not violate the principle of equality guaranteed by the Preamble. However, they shall not be used as prefixes or suffixes to the name of the recipient; if so used, the recipient shall forfeit the award."',
+    livingLegacy:
+      'Protected India’s system of recognizing civilian excellence while establishing high-level institutional safeguards against the political weaponization or commercial exploitation of national honors.',
+    thematicTags: ['Article 18', 'Abolition of Titles', 'Bharat Ratna', 'Padma Awards', 'Equality']
+  },
+  {
+    articleNumber: '19(1)(A)',
+    articleTitle: 'Protection of certain rights regarding freedom of speech, etc. (Freedom of Press)',
+    headline: 'The Ban on Cross Roads & The Genesis of the First Constitutional Amendment',
+    caseName: 'Romesh Thappar v. State of Madras',
+    officialCitation: 'AIR 1950 SC 124; 1950 SCR 594',
+    decisionYear: 1950,
+    bench: '6-Judge Constitution Bench: Harilal Kania (CJI), Saiyid Fazl Ali, M. Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea, S.R. Das JJ.',
+    theRealCitizen: 'Romesh Thappar, printer, publisher, and editor of the weekly political journal Cross Roads, printed in Bombay.',
+    theGroundFacts:
+      'In March 1950—barely two months after the Constitution of India came into force—the Government of Madras issued an order under Section 9(1-A) of the Madras Maintenance of Public Order Act 1949 prohibiting the entry and circulation of Romesh Thappar’s weekly journal Cross Roads within Madras State, claiming it disturbed public safety and public order. Thappar filed a writ petition directly in the Supreme Court under Article 32.',
+    theCourtroomClash:
+      'The Advocate General of Madras argued that public order is part of state security and the ban was an essential executive measure to maintain peace. Thappar, represented by C.R. Pattabhi Raman, argued that freedom of speech includes the right to circulate ideas, and Article 19(2) at that time did not permit restrictions for "public order", but only for undermining the security of the State.',
+    verbatimRatio:
+      'The Supreme Court struck down the ban on Cross Roads. Justice M. Patanjali Sastri held that freedom of speech and expression includes freedom of circulation, for without circulation the publication would be of little value. Unless a law is directed solely against speech that tends to overthrow the State or undermine its security, it cannot be sustained under Article 19(2).',
+    keyQuote:
+      '"Freedom of speech and of the press lay at the foundation of all democratic organisations, for without free political discussion no public education, so essential for the proper functioning of the processes of popular government, is possible."',
+    livingLegacy:
+      'The judgment so unsettled the executive that Prime Minister Jawaharlal Nehru introduced the Constitution (First Amendment) Act, 1951, which amended Article 19(2) by inserting the grounds of "public order" and "friendly relations with foreign States" and qualifying restrictions with the word "reasonable".',
+    thematicTags: ['Article 19', 'Freedom of Press', 'First Amendment', 'Cross Roads', 'Public Order']
+  },
+  {
+    articleNumber: '24',
+    articleTitle: 'Prohibition of employment of children in factories, etc.',
+    headline: 'The Match Factories of Sivakasi & The Child Labour Rehabilitation Fund',
+    caseName: 'M.C. Mehta v. State of Tamil Nadu & Ors.',
+    officialCitation: 'AIR 1997 SC 699; (1996) 6 SCC 756',
+    decisionYear: 1996,
+    bench: '3-Judge Bench: Kuldip Singh, B.L. Hansaria, S.B. Majmudar JJ.',
+    theRealCitizen: 'M.C. Mehta, public interest lawyer representing thousands of child workers in the match and fireworks factories of Sivakasi.',
+    theGroundFacts:
+      'Over 50,000 children under the age of 14, some as young as six, were employed in match-dipping and firecracker manufacturing units in Sivakasi (Tamil Nadu). They worked 12 to 14 hour shifts in poorly ventilated sheds handling hazardous chemical mixtures of potassium chlorate, sulfur, and red phosphorus. Explosions, burns, chemical poisoning, and respiratory illness were commonplace, with poverty forcing families to surrender their children to factory contractors.',
+    theCourtroomClash:
+      'Factory owners and state authorities argued that grinding rural poverty compelled families to put children to work, and an abrupt ban would cause mass starvation. M.C. Mehta argued that Article 24 is an absolute, non-derogable constitutional prohibition that cannot be bargained away by economic excuses.',
+    verbatimRatio:
+      'The Supreme Court held that Article 24 is an absolute fundamental right that admits of no exceptions: No child below the age of fourteen years can be employed in any hazardous factory, mine, or workshop. The Court ordered defaulting employers to pay a compensation fine of ₹20,000 for every child employed into a dedicated "Child Labour Rehabilitation-cum-Welfare Fund", ordered the State to provide employment to an adult member of the child\'s family or contribute ₹5,000 to the fund, and mandated free, compulsory education.',
+    keyQuote:
+      '"The child of today cannot develop to be a responsible and productive adult member of tomorrow\'s society unless an environment which is conducive to his social and physical health is assured to him. Article 24 admits of no exceptions."',
+    livingLegacy:
+      'Catalyzed nationwide raids against hazardous child labor in carpet-weaving (Mirzapur), glass-blowing (Firozabad), and brassware (Moradabad), paving the way for the Right to Education Act and the comprehensive Child Labour Amendment Act of 2016.',
+    thematicTags: ['Article 24', 'Child Labour', 'Sivakasi', 'Human Rights', 'Compulsory Education']
+  },
+  {
+    articleNumber: '26',
+    articleTitle: 'Freedom to manage religious affairs',
+    headline: 'The Shirur Mutt Takeover & The Birth of the Essential Religious Practices Doctrine',
+    caseName: 'The Commissioner, Hindu Religious Endowments, Madras v. Sri Lakshmindra Thirtha Swamiar of Sri Shirur Mutt',
+    officialCitation: 'AIR 1954 SC 282; 1954 SCR 1005',
+    decisionYear: 1954,
+    bench: '7-Judge Constitution Bench: B.K. Mukherjea, M.C. Mahajan (CJI), Vivian Bose, Ghulam Hasan, N.H. Bhagwati, B. Jagannadhadas, T.L. Venkatarama Ayyar JJ.',
+    theRealCitizen: 'Sri Lakshmindra Thirtha Swamiar, Mathadhipati of the 800-year-old Shirur Mutt (one of the Ashta Mathas of Udupi, Karnataka).',
+    theGroundFacts:
+      'Following financial mismanagement by the previous pontiff, the Madras Hindu Religious and Charitable Endowments Board stepped in under Madras Act XIX of 1951, appointing a statutory commissioner who assumed total control over the administration of the historic Dvaita Vedanta mutt. The commissioner dictated temple expenditure, inspected sanctum accounts, and restricted the spiritual head\'s authority. The Swamiar challenged the statutory scheme as an unconstitutional usurpation of religious autonomy.',
+    theCourtroomClash:
+      'The Madras Government argued that the State holds sovereign police power under Article 25(2)(a) to regulate the secular property and financial administration of religious trusts. The Mathadhipati argued that a religious denomination has the fundamental right under Article 26 to manage its own affairs in matters of religion without bureaucratic meddling.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench formulated the "Essential Religious Practices" (ERP) doctrine: What constitutes an essential part of a religion is primarily to be ascertained with reference to the doctrines and tenets of that religion itself. While the State can regulate secular economic activities under Article 25(2)(a), it cannot interfere with core rituals, ceremonies, and internal spiritual governance protected by Article 26(b).',
+    keyQuote:
+      '"A religion may not only lay down a code of ethical rules for its followers, it might prescribe rituals and observances, ceremonies and modes of worship which are regarded as integral parts of religion. What constitutes an essential part of a religion is to be decided by the courts with reference to the doctrines of that religion itself."',
+    livingLegacy:
+      'The "Shirur Mutt test" became the single most influential precedent in Indian secularism, cited as the governing touchstone in the Sabarimala, Triple Talaq, Cow Slaughter, and Ayodhya cases.',
+    thematicTags: ['Article 26', 'Religious Freedom', 'Shirur Mutt', 'Essential Religious Practices', 'Secularism']
+  },
+  {
+    articleNumber: '27',
+    articleTitle: 'Freedom as to payment of taxes for promotion of any particular religion',
+    headline: 'Tax vs. Fee: The Puri Jagannath Temple Administration Levy',
+    caseName: 'Sri Jagannath Ramanuj Das & Ors. v. State of Orissa & Anr.',
+    officialCitation: 'AIR 1954 SC 400; 1954 SCR 1046',
+    decisionYear: 1954,
+    bench: '7-Judge Constitution Bench: B.K. Mukherjea, M.C. Mahajan (CJI), Vivian Bose, Ghulam Hasan, N.H. Bhagwati, B. Jagannadhadas, T.L. Venkatarama Ayyar JJ.',
+    theRealCitizen: 'Mahant Sri Jagannath Ramanuj Das of Uttarparswa Math, Puri, Odisha.',
+    theGroundFacts:
+      'The Orissa Hindu Religious Endowments Act 1939 levied an annual statutory contribution on religious maths and temples with an annual income over ₹250 to meet the salaries, audits, and operational expenses of the Commissioner of Endowments. The Mahant of Uttarparswa Math challenged the levy, contending that collecting money compulsorily from citizens or religious institutions to administer Hindu temples violated Article 27\'s prohibition against taxing citizens for the promotion of religion.',
+    theCourtroomClash:
+      'The Mahant argued that compelling religious institutions to pay for a government endowment department was an unconstitutional religious tax. The State of Orissa contended that the levy was not a tax to promote religion, but a regulatory fee (quid pro quo) to supervise trust assets and prevent embezzlement.',
+    verbatimRatio:
+      'The Supreme Court held that Article 27 prohibits only a "tax" whose proceeds are specifically appropriated for the promotion or maintenance of any particular religion. A regulatory "fee" charged for administrative supervision, auditing of trust funds, and safeguarding endowment properties against fraud is fully constitutional and does not violate Article 27.',
+    keyQuote:
+      '"Article 27 is aimed against the State favoring any particular religion by spending public money derived from taxation for its promotion. A fee for secular administrative supervision of religious properties is not a tax for promotion of religion."',
+    livingLegacy:
+      'Solidified the constitutional boundary between a general tax and a regulatory fee, providing the legal foundation for all statutory temple and waqf administrative boards across India.',
+    thematicTags: ['Article 27', 'Tax vs Fee', 'Secularism', 'Religious Endowments']
+  },
+  {
+    articleNumber: '28',
+    articleTitle: 'Freedom as to attendance at religious instruction or religious worship in certain educational institutions',
+    headline: 'The NCERT School Syllabus Controversy: Study of Religions vs. Religious Instruction',
+    caseName: 'Ms. Aruna Roy & Ors. v. Union of India & Ors.',
+    officialCitation: 'AIR 2002 SC 3176; (2002) 7 SCC 368',
+    decisionYear: 2002,
+    bench: '3-Judge Bench: M.B. Shah, D.M. Dharmadhikari, H.K. Sema JJ.',
+    theRealCitizen: 'Aruna Roy (RTI pioneer and Magsaysay awardee), B.G. Verghese, and Prof. Meena Radhakrishna.',
+    theGroundFacts:
+      'In 2000, the National Council of Educational Research and Training (NCERT) published the National Curriculum Framework for School Education, introducing value education based on the study of all world religions, comparative ethics, and universal values. The petitioners filed an Article 32 writ petition arguing that introducing religious concepts in government-funded schools violated Article 28(1), which mandates that "No religious instruction shall be provided in any educational institution wholly maintained out of State funds."',
+    theCourtroomClash:
+      'Petitioners argued that introducing religion into the national school curriculum breached Indian secularism by facilitating sectarian indoctrination. The Union argued that educating students on the historical, moral, and cultural contributions of world religions is secular education, not sectarian religious instruction.',
+    verbatimRatio:
+      'The Supreme Court unanimously upheld the curriculum. The Court drew a sharp constitutional distinction between "religious education / study of religions" and "religious instruction". Article 28(1) prohibits "religious instruction" (teaching dogma, rituals, or sectarian prayers), but does NOT prohibit the academic and cultural study of the moral, social, and philosophical heritage of world religions.',
+    keyQuote:
+      '"There is a vast difference between \'religious instruction\' and \'study of religions\'. The former is sectarian and involves indoctrination into a specific creed; the latter is cultural and academic, fostering mutual tolerance and understanding in a pluralistic society."',
+    livingLegacy:
+      'Affirmed the multi-faith, pluralistic nature of Indian secularism, ensuring that school curricula can foster comparative ethics without violating the constitutional prohibition on state-sponsored prayer.',
+    thematicTags: ['Article 28', 'Education', 'Secularism', 'Religious Instruction', 'NCERT']
+  },
+  {
+    articleNumber: '29',
+    articleTitle: 'Protection of interests of minorities',
+    headline: 'The Anglo-Indian School Order: Non-English Speaking Students Cannot Be Banned',
+    caseName: 'State of Bombay v. Bombay Education Society & Ors.',
+    officialCitation: 'AIR 1954 SC 561; (1955) 1 SCR 568',
+    decisionYear: 1954,
+    bench: '5-Judge Constitution Bench: M.C. Mahajan (CJI), B.K. Mukherjea, Vivian Bose, N.H. Bhagwati, T.L. Venkatarama Ayyar JJ.',
+    theRealCitizen: 'The Bombay Education Society, governing the historic Barnes High School at Deolali (an Anglo-Indian school).',
+    theGroundFacts:
+      'In January 1954, the State of Bombay issued Circular No. SSN 2054(a) prohibiting all Anglo-Indian and English-medium schools from admitting any student whose mother tongue was not English (e.g., Gujarati, Marathi, or Hindi speakers). A Gujarati father and an Indian Christian child were denied admission to Barnes High School due to the circular and petitioned the High Court.',
+    theCourtroomClash:
+      'State of Bombay argued the policy was designed to advance Hindi and regional mother-tongue education. The school and parents argued that denying an Indian citizen admission to an aided school based on their language directly violates Article 29(2).',
+    verbatimRatio:
+      'The Supreme Court held that the government circular was unconstitutional. Under Article 29(2), the right to admission in any State-aided educational institution belongs to EVERY citizen individually. The State cannot deny admission to a student on the ground of language, even if its ultimate objective is the promotion of another language.',
+    keyQuote:
+      '"Article 29(2) confers a personal right on every citizen not to be discriminated against in matters of admission to State-aided educational institutions on grounds only of religion, race, caste, language or any of them."',
+    livingLegacy:
+      'Protected the right of Indian parents to choose the medium of instruction for their children and prevented states from forcefully restricting admissions to minority schools.',
+    thematicTags: ['Article 29', 'Minority Rights', 'Medium of Instruction', 'Language Rights', 'Non-Discrimination']
+  },
+  {
+    articleNumber: '30',
+    articleTitle: 'Right of minorities to establish and administer educational institutions',
+    headline: 'The 11-Judge Bench Charter on Minority Institutional Autonomy & Unaided Colleges',
+    caseName: 'T.M.A. Pai Foundation & Ors. v. State of Karnataka & Ors.',
+    officialCitation: '(2002) 8 SCC 481; AIR 2003 SC 355',
+    decisionYear: 2002,
+    bench: '11-Judge Constitution Bench: B.N. Kirpal (CJI), G.B. Pattanaik, V.N. Khare, S. Rajendra Babu, S.S.M. Quadri, Ruma Pal, S.N. Variava, K.G. Balakrishnan, P.V. Reddi, Ashok Bhan, Arijit Pasayat JJ.',
+    theRealCitizen: 'Dr. Ramdas M. Pai, President of the T.M.A. Pai Foundation (governing the Manipal Academy of Higher Education, a Konkani linguistic minority institution).',
+    theGroundFacts:
+      'For nearly three decades, conflicting Supreme Court judgments had subjected private professional colleges to state admission quotas, uniform entrance schemes, and government fee caps. Private unaided minority colleges challenged these state regulations, demanding absolute administrative independence under Article 30.',
+    theCourtroomClash:
+      'State Governments argued that higher education is a public function and private institutions cannot profiteer or exclude local candidates. Institutions argued that the right to "establish and administer" under Article 30(1) guarantees the right to admit students, choose faculty, and fix rational fee structures without bureaucratic control.',
+    verbatimRatio:
+      'The 11-judge Constitution Bench settled the law: (1) A minority (religious or linguistic) must be determined taking the State as a unit, not the nation as a whole; (2) Unaided minority institutions enjoy substantial autonomy in management, faculty recruitment, and student admissions, subject to maintaining academic merit and transparency; (3) Capitation fees are strictly illegal, but institutions can generate reasonable surplus for expansion.',
+    keyQuote:
+      '"The right to establish and administer educational institutions is guaranteed to all minorities, whether based on religion or language, under Article 30(1). The State may regulate to ensure academic excellence and prevent malpractices, but regulations cannot destroy the minority character of the institution."',
+    livingLegacy:
+      'The foundational charter for all private and minority higher educational institutions across India, followed in P.A. Inamdar (2005).',
+    thematicTags: ['Article 30', 'Minority Institutions', 'TMA Pai', 'Higher Education', 'Institutional Autonomy']
+  },
+  {
+    articleNumber: '31C',
+    articleTitle: 'Saving of laws giving effect to certain directive principles',
+    headline: 'The Golden Balance: Fundamental Rights and Directive Principles as Two Wheels of a Chariot',
+    caseName: 'Minerva Mills Ltd. & Ors. v. Union of India & Ors.',
+    officialCitation: 'AIR 1980 SC 1789; (1980) 3 SCC 625',
+    decisionYear: 1980,
+    bench: '5-Judge Constitution Bench: Y.V. Chandrachud (CJI), P.N. Bhagwati, V.R. Krishna Iyer, N.L. Untwalia, P.S. Kailasam JJ.',
+    theRealCitizen: 'Owners and shareholders of Minerva Mills Ltd., an ailing silk and cotton textile industrial undertaking in Bangalore, Karnataka.',
+    theGroundFacts:
+      'The Central Government passed the Sick Textile Undertakings (Taking Over of Management) Act 1974 to nationalize Minerva Mills. The owners challenged the takeover. In defense, the Union invoked Section 4 of the 42nd Constitutional Amendment 1976, which had expanded Article 31C to provide that NO law giving effect to ANY Directive Principle in Part IV could be declared void for violating Articles 14, 19, or 31.',
+    theCourtroomClash:
+      'The Union Government argued that socialist economic justice in Part IV is supreme and must override individual liberties in Part III. Nani Palkhivala (for Minerva Mills) argued that giving Part IV total supremacy over Part III tears away the Basic Structure, reducing fundamental rights to an empty parchment.',
+    verbatimRatio:
+      'The Supreme Court struck down Section 4 of the 42nd Amendment. Chief Justice Y.V. Chandrachud held that the Constitution is founded on the bedrock of balance between Part III (Fundamental Rights) and Part IV (Directive Principles). To give absolute primacy to one over the other is to upend the harmony of the Constitution, which is an inviolable part of the Basic Structure.',
+    keyQuote:
+      '"Part III and Part IV together constitute the core of commitment to social revolution. They are like two wheels of a chariot, one no less important than the other. To give absolute precedence to one over the other is to disturb the harmony of the Constitution."',
+    livingLegacy:
+      'Established the permanent doctrine that Fundamental Rights and Directive Principles must be harmoniously construed, preventing authoritarian regimes from stripping civil liberties under the pretext of socialist welfare.',
+    thematicTags: ['Article 31C', 'Basic Structure', 'Minerva Mills', 'Part III vs Part IV', 'Harmonious Construction']
+  },
+  {
+    articleNumber: '39(B)',
+    articleTitle: 'Certain principles of policy to be followed by the State (Material resources of the community)',
+    headline: 'The Cessed Buildings of Mumbai & The 9-Judge Overruling on Private Property',
+    caseName: 'Property Owners Association & Ors. v. State of Maharashtra & Ors.',
+    officialCitation: '2024 INSC 834; 2024 SCC OnLine SC 3180',
+    decisionYear: 2024,
+    bench: '9-Judge Constitution Bench: D.Y. Chandrachud (CJI), Hrishikesh Roy, B.V. Nagarathna, Sudhanshu Dhulia, J.B. Pardiwala, Manoj Misra, Rajesh Bindal, Satish Chandra Sharma, Augustine George Masih JJ.',
+    theRealCitizen: 'Property Owners Association, representing owners of 19,000 dilapidated residential "cessed" buildings in South and Central Mumbai.',
+    theGroundFacts:
+      'Under Chapter VIII-A of the Maharashtra Housing and Area Development Act 1976 (MHADA), the state government empowered itself to acquire dilapidated private residential buildings in Mumbai upon request by 70% of tenants to transfer ownership to them, claiming protection under Article 39(b) ("material resources of the community are so distributed as best to subserve the common good"). Landlords challenged the acquisitions.',
+    theCourtroomClash:
+      'State of Maharashtra relied on Justice Krishna Iyer\'s 1978 judgment in Sanjeev Coke, arguing that ALL privately owned property in India constitutes "material resources of the community". Landlords argued that equating private homes with community resources was an unconstitutional communist doctrine that abolished the concept of private ownership in India.',
+    verbatimRatio:
+      'A historic 9-judge Constitution Bench (8–1) decisively overruled Justice Krishna Iyer\'s socialist doctrine: The Court held that NOT all privately owned property constitutes "material resources of the community" under Article 39(b). Private property can be categorized as a community resource ONLY if it has a direct public nexus, such as scarce natural resources, water bodies, or public utilities.',
+    keyQuote:
+      '"To hold that all private property is a material resource of the community merely because it meets the material needs of individuals is to endorse a particular economic ideology of State ownership not mandated by our Constitution. India\'s economic structure is a mixed economy."',
+    livingLegacy:
+      'Re-calibrated Indian constitutional property jurisprudence for the 21st century, providing legal certainty for private enterprise, investments, and homeowner rights while preserving the state\'s power to regulate public utilities.',
+    thematicTags: ['Article 39(b)', 'Private Property', 'Mumbai Landlords', 'Economic Justice', 'Mixed Economy']
+  },
+  {
+    articleNumber: '39A',
+    articleTitle: 'Equal justice and free legal aid',
+    headline: 'The Forgotten Undertrials of Bihar & The Magna Carta of Free Legal Aid',
+    caseName: 'Hussainara Khatoon & Ors. (I to VI) v. Home Secretary, State of Bihar',
+    officialCitation: 'AIR 1979 SC 1360; (1980) 1 SCC 81',
+    decisionYear: 1979,
+    bench: '3-Judge Bench: P.N. Bhagwati, V.D. Tulzapurkar, O. Chinnappa Reddy JJ.',
+    theRealCitizen: 'Hussainara Khatoon and thousands of impoverished, forgotten undertrial prisoners in Patna and Muzaffarpur central jails.',
+    theGroundFacts:
+      'In January 1979, investigative journalist K.F. Rustamji published an expose in The Indian Express revealing that thousands of men, women, and children in Bihar jails had been detained as undertrials for 5 to 10 years without ever having their trials started, far exceeding the maximum punishment for their alleged crimes, simply because they were too poor to afford bail bonds or a defense lawyer. Advocate Pushpa Kapila Hingorani filed a PIL habeas corpus writ.',
+    theCourtroomClash:
+      'State of Bihar pleaded systemic delays, shortage of judges, and lack of funds. Hingorani argued that keeping human beings in cages without trial violated Article 21 and rendered equal justice under Article 39A an illusion.',
+    verbatimRatio:
+      'The Supreme Court ordered the immediate release of over 40,000 undertrial prisoners across Bihar. Justice P.N. Bhagwati held that the right to a speedy trial and the right to free legal aid are inalienable fundamental rights implicit in Article 21. Under Article 39A, the State has a mandatory constitutional duty to provide free legal services to every indigent accused.',
+    keyQuote:
+      '"Legal aid is not a charity or a bounty of the State; it is an essential ingredient of \'reasonable, fair and just\' procedure under Article 21. If an accused is unable to engage a lawyer due to poverty, the trial itself would be vitiated as unconstitutional."',
+    livingLegacy:
+      'The birth of modern Public Interest Litigation (PIL) in India. Led directly to the Legal Services Authorities Act 1987 (NALSA) and the nationwide network of Lok Adalats and legal aid clinics.',
+    thematicTags: ['Article 39A', 'Legal Aid', 'Speedy Trial', 'Hussainara Khatoon', 'Under-trials', 'NALSA']
+  },
+  {
+    articleNumber: '47',
+    articleTitle: 'Duty of the State to raise the level of nutrition and the standard of living and to improve public health',
+    headline: 'The 500-Metre Highway Liquor Vend Ban & Public Health as a Constitutional Mandate',
+    caseName: 'State of Tamil Nadu & Ors. v. K. Balu & Anr.',
+    officialCitation: '(2017) 2 SCC 281; AIR 2017 SC 262',
+    decisionYear: 2016,
+    bench: '3-Judge Bench: T.S. Thakur (CJI), D.Y. Chandrachud, L. Nageswara Rao JJ.',
+    theRealCitizen: 'K. Balu, road safety campaigner and advocate representing road accident victims.',
+    theGroundFacts:
+      'Official road transport data revealed that India witnessed over 150,000 fatal road accidents annually, with drunken driving along national and state expressways being a leading contributor. State excise departments had auctioned thousands of liquor vends, bars, and beer shops directly adjacent to highway toll plazas and bypasses to maximize tax revenue.',
+    theCourtroomClash:
+      'State governments and hotel associations argued that shutting highway vends would destroy tourism, cost thousands of hospitality jobs, and cost states ₹50,000 crores in excise duties. Petitioners argued that the State\'s duty to protect human life under Article 21 and improve public health under Article 47 must prevail over commercial revenue.',
+    verbatimRatio:
+      'The Supreme Court prohibited all liquor retail vends, shops, and bars within 500 metres of the outer edge of any National or State Highway across the territory of India. The Court held that human life cannot be sacrificed at the altar of state excise revenues, and Article 47 imposes a constitutional duty on the State to curb the consumption of intoxicating drinks.',
+    keyQuote:
+      '"The right to life under Article 21 includes the right to safe roads and freedom from hazards created by drunken driving. State revenue earned from the sale of liquor cannot override the constitutional duty to safeguard public health and human life under Article 47."',
+    livingLegacy:
+      'Transformed highway safety and urban zoning nationwide, forcing states to strictly monitor drunk-driving corridors and rethink liquor vendor licencing policies.',
+    thematicTags: ['Article 47', 'Public Health', 'Highway Safety', 'Liquor Ban', 'Right to Life']
+  },
+  {
+    articleNumber: '48A',
+    articleTitle: 'Protection and improvement of environment and safeguarding of forests and wild life',
+    headline: 'The Yellowing Marble of the Taj Mahal & The Precautionary Principle',
+    caseName: 'M.C. Mehta (Taj Trapezium Case) v. Union of India & Ors.',
+    officialCitation: 'AIR 1997 SC 734; (1997) 2 SCC 353',
+    decisionYear: 1996,
+    bench: '2-Judge Bench: Kuldip Singh, Faizan Uddin JJ.',
+    theRealCitizen: 'M.C. Mehta, pioneering green lawyer fighting to rescue India\'s architectural heritage.',
+    theGroundFacts:
+      'Toxic emissions of sulfur dioxide and suspended particulate matter from 292 coal-burning iron foundries, glassworks, and the Mathura Petroleum Refinery in the Agra region were reacting with atmospheric moisture to form acid rain. The acid rain was corroding and turning the pristine white Makrana marble of the world wonder Taj Mahal into a yellowish, pitted surface (known as "marble cancer").',
+    theCourtroomClash:
+      'Industrialists argued that closing their factories would displace thousands of industrial workers and ruin the glass manufacturing industry of Firozabad. Mehta argued that under Articles 48A and 51A(g), the State and every citizen have an overriding duty to protect ancient heritage and the natural environment.',
+    verbatimRatio:
+      'The Supreme Court invoked the "Precautionary Principle" and "Polluter Pays Principle" as essential facets of sustainable development under Article 21 and 48A. The Court ordered all 292 industries inside the 10,400 sq km Taj Trapezium Zone (TTZ) to either transition to natural gas (CNG/PNG) within a strict deadline or shut down and relocate outside the zone.',
+    keyQuote:
+      '"The \'Precautionary Principle\' and the \'Polluter Pays Principle\' are essential features of Sustainable Development and are part of the environmental law of the land under Articles 21, 47, 48A and 51A(g). We cannot allow a world heritage wonder to perish for industrial convenience."',
+    livingLegacy:
+      'Created the permanent Taj Trapezium Zone (TTZ) authority and established modern Indian environmental jurisprudence where sustainable development takes precedence over unregulated industrial pollution.',
+    thematicTags: ['Article 48A', 'Taj Mahal', 'Environment', 'Polluter Pays', 'Precautionary Principle']
+  },
+  {
+    articleNumber: '51A',
+    articleTitle: 'Fundamental duties',
+    headline: 'Merit in Super-Speciality Medical Seats & The Constitutional Duty to Strive for Excellence',
+    caseName: 'AIIMS Students\' Union v. AIIMS & Ors.',
+    officialCitation: 'AIR 2001 SC 3262; (2002) 1 SCC 428',
+    decisionYear: 2001,
+    bench: '3-Judge Bench: R.C. Lahoti, K.G. Balakrishnan, Ashok Bhan JJ.',
+    theRealCitizen: 'AIIMS Students\' Union, representing meritorious medical graduates.',
+    theGroundFacts:
+      'The All India Institute of Medical Sciences (AIIMS), New Delhi, introduced a 33% internal institutional quota in its premier post-graduate medical courses (MD/MS) for students who had completed their MBBS at AIIMS itself. As a result, outside candidates with top ranks in the grueling all-India entrance examination were rejected, while internal candidates with much lower percentiles were admitted into super-speciality surgical departments.',
+    theCourtroomClash:
+      'AIIMS administration argued it had statutory autonomy to encourage its own graduates to remain and serve the institution. Meritorious aspirants argued the 33% quota destroyed academic equality under Article 14 and degraded medical excellence.',
+    verbatimRatio:
+      'Justice R.C. Lahoti struck down the 33% institutional quota. The Court held that Fundamental Duties in Article 51A cannot be disregarded as ornamental; they provide the constitutional lens through which statutory actions are tested. Specifically, Article 51A(j) mandates that every citizen and institution strive towards excellence in all spheres, and dilution of merit in super-speciality medicine compromises national excellence.',
+    keyQuote:
+      '"Fundamental duties, though not enforceable by a writ of mandamus, are not useless. They cast a duty on the State to uphold excellence. Under Article 51A(j), striving for excellence is a national duty. In super-speciality medical education, where human lives are at stake, excellence cannot be sacrificed."',
+    livingLegacy:
+      'Landmark precedent establishing that Fundamental Duties have substantive legal force in interpreting equality under Article 14, particularly in higher scientific, medical, and technical education.',
+    thematicTags: ['Article 51A', 'Fundamental Duties', 'Excellence', 'AIIMS', 'Merit']
+  },
+  {
+    articleNumber: '53',
+    articleTitle: 'Executive power of the Union',
+    headline: 'The Subordinate Judicial Officers & The Constitutional Figurehead Principle',
+    caseName: 'Shamsher Singh & Anr. v. State of Punjab',
+    officialCitation: 'AIR 1974 SC 2192; (1974) 2 SCC 831',
+    decisionYear: 1974,
+    bench: '7-Judge Constitution Bench: A.N. Ray (CJI), P. Jaganmohan Reddy, D.G. Palekar, H.R. Khanna, K.K. Mathew, V.R. Krishna Iyer, P.N. Bhagwati JJ.',
+    theRealCitizen: 'Shamsher Singh and Ishwar Chand Agarwal, subordinate judicial officers in Punjab whose services were terminated.',
+    theGroundFacts:
+      'The services of two probationary judicial officers were terminated by orders issued in the name of the Governor of Punjab on the recommendation of the High Court. The officers argued that under Article 234 and Article 163, the Governor\'s satisfaction was a personal sovereign prerogative that could not be delegated to ministers or departmental secretaries.',
+    theCourtroomClash:
+      'Judicial officers argued that executive power vested in the President (Art. 53) and Governor (Art. 154) requires their personal subjective satisfaction. The State argued that India adopted the British parliamentary cabinet system where the head of state acts solely through the elected cabinet.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench settled the constitutional position of the President of India and State Governors once and for all: They are constitutional, formal heads of state, not personal rulers. The "satisfaction" required by the Constitution is NOT personal satisfaction, but the satisfaction of the Council of Ministers on whose aid and advice they must act.',
+    keyQuote:
+      '"The President as well as the Governor acts on the aid and advice of the Council of Ministers in executive functions. The Constitution does not contemplate an imperial presidency or a parallel executive power in Raj Bhavan. The Cabinet is responsible to Parliament, and power follows responsibility."',
+    livingLegacy:
+      'The cornerstone of Indian parliamentary democracy, cited whenever governors or presidents attempt to act independently of cabinet advice.',
+    thematicTags: ['Article 53', 'Article 74', 'Parliamentary Democracy', 'Cabinet System', 'Governor Power']
+  },
+  {
+    articleNumber: '74',
+    articleTitle: 'Council of Ministers to aid and advise President',
+    headline: 'The Aid and Advice Mandate & The Cabinet System of the Republic',
+    caseName: 'U.N.R. Rao v. Indira Gandhi',
+    officialCitation: 'AIR 1971 SC 1002; (1971) 2 SCC 63',
+    decisionYear: 1971,
+    bench: '5-Judge Constitution Bench: S.M. Sikri (CJI), G.K. Mitter, K.S. Hegde, A.N. Grover, P. Jaganmohan Reddy JJ.',
+    theRealCitizen: 'U.N.R. Rao, an advocate from Madras challenging Indira Gandhi’s continued premiership after the dissolution of the Lok Sabha.',
+    theGroundFacts:
+      'On December 27, 1970, President V.V. Giri dissolved the fourth Lok Sabha. The petitioner argued that as soon as the House of the People was dissolved, the Council of Ministers ceased to be collectively responsible to the Lok Sabha under Article 75(3), and therefore Prime Minister Indira Gandhi and her ministers had no constitutional authority to continue in office until fresh elections were held.',
+    theCourtroomClash:
+      'Petitioner argued that upon dissolution of the Lok Sabha, the President must exercise executive power directly without a Council of Ministers. The Union argued that Article 74(1) uses the mandatory word "shall"—there must ALWAYS be a Council of Ministers to aid and advise the President.',
+    verbatimRatio:
+      'The Supreme Court unanimously held that Article 74(1) is mandatory. The President cannot exercise executive power for even a single day without a Council of Ministers to aid and advise him. Dissolution of the Lok Sabha does not dismiss the Ministry; the Prime Minister and Cabinet continue as a caretaker government until the new House is constituted.',
+    keyQuote:
+      '"Article 74(1) is mandatory. The President cannot exercise his executive functions without the aid and advice of the Council of Ministers. The Council of Ministers does not cease to exist upon the dissolution of the House of the People."',
+    livingLegacy:
+      'Ensured uninterrupted executive governance in India during parliamentary dissolutions and general election cycles.',
+    thematicTags: ['Article 74', 'Caretaker Government', 'Aid and Advice', 'Cabinet', 'Presidential Power']
+  },
+  {
+    articleNumber: '75',
+    articleTitle: 'Other provisions as to Ministers',
+    headline: 'The Conviction of J. Jayalalithaa & The Quashing of a Chief Minister\'s Appointment',
+    caseName: 'B.R. Kapur v. State of Tamil Nadu & Ors.',
+    officialCitation: 'AIR 2001 SC 3435; (2001) 7 SCC 231',
+    decisionYear: 2001,
+    bench: '5-Judge Constitution Bench: S.P. Bharucha, S.S.M. Quadri, N. Santosh Hegde, S.N. Variava, Y.K. Sabharwal JJ.',
+    theRealCitizen: 'B.R. Kapur, petitioner seeking a writ of Quo Warranto against the appointment of J. Jayalalithaa as Chief Minister.',
+    theGroundFacts:
+      'In May 2001, the AIADMK won a commanding majority in the Tamil Nadu Legislative Assembly. The party elected its general secretary, J. Jayalalithaa, as its legislative leader. However, Jayalalithaa had been convicted under the Prevention of Corruption Act and sentenced to three years rigorous imprisonment in the TANSI land case, disqualifying her from contesting elections under Section 8(3) of the Representation of the People Act 1951. Despite this conviction, Governor M. Fathima Beevi administered the oath of office and appointed her Chief Minister under Article 164.',
+    theCourtroomClash:
+      'The State of Tamil Nadu argued that Article 164(4) permits a non-member of the legislature to be appointed Minister for six months, and popular mandate overrides statutory disqualification. Kapur argued that a person barred by law from being a simple MLA cannot be sworn in to head the government.',
+    verbatimRatio:
+      'The 5-judge Constitution Bench held that a person who is convicted of an offense and disqualified by law from being elected to the Legislative Assembly CANNOT be appointed Chief Minister or Minister under Article 164(1) / 75(1). The Court issued a writ of Quo Warranto quashing Jayalalithaa\'s appointment as unconstitutional.',
+    keyQuote:
+      '"The Constitution cannot be read as permitting a person who has been convicted of a criminal offense and disqualified from being a legislator to enter the Ministry by the backdoor and become its Chief. The will of the people must obey the commands of the Constitution."',
+    livingLegacy:
+      'Established that the Rule of Law and constitutional morality reign supreme over raw electoral majorities, barring convicted politicians from assuming executive ministerial posts.',
+    thematicTags: ['Article 75', 'Article 164', 'Quo Warranto', 'Disqualification', 'Corruption']
+  },
+  {
+    articleNumber: '105',
+    articleTitle: 'Powers, privileges, etc., of the Houses of Parliament and of the members and committees thereof',
+    headline: 'The Cash-for-Votes Scandal Overruled: Bribery Has No Parliamentary Immunity',
+    caseName: 'Sita Soren v. Union of India',
+    officialCitation: '2024 INSC 165; 2024 SCC OnLine SC 229',
+    decisionYear: 2024,
+    bench: '7-Judge Constitution Bench: D.Y. Chandrachud (CJI), A.S. Bopanna, M.M. Sundresh, P.S. Narasimha, J.B. Pardiwala, Sanjay Kumar, Manoj Misra JJ.',
+    theRealCitizen: 'Sita Soren, Member of the Jharkhand Legislative Assembly, daughter-in-law of former Union Minister Shibu Soren.',
+    theGroundFacts:
+      'In the 2012 Rajya Sabha elections, Sita Soren allegedly took a ₹1.5 crore cash bribe from an independent candidate to vote for him, but ended up voting for another candidate from her own party. When the CBI filed a chargesheet under the Prevention of Corruption Act, she claimed absolute constitutional immunity under Article 194(2) (the state counterpart to Article 105(2)), relying on the 1998 5-judge bench decision in P.V. Narasimha Rao v. State (JMM Bribery case), which had shielded MPs who received bribes and voted in Parliament.',
+    theCourtroomClash:
+      'Soren argued that voting in an election is a parliamentary proceeding, and legislators have complete immunity from criminal prosecution for anything said or voted. The Union and amicus argued that bribery is a corrosive crime that destroys the democratic fabric and can never be a legitimate parliamentary privilege.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench unanimously overruled the 26-year-old P.V. Narasimha Rao precedent. The Court held that parliamentary privileges under Articles 105(2) and 194(2) are designed to protect genuine legislative freedom of speech, NOT to provide a cloak of immunity for bribery. The crime of bribery is complete the moment the bribe is accepted, irrespective of whether the vote is subsequently cast.',
+    keyQuote:
+      '"Bribery is not protected by parliamentary privilege. Articles 105 and 194 seek to create an atmosphere where debate can flourish; they do not carve out a safe haven for criminal corruption that eats away at the foundations of our democracy."',
+    livingLegacy:
+      'One of the most celebrated anti-corruption rulings in Indian history, ensuring that legislators taking cash for votes or questions in Parliament can be prosecuted under criminal law.',
+    thematicTags: ['Article 105', 'Article 194', 'Parliamentary Privilege', 'Bribery', 'Sita Soren']
+  },
+  {
+    articleNumber: '110',
+    articleTitle: 'Definition of "Money Bills"',
+    headline: 'The Aadhaar Act as a Money Bill: Speaker\'s Certificate & The Limits of Article 110',
+    caseName: 'Justice K.S. Puttaswamy (Retd.) & Anr. v. Union of India (Aadhaar Case)',
+    officialCitation: '(2019) 1 SCC 1; AIR 2019 SC 1',
+    decisionYear: 2018,
+    bench: '5-Judge Constitution Bench: Dipak Misra (CJI), A.K. Sikri, A.M. Khanwilkar, D.Y. Chandrachud, Ashok Bhushan JJ.',
+    theRealCitizen: 'Justice K.S. Puttaswamy (former Karnataka High Court Judge) and civil liberties petitioners.',
+    theGroundFacts:
+      'The Aadhaar (Targeted Delivery of Financial and Other Subsidies, Benefits and Services) Bill 2016 was introduced in the Lok Sabha as a "Money Bill" under Article 110. The Speaker certified it as a Money Bill. Because the ruling party had a majority in the Lok Sabha but not in the Rajya Sabha, this certification effectively stripped the Upper House (the Council of States) of its power to amend or reject the legislation. Petitioners challenged the validity of the Act.',
+    theCourtroomClash:
+      'The Union Government argued that under Article 110(3), the decision of the Speaker on whether a bill is a Money Bill is "final" and cannot be questioned in any court. Petitioners argued that the Aadhaar Act created a nationwide surveillance biometric database with criminal penalties and regulatory authorities, going far beyond the exclusive financial subjects listed in Article 110(1).',
+    verbatimRatio:
+      'While the majority (4–1) upheld the Aadhaar Act by finding a nexus with Section 7 subsidies, Justice D.Y. Chandrachud delivered a landmark dissent holding that the Speaker\'s certificate under Article 110(3) is subject to judicial review. Passing an ordinary bill as a Money Bill to bypass the Rajya Sabha is a constitutional fraud and subversion of bicameral federalism.',
+    keyQuote:
+      'Justice Chandrachud (dissenting): "The Rajya Sabha represents the federal character of the Indian republic. To bypass it by improperly certifying an ordinary bill as a Money Bill is a fraud on the Constitution. Article 110(3) does not confer arbitrary, unreviewable immunity on the Speaker."',
+    livingLegacy:
+      'Sparked the ongoing 7-judge Constitution Bench reference on Money Bills, reshaping parliamentary scrutiny and protecting bicameral checks and balances.',
+    thematicTags: ['Article 110', 'Money Bill', 'Rajya Sabha', 'Aadhaar', 'Speaker Finality']
+  },
+  {
+    articleNumber: '129',
+    articleTitle: 'Supreme Court to be a court of record',
+    headline: 'Can the Supreme Court Disbar an Advocate for Contempt? The Vinay Chandra Mishra Correction',
+    caseName: 'Supreme Court Bar Association v. Union of India & Anr.',
+    officialCitation: 'AIR 1998 SC 1895; (1998) 4 SCC 409',
+    decisionYear: 1998,
+    bench: '5-Judge Constitution Bench: A.S. Anand, S.C. Agrawal, K. Venkataswami, V.N. Khare, A.P. Misra JJ.',
+    theRealCitizen: 'Supreme Court Bar Association (SCBA), defending the statutory independence of the legal profession.',
+    theGroundFacts:
+      'In 1995, in In re Vinay Chandra Mishra, a 3-judge bench of the Supreme Court found a senior advocate and Bar Council President guilty of criminal contempt for misbehaving with a High Court judge. Invoking Articles 129 and 142, the Court suspended his license to practice law for three years. The SCBA filed a review writ petition challenging the Court\'s jurisdiction to punish an advocate by suspending their license.',
+    theCourtroomClash:
+      'SCBA argued that under the Advocates Act 1961, the disciplinary power to suspend or revoke an advocate\'s license is vested exclusively in the State Bar Councils and the Bar Council of India. The Court\'s inherent contempt power under Article 129 cannot usurp statutory disciplinary bodies.',
+    verbatimRatio:
+      'The 5-judge Constitution Bench unanimously overruled the Vinay Chandra Mishra judgment. The Court held that while the Supreme Court has plenary power under Article 129 to punish for contempt by fine or imprisonment, it CANNOT suspend or revoke an advocate\'s license to practice law. Professional suspension falls strictly within the domain of the Bar Council under the Advocates Act 1961.',
+    keyQuote:
+      '"The power to punish for contempt under Article 129 is to uphold the majesty of law and prevent obstruction of justice. It does not empower the Court to act as a disciplinary body and suspend the professional license of an advocate, which is the statutory preserve of the Bar Councils."',
+    livingLegacy:
+      'Delineated the boundaries of the Supreme Court\'s contempt jurisdiction, protecting the independence of the bar and ensuring institutional balance between the judiciary and regulatory bar councils.',
+    thematicTags: ['Article 129', 'Contempt of Court', 'Advocates Act', 'Legal Profession', 'Article 142']
+  },
+  {
+    articleNumber: '131',
+    articleTitle: 'Original jurisdiction of the Supreme Court',
+    headline: 'The Grover Commission of Inquiry & The Federal Tug-of-War between Centre and State',
+    caseName: 'State of Karnataka v. Union of India & Anr.',
+    officialCitation: 'AIR 1978 SC 68; (1977) 4 SCC 608',
+    decisionYear: 1977,
+    bench: '7-Judge Constitution Bench: M.H. Beg (CJI), Y.V. Chandrachud, P.N. Bhagwati, P.K. Goswami, P.N. Shinghal, N.L. Untwalia, K.S. Hegde JJ.',
+    theRealCitizen: 'State of Karnataka, through its Chief Minister D. Devaraj Urs.',
+    theGroundFacts:
+      'In May 1977, the Central Government appointed a Commission of Inquiry headed by retired SC Justice A.N. Grover to investigate allegations of corruption, favoritism, and nepotism against Karnataka Chief Minister Devaraj Urs. The State of Karnataka filed an original suit under Article 131 against the Union, contending that under India\'s federal structure, the Centre had no constitutional authority to order an inquiry into the conduct of state ministers while the state legislature remained functional.',
+    theCourtroomClash:
+      'Union argued that Article 131 was not maintainable because no legal right of the "State" as a political entity was infringed, only the personal interests of individual ministers. Karnataka argued that an unauthorized federal probe into its state executive machinery attacked the constitutional autonomy of the State.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench held that the suit under Article 131 was maintainable. Article 131 confers exclusive original jurisdiction on the Supreme Court in any dispute between the Government of India and one or more States involving any question on which the existence or extent of a "legal right" depends, including the constitutional distribution of powers.',
+    keyQuote:
+      '"Article 131 is an essential federal provision. It provides a constitutional forum for resolving legal disputes between the Centre and the States. Whenever the constitutional powers or privileges of a State government are challenged by the Centre, a legal right is affected and a suit under Article 131 lies."',
+    livingLegacy:
+      'Established Article 131 as the primary constitutional battleground for federal disputes between the Union and States, cited in recent challenges by Kerala and Punjab regarding Central laws.',
+    thematicTags: ['Article 131', 'Federalism', 'Original Jurisdiction', 'Centre-State Relations']
+  },
+  {
+    articleNumber: '136',
+    articleTitle: 'Special leave to appeal by the Supreme Court',
+    headline: 'The Blueprint of Article 136: The Extraordinary, Residual Safety Valve of Last Resort',
+    caseName: 'Pritam Singh v. The State',
+    officialCitation: 'AIR 1950 SC 169; 1950 SCR 453',
+    decisionYear: 1950,
+    bench: '5-Judge Constitution Bench: Harilal Kania (CJI), Saiyid Fazl Ali, M. Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea JJ.',
+    theRealCitizen: 'Pritam Singh, a convict sentenced to death for murder in Ferozepore district, Punjab.',
+    theGroundFacts:
+      'Pritam Singh was convicted of murder by the Sessions Judge and his death sentence was confirmed by the High Court of East Punjab. He applied to the newly created Supreme Court of India under Article 136 for special leave to appeal, asking the Court to re-weigh the testimony of eyewitnesses.',
+    theCourtroomClash:
+      'Counsel for the convict argued that Article 136 is unfettered by procedural limitations and allows the Supreme Court to hear any appeal from any court. The State argued that the Supreme Court cannot be turned into an ordinary court of criminal appeal to retry every conviction.',
+    verbatimRatio:
+      'In this inaugural decision on Article 136, Justice Saiyid Fazl Ali laid down the golden standard that governs all Special Leave Petitions (SLPs): Article 136 is an extraordinary, discretionary residual power to be exercised sparingly only where "exceptional and special circumstances exist" and "grave and substantial injustice" has been done. The Court will not interfere with concurrent findings of fact.',
+    keyQuote:
+      '"The power under Article 136 is an extraordinary power to be exercised sparingly and with great caution. The Court will not grant special leave to appeal unless it is shown that exceptional and special circumstances exist, that substantial and grave injustice has been done, and that the case presents features of sufficient gravity."',
+    livingLegacy:
+      'The foundational charter governing the millions of SLPs filed before the Supreme Court over the last 75 years, establishing that Article 136 is an avenue for corrective constitutional justice, not routine factual retrial.',
+    thematicTags: ['Article 136', 'Special Leave Petition', 'Supreme Court Jurisdiction', 'Grave Injustice']
+  },
+  {
+    articleNumber: '141',
+    articleTitle: 'Law declared by Supreme Court to be binding on all courts',
+    headline: 'The 500 Acres of Jalandhar & The Doctrine of Prospective Overruling',
+    caseName: 'I.C. Golaknath & Ors. v. State of Punjab & Anr.',
+    officialCitation: 'AIR 1967 SC 1643; (1967) 2 SCR 762',
+    decisionYear: 1967,
+    bench: '11-Judge Constitution Bench: K. Subba Rao (CJI), K.N. Wanchoo, M. Hidayatullah, J.C. Shah, S.M. Sikri, R.S. Bachawat, V. Ramaswami, J.M. Shelat, V. Bhargava, G.K. Mitter, C.A. Vaidialingam JJ.',
+    theRealCitizen: 'Henry and William Golaknath, holders of a 500-acre family agricultural estate in Jalandhar, Punjab.',
+    theGroundFacts:
+      'Under the Punjab Security of Land Tenures Act 1953, the State Government declared that the Golaknath brothers could hold only 30 acres each, with the remaining hundreds of acres of farmland being expropriated. The brothers challenged the 1st, 4th, and 17th Constitutional Amendments under Article 13, claiming Parliament had no power to abridge Fundamental Rights.',
+    theCourtroomClash:
+      'The Union argued that Parliament holds absolute amending power under Article 368. Petitioners argued that Article 13(2) prohibits any "law" from taking away fundamental rights, and an amendment is a law.',
+    verbatimRatio:
+      'By a 6–5 majority, Chief Justice K. Subba Rao held that Parliament cannot amend Fundamental Rights. However, recognizing that overturning the 1st, 4th, and 17th Amendments retrospectively would unsettle thousands of land reform transfers made over 17 years and unleash chaos, CJI Subba Rao invoked Article 141 to import the American "Doctrine of Prospective Overruling", declaring that the ruling applied solely into the future.',
+    keyQuote:
+      '"Under Article 141, the law declared by the Supreme Court is binding on all courts. Our Constitution does not prevent this Court from applying the Doctrine of Prospective Overruling to adjust future rights without unsettling transactions completed in the past under previous interpretations."',
+    livingLegacy:
+      'The birthplace of Prospective Overruling in Indian law and the direct catalyst that prompted Parliament to pass the 24th Amendment, setting the stage for the historic Kesavananda Bharati showdown in 1973.',
+    thematicTags: ['Article 141', 'Prospective Overruling', 'Golaknath', 'Amending Power', 'Precedent']
+  },
+  {
+    articleNumber: '143',
+    articleTitle: 'Power of President to consult Supreme Court',
+    headline: 'The Seven Separate Opinions & The Doctrine of Permissible Delegated Legislation',
+    caseName: 'In re The Delhi Laws Act, 1912',
+    officialCitation: 'AIR 1951 SC 332; 1951 SCR 747',
+    decisionYear: 1951,
+    bench: '7-Judge Constitution Bench: Harilal Kania (CJI), Saiyid Fazl Ali, M. Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea, S.R. Das, Vivian Bose JJ.',
+    theRealCitizen: 'President of India Dr. Rajendra Prasad, seeking the Supreme Court\'s constitutional opinion.',
+    theGroundFacts:
+      'In 1951, the President made the very first Reference under Article 143(1) asking whether Section 7 of the Delhi Laws Act 1912 (which empowered the provincial executive to extend any law in force in British India to Delhi with such modifications and restrictions as it deemed fit) was ultra vires the power of the legislature.',
+    theCourtroomClash:
+      'The Government argued that legislature has sovereign power to delegate its law-making function to the executive. Opponents argued that the doctrine of Separation of Powers forbids the legislature from delegating its legislative power to another branch (delegata potestas non potest delegari).',
+    verbatimRatio:
+      'In seven legendary separate opinions spanning over 300 pages, the 7-judge Constitution Bench formulated the bedrock principle of Indian administrative law: Parliament can delegate subordinate, procedural, and ancillary rule-making powers to the executive, but it CANNOT abdicate its "essential legislative function"—the formulation of legislative policy and enactment of statutory standards.',
+    keyQuote:
+      '"The essential legislative function consists in the determination or choice of legislative policy and of formally enacting that policy into a binding rule of conduct. The legislature cannot abdicate this function and delegate it to the executive."',
+    livingLegacy:
+      'Defined the boundaries of delegated legislation for all future statutory rules, regulations, and notifications issued by ministries across India.',
+    thematicTags: ['Article 143', 'Delegated Legislation', 'Delhi Laws Act', 'Separation of Powers', 'Advisory Jurisdiction']
+  },
+  {
+    articleNumber: '161',
+    articleTitle: 'Power of Governor to grant pardons, etc.',
+    headline: 'The Naval Commander\'s Crime of Passion & The Clash Between Governor\'s Pardon and Judicial Power',
+    caseName: 'K.M. Nanavati v. State of Bombay',
+    officialCitation: 'AIR 1961 SC 112; (1961) 1 SCR 497',
+    decisionYear: 1961,
+    bench: '5-Judge Constitution Bench: B.P. Sinha (CJI), P.B. Gajendragadkar, K. Subba Rao, K.N. Wanchoo, J.C. Shah JJ.',
+    theRealCitizen: 'Commander Kawas Manekshaw Nanavati, decorated Second World War Indian Navy officer.',
+    theGroundFacts:
+      'On April 27, 1959, Commander Nanavati shot and killed Prem Bhagwandas Ahuja, a wealthy businessman who had an affair with his English wife Sylvia. After the Sessions Court jury acquitted him, the High Court reversed the verdict, convicting him of murder and sentencing him to life imprisonment. Within hours, the Governor of Bombay Vijaya Lakshmi Pandit issued an order under Article 161 suspending the execution of the sentence until his appeal to the Supreme Court was decided, keeping him in comfortable naval custody rather than ordinary prison.',
+    theCourtroomClash:
+      'Nanavati argued that the Governor\'s pardoning power under Article 161 is a sovereign prerogative that can be exercised at any stage without interference. The State and Bar argued that while an appeal is pending before the Supreme Court, the Court\'s judicial power under Article 142 overrides executive clemency.',
+    verbatimRatio:
+      'The Supreme Court held that the Governor\'s power under Article 161 to suspend a sentence CANNOT operate during the period when the matter is sub-judice before the Supreme Court and the Court is seized of the case under Article 142. The executive cannot usurp the judicial sphere while an appeal is actively pending.',
+    keyQuote:
+      '"Article 161 does not empower the Governor to suspend the execution of a sentence during the period when the matter is sub-judice in this Court on an appeal. Field of operation of Article 161 and Article 142 must be harmoniously adjusted; executive clemency cannot override judicial custody."',
+    livingLegacy:
+      'Solidified the supremacy of judicial power in active litigation, establishing that executive pardons cannot be deployed as political shields to bypass judicial custody.',
+    thematicTags: ['Article 161', 'Pardon Power', 'Nanavati', 'Article 142', 'Separation of Powers']
+  },
+  {
+    articleNumber: '194',
+    articleTitle: 'Powers, privileges, etc., of the Houses of Legislatures and of the members and committees thereof',
+    headline: 'The Pamphlet Thrower, The Imprisoned Judges & The Constitutional Standoff',
+    caseName: 'Special Reference No. 1 of 1964 (Keshav Singh\'s Case / UP Assembly Conflict)',
+    officialCitation: 'AIR 1965 SC 745; (1965) 1 SCR 413',
+    decisionYear: 1964,
+    bench: '7-Judge Constitution Bench: P.B. Gajendragadkar (CJI), K.N. Wanchoo, M. Hidayatullah, J.C. Shah, S.M. Sikri, R.S. Bachawat, J.R. Mudholkar JJ.',
+    theRealCitizen: 'Keshav Singh, political activist in Gorakhpur, Uttar Pradesh.',
+    theGroundFacts:
+      'Keshav Singh published a pamphlet accusing an MLA of corruption and distributed it in the UP Assembly. The Assembly found him guilty of contempt and imprisoned him for 7 days. His advocate Solomon moved a habeas corpus petition under Article 226 before the Lucknow Bench of the Allahabad High Court; Justices Beg and Sehgal granted him interim bail. Outraged, the UP Assembly passed a resolution declaring that the two High Court judges and the lawyer had committed contempt of the House, and ordered the police to arrest the judges and produce them in custody before the bar of the House. The High Court full bench (28 judges) stayed the arrest warrants, causing an unprecedented constitutional crisis between the legislature and the judiciary.',
+    theCourtroomClash:
+      'The Legislative Assembly argued that under Article 194(3), its privileges are equivalent to the British House of Commons and completely immune from judicial review. The High Court argued that under the written Constitution of India, fundamental rights under Article 21 and judicial review under Article 226 reign supreme.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench held that the High Courts have the constitutional power under Article 226 to hear a citizen\'s habeas corpus petition challenging detention by a legislative assembly. The House of Commons analogy cannot override the written Constitution, and a legislative assembly has no power to arrest or punish High Court judges for performing their judicial duties.',
+    keyQuote:
+      '"In a democratic country governed by a written Constitution, it is the Constitution that is supreme, and not any of the organs created by it. High Courts have the power to examine whether detention ordered by a legislature violates Article 21."',
+    livingLegacy:
+      'One of the most famous constitutional moments in Indian history, preventing state legislatures from assuming unchecked power to jail judges or citizens who question legislative overreach.',
+    thematicTags: ['Article 194', 'Parliamentary Privilege', 'Habeas Corpus', 'Judicial Independence', 'Contempt']
+  },
+  {
+    articleNumber: '213',
+    articleTitle: 'Power of Governor to promulgate Ordinances during recess of Legislature',
+    headline: 'The 429 Sanskrit Teachers & The 7-Judge Condemnation of Ordinance Raj',
+    caseName: 'Krishna Kumar Singh & Anr. v. State of Bihar & Ors.',
+    officialCitation: '(2017) 3 SCC 1; AIR 2017 SC 1365',
+    decisionYear: 2017,
+    bench: '7-Judge Constitution Bench: T.S. Thakur (CJI), Madan B. Lokur, S.A. Bobde, A.K. Goel, U.U. Lalit, D.Y. Chandrachud, L. Nageswara Rao JJ.',
+    theRealCitizen: 'Krishna Kumar Singh and 429 teachers of private Sanskrit primary and secondary schools in Bihar.',
+    theGroundFacts:
+      'In 1989, the Governor of Bihar promulgated an ordinance taking over 429 private Sanskrit schools and converting their teachers into government employees. The government never laid the ordinance before the State Legislature; instead, it re-promulgated the ordinance eight consecutive times over several years, then let it lapse without passing a law, leaving the teachers without recognition, pensions, or salaries for decades.',
+    theCourtroomClash:
+      'State of Bihar argued that the Governor\'s power to promulgate ordinances under Article 213 is plenary and unreviewable. The teachers argued that repeatedly bypassing the elected legislature to run a state by executive decree is an egregious fraud on the Constitution.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench ruled that the requirement to place an ordinance before the legislature under Article 213 is MANDATORY. Repeated re-promulgation of an ordinance without laying it before the elected legislature is a subversion of the democratic process and a fraud on the Constitution. An ordinance does not create permanent rights that survive its expiration unless validated by an Act of the legislature.',
+    keyQuote:
+      '"The power to issue an ordinance is an emergency power to meet an unforeseen situation when the legislature is not in session. Re-promulgation of ordinances without placing them before the legislature is a fraud on the Constitution and a subversion of democratic governance."',
+    livingLegacy:
+      'The definitive nail in the coffin of "Ordinance Raj" in India, making state and union governments accountable to legislative floor scrutiny.',
+    thematicTags: ['Article 213', 'Ordinance', 'Fraud on Constitution', 'Separation of Powers', 'Bihar Sanskrit Schools']
+  },
+  {
+    articleNumber: '227',
+    articleTitle: 'Power of superintendence over all courts by the High Court',
+    headline: 'The Fall of Article 323A(2)(d): High Court Superintendence as Basic Structure',
+    caseName: 'L. Chandra Kumar v. Union of India & Ors.',
+    officialCitation: 'AIR 1997 SC 1125; (1997) 3 SCC 261',
+    decisionYear: 1997,
+    bench: '7-Judge Constitution Bench: A.M. Ahmadi (CJI), M.M. Punchhi, K. Ramaswamy, S.P. Bharucha, S. Saghir Ahmad, K. Venkataswami, K.T. Thomas JJ.',
+    theRealCitizen: 'L. Chandra Kumar and government employee associations.',
+    theGroundFacts:
+      'Parliament enacted the Administrative Tribunals Act 1985 under Article 323A (inserted by the 42nd Amendment). Section 28 of the Act excluded the jurisdiction of all High Courts under Articles 226 and 227 in civil service disputes, making Central Administrative Tribunal (CAT) orders appealable only to the Supreme Court under Article 136. Litigants challenged this exclusion, arguing it severely crippled access to justice.',
+    theCourtroomClash:
+      'Union argued that tribunals were created to reduce the crushing burden on High Courts and specialize in service law. Petitioners argued that High Courts are constitutional courts of record and stripping their supervisory jurisdiction under Article 227 violates the Basic Structure.',
+    verbatimRatio:
+      'The 7-judge Constitution Bench held that the power of judicial review under Articles 226 and 227 is an inviolable part of the Basic Structure of the Constitution. Tribunals can act as supplemental courts of first instance, but they CANNOT exclude or substitute the supervisory jurisdiction of High Courts under Article 226/227. All tribunal decisions must remain subject to the scrutiny of a Division Bench of the High Court.',
+    keyQuote:
+      '"The power of judicial superintendence vested in High Courts under Articles 226 and 227 is an integral and essential feature of the Constitution, constituting part of its basic structure. Clause (2)(d) of Article 323A and clause (3)(d) of Article 323B to the extent they exclude High Court review are unconstitutional."',
+    livingLegacy:
+      'Restored the High Courts as the constitutional guardians over all specialized tribunals (CAT, NGT, NCLT, Armed Forces Tribunal), preserving judicial hierarchy and access to justice.',
+    thematicTags: ['Article 227', 'Article 226', 'Basic Structure', 'Tribunals', 'Judicial Review', 'L Chandra Kumar']
+  },
+  {
+    articleNumber: '245',
+    articleTitle: 'Extent of laws made by Parliament and by the Legislatures of States',
+    headline: 'The Wealth Tax on Agricultural Land & The Vast Reservoir of Residuary Powers',
+    caseName: 'Union of India v. H.S. Dhillon',
+    officialCitation: 'AIR 1972 SC 1061; (1971) 2 SCC 779',
+    decisionYear: 1971,
+    bench: '7-Judge Constitution Bench: S.M. Sikri (CJI), J.M. Shelat, I.D. Dua, H.R. Khanna, G.K. Mitter, C.A. Vaidialingam, A.N. Ray JJ.',
+    theRealCitizen: 'H.S. Dhillon, an agricultural landowner in Punjab.',
+    theGroundFacts:
+      'By the Finance Act 1969, Parliament amended the Wealth Tax Act 1957 to include the capital value of agricultural land within taxable net wealth. Agriculturalist H.S. Dhillon challenged the tax, arguing that Entry 86 List I (Union List) explicitly excludes agricultural land, and Entry 49 List II (State List) gives states exclusive power over taxes on lands and buildings.',
+    theCourtroomClash:
+      'Dhillon argued Parliament lacked legislative competence to tax agricultural wealth. The Union argued that under Article 248 and Entry 97 List I (Residuary Powers), Parliament possesses plenary competence to legislate on any matter not specifically enumerated in List II.',
+    verbatimRatio:
+      'The Supreme Court (4–3) upheld the Central wealth tax. Chief Justice S.M. Sikri held that in testing the legislative competence of Parliament, the inquiry is NOT whether the subject falls within List I, but whether it falls within List II. If the subject matter does not fall within the exclusive domain of List II (State List), Parliament has plenary competence under Article 248 and Entry 97 List I.',
+    keyQuote:
+      '"Under our Constitution, Parliament has residuary legislative power. If an Act passed by Parliament does not fall under any entry in List II (State List), no question of parliamentary competence can arise. The power of Parliament under Entry 97 of List I is comprehensive."',
+    livingLegacy:
+      'Established the broad expansive interpretation of Parliament\'s residuary power under Entry 97 of List I, cementing the unitary tilt in Indian fiscal federalism.',
+    thematicTags: ['Article 245', 'Article 246', 'Article 248', 'Residuary Powers', 'Wealth Tax', 'Federalism']
+  },
+  {
+    articleNumber: '254',
+    articleTitle: 'Inconsistency between laws made by Parliament and laws made by the Legislatures of States',
+    headline: 'The Tamil Nadu Public Men Act vs. Central Prevention of Corruption Act: The Repugnancy Test',
+    caseName: 'M. Karunanidhi v. Union of India',
+    officialCitation: 'AIR 1979 SC 898; (1979) 3 SCC 431',
+    decisionYear: 1979,
+    bench: '5-Judge Constitution Bench: Y.V. Chandrachud (CJI), S. Murtaza Fazal Ali, P.N. Shinghal, P.S. Kailasam, A.D. Koshal JJ.',
+    theRealCitizen: 'M. Karunanidhi, former Chief Minister of Tamil Nadu and DMK leader.',
+    theGroundFacts:
+      'Following the dismissal of his government, the CBI initiated criminal prosecution against M. Karunanidhi under the Indian Penal Code and the Prevention of Corruption Act 1947. Karunanidhi challenged the prosecution, contending that the Tamil Nadu State Legislature had enacted the Tamil Nadu Public Men (Inquiries) Act 1973 (which received Presidential assent under Art. 254(2)). He argued that the state law created an exclusive mechanism for probing ministers in Tamil Nadu, thereby repealing and supplanting the Central Acts by virtue of Article 254.',
+    theCourtroomClash:
+      'Karunanidhi argued that presidential assent under Art. 254(2) gave the State anti-corruption law total supremacy in Tamil Nadu over the Central Act. The CBI argued that the two Acts operated in different fields and could co-exist harmoniously.',
+    verbatimRatio:
+      'Justice S. Murtaza Fazal Ali laid down the definitive 3-part test of repugnancy under Article 254: Repugnancy between Central and State laws arises ONLY when: (1) There is a direct, clear, and irreconcilable conflict between the two provisions; (2) Both laws cannot obey the same situation simultaneously; (3) One law permits what the other prohibits. Since the State Act and Central Act both aimed at punishing corrupt officials without contradictory mandates, there was no repugnancy, and the Central prosecution was valid.',
+    keyQuote:
+      '"Repugnancy between two statutes may be ascertained on the following principles: (1) There must be a clear and direct inconsistency between the Central Act and the State Act; (2) Such inconsistency must be absolutely irreconcilable; (3) The Court should make every attempt to reconcile them."',
+    livingLegacy:
+      'The leading authority on legislative conflict on the Concurrent List, memorized by constitutional scholars and cited in every dispute where State and Central laws overlap.',
+    thematicTags: ['Article 254', 'Repugnancy', 'Concurrent List', 'Karunanidhi', 'Federalism']
+  },
+  {
+    articleNumber: '265',
+    articleTitle: 'Taxes not to be imposed save by authority of law',
+    headline: 'The Retrospective Tobacco Excise Duty & The Constitutional Command of Article 265',
+    caseName: 'Chhotabhai Jethabhai Patel & Co. v. Union of India & Anr.',
+    officialCitation: 'AIR 1962 SC 1006; (1962) Supp (2) SCR 1',
+    decisionYear: 1962,
+    bench: '5-Judge Constitution Bench: B.P. Sinha (CJI), K. Subba Rao, N. Rajagopala Ayyangar, J.R. Mudholkar, T.L. Venkatarama Ayyar JJ.',
+    theRealCitizen: 'Chhotabhai Jethabhai Patel & Co., bidi manufacturers and tobacco merchants in Madhya Pradesh.',
+    theGroundFacts:
+      'A firm of bidi manufacturers held unmanufactured tobacco in private bonded warehouses. Under Section 7(2) of the Finance Act 1951, Parliament levied excise duty retrospectively on tobacco stocks that had already been removed from factories. The merchant challenged the demand, arguing that Article 265 prohibits the State from collecting taxes without clear, unambiguous constitutional authority.',
+    theCourtroomClash:
+      'Merchants argued that retrospective excise taxes infringed their right to property and violated Article 265. The Union argued that Parliament\'s taxing power is plenary and includes the power to tax retrospectively.',
+    verbatimRatio:
+      'The Supreme Court held that Article 265 is a categorical constitutional injunction: No tax can be levied or collected by executive fiat or administrative circular. Every rupee of tax must be backed by valid primary legislation enacted by a competent legislature. However, within its legislative competence, Parliament has the power to tax retrospectively provided it does not violate fundamental rights.',
+    keyQuote:
+      '"Article 265 of the Constitution commands: \'No tax shall be levied or collected except by authority of law.\' The law must be a valid law passed by a competent legislature; it cannot be an executive notification or decree."',
+    livingLegacy:
+      'The constitutional bedrock of Indian taxation law, preventing tax authorities from arbitrarily demanding revenue without explicit statutory backing.',
+    thematicTags: ['Article 265', 'Taxation', 'Authority of Law', 'No Taxation Without Representation']
+  },
+  {
+    articleNumber: '301',
+    articleTitle: 'Freedom of trade, commerce and intercourse',
+    headline: 'The Riverboats of Assam & The Economic Unity of India',
+    caseName: 'Atiabari Tea Co. Ltd. v. State of Assam & Ors.',
+    officialCitation: 'AIR 1961 SC 232; (1961) 1 SCR 809',
+    decisionYear: 1960,
+    bench: '5-Judge Constitution Bench: B.P. Sinha (CJI), P.B. Gajendragadkar, K. Subba Rao, K.N. Wanchoo, J.C. Shah JJ.',
+    theRealCitizen: 'Atiabari Tea Co. Ltd., tea garden producers in Assam and North Bengal.',
+    theGroundFacts:
+      'Manufactured tea grown in Assam and West Bengal was shipped on river steamers and road trucks through Assam territory down to the Port of Calcutta for overseas export. In 1954, the Assam Legislature passed the Assam Taxation (on Goods Carried by Road or on Inland Waterways) Act, imposing taxes directly on tea carried through Assam. Tea producers challenged the tax under Article 301.',
+    theCourtroomClash:
+      'The State of Assam argued that it needed revenues to maintain state transport arteries and had sovereign taxing power under Entry 56 List II. Tea companies argued that taxing goods solely because they pass through a state erects internal trade tariffs, destroying the economic unity of India guaranteed by Article 301.',
+    verbatimRatio:
+      'The Supreme Court held that the Assam tax was unconstitutional. Article 301 guarantees that trade, commerce, and intercourse throughout the territory of India shall be free: Any tax or fiscal levy that operates as a direct and immediate restriction on the free physical movement of trade violates Article 301 unless it satisfies the strict conditions of Article 304(b) (presidential sanction and public interest).',
+    keyQuote:
+      '"Article 301 was designed to build a unified economic empire for India where state boundaries do not become tariff barriers. Any tax that directly impedes the free flow or movement of trade is invalid under Article 301."',
+    livingLegacy:
+      'Established the "Direct and Immediate Restriction" doctrine, followed by the "Compensatory Tax" doctrine in Automobile Transport (Rajasthan) Ltd. (1962), laying the foundation for modern national economic integration and the GST regime.',
+    thematicTags: ['Article 301', 'Free Trade', 'Assam Tea', 'Interstate Commerce', 'Economic Unity']
+  },
+  {
+    articleNumber: '311',
+    articleTitle: 'Dismissal, removal or reduction in rank of persons employed in civil capacities under the Union or a State',
+    headline: 'The Railway Strike, Central Industrial Security Force Mutiny & The Second Proviso to Article 311(2)',
+    caseName: 'Union of India & Anr. v. Tulsiram Patel',
+    officialCitation: 'AIR 1985 SC 1416; (1985) 3 SCC 398',
+    decisionYear: 1985,
+    bench: '5-Judge Constitution Bench: Y.V. Chandrachud (CJI), V.D. Tulzapurkar, R.S. Pathak, D.P. Madon, M.P. Thakkar JJ.',
+    theRealCitizen: 'Tulsiram Patel, along with hundreds of dismissed railway employees and Central Industrial Security Force (CISF) personnel.',
+    theGroundFacts:
+      'In the late 1970s and 1980s, massive railway strikes, police mutinies, and violent agitations broke out among CISF personnel at Bokaro Steel Plant. To quell mutinous disruption, the Union Government summarily dismissed hundreds of civil servants without holding any departmental inquiry, invoking the second proviso (b) and (c) to Article 311(2) (where holding an inquiry is not reasonably practicable or contrary to state security).',
+    theCourtroomClash:
+      'Dismissed employees argued that audi alteram partem (the right to be heard) is an essential facet of natural justice under Article 14 and cannot be dispensed with. The Union argued that when armed mutiny or national security is threatened, demanding an inquiry paralyzes government administration.',
+    verbatimRatio:
+      'The 5-judge Constitution Bench held that the second proviso to Article 311(2) is an express constitutional exclusion of natural justice. In exceptional circumstances—such as criminal conviction, reasonable impracticability, or national security—the disciplinary authority can dispense with a prior inquiry. However, the decision is subject to judicial review to verify that the reasons recorded are genuine and not mala fide.',
+    keyQuote:
+      '"The principles of natural justice are not inflexible or unyielding. The second proviso to Article 311(2) expressly excludes the audi alteram partem rule in the interest of public safety, discipline, and state security. Public interest must prevail over private rights."',
+    livingLegacy:
+      'The definitive constitutional precedent balancing civil service job protection with the sovereign security of the republic.',
+    thematicTags: ['Article 311', 'Civil Servants', 'Natural Justice', 'National Security', 'Tulsiram Patel']
+  },
+  {
+    articleNumber: '326',
+    articleTitle: 'Elections to the House of the People and to the Legislative Assemblies of States to be on the basis of adult suffrage',
+    headline: 'The Voter\'s Right to Know: Criminal Antecedents, Wealth & Education of Election Candidates',
+    caseName: 'Union of India v. Association for Democratic Reforms (ADR) & Anr.',
+    officialCitation: 'AIR 2002 SC 2112; (2002) 5 SCC 294',
+    decisionYear: 2002,
+    bench: '3-Judge Bench: M.B. Shah, Bisheshwar Prasad Singh, H.K. Sema JJ.',
+    theRealCitizen: 'Association for Democratic Reforms (ADR), an organization of IIM Ahmedabad professors and public-spirited citizens.',
+    theGroundFacts:
+      'The 170th Report of the Law Commission of India highlighted rampant criminalization of Indian politics, with candidates facing murder, extortion, and corruption charges winning seats in legislative assemblies. ADR filed a public interest writ petition seeking mandatory public disclosure of candidates\' criminal records, assets, liabilities, and educational qualifications before elections.',
+    theCourtroomClash:
+      'The Union Government opposed the petition, arguing that the right to contest and vote in elections is merely a statutory right under the Representation of the People Act, not a fundamental right, and courts cannot add new disclosure requirements without parliamentary legislation. ADR argued that an uninformed ballot is an assault on democracy.',
+    verbatimRatio:
+      'The Supreme Court held that the citizen\'s right to vote under Article 326 is meaningless if the voter is kept in the dark. The right to know a candidate\'s background is an integral part of freedom of speech and expression under Article 19(1)(a). The Court ordered the Election Commission to make it mandatory for all election candidates to submit sworn affidavits disclosing: (1) Criminal cases and charges framed; (2) Assets and liabilities of self and spouse; (3) Educational qualifications.',
+    keyQuote:
+      '"Democracy cannot survive without free and fair elections, and elections are not free if the voter does not know the antecedents of the candidate. A voter has a fundamental right to know the qualifications, wealth, and criminal record of those who seek to govern."',
+    livingLegacy:
+      'Revolutionized Indian election transparency, empowering millions of voters and creating the mandatory Form 26 election affidavit system.',
+    thematicTags: ['Article 326', 'Article 19(1)(a)', 'ADR', 'Voter Right to Know', 'Elections', 'Criminalization of Politics']
+  },
+  {
+    articleNumber: '352',
+    articleTitle: 'Proclamation of Emergency',
+    headline: 'The 42nd Amendment Struck Down: Judicial Review Survives National Emergency',
+    caseName: 'Minerva Mills Ltd. & Ors. v. Union of India & Ors.',
+    officialCitation: 'AIR 1980 SC 1789; (1980) 3 SCC 625',
+    decisionYear: 1980,
+    bench: '5-Judge Constitution Bench: Y.V. Chandrachud (CJI), P.N. Bhagwati, V.R. Krishna Iyer, N.L. Untwalia, P.S. Kailasam JJ.',
+    theRealCitizen: 'Citizens and textile mill owners challenging the sweeping emergency amendments.',
+    theGroundFacts:
+      'During the 1975–77 National Emergency, Parliament enacted the 42nd Constitutional Amendment. Section 55 inserted Clauses (4) and (5) into Article 368, declaring that no constitutional amendment could be questioned in any court on any ground, and asserting unlimited constituent power for Parliament. Simultaneously, Article 352 was amended to exclude judicial review of presidential emergency proclamations.',
+    theCourtroomClash:
+      'The Union argued that the constituent power of Parliament is sovereign and supreme, beyond judicial review. Petitioners argued that judicial review is the ultimate protector of the Constitution, and extinguishing it creates an absolute dictatorship.',
+    verbatimRatio:
+      'The Supreme Court struck down Clauses (4) and (5) of Article 368 and established that a Proclamation of Emergency under Article 352 is NOT completely immune from judicial review. If an emergency proclamation is made mala fide, on total absence of grounds, or for collateral political purposes, the constitutional courts have the power to intervene.',
+    keyQuote:
+      '"Our Constitution is founded on a nice balance of power among the three wings of the State. It is the function of the Judges to declare what the law is. To destroy judicial review is to destroy the Basic Structure of the Constitution itself."',
+    livingLegacy:
+      'Permanently closed the door on executive impunity during emergencies, reinforced by the 44th Constitutional Amendment 1978 replacing "internal disturbance" with "armed rebellion".',
+    thematicTags: ['Article 352', 'National Emergency', 'Judicial Review', 'Basic Structure', '42nd Amendment']
   }
 ];

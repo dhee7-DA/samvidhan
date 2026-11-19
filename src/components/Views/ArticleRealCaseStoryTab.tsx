@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen,
   Scale,
@@ -28,8 +28,15 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
   part,
   onSelectArticleStory
 }) => {
-  const story = caseStoryService.getStoryForArticle(articleNumber);
+  const stories = caseStoryService.getStoriesForArticle(articleNumber);
+  const [selectedCaseIdx, setSelectedCaseIdx] = useState(0);
   const allStories = caseStoryService.getAllStories();
+
+  useEffect(() => {
+    setSelectedCaseIdx(0);
+  }, [articleNumber]);
+
+  const story = stories[selectedCaseIdx] || stories[0];
 
   if (!story) {
     // Show nearest available stories from Part or General
@@ -57,26 +64,26 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
           </span>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {allStories.slice(0, 6).map((s) => (
+            {allStories.slice(0, 8).map((s) => (
               <div
-                key={s.articleNumber}
-                onClick={() => onSelectArticleStory && onSelectArticleStory(s.articleNumber)}
-                className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-500/40 cursor-pointer transition-all flex flex-col justify-between group shadow-xs"
+                key={s.articleNumber + s.caseName}
+                onClick={() => onSelectArticleStory?.(s.articleNumber)}
+                className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-500/40 transition-all cursor-pointer group text-left"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
-                      Article {s.articleNumber}
-                    </span>
-                    <span className="text-[10px] font-mono text-[var(--text-muted)]">{s.decisionYear}</span>
-                  </div>
-                  <h5 className="text-xs font-serif font-bold text-[var(--text-primary)] group-hover:text-amber-500 transition-colors line-clamp-1">
-                    {s.headline}
-                  </h5>
-                  <p className="text-[11px] font-mono text-[var(--text-muted)] mt-1 italic line-clamp-1">
-                    {s.caseName}
-                  </p>
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-bold">
+                    Art {s.articleNumber}
+                  </span>
+                  <span className="text-[10px] font-mono text-[var(--text-muted)]">
+                    {s.decisionYear}
+                  </span>
                 </div>
+                <h5 className="text-sm font-serif font-bold text-[var(--text-primary)] group-hover:text-amber-500 transition-colors line-clamp-1">
+                  {s.caseName}
+                </h5>
+                <p className="text-xs font-sans text-[var(--text-secondary)] line-clamp-2 mt-1">
+                  {s.headline}
+                </p>
                 <div className="mt-3 pt-2 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono text-amber-500 font-bold">
                   <span>Read Case Story</span>
                   <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -91,6 +98,31 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
 
   return (
     <div className="flex flex-col gap-6 animate-fadeIn">
+      {/* Multi-Case Switcher Pills if article has more than 1 landmark story */}
+      {stories.length > 1 && (
+        <div className="p-3 rounded-2xl bg-[var(--bg-base)] border border-amber-500/30 flex flex-wrap items-center gap-2">
+          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-500 flex items-center gap-1.5 px-2">
+            <Scale className="w-3.5 h-3.5" />
+            {stories.length} Landmark Precedents for Article {articleNumber}:
+          </span>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {stories.map((s, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedCaseIdx(idx)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  selectedCaseIdx === idx
+                    ? 'bg-amber-500 text-black shadow-xs'
+                    : 'bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 border border-[var(--border-subtle)]'
+                }`}
+              >
+                {s.caseName.split(' v. ')[0]} ({s.decisionYear})
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Authentic Case Law Header Banner */}
       <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-[var(--bg-surface)] to-amber-500/5 border-2 border-amber-500/30 shadow-md space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
