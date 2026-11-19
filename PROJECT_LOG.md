@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-19 12:24:49 (+05:30) |
+| **Last Log Sync** | 2026-11-19 13:02:43 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `a025b61` (2026-11-19T11:56:31+05:30) |
-| **Total Commits** | 68 |
-| **Total Files Indexed** | 257 (255 tracked, 2 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Branch / HEAD** | `main` @ `46802c4` (2026-11-19T12:25:16+05:30) |
+| **Total Commits** | 69 |
+| **Total Files Indexed** | 259 (257 tracked, 2 new untracked) |
+| **Working Tree** | 3 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-19 13:02:43 (+05:30)] Complete 100-Question Mains Master Question Bank with Batch 3 and Batch 4 integration (DONE)
+- **Details:** Delivered 30 questions in mainsBatch3.ts and 26 questions in mainsBatch4.ts to achieve full 100-question vault across 5M, 10M, 15M, and 20M+ marks tiers. Verified in browser at localhost:5173 with 0 errors, hover intel callouts, and clean build.
+- **Files Touched (3):** `M src/data/mainsQuestionsData.ts`, `?? src/data/mains/mainsBatch3.ts`, `?? src/data/mains/mainsBatch4.ts`
+- **Git HEAD:** `main` @ `46802c4`
 
 ### [2026-11-19 12:24:49 (+05:30)] Expand Mains Master Question Bank to 44 Questions (Batch 2) (DONE)
 - **Details:** Added src/data/mains/mainsBatch1.ts (19 questions) and src/data/mains/mainsBatch2.ts (25 new questions) covering Pith & Substance, Colourable Legislation, Habeas Corpus, Mandamus, Fundamental Duties, Territorial Nexus, EWS 103rd Amendment, Reservations in Promotion (Nagaraj/Jarnail Singh), Commercial Speech, Custodial Violence Compensation, Handcuffing/Solitary Confinement, Pardoning Power, Re-promulgation of Ordinances, Speedy Trial, Passive Euthanasia (Common Cause 2023), Minority Institutions (CMC Vellore), Anti-Defection (Subhash Desai 2023), Quashing FIRs (Bhajan Lal/Neeharika), Repugnancy under Art 254, Election Commission Autonomy (Anoop Baranwal 2023), PIL Locus Standi (Chaufal), President's Rule (Bommai), Harmonious Construction (Minerva Mills), Civil Servants Art 311 (Tulsiram Patel), and Art 370 Abrogation (2023 Bench). Total in app: 68 Mains questions.
@@ -119,7 +124,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **257** project files across **32** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **259** project files across **32** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -131,7 +136,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 45.7 KB | 608 | `a025b61` (2026-11-19) |
+| `PROJECT_LOG.md` | 47.2 KB | 621 | `46802c4` (2026-11-19) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -273,7 +278,7 @@
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
-| `src/data/mainsQuestionsData.ts` | 327 B | 11 | `a025b61` (2026-11-19) |
+| `src/data/mainsQuestionsData.ts` | 503 B | 15 | `46802c4` (2026-11-19) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
 | `src/data/part12FinanceData.ts` | 25.2 KB | 318 | `eae5768` (2026-11-13) |
@@ -498,12 +503,14 @@
 | `src/data/bootcamp/day9/day9McqsRound5.ts` | 53.5 KB | 565 | `4f121c2` (2026-11-15) |
 | `src/data/bootcamp/day9/index.ts` | 737 B | 25 | `4f121c2` (2026-11-15) |
 
-### `src/data/mains` (2 files)
+### `src/data/mains` (4 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/data/mains/mainsBatch1.ts` | 107.0 KB | 1369 | new (uncommitted) |
-| `src/data/mains/mainsBatch2.ts` | 139.3 KB | 1773 | new (uncommitted) |
+| `src/data/mains/mainsBatch1.ts` | 107.0 KB | 1369 | `46802c4` (2026-11-19) |
+| `src/data/mains/mainsBatch2.ts` | 139.3 KB | 1773 | `46802c4` (2026-11-19) |
+| `src/data/mains/mainsBatch3.ts` | 170.0 KB | 2111 | new (uncommitted) |
+| `src/data/mains/mainsBatch4.ts` | 155.0 KB | 1831 | new (uncommitted) |
 
 ### `src/data/pyqs` (4 files)
 
@@ -545,10 +552,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**68** commits, newest first).
+> Complete git history (**69** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 69 | 2026-11-19 | `46802c4` | 4 | feat(mains): expand Master Question Bank to 44 questions across 5M-20M marks tiers |
 | 68 | 2026-11-19 | `a025b61` | 6 | feat(mains): add Mains PYQ bank with marks/word limits, interactive hover intel callouts, and handwritten page pacer |
 | 67 | 2026-11-19 | `78c5f7d` | 3 | fix(theme): replace harsh yellow/amber with dynamic theme tokens in Real Case Stories and Bare Act Explorer |
 | 66 | 2026-11-19 | `75be064` | 4 | feat(cases): expand real case law stories to 65 landmark precedents across Parts I to XXI |
