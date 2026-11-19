@@ -23,7 +23,12 @@ import {
   BarChart3,
   TrendingUp,
   Globe,
-  Compass
+  Compass,
+  Play,
+  Pause,
+  Timer,
+  AlertTriangle,
+  Info
 } from 'lucide-react';
 import { JKPSC_MAINS_PYQ_DATA, type PyqQuestion } from '../../data/pyqData';
 import {
@@ -33,6 +38,7 @@ import {
   type CommonJudiciaryQuestion
 } from '../../data/allIndiaJudicialTopics';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { QuestionIntelHoverCard } from '../Common/QuestionIntelHoverCard';
 import { useTheme } from '../../context/ThemeContext';
 
 export const PyqVaultView: React.FC = () => {
@@ -137,6 +143,10 @@ export const PyqVaultView: React.FC = () => {
   // =========================================================================
   const [selectedTopicId, setSelectedTopicId] = useState<string>(ALL_INDIA_TOPIC_FREQUENCIES[0].id);
   const [selectedCommonQId, setSelectedCommonQId] = useState<string>(COMMON_JUDICIARY_QUESTIONS[0].id);
+  const [selectedMarksFilter, setSelectedMarksFilter] = useState<string>('all');
+  const [selectedExamFilter, setSelectedExamFilter] = useState<string>('all');
+  const [allIndiaSearchQuery, setAllIndiaSearchQuery] = useState<string>('');
+
   const [allIndiaDrafts, setAllIndiaDrafts] = useState<Record<string, string>>(() => {
     try {
       const saved = localStorage.getItem('samvidhan_all_india_drafts');
@@ -161,12 +171,87 @@ export const PyqVaultView: React.FC = () => {
     );
   }, [selectedTopicId]);
 
+  // Filtered list of master questions
+  const filteredCommonQuestions = useMemo(() => {
+    return COMMON_JUDICIARY_QUESTIONS.filter((q) => {
+      // Filter by Marks
+      if (selectedMarksFilter !== 'all') {
+        if (selectedMarksFilter === '20+') {
+          if (q.marksCategory < 20) return false;
+        } else {
+          const marksNum = parseInt(selectedMarksFilter, 10);
+          if (q.marksCategory !== marksNum) return false;
+        }
+      }
+      // Filter by Exam
+      if (selectedExamFilter !== 'all') {
+        if (selectedExamFilter === 'PROSECUTION') {
+          const isPros = q.examCategory === 'PROSECUTION' || q.examsAppeared.some(e => /prosecution|apo|app/i.test(e));
+          if (!isPros) return false;
+        } else if (selectedExamFilter === 'DJS') {
+          const isDjs = q.examCategory === 'DJS' || q.examsAppeared.some(e => /djs|delhi/i.test(e));
+          if (!isDjs) return false;
+        } else if (selectedExamFilter === 'UP_PCSJ') {
+          const isUp = q.examCategory === 'UP_PCSJ' || q.examsAppeared.some(e => /up pcs-j|up/i.test(e));
+          if (!isUp) return false;
+        } else if (selectedExamFilter === 'BJS') {
+          const isBjs = q.examCategory === 'BJS' || q.examsAppeared.some(e => /bihar|bjs/i.test(e));
+          if (!isBjs) return false;
+        } else if (selectedExamFilter === 'UPSC_LAW') {
+          const isUpsc = q.examCategory === 'UPSC_LAW' || q.examsAppeared.some(e => /upsc/i.test(e));
+          if (!isUpsc) return false;
+        }
+      }
+      // Filter by Search Query
+      if (allIndiaSearchQuery.trim()) {
+        const query = allIndiaSearchQuery.toLowerCase();
+        const matchesTitle = q.title.toLowerCase().includes(query);
+        const matchesText = q.questionText.toLowerCase().includes(query);
+        const matchesTopic = q.hoverIntel?.topicName.toLowerCase().includes(query) || false;
+        const matchesCases = q.essentialCitations.some((c) => c.toLowerCase().includes(query));
+        if (!matchesTitle && !matchesText && !matchesTopic && !matchesCases) return false;
+      }
+      return true;
+    });
+  }, [selectedMarksFilter, selectedExamFilter, allIndiaSearchQuery]);
+
   const activeCommonQ = useMemo(() => {
     return (
-      COMMON_JUDICIARY_QUESTIONS.find((q) => q.id === selectedCommonQId) ||
+      filteredCommonQuestions.find((q) => q.id === selectedCommonQId) ||
+      filteredCommonQuestions[0] ||
       COMMON_JUDICIARY_QUESTIONS[0]
     );
-  }, [selectedCommonQId]);
+  }, [filteredCommonQuestions, selectedCommonQId]);
+
+  // Marks-calibrated timer state
+  const [allIndiaTimerSeconds, setAllIndiaTimerSeconds] = useState<number>(() => {
+    return (activeCommonQ.targetTimeMinutes || 10) * 60;
+  });
+  const [isAllIndiaTimerRunning, setIsAllIndiaTimerRunning] = useState<boolean>(false);
+
+  // Sync timer when active question changes
+  useEffect(() => {
+    setAllIndiaTimerSeconds((activeCommonQ.targetTimeMinutes || 10) * 60);
+    setIsAllIndiaTimerRunning(false);
+  }, [activeCommonQ.id]);
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | null = null;
+    if (isAllIndiaTimerRunning) {
+      interval = setInterval(() => {
+        setAllIndiaTimerSeconds((prev) => {
+          if (prev <= 1) {
+            setIsAllIndiaTimerRunning(false);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isAllIndiaTimerRunning]);
 
   const handleAllIndiaDraftChange = (text: string) => {
     setAllIndiaDrafts((prev) => ({
@@ -455,62 +540,226 @@ export const PyqVaultView: React.FC = () => {
           {/* =====================================================================
               UNIVERSALLY RECURRING MASTER QUESTIONS VAULT
           ===================================================================== */}
-          <div className="space-y-4 pt-4 border-t border-[var(--border-subtle)]">
-            <div>
-              <h2 className="text-lg md:text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-[var(--accent-primary)]" />
-                Master Recurring Question Blueprints Across Judiciary Exams
-              </h2>
-              <p className="text-xs text-[var(--text-secondary)]">
-                The exact questions that get asked repeatedly across DJS, UP PCS-J, Bihar, and UPSC Law Optional, complete with 4-step answer blueprints.
-              </p>
+          <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)]">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20 mb-2">
+                  <Award className="w-3.5 h-3.5" />
+                  <span>Judicial & Prosecution Mains PYQ Bank</span>
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-[var(--accent-primary)]" />
+                  All-India Mains Exam Question Bank & Drafting Simulator
+                </h2>
+                <p className="text-xs text-[var(--text-secondary)] mt-1 max-w-3xl">
+                  Attempt previous years questions calibrated strictly by marks, word limits, and examination pacing. Hover over any question pill to inspect its topic, exam importance, weightage, and examiner trap alert.
+                </p>
+              </div>
+
+              <div className="text-xs font-mono px-3 py-1.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-primary)] shrink-0">
+                Showing <strong className="text-[var(--accent-primary)]">{filteredCommonQuestions.length}</strong> of {COMMON_JUDICIARY_QUESTIONS.length} Questions
+              </div>
             </div>
 
-            {/* Question Selector Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2">
-              {COMMON_JUDICIARY_QUESTIONS.map((q, idx) => (
-                <button
-                  key={q.id}
-                  onClick={() => setSelectedCommonQId(q.id)}
-                  className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border flex items-center gap-1.5 ${
-                    selectedCommonQId === q.id
-                      ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-sm'
-                      : 'bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)]'
-                  }`}
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Q{idx + 1}: {q.title.split(':')[0]}</span>
-                </button>
-              ))}
+            {/* Filter & Search Bar */}
+            <div className="p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3 shadow-sm">
+              <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
+                {/* Search Input */}
+                <div className="relative flex-1">
+                  <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+                  <input
+                    type="text"
+                    value={allIndiaSearchQuery}
+                    onChange={(e) => setAllIndiaSearchQuery(e.target.value)}
+                    placeholder="Search by topic, article (e.g. Art. 20(3)), case law, or keyword..."
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
+                  />
+                  {allIndiaSearchQuery && (
+                    <button
+                      onClick={() => setAllIndiaSearchQuery('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+
+                {/* Marks Tier Filter Pills */}
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)] shrink-0 px-1">
+                    Marks:
+                  </span>
+                  {[
+                    { label: 'All', value: 'all' },
+                    { label: '5M (Short Notes)', value: '5' },
+                    { label: '10M (Standard)', value: '10' },
+                    { label: '15M (Problem)', value: '15' },
+                    { label: '20M+ (Doctrines)', value: '20+' }
+                  ].map((m) => (
+                    <button
+                      key={m.value}
+                      onClick={() => setSelectedMarksFilter(m.value)}
+                      className={`px-2.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+                        selectedMarksFilter === m.value
+                          ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)]'
+                          : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)]'
+                      }`}
+                    >
+                      {m.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Exam Source Filter Pills */}
+              <div className="flex items-center gap-1.5 overflow-x-auto pt-2 border-t border-[var(--border-subtle)]">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)] shrink-0 px-1">
+                  Exams:
+                </span>
+                {[
+                  { label: 'All Exams', value: 'all' },
+                  { label: 'Delhi (DJS)', value: 'DJS' },
+                  { label: 'UP PCS-J', value: 'UP_PCSJ' },
+                  { label: 'Bihar (BJS)', value: 'BJS' },
+                  { label: 'Prosecution (CBI/APP)', value: 'PROSECUTION' },
+                  { label: 'UPSC Law Optional', value: 'UPSC_LAW' }
+                ].map((ex) => (
+                  <button
+                    key={ex.value}
+                    onClick={() => setSelectedExamFilter(ex.value)}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all border ${
+                      selectedExamFilter === ex.value
+                        ? 'bg-[var(--accent-primary)]/20 text-[var(--accent-primary)] border-[var(--accent-primary)]/40 font-bold'
+                        : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border-subtle)]'
+                    }`}
+                  >
+                    {ex.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Question Selector Pills with Interactive Hover Callouts */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between text-[11px] text-[var(--text-muted)] px-1">
+                <span className="flex items-center gap-1">
+                  <Info className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+                  Hover over any question pill to inspect topic, weightage, and examiner traps:
+                </span>
+                <span className="hidden md:inline">Scroll horizontally for more questions &rarr;</span>
+              </div>
+
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-1">
+                {filteredCommonQuestions.map((q, idx) => {
+                  const isSelected = activeCommonQ.id === q.id;
+                  return (
+                    <QuestionIntelHoverCard key={q.id} question={q}>
+                      <button
+                        onClick={() => setSelectedCommonQId(q.id)}
+                        className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border flex items-center gap-1.5 group ${
+                          isSelected
+                            ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] border-[var(--accent-primary)] shadow-md ring-2 ring-[var(--accent-primary)]/20'
+                            : 'bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] border-[var(--border-subtle)]'
+                        }`}
+                      >
+                        <FileText className="w-3.5 h-3.5 shrink-0" />
+                        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded font-black ${
+                          isSelected ? 'bg-black/25 text-[var(--bg-base)]' : 'bg-[var(--bg-base)] text-[var(--accent-primary)] border border-[var(--border-subtle)]'
+                        }`}>
+                          {q.marksCategory}M
+                        </span>
+                        <span className="max-w-[180px] md:max-w-[220px] truncate text-left">
+                          {q.title.split(':')[0]}
+                        </span>
+                      </button>
+                    </QuestionIntelHoverCard>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Active Master Question Card */}
             <div className="p-6 md:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-xl space-y-6">
-              <div className="space-y-3">
+              <div className="space-y-4">
+                {/* Header Metadata Badges */}
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                    <span className="px-3 py-1 rounded-lg text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
                       Standard {activeCommonQ.typicalMarks} Marks Question
                     </span>
-                    <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    <span className="px-3 py-1 rounded-lg text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
                       Target: {activeCommonQ.targetWordLimit}
                     </span>
-                    <span className="px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
+                    <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                       Appeared In: {activeCommonQ.examsAppeared.join(' | ')}
                     </span>
                   </div>
-                  <span className="text-xs font-mono text-[var(--accent-primary)]">
-                    Model Blueprint
+
+                  <span className="text-xs font-mono font-bold text-[var(--accent-primary)] flex items-center gap-1">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Examiner Blueprint & Model
                   </span>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)]">
-                  {activeCommonQ.title}
-                </h3>
+                {/* Question Title & Prompt Text */}
+                <div className="space-y-2">
+                  <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)]">
+                    {activeCommonQ.title}
+                  </h3>
 
-                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] leading-relaxed italic">
-                  {activeCommonQ.questionText}
+                  <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] leading-relaxed italic border-l-4 border-l-[var(--accent-primary)]">
+                    {activeCommonQ.questionText}
+                  </div>
                 </div>
+
+                {/* Built-in Question Intel & Trap Banner */}
+                {activeCommonQ.hoverIntel && (
+                  <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2.5">
+                      <div className="flex items-center gap-2 text-xs">
+                        <span className="font-bold text-[var(--accent-primary)]">
+                          Topic: {activeCommonQ.hoverIntel.topicPillar}
+                        </span>
+                        <span className="text-[var(--text-muted)]">•</span>
+                        <span className="text-amber-400 font-semibold">{activeCommonQ.hoverIntel.examImportance}</span>
+                      </div>
+                      <div className="text-[11px] font-mono text-[var(--text-secondary)]">
+                        Exam Pacing: ~{activeCommonQ.targetTimeMinutes} mins (Target: {activeCommonQ.estimatedPages})
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                      {/* Left: Testing History & Articles */}
+                      <div className="space-y-2">
+                        <div>
+                          <span className="text-[10px] font-bold uppercase text-[var(--text-muted)] block">Testing Frequency:</span>
+                          <span className="text-[var(--text-secondary)]">{activeCommonQ.hoverIntel.examFrequency}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold uppercase text-[var(--text-muted)] block">Constitutional Articles:</span>
+                          <div className="flex flex-wrap gap-1 mt-0.5">
+                            {activeCommonQ.hoverIntel.coreArticles.map((art, i) => (
+                              <span key={i} className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--accent-primary)]">
+                                {art}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Examiner Trap Alert */}
+                      <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 space-y-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
+                          <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                          Examiner Trap & Pitfall Warning:
+                        </span>
+                        <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                          {activeCommonQ.hoverIntel.examinerTrapWarning}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Core Issues & Examiner Expectations */}
@@ -583,23 +832,87 @@ export const PyqVaultView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Interactive Drafting Scratchpad */}
-              <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] flex items-center gap-1.5">
-                    <Clock className="w-4 h-4" />
-                    Interactive Answer Drafting Scratchpad
-                  </span>
-                  <span className="text-xs font-mono text-[var(--text-muted)]">
-                    {allIndiaWordCount} Words (Target: {activeCommonQ.targetWordLimit.split('|')[0].trim()})
-                  </span>
+              {/* Interactive Drafting Scratchpad with Dual Live Meter & Timer */}
+              <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-4">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] flex items-center gap-1.5">
+                        <Clock className="w-4 h-4" />
+                        Interactive Mains Drafting Scratchpad
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                        {activeCommonQ.typicalMarks} Marks ({activeCommonQ.targetWordLimit})
+                      </span>
+                    </div>
+
+                    {/* Dual Live Meter: Words + Pages */}
+                    <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
+                      <span className="font-mono font-bold text-[var(--text-primary)]">
+                        {allIndiaWordCount} Words
+                      </span>
+                      <span className="text-[var(--text-muted)]">
+                        ≈ {(allIndiaWordCount / 200).toFixed(1)} Exam Pages (~{Math.round(allIndiaWordCount / 9)} lines)
+                      </span>
+
+                      {/* Sweet-Spot Status Indicator */}
+                      {allIndiaWordCount === 0 ? (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[var(--bg-card)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                          Drafting not started
+                        </span>
+                      ) : allIndiaWordCount < (activeCommonQ.targetWordMin || 100) * 0.85 ? (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                          Drafting in progress (under limit)
+                        </span>
+                      ) : allIndiaWordCount <= (activeCommonQ.targetWordMax || 250) * 1.1 ? (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                          <Sparkles className="w-3 h-3" />
+                          Optimal Sweet Spot — Examiner Approved
+                        </span>
+                      ) : (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/15 text-rose-400 border border-rose-500/30 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          Excess Length Warning (&gt;115% limit)
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Marks-Calibrated Timer Widget */}
+                  <div className="flex items-center gap-2 p-1.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] self-start md:self-auto">
+                    <div className="px-2 py-1 rounded-lg font-mono text-xs font-black flex items-center gap-1.5 text-[var(--text-primary)]">
+                      <Timer className="w-3.5 h-3.5 text-amber-400" />
+                      <span className={allIndiaTimerSeconds < 60 ? 'text-rose-400 animate-pulse' : ''}>
+                        {formatTimer(allIndiaTimerSeconds)}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setIsAllIndiaTimerRunning(!isAllIndiaTimerRunning)}
+                      className="px-2.5 py-1 rounded-lg text-xs font-bold bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-1 shadow-sm"
+                    >
+                      {isAllIndiaTimerRunning ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+                      <span>{isAllIndiaTimerRunning ? 'Pause' : 'Start Timer'}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsAllIndiaTimerRunning(false);
+                        setAllIndiaTimerSeconds((activeCommonQ.targetTimeMinutes || 10) * 60);
+                      }}
+                      title="Reset Timer"
+                      className="p-1.5 rounded-lg text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
 
                 <textarea
                   value={allIndiaDrafts[activeCommonQ.id] || ''}
                   onChange={(e) => handleAllIndiaDraftChange(e.target.value)}
-                  placeholder="Practice drafting your answer to this master question blueprint using the 4-step formula above..."
-                  rows={8}
+                  placeholder="Practice drafting your answer strictly within the marks and word limit. Notice the live handwritten page gauge updating as you type..."
+                  rows={9}
                   className="w-full p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
                 />
               </div>

@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-19 11:18:26 (+05:30) |
+| **Last Log Sync** | 2026-11-19 11:55:59 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `badc8f6` (2026-11-19T11:18:16+05:30) |
+| **Branch / HEAD** | `main` @ `78c5f7d` (2026-11-19T11:18:16+05:30) |
 | **Total Commits** | 67 |
-| **Total Files Indexed** | 252 (252 tracked, 0 new untracked) |
-| **Working Tree** | Clean |
+| **Total Files Indexed** | 255 (252 tracked, 3 new untracked) |
+| **Working Tree** | 5 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-19 11:55:59 (+05:30)] Add Mains Exam Question Bank, Interactive Hover Callouts, Marks Filters, Live Word Pacer & Handwritten Page Meter (DONE)
+- **Details:** Created src/types/mainsQuestionTypes.ts, QuestionIntelHoverCard.tsx, mainsQuestionsData.ts with authentic PYQs across 5M/10M/15M/20M/25M marks tiers, and upgraded PyqVaultView.tsx with marks/exam filters, live word-to-page gauge, and marks-calibrated timer. Verified via browser subagent with 0 console errors.
+- **Files Touched (5):** `M src/components/Views/PyqVaultView.tsx`, `M src/data/allIndiaJudicialTopics.ts`, `?? src/components/Common/QuestionIntelHoverCard.tsx`, `?? src/data/mainsQuestionsData.ts`, `?? src/types/mainsQuestionTypes.ts`
+- **Git HEAD:** `main` @ `78c5f7d`
 
 ### [2026-11-19 11:18:26 (+05:30)] Harmonize Real Case Stories and Bare Act Explorer with Theme Tokens (DONE)
 - **Details:** Finalized commit badc8f6 eliminating harsh amber/yellow in favor of native CSS theme variables.
@@ -109,7 +114,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **252** project files across **31** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **255** project files across **31** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -121,7 +126,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 44.3 KB | 594 | `badc8f6` (2026-11-19) |
+| `PROJECT_LOG.md` | 44.7 KB | 600 | `78c5f7d` (2026-11-19) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -160,13 +165,14 @@
 | `src/assets/react.svg` | 4.0 KB | 1 | `3c486dd` (2026-11-13) |
 | `src/assets/vite.svg` | 8.5 KB | 2 | `3c486dd` (2026-11-13) |
 
-### `src/components/Common` (5 files)
+### `src/components/Common` (6 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Common/AnnotatedLegalText.tsx` | 9.2 KB | 246 | `409818a` (2026-11-14) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.3 KB | 459 | `3ce9f3d` (2026-11-18) |
 | `src/components/Common/ProgressVaultModal.tsx` | 10.5 KB | 259 | `3ce9f3d` (2026-11-18) |
+| `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | new (uncommitted) |
 | `src/components/Common/SearchModal.tsx` | 9.9 KB | 247 | `eb17fbd` (2026-11-14) |
 | `src/components/Common/UniversalDictionaryPopover.tsx` | 10.8 KB | 292 | `b351247` (2026-11-15) |
 
@@ -206,8 +212,8 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 23.3 KB | 467 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/ArcadeHubView.tsx` | 9.4 KB | 221 | `7aac50b` (2026-11-19) |
-| `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `badc8f6` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 67.4 KB | 1285 | `badc8f6` (2026-11-19) |
+| `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
+| `src/components/Views/ArticlesMasterView.tsx` | 67.4 KB | 1285 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -222,7 +228,7 @@
 | `src/components/Views/OverviewDashboard.tsx` | 22.1 KB | 368 | `7aac50b` (2026-11-19) |
 | `src/components/Views/PrecedentLineageView.tsx` | 27.0 KB | 502 | `ea3d899` (2026-11-16) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
-| `src/components/Views/PyqVaultView.tsx` | 53.9 KB | 1023 | `196ed49` (2026-11-15) |
+| `src/components/Views/PyqVaultView.tsx` | 71.8 KB | 1336 | `196ed49` (2026-11-15) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
@@ -245,12 +251,12 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (44 files)
+### `src/data` (45 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/data/allConstitutionArticlesCatalog.json` | 173.6 KB | 4648 | `3db5394` (2026-11-16) |
-| `src/data/allIndiaJudicialTopics.ts` | 48.4 KB | 651 | `196ed49` (2026-11-15) |
+| `src/data/allIndiaJudicialTopics.ts` | 15.5 KB | 291 | `196ed49` (2026-11-15) |
 | `src/data/amendmentDiffsData.ts` | 39.9 KB | 459 | `3db5394` (2026-11-16) |
 | `src/data/amendmentsData.ts` | 101.9 KB | 1413 | `3ce9f3d` (2026-11-18) |
 | `src/data/articleBlitzData.ts` | 15.0 KB | 337 | `7aac50b` (2026-11-19) |
@@ -262,6 +268,7 @@
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
+| `src/data/mainsQuestionsData.ts` | 107.0 KB | 1369 | new (uncommitted) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
 | `src/data/part12FinanceData.ts` | 25.2 KB | 318 | `eae5768` (2026-11-13) |
@@ -511,12 +518,13 @@
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
 
-### `src/types` (2 files)
+### `src/types` (3 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/types/constitution.ts` | 2.7 KB | 112 | `c4ae501` (2026-11-17) |
 | `src/types/dictionary.ts` | 341 B | 11 | `650124e` (2026-11-14) |
+| `src/types/mainsQuestionTypes.ts` | 2.0 KB | 60 | new (uncommitted) |
 
 <!-- AUTO:FILES:END -->
 
@@ -529,7 +537,7 @@
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
-| 67 | 2026-11-19 | `badc8f6` | 3 | fix(theme): replace harsh yellow/amber with dynamic theme tokens in Real Case Stories and Bare Act Explorer |
+| 67 | 2026-11-19 | `78c5f7d` | 3 | fix(theme): replace harsh yellow/amber with dynamic theme tokens in Real Case Stories and Bare Act Explorer |
 | 66 | 2026-11-19 | `75be064` | 4 | feat(cases): expand real case law stories to 65 landmark precedents across Parts I to XXI |
 | 65 | 2026-11-19 | `a15f579` | 5 | feat(cases): add 100% authentic real case law stories across Bare Act articles |
 | 64 | 2026-11-19 | `7aac50b` | 15 | feat(arcade): build Constitutional Arcade with Chief Justice Bench Sim, 60s Article Blitz, Writs Emergency Room, and Judicial Career Progression |
