@@ -43,7 +43,7 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
     return (
       <div className="flex flex-col gap-6 animate-fadeIn">
         <div className="p-6 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center mx-auto">
+          <div className="w-12 h-12 rounded-2xl bg-[var(--accent-subtle)] border border-[var(--badge-border)] text-[var(--accent)] flex items-center justify-center mx-auto">
             <BookOpen className="w-6 h-6" />
           </div>
           <div className="max-w-md mx-auto space-y-1.5">
@@ -59,7 +59,7 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
         {/* Available Stories Showcase */}
         <div className="space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-primary)] flex items-center gap-1.5">
-            <Gavel className="w-3.5 h-3.5 text-amber-500" />
+            <Gavel className="w-3.5 h-3.5 text-[var(--accent)]" />
             Explore Verified Courtroom Dramas in Key Articles ({allStories.length} Documented Stories)
           </span>
 
@@ -68,23 +68,23 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
               <div
                 key={s.articleNumber + s.caseName}
                 onClick={() => onSelectArticleStory?.(s.articleNumber)}
-                className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-500/40 transition-all cursor-pointer group text-left"
+                className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--accent)] transition-all cursor-pointer group text-left"
               >
                 <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-bold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-bold">
                     Art {s.articleNumber}
                   </span>
                   <span className="text-[10px] font-mono text-[var(--text-muted)]">
                     {s.decisionYear}
                   </span>
                 </div>
-                <h5 className="text-sm font-serif font-bold text-[var(--text-primary)] group-hover:text-amber-500 transition-colors line-clamp-1">
+                <h5 className="text-sm font-serif font-bold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors line-clamp-1">
                   {s.caseName}
                 </h5>
                 <p className="text-xs font-sans text-[var(--text-secondary)] line-clamp-2 mt-1">
                   {s.headline}
                 </p>
-                <div className="mt-3 pt-2 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono text-amber-500 font-bold">
+                <div className="mt-3 pt-2 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono text-[var(--accent)] font-bold">
                   <span>Read Case Story</span>
                   <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </div>
@@ -100,8 +100,8 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
     <div className="flex flex-col gap-6 animate-fadeIn">
       {/* Multi-Case Switcher Pills if article has more than 1 landmark story */}
       {stories.length > 1 && (
-        <div className="p-3 rounded-2xl bg-[var(--bg-base)] border border-amber-500/30 flex flex-wrap items-center gap-2">
-          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-500 flex items-center gap-1.5 px-2">
+        <div className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-wrap items-center gap-2">
+          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--accent)] flex items-center gap-1.5 px-2">
             <Scale className="w-3.5 h-3.5" />
             {stories.length} Landmark Precedents for Article {articleNumber}:
           </span>
@@ -110,10 +110,10 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
               <button
                 key={idx}
                 onClick={() => setSelectedCaseIdx(idx)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border ${
                   selectedCaseIdx === idx
-                    ? 'bg-amber-500 text-black shadow-xs'
-                    : 'bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 border border-[var(--border-subtle)]'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-xs'
+                    : 'bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--accent)] border-[var(--border-subtle)] hover:border-[var(--accent)]'
                 }`}
               >
                 {s.caseName.split(' v. ')[0]} ({s.decisionYear})
@@ -124,17 +124,17 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
       )}
 
       {/* Authentic Case Law Header Banner */}
-      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-[var(--bg-surface)] to-amber-500/5 border-2 border-amber-500/30 shadow-md space-y-4">
+      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[var(--accent-subtle)] via-[var(--bg-surface)] to-[var(--bg-surface-elevated)] border-2 border-[var(--border-strong)] shadow-md space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-500 text-black uppercase tracking-wider">
+            <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] uppercase tracking-wider">
               100% Authentic Law Report Record
             </span>
             <span className="text-[10px] font-mono text-[var(--text-muted)]">
               AIR • SCC • SCR Official Precedent
             </span>
           </div>
-          <span className="text-xs font-mono font-bold text-amber-500">
+          <span className="text-xs font-mono font-bold text-[var(--accent)]">
             Decided {story.decisionYear}
           </span>
         </div>
@@ -143,14 +143,14 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
           <h3 className="text-xl sm:text-2xl font-serif font-bold text-[var(--text-primary)] leading-tight">
             {story.headline}
           </h3>
-          <p className="text-sm font-serif italic text-amber-500 mt-1">
+          <p className="text-sm font-serif italic text-[var(--accent)] mt-1">
             {story.caseName} • {story.officialCitation}
           </p>
         </div>
 
         {/* Bench Composition */}
         <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-secondary)] flex items-center gap-2.5">
-          <Scale className="w-4 h-4 text-amber-500 shrink-0" />
+          <Scale className="w-4 h-4 text-[var(--accent)] shrink-0" />
           <div>
             <strong className="text-[var(--text-primary)]">Presiding Bench:</strong> {story.bench}
           </div>
@@ -172,7 +172,7 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
       {/* Chapter 1: The Real Citizen & Ground Conflict */}
       <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3 shadow-xs">
         <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
-          <span className="text-xs font-mono font-bold uppercase text-amber-500 flex items-center gap-2">
+          <span className="text-xs font-mono font-bold uppercase text-[var(--accent)] flex items-center gap-2">
             <Users className="w-4 h-4" />
             Chapter 1: The Human Conflict on the Ground
           </span>
@@ -209,13 +209,13 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
       </div>
 
       {/* Chapter 3: The Moment of Lightning & Verbatim Holding */}
-      <div className="p-5 sm:p-6 rounded-2xl bg-amber-950/10 border-2 border-amber-500/40 space-y-4 shadow-sm">
-        <div className="flex items-center justify-between border-b border-amber-500/20 pb-2.5">
-          <span className="text-xs font-mono font-bold uppercase text-amber-400 flex items-center gap-2">
+      <div className="p-5 sm:p-6 rounded-2xl bg-[var(--badge-bg)] border-2 border-[var(--badge-border)] space-y-4 shadow-sm">
+        <div className="flex items-center justify-between border-b border-[var(--badge-border)] pb-2.5">
+          <span className="text-xs font-mono font-bold uppercase text-[var(--accent)] flex items-center gap-2">
             <Gavel className="w-4 h-4" />
             Chapter 3: The Landmark Ratio Decidendi (Art. 141 Binding Law)
           </span>
-          <span className="text-[10px] font-mono text-amber-500 font-bold uppercase">
+          <span className="text-[10px] font-mono text-[var(--accent)] font-bold uppercase">
             Verbatim Holding
           </span>
         </div>
@@ -225,8 +225,8 @@ export const ArticleRealCaseStoryTab: React.FC<Props> = ({
         </p>
 
         {/* Verbatim Landmark Quote Box */}
-        <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-surface)] border border-amber-500/30 text-xs sm:text-sm font-serif italic text-amber-300 leading-relaxed relative pl-10 shadow-inner">
-          <Quote className="w-5 h-5 text-amber-500 absolute left-3 top-4 opacity-70" />
+        <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-xs sm:text-sm font-serif italic text-[var(--text-primary)] leading-relaxed relative pl-10 shadow-inner">
+          <Quote className="w-5 h-5 text-[var(--accent)] absolute left-3 top-4 opacity-70" />
           {story.keyQuote}
         </div>
       </div>

@@ -418,7 +418,7 @@ export const ArticlesMasterView: React.FC = () => {
 
                         <div className="flex items-center gap-1">
                           {art.hasDiff && (
-                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                               DIFF
                             </span>
                           )}
@@ -428,7 +428,7 @@ export const ArticlesMasterView: React.FC = () => {
                             </span>
                           )}
                           {caseStoryService.hasStory(art.number) && (
-                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-amber-500/15 text-amber-500 border border-amber-500/30 font-bold">
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-bold">
                               STORY
                             </span>
                           )}
@@ -507,8 +507,8 @@ export const ArticlesMasterView: React.FC = () => {
                     title="Read authentic documented courtroom case drama"
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
                       readerTab === 'story'
-                        ? 'bg-amber-500 text-black font-bold shadow-xs'
-                        : 'text-amber-500 hover:text-amber-400 font-bold'
+                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-xs'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--accent)] font-bold'
                     }`}
                   >
                     <BookOpen className="w-3 h-3" />
@@ -519,8 +519,8 @@ export const ArticlesMasterView: React.FC = () => {
                     title="Read simplified plain-English breakdown with practical scenarios"
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
                       readerTab === 'eli5'
-                        ? 'bg-amber-500 text-black font-bold shadow-xs'
-                        : 'text-amber-500 hover:text-amber-400 font-bold'
+                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-xs'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--accent)] font-bold'
                     }`}
                   >
                     <Sparkles className="w-3 h-3" />
@@ -551,8 +551,8 @@ export const ArticlesMasterView: React.FC = () => {
                   title={pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number)) ? 'Pinned in SRS Flashcards' : 'Pin Article to SRS Flashcards'}
                   className={`flex items-center gap-1 px-2 py-1.5 rounded-lg border text-xs font-mono font-bold transition-colors ${
                     pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number))
-                      ? 'bg-amber-500/15 border-amber-500/40 text-amber-400'
-                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-amber-400'
+                      ? 'bg-[var(--accent)]/15 border-[var(--accent)]/40 text-[var(--accent)]'
+                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--accent)]'
                   }`}
                 >
                   <Star className={`w-3.5 h-3.5 ${pinnedFlashcardIds.includes(getCardIdForArticle(activeArticle.number)) ? 'fill-current' : ''}`} />
@@ -612,14 +612,18 @@ export const ArticlesMasterView: React.FC = () => {
                 onClick={() => setReaderTab('story')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
                   readerTab === 'story'
-                    ? 'bg-amber-500 text-black border-amber-500 shadow-sm'
-                    : 'bg-[var(--bg-base)] text-amber-500 border-amber-500/30 hover:border-amber-500/60'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-xs'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-[var(--text-primary)] hover:border-[var(--accent-glow)]'
                 }`}
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Real Case Story</span>
                 {caseStoryService.hasStory(activeArticle.number) && (
-                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold animate-pulse">
+                  <span className={`text-[9px] px-1.5 py-0.2 rounded-full font-bold ${
+                    readerTab === 'story'
+                      ? 'bg-[var(--accent-contrast)]/20 text-[var(--accent-contrast)]'
+                      : 'bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]'
+                  }`}>
                     Courtroom Drama
                   </span>
                 )}
@@ -629,13 +633,17 @@ export const ArticlesMasterView: React.FC = () => {
                 onClick={() => setReaderTab('eli5')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
                   readerTab === 'eli5'
-                    ? 'bg-amber-500 text-black border-amber-500 shadow-sm'
-                    : 'bg-[var(--bg-base)] text-amber-500 border-amber-500/30 hover:border-amber-500/60'
+                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-xs'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:text-[var(--text-primary)] hover:border-[var(--accent-glow)]'
                 }`}
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Plain-English (ELI5)</span>
-                <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold">
+                <span className={`text-[9px] px-1.5 py-0.2 rounded-full font-bold ${
+                  readerTab === 'eli5'
+                    ? 'bg-[var(--accent-contrast)]/20 text-[var(--accent-contrast)]'
+                    : 'bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]'
+                }`}>
                   Simplified
                 </span>
               </button>
@@ -651,7 +659,7 @@ export const ArticlesMasterView: React.FC = () => {
                 <GitCommit className="w-3.5 h-3.5" />
                 <span>1950 vs Amended Diff</span>
                 {activeArticle.hasDiff && (
-                  <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent)] shrink-0" />
                 )}
               </button>
 
@@ -698,7 +706,7 @@ export const ArticlesMasterView: React.FC = () => {
                   {/* Switch to ELI5 Invitation Link */}
                   <button
                     onClick={() => setReaderTab('eli5')}
-                    className="flex items-center gap-1.5 text-xs font-mono text-amber-500 hover:text-amber-400 font-bold pt-1 transition-colors group self-start"
+                    className="flex items-center gap-1.5 text-xs font-mono text-[var(--accent)] hover:opacity-80 font-bold pt-1 transition-colors group self-start"
                   >
                     <Lightbulb className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                     <span>Confused by legal jargon? Switch to Plain-English ELI5 breakdown & practical scenario →</span>
@@ -760,13 +768,13 @@ export const ArticlesMasterView: React.FC = () => {
             {readerTab === 'eli5' && (
               <div className="flex flex-col gap-5 animate-fadeIn">
                 {/* Mode Indicator Banner */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-[var(--bg-surface-elevated)] to-[var(--accent)]/15 border-2 border-amber-500/30 shadow-md flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-amber-500/20 text-amber-500 border border-amber-500/30 shrink-0">
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[var(--accent-subtle)] via-[var(--bg-surface-elevated)] to-[var(--accent-subtle)] border-2 border-[var(--border-strong)] shadow-md flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
                     <Sparkles className="w-6 h-6 animate-pulse" />
                   </div>
                   <div className="flex flex-col gap-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500 text-black uppercase">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[var(--accent)] text-[var(--accent-contrast)] uppercase">
                         ELI5 Plain English Mode
                       </span>
                       <span className="text-xs font-mono text-[var(--text-muted)]">
@@ -786,7 +794,7 @@ export const ArticlesMasterView: React.FC = () => {
                 <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col gap-3 shadow-xs">
                   <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2 text-xs font-mono">
                     <span className="font-bold text-[var(--accent)] uppercase flex items-center gap-1.5">
-                      <Lightbulb className="w-4 h-4 text-amber-400" />
+                      <Lightbulb className="w-4 h-4 text-[var(--accent)]" />
                       The Plain-English Meaning (What This Actually Says)
                     </span>
                     <span className="text-[10px] text-[var(--text-muted)] font-mono">Simplicity Grade: High</span>
@@ -896,8 +904,8 @@ export const ArticlesMasterView: React.FC = () => {
                 {activeArticle.diffData ? (
                   <>
                     {/* Summary of Changes Banner */}
-                    <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col gap-1.5">
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-500">
+                    <div className="p-4 rounded-xl bg-[var(--badge-bg)] border border-[var(--badge-border)] flex flex-col gap-1.5">
+                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-[var(--accent)]">
                         <GitCommit className="w-4 h-4" />
                         <span>CONSTITUTIONAL AMENDMENT DIFF & EVOLUTION</span>
                       </div>
@@ -921,7 +929,7 @@ export const ArticlesMasterView: React.FC = () => {
                               <span className="font-bold text-[var(--accent)]">{ka.act}</span>
                               <span className="text-[var(--text-muted)]">{ka.year}</span>
                             </div>
-                            <span className="text-[11px] font-mono text-amber-500">
+                            <span className="text-[11px] font-mono text-[var(--accent)]">
                               Target: {ka.clauseAffected}
                             </span>
                             <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -1003,8 +1011,8 @@ export const ArticlesMasterView: React.FC = () => {
 
                 {/* Prosecution & Trial Litigation Note */}
                 {activeArticle.prosecutionNote && (
-                  <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col gap-2">
-                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-500 uppercase">
+                  <div className="p-4 rounded-xl bg-[var(--badge-bg)] border border-[var(--badge-border)] flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--accent)] uppercase">
                       <AlertTriangle className="w-3.5 h-3.5" />
                       <span>Courtroom & Prosecution Practice Note</span>
                     </div>
@@ -1149,7 +1157,7 @@ export const ArticlesMasterView: React.FC = () => {
                             <span className="font-bold text-[var(--text-primary)]">
                               {ka.act} ({ka.year})
                             </span>
-                            <span className="text-[11px] text-amber-500">
+                            <span className="text-[11px] text-[var(--accent)]">
                               Effect: {ka.clauseAffected}
                             </span>
                             <p className="text-xs text-[var(--text-secondary)] font-sans">
@@ -1225,7 +1233,7 @@ export const ArticlesMasterView: React.FC = () => {
                         {art.part}
                       </span>
                       {art.hasDiff && (
-                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                           DIFF
                         </span>
                       )}

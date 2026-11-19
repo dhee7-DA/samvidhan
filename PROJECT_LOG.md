@@ -8,10 +8,10 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-19 11:05:11 (+05:30) |
+| **Last Log Sync** | 2026-11-19 11:18:26 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `852dd5a` (2026-11-19T11:05:05+05:30) |
-| **Total Commits** | 66 |
+| **Branch / HEAD** | `main` @ `badc8f6` (2026-11-19T11:18:16+05:30) |
+| **Total Commits** | 67 |
 | **Total Files Indexed** | 252 (252 tracked, 0 new untracked) |
 | **Working Tree** | Clean |
 <!-- AUTO:SNAPSHOT:END -->
@@ -21,6 +21,16 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-19 11:18:26 (+05:30)] Harmonize Real Case Stories and Bare Act Explorer with Theme Tokens (DONE)
+- **Details:** Finalized commit badc8f6 eliminating harsh amber/yellow in favor of native CSS theme variables.
+- **Files Touched:** No working-tree file diffs
+- **Git HEAD:** `main` @ `badc8f6`
+
+### [2026-11-19 11:17:59 (+05:30)] Harmonize Real Case Stories and Bare Act Explorer with Theme Tokens (DONE)
+- **Details:** Replaced all hardcoded amber/yellow Tailwind classes with dynamic CSS theme tokens (var(--accent), var(--accent-contrast), var(--badge-bg), var(--badge-border)). Fixed color clashing in Mono Pink and all other themes.
+- **Files Touched (2):** `M src/components/Views/ArticleRealCaseStoryTab.tsx`, `M src/components/Views/ArticlesMasterView.tsx`
+- **Git HEAD:** `main` @ `75be064`
 
 ### [2026-11-19 11:05:11 (+05:30)] Expand Real Case Law Stories to 65 Landmark Precedents across Parts I to XXI (DONE)
 - **Details:** Finalized commit 852dd5a with 65 authentic Indian Law Reports case stories and multi-case article selector.
@@ -111,7 +121,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 43.4 KB | 583 | `852dd5a` (2026-11-19) |
+| `PROJECT_LOG.md` | 44.3 KB | 594 | `badc8f6` (2026-11-19) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -196,8 +206,8 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 23.3 KB | 467 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/ArcadeHubView.tsx` | 9.4 KB | 221 | `7aac50b` (2026-11-19) |
-| `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.1 KB | 253 | `852dd5a` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 66.5 KB | 1277 | `a15f579` (2026-11-19) |
+| `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `badc8f6` (2026-11-19) |
+| `src/components/Views/ArticlesMasterView.tsx` | 67.4 KB | 1285 | `badc8f6` (2026-11-19) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -280,7 +290,7 @@
 | `src/data/preambleData.ts` | 6.9 KB | 121 | `3c486dd` (2026-11-13) |
 | `src/data/pyqData.ts` | 1.1 KB | 39 | `ea3d899` (2026-11-16) |
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
-| `src/data/realCaseStoriesData.ts` | 161.9 KB | 1389 | `852dd5a` (2026-11-19) |
+| `src/data/realCaseStoriesData.ts` | 161.9 KB | 1389 | `75be064` (2026-11-19) |
 | `src/data/schedulesData.ts` | 10.5 KB | 189 | `3c486dd` (2026-11-13) |
 | `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `7aac50b` (2026-11-19) |
 
@@ -491,7 +501,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/services/arcadeAudioService.ts` | 5.4 KB | 193 | `7aac50b` (2026-11-19) |
 | `src/services/bareActService.ts` | 10.6 KB | 289 | `c4ae501` (2026-11-17) |
-| `src/services/caseStoryService.ts` | 3.3 KB | 97 | `852dd5a` (2026-11-19) |
+| `src/services/caseStoryService.ts` | 3.3 KB | 97 | `75be064` (2026-11-19) |
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
@@ -515,11 +525,12 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**66** commits, newest first).
+> Complete git history (**67** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
-| 66 | 2026-11-19 | `852dd5a` | 4 | feat(cases): expand real case law stories to 65 landmark precedents across Parts I to XXI |
+| 67 | 2026-11-19 | `badc8f6` | 3 | fix(theme): replace harsh yellow/amber with dynamic theme tokens in Real Case Stories and Bare Act Explorer |
+| 66 | 2026-11-19 | `75be064` | 4 | feat(cases): expand real case law stories to 65 landmark precedents across Parts I to XXI |
 | 65 | 2026-11-19 | `a15f579` | 5 | feat(cases): add 100% authentic real case law stories across Bare Act articles |
 | 64 | 2026-11-19 | `7aac50b` | 15 | feat(arcade): build Constitutional Arcade with Chief Justice Bench Sim, 60s Article Blitz, Writs Emergency Room, and Judicial Career Progression |
 | 63 | 2026-11-18 | `3ce9f3d` | 15 | feat: complete all 106 Amendments, ELI5 modes, Progress Vault backup, and code-split lazy loading |
