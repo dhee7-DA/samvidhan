@@ -39,6 +39,9 @@ import {
 } from '../../data/allIndiaJudicialTopics';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { QuestionIntelHoverCard } from '../Common/QuestionIntelHoverCard';
+import { AnswerEvaluationCard } from '../Common/AnswerEvaluationCard';
+import { evaluateMainsDraft } from '../../services/answerEvaluatorService';
+import type { AnswerEvaluationResult } from '../../types/mainsQuestionTypes';
 import { useTheme } from '../../context/ThemeContext';
 
 export const PyqVaultView: React.FC = () => {
@@ -134,6 +137,29 @@ export const PyqVaultView: React.FC = () => {
       ...prev,
       [id]: !prev[id]
     }));
+  };
+
+  const [evaluationResults, setEvaluationResults] = useState<Record<string, AnswerEvaluationResult>>({});
+  const [isEvaluating, setIsEvaluating] = useState<boolean>(false);
+
+  const handleEvaluateDraft = (questionId: string, questionObj: any, draft: string) => {
+    setIsEvaluating(true);
+    setTimeout(() => {
+      const result = evaluateMainsDraft(draft, questionObj);
+      setEvaluationResults((prev) => ({
+        ...prev,
+        [questionId]: result
+      }));
+      setIsEvaluating(false);
+    }, 350);
+  };
+
+  const handleDismissEvaluation = (questionId: string) => {
+    setEvaluationResults((prev) => {
+      const copy = { ...prev };
+      delete copy[questionId];
+      return copy;
+    });
   };
 
   const wordCount = (userDrafts[currentQuestion.id] || '').split(/\s+/).filter(Boolean).length;
@@ -915,6 +941,48 @@ export const PyqVaultView: React.FC = () => {
                   rows={9}
                   className="w-full p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
                 />
+
+                {/* Diagnostic Evaluation Trigger Bar */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleEvaluateDraft(activeCommonQ.id, activeCommonQ, allIndiaDrafts[activeCommonQ.id] || '')}
+                      disabled={isEvaluating || !(allIndiaDrafts[activeCommonQ.id] || '').trim()}
+                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm ${
+                        (allIndiaDrafts[activeCommonQ.id] || '').trim()
+                          ? 'bg-emerald-500 hover:bg-emerald-600 text-black font-black cursor-pointer'
+                          : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-muted)] cursor-not-allowed opacity-60'
+                      }`}
+                    >
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>{isEvaluating ? 'Running Diagnostic Scan...' : '⚡ Evaluate My Answer'}</span>
+                    </button>
+
+                    {evaluationResults[activeCommonQ.id] && (
+                      <button
+                        type="button"
+                        onClick={() => handleDismissEvaluation(activeCommonQ.id)}
+                        className="px-3 py-2 rounded-xl text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] bg-[var(--bg-card)] transition-colors"
+                      >
+                        Dismiss Report
+                      </button>
+                    )}
+                  </div>
+
+                  <span className="text-[11px] text-[var(--text-muted)]">
+                    Scans Bare Act anchors, benchmark precedents, 4-step structure & scoring rubric
+                  </span>
+                </div>
+
+                {/* Automated Evaluation Diagnostic Card */}
+                {evaluationResults[activeCommonQ.id] && (
+                  <AnswerEvaluationCard
+                    evaluation={evaluationResults[activeCommonQ.id]}
+                    onReevaluate={() => handleEvaluateDraft(activeCommonQ.id, activeCommonQ, allIndiaDrafts[activeCommonQ.id] || '')}
+                    onClose={() => handleDismissEvaluation(activeCommonQ.id)}
+                  />
+                )}
               </div>
 
               {/* Master Model Answer Toggle Button */}
@@ -1265,6 +1333,48 @@ export const PyqVaultView: React.FC = () => {
                     rows={9}
                     className="w-full p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
                   />
+
+                  {/* Diagnostic Evaluation Trigger Bar (JKPSC) */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => handleEvaluateDraft(currentQuestion.id, currentQuestion, userDrafts[currentQuestion.id] || '')}
+                        disabled={isEvaluating || !(userDrafts[currentQuestion.id] || '').trim()}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm ${
+                          (userDrafts[currentQuestion.id] || '').trim()
+                            ? 'bg-emerald-500 hover:bg-emerald-600 text-black font-black cursor-pointer'
+                            : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-muted)] cursor-not-allowed opacity-60'
+                        }`}
+                      >
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>{isEvaluating ? 'Running Diagnostic Scan...' : '⚡ Evaluate My Answer'}</span>
+                      </button>
+
+                      {evaluationResults[currentQuestion.id] && (
+                        <button
+                          type="button"
+                          onClick={() => handleDismissEvaluation(currentQuestion.id)}
+                          className="px-3 py-2 rounded-xl text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] bg-[var(--bg-card)] transition-colors"
+                        >
+                          Dismiss Report
+                        </button>
+                      )}
+                    </div>
+
+                    <span className="text-[11px] text-[var(--text-muted)]">
+                      Instant rubric-based diagnostic evaluation
+                    </span>
+                  </div>
+
+                  {/* Automated Evaluation Diagnostic Card (JKPSC) */}
+                  {evaluationResults[currentQuestion.id] && (
+                    <AnswerEvaluationCard
+                      evaluation={evaluationResults[currentQuestion.id]}
+                      onReevaluate={() => handleEvaluateDraft(currentQuestion.id, currentQuestion, userDrafts[currentQuestion.id] || '')}
+                      onClose={() => handleDismissEvaluation(currentQuestion.id)}
+                    />
+                  )}
                 </div>
 
                 {/* Model Answer Toggle Button */}

@@ -70,6 +70,15 @@ const AudioBriefingsView = lazy(() =>
 const ArcadeHubView = lazy(() =>
   import('./components/Views/ArcadeHubView').then((m) => ({ default: m.ArcadeHubView }))
 );
+const PrecedentClashView = lazy(() =>
+  import('./components/Views/PrecedentClashView').then((m) => ({ default: m.PrecedentClashView }))
+);
+const JudgmentWritingLabView = lazy(() =>
+  import('./components/Views/JudgmentWritingLabView').then((m) => ({ default: m.JudgmentWritingLabView }))
+);
+const MainsMockExamSimulatorView = lazy(() =>
+  import('./components/Views/MainsMockExamSimulatorView').then((m) => ({ default: m.MainsMockExamSimulatorView }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -99,6 +108,8 @@ const MainContent: React.FC = () => {
           <Suspense fallback={<ViewLoadingFallback />}>
             {activeTab === 'bootcamp' && <StudyBootcampView />}
             {activeTab === 'mock-exam' && <MockExamSimulatorView />}
+            {activeTab === 'mains-mock' && <MainsMockExamSimulatorView />}
+            {activeTab === 'judgment-lab' && <JudgmentWritingLabView />}
             {activeTab === 'mistakes-notebook' && (
               <MistakesNotebookView
                 onNavigateToBootcampDay={() => {
@@ -111,6 +122,7 @@ const MainContent: React.FC = () => {
             {activeTab === 'flashcards' && <FlashcardsView />}
             {(activeTab === 'arcade' || activeTab === 'tile-matcher') && <ArcadeHubView />}
             {activeTab === 'lineage' && <PrecedentLineageView />}
+            {activeTab === 'precedent-clash' && <PrecedentClashView />}
             {activeTab === 'audio-lab' && <AudioBriefingsView />}
             {activeTab === 'pyqs' && <PyqVaultView />}
             {activeTab === 'parts' && <TopicDetailView />}

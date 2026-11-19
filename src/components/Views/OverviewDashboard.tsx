@@ -11,7 +11,11 @@ import {
   ShieldCheck,
   Star,
   Compass,
-  CheckCircle2
+  CheckCircle2,
+  FileText,
+  Swords,
+  Gavel,
+  Clock
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -78,6 +82,34 @@ export const OverviewDashboard: React.FC = () => {
           >
             <Timer className="w-4 h-4 text-[var(--error-text)]" />
             <span>TIMED EXAM HALL</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('pyqs')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <FileText className="w-4 h-4 text-[var(--accent)]" />
+            <span>MAINS VAULT (126 SOLVED)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('precedent-clash')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <Swords className="w-4 h-4 text-rose-400" />
+            <span>PRECEDENT CLASH (OVERRULED)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('judgment-lab')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <Gavel className="w-4 h-4 text-blue-400" />
+            <span>JUDGMENT WRITING LAB</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('mains-mock')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <Clock className="w-4 h-4 text-amber-400" />
+            <span>3-HR MAINS MOCK HALL</span>
           </button>
         </div>
       </section>

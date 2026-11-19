@@ -23,7 +23,10 @@ import {
   BrainCircuit,
   Radio,
   GitBranch,
-  Gamepad2
+  Gamepad2,
+  Swords,
+  Gavel,
+  Clock
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -50,6 +53,7 @@ const NAV_ITEMS: NavItem[] = [
 
   // 2. Landmark Cases & Precedents
   { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases', sub: 'Authoritative Ratios', category: 'cases' },
+  { id: 'precedent-clash', label: 'Precedent Clash', icon: <Swords className="w-4 h-4" />, badge: 'Overruled vs Settled', sub: '10 Historic Battles', category: 'cases' },
   { id: 'lineage', label: 'Precedent Trees', icon: <GitBranch className="w-4 h-4" />, badge: '1950–2026', sub: 'Case Lineage', category: 'cases' },
   { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy', category: 'cases' },
 
@@ -58,8 +62,10 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'arcade', label: 'Constitutional Arcade', icon: <Gamepad2 className="w-4 h-4" />, badge: '4 Games + XP', sub: 'Bench Sim, Blitz & Writs', category: 'practice' },
   { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'practice' },
   { id: 'mistakes-notebook', label: 'Mistakes Bank', icon: <AlertTriangle className="w-4 h-4" />, badge: 'Smart Diagnostic', sub: 'Re-Attempt Errors', category: 'practice' },
+  { id: 'mains-mock', label: 'Mains Mock Hall', icon: <Clock className="w-4 h-4" />, badge: '3-Hour Timed', sub: 'Full Paper Simulator', category: 'practice' },
+  { id: 'judgment-lab', label: 'Judgment Writing', icon: <Gavel className="w-4 h-4" />, badge: 'Mains Paper III/IV', sub: 'Issues & Judgments', category: 'practice' },
   { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics', category: 'practice' },
-  { id: 'pyqs', label: 'J&K Mains PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10 Years', sub: 'Paper-II Solved Bank', category: 'practice' },
+  { id: 'pyqs', label: 'Mains Question Vault', icon: <FileQuestion className="w-4 h-4" />, badge: '126 Solved', sub: '5M–20M+ Questions & Blueprints', category: 'practice' },
   { id: 'revision-sheets', label: 'Revision Sheets', icon: <Printer className="w-4 h-4" />, badge: 'Printable PDF', sub: 'Rapid Cheat Sheets', category: 'practice' },
   { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall', sub: 'Conceptual Drills', category: 'practice' },
 

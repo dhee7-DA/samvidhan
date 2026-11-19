@@ -57,3 +57,42 @@ export interface MainsMasterQuestion {
   fullModelAnswer: string;
   scoringRubric: ScoringRubricItem[];
 }
+
+export interface EvaluationCitationCheck {
+  citation: string;
+  matched: boolean;
+}
+
+export interface EvaluationArticleCheck {
+  article: string;
+  matched: boolean;
+}
+
+export interface EvaluationRubricScore {
+  criterion: string;
+  maxMarks: number;
+  awardedMarks: number;
+  feedback: string;
+}
+
+export interface AnswerEvaluationResult {
+  score: number;
+  maxScore: number;
+  percentage: number;
+  gradeTier: 'Outstanding (Rank 1–10 Material)' | 'Judiciary Cutoff Cleared' | 'Average (Borderline Pass)' | 'Needs Substantial Authority';
+  wordCount: number;
+  wordCountCompliance: 'Optimal' | 'Under-Length' | 'Over-Length';
+  wordCountFeedback: string;
+  articlesChecked: EvaluationArticleCheck[];
+  citationsChecked: EvaluationCitationCheck[];
+  blueprintStepsDetected: {
+    step1Intro: boolean;
+    step2DoctrinalCore: boolean;
+    step3Precedents: boolean;
+    step4Conclusion: boolean;
+  };
+  trapAvoidanceFeedback: string;
+  rubricBreakdown: EvaluationRubricScore[];
+  strengths: string[];
+  recommendations: string[];
+}
