@@ -1,36 +1,89 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import {
-  Share2,
   Search,
   ZoomIn,
   ZoomOut,
   RotateCcw,
   Sparkles,
   Layers,
-  BookOpen,
-  Scale,
-  Award,
-  ChevronRight,
   ExternalLink,
   Info,
-  Filter
+  Maximize2,
+  Minimize2,
+  GitMerge,
+  Compass,
+  ArrowRight,
+  ChevronRight,
+  ChevronLeft,
+  X,
+  Share2,
+  Zap,
+  Activity
 } from 'lucide-react';
-import { CONCEPT_NODES, type ConceptNode } from '../../data/conceptWebData';
+import {
+  CONCEPT_NODES,
+  CONCEPT_EDGES,
+  findConstitutionalPath,
+  type ConceptNode,
+  type ConceptEdge
+} from '../../data/conceptWebData';
 import { useTheme } from '../../context/ThemeContext';
 
 export const ConceptWebGraphView: React.FC = () => {
   const { setActiveTab } = useTheme();
+
+  // Mode: 'explore' | 'pathfinder'
+  const [viewMode, setViewMode] = useState<'explore' | 'pathfinder'>('explore');
+
+  // Exploration state
   const [selectedNodeId, setSelectedNodeId] = useState<string>('art-21');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeCluster, setActiveCluster] = useState<string>('all');
-  const [zoomLevel, setZoomLevel] = useState<number>(1);
 
-  // Selected node
+  // Path Finder state
+  const [pathStartId, setPathStartId] = useState<string>('art-21');
+  const [pathEndId, setPathEndId] = useState<string>('kesavananda');
+
+  // Fullscreen state
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
+  const [dossierCollapsed, setDossierCollapsed] = useState<boolean>(false);
+
+  // Pan & Zoom state
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
+  const [panOffset, setPanOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [isPanning, setIsPanning] = useState<boolean>(false);
+  const [panStart, setPanStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // Node Positions (allow dragging)
+  const [nodePositions, setNodePositions] = useState<Record<string, { x: number; y: number }>>(() => {
+    const initial: Record<string, { x: number; y: number }> = {};
+    CONCEPT_NODES.forEach((n) => {
+      initial[n.id] = { x: n.x, y: n.y };
+    });
+    return initial;
+  });
+
+  const [draggingNodeId, setDraggingNodeId] = useState<string | null>(null);
+  const [dragOffset, setDragOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const svgRef = useRef<SVGSVGElement | null>(null);
+
+  // Escape key listener for fullscreen
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen]);
+
+  // Selected node object
   const selectedNode = useMemo(() => {
     return CONCEPT_NODES.find((n) => n.id === selectedNodeId) || CONCEPT_NODES[0];
   }, [selectedNodeId]);
 
-  // Set of connected node IDs for the active node
+  // Active connected node IDs in exploration mode
   const activeConnectedIds = useMemo(() => {
     const set = new Set<string>();
     set.add(selectedNode.id);
@@ -38,33 +91,48 @@ export const ConceptWebGraphView: React.FC = () => {
     return set;
   }, [selectedNode]);
 
-  // Generate unique edges
-  const edges = useMemo(() => {
-    const list: { from: ConceptNode; to: ConceptNode; key: string; isConnectedToActive: boolean }[] = [];
-    const seen = new Set<string>();
+  // Calculated Path for Path-Finder mode
+  const calculatedPath = useMemo(() => {
+    if (viewMode !== 'pathfinder') return null;
+    return findConstitutionalPath(pathStartId, pathEndId);
+  }, [viewMode, pathStartId, pathEndId]);
 
-    CONCEPT_NODES.forEach((source) => {
-      source.connections.forEach((targetId) => {
-        const target = CONCEPT_NODES.find((n) => n.id === targetId);
-        if (!target) return;
+  const pathNodeSet = useMemo(() => {
+    return new Set<string>(calculatedPath?.pathNodeIds || []);
+  }, [calculatedPath]);
 
-        const edgeKey = [source.id, target.id].sort().join('---');
-        if (!seen.has(edgeKey)) {
-          seen.add(edgeKey);
-          const isConnected =
-            source.id === selectedNode.id || target.id === selectedNode.id;
-          list.push({
-            from: source,
-            to: target,
-            key: edgeKey,
-            isConnectedToActive: isConnected
-          });
-        }
-      });
+  // Unique edges formatted with current coordinates
+  const edgesWithCoords = useMemo(() => {
+    return CONCEPT_EDGES.map((edge) => {
+      const fromPos = nodePositions[edge.from] || { x: 0, y: 0 };
+      const toPos = nodePositions[edge.to] || { x: 0, y: 0 };
+      const fromNode = CONCEPT_NODES.find((n) => n.id === edge.from);
+      const toNode = CONCEPT_NODES.find((n) => n.id === edge.to);
+
+      const isConnectedToSelected =
+        edge.from === selectedNode.id || edge.to === selectedNode.id;
+
+      const isPathEdge =
+        viewMode === 'pathfinder' &&
+        pathNodeSet.has(edge.from) &&
+        pathNodeSet.has(edge.to) &&
+        calculatedPath?.pathEdges.some(
+          (pe) =>
+            (pe.from === edge.from && pe.to === edge.to) ||
+            (pe.from === edge.to && pe.to === edge.from)
+        );
+
+      return {
+        ...edge,
+        fromPos,
+        toPos,
+        fromNode,
+        toNode,
+        isConnectedToSelected,
+        isPathEdge: !!isPathEdge
+      };
     });
-
-    return list;
-  }, [selectedNode]);
+  }, [nodePositions, selectedNode, viewMode, pathNodeSet, calculatedPath]);
 
   // Color mapping
   const getCategoryColor = (cat: ConceptNode['category']) => {
@@ -80,6 +148,78 @@ export const ConceptWebGraphView: React.FC = () => {
     }
   };
 
+  // Convert SVG coordinates
+  const getSvgCoordinates = useCallback((e: React.PointerEvent) => {
+    if (!svgRef.current) return { x: 0, y: 0 };
+    const rect = svgRef.current.getBoundingClientRect();
+    const rawX = e.clientX - rect.left;
+    const rawY = e.clientY - rect.top;
+
+    // Normalize through viewBox scale (1000 x 650)
+    const scaleX = 1000 / rect.width;
+    const scaleY = 650 / rect.height;
+
+    // Remove pan & zoom
+    const x = (rawX * scaleX - panOffset.x) / zoomLevel;
+    const y = (rawY * scaleY - panOffset.y) / zoomLevel;
+    return { x, y };
+  }, [panOffset, zoomLevel]);
+
+  // Pointer Down on Node (Start Drag)
+  const handleNodePointerDown = (nodeId: string, e: React.PointerEvent) => {
+    e.stopPropagation();
+    const { x, y } = getSvgCoordinates(e);
+    const current = nodePositions[nodeId];
+    if (current) {
+      setDragOffset({ x: current.x - x, y: current.y - y });
+      setDraggingNodeId(nodeId);
+      setSelectedNodeId(nodeId);
+    }
+  };
+
+  // Pointer Down on Canvas (Start Pan)
+  const handleCanvasPointerDown = (e: React.PointerEvent) => {
+    if (draggingNodeId) return;
+    setIsPanning(true);
+    setPanStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
+  };
+
+  // Pointer Move (Dragging node or panning canvas)
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (draggingNodeId) {
+      const { x, y } = getSvgCoordinates(e);
+      setNodePositions((prev) => ({
+        ...prev,
+        [draggingNodeId]: {
+          x: Math.max(30, Math.min(970, x + dragOffset.x)),
+          y: Math.max(30, Math.min(620, y + dragOffset.y))
+        }
+      }));
+    } else if (isPanning) {
+      setPanOffset({
+        x: e.clientX - panStart.x,
+        y: e.clientY - panStart.y
+      });
+    }
+  };
+
+  // Pointer Up (End Drag or Pan)
+  const handlePointerUp = () => {
+    setDraggingNodeId(null);
+    setIsPanning(false);
+  };
+
+  // Reset positions
+  const handleResetPositions = () => {
+    const initial: Record<string, { x: number; y: number }> = {};
+    CONCEPT_NODES.forEach((n) => {
+      initial[n.id] = { x: n.x, y: n.y };
+    });
+    setNodePositions(initial);
+    setPanOffset({ x: 0, y: 0 });
+    setZoomLevel(1);
+  };
+
   const handleActionJump = (node: ConceptNode) => {
     if (node.category === 'article') {
       setActiveTab('articles-master');
@@ -93,50 +233,124 @@ export const ConceptWebGraphView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
-      {/* Control Bar: Filters, Search & Zoom */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-sm space-y-3">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-          {/* Cluster filter tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-            {[
-              { id: 'all', label: 'All Concepts (26)' },
-              { id: 'liberty', label: 'Liberty & Privacy' },
-              { id: 'equality', label: 'Equality & Social Justice' },
-              { id: 'basic_structure', label: 'Basic Structure' },
-              { id: 'federalism', label: 'Federalism & Emergencies' },
-              { id: 'remedies', label: 'Writs & Remedies' }
-            ].map((cl) => (
-              <button
-                key={cl.id}
-                onClick={() => setActiveCluster(cl.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                  activeCluster === cl.id
-                    ? 'bg-purple-500 text-white shadow-sm'
-                    : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                {cl.label}
-              </button>
-            ))}
+    <div
+      className={`space-y-4 animate-fadeIn transition-all ${
+        isFullscreen
+          ? 'fixed inset-0 z-50 bg-[#07070b] p-4 sm:p-6 overflow-hidden flex flex-col justify-between'
+          : 'relative'
+      }`}
+    >
+      {/* Top Cockpit Header & Control Ribbon */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-card)]/90 backdrop-blur-md border border-[var(--border-subtle)] shadow-md space-y-3">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          {/* View Mode Switcher: Constellation vs Path-Finder */}
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 shadow-inner">
+            <button
+              onClick={() => setViewMode('explore')}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                viewMode === 'explore'
+                  ? 'bg-purple-600 text-white shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>Constellation Explorer</span>
+            </button>
+            <button
+              onClick={() => setViewMode('pathfinder')}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                viewMode === 'pathfinder'
+                  ? 'bg-amber-500 text-black shadow-sm font-black'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <GitMerge className="w-3.5 h-3.5" />
+              <span>Constitutional Path-Finder</span>
+            </button>
           </div>
 
-          {/* Search & Zoom */}
-          <div className="flex items-center gap-2">
-            <div className="relative w-full sm:w-56">
-              <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Find node (e.g. 21, Kesavananda)..."
-                className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] focus:border-purple-500 focus:outline-none"
-              />
-            </div>
+          {/* Path-Finder Node Selectors (When in Pathfinder mode) */}
+          {viewMode === 'pathfinder' ? (
+            <div className="flex flex-wrap items-center gap-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-mono">
+                <span className="text-[var(--text-muted)] font-bold">Start:</span>
+                <select
+                  value={pathStartId}
+                  onChange={(e) => setPathStartId(e.target.value)}
+                  className="px-2.5 py-1 rounded-xl bg-[var(--bg-base)] border border-amber-500/40 text-xs text-amber-300 font-bold focus:outline-none"
+                >
+                  {CONCEPT_NODES.map((n) => (
+                    <option key={n.id} value={n.id}>
+                      {n.label} ({n.category})
+                    </option>
+                  ))}
+                </select>
+              </div>
 
+              <ArrowRight className="w-4 h-4 text-amber-400 shrink-0" />
+
+              <div className="flex items-center gap-1.5 text-xs font-mono">
+                <span className="text-[var(--text-muted)] font-bold">Target:</span>
+                <select
+                  value={pathEndId}
+                  onChange={(e) => setPathEndId(e.target.value)}
+                  className="px-2.5 py-1 rounded-xl bg-[var(--bg-base)] border border-purple-500/40 text-xs text-purple-300 font-bold focus:outline-none"
+                >
+                  {CONCEPT_NODES.map((n) => (
+                    <option key={n.id} value={n.id}>
+                      {n.label} ({n.category})
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          ) : (
+            /* Cluster filter tabs in explore mode */
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
+              {[
+                { id: 'all', label: 'All 42 Nodes' },
+                { id: 'preamble', label: 'Preamble' },
+                { id: 'liberty', label: 'Liberty & Privacy' },
+                { id: 'equality', label: 'Equality' },
+                { id: 'dpsp', label: 'DPSP Harmony' },
+                { id: 'basic_structure', label: 'Basic Structure' },
+                { id: 'federalism', label: 'Federalism' },
+                { id: 'remedies', label: 'Writs & Remedies' }
+              ].map((cl) => (
+                <button
+                  key={cl.id}
+                  onClick={() => setActiveCluster(cl.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                    activeCluster === cl.id
+                      ? 'bg-purple-600 text-white shadow-sm'
+                      : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  {cl.label}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Search, Zoom & Fullscreen Toolbar */}
+          <div className="flex items-center gap-2 self-end lg:self-auto shrink-0">
+            {viewMode === 'explore' && (
+              <div className="relative w-40 sm:w-48">
+                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Find concept..."
+                  className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] focus:border-purple-500 focus:outline-none"
+                />
+              </div>
+            )}
+
+            {/* Zoom Controls */}
             <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0">
               <button
-                onClick={() => setZoomLevel((z) => Math.max(0.7, z - 0.15))}
+                onClick={() => setZoomLevel((z) => Math.max(0.6, z - 0.15))}
                 className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
                 title="Zoom Out"
               >
@@ -146,263 +360,395 @@ export const ConceptWebGraphView: React.FC = () => {
                 {Math.round(zoomLevel * 100)}%
               </span>
               <button
-                onClick={() => setZoomLevel((z) => Math.min(1.5, z + 0.15))}
+                onClick={() => setZoomLevel((z) => Math.min(2.0, z + 0.15))}
                 className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
                 title="Zoom In"
               >
                 <ZoomIn className="w-3.5 h-3.5" />
               </button>
               <button
-                onClick={() => setZoomLevel(1)}
+                onClick={handleResetPositions}
                 className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
-                title="Reset Zoom"
+                title="Reset Positions & Zoom"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
               </button>
             </div>
+
+            {/* Fullscreen Button */}
+            <button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              className="p-2 rounded-xl bg-purple-600/15 border border-purple-500/30 text-purple-300 hover:bg-purple-600/25 transition-all cursor-pointer"
+              title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen Cockpit'}
+            >
+              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+            </button>
           </div>
         </div>
 
-        {/* Legend */}
-        <div className="flex flex-wrap items-center gap-4 pt-1 text-[11px] font-mono border-t border-[var(--border-subtle)]">
-          <span className="text-[var(--text-muted)] font-bold">Node Categories:</span>
-          <span className="flex items-center gap-1.5 text-sky-400">
-            <span className="w-2.5 h-2.5 rounded-full bg-sky-400" /> Articles (Part III/XX)
-          </span>
-          <span className="flex items-center gap-1.5 text-purple-400">
-            <span className="w-2.5 h-2.5 rounded-full bg-purple-400" /> Landmark Judgments
-          </span>
-          <span className="flex items-center gap-1.5 text-emerald-400">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Constitutional Doctrines
-          </span>
-          <span className="flex items-center gap-1.5 text-amber-400">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> Key Amendments
-          </span>
-        </div>
+        {/* Pathfinder Rationale Banner (when in pathfinder mode) */}
+        {viewMode === 'pathfinder' && calculatedPath && (
+          <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-card border border-amber-500/30 text-xs space-y-1 animate-fadeIn">
+            <div className="flex items-center gap-2 font-mono font-bold text-amber-400">
+              <Sparkles className="w-4 h-4" />
+              <span>JUDICIAL BRIDGE DISCOVERED ({calculatedPath.pathNodeIds.length - 1} LEAPS):</span>
+            </div>
+            <p className="text-[var(--text-primary)] leading-relaxed font-medium">
+              {calculatedPath.rationale}
+            </p>
+          </div>
+        )}
       </div>
 
-      {/* Main Interactive Grid: SVG Canvas (8 Cols) + Dossier Inspector (4 Cols) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      {/* Main Interactive Stage: SVG Canvas with Floating Glass Dossier */}
+      <div
+        className={`relative w-full rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[#09090f] shadow-2xl ${
+          isFullscreen ? 'flex-1' : 'h-[620px]'
+        }`}
+      >
         {/* Interactive SVG Canvas */}
-        <div className="lg:col-span-8 rounded-3xl bg-gradient-to-b from-[var(--bg-card)] via-[var(--bg-card)] to-purple-950/10 border border-[var(--border-subtle)] p-2 sm:p-4 shadow-xl relative overflow-hidden">
-          <div className="w-full overflow-hidden rounded-2xl bg-[var(--bg-base)]/80 border border-[var(--border-subtle)] relative">
-            <svg
-              viewBox="0 0 1000 650"
-              className="w-full h-auto max-h-[580px] transition-transform duration-300"
-              style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center' }}
-            >
-              <defs>
-                {/* Subtle Grid pattern */}
-                <pattern id="webGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-border/20" />
-                </pattern>
-                {/* Glow filter */}
-                <filter id="activeGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="6" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-              </defs>
+        <svg
+          ref={svgRef}
+          viewBox="0 0 1000 650"
+          className="w-full h-full cursor-grab active:cursor-grabbing select-none"
+          onPointerDown={handleCanvasPointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+        >
+          <defs>
+            {/* Dark Cybernetic Grid */}
+            <pattern id="matrixGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#252538" strokeWidth="0.5" opacity="0.4" />
+            </pattern>
 
-              {/* Background grid */}
-              <rect width="1000" height="650" fill="url(#webGrid)" opacity="0.4" />
+            {/* Glowing Nebulas */}
+            <radialGradient id="nebulaCenter" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+            </radialGradient>
+            <radialGradient id="nebulaRight" cx="80%" cy="50%" r="45%">
+              <stop offset="0%" stopColor="#059669" stopOpacity="0.1" />
+              <stop offset="100%" stopColor="#059669" stopOpacity="0" />
+            </radialGradient>
 
-              {/* RENDER EDGES */}
-              <g className="edges-layer">
-                {edges.map((edge) => {
-                  const isHighlighted = edge.isConnectedToActive;
-                  const isMatchSearch =
-                    !searchQuery ||
-                    edge.from.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    edge.to.label.toLowerCase().includes(searchQuery.toLowerCase());
+            {/* Neon Glow Filters */}
+            <filter id="neonPulse" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="goldPathGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
 
-                  const strokeColor = isHighlighted ? '#c084fc' : '#64748b';
-                  const strokeOpacity = isHighlighted ? 0.9 : 0.18;
-                  const strokeWidth = isHighlighted ? 2.5 : 1;
+          {/* Canvas Background and Nebulas */}
+          <rect width="1000" height="650" fill="#09090f" />
+          <rect width="1000" height="650" fill="url(#matrixGrid)" />
+          <circle cx="500" cy="325" r="350" fill="url(#nebulaCenter)" />
+          <circle cx="850" cy="350" r="280" fill="url(#nebulaRight)" />
 
-                  return (
+          {/* TRANSFORMED LAYER (Pan & Zoom) */}
+          <g transform={`translate(${panOffset.x}, ${panOffset.y}) scale(${zoomLevel})`}>
+            {/* LAYER 1: EDGES */}
+            <g className="edges-layer">
+              {edgesWithCoords.map((edge, i) => {
+                const isSelectedConn = edge.isConnectedToSelected;
+                const isPath = edge.isPathEdge;
+
+                let strokeColor = '#334155';
+                let strokeOpacity = 0.25;
+                let strokeWidth = 1.2;
+                let dashArray: string | undefined = undefined;
+
+                if (isPath) {
+                  strokeColor = '#fbbf24';
+                  strokeOpacity = 1;
+                  strokeWidth = 3.5;
+                  dashArray = '6 3';
+                } else if (isSelectedConn && viewMode === 'explore') {
+                  strokeColor = '#c084fc';
+                  strokeOpacity = 0.95;
+                  strokeWidth = 2.5;
+                  dashArray = '4 2';
+                }
+
+                // Midpoint for relationship label
+                const midX = (edge.fromPos.x + edge.toPos.x) / 2;
+                const midY = (edge.fromPos.y + edge.toPos.y) / 2;
+
+                return (
+                  <g key={`${edge.from}-${edge.to}-${i}`}>
                     <line
-                      key={edge.key}
-                      x1={edge.from.x}
-                      y1={edge.from.y}
-                      x2={edge.to.x}
-                      y2={edge.to.y}
+                      x1={edge.fromPos.x}
+                      y1={edge.fromPos.y}
+                      x2={edge.toPos.x}
+                      y2={edge.toPos.y}
                       stroke={strokeColor}
                       strokeOpacity={strokeOpacity}
                       strokeWidth={strokeWidth}
-                      strokeDasharray={isHighlighted ? '4 2' : undefined}
-                      className={isHighlighted ? 'animate-pulse' : undefined}
+                      strokeDasharray={dashArray}
+                      filter={isPath ? 'url(#goldPathGlow)' : undefined}
+                      className={isPath || isSelectedConn ? 'animate-pulse' : undefined}
                     />
-                  );
-                })}
-              </g>
 
-              {/* RENDER NODES */}
-              <g className="nodes-layer">
-                {CONCEPT_NODES.map((node) => {
-                  const isSelected = selectedNode.id === node.id;
-                  const isConnected = activeConnectedIds.has(node.id);
-                  const isClusterMatch = activeCluster === 'all' || node.cluster === activeCluster;
-                  const isSearchMatch =
-                    !searchQuery ||
-                    node.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    node.summary.toLowerCase().includes(searchQuery.toLowerCase());
-
-                  const color = getCategoryColor(node.category);
-                  const nodeOpacity = isSelected ? 1 : isConnected && isClusterMatch ? 0.95 : isClusterMatch && isSearchMatch ? 0.45 : 0.15;
-                  const radius = isSelected ? 24 : node.category === 'article' ? 20 : 16;
-
-                  return (
-                    <g
-                      key={node.id}
-                      onClick={() => setSelectedNodeId(node.id)}
-                      className="cursor-pointer transition-all duration-300 group"
-                      opacity={nodeOpacity}
-                    >
-                      {/* Outer pulse ring for selected node */}
-                      {isSelected && (
-                        <circle
-                          cx={node.x}
-                          cy={node.y}
-                          r={radius + 8}
-                          fill="none"
-                          stroke={color.stroke}
-                          strokeWidth="2"
-                          strokeDasharray="4 2"
-                          className="animate-spin"
-                          style={{ animationDuration: '8s' }}
+                    {/* Edge Relationship Badge (On active connection or path) */}
+                    {(isPath || (isSelectedConn && viewMode === 'explore')) && (
+                      <g transform={`translate(${midX}, ${midY})`}>
+                        <rect
+                          x="-32"
+                          y="-9"
+                          width="64"
+                          height="18"
+                          rx="9"
+                          fill="#090913"
+                          stroke={isPath ? '#fbbf24' : '#c084fc'}
+                          strokeWidth="1"
+                          opacity="0.9"
                         />
-                      )}
+                        <text
+                          y="3"
+                          textAnchor="middle"
+                          fontSize="8"
+                          fontWeight="bold"
+                          fontFamily="monospace"
+                          fill={isPath ? '#fbbf24' : '#c084fc'}
+                          className="select-none pointer-events-none"
+                        >
+                          {edge.relation}
+                        </text>
+                      </g>
+                    )}
+                  </g>
+                );
+              })}
+            </g>
 
-                      {/* Main node circle */}
+            {/* LAYER 2: NODES */}
+            <g className="nodes-layer">
+              {CONCEPT_NODES.map((node) => {
+                const pos = nodePositions[node.id] || { x: node.x, y: node.y };
+                const isSelected = selectedNode.id === node.id;
+                const isConnected = activeConnectedIds.has(node.id);
+                const isPathNode = pathNodeSet.has(node.id);
+                const isClusterMatch = activeCluster === 'all' || node.cluster === activeCluster;
+                const isSearchMatch =
+                  !searchQuery ||
+                  node.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  node.summary.toLowerCase().includes(searchQuery.toLowerCase());
+
+                const color = getCategoryColor(node.category);
+
+                // Opacity hierarchy
+                let opacity = 0.2;
+                if (viewMode === 'pathfinder') {
+                  opacity = isPathNode ? 1 : 0.15;
+                } else if (isSelected) {
+                  opacity = 1;
+                } else if (isConnected && isClusterMatch) {
+                  opacity = 0.95;
+                } else if (isClusterMatch && isSearchMatch) {
+                  opacity = 0.55;
+                }
+
+                const radius = isSelected || isPathNode ? 24 : node.category === 'article' ? 19 : 16;
+
+                return (
+                  <g
+                    key={node.id}
+                    onPointerDown={(e) => handleNodePointerDown(node.id, e)}
+                    className="cursor-grab active:cursor-grabbing group transition-opacity duration-300"
+                    opacity={opacity}
+                  >
+                    {/* Glowing outer orbit ring for selected node or path node */}
+                    {(isSelected || isPathNode) && (
                       <circle
-                        cx={node.x}
-                        cy={node.y}
-                        r={radius}
-                        fill={isSelected ? color.fill : '#1e1e24'}
-                        stroke={color.stroke}
-                        strokeWidth={isSelected ? 3 : 2}
-                        filter={isSelected ? 'url(#activeGlow)' : undefined}
-                        className="transition-all duration-200 group-hover:scale-110"
+                        cx={pos.x}
+                        cy={pos.y}
+                        r={radius + 8}
+                        fill="none"
+                        stroke={isPathNode ? '#fbbf24' : color.stroke}
+                        strokeWidth="2"
+                        strokeDasharray="4 2"
+                        className="animate-spin"
+                        style={{ animationDuration: '9s' }}
                       />
+                    )}
 
-                      {/* Text label */}
-                      <text
-                        x={node.x}
-                        y={node.y + radius + 14}
-                        textAnchor="middle"
-                        fontSize={isSelected ? "11" : "10"}
-                        fontWeight={isSelected ? "bold" : "600"}
-                        fill={isSelected ? '#ffffff' : color.fill}
-                        className="select-none pointer-events-none drop-shadow"
-                      >
-                        {node.label}
-                      </text>
-                    </g>
-                  );
-                })}
-              </g>
-            </svg>
+                    {/* Main Node Circle */}
+                    <circle
+                      cx={pos.x}
+                      cy={pos.y}
+                      r={radius}
+                      fill={isSelected ? color.fill : isPathNode ? '#fbbf24' : '#14141f'}
+                      stroke={isPathNode ? '#fbbf24' : color.stroke}
+                      strokeWidth={isSelected || isPathNode ? 3.5 : 2}
+                      filter={isSelected || isPathNode ? 'url(#neonPulse)' : undefined}
+                      className="transition-all duration-150 group-hover:scale-110"
+                    />
 
-            {/* Tap instruction */}
-            <div className="absolute bottom-3 left-4 text-[10px] font-mono text-[var(--text-muted)] bg-[var(--bg-card)]/80 px-2.5 py-1 rounded-lg border border-[var(--border-subtle)] pointer-events-none">
-              💡 Tap any node to illuminate its constitutional constellation & connections
-            </div>
+                    {/* Node Text Label */}
+                    <text
+                      x={pos.x}
+                      y={pos.y + radius + 13}
+                      textAnchor="middle"
+                      fontSize={isSelected || isPathNode ? '11' : '10'}
+                      fontWeight={isSelected || isPathNode ? 'bold' : '600'}
+                      fill={isSelected ? '#ffffff' : isPathNode ? '#fbbf24' : color.fill}
+                      className="select-none pointer-events-none drop-shadow"
+                    >
+                      {node.label}
+                    </text>
+                  </g>
+                );
+              })}
+            </g>
+          </g>
+        </svg>
+
+        {/* HUD Overlay: Navigation Help */}
+        <div className="absolute top-4 left-4 pointer-events-none space-y-1">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[var(--text-muted)]">
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <span>Drag any node to reposition • Pan canvas by dragging background</span>
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Node Inspector & Dossier (4 Cols) */}
-        <div className="lg:col-span-4 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] p-6 space-y-5 shadow-xl">
-          <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
-            <div className="flex items-center justify-between">
-              <span
-                className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
-                  getCategoryColor(selectedNode.category).bg
-                } ${getCategoryColor(selectedNode.category).text} border ${
-                  getCategoryColor(selectedNode.category).border
-                }`}
-              >
-                {selectedNode.category}
-              </span>
-              <span className="text-xs font-mono text-[var(--text-muted)] capitalize">
-                Cluster: {selectedNode.cluster.replace('_', ' ')}
-              </span>
-            </div>
-
-            <h3 className="text-xl font-black text-[var(--text-primary)] leading-tight">
-              {selectedNode.label}
-            </h3>
-
-            {selectedNode.articleAnchor && (
-              <p className="text-xs font-mono text-[var(--text-muted)]">
-                {selectedNode.articleAnchor}
-              </p>
-            )}
-          </div>
-
-          {/* Summary */}
-          <div className="space-y-1">
-            <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block">
-              CONSTITUTIONAL CORE:
-            </span>
-            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed bg-[var(--bg-base)] p-3.5 rounded-2xl border border-[var(--border-subtle)]">
-              {selectedNode.summary}
-            </p>
-          </div>
-
-          {/* Key Holdings / Doctrines */}
-          <div className="space-y-2">
-            <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block">
-              KEY CITATIONS & RATIOS:
-            </span>
-            <ul className="space-y-1.5 text-xs text-[var(--text-secondary)]">
-              {selectedNode.keyHoldings.map((holding, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 shrink-0" />
-                  <span>{holding}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Interactive Connected Nodes List */}
-          <div className="space-y-2 pt-2 border-t border-[var(--border-subtle)]">
-            <div className="flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
-              <span className="font-bold uppercase tracking-wider">
-                CONNECTED NODES ({selectedNode.connections.length}):
-              </span>
-              <span>Click to traverse</span>
-            </div>
-
-            <div className="flex flex-wrap gap-1.5">
-              {selectedNode.connections.map((connId) => {
-                const target = CONCEPT_NODES.find((n) => n.id === connId);
-                if (!target) return null;
-                const cColor = getCategoryColor(target.category);
-
-                return (
-                  <button
-                    key={connId}
-                    onClick={() => setSelectedNodeId(connId)}
-                    className={`px-2.5 py-1 rounded-xl text-xs font-medium border transition-all cursor-pointer bg-[var(--bg-base)] hover:border-purple-400 text-[var(--text-primary)] flex items-center gap-1.5`}
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${cColor.bg}`} />
-                    <span>{target.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Quick Action Button */}
-          <div className="pt-3">
+        {/* FLOATING GLASS DOSSIER SIDEBAR (Desktop Cockpit) */}
+        <div
+          className={`absolute top-4 right-4 bottom-4 transition-all duration-300 z-10 flex flex-col ${
+            dossierCollapsed ? 'w-12' : 'w-80 sm:w-96'
+          }`}
+        >
+          {dossierCollapsed ? (
             <button
-              onClick={() => handleActionJump(selectedNode)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-purple-500 text-white font-mono text-xs font-bold hover:bg-purple-600 transition-all shadow-md btn-tactile cursor-pointer"
+              onClick={() => setDossierCollapsed(false)}
+              className="p-3 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/15 text-purple-400 hover:text-white shadow-2xl transition-all cursor-pointer self-end"
+              title="Expand Dossier"
             >
-              <span>Explore in {selectedNode.category.toUpperCase()} Module</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
-          </div>
+          ) : (
+            <div className="h-full rounded-3xl bg-black/80 backdrop-blur-xl border border-white/15 p-5 shadow-2xl overflow-y-auto flex flex-col justify-between space-y-4">
+              <div className="space-y-4">
+                {/* Dossier Header */}
+                <div className="flex items-start justify-between border-b border-white/10 pb-3">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                          getCategoryColor(selectedNode.category).bg
+                        } ${getCategoryColor(selectedNode.category).text} border ${
+                          getCategoryColor(selectedNode.category).border
+                        }`}
+                      >
+                        {selectedNode.category}
+                      </span>
+                      <span className="text-[10px] font-mono text-[var(--text-muted)] capitalize">
+                        {selectedNode.cluster.replace('_', ' ')}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-black text-white mt-1 leading-snug">
+                      {selectedNode.label}
+                    </h3>
+
+                    {selectedNode.articleAnchor && (
+                      <p className="text-[11px] font-mono text-purple-300/80">
+                        {selectedNode.articleAnchor}
+                      </p>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => setDossierCollapsed(true)}
+                    className="p-1.5 rounded-xl hover:bg-white/10 text-[var(--text-muted)] hover:text-white transition-all cursor-pointer"
+                    title="Collapse Dossier"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Constitutional Core */}
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block">
+                    CONSTITUTIONAL CORE:
+                  </span>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed bg-white/5 p-3 rounded-2xl border border-white/5">
+                    {selectedNode.summary}
+                  </p>
+                </div>
+
+                {/* Key Citations & Ratios */}
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block">
+                    KEY HOLDINGS & PRECEDENT ANCHORS:
+                  </span>
+                  <ul className="space-y-1 text-xs text-[var(--text-secondary)]">
+                    {selectedNode.keyHoldings.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Interactive Connected Nodes with Relationship Tags */}
+                <div className="space-y-2 pt-2 border-t border-white/10">
+                  <div className="flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+                    <span className="font-bold uppercase tracking-wider">
+                      CONNECTED CONCEPTS ({selectedNode.connections.length}):
+                    </span>
+                    <span>Click to hop</span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto pr-1">
+                    {selectedNode.connections.map((connId) => {
+                      const target = CONCEPT_NODES.find((n) => n.id === connId);
+                      if (!target) return null;
+                      const cColor = getCategoryColor(target.category);
+
+                      // Find relationship label
+                      const rel = CONCEPT_EDGES.find(
+                        (e) =>
+                          (e.from === selectedNode.id && e.to === connId) ||
+                          (e.from === connId && e.to === selectedNode.id)
+                      );
+
+                      return (
+                        <button
+                          key={connId}
+                          onClick={() => setSelectedNodeId(connId)}
+                          className="px-2.5 py-1 rounded-xl text-[11px] font-medium border border-white/10 bg-white/5 hover:border-purple-400 text-white transition-all cursor-pointer flex items-center gap-1.5"
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full ${cColor.bg}`} />
+                          <span>{target.label}</span>
+                          {rel && (
+                            <span className="text-[9px] font-mono text-[var(--text-muted)] opacity-60">
+                              · {rel.relation}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Jump Button */}
+              <div className="pt-3 border-t border-white/10">
+                <button
+                  onClick={() => handleActionJump(selectedNode)}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-purple-600 text-white font-mono text-xs font-bold hover:bg-purple-500 transition-all shadow-md btn-tactile cursor-pointer"
+                >
+                  <span>Explore in {selectedNode.category.toUpperCase()} Module</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

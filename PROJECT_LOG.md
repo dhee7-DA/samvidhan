@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-20 21:18:09 (+05:30) |
+| **Last Log Sync** | 2026-11-20 23:18:10 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `76d187c` (2026-11-20T21:17:55+05:30) |
-| **Total Commits** | 82 |
+| **Branch / HEAD** | `main` @ `c7096ab` (2026-11-20T21:18:18+05:30) |
+| **Total Commits** | 83 |
 | **Total Files Indexed** | 279 (279 tracked, 0 new untracked) |
-| **Working Tree** | Clean |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-20 23:18:10 (+05:30)] Upgrade Knowledge Graph with Force Drag Physics, Constitutional Path-Finder, Edge Relations, and Fullscreen Cockpit (DONE)
+- **Details:** Expanded conceptWebData.ts to 42 curated nodes and semantic edges with BFS path-finder. Upgraded ConceptWebGraphView.tsx with drag-and-drop node physics, canvas pan and zoom, Mode A (Constellation Explorer) vs Mode B (Path-Finder with judicial bridges), edge relationship tags, fullscreen cockpit with floating glass dossier, and verified clean build.
+- **Files Touched (2):** `M src/components/Views/ConceptWebGraphView.tsx`, `M src/data/conceptWebData.ts`
+- **Git HEAD:** `main` @ `c7096ab`
 
 ### [2026-11-20 21:18:09 (+05:30)] Sync PROJECT_LOG for commit 76d187c (DONE)
 - **Details:** All 3 features committed with 0 errors
@@ -191,7 +196,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 57.9 KB | 711 | `76d187c` (2026-11-20) |
+| `PROJECT_LOG.md` | 58.3 KB | 717 | `c7096ab` (2026-11-20) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -286,7 +291,7 @@
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
-| `src/components/Views/ConceptWebGraphView.tsx` | 17.8 KB | 411 | `76d187c` (2026-11-20) |
+| `src/components/Views/ConceptWebGraphView.tsx` | 31.5 KB | 757 | `76d187c` (2026-11-20) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 22.0 KB | 423 | `9e33658` (2026-11-18) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 95.5 KB | 1837 | `d003041` (2026-11-20) |
@@ -340,7 +345,7 @@
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
-| `src/data/conceptWebData.ts` | 18.4 KB | 505 | `76d187c` (2026-11-20) |
+| `src/data/conceptWebData.ts` | 35.8 KB | 846 | `76d187c` (2026-11-20) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
@@ -627,10 +632,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**82** commits, newest first).
+> Complete git history (**83** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 83 | 2026-11-20 | `c7096ab` | 1 | docs: sync PROJECT_LOG for commit 76d187c |
 | 82 | 2026-11-20 | `76d187c` | 9 | feat: add Daily Constitutional Workout, Precedent Duel Arena, and Interactive Concept Web Graph |
 | 81 | 2026-11-20 | `bda5d1d` | 1 | docs: sync PROJECT_LOG for commit d003041 |
 | 80 | 2026-11-20 | `d003041` | 9 | feat: add Pocket Cheatsheet Modal, Trap-Buster Reflex Game, and Universal Command Palette deep indexing |
