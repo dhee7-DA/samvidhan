@@ -26,6 +26,7 @@ import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureS
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { getStudyReadinessSnapshot } from '../../services/progressVaultService';
 import { computeConstitutionalReadinessReport } from '../../services/readinessIndexService';
+import { DailyConstitutionalWorkout } from '../Common/DailyConstitutionalWorkout';
 
 export const OverviewDashboard: React.FC = () => {
   const { setActiveTab, setVaultModalOpen, launchFlashcardDeck, pinnedFlashcardIds } = useTheme();
@@ -138,6 +139,13 @@ export const OverviewDashboard: React.FC = () => {
             <span>KNOWLEDGE GRAPHS (TREES)</span>
           </button>
         </div>
+      </section>
+
+      {/* =========================================================================
+          FEATURED: DAILY 5-MINUTE CONSTITUTIONAL WORKOUT (MICRO-DOSING & STREAK)
+          ========================================================================= */}
+      <section>
+        <DailyConstitutionalWorkout />
       </section>
 
       {/* =========================================================================

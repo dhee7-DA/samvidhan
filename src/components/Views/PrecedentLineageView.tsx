@@ -21,11 +21,13 @@ import type {
 import {
   PRECEDENT_LINEAGES
 } from '../../data/precedentLineagesData';
+import { ConceptWebGraphView } from './ConceptWebGraphView';
 
 export type { PrecedentNode, LineageChain };
 export { PRECEDENT_LINEAGES };
 
 export const PrecedentLineageView: React.FC = () => {
+  const [subTab, setSubTab] = useState<'trees' | 'web'>('web');
   const [activeLineageId, setActiveLineageId] = useState<string>('art-21-liberty');
   const [selectedNodeId, setSelectedNodeId] = useState<string>('maneka-gandhi-1978');
 
@@ -43,48 +45,79 @@ export const PrecedentLineageView: React.FC = () => {
               <span>Constitutional Jurisprudence & Precedent Evolution (1950–2026)</span>
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
-              Landmark Precedent Lineage Trees
+              Constitutional Knowledge Graphs & Concept Web
             </h1>
             <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
-              Trace how foundational constitutional doctrines evolved from 1950 to the present day. Examine bench compositions, majority vs dissent ratios, and doctrinal paradigm shifts.
+              Explore the living constitution through interactive constellation graph mapping and chronological landmark precedent lineage trees (1950–2026).
             </p>
+          </div>
+
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-card/80 border border-border/60 shadow-inner shrink-0">
+            <button
+              type="button"
+              onClick={() => setSubTab('web')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                subTab === 'web'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>🗺️ Live Concept Web</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setSubTab('trees')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                subTab === 'trees'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <GitBranch className="w-3.5 h-3.5" />
+              <span>🌳 Precedent Trees</span>
+            </button>
           </div>
         </div>
 
-        {/* Lineage Tabs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6 pt-5 border-t border-border/40">
-          {PRECEDENT_LINEAGES.map((lineage) => {
-            const isActive = lineage.id === activeLineageId;
-            return (
-              <button
-                key={lineage.id}
-                onClick={() => {
-                  setActiveLineageId(lineage.id);
-                  setSelectedNodeId(lineage.nodes[0].id);
-                }}
-                className={`p-4 rounded-xl border text-left transition-all ${
-                  isActive
-                    ? 'border-purple-500 bg-purple-500/15 shadow-md'
-                    : 'border-border/60 bg-card/60 hover:bg-muted/30 hover:border-border'
-                }`}
-              >
-                <span className="text-[10px] font-mono font-bold text-purple-400 block mb-1">
-                  {lineage.articleAnchor.split('(')[0]}
-                </span>
-                <h4 className="text-xs md:text-sm font-bold text-foreground leading-snug">
-                  {lineage.title}
-                </h4>
-                <span className="text-[11px] text-muted-foreground block mt-1">
-                  {lineage.nodes.length} Key Landmark Judgments
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        {subTab === 'trees' && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6 pt-5 border-t border-border/40">
+            {PRECEDENT_LINEAGES.map((lineage) => {
+              const isActive = lineage.id === activeLineageId;
+              return (
+                <button
+                  key={lineage.id}
+                  onClick={() => {
+                    setActiveLineageId(lineage.id);
+                    setSelectedNodeId(lineage.nodes[0].id);
+                  }}
+                  className={`p-4 rounded-xl border text-left transition-all ${
+                    isActive
+                      ? 'border-purple-500 bg-purple-500/15 shadow-md'
+                      : 'border-border/60 bg-card/60 hover:bg-muted/30 hover:border-border'
+                  }`}
+                >
+                  <span className="text-[10px] font-mono font-bold text-purple-400 block mb-1">
+                    {lineage.articleAnchor.split('(')[0]}
+                  </span>
+                  <h4 className="text-xs md:text-sm font-bold text-foreground leading-snug">
+                    {lineage.title}
+                  </h4>
+                  <span className="text-[11px] text-muted-foreground block mt-1">
+                    {lineage.nodes.length} Key Landmark Judgments
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
 
-      {/* Main Split Interface */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {subTab === 'web' ? (
+        <ConceptWebGraphView />
+      ) : (
+        /* Main Split Interface */
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Interactive Timeline Flow */}
         <div className="lg:col-span-5 space-y-4">
           <div className="p-4 rounded-xl bg-card border border-border shadow-sm">
@@ -210,6 +243,7 @@ export const PrecedentLineageView: React.FC = () => {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };

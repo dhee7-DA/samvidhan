@@ -20,9 +20,11 @@ import {
 } from 'lucide-react';
 import { PRECEDENT_CLASHES_DATA, type PrecedentClash } from '../../data/precedentClashesData';
 import { useTheme } from '../../context/ThemeContext';
+import { PrecedentDuelArena } from './PrecedentDuelArena';
 
 export const PrecedentClashView: React.FC = () => {
   const { setActiveTab } = useTheme();
+  const [viewMode, setViewMode] = useState<'duel' | 'analysis'>('duel');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMagnitude, setSelectedMagnitude] = useState<string>('all');
   const [selectedClashId, setSelectedClashId] = useState<string>(PRECEDENT_CLASHES_DATA[0].id);
@@ -54,6 +56,16 @@ export const PrecedentClashView: React.FC = () => {
     );
   }, [selectedClashId, filteredClashes]);
 
+  const currentIndex = PRECEDENT_CLASHES_DATA.findIndex((c) => c.id === activeClash.id);
+  const handleNextClash = () => {
+    const nextIdx = (currentIndex + 1) % PRECEDENT_CLASHES_DATA.length;
+    setSelectedClashId(PRECEDENT_CLASHES_DATA[nextIdx].id);
+  };
+  const handlePrevClash = () => {
+    const prevIdx = (currentIndex - 1 + PRECEDENT_CLASHES_DATA.length) % PRECEDENT_CLASHES_DATA.length;
+    setSelectedClashId(PRECEDENT_CLASHES_DATA[prevIdx].id);
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-8 animate-fadeIn">
       {/* Hero Header */}
@@ -72,8 +84,34 @@ export const PrecedentClashView: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 self-start md:self-auto shrink-0">
-            <span className="px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--accent-primary)]">
+          <div className="flex flex-wrap items-center gap-2 self-start md:self-auto shrink-0">
+            <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shadow-inner">
+              <button
+                type="button"
+                onClick={() => setViewMode('duel')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  viewMode === 'duel'
+                    ? 'bg-rose-500 text-white shadow-sm'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Swords className="w-3.5 h-3.5" />
+                <span>⚔️ Battle-Cards Duel</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('analysis')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  viewMode === 'analysis'
+                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>📖 Deep Analysis</span>
+              </button>
+            </div>
+            <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--accent-primary)]">
               {PRECEDENT_CLASHES_DATA.length} Landmark Battles
             </span>
           </div>
@@ -168,8 +206,17 @@ export const PrecedentClashView: React.FC = () => {
 
         {/* Right Column: Interactive Arena Split View (8 Cols) */}
         <div className="lg:col-span-8 space-y-6">
-          {/* Active Battle Card */}
-          <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] p-6 sm:p-8 space-y-6 shadow-xl">
+          {viewMode === 'duel' ? (
+            <PrecedentDuelArena
+              activeClash={activeClash}
+              onNextClash={handleNextClash}
+              onPrevClash={handlePrevClash}
+              currentIndex={currentIndex}
+              totalCount={PRECEDENT_CLASHES_DATA.length}
+            />
+          ) : (
+            /* Active Battle Card (Deep Analysis Mode) */
+            <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] p-6 sm:p-8 space-y-6 shadow-xl">
             {/* Title & Tagline */}
             <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
               <div className="flex flex-wrap items-center gap-2">
@@ -346,6 +393,7 @@ export const PrecedentClashView: React.FC = () => {
               )}
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>
