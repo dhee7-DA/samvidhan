@@ -8,11 +8,11 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-20 12:41:21 (+05:30) |
+| **Last Log Sync** | 2026-11-20 13:08:21 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `12c64b5` (2026-11-19T14:07:00+05:30) |
-| **Total Commits** | 72 |
-| **Total Files Indexed** | 268 (266 tracked, 2 new untracked) |
+| **Branch / HEAD** | `main` @ `9c25d8b` (2026-11-20T12:41:40+05:30) |
+| **Total Commits** | 73 |
+| **Total Files Indexed** | 270 (268 tracked, 2 new untracked) |
 | **Working Tree** | 5 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-20 13:08:21 (+05:30)] Built Fast-Track Constitutional Mastery Vault with Magic +89/+90 Rule & Mnemonic Engines (DONE)
+- **Details:** Added fastTrackHacksData and FastTrackMasteryView featuring 23 +89/+90 conversion pairs with interactive calculator, 8 mnemonic engines (TEARS OF OLD PM, EDOUT, SAUMRT, EDS, HMPCQ, 21+71=92, SSSDR, 371 States), +4 Emergency Triad, 60s rapid reflex sprint, and printable pocket formula sheet
+- **Files Touched (5):** `M src/App.tsx`, `M src/components/Layout/Sidebar.tsx`, `M src/components/Views/OverviewDashboard.tsx`, `?? src/components/Views/FastTrackMasteryView.tsx`, `?? src/data/fastTrackHacksData.ts`
+- **Git HEAD:** `main` @ `9c25d8b`
 
 ### [2026-11-20 12:41:21 (+05:30)] Built Constitutional Readiness Index (CRI) and 25-Part Syllabus Heatmap (DONE)
 - **Details:** Added readinessIndexService and ReadinessIndexView featuring exam weighting profiles, radial SVG gauge, 3-part critical blindspots sentinel, chromatic 25-part heatmap grid and category views, deep-dive diagnostic drawer, 10-Q live diagnostic test challenge, self-calibration slider, and printable audit report
@@ -139,7 +144,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **268** project files across **32** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **270** project files across **32** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -151,7 +156,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 50.4 KB | 648 | `12c64b5` (2026-11-19) |
+| `PROJECT_LOG.md` | 51.3 KB | 656 | `9c25d8b` (2026-11-20) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -178,7 +183,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 11.1 KB | 197 | `5bbabe8` (2026-11-19) |
+| `src/App.tsx` | 11.3 KB | 201 | `9c25d8b` (2026-11-20) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -207,7 +212,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.0 KB | 269 | `5bbabe8` (2026-11-19) |
+| `src/components/Layout/Sidebar.tsx` | 14.1 KB | 271 | `9c25d8b` (2026-11-20) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -232,7 +237,7 @@
 | `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.1 KB | 279 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
 
-### `src/components/Views` (29 files)
+### `src/components/Views` (30 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -246,6 +251,7 @@
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 22.0 KB | 423 | `9e33658` (2026-11-18) |
+| `src/components/Views/FastTrackMasteryView.tsx` | 41.4 KB | 840 | new (uncommitted) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 55.9 KB | 1015 | `3ce9f3d` (2026-11-18) |
@@ -253,13 +259,13 @@
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
-| `src/components/Views/OverviewDashboard.tsx` | 25.8 KB | 425 | `5bbabe8` (2026-11-19) |
+| `src/components/Views/OverviewDashboard.tsx` | 26.3 KB | 433 | `9c25d8b` (2026-11-20) |
 | `src/components/Views/PrecedentClashView.tsx` | 17.2 KB | 354 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/PrecedentLineageView.tsx` | 27.0 KB | 502 | `ea3d899` (2026-11-16) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 77.6 KB | 1446 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
-| `src/components/Views/ReadinessIndexView.tsx` | 54.9 KB | 1111 | new (uncommitted) |
+| `src/components/Views/ReadinessIndexView.tsx` | 54.9 KB | 1111 | `9c25d8b` (2026-11-20) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
@@ -281,7 +287,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (47 files)
+### `src/data` (48 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -295,6 +301,7 @@
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
+| `src/data/fastTrackHacksData.ts` | 38.4 KB | 603 | new (uncommitted) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
@@ -557,7 +564,7 @@
 | `src/services/judicialCareerService.ts` | 11.0 KB | 397 | `7aac50b` (2026-11-19) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
-| `src/services/readinessIndexService.ts` | 80.6 KB | 1460 | new (uncommitted) |
+| `src/services/readinessIndexService.ts` | 80.6 KB | 1460 | `9c25d8b` (2026-11-20) |
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
 
@@ -576,10 +583,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**72** commits, newest first).
+> Complete git history (**73** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 73 | 2026-11-20 | `9c25d8b` | 6 | feat: add Constitutional Readiness Index (CRI) and 25-Part Syllabus Heatmap |
 | 72 | 2026-11-19 | `12c64b5` | 2 | feat(mains-mock): add 12 multi-tier drills and custom exam paper generator |
 | 71 | 2026-11-19 | `5bbabe8` | 13 | feat: add Answer Evaluator, Precedent Clash Arena, Judgment Writing Lab, and 3-Hour Mains Mock Hall |
 | 70 | 2026-11-19 | `96d143e` | 4 | feat(mains): complete 100-Question Master Question Bank with Batch 3 & 4 integration across all marks tiers |

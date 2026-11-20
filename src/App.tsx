@@ -82,6 +82,9 @@ const MainsMockExamSimulatorView = lazy(() =>
 const ReadinessIndexView = lazy(() =>
   import('./components/Views/ReadinessIndexView').then((m) => ({ default: m.ReadinessIndexView }))
 );
+const FastTrackMasteryView = lazy(() =>
+  import('./components/Views/FastTrackMasteryView').then((m) => ({ default: m.FastTrackMasteryView }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -113,6 +116,7 @@ const MainContent: React.FC = () => {
             {activeTab === 'mock-exam' && <MockExamSimulatorView />}
             {activeTab === 'mains-mock' && <MainsMockExamSimulatorView />}
             {activeTab === 'readiness-index' && <ReadinessIndexView />}
+            {activeTab === 'fast-track' && <FastTrackMasteryView />}
             {activeTab === 'judgment-lab' && <JudgmentWritingLabView />}
             {activeTab === 'mistakes-notebook' && (
               <MistakesNotebookView
