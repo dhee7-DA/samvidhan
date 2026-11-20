@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-20 14:12:01 (+05:30) |
+| **Last Log Sync** | 2026-11-20 14:12:54 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `e952afe` (2026-11-20T13:36:00+05:30) |
-| **Total Commits** | 75 |
+| **Branch / HEAD** | `main` @ `363d360` (2026-11-20T14:12:42+05:30) |
+| **Total Commits** | 76 |
 | **Total Files Indexed** | 270 (270 tracked, 0 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Working Tree** | Clean |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -166,7 +166,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 53.0 KB | 670 | `e952afe` (2026-11-20) |
+| `PROJECT_LOG.md` | 53.7 KB | 676 | `363d360` (2026-11-20) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -254,14 +254,14 @@
 | `src/components/Views/AmendmentsView.tsx` | 23.3 KB | 467 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/ArcadeHubView.tsx` | 9.4 KB | 221 | `7aac50b` (2026-11-19) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 71.1 KB | 1366 | `e952afe` (2026-11-20) |
+| `src/components/Views/ArticlesMasterView.tsx` | 71.1 KB | 1366 | `363d360` (2026-11-20) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 22.0 KB | 423 | `9e33658` (2026-11-18) |
-| `src/components/Views/FastTrackMasteryView.tsx` | 54.8 KB | 1094 | `e952afe` (2026-11-20) |
+| `src/components/Views/FastTrackMasteryView.tsx` | 54.8 KB | 1094 | `363d360` (2026-11-20) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 55.9 KB | 1015 | `3ce9f3d` (2026-11-18) |
@@ -593,10 +593,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**75** commits, newest first).
+> Complete git history (**76** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 76 | 2026-11-20 | `363d360` | 3 | fix(speed-hacks): convert +89/+90 tiles into responsive inline expandable accordions |
 | 75 | 2026-11-20 | `e952afe` | 4 | feat: embed contextual speed hacks in Bare Act Explorer and add 7 Master Cheat Codes Wall |
 | 74 | 2026-11-20 | `b3963a3` | 6 | feat: add Fast-Track Constitutional Mastery Vault with Magic +89/+90 Rule & Mnemonic Engines |
 | 73 | 2026-11-20 | `9c25d8b` | 6 | feat: add Constitutional Readiness Index (CRI) and 25-Part Syllabus Heatmap |
