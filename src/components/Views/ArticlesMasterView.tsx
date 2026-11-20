@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   BookOpen,
   Search,
@@ -49,7 +49,39 @@ export const ArticlesMasterView: React.FC = () => {
   const [viewMode, setViewMode] = useState<'reader' | 'grid'>('reader');
 
   // Selected Article for Reader mode
-  const [selectedArticleNum, setSelectedArticleNum] = useState<string>('21');
+  const [selectedArticleNum, setSelectedArticleNum] = useState<string>(() => {
+    try {
+      return localStorage.getItem('samvidhan_active_article') || '21';
+    } catch (e) {
+      return '21';
+    }
+  });
+
+  // Keep localStorage synced whenever selected article changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('samvidhan_active_article', selectedArticleNum);
+    } catch (e) {
+      // ignore
+    }
+  }, [selectedArticleNum]);
+
+  // Sync if another tab or view updates localStorage
+  useEffect(() => {
+    const handleStorage = () => {
+      try {
+        const stored = localStorage.getItem('samvidhan_active_article');
+        if (stored && stored !== selectedArticleNum) {
+          setSelectedArticleNum(stored);
+          setViewMode('reader');
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, [selectedArticleNum]);
 
   // Active Tab inside Reader view
   const [readerTab, setReaderTab] = useState<'statutory' | 'story' | 'eli5' | 'diff' | 'analysis' | 'amendments'>('statutory');

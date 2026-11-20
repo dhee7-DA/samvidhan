@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-20 13:35:31 (+05:30) |
+| **Last Log Sync** | 2026-11-20 14:12:01 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `b3963a3` (2026-11-20T13:08:49+05:30) |
-| **Total Commits** | 74 |
+| **Branch / HEAD** | `main` @ `e952afe` (2026-11-20T13:36:00+05:30) |
+| **Total Commits** | 75 |
 | **Total Files Indexed** | 270 (270 tracked, 0 new untracked) |
-| **Working Tree** | 3 pending change(s) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-20 14:12:01 (+05:30)] Converted +89/+90 speed hack tiles into responsive inline expandable accordions (DONE)
+- **Details:** Transformed disconnected two-column grid into self-contained accordion cards with animated chevron rotation, inline mathematical bridge, conceptual bridge, critical divergence, examiner trap, benchmark precedent, Bare Act direct navigation, and Expand/Collapse All controls. Tested and verified in live browser.
+- **Files Touched (2):** `M src/components/Views/ArticlesMasterView.tsx`, `M src/components/Views/FastTrackMasteryView.tsx`
+- **Git HEAD:** `main` @ `e952afe`
 
 ### [2026-11-20 13:35:31 (+05:30)] Added Contextual Speed Hacks in Bare Act Explorer and 7 Master Cheat Codes Wall (DONE)
 - **Details:** Embedded dynamic speed hack banners in ArticlesMasterView linking paired articles with 1-click jumps, and added the 7 Master Cheat Codes Wall tab in FastTrackMasteryView with P-E-J-S-L-A, 15 percent ministry cap, and 62 vs 65 retirement staircase
@@ -161,7 +166,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 52.3 KB | 664 | `b3963a3` (2026-11-20) |
+| `PROJECT_LOG.md` | 53.0 KB | 670 | `e952afe` (2026-11-20) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -249,14 +254,14 @@
 | `src/components/Views/AmendmentsView.tsx` | 23.3 KB | 467 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/ArcadeHubView.tsx` | 9.4 KB | 221 | `7aac50b` (2026-11-19) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 70.1 KB | 1334 | `78c5f7d` (2026-11-19) |
+| `src/components/Views/ArticlesMasterView.tsx` | 71.1 KB | 1366 | `e952afe` (2026-11-20) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 22.0 KB | 423 | `9e33658` (2026-11-18) |
-| `src/components/Views/FastTrackMasteryView.tsx` | 47.3 KB | 959 | `b3963a3` (2026-11-20) |
+| `src/components/Views/FastTrackMasteryView.tsx` | 54.8 KB | 1094 | `e952afe` (2026-11-20) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 55.9 KB | 1015 | `3ce9f3d` (2026-11-18) |
@@ -306,7 +311,7 @@
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
-| `src/data/fastTrackHacksData.ts` | 50.7 KB | 844 | `b3963a3` (2026-11-20) |
+| `src/data/fastTrackHacksData.ts` | 50.7 KB | 844 | `e952afe` (2026-11-20) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
@@ -588,10 +593,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**74** commits, newest first).
+> Complete git history (**75** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 75 | 2026-11-20 | `e952afe` | 4 | feat: embed contextual speed hacks in Bare Act Explorer and add 7 Master Cheat Codes Wall |
 | 74 | 2026-11-20 | `b3963a3` | 6 | feat: add Fast-Track Constitutional Mastery Vault with Magic +89/+90 Rule & Mnemonic Engines |
 | 73 | 2026-11-20 | `9c25d8b` | 6 | feat: add Constitutional Readiness Index (CRI) and 25-Part Syllabus Heatmap |
 | 72 | 2026-11-19 | `12c64b5` | 2 | feat(mains-mock): add 12 multi-tier drills and custom exam paper generator |

@@ -41,10 +41,33 @@ export const FastTrackMasteryView: React.FC = () => {
   // Active top-level tab
   const [activeTabMode, setActiveTabMode] = useState<'cheat-codes' | 'math' | 'mnemonics' | 'emergency' | 'drill'>('cheat-codes');
 
-  // Math Converter Interactive State
+  // Math Converter Interactive State & Inline Accordion Expand
   const [selectedPairId, setSelectedPairId] = useState<string>(MATH_FORMULA_PAIRS[0].id);
+  const [expandedPairIds, setExpandedPairIds] = useState<Record<string, boolean>>({
+    [MATH_FORMULA_PAIRS[0].id]: true // default first tile expanded
+  });
   const [mathFilter, setMathFilter] = useState<'all' | '+89' | '+90'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const togglePairExpand = (pairId: string) => {
+    setExpandedPairIds((prev) => ({
+      ...prev,
+      [pairId]: !prev[pairId]
+    }));
+    setSelectedPairId(pairId);
+  };
+
+  const handleExpandAll = () => {
+    const all: Record<string, boolean> = {};
+    filteredPairs.forEach((p) => {
+      all[p.id] = true;
+    });
+    setExpandedPairIds(all);
+  };
+
+  const handleCollapseAll = () => {
+    setExpandedPairIds({});
+  };
 
   // Selected Math Pair
   const activePair = useMemo(() => {
@@ -386,163 +409,275 @@ export const FastTrackMasteryView: React.FC = () => {
             </div>
           </div>
 
-          {/* Interactive Calculator Workspace */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-            {/* Left: Interactive Equation Display & Comparison Card */}
-            <div className="lg:col-span-8 flex flex-col gap-4">
-              <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col gap-5">
-                {/* Visual Mathematical Bridge */}
-                <div className="grid grid-cols-1 md:grid-cols-11 items-center gap-3 p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-                  {/* Union Card */}
-                  <div className="md:col-span-5 p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--text-muted)]">
-                        Union Government
-                      </span>
-                      <div className="text-2xl font-extrabold font-mono text-[var(--accent)] mt-1">
-                        Article {activePair.unionArticle}
-                      </div>
-                      <div className="text-xs font-bold text-[var(--text-primary)] mt-1">
-                        {activePair.unionTitle}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Math Operator Indicator */}
-                  <div className="md:col-span-1 flex flex-col items-center justify-center my-1 md:my-0">
-                    <span className="w-9 h-9 rounded-full bg-[var(--accent)] text-[var(--bg-base)] font-mono font-extrabold text-sm flex items-center justify-center shadow-md">
-                      {activePair.rule}
-                    </span>
-                    <span className="text-[9px] font-mono text-[var(--text-muted)] mt-1 uppercase font-bold">
-                      Add
-                    </span>
-                  </div>
-
-                  {/* State Card */}
-                  <div className="md:col-span-5 p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                        State Government
-                      </span>
-                      <div className="text-2xl font-extrabold font-mono text-emerald-400 mt-1">
-                        Article {activePair.stateArticle}
-                      </div>
-                      <div className="text-xs font-bold text-[var(--text-primary)] mt-1">
-                        {activePair.stateTitle}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Conceptual Bridge */}
-                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1.5">
-                  <div className="text-xs font-mono font-bold uppercase text-[var(--accent)] flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Conceptual Bridge
-                  </div>
-                  <p className="text-xs text-[var(--text-primary)] leading-relaxed">
-                    {activePair.conceptualBridge}
-                  </p>
-                </div>
-
-                {/* Statutory Differences */}
-                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1.5">
-                  <div className="text-xs font-mono font-bold uppercase text-amber-400 flex items-center gap-1.5">
-                    <Scale className="w-3.5 h-3.5" />
-                    Critical Statutory Divergence
-                  </div>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    {activePair.statutoryDifference}
-                  </p>
-                </div>
-
-                {/* Examiner Trap */}
-                <div className="p-4 rounded-xl bg-rose-500/5 border border-rose-500/20 space-y-1.5">
-                  <div className="text-xs font-mono font-bold uppercase text-rose-400 flex items-center gap-1.5">
-                    <AlertTriangle className="w-3.5 h-3.5" />
-                    Examiner Trap / Pitfall
-                  </div>
-                  <p className="text-xs text-[var(--text-primary)] font-medium leading-relaxed">
-                    {activePair.examinerTrap}
-                  </p>
-                </div>
-
-                {/* Landmark Precedent */}
-                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-start gap-2.5">
-                  <Award className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <div className="text-xs">
-                    <span className="font-bold text-[var(--text-primary)]">Benchmark Precedent: </span>
-                    <span className="text-[var(--text-secondary)]">{activePair.landmarkCitation}</span>
-                  </div>
-                </div>
-              </div>
+          {/* Interactive Toolbar: Filter Pills, Search Bar & Expand/Collapse All */}
+          <div className="p-3 sm:p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+            {/* Filter Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+              {(['all', '+89', '+90'] as const).map((r) => (
+                <button
+                  key={r}
+                  onClick={() => setMathFilter(r)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all whitespace-nowrap btn-tactile ${
+                    mathFilter === r
+                      ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
+                      : 'bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  {r === 'all' ? `All Pairs (${MATH_FORMULA_PAIRS.length})` : `${r} Rule (${MATH_FORMULA_PAIRS.filter(p => p.rule === r).length})`}
+                </button>
+              ))}
             </div>
 
-            {/* Right: Pair Selector List */}
-            <div className="lg:col-span-4 flex flex-col gap-3">
-              {/* Filter & Search Bar */}
-              <div className="p-3 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-2">
-                <div className="flex items-center gap-1">
-                  {(['all', '+89', '+90'] as const).map((r) => (
-                    <button
-                      key={r}
-                      onClick={() => setMathFilter(r)}
-                      className={`flex-1 py-1 rounded-lg text-xs font-mono font-bold transition-all ${
-                        mathFilter === r
-                          ? 'bg-[var(--accent)] text-[var(--bg-base)]'
-                          : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                      }`}
-                    >
-                      {r === 'all' ? 'All (23)' : r}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="relative">
-                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search by article or keyword..."
-                    className="w-full pl-7 pr-3 py-1 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
-                  />
-                </div>
+            {/* Search Input & Action Buttons */}
+            <div className="flex flex-1 items-center gap-2 max-w-lg ml-auto">
+              <div className="relative flex-1">
+                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Filter by article (e.g. 72, 123) or keyword..."
+                  className="w-full pl-8 pr-12 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  >
+                    Clear
+                  </button>
+                )}
               </div>
 
-              {/* Scrollable Pairs List */}
-              <div className="flex flex-col gap-2 max-h-[540px] overflow-y-auto pr-1">
-                {filteredPairs.map((pair) => {
-                  const isSelected = pair.id === activePair.id;
-                  return (
+              <div className="flex items-center gap-1.5 shrink-0">
+                <button
+                  onClick={handleExpandAll}
+                  className="px-2.5 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[11px] font-mono font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all btn-tactile"
+                  title="Expand all cards"
+                >
+                  Expand All
+                </button>
+                <button
+                  onClick={handleCollapseAll}
+                  className="px-2.5 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[11px] font-mono font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all btn-tactile"
+                  title="Collapse all cards"
+                >
+                  Collapse All
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Inline Expandable Accordion List */}
+          <div className="flex flex-col gap-3">
+            {filteredPairs.length === 0 ? (
+              <div className="p-8 text-center rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
+                <Search className="w-8 h-8 mx-auto mb-2 opacity-40" />
+                <p className="text-sm font-semibold">No formula pairs match "{searchQuery}"</p>
+                <button
+                  onClick={() => { setSearchQuery(''); setMathFilter('all'); }}
+                  className="mt-3 text-xs text-[var(--accent)] hover:underline font-mono"
+                >
+                  Reset filters
+                </button>
+              </div>
+            ) : (
+              filteredPairs.map((pair) => {
+                const isExpanded = !!expandedPairIds[pair.id];
+                return (
+                  <div
+                    key={pair.id}
+                    className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                      isExpanded
+                        ? 'bg-[var(--bg-surface)] border-[var(--accent)]/60 shadow-md ring-1 ring-[var(--accent)]/20'
+                        : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
+                    }`}
+                  >
+                    {/* Accordion Header (Click anywhere to expand/collapse) */}
                     <button
-                      key={pair.id}
-                      onClick={() => setSelectedPairId(pair.id)}
-                      className={`p-3 rounded-xl border text-left transition-all btn-tactile flex items-center justify-between gap-2 ${
-                        isSelected
-                          ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] ring-1 ring-[var(--accent)] shadow-sm'
-                          : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
-                      }`}
+                      type="button"
+                      onClick={() => togglePairExpand(pair.id)}
+                      className="w-full p-4 sm:p-5 flex items-center justify-between gap-3 text-left transition-colors hover:bg-[var(--bg-surface-elevated)]/50 focus:outline-none"
                     >
-                      <div>
-                        <div className="flex items-center gap-1.5 text-xs font-mono font-bold">
-                          <span className="text-[var(--accent)]">Art. {pair.unionArticle}</span>
-                          <span className="text-[var(--text-muted)] font-normal">&rarr;</span>
-                          <span className="text-emerald-400">Art. {pair.stateArticle}</span>
-                          <span className="text-[10px] px-1 rounded bg-[var(--badge-bg)] text-[var(--text-muted)]">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 flex-1 min-w-0">
+                        {/* Math Formula Badge */}
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span
+                            className={`px-2.5 py-1 rounded-lg text-xs font-mono font-black ${
+                              pair.rule === '+89'
+                                ? 'bg-amber-500/15 border border-amber-500/30 text-amber-400'
+                                : 'bg-sky-500/15 border border-sky-500/30 text-sky-400'
+                            }`}
+                          >
                             {pair.rule}
                           </span>
+                          <span className="text-sm font-mono font-bold text-[var(--accent)]">
+                            Art. {pair.unionArticle}
+                          </span>
+                          <span className="text-xs text-[var(--text-muted)] font-mono font-bold">&rarr;</span>
+                          <span className="text-sm font-mono font-bold text-emerald-400">
+                            Art. {pair.stateArticle}
+                          </span>
                         </div>
-                        <div className="text-xs font-semibold text-[var(--text-primary)] mt-1 line-clamp-1">
-                          {pair.unionTitle}
+
+                        {/* Title and Short Overview */}
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-sm font-bold text-[var(--text-primary)] truncate">
+                            {pair.unionTitle}
+                          </h3>
+                          <p className="text-xs text-[var(--text-secondary)] truncate mt-0.5">
+                            {pair.conceptualBridge}
+                          </p>
                         </div>
                       </div>
-                      <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? 'text-[var(--accent)] translate-x-0.5' : 'text-[var(--text-muted)]'}`} />
+
+                      {/* Animated Chevron Indicator */}
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="hidden sm:inline-block text-[11px] font-mono text-[var(--text-muted)]">
+                          {isExpanded ? 'Hide Details' : 'View Breakdown'}
+                        </span>
+                        <div
+                          className={`w-7 h-7 rounded-xl flex items-center justify-center transition-transform duration-200 ${
+                            isExpanded
+                              ? 'bg-[var(--accent)] text-[var(--bg-base)] rotate-180'
+                              : 'bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]'
+                          }`}
+                        >
+                          <ChevronDown className="w-4 h-4" />
+                        </div>
+                      </div>
                     </button>
-                  );
-                })}
-              </div>
-            </div>
+
+                    {/* Accordion Expanded Body */}
+                    {isExpanded && (
+                      <div className="px-4 pb-5 sm:px-6 sm:pb-6 pt-1 border-t border-[var(--border-subtle)] flex flex-col gap-4 animate-fadeIn">
+                        {/* Visual Mathematical Bridge */}
+                        <div className="mt-2 grid grid-cols-1 md:grid-cols-11 items-center gap-3 p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+                          {/* Union Card */}
+                          <div className="md:col-span-5 p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between">
+                            <div>
+                              <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--text-muted)]">
+                                Union Government
+                              </span>
+                              <div className="text-2xl font-extrabold font-mono text-[var(--accent)] mt-1">
+                                Article {pair.unionArticle}
+                              </div>
+                              <div className="text-xs font-bold text-[var(--text-primary)] mt-1">
+                                {pair.unionTitle}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Math Operator Indicator */}
+                          <div className="md:col-span-1 flex flex-col items-center justify-center my-1 md:my-0">
+                            <span className="w-9 h-9 rounded-full bg-[var(--accent)] text-[var(--bg-base)] font-mono font-extrabold text-sm flex items-center justify-center shadow-md">
+                              {pair.rule}
+                            </span>
+                            <span className="text-[9px] font-mono text-[var(--text-muted)] mt-1 uppercase font-bold">
+                              Add
+                            </span>
+                          </div>
+
+                          {/* State Card */}
+                          <div className="md:col-span-5 p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between">
+                            <div>
+                              <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                State Government
+                              </span>
+                              <div className="text-2xl font-extrabold font-mono text-emerald-400 mt-1">
+                                Article {pair.stateArticle}
+                              </div>
+                              <div className="text-xs font-bold text-[var(--text-primary)] mt-1">
+                                {pair.stateTitle}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Conceptual Bridge */}
+                        <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1.5">
+                          <div className="text-xs font-mono font-bold uppercase text-[var(--accent)] flex items-center gap-1.5">
+                            <Sparkles className="w-3.5 h-3.5" />
+                            Conceptual Bridge
+                          </div>
+                          <p className="text-xs text-[var(--text-primary)] leading-relaxed">
+                            {pair.conceptualBridge}
+                          </p>
+                        </div>
+
+                        {/* Critical Statutory Divergence */}
+                        <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1.5">
+                          <div className="text-xs font-mono font-bold uppercase text-amber-400 flex items-center gap-1.5">
+                            <Scale className="w-3.5 h-3.5" />
+                            Critical Statutory Divergence
+                          </div>
+                          <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            {pair.statutoryDifference}
+                          </p>
+                        </div>
+
+                        {/* Examiner Trap */}
+                        <div className="p-4 rounded-xl bg-rose-500/5 border border-rose-500/20 space-y-1.5">
+                          <div className="text-xs font-mono font-bold uppercase text-rose-400 flex items-center gap-1.5">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            Examiner Trap / Pitfall
+                          </div>
+                          <p className="text-xs text-[var(--text-primary)] font-medium leading-relaxed">
+                            {pair.examinerTrap}
+                          </p>
+                        </div>
+
+                        {/* Benchmark Precedent */}
+                        <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-start gap-2.5">
+                          <Award className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                          <div className="text-xs">
+                            <span className="font-bold text-[var(--text-primary)]">Benchmark Precedent: </span>
+                            <span className="text-[var(--text-secondary)]">{pair.landmarkCitation}</span>
+                          </div>
+                        </div>
+
+                        {/* Bare Act Explorer Deep-Links */}
+                        <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-[var(--border-subtle)]">
+                          <span className="text-[11px] font-mono text-[var(--text-muted)] mr-1">
+                            Bare Act Explorer:
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              try {
+                                localStorage.setItem('samvidhan_active_article', String(pair.unionArticle));
+                              } catch (e) {
+                                // ignore
+                              }
+                              setActiveTab('articles-master');
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-xs font-mono font-bold text-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all btn-tactile"
+                          >
+                            <BookOpen className="w-3.5 h-3.5" />
+                            Read Art. {pair.unionArticle} (Union) &rarr;
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              try {
+                                localStorage.setItem('samvidhan_active_article', String(pair.stateArticle));
+                              } catch (e) {
+                                // ignore
+                              }
+                              setActiveTab('articles-master');
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-emerald-500/50 text-xs font-mono font-bold text-emerald-400 hover:bg-emerald-500/10 transition-all btn-tactile"
+                          >
+                            <BookOpen className="w-3.5 h-3.5" />
+                            Read Art. {pair.stateArticle} (State) &rarr;
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       )}
