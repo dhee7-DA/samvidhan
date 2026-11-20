@@ -26,7 +26,8 @@ import {
   Gamepad2,
   Swords,
   Gavel,
-  Clock
+  Clock,
+  Target
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -58,6 +59,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy', category: 'cases' },
 
   // 3. Practice, Drills & Exam Simulation
+  { id: 'readiness-index', label: 'Readiness Index', icon: <Target className="w-4 h-4" />, badge: '25-Part Heatmap', sub: 'CRI & Blindspots Sentinel', category: 'practice' },
   { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: '900+ SRS Cards', sub: 'Full-App Leitner', category: 'practice' },
   { id: 'arcade', label: 'Constitutional Arcade', icon: <Gamepad2 className="w-4 h-4" />, badge: '4 Games + XP', sub: 'Bench Sim, Blitz & Writs', category: 'practice' },
   { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'practice' },

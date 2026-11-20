@@ -15,17 +15,20 @@ import {
   FileText,
   Swords,
   Gavel,
-  Clock
+  Clock,
+  Target
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
 import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureSVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { getStudyReadinessSnapshot } from '../../services/progressVaultService';
+import { computeConstitutionalReadinessReport } from '../../services/readinessIndexService';
 
 export const OverviewDashboard: React.FC = () => {
   const { setActiveTab, setVaultModalOpen, launchFlashcardDeck, pinnedFlashcardIds } = useTheme();
   const readiness = useMemo(() => getStudyReadinessSnapshot(), [pinnedFlashcardIds]);
+  const criReport = useMemo(() => computeConstitutionalReadinessReport('holistic'), [pinnedFlashcardIds]);
 
   return (
     <div className="flex flex-col gap-10 py-6 max-w-7xl mx-auto px-4 sm:px-6 animate-fadeIn">
@@ -111,6 +114,13 @@ export const OverviewDashboard: React.FC = () => {
             <Clock className="w-4 h-4 text-amber-400" />
             <span>3-HR MAINS MOCK HALL</span>
           </button>
+          <button
+            onClick={() => setActiveTab('readiness-index')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-emerald-500 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <Target className="w-4 h-4 text-emerald-400" />
+            <span>25-PART READINESS INDEX</span>
+          </button>
         </div>
       </section>
 
@@ -118,7 +128,7 @@ export const OverviewDashboard: React.FC = () => {
           LIVE STUDY READINESS & BACKUP STRIP
           ========================================================================= */}
       <section className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1">
           <button
             onClick={() => setActiveTab('bootcamp')}
             className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-left transition-all"
@@ -171,6 +181,21 @@ export const OverviewDashboard: React.FC = () => {
               {readiness.srsPinnedCount} <span className="text-[11px] font-normal text-[var(--text-muted)]">cards</span>
             </div>
             <div className="text-[10px] font-mono text-[var(--text-muted)]">Focus recall queue</div>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('readiness-index')}
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-emerald-400 text-left transition-all"
+          >
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-emerald-400">
+              <Target className="w-3.5 h-3.5" /> Readiness Index
+            </div>
+            <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
+              {criReport.overallScore}% <span className="text-[11px] font-normal text-[var(--text-muted)]">CRI</span>
+            </div>
+            <div className="text-[10px] font-mono text-[var(--text-muted)]">
+              {criReport.masteredPartsCount}/25 parts mastered
+            </div>
           </button>
         </div>
 
