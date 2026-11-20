@@ -8,9 +8,16 @@ import { SCHEDULES_DATA } from '../../data/schedulesData';
 import { AMENDMENTS_DATA } from '../../data/amendmentsData';
 import { ARTICLES_MASTER_INDEX } from '../../data/articlesMasterData';
 import { LEGAL_DICTIONARY } from '../../data/legalDictionaryData';
+import {
+  MATH_FORMULA_PAIRS,
+  CONSTITUTIONAL_MAJORITY_DATA,
+  MNEMONIC_ENGINES,
+  MASTER_CHEAT_CODES
+} from '../../data/fastTrackHacksData';
+import { PRECEDENT_LINEAGES } from '../../data/precedentLineagesData';
 
 interface SearchResult {
-  category: 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule' | 'Legal Lexicon';
+  category: 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule' | 'Legal Lexicon' | 'Speed Hack' | 'Majority Type' | 'Mnemonic' | 'Cheat Code' | 'Knowledge Graph';
   title: string;
   subtitle: string;
   targetTab: string;
@@ -159,6 +166,98 @@ export const SearchModal: React.FC = () => {
       }
     });
 
+    // Search +89 / +90 Speed Hacks
+    MATH_FORMULA_PAIRS.forEach((pair) => {
+      if (
+        String(pair.unionArticle) === q ||
+        String(pair.stateArticle) === q ||
+        pair.unionTitle.toLowerCase().includes(q) ||
+        pair.stateTitle.toLowerCase().includes(q) ||
+        pair.conceptualBridge.toLowerCase().includes(q) ||
+        pair.rule.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Speed Hack',
+          title: `Art. ${pair.unionArticle} ➔ Art. ${pair.stateArticle} (${pair.rule})`,
+          subtitle: `${pair.unionTitle} vs ${pair.stateTitle}`,
+          targetTab: 'fast-track',
+          targetId: pair.id
+        });
+      }
+    });
+
+    // Search Constitutional Majority Types
+    CONSTITUTIONAL_MAJORITY_DATA.forEach((maj) => {
+      if (
+        maj.name.toLowerCase().includes(q) ||
+        maj.shortFormula.toLowerCase().includes(q) ||
+        maj.scopeDescription.toLowerCase().includes(q) ||
+        maj.keyUseCases.some((u) => u.provision.toLowerCase().includes(q) || u.article.toLowerCase().includes(q))
+      ) {
+        res.push({
+          category: 'Majority Type',
+          title: `${maj.name} (${maj.shortFormula})`,
+          subtitle: `${maj.scopeDescription.slice(0, 85)}...`,
+          targetTab: 'fast-track',
+          targetId: maj.id
+        });
+      }
+    });
+
+    // Search Mnemonic Palaces
+    MNEMONIC_ENGINES.forEach((m) => {
+      if (
+        m.title.toLowerCase().includes(q) ||
+        m.catchphrase.toLowerCase().includes(q) ||
+        m.articlesCovered.toLowerCase().includes(q) ||
+        m.explanation.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Mnemonic',
+          title: `${m.catchphrase} • ${m.title}`,
+          subtitle: `${m.articlesCovered} • ${m.explanation.slice(0, 85)}...`,
+          targetTab: 'fast-track',
+          targetId: m.id
+        });
+      }
+    });
+
+    // Search Master Cheat Codes
+    MASTER_CHEAT_CODES.forEach((code) => {
+      if (
+        code.title.toLowerCase().includes(q) ||
+        code.formulaTag.toLowerCase().includes(q) ||
+        code.summary.toLowerCase().includes(q) ||
+        code.memoryHook.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Cheat Code',
+          title: `${code.formulaTag}: ${code.title}`,
+          subtitle: `${code.summary.slice(0, 85)}...`,
+          targetTab: 'fast-track',
+          targetId: code.id
+        });
+      }
+    });
+
+    // Search Knowledge Graphs (Precedent Lineage Trees)
+    PRECEDENT_LINEAGES.forEach((lineage) => {
+      if (
+        lineage.title.toLowerCase().includes(q) ||
+        lineage.articleAnchor.toLowerCase().includes(q) ||
+        lineage.description.toLowerCase().includes(q) ||
+        lineage.nodes.some((n) => n.caseName.toLowerCase().includes(q) || n.coreRatio.toLowerCase().includes(q))
+      ) {
+        res.push({
+          category: 'Knowledge Graph',
+          title: `Tree: ${lineage.title} (${lineage.articleAnchor})`,
+          subtitle: `${lineage.nodes.length} Key Judgments • ${lineage.description.slice(0, 85)}...`,
+          targetTab: 'lineage',
+          targetId: lineage.id
+        });
+      }
+    });
+
     return res.slice(0, 15);
   }, [query]);
 
@@ -217,6 +316,13 @@ export const SearchModal: React.FC = () => {
                   setActiveTab(item.targetTab);
                   if (item.targetTab === 'parts' && item.targetId) {
                     setSelectedPartId(item.targetId);
+                  }
+                  if (item.targetTab === 'articles-master' && item.targetId) {
+                    try {
+                      localStorage.setItem('samvidhan_active_article', item.targetId);
+                    } catch (e) {
+                      // ignore
+                    }
                   }
                   setSearchOpen(false);
                 }}

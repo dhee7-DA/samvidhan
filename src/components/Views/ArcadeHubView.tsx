@@ -9,12 +9,14 @@ import {
   Flame,
   Award,
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  AlertTriangle
 } from 'lucide-react';
 import { ChiefJusticeBenchSimulator } from './Arcade/ChiefJusticeBenchSimulator';
 import { ArticleBlitzGame } from './Arcade/ArticleBlitzGame';
 import { WritsEmergencyRoom } from './Arcade/WritsEmergencyRoom';
 import { TileMatcherGameView } from './TileMatcherGameView';
+import { TrapBusterGame } from './Arcade/TrapBusterGame';
 import { CareerBadgesModal } from './Arcade/CareerBadgesModal';
 import {
   getCareerProfile,
@@ -24,7 +26,7 @@ import {
 } from '../../services/judicialCareerService';
 import { arcadeAudio } from '../../services/arcadeAudioService';
 
-export type ArcadeTab = 'bench' | 'blitz' | 'writs' | 'matcher';
+export type ArcadeTab = 'bench' | 'blitz' | 'writs' | 'matcher' | 'trap-buster';
 
 export const ArcadeHubView: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<ArcadeTab>('bench');
@@ -195,6 +197,18 @@ export const ArcadeHubView: React.FC = () => {
           <BrainCircuit className="w-4 h-4" />
           Synaptic Memory Matcher
         </button>
+
+        <button
+          onClick={() => setActiveSubTab('trap-buster')}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+            activeSubTab === 'trap-buster'
+              ? 'bg-rose-500/10 text-rose-400 border-rose-500/40 shadow-sm'
+              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <AlertTriangle className="w-4 h-4 text-rose-400" />
+          Trap-Buster Reflex (30s)
+        </button>
       </div>
 
       {/* Active Game Mode Sub-View */}
@@ -208,6 +222,9 @@ export const ArcadeHubView: React.FC = () => {
         <WritsEmergencyRoom onAwardResult={handleAwardResult} />
       )}
       {activeSubTab === 'matcher' && <TileMatcherGameView />}
+      {activeSubTab === 'trap-buster' && (
+        <TrapBusterGame onAwardResult={handleAwardResult} />
+      )}
 
       {/* Badges Modal */}
       <CareerBadgesModal

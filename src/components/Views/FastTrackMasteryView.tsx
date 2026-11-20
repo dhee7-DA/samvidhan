@@ -41,12 +41,14 @@ import {
   type BidirectionalSolverResult
 } from '../../data/fastTrackHacksData';
 import { useTheme } from '../../context/ThemeContext';
+import { PocketCheatsheetModal } from '../Common/PocketCheatsheetModal';
 
 export const FastTrackMasteryView: React.FC = () => {
   const { setActiveTab } = useTheme();
 
   // Active top-level tab
   const [activeTabMode, setActiveTabMode] = useState<'cheat-codes' | 'math' | 'majorities' | 'mnemonics' | 'emergency' | 'drill'>('cheat-codes');
+  const [pocketSheetModalOpen, setPocketSheetModalOpen] = useState<boolean>(false);
 
   // Math Converter Interactive State & Inline Accordion Expand
   const [selectedPairId, setSelectedPairId] = useState<string>(MATH_FORMULA_PAIRS[0].id);
@@ -217,7 +219,7 @@ export const FastTrackMasteryView: React.FC = () => {
   };
 
   const handlePrintPocketSheet = () => {
-    window.print();
+    setPocketSheetModalOpen(true);
   };
 
   return (
@@ -1823,6 +1825,12 @@ export const FastTrackMasteryView: React.FC = () => {
           </table>
         </div>
       </div>
+
+      {/* Pocket Cheatsheet Modal */}
+      <PocketCheatsheetModal
+        isOpen={pocketSheetModalOpen}
+        onClose={() => setPocketSheetModalOpen(false)}
+      />
     </div>
   );
 };
