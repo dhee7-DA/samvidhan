@@ -27,9 +27,11 @@ import {
   EMERGENCY_PLUS_FOUR_DATA,
   MNEMONIC_ENGINES,
   RAPID_REFLEX_QUESTIONS,
+  MASTER_CHEAT_CODES,
   type MathFormulaPair,
   type MnemonicEngine,
-  type RapidReflexDrillQuestion
+  type RapidReflexDrillQuestion,
+  type MasterCheatCode
 } from '../../data/fastTrackHacksData';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -37,7 +39,7 @@ export const FastTrackMasteryView: React.FC = () => {
   const { setActiveTab } = useTheme();
 
   // Active top-level tab
-  const [activeTabMode, setActiveTabMode] = useState<'math' | 'mnemonics' | 'emergency' | 'drill'>('math');
+  const [activeTabMode, setActiveTabMode] = useState<'cheat-codes' | 'math' | 'mnemonics' | 'emergency' | 'drill'>('cheat-codes');
 
   // Math Converter Interactive State
   const [selectedPairId, setSelectedPairId] = useState<string>(MATH_FORMULA_PAIRS[0].id);
@@ -187,6 +189,18 @@ export const FastTrackMasteryView: React.FC = () => {
           ========================================================================= */}
       <div className="flex flex-wrap items-center gap-2 border-b border-[var(--border-subtle)] pb-2">
         <button
+          onClick={() => setActiveTabMode('cheat-codes')}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+            activeTabMode === 'cheat-codes'
+              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
+              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+          }`}
+        >
+          <Sparkles className="w-4 h-4 text-amber-400" />
+          <span>7 Master Cheat Codes ({MASTER_CHEAT_CODES.length})</span>
+        </button>
+
+        <button
           onClick={() => setActiveTabMode('math')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
             activeTabMode === 'math'
@@ -234,6 +248,111 @@ export const FastTrackMasteryView: React.FC = () => {
           <span>60s Reflex Speed Sprint</span>
         </button>
       </div>
+
+      {/* =========================================================================
+          TAB 0: 7 MASTER CHEAT CODES WALL
+          ========================================================================= */}
+      {activeTabMode === 'cheat-codes' && (
+        <div className="flex flex-col gap-6 animate-fadeIn">
+          {/* Header Banner */}
+          <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 text-amber-400 mb-1">
+                <Sparkles className="w-4 h-4" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider">
+                  Universal Constitutional Cheat Sheet
+                </span>
+              </div>
+              <h2 className="text-xl font-extrabold text-[var(--text-primary)]">
+                The 7 Master Short-Cut Rules to Master the Constitution
+              </h2>
+              <p className="text-xs text-[var(--text-secondary)] mt-1 max-w-2xl leading-relaxed">
+                Proven mental models, mathematical algorithms, and memory hooks used by top rankers to deduce answers without brute-force memorization.
+              </p>
+            </div>
+            <button
+              onClick={() => setActiveTabMode('drill')}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--accent)] text-[var(--bg-base)] font-mono text-xs font-bold shadow-sm hover:opacity-95 transition-all btn-tactile self-start sm:self-center shrink-0"
+            >
+              <Zap className="w-3.5 h-3.5 fill-current" />
+              <span>TEST MY RECALL &rarr;</span>
+            </button>
+          </div>
+
+          {/* Cheat Codes Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {MASTER_CHEAT_CODES.map((code, idx) => (
+              <div
+                key={code.id}
+                className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col justify-between shadow-sm"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+                      HACK #{idx + 1}
+                    </span>
+                    <span className="text-[10px] font-mono text-[var(--text-muted)]">
+                      {code.articlesAnchored}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-extrabold text-[var(--text-primary)] leading-snug">
+                    {code.title}
+                  </h3>
+
+                  {/* Formula Tag */}
+                  <div className="my-2.5 p-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] font-mono text-xs font-extrabold text-amber-400">
+                    {code.formulaTag}
+                  </div>
+
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                    {code.summary}
+                  </p>
+
+                  <div className="mt-3 p-2.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1 text-xs">
+                    <span className="font-mono text-[10px] uppercase font-bold text-[var(--text-muted)] block">
+                      How It Works:
+                    </span>
+                    <p className="text-[11px] text-[var(--text-primary)] leading-relaxed">
+                      {code.howItWorks}
+                    </p>
+                  </div>
+
+                  <div className="mt-2.5 p-2.5 rounded-lg bg-rose-500/5 border border-rose-500/20 space-y-0.5 text-xs">
+                    <span className="font-mono text-[10px] uppercase font-bold text-rose-400 block">
+                      Examiner Trap:
+                    </span>
+                    <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                      {code.examinerTrap}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-[var(--text-muted)] italic">
+                    💡 {code.memoryHook}
+                  </span>
+                  {code.id === 'rule-plus-89' || code.id === 'rule-plus-90' ? (
+                    <button
+                      onClick={() => setActiveTabMode('math')}
+                      className="text-xs font-mono font-bold text-[var(--accent)] hover:underline shrink-0"
+                    >
+                      Open Calculator &rarr;
+                    </button>
+                  ) : code.id === 'rule-plus-4-emergency' ? (
+                    <button
+                      onClick={() => setActiveTabMode('emergency')}
+                      className="text-xs font-mono font-bold text-rose-400 hover:underline shrink-0"
+                    >
+                      View Triad &rarr;
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* =========================================================================
           TAB 1: MAGIC +89 / +90 MATHEMATICAL CONVERSION LAB

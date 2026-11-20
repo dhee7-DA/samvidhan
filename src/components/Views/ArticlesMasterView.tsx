@@ -21,7 +21,9 @@ import {
   Lightbulb,
   Shield,
   BrainCircuit,
-  Star
+  Star,
+  Zap,
+  ArrowRight
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
@@ -29,6 +31,7 @@ import { bareActService, type BareActArticle } from '../../services/bareActServi
 import { getCardIdForArticle } from '../../services/flashcardService';
 import { caseStoryService } from '../../services/caseStoryService';
 import { ArticleRealCaseStoryTab } from './ArticleRealCaseStoryTab';
+import { lookupSpeedHackForArticle } from '../../data/fastTrackHacksData';
 
 export const ArticlesMasterView: React.FC = () => {
   const {
@@ -106,6 +109,7 @@ export const ArticlesMasterView: React.FC = () => {
   );
 
   const isCurrentBookmarked = bookmarkedArticles.includes(`Art ${activeArticle.number}`);
+  const speedHack = useMemo(() => lookupSpeedHackForArticle(activeArticle.number), [activeArticle.number]);
 
   const handleCopyCitation = () => {
     const citation = `Article ${activeArticle.number}, Constitution of India (1950) — "${activeArticle.title}"`;
@@ -593,6 +597,51 @@ export const ArticlesMasterView: React.FC = () => {
                 </button>
               </div>
             </div>
+
+            {/* Contextual Fast-Track Speed Hack & Mnemonic Anchor */}
+            {speedHack && (
+              <div className="p-3 sm:p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+                <div className="flex items-start sm:items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                    <Zap className="w-4 h-4 fill-current" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[10px] font-mono font-extrabold uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                        {speedHack.badge}
+                      </span>
+                      <span className="text-xs font-mono font-extrabold text-[var(--text-primary)]">
+                        {speedHack.formula}
+                      </span>
+                    </div>
+                    <p className="text-xs text-[var(--text-secondary)] mt-0.5 leading-snug">
+                      {speedHack.quickNote}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+                  {speedHack.counterpartArticle && (
+                    <button
+                      onClick={() => {
+                        setSelectedArticleNum(speedHack.counterpartArticle!);
+                        setReaderTab('statutory');
+                      }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--bg-base)] border border-amber-500/40 text-amber-400 font-mono text-xs font-bold hover:bg-amber-500/20 transition-all btn-tactile"
+                    >
+                      <span>Jump to Art. {speedHack.counterpartArticle}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setActiveTab('fast-track')}
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500 text-[var(--bg-base)] font-mono text-xs font-bold hover:opacity-95 transition-all btn-tactile"
+                  >
+                    <span>Speed Vault &rarr;</span>
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* 5-Way Tab Bar */}
             <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] pb-2 flex-wrap">

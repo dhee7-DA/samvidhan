@@ -600,3 +600,244 @@ export const RAPID_REFLEX_QUESTIONS: RapidReflexDrillQuestion[] = [
     formulaNote: 'Formula: Union Art 105 + 89 = State Art 194'
   }
 ];
+
+// =========================================================================
+// 5. MASTER CONSTITUTIONAL SHORTCUT HACKS (THE 7 CHEAT CODES)
+// =========================================================================
+export interface MasterCheatCode {
+  id: string;
+  title: string;
+  formulaTag: string;
+  articlesAnchored: string;
+  summary: string;
+  howItWorks: string;
+  memoryHook: string;
+  examinerTrap: string;
+}
+
+export const MASTER_CHEAT_CODES: MasterCheatCode[] = [
+  {
+    id: 'rule-plus-89',
+    title: 'The +89 Union-to-State Power Shift',
+    formulaTag: 'Art (72–111) + 89 = State Art (161–200)',
+    articlesAnchored: 'Arts. 72–111 & 161–200',
+    summary: 'Add 89 to any Union Executive, Legislative or Privileges article between 72 and 111 to instantly derive the corresponding State article.',
+    howItWorks: 'President Pardon (72) + 89 = Governor Pardon (161). Union COM (74) + 89 = State COM (163). Attorney General (76) + 89 = Advocate General (165). Parliament Money Bill (110) + 89 = Assembly Money Bill (199). President Assent (111) + 89 = Governor Assent (200).',
+    memoryHook: 'Add 89 to switch from New Delhi to State Capitals for Executive & Legislative affairs.',
+    examinerTrap: 'Governor under Art 161 CANNOT pardon death sentences or court-martial sentences, unlike President under Art 72.'
+  },
+  {
+    id: 'rule-plus-90',
+    title: 'The +90 Financial & Judicial Step-Up',
+    formulaTag: 'Art (112–124) + 90 = State Art (202–214)',
+    articlesAnchored: 'Arts. 112–124 & 202–214',
+    summary: 'Add 90 to Union Financial, Ordinance, and Supreme Court articles between 112 and 124 to reveal the matching State Financial, Ordinance, and High Court provisions.',
+    howItWorks: 'Union Budget/AFS (112) + 90 = State Budget/AFS (202). Appropriation Bill (114) + 90 = State Appropriation (204). President Ordinance (123) + 90 = Governor Ordinance (213). Supreme Court (124) + 90 = High Courts for States (214).',
+    memoryHook: 'Financial & Judicial matters require a +90 jump (1 point higher than executive).',
+    examinerTrap: 'Supreme Court retirement age is 65 (Art 124(2)); High Court judge retirement age is 62 (Art 217(1)).'
+  },
+  {
+    id: 'rule-reverse-subtraction',
+    title: 'The Reverse -89 / -90 State-to-Union Decoder',
+    formulaTag: 'State Art (161–214) − 89/90 = Union Art',
+    articlesAnchored: 'Arts. 161–214 to 72–124',
+    summary: 'When a State article is given in the question paper, subtract 89 or 90 to identify its Union parent provision.',
+    howItWorks: 'Governor Ordinance Art. 213 − 90 = Art. 123 (President Ordinance). State Money Bill Art. 199 − 89 = Art. 110 (Union Money Bill). Advocate-General Art. 165 − 89 = Art. 76 (Attorney General).',
+    memoryHook: 'If article is > 160: subtract 89 (or 90 for budget/ordinance/courts) to find the Union article.',
+    examinerTrap: 'Remember the cutoff: Articles 161 to 200 subtract 89; Articles 202 to 214 subtract 90!'
+  },
+  {
+    id: 'rule-plus-4-emergency',
+    title: 'The +4 Emergency Triad Step-Up',
+    formulaTag: '352 (+4) &rarr; 356 (+4) &rarr; 360',
+    articlesAnchored: 'Arts. 352, 356, 360',
+    summary: 'The three constitutional emergencies are spaced exactly 4 articles apart in Part XVIII.',
+    howItWorks: 'Article 352 (National Emergency: War, Aggression, Armed Rebellion) + 4 = Article 356 (President\'s Rule: Constitutional machinery breakdown) + 4 = Article 360 (Financial Emergency).',
+    memoryHook: '352 is National, step 4 to 356 for State, step 4 to 360 for Financial.',
+    examinerTrap: 'Only Art 352 requires Special Majority; Arts 356 and 360 require only Simple Majority of Parliament!'
+  },
+  {
+    id: 'rule-ministry-cap-91st',
+    title: 'The 15% Council Size Cap & 12 Min Rule (91st Amendment)',
+    formulaTag: 'Max 15% (Lok Sabha/Assembly) &bull; Min 12 (States) &bull; 10% (Delhi)',
+    articlesAnchored: 'Arts. 75(1A), 164(1A), 239AA(4)',
+    summary: 'Enacted by the 91st Constitutional Amendment Act, 2003 to prevent oversized jumbo cabinets.',
+    howItWorks: 'Union Council of Ministers cannot exceed 15% of Lok Sabha (approx 81-82 ministers). State Council cannot exceed 15% of Legislative Assembly, but MUST have at least 12 ministers! Delhi (Art 239AA) is capped at 10% (max 7 ministers).',
+    memoryHook: '91st Amendment: 15% ceiling everywhere; 12 minimum for states; 10% special cap for Delhi!',
+    examinerTrap: 'The 15% limit applies to the LOWER HOUSE (Lok Sabha / Vidhan Sabha), NOT both houses combined!'
+  },
+  {
+    id: 'rule-retirement-staircase',
+    title: 'The 62 vs 65 Constitutional Age Staircase',
+    formulaTag: 'High Court & State PSC = 62 &bull; Apex Court, CAG, UPSC, CEC = 65',
+    articlesAnchored: 'Arts. 124, 148, 217, 316, 324',
+    summary: 'The universal constitutional retirement age dividing line between State and Union apex constitutional functionaries.',
+    howItWorks: 'Age 62: High Court Judges (Art 217(1)) and State Public Service Commission Members (Art 316(2)). Age 65: Supreme Court Judges (Art 124(2)), Comptroller & Auditor General (Art 148(3)), UPSC Members (Art 316(2)), and Chief Election Commissioner (6 years or 65 years).',
+    memoryHook: 'State level retires at 62; Union apex level retires at 65.',
+    examinerTrap: 'Tribunal Chairpersons retire at 70 and Members at 67 under modern Tribunal Reforms Act, 2021.'
+  },
+  {
+    id: 'rule-pejsla-federal',
+    title: 'P-E-J-S-L-A: Federal Ratification Formula',
+    formulaTag: 'Special Majority + 50% State Assemblies Ratification (Art. 368(2) Proviso)',
+    articlesAnchored: 'Article 368(2) Proviso',
+    summary: 'Memorize the exact 6 entrenched federal constitutional matters requiring ratification by not less than one-half of the State Legislatures.',
+    howItWorks: 'P = President election (Arts 54, 55). E = Executive power extent of Union & States (Arts 73, 162). J = Judiciary (Supreme Court & High Courts: Arts 124–147, 214–231, 241). S = Seventh Schedule Lists (List I, II, III). L = Legislative representation in Parliament (4th Schedule). A = Article 368 amending power itself!',
+    memoryHook: 'P-E-J-S-L-A ("Pej-Sla"): The 6 constitutional pillars that Parliament cannot amend alone.',
+    examinerTrap: 'Fundamental Rights and DPSP do NOT require State ratification; they require only Parliamentary Special Majority!'
+  }
+];
+
+// =========================================================================
+// 6. CONTEXTUAL ARTICLE SPEED HACK LOOKUP (FOR BARE ACT & ACROSS APP)
+// =========================================================================
+export interface ArticleSpeedHackIntel {
+  hasHack: boolean;
+  type: string;
+  badge: string;
+  counterpartArticle?: string;
+  counterpartTitle?: string;
+  formula: string;
+  quickNote: string;
+  examinerTrap?: string;
+}
+
+export function lookupSpeedHackForArticle(articleNumber: string | number): ArticleSpeedHackIntel | null {
+  const num = parseInt(String(articleNumber).replace(/\D/g, ''), 10);
+  if (isNaN(num)) return null;
+
+  // 1. Check +89 Rule (Union to State: 72 to 111)
+  const mathPairAsUnion = MATH_FORMULA_PAIRS.find((p) => p.unionArticle === num);
+  if (mathPairAsUnion) {
+    return {
+      hasHack: true,
+      type: 'math-union',
+      badge: `${mathPairAsUnion.rule} Rule`,
+      counterpartArticle: String(mathPairAsUnion.stateArticle),
+      counterpartTitle: mathPairAsUnion.stateTitle,
+      formula: `Art. ${mathPairAsUnion.unionArticle} ${mathPairAsUnion.rule} = Art. ${mathPairAsUnion.stateArticle}`,
+      quickNote: `State equivalent is Article ${mathPairAsUnion.stateArticle} (${mathPairAsUnion.stateTitle}).`,
+      examinerTrap: mathPairAsUnion.examinerTrap
+    };
+  }
+
+  // 2. Check -89 or -90 Rule (State to Union: 161 to 214)
+  const mathPairAsState = MATH_FORMULA_PAIRS.find((p) => p.stateArticle === num);
+  if (mathPairAsState) {
+    const reverseRule = mathPairAsState.rule === '+89' ? '-89' : '-90';
+    return {
+      hasHack: true,
+      type: 'math-state',
+      badge: `${reverseRule} Rule`,
+      counterpartArticle: String(mathPairAsState.unionArticle),
+      counterpartTitle: mathPairAsState.unionTitle,
+      formula: `Art. ${mathPairAsState.stateArticle} ${reverseRule} = Art. ${mathPairAsState.unionArticle}`,
+      quickNote: `Union equivalent is Article ${mathPairAsState.unionArticle} (${mathPairAsState.unionTitle}).`,
+      examinerTrap: mathPairAsState.examinerTrap
+    };
+  }
+
+  // 3. Check +4 Emergency Rule (352, 356, 360)
+  if (num === 352) {
+    return {
+      hasHack: true,
+      type: 'emergency',
+      badge: '+4 Emergency Rule',
+      counterpartArticle: '356',
+      counterpartTitle: 'President\'s Rule (State Emergency)',
+      formula: '352 (+4) -> 356 (+4) -> 360',
+      quickNote: 'National Emergency (352) + 4 = President\'s Rule (356) + 4 = Financial Emergency (360).',
+      examinerTrap: 'Only Art 352 requires Special Majority; Arts 356 & 360 require Simple Majority.'
+    };
+  }
+  if (num === 356) {
+    return {
+      hasHack: true,
+      type: 'emergency',
+      badge: '+4 Emergency Rule',
+      counterpartArticle: '360',
+      counterpartTitle: 'Financial Emergency',
+      formula: '352 (+4) -> 356 (+4) -> 360',
+      quickNote: 'President\'s Rule is intermediate step (+4 from Art 352, -4 from Art 360).',
+      examinerTrap: 'Floor test is mandatory before assembly dissolution (S.R. Bommai 1994).'
+    };
+  }
+  if (num === 360) {
+    return {
+      hasHack: true,
+      type: 'emergency',
+      badge: '+4 Emergency Rule',
+      counterpartArticle: '356',
+      counterpartTitle: 'President\'s Rule',
+      formula: '352 (+4) -> 356 (+4) -> 360',
+      quickNote: 'Financial Emergency is final step (+4 from Art 356). Never invoked in India to date.',
+      examinerTrap: 'Judges\' salaries can be reduced during financial emergency, notwithstanding judicial independence.'
+    };
+  }
+
+  // 4. Equality E-D-O-U-T (Arts 14-18)
+  if (num >= 14 && num <= 18) {
+    const letters = ['E: Equality (14)', 'D: Discrimination (15)', 'O: Opportunity (16)', 'U: Untouchability (17)', 'T: Titles (18)'];
+    return {
+      hasHack: true,
+      type: 'mnemonic',
+      badge: 'E-D-O-U-T Rule',
+      formula: 'E(14) - D(15) - O(16) - U(17) - T(18)',
+      quickNote: `Part of the 5-pillar Right to Equality mnemonic: ${letters[num - 14]}`,
+      examinerTrap: 'Only Article 17 is an absolute right with zero reasonable restrictions or exceptions.'
+    };
+  }
+
+  // 5. Six Freedoms S-A-U-M-R-T (Art 19)
+  if (num === 19) {
+    return {
+      hasHack: true,
+      type: 'mnemonic',
+      badge: 'S-A-U-M-R-T Rule',
+      formula: 'Speech - Assembly - Union - Movement - Residence - Trade',
+      quickNote: '"Speech Assembles Unions, Moves Residents to Trade". Six democratic freedoms in Article 19(1).',
+      examinerTrap: 'Clause 19(1)(f) property was deleted by 44th Amendment 1978 and moved to Art 300A.'
+    };
+  }
+
+  // 6. Criminal Safeguards E-D-S (Art 20)
+  if (num === 20) {
+    return {
+      hasHack: true,
+      type: 'mnemonic',
+      badge: 'E-D-S Shield',
+      formula: 'E(Ex-post facto) - D(Double jeopardy) - S(Self-incrimination)',
+      quickNote: 'Three criminal defense shields under Article 20(1), 20(2), 20(3).',
+      examinerTrap: 'Articles 20 and 21 can NEVER be suspended during a National Emergency (44th Amendment).'
+    };
+  }
+
+  // 7. Prerogative Writs H-M-P-C-Q (Arts 32 & 226)
+  if (num === 32 || num === 226) {
+    return {
+      hasHack: true,
+      type: 'mnemonic',
+      badge: 'H-M-P-C-Q Writs',
+      counterpartArticle: num === 32 ? '226' : '32',
+      counterpartTitle: num === 32 ? 'High Court Writs (Art. 226)' : 'Supreme Court Writs (Art. 32)',
+      formula: 'Habeas Corpus - Mandamus - Prohibition - Certiorari - Quo Warranto',
+      quickNote: '"Have My Papers Checked Quick". Art 32 is a Fundamental Right; Art 226 is wider (covers legal rights).',
+      examinerTrap: 'Prohibition is preventive (before order); Certiorari is curative (after order).'
+    };
+  }
+
+  // 8. Article 368 Federal Entrenchment P-E-J-S-L-A
+  if (num === 368) {
+    return {
+      hasHack: true,
+      type: 'mnemonic',
+      badge: 'P-E-J-S-L-A Rule',
+      formula: 'President - Executive - Judiciary - Schedules(7th) - Legislature(4th) - Article 368',
+      quickNote: 'The 6 federal provisions requiring 50% State Assembly Ratification under Article 368(2) Proviso.',
+      examinerTrap: 'Fundamental Rights & DPSP require only Parliamentary Special Majority, NOT state ratification!'
+    };
+  }
+
+  return null;
+}
+
