@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-20 14:12:54 (+05:30) |
+| **Last Log Sync** | 2026-11-20 15:23:22 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `363d360` (2026-11-20T14:12:42+05:30) |
-| **Total Commits** | 76 |
+| **Branch / HEAD** | `main` @ `593b6ff` (2026-11-20T14:13:14+05:30) |
+| **Total Commits** | 77 |
 | **Total Files Indexed** | 270 (270 tracked, 0 new untracked) |
-| **Working Tree** | Clean |
+| **Working Tree** | 4 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-20 15:23:22 (+05:30)] Added Bidirectional Article Solver, Constitutional Majority Matrix with Live Simulator, and Knowledge Graph Navigation (DONE)
+- **Details:** Implemented real-time bidirectional +89/-90 solver, Constitutional Majority Matrix decoding all 4 majority types with live parliamentary chamber sliders, renamed sidebar tab to Knowledge Graphs (Trees), and added direct navigation from Overview and Speed Hacks.
+- **Files Touched (4):** `M src/components/Layout/Sidebar.tsx`, `M src/components/Views/FastTrackMasteryView.tsx`, `M src/components/Views/OverviewDashboard.tsx`, `M src/data/fastTrackHacksData.ts`
+- **Git HEAD:** `main` @ `593b6ff`
 
 ### [2026-11-20 14:12:01 (+05:30)] Converted +89/+90 speed hack tiles into responsive inline expandable accordions (DONE)
 - **Details:** Transformed disconnected two-column grid into self-contained accordion cards with animated chevron rotation, inline mathematical bridge, conceptual bridge, critical divergence, examiner trap, benchmark precedent, Bare Act direct navigation, and Expand/Collapse All controls. Tested and verified in live browser.
@@ -166,7 +171,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 53.7 KB | 676 | `363d360` (2026-11-20) |
+| `PROJECT_LOG.md` | 53.8 KB | 677 | `593b6ff` (2026-11-20) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -222,7 +227,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.1 KB | 271 | `b3963a3` (2026-11-20) |
+| `src/components/Layout/Sidebar.tsx` | 14.2 KB | 271 | `b3963a3` (2026-11-20) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -261,7 +266,7 @@
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 22.0 KB | 423 | `9e33658` (2026-11-18) |
-| `src/components/Views/FastTrackMasteryView.tsx` | 54.8 KB | 1094 | `363d360` (2026-11-20) |
+| `src/components/Views/FastTrackMasteryView.tsx` | 95.1 KB | 1829 | `363d360` (2026-11-20) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 55.9 KB | 1015 | `3ce9f3d` (2026-11-18) |
@@ -269,7 +274,7 @@
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
-| `src/components/Views/OverviewDashboard.tsx` | 26.3 KB | 433 | `b3963a3` (2026-11-20) |
+| `src/components/Views/OverviewDashboard.tsx` | 26.8 KB | 441 | `b3963a3` (2026-11-20) |
 | `src/components/Views/PrecedentClashView.tsx` | 17.2 KB | 354 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/PrecedentLineageView.tsx` | 27.0 KB | 502 | `ea3d899` (2026-11-16) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
@@ -311,7 +316,7 @@
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
-| `src/data/fastTrackHacksData.ts` | 50.7 KB | 844 | `e952afe` (2026-11-20) |
+| `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `e952afe` (2026-11-20) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
@@ -593,10 +598,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**76** commits, newest first).
+> Complete git history (**77** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 77 | 2026-11-20 | `593b6ff` | 1 | docs: refresh project log snapshot |
 | 76 | 2026-11-20 | `363d360` | 3 | fix(speed-hacks): convert +89/+90 tiles into responsive inline expandable accordions |
 | 75 | 2026-11-20 | `e952afe` | 4 | feat: embed contextual speed hacks in Bare Act Explorer and add 7 Master Cheat Codes Wall |
 | 74 | 2026-11-20 | `b3963a3` | 6 | feat: add Fast-Track Constitutional Mastery Vault with Magic +89/+90 Rule & Mnemonic Engines |

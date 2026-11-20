@@ -17,7 +17,8 @@ import {
   Gavel,
   Clock,
   Target,
-  Zap
+  Zap,
+  GitBranch
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -128,6 +129,13 @@ export const OverviewDashboard: React.FC = () => {
           >
             <Zap className="w-4 h-4 text-amber-400 fill-current" />
             <span>SPEED HACKS (+89/+90)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('lineage')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-purple-400 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+          >
+            <GitBranch className="w-4 h-4 text-purple-400" />
+            <span>KNOWLEDGE GRAPHS (TREES)</span>
           </button>
         </div>
       </section>

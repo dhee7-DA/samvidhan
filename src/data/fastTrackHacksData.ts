@@ -841,3 +841,385 @@ export function lookupSpeedHackForArticle(articleNumber: string | number): Artic
   return null;
 }
 
+// =========================================================================
+// 8. CONSTITUTIONAL MAJORITIES DATA & SIMULATOR
+// =========================================================================
+
+export interface ConstitutionalMajorityTier {
+  id: string;
+  name: string;
+  category: 'Ordinary' | 'Special Parliamentary' | 'Impeachment';
+  shortFormula: string;
+  fractionFormula: string;
+  scopeDescription: string;
+  keyUseCases: {
+    provision: string;
+    article: string;
+    procedureNotes: string;
+  }[];
+  examinerTraps: string[];
+  benchmarkCases: string[];
+  badgeColor: string;
+}
+
+export const CONSTITUTIONAL_MAJORITY_DATA: ConstitutionalMajorityTier[] = [
+  {
+    id: 'simple-majority',
+    name: 'Simple Majority (Ordinary Majority)',
+    category: 'Ordinary',
+    shortFormula: '> 50% of members present and voting',
+    fractionFormula: 'P&V / 2 + 1',
+    badgeColor: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10',
+    scopeDescription: 'The default and most frequently used voting threshold in Parliament and State Legislatures for day-to-day legislative business.',
+    keyUseCases: [
+      {
+        provision: 'Passing Ordinary Bills & Money Bills',
+        article: 'Art. 107 & Art. 109',
+        procedureNotes: 'Requires more than half of the members present and voting in each House.'
+      },
+      {
+        provision: 'Reorganization of States / Alteration of Boundaries',
+        article: 'Art. 2, 3 & 4',
+        procedureNotes: 'Article 4(2) explicitly declares that laws made under Art 2 & 3 are NOT deemed amendments under Art 368.'
+      },
+      {
+        provision: 'Approval of President’s Rule & Financial Emergency',
+        article: 'Art. 356 & Art. 360',
+        procedureNotes: 'National Emergency (Art 352) requires Special Majority, but Art 356 & 360 require only Simple Majority!'
+      },
+      {
+        provision: 'Creation or Abolition of State Legislative Councils (by Parliament)',
+        article: 'Art. 169(1)',
+        procedureNotes: 'Parliament passes by Simple Majority, even though the State Assembly must first pass it by Special Majority.'
+      },
+      {
+        provision: 'Ratification of Constitutional Amendment by State Assemblies',
+        article: 'Art. 368(2) Proviso',
+        procedureNotes: 'State legislatures ratify federal amendments by simple majority of members present and voting.'
+      },
+      {
+        provision: 'No-Confidence Motion & Vote of Thanks on President’s Address',
+        article: 'Rules of Lok Sabha / Art. 87',
+        procedureNotes: 'Defeat of the government on simple majority motion in Lok Sabha triggers immediate resignation of the Cabinet.'
+      }
+    ],
+    examinerTraps: [
+      'Creation of a new State under Article 3 requires ONLY a Simple Majority, NOT an Article 368 Special Majority.',
+      'Approval of President’s Rule (Art 356) requires only a Simple Majority; only National Emergency (Art 352) requires a Special Majority under the 44th Amendment.',
+      'State ratification under Art 368 proviso requires only Simple Majority in State Assemblies, not 2/3rd majority.'
+    ],
+    benchmarkCases: [
+      'Maganbhai Ishwarbhai Patel (1969): Ceding Indian territory to a foreign state requires Art 368 amendment (Berubari 1960), but settlement of boundary disputes requires only executive action or simple law.',
+      'Babulal Parate (1960): State Legislature advice under Art 3 proviso is not binding on Parliament.'
+    ]
+  },
+  {
+    id: 'effective-majority',
+    name: 'Effective Majority (Removal of Presiding Officers)',
+    category: 'Ordinary',
+    shortFormula: '> 50% of the effective strength of the House',
+    fractionFormula: '(Total Seats - Vacancies) / 2 + 1',
+    badgeColor: 'border-amber-500/30 text-amber-400 bg-amber-500/10',
+    scopeDescription: 'Calculated by subtracting vacant seats (deaths, resignations, disqualifications) from total sanctioned strength before taking the 50% threshold.',
+    keyUseCases: [
+      {
+        provision: 'Removal of Vice-President of India in Rajya Sabha',
+        article: 'Art. 67(b)',
+        procedureNotes: 'Must be passed by Rajya Sabha by Effective Majority ("majority of all the then members") and agreed to by Lok Sabha with Simple Majority.'
+      },
+      {
+        provision: 'Removal of Speaker & Deputy Speaker of Lok Sabha',
+        article: 'Art. 94(c)',
+        procedureNotes: 'Resolution passed by a majority of all the then members of the House of the People.'
+      },
+      {
+        provision: 'Removal of Speaker & Deputy Speaker of State Legislative Assembly',
+        article: 'Art. 179(c)',
+        procedureNotes: 'Passed by a majority of all the then members of the State Assembly.'
+      },
+      {
+        provision: 'Removal of Chairman & Deputy Chairman of State Legislative Council',
+        article: 'Art. 183(c)',
+        procedureNotes: 'Passed by a majority of all the then members of the State Council.'
+      }
+    ],
+    examinerTraps: [
+      'Vice-President removal starts ONLY in Rajya Sabha and needs Effective Majority in RS, but Lok Sabha merely agrees by Simple Majority!',
+      'Do not confuse "all the then members" (Effective Majority) with "total membership" (Absolute / Art 61 Majority).'
+    ],
+    benchmarkCases: [
+      'Nabam Rebia (2016): Speaker facing notice of removal under Art 179(c) cannot adjudicate disqualification petitions under 10th Schedule until the removal resolution is decided.'
+    ]
+  },
+  {
+    id: 'absolute-majority',
+    name: 'Absolute Majority',
+    category: 'Ordinary',
+    shortFormula: '> 50% of the total sanctioned membership of the House',
+    fractionFormula: 'Total Sanctioned Seats / 2 + 1',
+    badgeColor: 'border-sky-500/30 text-sky-400 bg-sky-500/10',
+    scopeDescription: 'Requires more than 50% of the entire sanctioned strength of the House, completely irrespective of vacancies or absent members.',
+    keyUseCases: [
+      {
+        provision: 'Government Formation & Prime Ministerial Claim',
+        article: 'Art. 75 & Parliamentary Convention',
+        procedureNotes: 'A ruling coalition in Lok Sabha must command 272+ seats out of 543 to sustain confidence.'
+      },
+      {
+        provision: 'Base Condition for Constitutional Amendments',
+        article: 'Art. 368(2)',
+        procedureNotes: 'Acts as the foundation threshold that must be satisfied concurrently with 2/3rd present & voting.'
+      },
+      {
+        provision: 'Creation/Abolition of Legislative Council by State Assembly',
+        article: 'Art. 169(1)',
+        procedureNotes: 'Requires a majority of the total membership of the Assembly AND 2/3rd present and voting.'
+      }
+    ],
+    examinerTraps: [
+      'In India, a bill is NEVER passed solely on Absolute Majority alone; it is always paired with 2/3rd present & voting (forming Type 2 Special Majority).'
+    ],
+    benchmarkCases: [
+      'S.R. Bommai (1994): The majority commanded by a Ministry must be tested on the floor of the House, not by the Governor’s subjective assessment.'
+    ]
+  },
+  {
+    id: 'special-type-1',
+    name: 'Special Majority: Type 1 (Article 249 & 312)',
+    category: 'Special Parliamentary',
+    shortFormula: '≥ 2/3rd of members present and voting',
+    fractionFormula: '≥ (2/3) × P&V',
+    badgeColor: 'border-purple-500/30 text-purple-400 bg-purple-500/10',
+    scopeDescription: 'Exclusive to the Rajya Sabha as the Council of States, allowing federal intervention without permanent constitutional amendment.',
+    keyUseCases: [
+      {
+        provision: 'Parliamentary Legislation on State List in National Interest',
+        article: 'Art. 249(1)',
+        procedureNotes: 'Rajya Sabha passes a resolution supported by not less than 2/3rd members present & voting. Valid for 1 year at a time.'
+      },
+      {
+        provision: 'Creation of New All-India Services (IAS, IPS, IFS)',
+        article: 'Art. 312(1)',
+        procedureNotes: 'Empowers Parliament to create an All-India Service common to the Union and States.'
+      }
+    ],
+    examinerTraps: [
+      'Type 1 does NOT require 50% total membership! It requires ONLY 2/3rd of members present and voting.',
+      'This power belongs EXCLUSIVELY to the Rajya Sabha, reflecting its role as protector of states in federalism.'
+    ],
+    benchmarkCases: [
+      'Kuldip Nayar v. Union of India (2006): Rajya Sabha represents the federal principle, and its special legislative gateway under Art 249/312 preserves federal balance.'
+    ]
+  },
+  {
+    id: 'special-type-2',
+    name: 'Special Majority: Type 2 (Art 368 / Judge Removal)',
+    category: 'Special Parliamentary',
+    shortFormula: '> 50% of total membership AND ≥ 2/3rd members present & voting',
+    fractionFormula: '(Total/2 + 1) AND ≥ (2/3) × P&V',
+    badgeColor: 'border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/10',
+    scopeDescription: 'The standard Constitutional Amendment formula. Both conditions must be satisfied simultaneously in each House separately.',
+    keyUseCases: [
+      {
+        provision: 'Constitutional Amendments under Article 368',
+        article: 'Art. 368(2)',
+        procedureNotes: 'Passed in each House separately; no joint sitting (Art 108) is permissible for constitutional amendments!'
+      },
+      {
+        provision: 'Removal of Supreme Court & High Court Judges',
+        article: 'Art. 124(4) & Art. 217(1)(b)',
+        procedureNotes: 'Address presented to the President after being passed by each House by Type 2 Special Majority on grounds of proved misbehavior or incapacity.'
+      },
+      {
+        provision: 'Removal of Chief Election Commissioner & CAG',
+        article: 'Art. 324(5) & Art. 148(1)',
+        procedureNotes: 'Removed in like manner and on like grounds as a Judge of the Supreme Court.'
+      },
+      {
+        provision: 'Approval of National Emergency (Post-44th Amendment)',
+        article: 'Art. 352(6)',
+        procedureNotes: 'Originally simple majority in 1950; 44th Amendment upgraded to Type 2 Special Majority to prevent abuse.'
+      }
+    ],
+    examinerTraps: [
+      'There is NO Joint Sitting (Art 108) for Constitutional Amendment Bills under Article 368.',
+      'National Emergency (Art 352) requires Type 2 Special Majority, whereas President’s Rule (Art 356) requires only Simple Majority!',
+      'Judge removal requires Type 2 Special Majority, NOT the Article 61 Presidential Impeachment majority.'
+    ],
+    benchmarkCases: [
+      'Kesavananda Bharati (1973): Even with Type 2 Special Majority, Parliament cannot damage or destroy the Basic Structure.',
+      'Minerva Mills (1980): The limited amending power under Art 368 is itself a basic feature of the Constitution.'
+    ]
+  },
+  {
+    id: 'special-type-3',
+    name: 'Special Majority: Type 3 (Article 61 Impeachment)',
+    category: 'Impeachment',
+    shortFormula: '≥ 2/3rd of the TOTAL MEMBERSHIP of the House',
+    fractionFormula: '≥ (2/3) × Total Sanctioned Seats',
+    badgeColor: 'border-rose-500/50 text-rose-400 bg-rose-500/10',
+    scopeDescription: 'The strictest and highest voting barrier in the Indian Constitution. Abstentions or absent members effectively count as votes against the resolution.',
+    keyUseCases: [
+      {
+        provision: 'Impeachment of the President of India',
+        article: 'Art. 61(2)(b) & Art. 61(4)',
+        procedureNotes: 'Charge initiated by either House with 1/4th members signing 14-day notice, and passed by not less than 2/3rd of the TOTAL membership of that House. Investigating House must also pass by 2/3rd of TOTAL membership.'
+      }
+    ],
+    examinerTraps: [
+      'Article 61 applies EXCLUSIVELY to the President of India. SC/HC Judges, CEC, and CAG are NOT impeached under Art 61; they are removed under Art 124(4) (Type 2)!',
+      'The only constitutional ground for President impeachment is "violation of the Constitution" (which is undefined in the text).',
+      'Nominated members of Parliament CAN vote in Presidential Impeachment under Art 61, even though they CANNOT vote in the President\'s election under Art 54!'
+    ],
+    benchmarkCases: [
+      'Dr. N.B. Khare (1957) & Peter Samuel Wallace (1970): Judicial review does not interfere with legislative impeachment proceedings until the final operative order is made.'
+    ]
+  }
+];
+
+// Calculation helper for live legislative chamber simulator
+export function calculateConstitutionalMajorities(
+  totalSeats: number,
+  vacancies: number,
+  present: number,
+  voting: number
+) {
+  const quorum = Math.ceil(totalSeats / 10);
+  const hasQuorum = present >= quorum;
+  const effectiveStrength = Math.max(0, totalSeats - vacancies);
+
+  const simpleMajority = Math.floor(voting / 2) + 1;
+  const absoluteMajority = Math.floor(totalSeats / 2) + 1;
+  const effectiveMajority = Math.floor(effectiveStrength / 2) + 1;
+  const specialType1 = Math.ceil((2 / 3) * voting);
+  const specialType2 = Math.max(absoluteMajority, Math.ceil((2 / 3) * voting));
+  const specialType3 = Math.ceil((2 / 3) * totalSeats);
+
+  return {
+    quorum,
+    hasQuorum,
+    effectiveStrength,
+    simpleMajority,
+    absoluteMajority,
+    effectiveMajority,
+    specialType1,
+    specialType2,
+    specialType3
+  };
+}
+
+// Bidirectional Article Solver Helper
+export interface BidirectionalSolverResult {
+  queryArticle: number;
+  direction: 'union-to-state' | 'state-to-union' | 'emergency-triad' | 'writs-pair' | 'fundamental-right' | 'non-paired';
+  rule: string;
+  counterpartArticle?: number;
+  counterpartTitle?: string;
+  mathCalculation: string;
+  conceptualBridge: string;
+  statutoryDifference?: string;
+  examinerTrap?: string;
+  landmarkCitation?: string;
+  bareActArticleNum: number;
+}
+
+export function solveBidirectionalArticleRule(queryNum: number): BidirectionalSolverResult | null {
+  if (isNaN(queryNum) || queryNum < 1 || queryNum > 395) return null;
+
+  // 1. Check if it's a Union Article in MATH_FORMULA_PAIRS
+  const unionPair = MATH_FORMULA_PAIRS.find((p) => p.unionArticle === queryNum);
+  if (unionPair) {
+    return {
+      queryArticle: queryNum,
+      direction: 'union-to-state',
+      rule: unionPair.rule,
+      counterpartArticle: unionPair.stateArticle,
+      counterpartTitle: unionPair.stateTitle,
+      mathCalculation: `Union Art. ${queryNum} ${unionPair.rule} = State Art. ${unionPair.stateArticle}`,
+      conceptualBridge: unionPair.conceptualBridge,
+      statutoryDifference: unionPair.statutoryDifference,
+      examinerTrap: unionPair.examinerTrap,
+      landmarkCitation: unionPair.landmarkCitation,
+      bareActArticleNum: unionPair.stateArticle
+    };
+  }
+
+  // 2. Check if it's a State Article in MATH_FORMULA_PAIRS (Reverse Rule)
+  const statePair = MATH_FORMULA_PAIRS.find((p) => p.stateArticle === queryNum);
+  if (statePair) {
+    const reverseRule = statePair.rule === '+89' ? '-89' : '-90';
+    return {
+      queryArticle: queryNum,
+      direction: 'state-to-union',
+      rule: reverseRule,
+      counterpartArticle: statePair.unionArticle,
+      counterpartTitle: statePair.unionTitle,
+      mathCalculation: `State Art. ${queryNum} ${reverseRule === '-89' ? '- 89' : '- 90'} = Union Art. ${statePair.unionArticle}`,
+      conceptualBridge: `Reverse Constitutional Conversion: State provision directly derives its architectural basis from Union counterpart Art. ${statePair.unionArticle}.`,
+      statutoryDifference: statePair.statutoryDifference,
+      examinerTrap: statePair.examinerTrap,
+      landmarkCitation: statePair.landmarkCitation,
+      bareActArticleNum: statePair.unionArticle
+    };
+  }
+
+  // 3. Emergency Triad +4 (352, 356, 360)
+  if (queryNum === 352 || queryNum === 356 || queryNum === 360) {
+    const nextArt = queryNum === 352 ? 356 : queryNum === 356 ? 360 : 352;
+    return {
+      queryArticle: queryNum,
+      direction: 'emergency-triad',
+      rule: '+4 Triad',
+      counterpartArticle: nextArt,
+      counterpartTitle: queryNum === 352 ? 'President\'s Rule (State Breakdown)' : queryNum === 356 ? 'Financial Emergency' : 'National Emergency (War/Aggression)',
+      mathCalculation: '352 (+4) ➔ 356 (+4) ➔ 360',
+      conceptualBridge: 'The Emergency +4 Mathematical Triad connects all three sovereign emergency powers under Part XVIII.',
+      statutoryDifference: 'Art 352 requires Special Majority Type 2; Art 356 & 360 require only Simple Majority. Art 352 suspends Art 19 immediately; Art 356 dissolves/suspends State Assembly.',
+      examinerTrap: 'Financial Emergency (Art 360) has NEVER been declared in India since 1950.',
+      landmarkCitation: 'S.R. Bommai (1994) & Minerva Mills (1980)',
+      bareActArticleNum: nextArt
+    };
+  }
+
+  // 4. Writs (Art 32 & 226)
+  if (queryNum === 32 || queryNum === 226) {
+    const counterpart = queryNum === 32 ? 226 : 32;
+    return {
+      queryArticle: queryNum,
+      direction: 'writs-pair',
+      rule: 'H-M-P-C-Q Dual Track',
+      counterpartArticle: counterpart,
+      counterpartTitle: queryNum === 32 ? 'High Court Prerogative Writs (Art. 226)' : 'Supreme Court Constitutional Remedies (Art. 32)',
+      mathCalculation: 'Art. 32 (Supreme Court) ⟷ Art. 226 (High Court)',
+      conceptualBridge: 'The twin constitutional guardians of liberty. Art 32 is itself a Fundamental Right; Art 226 is a constitutional power covering Fundamental Rights AND any other legal right.',
+      statutoryDifference: 'High Court writ jurisdiction (Art 226) is WIDER in subject matter (legal rights) but NARROWER in territorial reach than SC (Art 32).',
+      examinerTrap: 'Supreme Court cannot refuse an Art 32 petition (since it is guaranteed by Part III), but High Court can decline under Art 226 on grounds of alternative efficacious remedy.',
+      landmarkCitation: 'L. Chandra Kumar (1997) & Bandhua Mukti Morcha (1984)',
+      bareActArticleNum: counterpart
+    };
+  }
+
+  // 5. Fundamental Rights (Part III: Arts 12–35)
+  if (queryNum >= 12 && queryNum <= 35) {
+    return {
+      queryArticle: queryNum,
+      direction: 'fundamental-right',
+      rule: 'Part III Sovereign Guarantee',
+      mathCalculation: `Article ${queryNum} (Part III Fundamental Rights)`,
+      conceptualBridge: 'Fundamental Rights operate universally across the whole of India against both Union and State governments (Art. 12). No dual-state mathematical pair exists because these rights bind both levels of government equally.',
+      examinerTrap: 'Articles 15, 16, 19, 29, and 30 are available ONLY to Indian Citizens; Articles 14, 20, 21, 21A, 22, 23, 24, 25, 26, 27, and 28 are available to ALL persons (including foreigners).',
+      landmarkCitation: 'Maneka Gandhi (1978) & Kesavananda Bharati (1973)',
+      bareActArticleNum: queryNum
+    };
+  }
+
+  return {
+    queryArticle: queryNum,
+    direction: 'non-paired',
+    rule: 'General Constitutional Provision',
+    mathCalculation: `Article ${queryNum}`,
+    conceptualBridge: `Article ${queryNum} is part of the sovereign constitutional framework. It does not follow the executive/legislative dual-state +89/+90 mathematical mirror.`,
+    bareActArticleNum: queryNum
+  };
+}
+
