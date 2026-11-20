@@ -247,25 +247,25 @@ export const ConceptWebGraphView: React.FC = () => {
           <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 shadow-inner">
             <button
               onClick={() => setViewMode('explore')}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 viewMode === 'explore'
-                  ? 'bg-purple-600 text-white shadow-sm'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
-              <Compass className="w-3.5 h-3.5" />
+              <Compass className="w-3.5 h-3.5 text-[var(--text-muted)]" />
               <span>Constellation Explorer</span>
             </button>
             <button
               onClick={() => setViewMode('pathfinder')}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 viewMode === 'pathfinder'
-                  ? 'bg-amber-500 text-black shadow-sm font-black'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
-              <GitMerge className="w-3.5 h-3.5" />
-              <span>Constitutional Path-Finder</span>
+              <GitMerge className="w-3.5 h-3.5 text-amber-500" />
+              <span>Constitutional <span className="text-amber-400 font-bold">Path-Finder</span></span>
             </button>
           </div>
 
@@ -273,11 +273,11 @@ export const ConceptWebGraphView: React.FC = () => {
           {viewMode === 'pathfinder' ? (
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="flex items-center gap-1.5 text-xs font-mono">
-                <span className="text-[var(--text-muted)] font-bold">Start:</span>
+                <span className="text-[var(--text-muted)]">Start:</span>
                 <select
                   value={pathStartId}
                   onChange={(e) => setPathStartId(e.target.value)}
-                  className="px-2.5 py-1 rounded-xl bg-[var(--bg-base)] border border-amber-500/40 text-xs text-amber-300 font-bold focus:outline-none"
+                  className="px-2.5 py-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] font-semibold focus:outline-none"
                 >
                   {CONCEPT_NODES.map((n) => (
                     <option key={n.id} value={n.id}>
@@ -287,14 +287,14 @@ export const ConceptWebGraphView: React.FC = () => {
                 </select>
               </div>
 
-              <ArrowRight className="w-4 h-4 text-amber-400 shrink-0" />
+              <ArrowRight className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" />
 
               <div className="flex items-center gap-1.5 text-xs font-mono">
-                <span className="text-[var(--text-muted)] font-bold">Target:</span>
+                <span className="text-[var(--text-muted)]">Target:</span>
                 <select
                   value={pathEndId}
                   onChange={(e) => setPathEndId(e.target.value)}
-                  className="px-2.5 py-1 rounded-xl bg-[var(--bg-base)] border border-purple-500/40 text-xs text-purple-300 font-bold focus:outline-none"
+                  className="px-2.5 py-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] font-semibold focus:outline-none"
                 >
                   {CONCEPT_NODES.map((n) => (
                     <option key={n.id} value={n.id}>
@@ -320,9 +320,9 @@ export const ConceptWebGraphView: React.FC = () => {
                 <button
                   key={cl.id}
                   onClick={() => setActiveCluster(cl.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
                     activeCluster === cl.id
-                      ? 'bg-purple-600 text-white shadow-sm'
+                      ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm font-semibold'
                       : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                   }`}
                 >

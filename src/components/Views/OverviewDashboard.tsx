@@ -56,87 +56,87 @@ export const OverviewDashboard: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-6">
           <button
             onClick={() => setActiveTab('bootcamp')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bootcamp-btn-bg)] text-[var(--bootcamp-btn-text)] font-mono text-xs font-bold hover:opacity-95 transition-all shadow-md btn-tactile"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Flame className="w-4 h-4 opacity-90 animate-pulse" />
-            <span>15-DAY PO BOOTCAMP (3,000 MCQs)</span>
+            <Flame className="w-4 h-4 text-amber-500" />
+            <span>15-DAY PO BOOTCAMP <span className="text-amber-400 font-bold">(3,000 MCQs)</span></span>
           </button>
           <button
             onClick={() => setActiveTab('articles-master')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Layers className="w-4 h-4 text-[var(--accent)]" />
-            <span>ARTICLES 1–395 BARE ACT</span>
+            <Layers className="w-4 h-4 text-[var(--text-muted)]" />
+            <span>ARTICLES <span className="text-[var(--accent)] font-bold">1–395</span> BARE ACT</span>
           </button>
           <button
             onClick={() => setActiveTab('judgments')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Award className="w-4 h-4 text-[var(--gold)]" />
-            <span>100 LANDMARK CASES</span>
+            <Award className="w-4 h-4 text-[var(--text-muted)]" />
+            <span><span className="text-[var(--accent)] font-bold">100</span> LANDMARK CASES</span>
           </button>
           <button
             onClick={() => setActiveTab('flashcards')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <BrainCircuit className="w-4 h-4 text-[var(--info-text)]" />
+            <BrainCircuit className="w-4 h-4 text-[var(--text-muted)]" />
             <span>LEITNER FLASHCARDS (SRS)</span>
           </button>
           <button
             onClick={() => setActiveTab('mock-exam')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Timer className="w-4 h-4 text-[var(--error-text)]" />
+            <Timer className="w-4 h-4 text-[var(--text-muted)]" />
             <span>TIMED EXAM HALL</span>
           </button>
           <button
             onClick={() => setActiveTab('pyqs')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <FileText className="w-4 h-4 text-[var(--accent)]" />
+            <FileText className="w-4 h-4 text-[var(--text-muted)]" />
             <span>MAINS VAULT (126 SOLVED)</span>
           </button>
           <button
             onClick={() => setActiveTab('precedent-clash')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Swords className="w-4 h-4 text-rose-400" />
-            <span>PRECEDENT CLASH (OVERRULED)</span>
+            <Swords className="w-4 h-4 text-[var(--text-muted)]" />
+            <span>PRECEDENT CLASH <span className="text-rose-400 font-bold">(OVERRULED)</span></span>
           </button>
           <button
             onClick={() => setActiveTab('judgment-lab')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Gavel className="w-4 h-4 text-blue-400" />
+            <Gavel className="w-4 h-4 text-[var(--text-muted)]" />
             <span>JUDGMENT WRITING LAB</span>
           </button>
           <button
             onClick={() => setActiveTab('mains-mock')}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Clock className="w-4 h-4 text-amber-400" />
+            <Clock className="w-4 h-4 text-[var(--text-muted)]" />
             <span>3-HR MAINS MOCK HALL</span>
           </button>
           <button
             onClick={() => setActiveTab('readiness-index')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-emerald-500 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Target className="w-4 h-4 text-emerald-400" />
+            <Target className="w-4 h-4 text-[var(--text-muted)]" />
             <span>25-PART READINESS INDEX</span>
           </button>
           <button
             onClick={() => setActiveTab('fast-track')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-amber-400 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <Zap className="w-4 h-4 text-amber-400 fill-current" />
-            <span>SPEED HACKS (+89/+90)</span>
+            <Zap className="w-4 h-4 text-[var(--text-muted)]" />
+            <span>SPEED HACKS <span className="text-amber-400 font-bold">(+89/+90)</span></span>
           </button>
           <button
             onClick={() => setActiveTab('lineage')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-purple-400 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
-            <GitBranch className="w-4 h-4 text-purple-400" />
-            <span>KNOWLEDGE GRAPHS (TREES)</span>
+            <GitBranch className="w-4 h-4 text-[var(--text-muted)]" />
+            <span>KNOWLEDGE GRAPHS <span className="text-purple-400 font-bold">(TREES)</span></span>
           </button>
         </div>
       </section>
@@ -155,10 +155,10 @@ export const OverviewDashboard: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1">
           <button
             onClick={() => setActiveTab('bootcamp')}
-            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-left transition-all"
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-all"
           >
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-amber-400">
-              <Flame className="w-3.5 h-3.5" /> Bootcamp
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase text-[var(--text-muted)]">
+              <Flame className="w-3.5 h-3.5 text-amber-500" /> Bootcamp
             </div>
             <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
               {readiness.bootcampDaysCompleted}/15 <span className="text-[11px] font-normal text-[var(--text-muted)]">days</span>
@@ -168,10 +168,10 @@ export const OverviewDashboard: React.FC = () => {
 
           <button
             onClick={() => launchFlashcardDeck('all', 'all')}
-            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-sky-400 text-left transition-all"
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-all"
           >
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-sky-400">
-              <BrainCircuit className="w-3.5 h-3.5" /> Leitner SRS
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase text-[var(--text-muted)]">
+              <BrainCircuit className="w-3.5 h-3.5 text-[var(--accent)]" /> Leitner SRS
             </div>
             <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
               {readiness.srsTotalReviews} <span className="text-[11px] font-normal text-[var(--text-muted)]">reviews</span>
@@ -183,10 +183,10 @@ export const OverviewDashboard: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('mistakes-notebook')}
-            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-rose-400 text-left transition-all"
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-all"
           >
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-rose-400">
-              <AlertTriangle className="w-3.5 h-3.5" /> Mistakes Bank
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase text-[var(--text-muted)]">
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" /> Mistakes Bank
             </div>
             <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
               {readiness.mistakesUnmastered} <span className="text-[11px] font-normal text-[var(--text-muted)]">active</span>
@@ -196,10 +196,10 @@ export const OverviewDashboard: React.FC = () => {
 
           <button
             onClick={() => launchFlashcardDeck('all', 'pinned')}
-            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-400 text-left transition-all"
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-all"
           >
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-amber-400">
-              <Star className="w-3.5 h-3.5" /> Pinned SRS
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase text-[var(--text-muted)]">
+              <Star className="w-3.5 h-3.5 text-amber-500" /> Pinned SRS
             </div>
             <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
               {readiness.srsPinnedCount} <span className="text-[11px] font-normal text-[var(--text-muted)]">cards</span>
@@ -209,10 +209,10 @@ export const OverviewDashboard: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('readiness-index')}
-            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-emerald-400 text-left transition-all"
+            className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-all"
           >
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-emerald-400">
-              <Target className="w-3.5 h-3.5" /> Readiness Index
+            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase text-[var(--text-muted)]">
+              <Target className="w-3.5 h-3.5 text-[var(--accent)]" /> Readiness Index
             </div>
             <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
               {criReport.overallScore}% <span className="text-[11px] font-normal text-[var(--text-muted)]">CRI</span>
@@ -225,10 +225,10 @@ export const OverviewDashboard: React.FC = () => {
 
         <button
           onClick={() => setVaultModalOpen(true)}
-          className="px-4 py-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold flex items-center justify-center gap-2 transition-all shrink-0 btn-tactile"
+          className="px-4 py-3 rounded-xl bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all shrink-0 btn-tactile shadow-sm"
           title="Export or restore your study progress as a local JSON backup"
         >
-          <ShieldCheck className="w-4 h-4" />
+          <ShieldCheck className="w-4 h-4 text-[var(--text-muted)]" />
           <span>Backup / Restore Progress</span>
         </button>
       </section>
@@ -343,14 +343,14 @@ export const OverviewDashboard: React.FC = () => {
           {/* Pillar 1: Bare Act & Statutory Provisions */}
           <div
             onClick={() => setActiveTab('articles-master')}
-            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--accent)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
+            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-bold">
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] font-medium">
                   1. Study Material & Text
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
                 Bare Act, 25 Parts & 12 Schedules
@@ -368,14 +368,14 @@ export const OverviewDashboard: React.FC = () => {
           {/* Pillar 2: Landmark Jurisprudence */}
           <div
             onClick={() => setActiveTab('judgments')}
-            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--gold)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
+            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--badge-bg)] text-[var(--gold)] border border-[var(--gold)]/30 font-bold">
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] font-medium">
                   2. Case Law & Precedents
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--gold)] group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
                 100 Landmark Cases & Lineage Trees
@@ -384,7 +384,7 @@ export const OverviewDashboard: React.FC = () => {
                 Master 100 landmark Supreme Court rulings with authoritative ratios from Gopalan (1950) to Electoral Bonds (2024), 1950–2026 precedent genealogy trees, and oral viva voce courtroom advocacy.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--gold)] font-semibold">
+            <div className="mt-5 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--accent)] font-semibold">
               <span>Review 100 Landmark Ratios</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
@@ -393,14 +393,14 @@ export const OverviewDashboard: React.FC = () => {
           {/* Pillar 3: Active Recall & Exam Engines */}
           <div
             onClick={() => setActiveTab('flashcards')}
-            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--info-border)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
+            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--info-bg)] text-[var(--info-text)] border border-[var(--info-border)] font-bold">
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] font-medium">
                   3. Practice & Active Recall
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--info-text)] group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
                 Constitutional Arcade & Leitner SRS
@@ -409,7 +409,7 @@ export const OverviewDashboard: React.FC = () => {
                 Chief Justice Bench Simulator, 60s Article Blitz, Writs Emergency Room, Synaptic Matcher, 900+ Leitner SRS flashcards, timed mock exams, and judicial career level progression.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--info-text)] font-semibold">
+            <div className="mt-5 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--accent)] font-semibold">
               <span onClick={(e) => { e.stopPropagation(); setActiveTab('arcade'); }} className="hover:underline">
                 Enter Constitutional Arcade (4 Games + XP) →
               </span>
@@ -420,14 +420,14 @@ export const OverviewDashboard: React.FC = () => {
           {/* Pillar 4: Capstone 15-Day Fast-Track Bootcamp */}
           <div
             onClick={() => setActiveTab('bootcamp')}
-            className="p-6 rounded-2xl bg-gradient-to-br from-[var(--bootcamp-accent-subtle)] to-[var(--bg-surface)] border-2 border-[var(--bootcamp-accent-border)] hover:border-[var(--bootcamp-accent)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
+            className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] cursor-pointer card-interactive btn-tactile shadow-sm flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--bootcamp-btn-bg)] text-[var(--bootcamp-btn-text)] font-bold shadow-xs">
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] font-medium">
                   4. Capstone Intensive
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--bootcamp-accent-text)] group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
                 15-Day Preparation Bootcamp (3,000 MCQs)
@@ -436,7 +436,7 @@ export const OverviewDashboard: React.FC = () => {
                 Daily structured timetable with 6 daily tasks, 200 daily MCQs across 5 specialized rounds, 150 courtroom case studies, and daily associative Synaptic Memory Matcher.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-[var(--bootcamp-accent-border)] flex items-center justify-between text-xs font-mono text-[var(--bootcamp-accent-text)] font-bold">
+            <div className="mt-5 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--accent)] font-semibold">
               <span>Launch 15-Day Preparation Tracker</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
