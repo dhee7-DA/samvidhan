@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-21 15:03:16 (+05:30) |
+| **Last Log Sync** | 2026-11-21 15:36:28 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `5294c7c` (2026-11-21T14:45:55+05:30) |
-| **Total Commits** | 92 |
+| **Branch / HEAD** | `main` @ `2c37176` (2026-11-21T15:03:36+05:30) |
+| **Total Commits** | 93 |
 | **Total Files Indexed** | 279 (279 tracked, 0 new untracked) |
-| **Working Tree** | 3 pending change(s) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-21 15:36:28 (+05:30)] Add 5 historic 9-Judge and 7-Judge overrulings to Precedent Clash (DONE)
+- **Details:** Expanded arena to 20 landmark battles by adding Second Judges (1993, 9-J), ADM Jabalpur Burial in Puttaswamy (2017, 9-J), S.R. Bommai (1994, 9-J), I.R. Coelho (2007, 9-J), and Bengal Immunity (1955, 7-J). Verified live in browser with 0 errors.
+- **Files Touched (2):** `M src/components/Layout/Sidebar.tsx`, `M src/data/precedentClashesData.ts`
+- **Git HEAD:** `main` @ `2c37176`
 
 ### [2026-11-21 15:03:16 (+05:30)] Add 5 landmark battles to Precedent Clash and wire dynamic filters (DONE)
 - **Details:** Expanded arena from 10 to 15 battles with ADR Electoral Bonds (2024), Shayara Bano (2017), Sabarimala (2018), NJAC (2015), and Subhash Desai (2023). Added 5-Judge Overruling filter, shortName pill tags, and verified live in browser.
@@ -241,7 +246,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 63.6 KB | 771 | `5294c7c` (2026-11-21) |
+| `PROJECT_LOG.md` | 64.3 KB | 777 | `2c37176` (2026-11-21) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -299,7 +304,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.2 KB | 271 | `99a2930` (2026-11-20) |
+| `src/components/Layout/Sidebar.tsx` | 14.2 KB | 271 | `2c37176` (2026-11-21) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -348,7 +353,7 @@
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/OverviewDashboard.tsx` | 28.0 KB | 449 | `0d4bd48` (2026-11-21) |
-| `src/components/Views/PrecedentClashView.tsx` | 21.0 KB | 431 | `5294c7c` (2026-11-21) |
+| `src/components/Views/PrecedentClashView.tsx` | 21.0 KB | 431 | `2c37176` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
@@ -425,7 +430,7 @@
 | `src/data/part9LocalGovernanceData.ts` | 17.8 KB | 219 | `e365e73` (2026-11-14) |
 | `src/data/partsData.ts` | 44.6 KB | 740 | `4fb3dbf` (2026-11-14) |
 | `src/data/preambleData.ts` | 6.9 KB | 121 | `3c486dd` (2026-11-13) |
-| `src/data/precedentClashesData.ts` | 56.8 KB | 906 | `5bbabe8` (2026-11-19) |
+| `src/data/precedentClashesData.ts` | 76.8 KB | 1191 | `2c37176` (2026-11-21) |
 | `src/data/precedentLineagesData.ts` | 17.2 KB | 296 | `d003041` (2026-11-20) |
 | `src/data/pyqData.ts` | 1.1 KB | 39 | `ea3d899` (2026-11-16) |
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
@@ -677,10 +682,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**92** commits, newest first).
+> Complete git history (**93** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 93 | 2026-11-21 | `2c37176` | 4 | feat(precedent-clash): add 5 landmark battles (ADR, Shayara Bano, Sabarimala, NJAC, Subhash Desai) and dynamic filters |
 | 92 | 2026-11-21 | `5294c7c` | 3 | style(precedent-clash): optimize layout density, eliminate vertical whitespace, and enable side-by-side split screen |
 | 91 | 2026-11-21 | `d32e8e2` | 6 | style: harmonize UI across Precedent Clash, Speed Hacks, Arcade, and Spotlight Search |
 | 90 | 2026-11-21 | `003e2d2` | 7 | feat: enable direct node click-to-open and cross-module deep linking for Knowledge Graphs |

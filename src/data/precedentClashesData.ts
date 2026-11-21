@@ -901,5 +901,290 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
         newLaw: 'The original Political Party appoints the Whip and Leader, not the defecting legislative faction.'
       }
     ]
+  },
+  {
+    id: 'clash-second-judges-sp-gupta',
+    title: 'The Birth of the Collegium: "Consultation" Means "Concurrence" in Judicial Appointments',
+    tagline: '9-Judge Constitution Bench overrules 7-Judge S.P. Gupta, wresting appointment primacy from executive discretion.',
+    topicPillar: 'Part V: Appointment of Judges (Articles 124 & 217) & Separation of Powers',
+    overrulingMagnitude: '9-Judge Overruling',
+    yearOverruled: 1993,
+    oldCase: {
+      caseName: 'S.P. Gupta v. Union of India (First Judges Case)',
+      year: 1981,
+      citation: '(1981) Supp SCC 87 / AIR 1982 SC 149',
+      benchStrength: '7-Judge Constitution Bench (4:3 Majority)',
+      presidingJudges: 'P.N. Bhagwati J. for the Majority',
+      historicalContext:
+        'During the post-Emergency era, the executive actively transferred High Court judges without their consent and superseded senior judges. S.P. Gupta challenged the Union Government\'s claim of absolute control over judicial appointments.',
+      theFlawedRatio:
+        'Held that "consultation" in Article 124(2) and 217(1) does not mean "concurrence". The Central Government had the ultimate power to reject the CJI\'s recommendation for cogent reasons, granting the executive complete primacy in judicial appointments.',
+      whyItFailed:
+        'Subordinated the judiciary to political patronage, resulting in partisan judicial appointments, executive pressure on judges, and the risk of a "committed judiciary".',
+      consequences:
+        'For 12 years, judicial vacancies and High Court transfers were dictated by the Union Law Ministry, eroding public confidence in judicial neutrality.'
+    },
+    newCase: {
+      caseName: 'Supreme Court Advocates-on-Record Association v. Union of India (Second Judges Case)',
+      shortName: 'Second Judges (Collegium)',
+      year: 1993,
+      citation: '(1993) 4 SCC 441',
+      benchStrength: '9-Judge Constitution Bench (7:2 Majority)',
+      presidingJudges: 'J.S. Verma J. for the Majority; A.M. Ahmadi, M.M. Punchhi JJ. (Dissenting)',
+      verdictDate: 'October 6, 1993',
+      theSettledRatio:
+        'S.P. Gupta is overruled. In the appointment of judges to the Supreme Court and High Courts, the opinion of the Chief Justice of India enjoys primacy. "Consultation" requires institutional consensus ("concurrence"), formed in consultation with the two senior-most judges of the Supreme Court (expanded to four in Third Judges Case 1998). No appointment can be made by the executive if the CJI dissents.',
+      constitutionalArticles: ['Article 124(2)', 'Article 217(1)', 'Article 50', 'Article 141'],
+      doctrinalShift:
+        'Judicial Primacy & Independence: The Chief Justice speaks not as an individual but as the head of an institutional Collegium. The executive\'s role is confined strictly to checking antecedents and integrity.',
+      keyTakeawayForMains:
+        'Independence of the judiciary requires institutional control over its own appointments. The word "consultation" must be interpreted purposively to effectuate the constitutional design of separation of powers.'
+    },
+    linkedMainsQuestionId: 'mains-15m-collegium-system-evolution',
+    summaryTable: [
+      {
+        parameter: 'Interpretation of "Consultation" in Art 124',
+        oldLaw: 'Simple discussion; executive held final decision-making power.',
+        newLaw: 'Institutional concurrence; CJI Collegium opinion has binding primacy.'
+      },
+      {
+        parameter: 'Executive Primacy vs Judicial Primacy',
+        oldLaw: 'Executive primacy (First Judges Case).',
+        newLaw: 'Judicial Collegium primacy (Second & Third Judges Cases).'
+      },
+      {
+        parameter: 'Institutional Mechanism',
+        oldLaw: 'Unfettered discretion of the Prime Minister and Law Minister.',
+        newLaw: 'Structured institutional consensus of CJI and senior-most puisne judges.'
+      }
+    ]
+  },
+  {
+    id: 'clash-puttaswamy-adm-jabalpur',
+    title: 'The Burial of ADM Jabalpur: Fundamental Rights Inviolable Even During Emergency',
+    tagline: '9-Judge Bench in Puttaswamy formally overrules the infamous 1976 Habeas Corpus judgment, vindicating Justice H.R. Khanna\'s heroic dissent.',
+    topicPillar: 'Part III & Part XVIII: Right to Life (Article 21) & Emergency Inviolability (Articles 358 & 359)',
+    overrulingMagnitude: '9-Judge Overruling',
+    yearOverruled: 2017,
+    oldCase: {
+      caseName: 'ADM Jabalpur v. Shivkant Shukla (Habeas Corpus Case)',
+      year: 1976,
+      citation: '(1976) 2 SCC 521 / AIR 1976 SC 1207',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'A.N. Ray CJI, M.H. Beg, P.N. Bhagwati, Y.V. Chandrachud JJ. (Majority); H.R. Khanna J. (Dissenting)',
+      historicalContext:
+        'During the June 1975 Internal Emergency, thousands of political leaders, journalists, and dissidents were jailed without trial under MISA. High Courts across India entertained Habeas Corpus petitions under Art 226. The Indira Gandhi regime appealed to the Supreme Court.',
+      theFlawedRatio:
+        'The 4-Judge majority held that upon the issuance of a Presidential Order under Article 359(1), no person had any locus standi to approach any court for a writ of habeas corpus to challenge the legality or mala fides of an order of detention.',
+      whyItFailed:
+        'Surrendered judicial review and the rule of law to executive dictatorship. Reduced life and liberty to a revocable gift of the State rather than an inalienable human right.',
+      consequences:
+        'Over 100,000 citizens were detained indefinitely without trial or judicial oversight, widely regarded as the darkest hour in Indian judicial history.'
+    },
+    newCase: {
+      caseName: 'Justice K.S. Puttaswamy (Retd.) v. Union of India (Overruling ADM Jabalpur)',
+      shortName: 'ADM Burial (Puttaswamy)',
+      year: 2017,
+      citation: '(2017) 10 SCC 1',
+      benchStrength: '9-Judge Constitution Bench (Unanimous 9-0)',
+      presidingJudges: 'J.S. Khehar CJI, J. Chelameswar, S.A. Bobde, R.K. Agrawal, R.F. Nariman, A.M. Sapre, D.Y. Chandrachud, S.K. Kaul, S. Abdul Nazeer JJ.',
+      verdictDate: 'August 24, 2017',
+      theSettledRatio:
+        'ADM Jabalpur is formally and unequivocally overruled. Justice H.R. Khanna\'s lone dissent was the correct law: the right to life and personal liberty is not a bounty conferred by the State or the Constitution; it inheres in every human being by virtue of existence. Even during an Emergency, the State has no authority to extinguish life or liberty without the sanction of law. (Reinforced by the 44th Amendment Act 1978 amending Art 359 to insulate Arts 20 & 21).',
+      constitutionalArticles: ['Article 21', 'Article 20', 'Article 359', 'Article 226', 'Article 32'],
+      doctrinalShift:
+        'Natural Law & Human Dignity: Fundamental rights are anterior to the State. Constitutional courts cannot abandon their role as protectors of life and liberty, irrespective of state emergencies.',
+      keyTakeawayForMains:
+        'The rule of law is absolute. Justice H.R. Khanna sacrificed the Chief Justiceship of India to uphold the inviolability of human life against executive absolutism.'
+    },
+    linkedMainsQuestionId: 'mains-15m-adm-jabalpur-hr-khanna-puttaswamy',
+    summaryTable: [
+      {
+        parameter: 'Right to Life during Emergency',
+        oldLaw: 'Suspended completely; executive could detain or execute without judicial redress.',
+        newLaw: 'Inalienable; Articles 20 and 21 can never be suspended under Article 359.'
+      },
+      {
+        parameter: 'Habeas Corpus Availability',
+        oldLaw: 'Courts barred from examining whether detention was illegal or mala fide.',
+        newLaw: 'Judicial review under Articles 32 and 226 remains active to prevent state lawlessness.'
+      },
+      {
+        parameter: 'Source of Fundamental Rights',
+        oldLaw: 'Conferred solely by statutory text; revocable by the sovereign.',
+        newLaw: 'Inherent natural human rights anterior to the Constitution.'
+      }
+    ]
+  },
+  {
+    id: 'clash-sr-bommai-rajasthan',
+    title: 'The S.R. Bommai Revolution: Judicial Review of President\'s Rule (Article 356) & Mandatory Floor Test',
+    tagline: '9-Judge Constitution Bench overrules State of Rajasthan, halting arbitrary dissolution of State assemblies and establishing Secularism as Basic Structure.',
+    topicPillar: 'Part XVIII: Emergency Provisions • State Emergency (Article 356) & Federalism',
+    overrulingMagnitude: '9-Judge Overruling',
+    yearOverruled: 1994,
+    oldCase: {
+      caseName: 'State of Rajasthan v. Union of India',
+      year: 1977,
+      citation: '(1977) 3 SCC 592 / AIR 1977 SC 1361',
+      benchStrength: '7-Judge Constitution Bench',
+      presidingJudges: 'M.H. Beg CJI, Y.V. Chandrachud, P.N. Bhagwati, P.K. Goswami, A.C. Gupta, N.L. Untwalia, S. Murtaza Fazal Ali JJ.',
+      historicalContext:
+        'In 1977, the newly elected Janata Party government at the Centre summarily dismissed nine Congress-ruled State Legislative Assemblies using Article 356, arguing that the ruling party had lost the mandate of the electorate in national elections.',
+      theFlawedRatio:
+        'Held that the satisfaction of the President under Article 356 was subjective and primarily a "political question". Courts could not question the sufficiency or basis of the material, effectively granting the Union executive carte blanche to dissolve State assemblies.',
+      whyItFailed:
+        'Turned Article 356 into a partisan political weapon for central governments to dissolve rival State governments, reducing federal autonomy to a hollow promise.',
+      consequences:
+        'Between 1950 and 1994, Article 356 was invoked over 100 times, frequently to settle political vendettas against democratically elected State chief ministers.'
+    },
+    newCase: {
+      caseName: 'S.R. Bommai v. Union of India',
+      shortName: 'S.R. Bommai',
+      year: 1994,
+      citation: '(1994) 3 SCC 1',
+      benchStrength: '9-Judge Constitution Bench (Unanimous on core principles)',
+      presidingJudges: 'P.B. Sawant, Kuldip Singh, S. Ratnavel Pandian, A.M. Ahmadi, J.S. Verma, K. Ramaswamy, S.C. Agrawal, B.P. Jeevan Reddy, S. Mohan JJ.',
+      verdictDate: 'March 11, 1994',
+      theSettledRatio:
+        'State of Rajasthan is overruled. The Presidential proclamation under Article 356 is subject to judicial review. The Court can examine whether the material was relevant and not mala fide. Crucially: (1) The Legislative Assembly cannot be dissolved until Parliament approves the proclamation; (2) The floor of the Assembly is the ONLY forum to test majority; (3) If the proclamation is found unconstitutional, the Court has the power to restore the dismissed State Government and Assembly.',
+      constitutionalArticles: ['Article 356', 'Article 355', 'Article 163', 'Article 174', 'Basic Structure: Federalism & Secularism'],
+      doctrinalShift:
+        'Restoration of Federalism & Floor Test Supremacy: Governors cannot evaluate ministry majorities in raj bhavans; testing confidence on the floor of the House is an absolute constitutional imperative.',
+      keyTakeawayForMains:
+        'Federalism and Secularism are inalienable parts of the Basic Structure. Any State policy that attacks secularism justifies dismissal under Article 356.'
+    },
+    linkedMainsQuestionId: 'mains-15m-sr-bommai-federalism-article-356',
+    summaryTable: [
+      {
+        parameter: 'Judicial Review of Art 356',
+        oldLaw: 'Non-justiciable political question; subjective executive satisfaction immune.',
+        newLaw: 'Fully justiciable; courts examine relevancy and bona fides of material.'
+      },
+      {
+        parameter: 'Timing of Assembly Dissolution',
+        oldLaw: 'Governor could dissolve Assembly immediately upon President\'s signature.',
+        newLaw: 'Assembly can only be kept under suspended animation until Parliament approves.'
+      },
+      {
+        parameter: 'Forum for Testing Majority',
+        oldLaw: 'Governor\'s subjective assessment in Raj Bhavan.',
+        newLaw: 'Mandatory floor test on the floor of the Legislative Assembly.'
+      }
+    ]
+  },
+  {
+    id: 'clash-ir-coelho-ninth-schedule',
+    title: 'The Ninth Schedule Immunity Pierced: Basic Structure Governs All Constitutional Amendments',
+    tagline: '9-Judge Constitution Bench unanimously holds that laws placed in the Ninth Schedule after April 24, 1973 are subject to judicial review.',
+    topicPillar: 'Part III & Part XX: Ninth Schedule (Article 31B) vs Basic Structure Doctrine',
+    overrulingMagnitude: '9-Judge Overruling',
+    yearOverruled: 2007,
+    oldCase: {
+      caseName: 'Waman Rao v. Union of India (1981) & Shankari Prasad / Sajjan Singh',
+      year: 1981,
+      citation: '(1981) 2 SCC 362',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'Y.V. Chandrachud CJI, P.N. Bhagwati, V.R. Krishna Iyer, V.D. Tulzapurkar, A.P. Sen JJ.',
+      historicalContext:
+        'Article 31B created the Ninth Schedule to insulate land reform legislation from challenges under Articles 14, 19, and 31. Over decades, Parliament abused the schedule by stuffing over 284 disparate laws (including election laws, mining laws, and reservation quotas) into it to immunize them from judicial scrutiny.',
+      theFlawedRatio:
+        'Waman Rao upheld Ninth Schedule protection, leaving ambiguous whether ordinary statutes placed in the Ninth Schedule by post-1973 constitutional amendments could be invalidated if they violated Part III fundamental rights.',
+      whyItFailed:
+        'Allowed the Legislature to bypass the Basic Structure Doctrine simply by adding ordinary statutes to the Ninth Schedule laundry basket, effectively subverting judicial review.',
+      consequences:
+        'Controversial laws exceeding 50% reservation quotas (e.g. Tamil Nadu 69% quota Act) were sheltered in the Ninth Schedule to escape Supreme Court scrutiny.'
+    },
+    newCase: {
+      caseName: 'I.R. Coelho (Dead) by LRs v. State of Tamil Nadu',
+      shortName: 'I.R. Coelho (9th Sched)',
+      year: 2007,
+      citation: '(2007) 2 SCC 1',
+      benchStrength: '9-Judge Constitution Bench (Unanimous 9-0)',
+      presidingJudges: 'Y.K. Sabharwal CJI, Ashok Bhan, Arijit Pasayat, B.P. Singh, S.H. Kapadia, C.K. Thakker, P.K. Balasubramanyan, Altamas Kabir, D.K. Jain JJ.',
+      verdictDate: 'January 11, 2007',
+      theSettledRatio:
+        'All constitutional amendments and laws inserted into the Ninth Schedule on or after April 24, 1973 (date of Kesavananda Bharati) are subject to judicial review on the touchstone of the Basic Structure. The Court formulated the "Rights Test" (Direct Effect & Impact Test): if an inserted law abrogates or damages the essence of any fundamental right in the Golden Triangle (Articles 14, 19, 21), it is unconstitutional.',
+      constitutionalArticles: ['Article 31B', 'Article 368', 'Article 13', 'Article 14', 'Article 19', 'Article 21'],
+      doctrinalShift:
+        'Dual Constitutional Test: Validating an amendment inserting a law into the 9th Schedule requires passing both the Essence of Fundamental Rights test and the Basic Structure test. No statutory black hole can exist outside judicial review.',
+      keyTakeawayForMains:
+        'Judicial review is a basic feature of the Constitution. Parliament cannot use its constituent amending power under Article 368 to create an untouchable legislative sanctuary.'
+    },
+    linkedMainsQuestionId: 'mains-15m-ir-coelho-ninth-schedule-review',
+    summaryTable: [
+      {
+        parameter: 'Ninth Schedule Immunity Post-1973',
+        oldLaw: 'Blanket constitutional shield under Article 31B.',
+        newLaw: 'Subject to judicial review on the touchstone of the Basic Structure.'
+      },
+      {
+        parameter: 'Test of Invalidation',
+        oldLaw: 'Article 13 violation barred under Article 31B.',
+        newLaw: '"Rights Test": Laws violating the Golden Triangle (Arts 14, 19, 21) are struck down.'
+      },
+      {
+        parameter: 'Judicial Review Scope',
+        oldLaw: 'Judiciary locked out from inspecting statutes once gazetted into 9th Schedule.',
+        newLaw: 'No legislation can be placed outside the reach of judicial review.'
+      }
+    ]
+  },
+  {
+    id: 'clash-bengal-immunity-united-motors',
+    title: 'The First Supreme Overruling: Freedom from Own Precedent & Inter-State Trade Taxation',
+    tagline: '7-Judge Constitution Bench overrules United Motors (1953), establishing that the Supreme Court is not bound by its own erroneous rulings.',
+    topicPillar: 'Article 141 (Law Declared by Supreme Court) & Article 286 (Restrictions on Sales Tax)',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 1955,
+    oldCase: {
+      caseName: 'State of Bombay v. United Motors (India) Ltd.',
+      year: 1953,
+      citation: '1953 SCR 1069 / AIR 1953 SC 252',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'Patanjali Sastri CJI, B.K. Mukherjea, S.R. Das, Ghulam Hasan JJ. (Majority); Vivian Bose J. (Dissenting)',
+      historicalContext:
+        'Bombay State levied sales tax on motor vehicles delivered inside Bombay from manufacturers outside the State. The dispute centered on whether Article 286(1)(a) explanation allowed the consuming State to tax inter-state sales.',
+      theFlawedRatio:
+        'Held that by legal fiction, the Explanation to Article 286(1)(a) converted an inter-state sale into an intra-state sale in the delivery State, permitting multiple States to impose cascading sales taxes on goods moving across borders.',
+      whyItFailed:
+        'Created commercial chaos: a merchant manufacturing in Bengal or Bihar was exposed to overlapping tax assessments and audits from half a dozen different States where goods were delivered.',
+      consequences:
+        'Threatened the fledgling economic unity of newly independent India, sparking immediate business disruption across inter-state commerce.'
+    },
+    newCase: {
+      caseName: 'Bengal Immunity Co. Ltd. v. State of Bihar',
+      shortName: 'Bengal Immunity',
+      year: 1955,
+      citation: '(1955) 2 SCR 603 / AIR 1955 SC 661',
+      benchStrength: '7-Judge Constitution Bench (4:3 Majority)',
+      presidingJudges: 'S.R. Das, N.H. Bhagwati, B. Jagannadhadas, Syed Jafar Imam JJ. (Majority); Vivian Bose, B.P. Sinha JJ. (Dissenting)',
+      verdictDate: 'September 6, 1955',
+      theSettledRatio:
+        'United Motors is explicitly overruled. First: The Supreme Court of India is NOT bound by its previous decisions. Unlike the British House of Lords (London Tramways rule), the Supreme Court has the sovereign duty under Article 141 to correct its own errors when necessary for the public good. Second: No State can tax an inter-state sale under Article 286 unless Parliament specifically authorizes it by law. (This led directly to the Constitution 6th Amendment Act 1956 and the Central Sales Tax Act).',
+      constitutionalArticles: ['Article 141', 'Article 286', 'Article 301', 'Seventh Schedule List I Entry 92A'],
+      doctrinalShift:
+        'Living Jurisprudence & Stare Decisis Limits: Stare decisis is a rule of convenience, not a constitutional straitjacket. Perpetuation of a demonstrable constitutional error is worse than the inconvenience of overruling it.',
+      keyTakeawayForMains:
+        'Article 141 binds all courts in India, but does NOT bind the Supreme Court itself. The Court has an inherent duty to overrule precedents that impair economic unity or fundamental rights.'
+    },
+    linkedMainsQuestionId: 'mains-10m-stare-decisis-article-141',
+    summaryTable: [
+      {
+        parameter: 'Is Supreme Court Bound by Its Own Decisions?',
+        oldLaw: 'Strict stare decisis borrowed from English House of Lords.',
+        newLaw: 'Supreme Court can overrule its own erroneous precedents to prevent injustice.'
+      },
+      {
+        parameter: 'Taxation of Inter-State Sales',
+        oldLaw: 'Delivery State could levy sales tax via legal fiction.',
+        newLaw: 'Completely barred without prior Parliamentary legislation under Article 286.'
+      },
+      {
+        parameter: 'Economic Impact',
+        oldLaw: 'Cascading multi-state tax compliance burden.',
+        newLaw: 'Protection of national common market; led to Central Sales Tax Act, 1956.'
+      }
+    ]
   }
 ];
