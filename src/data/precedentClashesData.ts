@@ -2327,5 +2327,1145 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
         newLaw: 'Unambiguously upheld as constitutionally valid by 4:1 majority.'
       }
     ]
+  },
+  {
+    id: 'clash-minerva-mills-42nd-amendment',
+    title: 'The Golden Balance: Fundamental Rights and Directive Principles are Two Wheels of a Chariot',
+    tagline: '5-Judge Constitution Bench strikes down clauses 4 and 55 of the 42nd Amendment, preserving the limited amending power of Parliament.',
+    topicPillar: 'Governance & Democracy: Basic Structure Doctrine & Limited Amending Power (Article 368)',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 1980,
+    oldCase: {
+      caseName: 'Section 4 & Section 55 of the 42nd Constitutional Amendment Act, 1976',
+      year: 1976,
+      citation: 'Clauses (4) and (5) of Article 368 & amended Article 31C',
+      benchStrength: 'Constituent Amendment by Parliament',
+      presidingJudges: 'Emergency Parliament',
+      historicalContext:
+        'During the 1975–77 Emergency, Parliament enacted the 42nd Amendment Act. Section 55 added clauses (4) and (5) to Article 368 declaring that there shall be "no limitation whatever" on the constituent power of Parliament to amend the Constitution, and barring all courts from questioning any amendment. Section 4 amended Article 31C to give blanket precedence to ALL Directive Principles over Articles 14 and 19.',
+      theFlawedRatio:
+        'Parliament asserted absolute sovereign amending omnipotence, attempting to completely extinguish judicial review and elevate social goals in Part IV over individual civil liberties in Part III.',
+      whyItFailed:
+        'Subverted the core holding of Kesavananda Bharati: a limited amending power is itself a basic feature of the Constitution; Parliament cannot use its amending power to enlarge that very power into an absolute one.',
+      consequences:
+        'Threatened to transform India from a constitutional republic governed by the rule of law into an authoritarian parliamentary dictatorship.'
+    },
+    newCase: {
+      caseName: 'Minerva Mills Ltd. v. Union of India',
+      shortName: 'Minerva Mills',
+      year: 1980,
+      citation: '(1980) 2 SCC 591 / AIR 1980 SC 1789',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'Y.V. Chandrachud CJI, A.C. Gupta, N.L. Untwalia, P.S. Kailasam JJ. (P.N. Bhagwati J. concurring in part)',
+      verdictDate: 'July 31, 1980',
+      theSettledRatio:
+        'Section 4 and Section 55 of the 42nd Amendment are unconstitutional and void. First, the limited amending power of Parliament under Article 368 is itself a Basic Feature of the Constitution; Parliament cannot convert a limited power into an unlimited one. Second, Part III (Fundamental Rights) and Part IV (Directive Principles) are the two wheels of a chariot: to give absolute primacy to one over the other is to upset the constitutional balance. Harmony and balance between Part III and Part IV is an essential feature of the Basic Structure.',
+      constitutionalArticles: ['Article 368(4)', 'Article 368(5)', 'Article 31C', 'Article 14', 'Article 19'],
+      doctrinalShift:
+        'Balance Between Parts III & IV: The Indian Constitution is founded on the bedrock of the balance between Fundamental Rights and Directive Principles. They are complementary, not antagonistic.',
+      keyTakeawayForMains:
+        'A creature of the Constitution cannot become its master. Parliament cannot abolish judicial review or destroy the balance between individual freedom and state social welfare.'
+    },
+    linkedMainsQuestionId: 'mains-15m-minerva-mills-harmony-parts-iii-iv',
+    summaryTable: [
+      {
+        parameter: 'Parliament\'s Amending Power Limits',
+        oldLaw: 'Unlimited constituent power; immune from judicial review (Art 368(4)/(5)).',
+        newLaw: 'Limited constituent power; amending power is itself an inviolable basic feature.'
+      },
+      {
+        parameter: 'Part III vs Part IV Priority',
+        oldLaw: 'All Directive Principles were given blanket supremacy over Articles 14 and 19.',
+        newLaw: 'Harmony and balance between Parts III and IV is an essential feature of Basic Structure.'
+      },
+      {
+        parameter: 'Judicial Review of Amendments',
+        oldLaw: 'Completely ousted under Section 55 of 42nd CAA.',
+        newLaw: 'Inviolable basic structure; every constitutional amendment is subject to review.'
+      }
+    ]
+  },
+  {
+    id: 'clash-waman-rao-kesavananda-cutoff',
+    title: 'The Kesavananda Watershed Date: Demarcating the Cut-Off for Ninth Schedule Scrutiny',
+    tagline: '5-Judge Constitution Bench establishes April 24, 1973 as the definitive constitutional boundary for Basic Structure immunity.',
+    topicPillar: 'Judiciary & Courts: Ninth Schedule (Article 31B) & Basic Structure Timeline',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1981,
+    oldCase: {
+      caseName: 'Shankari Prasad (1951) & Sajjan Singh (1965) Ninth Schedule Absolute Shield',
+      year: 1951,
+      citation: 'AIR 1951 SC 458 & AIR 1965 SC 845',
+      benchStrength: '5-Judge Constitution Benches',
+      presidingJudges: 'H.J. Kania CJI & P.B. Gajendragadkar CJI',
+      historicalContext:
+        'Following Kesavananda Bharati (1973), uncertainty persisted as to whether laws added to the Ninth Schedule prior to April 24, 1973 could also be challenged on the touchstone of the Basic Structure Doctrine.',
+      theFlawedRatio:
+        'Litigants sought to reopen all pre-1973 land reform laws and constitutional amendments (1st, 4th, 17th Amendments), threatening widespread chaos across millions of land titles and agrarian reforms.',
+      whyItFailed:
+        'Failing to establish a clear temporal dividing line would have unraveled 25 years of settled agrarian land redistribution and economic transactions across India.',
+      consequences:
+        'Endless litigation over historical land reform ceilings enacted between 1950 and 1973.'
+    },
+    newCase: {
+      caseName: 'Waman Rao v. Union of India',
+      shortName: 'Waman Rao',
+      year: 1981,
+      citation: '(1981) 2 SCC 362',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'Y.V. Chandrachud CJI, P.N. Bhagwati, V.R. Krishna Iyer, V.D. Tulzapurkar, A.P. Sen JJ.',
+      verdictDate: 'November 13, 1980 (Reported 1981)',
+      theSettledRatio:
+        'Established the landmark constitutional cut-off date: April 24, 1973 (the date of Kesavananda Bharati verdict). All constitutional amendments made ON OR BEFORE April 24, 1973 inserting acts into the Ninth Schedule receive complete immunity under Article 31B. However, all constitutional amendments enacted AFTER April 24, 1973 are open to judicial review and will be struck down if they violate or alter the Basic Structure. (Later unanimously affirmed in I.R. Coelho 2007).',
+      constitutionalArticles: ['Article 31A', 'Article 31B', 'Article 31C', 'Article 368'],
+      doctrinalShift:
+        'Prospective Constitutional Protection: Balancing legal stability with constitutional supremacy. The doctrine prevented retrospective destabilization while ensuring future accountability.',
+      keyTakeawayForMains:
+        'April 24, 1973 is the dividing meridian of Indian constitutional law. Pre-1973 Ninth Schedule inclusions are immune; post-1973 inclusions must survive the Basic Structure test.'
+    },
+    linkedMainsQuestionId: 'mains-15m-waman-rao-ninth-schedule-cutoff',
+    summaryTable: [
+      {
+        parameter: 'Pre-April 24, 1973 Amendments',
+        oldLaw: 'Vulnerable to retrospective basic structure reopening.',
+        newLaw: 'Conclusively protected; receive full constitutional immunity under Article 31B.'
+      },
+      {
+        parameter: 'Post-April 24, 1973 Amendments',
+        oldLaw: 'Claimed total immunity under Article 31B.',
+        newLaw: 'Subject to full judicial review on the touchstone of the Basic Structure.'
+      },
+      {
+        parameter: 'Legal Certainty for Agrarian Reforms',
+        oldLaw: 'Constantly threatened with property rights litigation under Art 31.',
+        newLaw: 'Permanently insulated to preserve national land reforms.'
+      }
+    ]
+  },
+  {
+    id: 'clash-unni-krishnan-mohini-jain',
+    title: 'The Right to Elementary Education: Re-anchoring Free Education to Age 14 under Article 21',
+    tagline: '5-Judge Constitution Bench refines Mohini Jain, holding free education is a fundamental right up to age 14, birthing Article 21A.',
+    topicPillar: 'Social Justice & Quotas: Right to Education (Article 21 & Article 21A)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1993,
+    oldCase: {
+      caseName: 'Mohini Jain v. State of Karnataka (Capitation Fee Case)',
+      year: 1992,
+      citation: '(1992) 3 SCC 666',
+      benchStrength: '2-Judge Bench',
+      presidingJudges: 'Kuldip Singh and R.M. Sahai JJ.',
+      historicalContext:
+        'A medical aspirant from Uttar Pradesh challenged high capitation fees charged by private medical colleges in Karnataka.',
+      theFlawedRatio:
+        'The 2-Judge Bench declared that the Right to Education is a fundamental right flowing directly from Article 21 at ALL levels of education, including higher specialized professional education (medical, engineering, MBA). Charging higher fees was declared per se unconstitutional.',
+      whyItFailed:
+        'Financially utopian and unviable: the Indian State did not possess the financial resources to provide free higher professional and medical education to every citizen.',
+      consequences:
+        'Threatened the closure of all self-financing private professional colleges across India that relied on student tuition fees.'
+    },
+    newCase: {
+      caseName: 'Unni Krishnan, J.P. v. State of Andhra Pradesh',
+      shortName: 'Unni Krishnan (RTE)',
+      year: 1993,
+      citation: '(1993) 1 SCC 645',
+      benchStrength: '5-Judge Constitution Bench (Unanimous on Art 21 right)',
+      presidingJudges: 'L.M. Sharma CJI, S. Mohan, B.P. Jeevan Reddy, S.P. Bharucha JJ.',
+      verdictDate: 'February 4, 1993',
+      theSettledRatio:
+        'Mohini Jain is overruled to the extent it held that the fundamental right to education extends to higher professional degrees. The Right to Free and Compulsory Education under Article 21 is a fundamental right ONLY for children up to the age of 14 years. Beyond 14 years, the right to education is circumscribed by the economic capacity and development of the State under Article 41. (This historic ratio was codified into the Constitution by Parliament via the 86th Constitutional Amendment Act 2002 inserting Article 21A).',
+      constitutionalArticles: ['Article 21', 'Article 21A', 'Article 41', 'Article 45'],
+      doctrinalShift:
+        'Realist Constitutionalism & Birth of Article 21A: Harmonized the visionary scope of Article 21 with fiscal reality, channeling the State\'s primary constitutional obligation toward universal primary schooling for every child.',
+      keyTakeawayForMains:
+        'Unni Krishnan created the constitutional foundation for the Right to Education Act. Universal primary education is an immediate fundamental right; higher education is a progressive statutory goal.'
+    },
+    linkedMainsQuestionId: 'mains-15m-right-to-education-evolution-article-21a',
+    summaryTable: [
+      {
+        parameter: 'Scope of Fundamental Right to Education',
+        oldLaw: 'Extended to all educational levels including medical & engineering (Mohini Jain).',
+        newLaw: 'Restricted strictly to children up to age 14; beyond that subject to economic capacity.'
+      },
+      {
+        parameter: 'Capitation Fee vs Tuition Fee',
+        oldLaw: 'Any fee higher than government college fee treated as capitation fee.',
+        newLaw: 'Private colleges permitted to charge reasonable fees to cover operational costs.'
+      },
+      {
+        parameter: 'Constitutional Fallout',
+        oldLaw: 'Purely judge-made expansive claim.',
+        newLaw: 'Led directly to the 86th Constitutional Amendment inserting Article 21A in 2002.'
+      }
+    ]
+  },
+  {
+    id: 'clash-independent-thought-marital-rape-minors',
+    title: 'Abolition of Child Marital Rape Immunity: POCSO Supremacy Over Exception 2 to Section 375 IPC',
+    tagline: 'Supreme Court strikes down child marital rape exception, holding sex with any girl under 18 is rape regardless of marriage.',
+    topicPillar: 'Rights & Liberty: Bodily Autonomy & Child Rights (Article 21 & POCSO Act)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2017,
+    oldCase: {
+      caseName: 'Exception 2 to Section 375 of the Indian Penal Code (Historical Doctrine)',
+      year: 1860,
+      citation: 'Section 375 IPC Exception 2 (Original 1860 code & 2013 Criminal Law Amendment)',
+      benchStrength: 'Pre-constitutional Colonial Penal Provision',
+      presidingJudges: 'Colonial Penal Code Formulation',
+      historicalContext:
+        'Exception 2 to Section 375 IPC historically stated that sexual intercourse by a man with his wife was not rape if the wife was not under 15 years of age. When the Criminal Law Amendment Act, 2013 raised the age of consent to 18 for unmarried girls, Exception 2 retained the age of 15 for married girls.',
+      theFlawedRatio:
+        'Treated the institution of marriage as creating an irrevocable implied consent to sexual intercourse, allowing adult men to legally rape minor wives aged 15 to 17 without criminal sanction.',
+      whyItFailed:
+        'Created an arbitrary classification between married and unmarried minor girls, violating Article 14, Article 15(3), and Article 21, and directly contradicting the Protection of Children from Sexual Offences (POCSO) Act, 2012.',
+      consequences:
+        'Millions of minor child brides in India were subjected to forced sexual intercourse with zero criminal law protection against their husbands.'
+    },
+    newCase: {
+      caseName: 'Independent Thought v. Union of India',
+      shortName: 'Independent Thought',
+      year: 2017,
+      citation: '(2017) 10 SCC 800',
+      benchStrength: '2-Judge Bench (Unanimous 2-0)',
+      presidingJudges: 'Madan B. Lokur and Deepak Gupta JJ.',
+      verdictDate: 'October 11, 2017',
+      theSettledRatio:
+        'Exception 2 to Section 375 IPC is struck down insofar as it lowers the age of consent for married girls to 15. Sexual intercourse by a man with his wife is RAPE if the wife is below 18 years of age. A girl child cannot be deprived of bodily autonomy and reproductive health simply because she was forced or pushed into child marriage. The POCSO Act applies uniformly to all children below 18; marriage cannot be an enclave for child sexual abuse.',
+      constitutionalArticles: ['Article 14', 'Article 15(3)', 'Article 21', 'POCSO Act 2012'],
+      doctrinalShift:
+        'Bodily Autonomy & Child Rights Over Marital Status: A child is a child. Marriage cannot legitimize child sexual abuse or extinguish a minor\'s constitutional right to bodily integrity.',
+      keyTakeawayForMains:
+        'Articles 14 and 21 prohibit arbitrary distinctions based on marital status for minor girls. Protecting the child takes precedence over preserving artificial patriarchal marital traditions.'
+    },
+    linkedMainsQuestionId: 'mains-15m-child-marital-rape-bodily-autonomy-independent-thought',
+    summaryTable: [
+      {
+        parameter: 'Age of Consent for Married Girls',
+        oldLaw: '15 years under Exception 2 to Section 375 IPC.',
+        newLaw: '18 years; age of consent is uniform regardless of marital status.'
+      },
+      {
+        parameter: 'Marital Shield for Child Sexual Abuse',
+        oldLaw: 'Husband protected from rape prosecution if minor wife was 15+.',
+        newLaw: 'Completely unshielded; husband prosecuted for rape under IPC and POCSO.'
+      },
+      {
+        parameter: 'Harmonization with POCSO Act',
+        oldLaw: 'Conflict between Section 375 Exception 2 and Section 42A POCSO Act.',
+        newLaw: 'POCSO Act prevails: every child under 18 is protected against sexual assault.'
+      }
+    ]
+  },
+  {
+    id: 'clash-shreya-singhal-section-66a',
+    title: 'The Digital Free Speech Landmark: Striking Down Section 66A of the IT Act for Vagueness & Overbreadth',
+    tagline: 'Supreme Court invalidates Section 66A, establishing the tripartite division of Discussion, Advocacy, and Incitement.',
+    topicPillar: 'Rights & Liberty: Freedom of Speech on Internet (Article 19(1)(a)) & Chilling Effect',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2015,
+    oldCase: {
+      caseName: 'State Prosecutions under Section 66A of the Information Technology Act, 2000',
+      year: 2008,
+      citation: 'Section 66A inserted by IT (Amendment) Act, 2008',
+      benchStrength: 'Statutory Criminal Provision',
+      presidingJudges: 'Lower Courts & Police Discretion',
+      historicalContext:
+        'Section 66A penalized sending messages through a computer or communication device that were "grossly offensive", of a "menacing character", or caused "annoyance, inconvenience, danger, or obstruction". Police across India arrested citizens for Facebook posts, political cartoons, and tweets.',
+      theFlawedRatio:
+        'The State defended the law by arguing that internet speech had viral reach and required broad, flexible police powers to prevent social unrest, claiming the terms fell within the reasonable restrictions of Article 19(2).',
+      whyItFailed:
+        'Suffered from incurable "Vagueness" and "Overbreadth": what causes annoyance or inconvenience to one person may be harmless political speech to another. Created a paralyzing "Chilling Effect" on free speech.',
+      consequences:
+        'Two college students in Palghar were arrested for questioning a city shutdown on Facebook; a professor was arrested for forwarding a political cartoon.'
+    },
+    newCase: {
+      caseName: 'Shreya Singhal v. Union of India',
+      shortName: 'Shreya Singhal (Sec 66A)',
+      year: 2015,
+      citation: '(2015) 5 SCC 1',
+      benchStrength: '2-Judge Bench (Unanimous 2-0)',
+      presidingJudges: 'J. Chelameswar and Rohinton F. Nariman JJ.',
+      verdictDate: 'March 24, 2015',
+      theSettledRatio:
+        'Section 66A of the IT Act is struck down in its entirety as unconstitutional and void under Article 19(1)(a). The provision is hopelessly vague and overbroad. Formulated the definitive tripartite classification of Free Speech: (1) Discussion, (2) Advocacy, and (3) Incitement. Mere discussion or advocacy of an unpopular cause cannot be restricted; speech can be curtailed under Article 19(2) ONLY when advocacy reaches the clear and imminent threshold of INCITEMENT to violence or public disorder.',
+      constitutionalArticles: ['Article 19(1)(a)', 'Article 19(2)', 'Article 14', 'Article 21'],
+      doctrinalShift:
+        'The Chilling Effect & Incitement Test: The internet is the modern town square. Speech cannot be silenced on the vague pretext of "annoyance" or "inconvenience". Criminal law must be narrowly tailored.',
+      keyTakeawayForMains:
+        'Shreya Singhal established the Magna Carta of online free speech in India. Vague statutory standards that create a chilling effect on expression are fatal to constitutional validity.'
+    },
+    linkedMainsQuestionId: 'mains-15m-freedom-of-speech-internet-shreya-singhal',
+    summaryTable: [
+      {
+        parameter: 'Validity of Section 66A IT Act',
+        oldLaw: 'Upheld as necessary criminal tool against cyber-annoyance.',
+        newLaw: 'Declared void ab initio in its entirety for vagueness and overbreadth.'
+      },
+      {
+        parameter: 'Threshold to Restrict Free Speech',
+        oldLaw: 'Subjective feeling of annoyance, insult, or inconvenience.',
+        newLaw: 'Direct and imminent incitement to violence or public disorder.'
+      },
+      {
+        parameter: 'Doctrine of Intermediary Liability (Sec 79)',
+        oldLaw: 'Social media platforms were forced to take down posts on private notice.',
+        newLaw: 'Intermediaries must take down content ONLY upon court order or government directive.'
+      }
+    ]
+  },
+  {
+    id: 'clash-romesh-thappar-free-circulation',
+    title: 'The Foundation of Press Freedom: Freedom of Circulation is Inherent in Freedom of Speech',
+    tagline: '6-Judge Constitution Bench strikes down ban on journal circulation, ruling public safety cannot justify pre-censorship.',
+    topicPillar: 'Rights & Liberty: Freedom of the Press (Article 19(1)(a)) & Public Order',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 1950,
+    oldCase: {
+      caseName: 'Brij Bhushan (1950) & Section 9(1-A) Madras Maintenance of Public Order Act, 1949',
+      year: 1950,
+      citation: '1950 SCR 605 / AIR 1950 SC 129',
+      benchStrength: '6-Judge Constitution Bench',
+      presidingJudges: 'H.J. Kania CJI, Fazl Ali, Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea, S.R. Das JJ.',
+      historicalContext:
+        'The Government of Madras banned the entry and circulation of the left-wing weekly journal "Cross Roads" printed in Bombay, claiming it was necessary to maintain public safety and communal harmony.',
+      theFlawedRatio:
+        'The State argued that the maintenance of "public safety" was part of the "security of the State" under the original text of Article 19(2), justifying blanket executive pre-censorship and bans on publication.',
+      whyItFailed:
+        'Equated local public order disturbances with threats to the very existence and security of the State, giving governments arbitrary authority to suppress opposition journalism.',
+      consequences:
+        'Critical newspapers and magazines were blocked at state borders across India in the immediate aftermath of the Constitution.'
+    },
+    newCase: {
+      caseName: 'Romesh Thappar v. State of Madras',
+      shortName: 'Romesh Thappar',
+      year: 1950,
+      citation: '1950 SCR 594 / AIR 1950 SC 124',
+      benchStrength: '6-Judge Constitution Bench (5:1 Majority)',
+      presidingJudges: 'H.J. Kania CJI, Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea, S.R. Das JJ. (Fazl Ali J. dissenting)',
+      verdictDate: 'May 26, 1950',
+      theSettledRatio:
+        'Freedom of Speech and Expression under Article 19(1)(a) includes the freedom of propagation of ideas, and that freedom is ensured by the FREEDOM OF CIRCULATION. Liberty of circulation is as essential to freedom of speech as liberty of publishing; without circulation, the publication would be of little value. "Public safety" is not interchangeable with "security of the State". Blanket bans on circulation are unconstitutional. (This ruling directly prompted Parliament to pass the 1st Constitutional Amendment Act 1951, adding "Public Order" to Article 19(2)).',
+      constitutionalArticles: ['Article 19(1)(a)', 'Article 19(2)', '1st Constitutional Amendment Act 1951'],
+      doctrinalShift:
+        'Inseparable Link Between Speech and Circulation: Press freedom is not a mere privilege to put ink on paper; it is the constitutional right to disseminate information across every border in the Republic.',
+      keyTakeawayForMains:
+        'Romesh Thappar birthed the constitutional jurisprudence of press freedom in India. The State cannot curb circulation under the guise of public safety without proving direct threat to state security.'
+    },
+    linkedMainsQuestionId: 'mains-10m-press-freedom-circulation-romesh-thappar',
+    summaryTable: [
+      {
+        parameter: 'Right to Circulation',
+        oldLaw: 'Not recognized as an express constitutional right; state borders could block journals.',
+        newLaw: 'Inherent and integral to Article 19(1)(a); circulation cannot be prohibited.'
+      },
+      {
+        parameter: 'Public Safety vs Security of the State',
+        oldLaw: 'Treated as synonymous; local public nuisance justified speech bans.',
+        newLaw: 'Distinct concepts; only threats overthrowing or undermining the State qualified under Art 19(2).'
+      },
+      {
+        parameter: 'Constitutional Aftermath',
+        oldLaw: 'Article 19(2) had only 4 grounds (security, foreign states, decency, contempt).',
+        newLaw: 'Led directly to 1st Constitutional Amendment adding "Public Order" in 1951.'
+      }
+    ]
+  },
+  {
+    id: 'clash-bennett-coleman-newsprint-policy',
+    title: 'The Newsprint Ceiling Struck Down: Economic Regulation Cannot Smother Press Circulation',
+    tagline: '5-Judge Constitution Bench applies the Direct Effect Test to strike down the 10-page newsprint ceiling as an unconstitutional restraint on speech.',
+    topicPillar: 'Rights & Liberty: Freedom of the Press (Article 19(1)(a)) & Direct Effect Test',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 1972,
+    oldCase: {
+      caseName: 'Newsprint Policy of 1972–73 & Import Control Order, 1955',
+      year: 1972,
+      citation: 'Ministry of Information and Broadcasting Policy 1972–73',
+      benchStrength: 'Executive Regulatory Scheme',
+      presidingJudges: 'Union Executive Formulation',
+      historicalContext:
+        'Due to foreign exchange shortages, the Government of India introduced the Newsprint Control Policy of 1972–73, imposing a rigid 10-page ceiling on daily newspapers and prohibiting major newspaper conglomerates from starting new editions.',
+      theFlawedRatio:
+        'The Government defended the policy under Article 19(1)(g) (trade/commerce) and Article 31, arguing that newsprint was an imported scarce commodity and the State was merely regulating commerce, not speech. It argued the "subject matter" of the order was trade, not press freedom.',
+      whyItFailed:
+        'Subordinated freedom of speech to administrative rationing. An arbitrary 10-page limit curtailed the space available for news, investigative journalism, and reader correspondence.',
+      consequences:
+        'Crippled independent national newspapers from covering world and domestic events while subsidizing smaller political rags.'
+    },
+    newCase: {
+      caseName: 'Bennett Coleman & Co. v. Union of India',
+      shortName: 'Bennett Coleman',
+      year: 1972,
+      citation: '(1972) 2 SCC 788 / AIR 1973 SC 106',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'S.M. Sikri CJI, A.N. Ray, P. Jaganmohan Reddy, S.N. Dwivedi JJ. (K.K. Mathew J. dissenting)',
+      verdictDate: 'October 30, 1972',
+      theSettledRatio:
+        'The Newsprint Policy of 1972–73 is unconstitutional and struck down under Article 19(1)(a). Applied R.C. Cooper\'s "Direct Effect and Operation Test": the constitutional validity of an action is judged not by its formal subject matter, but by its DIRECT EFFECT ON SPEECH. An arbitrary page ceiling directly curtails the circulation, volume, and independence of the press. Freedom of the press is both the right of newspapers to publish and the fundamental right of readers to be informed.',
+      constitutionalArticles: ['Article 19(1)(a)', 'Article 19(2)', 'Article 14', 'Article 19(1)(g)'],
+      doctrinalShift:
+        'Press Freedom Includes the Right to Newsprint: The State cannot indirectly choke freedom of expression by controlling essential raw materials under the guise of commercial regulation.',
+      keyTakeawayForMains:
+        'What the State cannot do directly, it cannot do obliquely. The Direct Effect test protects press freedom from subtle administrative and fiscal strangulation.'
+    },
+    linkedMainsQuestionId: 'mains-15m-press-freedom-economic-regulation-bennett-coleman',
+    summaryTable: [
+      {
+        parameter: 'Validity of 10-Page Newspaper Limit',
+        oldLaw: 'Upheld as legitimate administrative rationing of scarce foreign exchange.',
+        newLaw: 'Struck down as a direct, unconstitutional restraint on speech and expression.'
+      },
+      {
+        parameter: 'Constitutional Standard Applied',
+        oldLaw: 'Subject-matter test: Regulation of trade under Article 19(1)(g).',
+        newLaw: 'Direct Effect Test (R.C. Cooper): Judged by its actual impact on press freedom.'
+      },
+      {
+        parameter: 'Right of the Reader',
+        oldLaw: 'Treated purely as a commercial dispute between newspaper owners and the State.',
+        newLaw: 'Encompasses the collective right of citizens to receive diverse information.'
+      }
+    ]
+  },
+  {
+    id: 'clash-dk-basu-custodial-torture',
+    title: 'The Charter Against Custodial Violence: Mandatory 11 Guidelines for Arrest and Detention',
+    tagline: 'Supreme Court formulates binding constitutional guidelines under Article 21, creating institutional accountability against lockup torture.',
+    topicPillar: 'Rights & Liberty: Protection Against Custodial Violence (Article 21 & Articles 22(1)/(2))',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1997,
+    oldCase: {
+      caseName: 'Traditional CrPC Discretion & Lack of Custodial Arrest Safeguards',
+      year: 1973,
+      citation: 'Sections 41 to 57 Code of Criminal Procedure, 1973 (Original unamended form)',
+      benchStrength: 'Statutory Police Powers',
+      presidingJudges: 'Unregulated Police Custody Practice',
+      historicalContext:
+        'Police lockups and interrogation centers across India operated in absolute secrecy. Suspects were routinely detained without recording their names, subjected to brutal third-degree torture, and killed in custody, with police claiming "escapes" or "suicides".',
+      theFlawedRatio:
+        'Criminal procedure placed unrestricted discretion in the investigating officer to arrest without warrant under Section 41 CrPC, with zero contemporaneous written record, no right to inform family, and no mandatory medical checkups.',
+      whyItFailed:
+        'Created a constitutional vacuum where custodial violence operated as an institutional weapon of terror, devastating the rule of law and human dignity under Article 21.',
+      consequences:
+        'Over 1,000 lockup deaths and torture cases occurred every year with near-zero convictions of police personnel.'
+    },
+    newCase: {
+      caseName: 'D.K. Basu v. State of West Bengal',
+      shortName: 'D.K. Basu (Arrest Rules)',
+      year: 1997,
+      citation: '(1997) 1 SCC 416',
+      benchStrength: '2-Judge Bench (Unanimous 2-0)',
+      presidingJudges: 'Kuldip Singh and A.S. Anand JJ.',
+      verdictDate: 'December 18, 1996 (Reported 1997)',
+      theSettledRatio:
+        'Custodial violence, torture, and lockup deaths are a blatant violation of human dignity and the Right to Life under Article 21. Exercising powers under Articles 32 and 142, the Court formulated 11 MANDATORY CONSTITUTIONAL GUIDELINES for all arrests: (1) Preparation of a contemporaneous arrest memo attested by a witness; (2) Immediate right of arrestee to inform a family member/friend; (3) Display of clear name tags by arresting officers; (4) Mandatory medical examination of the arrestee every 48 hours; (5) Right to meet a lawyer during interrogation. Failure to comply makes the officer liable for departmental action and criminal contempt.',
+      constitutionalArticles: ['Article 21', 'Article 22(1)', 'Article 22(2)', 'Article 142'],
+      doctrinalShift:
+        'Transparency & Monetary Compensation for State Wrongs: The dark veil over police interrogation is pierced. Sovereign immunity is dead; the State is strictly liable to pay monetary compensation to victims of custodial torture.',
+      keyTakeawayForMains:
+        'D.K. Basu transformed criminal arrest from executive terror into a regulated constitutional procedure. Parliament later codified these exact guidelines into Sections 41A–41D of the CrPC in 2008.'
+    },
+    linkedMainsQuestionId: 'mains-15m-custodial-violence-dk-basu-guidelines',
+    summaryTable: [
+      {
+        parameter: 'Documentation of Arrest',
+        oldLaw: 'No contemporaneous arrest memo required; entries made at police convenience.',
+        newLaw: 'Mandatory arrest memo signed by witness and countersigned by arrestee at the spot.'
+      },
+      {
+        parameter: 'Right to Inform Next of Kin',
+        oldLaw: 'Discretionary; families often kept in dark for days.',
+        newLaw: 'Absolute constitutional right to notify family/friend within 8–12 hours.'
+      },
+      {
+        parameter: 'Medical Examination',
+        oldLaw: 'Conducted only if ordered by Magistrate or upon visible injuries.',
+        newLaw: 'Mandatory medical examination at arrest and every 48 hours during custody.'
+      }
+    ]
+  },
+  {
+    id: 'clash-prem-shankar-shukla-handcuffing',
+    title: 'The Abolition of Routine Handcuffing: Degrading Fettering Violates Human Dignity under Article 21',
+    tagline: 'Supreme Court rules that routine handcuffing of undertrials is sadistic and unconstitutional, requiring prior judicial authorization.',
+    topicPillar: 'Rights & Liberty: Human Dignity in Custody (Article 21) & Prisoner Rights',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1980,
+    oldCase: {
+      caseName: 'Punjab Police Rules (Rule 26.22) & Colonial Jail Manuals',
+      year: 1934,
+      citation: 'Punjab Police Rules 1934 / Delhi Police Fettering Regulations',
+      benchStrength: 'Colonial Administrative Regulations',
+      presidingJudges: 'Colonial Police Administration',
+      historicalContext:
+        'Police and jail authorities routinely handcuffed, paraded, and fettered undertrial prisoners with heavy iron chains while taking them from jail to court and back, justified on routine security grounds.',
+      theFlawedRatio:
+        'Treated the undertrial prisoner as a captive animal devoid of constitutional rights, permitting police officers to decide whether to fetter prisoners based on social status, caste, or administrative convenience.',
+      whyItFailed:
+        'Violated the presumption of innocence and human dignity under Articles 14, 19, and 21. Parading unconvicted citizens in iron chains causes irreversible public humiliation and psychological torture.',
+      consequences:
+        'Thousands of poor undertrials were dragged through public streets in handcuffs while affluent white-collar accused were spared.'
+    },
+    newCase: {
+      caseName: 'Prem Shankar Shukla v. Delhi Administration',
+      shortName: 'Prem Shankar Shukla',
+      year: 1980,
+      citation: '(1980) 3 SCC 526 / AIR 1980 SC 1535',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'V.R. Krishna Iyer, R.S. Pathak, O. Chinnappa Reddy JJ.',
+      verdictDate: 'April 29, 1980',
+      theSettledRatio:
+        'Routine handcuffing and fettering of prisoners is inherently degrading, sadistic, and unconstitutional, violating Articles 14, 19, and 21. Handcuffs are prima facie inhuman and contrary to human dignity. Handcuffs can be used ONLY as an extreme last resort where there is clear, credible, and present danger of violent escape that cannot be contained by normal guarding. Even in such rare cases, the escorting officer must record reasons in writing and obtain PRIOR permission from the trial judge/Magistrate.',
+      constitutionalArticles: ['Article 21', 'Article 14', 'Article 19', 'Prisoners Act'],
+      doctrinalShift:
+        'Prisoners Retain Fundamental Rights: A person does not become a non-person upon entering prison or police custody. The human soul and dignity remain protected by the Constitution behind iron bars.',
+      keyTakeawayForMains:
+        'Handcuffing is an assault on human dignity. The presumption of innocence requires that undertrials be treated with dignity, and fettering requires objective judicial authorization.'
+    },
+    linkedMainsQuestionId: 'mains-10m-prisoner-rights-handcuffing-prem-shankar-shukla',
+    summaryTable: [
+      {
+        parameter: 'Routine Handcuffing Practice',
+        oldLaw: 'Permitted at the complete discretion of the police escorting officer.',
+        newLaw: 'Prima facie unconstitutional and prohibited; extreme last resort only.'
+      },
+      {
+        parameter: 'Judicial Oversight Requirement',
+        oldLaw: 'Zero judicial oversight; governed by archaic colonial police manuals.',
+        newLaw: 'Mandatory prior judicial permission from Magistrate with recorded reasons.'
+      },
+      {
+        parameter: 'Equality of Treatment',
+        oldLaw: 'Rich prisoners spared handcuffs; poor undertrials chained indiscriminately.',
+        newLaw: 'Strict equality: Status cannot justify discrimination; dignity applies to all.'
+      }
+    ]
+  },
+  {
+    id: 'clash-olga-tellis-right-to-livelihood',
+    title: 'The Pavement Dwellers Case: Right to Livelihood is an Inalienable Component of Right to Life',
+    tagline: '5-Judge Constitution Bench expands Article 21, holding the right to live includes the right to livelihood and natural justice before eviction.',
+    topicPillar: 'Rights & Liberty: Right to Livelihood (Article 21) & Natural Justice in Slum Evictions',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1985,
+    oldCase: {
+      caseName: 'Section 314 of the Bombay Municipal Corporation Act, 1888 (Summary Eviction Power)',
+      year: 1888,
+      citation: 'Section 314 BMC Act / Narrow Article 21 Doctrine',
+      benchStrength: 'Statutory Municipal Power',
+      presidingJudges: 'Municipal Executive Administration',
+      historicalContext:
+        'In July 1981, during the monsoon, the Maharashtra Government and Bombay Municipal Corporation summarily demolished thousands of pavement and slum dwellings, forcibly deporting poor migrant residents out of Bombay without any prior notice or hearing.',
+      theFlawedRatio:
+        'The BMC argued that pavement dwellers were trespassers on public streets who had no legal right to encroach on municipal footpaths, and that Section 314 permitted summary removal without notice or hearing.',
+      whyItFailed:
+        'Viewed human survival purely through the lens of property trespass. Ignored the socio-economic reality that rural migrants lived on pavements because that was where their meager urban livelihood existed.',
+      consequences:
+        'Tens of thousands of impoverished families were rendered homeless in pouring rain, stripped of their only source of food and survival.'
+    },
+    newCase: {
+      caseName: 'Olga Tellis v. Bombay Municipal Corporation',
+      shortName: 'Olga Tellis',
+      year: 1985,
+      citation: '(1985) 3 SCC 545 / AIR 1986 SC 180',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'Y.V. Chandrachud CJI, S. Murtaza Fazal Ali, V.D. Tulzapurkar, O. Chinnappa Reddy, A. Varadarajan JJ.',
+      verdictDate: 'July 10, 1985',
+      theSettledRatio:
+        'The sweeping holding that trespassers can be evicted without notice is overruled. The RIGHT TO LIVELIHOOD is an inalienable facet of the Right to Life under Article 21: if the right to livelihood is not treated as part of the constitutional right to life, the easiest way of depriving a person of his life would be to deprive him of his means of livelihood. Even though pavement dwellers have no fundamental right to encroach on public streets, they CANNOT be evicted without the minimum requirements of natural justice (reasonable notice and opportunity of being heard).',
+      constitutionalArticles: ['Article 21', 'Article 14', 'Article 19(1)(e)', 'Article 39(a)'],
+      doctrinalShift:
+        'Socio-Economic Dimensions of Article 21: Life is not mere animal existence; it encompasses the economic means to survive. Procedural fairness must be extended even to the poorest trespasser.',
+      keyTakeawayForMains:
+        'Olga Tellis expanded Article 21 to encompass economic survival and livelihood. Administrative efficiency cannot override the basic dignity and notice rights of informal slum dwellers.'
+    },
+    linkedMainsQuestionId: 'mains-15m-right-to-livelihood-olga-tellis-article-21',
+    summaryTable: [
+      {
+        parameter: 'Right to Livelihood under Art 21',
+        oldLaw: 'Not recognized; Article 21 restricted to physical liberty and life.',
+        newLaw: 'Inalienable facet of Article 21; deprivation of livelihood destroys life.'
+      },
+      {
+        parameter: 'Summary Eviction of Pavement Dwellers',
+        oldLaw: 'Permitted without notice under Section 314 BMC Act.',
+        newLaw: 'Unconstitutional; mandatory requirement of prior notice and hearing.'
+      },
+      {
+        parameter: 'Public Interest vs Human Dignity',
+        oldLaw: 'Public street transit completely extinguished slum dwellers\' rights.',
+        newLaw: 'Streets are for transit, but eviction must follow humane, fair procedure.'
+      }
+    ]
+  },
+  {
+    id: 'clash-bandhua-mukti-morcha-pil',
+    title: 'The Epistolary Revolution: Liberation of Bonded Laborers & Dismantling Rigid Locus Standi',
+    tagline: 'Supreme Court expands Article 32, ruling that any citizen can move the apex court on behalf of exploited, impoverished workers.',
+    topicPillar: 'Rights & Liberty: Public Interest Litigation (Article 32) & Anti-Bonded Labor (Article 23)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1984,
+    oldCase: {
+      caseName: 'Traditional Anglo-Saxon Locus Standi Doctrine',
+      year: 1950,
+      citation: 'Traditional Common Law Writs / Chiranjit Lal Chowdhuri (1950)',
+      benchStrength: 'Traditional Adversarial Standing Rule',
+      presidingJudges: 'Anglo-Indian Adversarial Doctrine',
+      historicalContext:
+        'Thousands of impoverished, illiterate bonded laborers (including children) were kept in brutal debt bondage in stone quarries in Faridabad (Haryana), beaten by contractors, and deprived of pure drinking water or medical care.',
+      theFlawedRatio:
+        'Under strict traditional common law rules of standing (*locus standi*), only the person whose own legal right was personally violated could petition the Supreme Court under Article 32. Marginalized bonded slaves living under armed guard could never access lawyers or file affidavits in New Delhi.',
+      whyItFailed:
+        'Rendered constitutional remedies under Article 32 a bourgeois luxury for wealthy corporate litigants, while the weakest sections suffered institutionalized modern slavery with zero constitutional remedy.',
+      consequences:
+        'Millions of bonded laborers, undertrials, and child workers remained invisible to the highest court of the land.'
+    },
+    newCase: {
+      caseName: 'Bandhua Mukti Morcha v. Union of India',
+      shortName: 'Bandhua Mukti Morcha',
+      year: 1984,
+      citation: '(1984) 3 SCC 161',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'P.N. Bhagwati, A.N. Sen, R.S. Pathak JJ.',
+      verdictDate: 'December 16, 1983 (Reported 1984)',
+      theSettledRatio:
+        'Strict rules of locus standi are permanently dismantled for human rights violations. Where a person or class of persons is deprived of fundamental rights and unable to approach the court due to poverty, disability, or social disadvantage, ANY public-spirited citizen or NGO can maintain a petition under Article 32 (Epistolary Jurisdiction). The Supreme Court has the power to appoint advocate-commissioners to collect evidence. Right to Live with human dignity under Article 21 includes freedom from bonded labor, clean drinking water, and safe working conditions under Article 23.',
+      constitutionalArticles: ['Article 32', 'Article 21', 'Article 23', 'Article 24'],
+      doctrinalShift:
+        'Epistolary Jurisdiction & Democratization of Remedies: A postcard or letter can trigger the full constitutional jurisdiction of the Supreme Court. The Court becomes an active institutional ally of the oppressed.',
+      keyTakeawayForMains:
+        'Article 32 is not just a protector of individual property; it is an affirmative instrument of social justice. Public Interest Litigation democratized access to the supreme judicial forum.'
+    },
+    linkedMainsQuestionId: 'mains-15m-pil-locus-standi-bandhua-mukti-morcha',
+    summaryTable: [
+      {
+        parameter: 'Locus Standi Requirement',
+        oldLaw: 'Strict personal injury required; only victim could file Article 32 writ.',
+        newLaw: 'Public Interest Standing: Any public-spirited citizen/NGO can petition on behalf of poor.'
+      },
+      {
+        parameter: 'Formalities of Article 32 Petition',
+        oldLaw: 'Strict formal affidavits and formatted pleadings.',
+        newLaw: 'Epistolary: Letters, telegrams, or press reports can be treated as writ petitions.'
+      },
+      {
+        parameter: 'Fact-Finding Mechanism',
+        oldLaw: 'Parties had to produce all evidence through adversarial affidavits.',
+        newLaw: 'Court appoints socio-legal commissions of inquiry to investigate facts on ground.'
+      }
+    ]
+  },
+  {
+    id: 'clash-mc-mehta-absolute-liability',
+    title: 'The Birth of Absolute Liability: Overruling the British Rylands v. Fletcher Defense for Toxic Disasters',
+    tagline: '5-Judge Constitution Bench creates the Absolute Liability Doctrine, holding hazardous industries strictly liable without any legal exceptions.',
+    topicPillar: 'Rights & Liberty: Right to Life & Clean Environment (Article 21) & Industrial Tort',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 1987,
+    oldCase: {
+      caseName: 'Rylands v. Fletcher (1868 British Strict Liability Doctrine)',
+      year: 1868,
+      citation: '(1868) LR 3 HL 330 (Adopted across Indian High Courts)',
+      benchStrength: 'British House of Lords Landmark Rule',
+      presidingJudges: 'Lord Cairns and Lord Cranworth',
+      historicalContext:
+        'In December 1985, exactly one year after the catastrophic Bhopal Gas Leak, a major leak of oleum gas occurred at the Shriram Foods and Fertilizer plant in Delhi, killing an advocate and hospitalizing hundreds of citizens.',
+      theFlawedRatio:
+        'Under the 19th-century British common law rule of "Strict Liability" (*Rylands v. Fletcher*), a polluter could escape all liability by pleading legal exceptions: Act of God (vis major), act of a third party/sabotage, consent of the plaintiff, or statutory authority.',
+      whyItFailed:
+        'Formulated for rural agricultural England in 1868. Permitting multinational chemical and toxic corporations in modern industrialized India to escape liability through technical common law defenses was unacceptable.',
+      consequences:
+        'Multinational corporations (like Union Carbide in Bhopal) deployed armies of lawyers to plead sabotage and act of third parties to deny compensation to thousands of dying victims.'
+    },
+    newCase: {
+      caseName: 'M.C. Mehta v. Union of India (Oleum Gas Leak Case)',
+      shortName: 'M.C. Mehta (Absolute Liability)',
+      year: 1987,
+      citation: '(1987) 1 SCC 395',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'P.N. Bhagwati CJI, R. Misra, G.L. Oza, M.M. Dutt, K.N. Singh JJ.',
+      verdictDate: 'December 20, 1986 (Reported 1987)',
+      theSettledRatio:
+        'The 19th-century English rule of Rylands v. Fletcher is discarded as obsolete. Formulated the indigenous Indian doctrine of ABSOLUTE LIABILITY: An enterprise engaged in a hazardous or inherently dangerous industry owes an absolute, non-delegable duty to the community that no harm will result. If toxic material escapes, the enterprise is absolutely liable to compensate all victims, subject to ZERO exceptions. Furthermore, the measure of compensation must be correlated to the magnitude and financial capacity of the enterprise to have a genuine deterrent effect.',
+      constitutionalArticles: ['Article 21', 'Article 32', 'Article 12', 'Article 48A'],
+      doctrinalShift:
+        'Indigenous Indian Environmental Jurisprudence: The Supreme Court is not bound to follow English common law. Indian law must evolve its own radical principles of corporate liability commensurate with modern industrial perils.',
+      keyTakeawayForMains:
+        'Absolute Liability admits no defense (no Act of God, no third-party sabotage). Corporate enterprises profit from dangerous activities and must internalize 100% of the risk.'
+    },
+    linkedMainsQuestionId: 'mains-15m-absolute-liability-oleum-gas-mc-mehta',
+    summaryTable: [
+      {
+        parameter: 'Exceptions to Liability',
+        oldLaw: 'Subject to 5 exceptions: Act of God, sabotage, plaintiff default, statutory authority.',
+        newLaw: 'Zero exceptions; absolute, strict, non-delegable liability.'
+      },
+      {
+        parameter: 'Measure of Compensation',
+        oldLaw: 'Compensatory only; based purely on actual material damage.',
+        newLaw: 'Deep Pocket Doctrine: Proportional to financial size of corporate enterprise.'
+      },
+      {
+        parameter: 'Application of English Common Law',
+        oldLaw: 'Indian courts strictly bound by English House of Lords precedents.',
+        newLaw: 'Indian courts free to craft progressive indigenous constitutional tort doctrines.'
+      }
+    ]
+  },
+  {
+    id: 'clash-vellore-citizens-precautionary-principle',
+    title: 'The Green Jurisprudence Paradigm: Precautionary Principle & Polluter Pays under Article 21',
+    tagline: 'Supreme Court incorporates sustainable development into Article 21, reversing the traditional development-first paradigm.',
+    topicPillar: 'Rights & Liberty: Sustainable Development & Environmental Law (Article 21 & Article 48A)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1996,
+    oldCase: {
+      caseName: 'Traditional Industrial Primacy Doctrine & Economic Laissez-Faire',
+      year: 1970,
+      citation: 'Traditional Industrial Common Law',
+      benchStrength: 'Industrial Economic Priority Practice',
+      presidingJudges: 'Administrative Economic Precedence',
+      historicalContext:
+        'Tanneries in the Palar River basin in Tamil Nadu discharged untreated toxic chemical effluents containing chromium, contaminating 35,000 hectares of agricultural land and poisoning drinking water wells for hundreds of villages.',
+      theFlawedRatio:
+        'The tanners argued that their leather export industry earned hundreds of millions in foreign exchange and provided employment to tens of thousands of workers, claiming economic development and export revenue trumped environmental damage.',
+      whyItFailed:
+        'Treated ecological destruction as an acceptable cost of economic growth, permanently destroying clean groundwater and the livelihood of traditional farming communities.',
+      consequences:
+        'Rivers across India were turned into open industrial sewers under the excuse of job creation.'
+    },
+    newCase: {
+      caseName: 'Vellore Citizens\' Welfare Forum v. Union of India',
+      shortName: 'Vellore Citizens',
+      year: 1996,
+      citation: '(1996) 5 SCC 647',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'Kuldip Singh, Faizan Uddin, K. Venkataswami JJ.',
+      verdictDate: 'August 28, 1996',
+      theSettledRatio:
+        'The traditional development-over-environment doctrine is permanently overruled. Sustainable Development, the "PRECAUTIONARY PRINCIPLE", and the "POLLUTER PAYS PRINCIPLE" are essential parts of the environmental law of the land under Article 21. The Precautionary Principle dictates: (1) Environmental measures must anticipate, prevent, and attack causes of environmental degradation; (2) Lack of full scientific certainty shall not be used to postpone preventive measures. The ONUS OF PROOF is on the industrialist/actor to demonstrate that their action is environmentally benign.',
+      constitutionalArticles: ['Article 21', 'Article 48A', 'Article 51A(g)', 'Environment (Protection) Act 1986'],
+      doctrinalShift:
+        'Reversal of Burden of Proof: The citizen does not have to prove that pollution is toxic; the industrial enterprise bears the legal burden of proving that its discharge is 100% safe before operating.',
+      keyTakeawayForMains:
+        'Economic development cannot be achieved at the cost of human health. The Precautionary Principle and Polluter Pays Principle are substantive constitutional mandates under Article 21.'
+    },
+    linkedMainsQuestionId: 'mains-15m-precautionary-principle-sustainable-development-vellore',
+    summaryTable: [
+      {
+        parameter: 'Development vs Environment',
+        oldLaw: 'Economic growth and foreign exchange earnings held priority.',
+        newLaw: 'Sustainable Development: Economic activity must respect ecological carrying capacity.'
+      },
+      {
+        parameter: 'Burden of Proof in Environmental Harms',
+        oldLaw: 'On the affected victim to scientifically prove damage.',
+        newLaw: 'Reversed onto the corporate developer to prove zero environmental harm.'
+      },
+      {
+        parameter: 'Remediation Liability',
+        oldLaw: 'Limited to nominal statutory fines.',
+        newLaw: 'Polluter Pays: Absolute duty to restore ecological damage + compensate victims.'
+      }
+    ]
+  },
+  {
+    id: 'clash-vishaka-sexual-harassment',
+    title: 'The Vishaka Landmark: Judicial Legislation Against Workplace Sexual Harassment via International Treaties',
+    tagline: 'Supreme Court bridges a 50-year statutory void, creating binding workplace harassment guidelines under Article 141.',
+    topicPillar: 'Rights & Liberty: Gender Equality & Dignity at Work (Articles 14, 19(1)(g), 21 & CEDAW)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1997,
+    oldCase: {
+      caseName: 'Legislative Inaction & Narrow Section 354 IPC Outraging Modesty Doctrine',
+      year: 1860,
+      citation: 'Section 354 and 509 Indian Penal Code, 1860 (Pre-Vishaka vacuum)',
+      benchStrength: 'Colonial Penal Vacuum',
+      presidingJudges: 'Colonial Penal Jurisprudence',
+      historicalContext:
+        'Bhanwari Devi, a state rural social worker in Rajasthan campaigning against child marriage, was brutally gang-raped by upper-caste men. The trial court acquitted the accused, holding upper-caste men would not rape a lower-caste woman.',
+      theFlawedRatio:
+        'Indian law provided zero civil or institutional mechanism to prevent sexual harassment in the workplace. Women who suffered quid pro quo harassment, stalking, or hostile work environments had no legal recourse other than filing an archaic criminal complaint for "outraging modesty" under Sec 354 IPC.',
+      whyItFailed:
+        'Treated workplace sexual harassment purely as an individual morality issue rather than a structural violation of a woman\'s fundamental rights to equality, life, and freedom of trade/profession under Articles 14, 19(1)(g), and 21.',
+      consequences:
+        'Working women across India were forced to choose between enduring sexual harassment or resigning from their careers.'
+    },
+    newCase: {
+      caseName: 'Vishaka v. State of Rajasthan',
+      shortName: 'Vishaka Guidelines',
+      year: 1997,
+      citation: '(1997) 6 SCC 241 / AIR 1997 SC 3011',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'J.S. Verma CJI, Sujata V. Manohar, B.N. Kirpal JJ.',
+      verdictDate: 'August 13, 1997',
+      theSettledRatio:
+        'In the absence of domestic legislation, the Supreme Court has the constitutional duty under Article 32 and Article 141 to lay down binding guidelines. Drawing upon the Convention on the Elimination of All Forms of Discrimination Against Women (CEDAW) via Article 51(c), the Court formulated the binding **VISHAKA GUIDELINES**: Sexual harassment includes unwelcome physical contact, demand for sexual favors, sexually colored remarks, or hostile work environments. Every employer must establish an Internal Complaints Committee (ICC) headed by a woman with an external independent member. (Operated as binding law until Parliament enacted the POSH Act in 2013).',
+      constitutionalArticles: ['Article 14', 'Article 19(1)(g)', 'Article 21', 'Article 141', 'Article 51(c)'],
+      doctrinalShift:
+        'Harmonious Construction of Fundamental Rights with International Treaties: Where domestic law is silent, international human rights treaties ratified by India must be read into fundamental rights to expand human dignity.',
+      keyTakeawayForMains:
+        'Vishaka represents the high watermark of affirmative judicial craftsmanship under Article 141, creating enforceable rights that transformed Indian workplace culture and inspired the 2013 POSH Act.'
+    },
+    linkedMainsQuestionId: 'mains-15m-vishaka-guidelines-gender-equality-workplace',
+    summaryTable: [
+      {
+        parameter: 'Definition of Workplace Sexual Harassment',
+        oldLaw: 'Not defined in law; limited to physical criminal assault under Sec 354 IPC.',
+        newLaw: 'Comprehensive definition: Physical contact, verbal remarks, hostile environment.'
+      },
+      {
+        parameter: 'Institutional Remedy for Victims',
+        oldLaw: 'Victim was forced to go to police station and file criminal FIR.',
+        newLaw: 'Mandatory Internal Complaints Committee (ICC) headed by a woman at workplace.'
+      },
+      {
+        parameter: 'Use of International Treaties',
+        oldLaw: 'Treaties considered unenforceable without parliamentary enabling statute.',
+        newLaw: 'Treaties (CEDAW) directly enforceable to fill vacuums in fundamental rights.'
+      }
+    ]
+  },
+  {
+    id: 'clash-gita-hariharan-mother-guardian',
+    title: 'Maternal Guardianship Parity: Dismantling the Patriarchal "Father First" Custody Rule',
+    tagline: 'Supreme Court reinterprets Section 6(a) of the Hindu Guardianship Act, establishing the mother as an equal natural guardian.',
+    topicPillar: 'Social Justice & Quotas: Gender Justice & Child Guardianship (Article 14 & Article 15)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1999,
+    oldCase: {
+      caseName: 'Section 6(a) Hindu Minority and Guardianship Act, 1956 (Paternal Monopoly)',
+      year: 1956,
+      citation: 'Section 6(a) HMGA 1956 / Traditional Banking & Custody Regulations',
+      benchStrength: 'Statutory Guardianship Framework',
+      presidingJudges: 'Traditional Family Law Practice',
+      historicalContext:
+        'Writer Gita Hariharan applied to the Reserve Bank of India to invest in relief bonds in the name of her minor son. The RBI refused to accept her application as natural guardian, demanding either the father\'s signature or a court order declaring the father dead.',
+      theFlawedRatio:
+        'Section 6(a) provided that the natural guardian of a Hindu minor is "the father, and after him, the mother". Financial institutions and schools strictly interpreted "after him" to mean that only upon the death or complete legal disqualification of the father could a mother act as natural guardian.',
+      whyItFailed:
+        'Institutionalized patriarchal subordination of women, treating mothers as inferior, second-class citizens devoid of inherent legal authority over the children they bore and raised.',
+      consequences:
+        'Millions of mothers separated from husbands or managing children independently were unable to open bank accounts, obtain passports, or enroll children in school.'
+    },
+    newCase: {
+      caseName: 'Gita Hariharan v. Reserve Bank of India',
+      shortName: 'Gita Hariharan',
+      year: 1999,
+      citation: '(1999) 2 SCC 228',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'A.S. Anand CJI, M. Srinivasan, Umesh C. Banerjee JJ.',
+      verdictDate: 'February 17, 1999',
+      theSettledRatio:
+        'The patriarchal interpretation of Section 6(a) is unconstitutional and overruled. The word "after" in Section 6(a) does NOT mean only after the death of the father; it means "in the absence of"—including when the father is indifferent, physically away, incapable of taking care of the child, or living separately by mutual agreement. The mother is an equal, independent natural guardian who possesses full legal authority to manage the minor\'s affairs during the lifetime of the father. To hold otherwise would violate the gender equality guarantees of Articles 14 and 15.',
+      constitutionalArticles: ['Article 14', 'Article 15', 'Article 21', 'Hindu Minority and Guardianship Act 1956'],
+      doctrinalShift:
+        'Gender Neutrality in Parental Authority: The welfare of the child is the paramount consideration (*welfare principle*), not archaic patriarchal dominance. A mother has equal, sovereign guardianship rights.',
+      keyTakeawayForMains:
+        'Statutory interpretation must bend to constitutional equality. Words like "after him" cannot be used to extinguish maternal autonomy under Articles 14 and 15.'
+    },
+    linkedMainsQuestionId: 'mains-10m-gender-equality-guardianship-gita-hariharan',
+    summaryTable: [
+      {
+        parameter: 'Mother\'s Status as Natural Guardian',
+        oldLaw: 'Subordinate; eligible only after the father\'s death.',
+        newLaw: 'Equal natural guardian; can act independently in the absence/indifference of father.'
+      },
+      {
+        parameter: 'Interpretation of "After Him"',
+        oldLaw: 'Chronological sequence: death of the father was a prerequisite.',
+        newLaw: 'Functional meaning: "In the absence of" or non-involvement of the father.'
+      },
+      {
+        parameter: 'Administrative Impact',
+        oldLaw: 'Mothers blocked from signing school admissions, passports, or bank accounts.',
+        newLaw: 'Maternal signature recognized as fully valid across all public and private bodies.'
+      }
+    ]
+  },
+  {
+    id: 'clash-sarbananda-sonowal-imdt-act',
+    title: 'The Assam Infiltration Challenge: Striking Down the IMDT Act for Violating Article 355',
+    tagline: 'Supreme Court invalidates the IMDT Act, holding demographic infiltration constitutes external aggression against the State.',
+    topicPillar: 'Governance & Democracy: Duty of Union to Protect States (Article 355) & Citizenship',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2005,
+    oldCase: {
+      caseName: 'Illegal Migrants (Determination by Tribunals) Act, 1983 (IMDT Act)',
+      year: 1983,
+      citation: 'Act No. 39 of 1983 (Applicable exclusively to Assam)',
+      benchStrength: 'Parliamentary Statute',
+      presidingJudges: 'Assam Accord Legislative Compromise',
+      historicalContext:
+        'Following the 1985 Assam Accord, the Union enacted the IMDT Act, 1983, applying exclusively to the State of Assam. While the Foreigners Act, 1946 (applicable to the rest of India) placed the burden of proof on the suspect to prove citizenship, the IMDT Act placed an onerous burden on the complainant citizen or police to prove that the suspect was an illegal migrant.',
+      theFlawedRatio:
+        'Defended as a protective mechanism to prevent harassment of linguistic and religious minorities in border states, creating a multi-tiered judicial tribunal procedure before deportation could occur.',
+      whyItFailed:
+        'Created an impossible legal barrier: in 20 years, out of 3.1 lakh cases referred to tribunals, only 1,481 illegal migrants were actually deported, while millions crossed porous borders unchecked.',
+      consequences:
+        'Altered the demographic, cultural, and political fabric of Assam, triggering violent ethnic clashes and paralysis of border management.'
+    },
+    newCase: {
+      caseName: 'Sarbananda Sonowal v. Union of India',
+      shortName: 'Sarbananda Sonowal',
+      year: 2005,
+      citation: '(2005) 5 SCC 665 / AIR 2005 SC 2920',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'R.C. Lahoti CJI, G.P. Mathur, P.K. Balasubramanyan JJ.',
+      verdictDate: 'July 12, 2005',
+      theSettledRatio:
+        'The IMDT Act, 1983 is unconstitutional and struck down in its entirety. The influx of millions of illegal migrants into Assam constitutes an "EXTERNAL AGGRESSION" against the State of Assam. Under Article 355, the Union owes a solemn constitutional duty to protect every State against external aggression and internal disturbance. The IMDT Act created an insurmountable hurdle to detection and deportation, violating Article 355 and discriminating against the citizens of Assam under Article 14. Directed that all deportation proceedings revert immediately to the Foreigners Act, 1946.',
+      constitutionalArticles: ['Article 355', 'Article 14', 'Article 356', 'Foreigners Act 1946'],
+      doctrinalShift:
+        'Expansive Interpretation of "External Aggression": External aggression is not limited to military warfare; demographic invasion that threatens the social and political survival of a State constitutes external aggression under Article 355.',
+      keyTakeawayForMains:
+        'Article 355 is not merely a trigger for President\'s Rule under Article 356; it imposes an affirmative, justiciable obligation on the Union Government to protect States from foreign infiltration.'
+    },
+    linkedMainsQuestionId: 'mains-15m-article-355-external-aggression-sonowal',
+    summaryTable: [
+      {
+        parameter: 'Burden of Proof in Infiltration',
+        oldLaw: 'On the complainant citizen or police to prove illegal entry (IMDT Act).',
+        newLaw: 'On the suspected person to establish citizenship (Section 9 Foreigners Act).'
+      },
+      {
+        parameter: 'Invocation of Article 355',
+        oldLaw: 'Viewed purely as an administrative precursor to Emergency/Art 356.',
+        newLaw: 'Substantive duty of the Union: Infiltration recognized as external aggression.'
+      },
+      {
+        parameter: 'Geographical Discrimination (Art 14)',
+        oldLaw: 'Assam subjected to special lenient tribunal rules.',
+        newLaw: 'Declared discriminatory; uniform citizenship detection rules apply nationwide.'
+      }
+    ]
+  },
+  {
+    id: 'clash-aadhaar-section-57-corporate-sharing',
+    title: 'The Aadhaar Privacy Gate: Striking Down Section 57 Corporate Biometric Access & Bank Mandates',
+    tagline: '5-Judge Constitution Bench strikes down Section 57 of the Aadhaar Act, barring private corporations and telecom operators from demanding biometrics.',
+    topicPillar: 'Rights & Liberty: Informational Privacy & State Welfare (Article 21 & Proportionality Test)',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2018,
+    oldCase: {
+      caseName: 'Section 57 of the Aadhaar Act, 2016 & Circulars Mandating Bank/SIM Linking',
+      year: 2016,
+      citation: 'Section 57 Aadhaar Act 2016 / RBI & DoT Circulars 2017',
+      benchStrength: 'Statutory Corporate Sharing Provision',
+      presidingJudges: 'Executive Administrative Mandates',
+      historicalContext:
+        'Section 57 of the Aadhaar Act permitted private corporations to use Aadhaar authentication for any commercial purpose pursuant to a contract. Government circulars mandated Aadhaar linking for all bank accounts, mobile SIM cards, and school admissions.',
+      theFlawedRatio:
+        'The Government defended private use on the grounds of digital ease, e-KYC efficiency, and commercial fraud prevention, arguing that commercial contracts could legitimately require biometric authentication.',
+      whyItFailed:
+        'Failed the four-pronged Proportionality Test established in Puttaswamy: created an inescapable commercial digital panopticon where private companies harvested citizens\' biometric and metadata trails.',
+      consequences:
+        'Citizens were threatened with freezing of bank accounts and disconnection of mobile numbers if they refused to share fingerprints with private telecom companies.'
+    },
+    newCase: {
+      caseName: 'Justice K.S. Puttaswamy (Retd.) v. Union of India (Aadhaar Constitution Bench)',
+      shortName: 'Aadhaar Bench (Sec 57)',
+      year: 2018,
+      citation: '(2019) 1 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'Dipak Misra CJI, A.K. Sikri, A.M. Khanwilkar, Ashok Bhushan JJ. (D.Y. Chandrachud J. dissenting)',
+      verdictDate: 'September 26, 2018',
+      theSettledRatio:
+        'Section 57 of the Aadhaar Act is struck down as unconstitutional. Private companies, telecom operators, and banks CANNOT compel citizens to provide Aadhaar. Mandatory linking of Aadhaar to bank accounts, mobile SIM cards, and school admissions violates the Right to Privacy under Article 21 and fails the proportionality test. Aadhaar is constitutionally valid ONLY for targeted welfare delivery funded by the Consolidated Fund of India under Section 7, and for PAN card linking under Section 139AA Income Tax Act.',
+      constitutionalArticles: ['Article 21', 'Article 14', 'Article 110 (Money Bill)', 'Section 57 Aadhaar Act'],
+      doctrinalShift:
+        'Commercial Containment of Biometrics: The State cannot commercialize citizen biometrics. Coercive data harvesting by private corporations under the guise of statutory ease is a direct breach of informational self-determination.',
+      keyTakeawayForMains:
+        'Aadhaar was upheld as a targeted welfare delivery instrument, but strictly dismantled as a private corporate surveillance architecture. Privacy requires strict data minimization.'
+    },
+    linkedMainsQuestionId: 'mains-15m-aadhaar-proportionality-welfare-privacy',
+    summaryTable: [
+      {
+        parameter: 'Private Corporate Biometric Access (Sec 57)',
+        oldLaw: 'Permitted under contract; private telecom companies demanded fingerprints.',
+        newLaw: 'Declared unconstitutional and struck down; private use prohibited.'
+      },
+      {
+        parameter: 'Bank Account & Mobile SIM Linking',
+        oldLaw: 'Compulsory upon pain of bank account freezing and SIM disconnection.',
+        newLaw: 'Struck down; illegal and disproportionate violation of Article 21.'
+      },
+      {
+        parameter: 'Permissible Scope of Aadhaar',
+        oldLaw: 'Pervasive universal identity gate for all commercial transactions.',
+        newLaw: 'Confined strictly to welfare subsidies (Section 7) and tax PAN linking.'
+      }
+    ]
+  },
+  {
+    id: 'clash-lily-thomas-sitting-lawmaker-protection',
+    title: 'Ending Lawmaker Immunity: Striking Down Section 8(4) RPA Protection for Convicted Politicians',
+    tagline: 'Supreme Court invalidates 3-month immunity clause, ruling convicted legislators are instantly disqualified.',
+    topicPillar: 'Governance & Democracy: Disqualification of Legislators (Articles 102 & 191) & Clean Politics',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2013,
+    oldCase: {
+      caseName: 'Section 8(4) of the Representation of the People Act, 1951 (Sitting MP/MLA Protection)',
+      year: 1951,
+      citation: 'Section 8(4) RPA 1951 / K. Prabhakaran v. P. Jayarajan (2005, 5-J)',
+      benchStrength: '5-Judge Constitution Bench Precedent (2005)',
+      presidingJudges: 'R.C. Lahoti CJI Bench in K. Prabhakaran',
+      historicalContext:
+        'Section 8(4) of the RPA, 1951 provided that if a sitting MP or MLA was convicted of a criminal offence and sentenced to 2 or more years of imprisonment, their disqualification would not take effect for 3 months, or until any appeal filed within those 3 months was disposed of by an appellate court.',
+      theFlawedRatio:
+        'In K. Prabhakaran (2005), a 5-Judge Constitution Bench upheld Section 8(4), reasoning that the survival of an elected government might depend on a slender legislative majority, justifying a deferral of disqualification to avoid destabilizing political governments.',
+      whyItFailed:
+        'Created a brazenly unconstitutional caste of privileged lawmakers: an ordinary citizen convicted of a crime was disqualified immediately from contesting, but a sitting legislator who committed the exact same crime continued voting in the House for decades while appeals dragged on.',
+      consequences:
+        'Dozens of convicted politicians convicted of extortion, kidnapping, and corruption continued sitting as MPs, Ministers, and MLAs.'
+    },
+    newCase: {
+      caseName: 'Lily Thomas v. Union of India',
+      shortName: 'Lily Thomas (Disqualification)',
+      year: 2013,
+      citation: '(2013) 7 SCC 653',
+      benchStrength: '2-Judge Bench (Unanimous 2-0)',
+      presidingJudges: 'A.K. Patnaik and S.J. Mukhopadhaya JJ.',
+      verdictDate: 'July 10, 2013',
+      theSettledRatio:
+        'Section 8(4) of the Representation of the People Act, 1951 is struck down as ultra vires and unconstitutional. Articles 102(1)(e) and 191(1)(e) provide a uniform standard of disqualification for both "being chosen as" and "being" a member of the House. Parliament has zero constitutional competence to carve out a special deferral or immunity for sitting lawmakers. Disqualification is automatic, instantaneous, and immediate the very second an MP or MLA is convicted and sentenced to 2 or more years.',
+      constitutionalArticles: ['Article 102(1)(e)', 'Article 191(1)(e)', 'Article 14', 'Representation of the People Act 1951'],
+      doctrinalShift:
+        'Equality of Citizens and Lawmakers: The criminal law applies equally to lawmakers and citizens. Parliament cannot create an untouchable sanctuary for convicted politicians under the guise of political stability.',
+      keyTakeawayForMains:
+        'Lily Thomas struck a decisive blow against the criminalization of Indian politics. Disqualification upon conviction is self-executing and cannot be stayed except by a formal stay of conviction by an appellate court.'
+    },
+    linkedMainsQuestionId: 'mains-15m-criminalization-politics-lily-thomas-rpa',
+    summaryTable: [
+      {
+        parameter: 'Immediate Disqualification upon Conviction',
+        oldLaw: 'Suspended for 3 months or until appeals finalized (Section 8(4) RPA).',
+        newLaw: 'Automatic, immediate, and instantaneous the moment sentence is pronounced.'
+      },
+      {
+        parameter: 'Parliament\'s Legislative Competence',
+        oldLaw: 'Upheld as legitimate distinction to preserve government majorities.',
+        newLaw: 'Ultra vires; Articles 102 & 191 mandate identical disqualification standards.'
+      },
+      {
+        parameter: 'Relief Available to Convicted Lawmakers',
+        oldLaw: 'Automatic statutory immunity by merely filing a routine appeal.',
+        newLaw: 'Disqualification continues unless appellate court specifically stays the conviction.'
+      }
+    ]
+  },
+  {
+    id: 'clash-public-interest-foundation-candidate-antecedents',
+    title: 'Transparency in Elections: Mandatory Disclosure of Criminal Antecedents under Article 19(1)(a)',
+    tagline: '5-Judge Constitution Bench mandates political parties publish criminal backgrounds of candidates, reinforcing the voter\'s right to know.',
+    topicPillar: 'Governance & Democracy: Free and Fair Elections (Article 324) & Voter Information (Article 19(1)(a))',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2018,
+    oldCase: {
+      caseName: 'Petitions Demanding Judicial Disqualification of Candidates at Charge-Framing Stage',
+      year: 2014,
+      citation: 'Judicial Lawmaking Petitions in Public Interest Foundation',
+      benchStrength: 'Judicial Separation of Powers Dilemma',
+      presidingJudges: 'Election Law Demands',
+      historicalContext:
+        'Due to massive criminalization of politics, civil rights petitioners asked the Supreme Court to judicially add a new disqualification under Article 102: barring candidates against whom serious criminal charges had been framed by a trial court.',
+      theFlawedRatio:
+        'Petitioners argued that under Article 142, the Supreme Court could fill legislative lacunae and disqualify candidates at the charge-sheet/charge-framing stage to clean the political system.',
+      whyItFailed:
+        'Violated the constitutional doctrine of Separation of Powers: Article 102(1)(e) explicitly vests the power to create disqualifications in Parliament, not in the judiciary. Disqualifying candidates before trial conviction would encourage ruling parties to file false FIRs to eliminate opposition candidates.',
+      consequences:
+        'Risked creating an era where police frame false charges on nomination day to disqualify political rivals.'
+    },
+    newCase: {
+      caseName: 'Public Interest Foundation v. Union of India',
+      shortName: 'Public Interest Foundation',
+      year: 2018,
+      citation: '(2018) 1 SCC 809',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'Dipak Misra CJI, R.F. Nariman, A.M. Khanwilkar, D.Y. Chandrachud, Indu Malhotra JJ.',
+      verdictDate: 'September 25, 2018',
+      theSettledRatio:
+        'The Supreme Court refused to create disqualifications not enacted by Parliament, upholding strict Separation of Powers. However, to effectuate the Voter\'s Fundamental Right to Know under Article 19(1)(a), the Court issued binding mandatory directions: (1) Every candidate must declare pending criminal cases in bold letters on nomination form; (2) Political parties MUST publish the full criminal antecedents of candidates in widely circulated newspapers, social media, and on party websites within 48 hours; (3) Parties must explain why a candidate with criminal charges was selected instead of a clean candidate.',
+      constitutionalArticles: ['Article 19(1)(a)', 'Article 324', 'Article 102', 'Separation of Powers'],
+      doctrinalShift:
+        'Voter Empowerment Through Radical Transparency: Where the legislature refuses to disqualify criminals, the Constitution empowers the voter with full information. Sunlight is the best disinfectant in a democracy.',
+      keyTakeawayForMains:
+        'The judiciary cannot legislate disqualifications under Article 102, but can enforce complete transparency under Article 19(1)(a) to empower citizens to reject criminal candidates.'
+    },
+    linkedMainsQuestionId: 'mains-15m-electoral-transparency-criminalization-politics',
+    summaryTable: [
+      {
+        parameter: 'Disqualification at Charge-Framing Stage',
+        oldLaw: 'Demanded as a judicial decree under Article 142.',
+        newLaw: 'Refused; judicial creation of disqualifications violates Separation of Powers.'
+      },
+      {
+        parameter: 'Public Advertising of Criminal Records',
+        oldLaw: 'Limited to formal affidavits submitted to Returning Officer in secret.',
+        newLaw: 'Mandatory publication in leading newspapers, TV, and party websites within 48 hours.'
+      },
+      {
+        parameter: 'Obligation of Political Parties',
+        oldLaw: 'Zero legal duty to justify selecting candidates with criminal records.',
+        newLaw: 'Mandatory publication of reasons for selecting candidate with criminal charges.'
+      }
+    ]
+  },
+  {
+    id: 'clash-golaknath-shankari-prasad-prospective-overruling',
+    title: 'The Transcendental Status of Fundamental Rights: The Historic 11-Judge Golak Nath Clash',
+    tagline: '11-Judge Constitution Bench overrules Shankari Prasad and Sajjan Singh, holding Parliament cannot abridge Part III rights.',
+    topicPillar: 'Governance & Democracy: Power of Amendment (Article 368) vs Fundamental Rights (Article 13)',
+    overrulingMagnitude: '11-Judge Overruling',
+    yearOverruled: 1967,
+    oldCase: {
+      caseName: 'Shankari Prasad (1951) & Sajjan Singh v. State of Rajasthan (1965)',
+      year: 1951,
+      citation: 'AIR 1951 SC 458 & AIR 1965 SC 845',
+      benchStrength: '5-Judge Constitution Benches',
+      presidingJudges: 'H.J. Kania CJI (1951) & P.B. Gajendragadkar CJI (1965)',
+      historicalContext:
+        'Following independence, Parliament passed the 1st, 4th, and 17th Constitutional Amendments extinguishing zamindari and landholdings without market compensation. The family of Henry and William Golak Nath challenged the Punjab Security of Land Tenures Act, which held 418 of their 500 acres surplus.',
+      theFlawedRatio:
+        'In Shankari Prasad and Sajjan Singh, the 5-Judge Benches held that Parliament\'s power to amend the Constitution under Article 368 was absolute and boundless. The word "law" in Article 13(2) referred only to ordinary legislative acts, not constitutional amendments. Parliament could abrogate, dilute, or repeal ANY Fundamental Right at will.',
+      whyItFailed:
+        'Granted a transient 2/3rds political majority in Parliament the power to abolish freedom of speech, secularism, or property, reducing Fundamental Rights to revocable parliamentary favors.',
+      consequences:
+        'Led to uninhibited constitutional amendments eroding Part III, prompting the judiciary to erect a radical counter-fortress.'
+    },
+    newCase: {
+      caseName: 'I.C. Golak Nath v. State of Punjab',
+      shortName: 'Golak Nath',
+      year: 1967,
+      citation: '(1967) 2 SCR 762 / AIR 1967 SC 1643',
+      benchStrength: '11-Judge Constitution Bench (6:5 Majority)',
+      presidingJudges: 'K. Subba Rao CJI, J.C. Shah, S.M. Sikri, J.M. Shelat, C.A. Vaidialingam JJ. (K.N. Wanchoo, M. Hidayatullah, R.S. Bachawat, V. Ramaswami JJ. dissenting)',
+      verdictDate: 'February 27, 1967',
+      theSettledRatio:
+        'Shankari Prasad and Sajjan Singh are explicitly OVERRULED. Fundamental Rights in Part III are given a transcendental and inviolable position in our constitutional scheme. An amendment enacted under Article 368 is a "LAW" within the meaning of Article 13(2). Consequently, Parliament has NO POWER to amend Part III so as to take away or abridge any Fundamental Right. Birthed the American doctrine of "PROSPECTIVE OVERRULING" in India: past amendments (1st, 4th, 17th) were preserved to avoid chaotic invalidation, but all future amendments curtailing Part III were barred.',
+      constitutionalArticles: ['Article 13(2)', 'Article 368', 'Part III Fundamental Rights'],
+      doctrinalShift:
+        'Transcendental Character of Rights & Prospective Overruling: Fundamental rights are human rights reserved by the sovereign people unto themselves. Parliament is a governed body, not an omnipotent constituent assembly.',
+      keyTakeawayForMains:
+        'Golak Nath represents the ultimate judicial counter-strike against parliamentary supremacy. It directly prompted Indira Gandhi to pass the 24th Amendment in 1971, setting up the 13-Judge titanic clash in Kesavananda Bharati in 1973.'
+    },
+    linkedMainsQuestionId: 'mains-20m-golak-nath-prospective-overruling-article-368',
+    summaryTable: [
+      {
+        parameter: 'Is a Constitutional Amendment a "Law" under Art 13(2)?',
+        oldLaw: 'No; "law" meant only ordinary legislation (Shankari Prasad).',
+        newLaw: 'Yes; Article 368 amendments are "laws" and cannot abridge Part III.'
+      },
+      {
+        parameter: 'Parliament\'s Power to Abridge Fundamental Rights',
+        oldLaw: 'Unlimited, plenary, sovereign constituent power.',
+        newLaw: 'Completely barred; Fundamental Rights are transcendental and inviolable.'
+      },
+      {
+        parameter: 'Doctrine of Prospective Overruling',
+        oldLaw: 'Not recognized in Indian common law; decisions operated retrospectively.',
+        newLaw: 'Adopted from US law: Verdict applies only to future amendments post-1967.'
+      }
+    ]
   }
 ];

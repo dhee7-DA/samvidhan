@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-21 16:23:55 (+05:30) |
+| **Last Log Sync** | 2026-11-21 20:48:53 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `5f5af69` (2026-11-21T16:00:20+05:30) |
-| **Total Commits** | 95 |
+| **Branch / HEAD** | `main` @ `f0a81f6` (2026-11-21T16:24:35+05:30) |
+| **Total Commits** | 96 |
 | **Total Files Indexed** | 279 (279 tracked, 0 new untracked) |
-| **Working Tree** | 3 pending change(s) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-21 20:48:53 (+05:30)] Expand Precedent Clash to 60 landmark battles (DONE)
+- **Details:** Added Battles 41 to 60 covering Minerva Mills, Waman Rao, Unni Krishnan, Independent Thought, Shreya Singhal, Romesh Thappar, Bennett Coleman, D.K. Basu, Prem Shankar Shukla, Olga Tellis, Bandhua Mukti Morcha, M.C. Mehta Absolute Liability, Vellore Citizens, Vishaka, Gita Hariharan, Sarbananda Sonowal, Aadhaar Sec 57, Lily Thomas, Public Interest Foundation, and Golak Nath.
+- **Files Touched (2):** `M src/components/Layout/Sidebar.tsx`, `M src/data/precedentClashesData.ts`
+- **Git HEAD:** `main` @ `f0a81f6`
 
 ### [2026-11-21 16:23:55 (+05:30)] Add Batch 2 (Battles 26-40) and thematic pillar ribbon to Precedent Clash (DONE)
 - **Details:** Expanded arena to 40 verified battles with L. Chandra Kumar, Krishna Kumar Singh, Rupa Ashok Hurra, SCBA, Selvi, Stamp Act 7-J reference, Cox and Kings, Sushila Aggarwal, TMA Pai, PA Inamdar, Pramati Trust, Aveek Sarkar, BCCI, Karunanidhi, and Bachan Singh. Added 6-pillar category filter ribbon.
@@ -256,7 +261,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 65.6 KB | 789 | `5f5af69` (2026-11-21) |
+| `PROJECT_LOG.md` | 66.4 KB | 795 | `f0a81f6` (2026-11-21) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -314,7 +319,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.2 KB | 271 | `5f5af69` (2026-11-21) |
+| `src/components/Layout/Sidebar.tsx` | 14.2 KB | 271 | `f0a81f6` (2026-11-21) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -363,7 +368,7 @@
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/OverviewDashboard.tsx` | 28.0 KB | 449 | `0d4bd48` (2026-11-21) |
-| `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `5f5af69` (2026-11-21) |
+| `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
@@ -440,7 +445,7 @@
 | `src/data/part9LocalGovernanceData.ts` | 17.8 KB | 219 | `e365e73` (2026-11-14) |
 | `src/data/partsData.ts` | 44.6 KB | 740 | `4fb3dbf` (2026-11-14) |
 | `src/data/preambleData.ts` | 6.9 KB | 121 | `3c486dd` (2026-11-13) |
-| `src/data/precedentClashesData.ts` | 156.3 KB | 2332 | `5f5af69` (2026-11-21) |
+| `src/data/precedentClashesData.ts` | 237.6 KB | 3472 | `f0a81f6` (2026-11-21) |
 | `src/data/precedentLineagesData.ts` | 17.2 KB | 296 | `d003041` (2026-11-20) |
 | `src/data/pyqData.ts` | 1.1 KB | 39 | `ea3d899` (2026-11-16) |
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
@@ -692,10 +697,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**95** commits, newest first).
+> Complete git history (**96** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 96 | 2026-11-21 | `f0a81f6` | 4 | feat(precedent-clash): expand to 40 landmark battles (Batch 2) and add thematic pillar ribbon |
 | 95 | 2026-11-21 | `5f5af69` | 4 | feat(precedent-clash): expand to 25 verified landmark battles with Indra Sawhney, R.C. Cooper, Ramachandra Rao, Jarnail Singh, and Jallikattu |
 | 94 | 2026-11-21 | `c24f272` | 3 | feat(precedent-clash): expand to 20 landmark battles with Second Judges, ADM Burial, S.R. Bommai, I.R. Coelho, and Bengal Immunity |
 | 93 | 2026-11-21 | `2c37176` | 4 | feat(precedent-clash): add 5 landmark battles (ADR, Shayara Bano, Sabarimala, NJAC, Subhash Desai) and dynamic filters |
