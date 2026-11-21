@@ -1472,5 +1472,860 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
         newLaw: 'Valid exercise of legislative power removing the factual basis of cruelty.'
       }
     ]
+  },
+  {
+    id: 'clash-l-chandra-kumar-sampath-kumar',
+    title: 'Judicial Review Over Tribunals: High Court Jurisdiction under Articles 226/227 is Inviolable',
+    tagline: '7-Judge Constitution Bench overrules Sampath Kumar, holding that judicial review of High Courts over tribunals cannot be excluded.',
+    topicPillar: 'Judiciary & Courts: Judicial Review (Articles 32, 226, 227 & 323A/323B)',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 1997,
+    oldCase: {
+      caseName: 'S.P. Sampath Kumar v. Union of India',
+      year: 1987,
+      citation: '(1987) 1 SCC 124 / AIR 1987 SC 386',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'P.N. Bhagwati CJI, R. Misra, V. Khalid, G.L. Oza, M.M. Dutt JJ.',
+      historicalContext:
+        'Parliament enacted the Administrative Tribunals Act, 1985 under Article 323A. Section 28 of the Act excluded the jurisdiction of all courts (including High Courts under Articles 226 and 227), leaving only a direct appeal to the Supreme Court under Article 136.',
+      theFlawedRatio:
+        'The 5-Judge Bench held that Central Administrative Tribunals (CAT) were effective institutional substitutes for High Courts. If a tribunal possessed adequate judicial members, excluding High Court review did not violate the Basic Structure.',
+      whyItFailed:
+        'Equated executive-appointed tribunals with constitutional High Courts. Overburdened the Supreme Court with trivial service appeals under Article 136 and compromised judicial independence.',
+      consequences:
+        'Litigants were deprived of the localized, accessible constitutional remedy of High Court writ review across 25 States.'
+    },
+    newCase: {
+      caseName: 'L. Chandra Kumar v. Union of India',
+      shortName: 'L. Chandra Kumar',
+      year: 1997,
+      citation: '(1997) 3 SCC 261 / AIR 1997 SC 1125',
+      benchStrength: '7-Judge Constitution Bench (Unanimous 7-0)',
+      presidingJudges: 'A.M. Ahmadi CJI, M.M. Punchhi, K. Ramaswamy, S.P. Bharucha, S. Saghir Ahmad, K. Venkataswami, B.N. Kirpal JJ.',
+      verdictDate: 'March 18, 1997',
+      theSettledRatio:
+        'S.P. Sampath Kumar is overruled. The power of judicial review of the High Courts under Articles 226/227 and the Supreme Court under Article 32 is an inviolable basic feature of the Constitution. Section 28 of the Administrative Tribunals Act and Articles 323A(2)(d) and 323B(3)(d) excluding High Court review are unconstitutional. Tribunals act as courts of first instance; all their decisions are subject to scrutiny before a Division Bench of the High Court.',
+      constitutionalArticles: ['Article 32', 'Article 226', 'Article 227', 'Article 323A', 'Article 323B'],
+      doctrinalShift:
+        'Inviolability of High Court Writ Powers: Tribunals are supplemental to High Courts, not substitutes. The constitutional oversight of High Courts cannot be severed by constitutional amendment.',
+      keyTakeawayForMains:
+        'Judicial review under Articles 226 and 32 is part of the Basic Structure. Parliament cannot create an alternative dispute resolution mechanism that bypasses the constitutional superintendence of High Courts.'
+    },
+    linkedMainsQuestionId: 'mains-15m-tribunals-judicial-review-chandra-kumar',
+    summaryTable: [
+      {
+        parameter: 'Status of Tribunals vs High Courts',
+        oldLaw: 'Tribunals were institutional substitutes for High Courts (Sampath Kumar).',
+        newLaw: 'Tribunals are courts of first instance; strictly subordinate to High Court writ superintendence.'
+      },
+      {
+        parameter: 'Exclusion of Articles 226 & 227',
+        oldLaw: 'Section 28 excluding High Court review held constitutionally valid.',
+        newLaw: 'Struck down as unconstitutional and void; violates the Basic Structure.'
+      },
+      {
+        parameter: 'Appellate Hierarchy',
+        oldLaw: 'Direct appeal from tribunal to Supreme Court under Article 136.',
+        newLaw: 'Mandatory challenge before Division Bench of High Court under Art 226/227 first.'
+      }
+    ]
+  },
+  {
+    id: 'clash-krishna-kumar-singh-dc-wadhwa',
+    title: 'The Ordinance Raj Prohibited: Re-promulgation is a Fraud on the Constitution',
+    tagline: '7-Judge Constitution Bench overrules ambiguity in D.C. Wadhwa, ruling that re-promulgating ordinances without legislative tabling is unconstitutional.',
+    topicPillar: 'Governance & Democracy: Ordinance Making Powers (Articles 123 & 213) & Separation of Powers',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 2017,
+    oldCase: {
+      caseName: 'D.C. Wadhwa v. State of Bihar',
+      year: 1987,
+      citation: '(1987) 1 SCC 378 / AIR 1987 SC 579',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'P.N. Bhagwati CJI, R. Misra, G.L. Oza, M.M. Dutt, K.N. Singh JJ.',
+      historicalContext:
+        'Between 1967 and 1981, the Governor of Bihar promulgated 256 ordinances repeatedly, keeping some alive for up to 14 years without ever introducing bills in the Legislature.',
+      theFlawedRatio:
+        'The 5-Judge Bench strongly condemned re-promulgation as a fraud on the Constitution, but carved out an exception: if the Legislature was too busy to consider a bill, re-promulgation might be permissible. Furthermore, it did not resolve whether rights created by expired ordinances survived.',
+      whyItFailed:
+        'The exception was exploited by State governments to continue issuing strings of ordinances, effectively replacing parliamentary lawmaking with executive decree.',
+      consequences:
+        'The Bihar Non-Government Physical Education Teachers Ordinance was re-promulgated 8 times between 1989 and 1992, leaving teachers in legal limbo for decades.'
+    },
+    newCase: {
+      caseName: 'Krishna Kumar Singh v. State of Bihar',
+      shortName: 'Krishna Kumar (Ordinance)',
+      year: 2017,
+      citation: '(2017) 3 SCC 1',
+      benchStrength: '7-Judge Constitution Bench (5:2 Majority)',
+      presidingJudges: 'T.S. Thakur CJI, M.B. Lokur, S.A. Bobde, A.K. Goel, U.U. Lalit, D.Y. Chandrachud, L. Nageswara Rao JJ.',
+      verdictDate: 'January 2, 2017',
+      theSettledRatio:
+        'Re-promulgation of an ordinance without laying it before the Legislature is a constitutional fraud and subversion of democratic governance. The requirement to lay an ordinance before Parliament or State Legislature under Articles 123/213 is MANDATORY. Rights created under an expired or disapproved ordinance do NOT survive permanently unless reversing them is physically impossible or against grave public interest. An ordinance is an emergency power, not a parallel legislative track.',
+      constitutionalArticles: ['Article 123', 'Article 213', 'Article 50', 'Separation of Powers'],
+      doctrinalShift:
+        'Supremacy of the Legislature: Lawmaking is the exclusive prerogative of elected representatives. The executive cannot circumvent legislative accountability through cyclical re-promulgation.',
+      keyTakeawayForMains:
+        'Ordinance-making is conditional on immediate legislative necessity. Failure to place an ordinance before the house renders it void ab initio, and the executive bears the burden of justifying its actions under judicial review.'
+    },
+    linkedMainsQuestionId: 'mains-15m-ordinance-making-power-krishna-kumar',
+    summaryTable: [
+      {
+        parameter: 'Exceptions to Re-promulgation Ban',
+        oldLaw: 'Permissible if Legislature was preoccupied with urgent business (D.C. Wadhwa).',
+        newLaw: 'Absolute constitutional bar; no exceptions permitted. Mandatory tabling before House.'
+      },
+      {
+        parameter: 'Survival of Rights after Ordinance Expires',
+        oldLaw: 'Ambiguous; often treated as permanent enduring legal rights.',
+        newLaw: 'Rights expire with the ordinance unless irreversible or causing grave public catastrophe.'
+      },
+      {
+        parameter: 'Judicial Review of Governor\'s Satisfaction',
+        oldLaw: 'Limited scrutiny of executive motive.',
+        newLaw: 'Fully justiciable; Court examines whether circumstances required immediate action.'
+      }
+    ]
+  },
+  {
+    id: 'clash-rupa-ashok-hurra-curative-petition',
+    title: 'The Birth of the Curative Petition: Reconciling Finality of Judgments with Absolute Justice',
+    tagline: '5-Judge Constitution Bench creates the Curative Petition under Article 142, overriding the absolute bar on post-review remedies.',
+    topicPillar: 'Judiciary & Courts: Supreme Court Powers (Articles 137 & 142) & Natural Justice',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2002,
+    oldCase: {
+      caseName: 'Finality of Review Bar (Sheonandan Paswan & A.R. Antulay legacy)',
+      year: 1987,
+      citation: '(1987) 1 SCC 288 & (1988) 2 SCC 602',
+      benchStrength: '5-Judge Constitution Benches',
+      presidingJudges: 'E.S. Venkataramiah, S. Mukharji JJ.',
+      historicalContext:
+        'Under Order XL of the Supreme Court Rules and Article 137, a litigant could file one Review Petition. Once that review was dismissed, the judgment attained absolute finality under the doctrine of res judicata, leaving no judicial recourse even if a judge had undisclosed bias or natural justice was violated.',
+      theFlawedRatio:
+        'The Court held that the interest of the public required an end to litigation (*interest reipublicae ut sit finis litium*). No second review or writ petition under Article 32 could be filed against a final Supreme Court decree.',
+      whyItFailed:
+        'Left victims of gross judicial error, procedural injustice, or judicial bias completely remediless, placing institutional finality above constitutional justice.',
+      consequences:
+        'In matrimonial and property disputes, parties suffered irreversible harm when orders were passed without hearing them.'
+    },
+    newCase: {
+      caseName: 'Rupa Ashok Hurra v. Ashok Hurra',
+      shortName: 'Rupa Ashok Hurra',
+      year: 2002,
+      citation: '(2002) 4 SCC 388 / AIR 2002 SC 1771',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'S.P. Bharucha CJI, S.S.M. Quadri, U.C. Banerjee, N. Santosh Hegde, Arijit Pasayat JJ.',
+      verdictDate: 'April 10, 2002',
+      theSettledRatio:
+        'To prevent abuse of process and cure gross miscarriages of justice, the Supreme Court has the inherent power under Article 142 to entertain a "Curative Petition" even after a Review Petition is dismissed. A curative petition is entertained ONLY on narrow grounds: (1) Genuine violation of natural justice (audi alteram partem), or (2) Undisclosed judicial bias. It must be certified by a Senior Advocate and circulated to the 3 senior-most judges plus the judges who passed the order.',
+      constitutionalArticles: ['Article 137', 'Article 142', 'Article 32', 'Article 21'],
+      doctrinalShift:
+        'Justice Above Finality: Finality is desirable, but justice is paramount. The apex court is human and fallible, and possesses an inherent constitutional mechanism to correct its own manifest errors.',
+      keyTakeawayForMains:
+        'A Curative Petition is a rare, extraordinary constitutional safety valve under Article 142 to correct judicial bias or denial of a fair hearing, strictly guarded to prevent endless frivolous litigation.'
+    },
+    linkedMainsQuestionId: 'mains-10m-curative-petition-article-142',
+    summaryTable: [
+      {
+        parameter: 'Post-Review Remedy',
+        oldLaw: 'Strict finality; no further petition could be filed in the Supreme Court.',
+        newLaw: 'Curative Petition created under Article 142 as an extraordinary remedy.'
+      },
+      {
+        parameter: 'Grounds of Maintainability',
+        oldLaw: 'No grounds permitted after dismissal of review.',
+        newLaw: 'Strictly limited to violation of natural justice or proven judicial bias.'
+      },
+      {
+        parameter: 'Screening Safeguards',
+        oldLaw: 'Not applicable.',
+        newLaw: 'Senior Advocate certification + circulation to 3 senior-most judges in chambers.'
+      }
+    ]
+  },
+  {
+    id: 'clash-scba-vinay-chandra-mishra',
+    title: 'Contempt Powers vs Advocates Act: Supreme Court Cannot Suspend Law Licenses under Article 142',
+    tagline: '5-Judge Constitution Bench overrules Vinay Chandra Mishra, preserving the Bar Council\'s exclusive disciplinary domain.',
+    topicPillar: 'Judiciary & Courts: Contempt of Court (Article 129) & Plenary Powers (Article 142)',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 1998,
+    oldCase: {
+      caseName: 'In Re: Vinay Chandra Mishra',
+      year: 1995,
+      citation: '(1995) 2 SCC 584',
+      benchStrength: '3-Judge Bench',
+      presidingJudges: 'Kuldip Singh, P.B. Sawant, K. Ramaswamy JJ.',
+      historicalContext:
+        'A senior advocate and President of the Bar Council of India engaged in a confrontation with an Allahabad High Court judge. The Supreme Court initiated criminal contempt proceedings.',
+      theFlawedRatio:
+        'The 3-Judge Bench convicted the advocate and invoked Article 142 to suspend his license to practice law for three years, holding that the Supreme Court\'s contempt jurisdiction was plenary and unrestricted by the Advocates Act, 1961.',
+      whyItFailed:
+        'Usurped the statutory disciplinary authority of the State Bar Council and Bar Council of India, violating the principle that Article 142 cannot ignore substantive statutory rights.',
+      consequences:
+        'Created immense friction between the Bar and the Bench, raising fears that judges could arbitrarily disbar critical advocates under contempt powers.'
+    },
+    newCase: {
+      caseName: 'Supreme Court Bar Association v. Union of India',
+      shortName: 'SCBA (Contempt & Art 142)',
+      year: 1998,
+      citation: '(1998) 4 SCC 409 / AIR 1998 SC 1895',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'A.S. Anand, S.C. Agrawal, M.M. Punchhi, K. Venkataswami, V.N. Khare JJ.',
+      verdictDate: 'April 17, 1998',
+      theSettledRatio:
+        'In Re: Vinay Chandra Mishra is overruled. The Supreme Court under Article 129 (contempt) and Article 142 CANNOT suspend or revoke an advocate\'s license to practice law. The statutory power to punish an advocate for professional misconduct vests EXCLUSIVELY in the State Bar Council and Bar Council of India under the Advocates Act, 1961. Article 142 is a power to do complete justice between parties; it is not a power to act contrary to substantive statutory law or usurp statutory bodies.',
+      constitutionalArticles: ['Article 129', 'Article 142', 'Article 19(1)(g)', 'Advocates Act 1961'],
+      doctrinalShift:
+        'Statutory Restraint on Article 142: Article 142 cannot be used to bulldoze substantive statutes or create new jurisdictions that bypass established statutory tribunals.',
+      keyTakeawayForMains:
+        'The Supreme Court can punish contemnors with fine or imprisonment under Article 129, but cannot strip an advocate of their professional livelihood without disciplinary proceedings by the Bar Council.'
+    },
+    linkedMainsQuestionId: 'mains-10m-contempt-powers-article-142-scba',
+    summaryTable: [
+      {
+        parameter: 'Power to Suspend Advocate\'s License',
+        oldLaw: 'Supreme Court could suspend license under Article 142 (Vinay Chandra Mishra).',
+        newLaw: 'Completely barred; power vests exclusively in the statutory Bar Councils.'
+      },
+      {
+        parameter: 'Scope of Article 142 Plenary Power',
+        oldLaw: 'Unlimited power that could supersede express statutory provisions.',
+        newLaw: 'Supplementary power; cannot ignore substantive rights created by Parliament.'
+      },
+      {
+        parameter: 'Penalties for Contempt under Art 129',
+        oldLaw: 'Could include professional disqualification and disbarment.',
+        newLaw: 'Restricted to imprisonment, fine, or reprimand under Contempt of Courts Act.'
+      }
+    ]
+  },
+  {
+    id: 'clash-selvi-kathi-kalu-oghad',
+    title: 'The Narco-Analysis Ban: Involuntary Neuro-Testing Violates Right Against Self-Incrimination & Privacy',
+    tagline: 'Supreme Court rules that involuntary narco-analysis, polygraph, and brain-mapping violate Articles 20(3) and 21.',
+    topicPillar: 'Rights & Liberty: Right Against Self-Incrimination (Article 20(3)) & Cognitive Privacy (Article 21)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2010,
+    oldCase: {
+      caseName: 'State of Bombay v. Kathi Kalu Oghad (narrow physical evidence doctrine)',
+      year: 1961,
+      citation: 'AIR 1961 SC 1808 / (1962) 3 SCR 10',
+      benchStrength: '11-Judge Constitution Bench',
+      presidingJudges: 'B.P. Sinha CJI, P.B. Gajendragadkar, K.N. Wanchoo, K.C. Das Gupta JJ.',
+      historicalContext:
+        'In Kathi Kalu Oghad, the 11-Judge Bench held that taking handwriting specimens, thumb impressions, or blood did not violate Article 20(3) because "to be a witness" meant conveying knowledge of facts by oral or written testimony.',
+      theFlawedRatio:
+        'Police and investigative agencies relied on Kathi Kalu Oghad to argue that Narco-Analysis (sodium pentothal), Polygraph, and Brain Mapping (BEAP) were mere physiological data collection, not testimonial compulsion.',
+      whyItFailed:
+        'Ignored cognitive autonomy: drug-induced confessions bypass conscious control, stripping the accused of their constitutional right to remain silent.',
+      consequences:
+        'Investigative agencies routinely subjected accused persons to forced chemical injections and psychological probing in police custody.'
+    },
+    newCase: {
+      caseName: 'Selvi v. State of Karnataka',
+      shortName: 'Selvi (Narco Ban)',
+      year: 2010,
+      citation: '(2010) 7 SCC 263 / AIR 2010 SC 1974',
+      benchStrength: '3-Judge Bench (Unanimous 3-0)',
+      presidingJudges: 'K.G. Balakrishnan CJI, R.V. Raveendran, J.M. Panchal JJ.',
+      verdictDate: 'May 5, 2010',
+      theSettledRatio:
+        'Involuntary administration of Narco-Analysis, Polygraph, and Brain-Mapping tests violates the Right against Self-Incrimination under Article 20(3) AND the Right to Life and Personal Liberty under Article 21 (mental privacy and bodily integrity). An individual has an absolute right to remain silent. Forcing a person to speak via chemical or neurological intrusion is a form of cruel and degrading treatment. Any information extracted involuntarily is inadmissible in court.',
+      constitutionalArticles: ['Article 20(3)', 'Article 21', 'Section 161(2) CrPC'],
+      doctrinalShift:
+        'Cognitive Privacy & Mental Autonomy: The human mind is an inviolable zone of privacy. Article 20(3) protects not just the vocal cords, but the conscious mental faculty to choose silence.',
+      keyTakeawayForMains:
+        'Physical evidence (fingerprints, DNA, handwriting) is distinct from testimonial psychiatric extraction. Scientific criminal investigation cannot violate the core dignity of the accused.'
+    },
+    linkedMainsQuestionId: 'mains-15m-self-incrimination-selvi-cognitive-privacy',
+    summaryTable: [
+      {
+        parameter: 'Involuntary Narco & Lie-Detector Tests',
+        oldLaw: 'Permitted as legitimate investigative techniques (Kathi Kalu Oghad extension).',
+        newLaw: 'Strictly unconstitutional; violates Article 20(3) and Article 21.'
+      },
+      {
+        parameter: 'Right to Mental Privacy',
+        oldLaw: 'Not recognized in criminal procedure.',
+        newLaw: 'Inviolable facet of Article 21; protects against pharmaceutical thought-extraction.'
+      },
+      {
+        parameter: 'Evidentiary Value of Involuntary Test',
+        oldLaw: 'Admissible as investigative discovery under Section 27 Evidence Act.',
+        newLaw: 'Completely inadmissible; only voluntary testing with legal safeguards allowed.'
+      }
+    ]
+  },
+  {
+    id: 'clash-arbitration-stamp-act-nn-global',
+    title: 'The Great Stamp Act Reversal: Unstamped Arbitration Agreements Are Enforceable at Referral Stage',
+    tagline: '7-Judge Constitution Bench unanimously overrules NN Global II (2023), confirming non-stamping is a curable defect.',
+    topicPillar: 'Federalism & Economy: Arbitration & Conciliation Act, 1996 vs Indian Stamp Act, 1899',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 2023,
+    oldCase: {
+      caseName: 'N.N. Global Mercantile Pvt. Ltd. v. Indo Unique Flame Ltd. (NN Global II)',
+      year: 2023,
+      citation: '(2023) 7 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (3:2 Majority)',
+      presidingJudges: 'K.M. Joseph, Ajay Rastogi, Aniruddha Bose, Hrishikesh Roy, C.T. Ravikumar JJ.',
+      historicalContext:
+        'Under Section 35 of the Indian Stamp Act, 1899, an unstamped instrument is inadmissible in evidence. The question was whether an arbitration clause contained in an unstamped underlying commercial contract could be enforced under Section 8 or 11.',
+      theFlawedRatio:
+        'The 5-Judge majority held that an unstamped arbitration agreement is void ab initio and non-existent in law. Referral courts under Section 8 and Section 11 were required to impound the agreement and wait for the stamp collector before appointing an arbitrator.',
+      whyItFailed:
+        'Severely disrupted commercial arbitration in India: parties routinely used non-stamping to derail arbitration, causing years of litigation before an arbitral tribunal could even be constituted.',
+      consequences:
+        'Foreign and domestic investors lost confidence in Indian arbitration as appointments stalled across High Courts.'
+    },
+    newCase: {
+      caseName: 'In Re: Interplay Between Arbitration Agreements and Indian Stamp Act',
+      shortName: 'Stamp Act Reference (7-J)',
+      year: 2023,
+      citation: '2023 INSC 1066 / (2024) 6 SCC 1',
+      benchStrength: '7-Judge Constitution Bench (Unanimous 7-0)',
+      presidingJudges: 'D.Y. Chandrachud CJI, S.K. Kaul, Sanjiv Khanna, B.R. Gavai, Surya Kant, J.B. Pardiwala, Manoj Misra JJ.',
+      verdictDate: 'December 13, 2023',
+      theSettledRatio:
+        'NN Global II (2023, 5-J), SMS Tea Estates (2011), and Garware Wall Ropes (2019) are decisively overruled. Non-stamping or insufficient stamping is a curable fiscal irregularity, NOT an invalidity that renders the contract void. The referral court under Section 11 is confined strictly to examining the prima facie existence of the arbitration agreement. Questions of stamping and impounding must be decided by the Arbitral Tribunal under the Kompetenz-Kompetenz doctrine.',
+      constitutionalArticles: ['Article 141', 'Article 246', 'List III Entry 13 (Civil Procedure)', 'List III Entry 44 (Stamps)'],
+      doctrinalShift:
+        'Pro-Arbitration & Kompetenz-Kompetenz: Fiscal collection statutes cannot paralyze dispute resolution. Judicial intervention at referral stage is minimal; arbitral tribunals possess statutory competence to cure tax defects.',
+      keyTakeawayForMains:
+        'Reconciles fiscal revenue collection with alternative dispute resolution. The Stamp Act secures State revenue through impounding, not by exterminating commercial contracts.'
+    },
+    linkedMainsQuestionId: 'mains-15m-arbitration-stamp-act-kompetenz-kompetenz',
+    summaryTable: [
+      {
+        parameter: 'Effect of Non-Stamping',
+        oldLaw: 'Contract was void ab initio and non-existent (NN Global II 2023).',
+        newLaw: 'Curable fiscal defect; does not extinguish the validity of the arbitration clause.'
+      },
+      {
+        parameter: 'Role of Referral Court (Sec 11)',
+        oldLaw: 'Mandatory duty to impound the contract before referring to arbitration.',
+        newLaw: 'Confined strictly to examining prima facie existence of arbitration agreement.'
+      },
+      {
+        parameter: 'Authority to Impound',
+        oldLaw: 'Civil Courts / High Courts at Section 8 and 11 threshold.',
+        newLaw: 'Arbitral Tribunal under Section 16 (Kompetenz-Kompetenz doctrine).'
+      }
+    ]
+  },
+  {
+    id: 'clash-cox-and-kings-group-of-companies',
+    title: 'Group of Companies Doctrine Re-anchored: Mutual Commercial Intent Overrules Implied Joinder',
+    tagline: '5-Judge Constitution Bench overrules Chloro Controls extension, holding non-signatories can only be bound by real commercial consent.',
+    topicPillar: 'Federalism & Economy: Corporate Personality vs Arbitral Jurisdiction',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2023,
+    oldCase: {
+      caseName: 'Chloro Controls India Pvt. Ltd. (2013) & MTNL (2019)',
+      year: 2013,
+      citation: '(2013) 1 SCC 641 & (2020) 12 SCC 767',
+      benchStrength: '3-Judge Bench',
+      presidingJudges: 'Swatanter Kumar, S.J. Mukhopadhaya JJ.',
+      historicalContext:
+        'In Chloro Controls, the Supreme Court introduced the "Group of Companies Doctrine" to India, allowing non-signatory corporate affiliates within a conglomerate to be bound by an arbitration agreement signed by a parent or subsidiary.',
+      theFlawedRatio:
+        'The Court anchored the doctrine in the phrase "claiming through or under" in Section 8 of the Arbitration Act. Subsequent judgments expanded this to drag third-party corporate entities into arbitration simply because they belonged to the same corporate group.',
+      whyItFailed:
+        'Violated the fundamental principle of separate corporate legal personality (Salomon v. Salomon) and undermined the consensual basis of arbitration.',
+      consequences:
+        'Holding companies and sister entities were subjected to multi-million dollar arbitrations without ever signing an agreement or intending to arbitrate.'
+    },
+    newCase: {
+      caseName: 'Cox and Kings Ltd. v. SAP India Pvt. Ltd.',
+      shortName: 'Cox and Kings',
+      year: 2023,
+      citation: '2023 INSC 1051 / (2024) 4 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'D.Y. Chandrachud CJI, Hrishikesh Roy, P.S. Narasimha, J.B. Pardiwala, Manoj Misra JJ.',
+      verdictDate: 'December 6, 2023',
+      theSettledRatio:
+        'Chloro Controls is overruled to the extent it tied the Group of Companies Doctrine to the phrase "claiming through or under" in Section 8. The doctrine is anchored in mutual commercial intent under Section 7 of the Arbitration Act. A non-signatory cannot be joined simply because it is part of a corporate group. There must be active conduct: participation in contract negotiation, performance, or termination that demonstrates an objective mutual intention to be bound by the arbitration agreement.',
+      constitutionalArticles: ['Article 19(1)(g)', 'Article 300A', 'Separation of Powers'],
+      doctrinalShift:
+        'Commercial Consent & Corporate Personality: Separate legal personality is preserved. Consent is the cornerstone of arbitration; implied joinder requires evidence of direct contractual involvement, not mere corporate genealogy.',
+      keyTakeawayForMains:
+        'The Group of Companies Doctrine is not a tool to pierce the corporate veil; it is an interpretive principle to ascertain true commercial intent under Section 7.'
+    },
+    linkedMainsQuestionId: 'mains-15m-group-of-companies-arbitration-cox-kings',
+    summaryTable: [
+      {
+        parameter: 'Statutory Basis of the Doctrine',
+        oldLaw: 'Anchored in "claiming through or under" in Section 8 (Chloro Controls).',
+        newLaw: 'Overruled; anchored strictly in mutual consent under Section 7.'
+      },
+      {
+        parameter: 'Criteria to Bind Non-Signatories',
+        oldLaw: 'Corporate affiliation + economic unity of the corporate group.',
+        newLaw: 'Active commercial conduct in negotiation, execution, or performance.'
+      },
+      {
+        parameter: 'Status of Corporate Veil',
+        oldLaw: 'Blurred corporate boundaries between parent and subsidiary.',
+        newLaw: 'Separate legal entity status strictly respected.'
+      }
+    ]
+  },
+  {
+    id: 'clash-sushila-aggarwal-anticipatory-bail',
+    title: 'Anticipatory Bail Protection: Personal Liberty Cannot Be Strangled by Arbitrary Time-Limits',
+    tagline: '5-Judge Constitution Bench overrules Salauddin Shaikh, holding anticipatory bail should not be truncated by automatic expiry dates.',
+    topicPillar: 'Rights & Liberty: Personal Liberty (Article 21) & Anticipatory Bail (Section 438 CrPC)',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2020,
+    oldCase: {
+      caseName: 'Salauddin Abdulsamad Shaikh (1996) & K.L. Verma (1998)',
+      year: 1996,
+      citation: '(1996) 1 SCC 667 & (1998) 9 SCC 348',
+      benchStrength: '3-Judge Bench',
+      presidingJudges: 'M.M. Punchhi, K.T. Thomas JJ.',
+      historicalContext:
+        'A 5-Judge Constitution Bench in Gurbaksh Singh Sibbia (1980) gave an expansive interpretation to Section 438 CrPC (Anticipatory Bail). Later smaller benches began introducing restrictive caveats.',
+      theFlawedRatio:
+        'In Salauddin Shaikh and K.L. Verma, smaller benches held that anticipatory bail could only be granted for a limited time (e.g. until the police investigation completed or chargesheet was filed), after which the accused was forced to surrender and apply for regular bail.',
+      whyItFailed:
+        'Contradicted the 5-Judge Bench in Sibbia. Forced citizens who had not violated bail conditions to face arbitrary arrest and incarceration upon filing of the chargesheet.',
+      consequences:
+        'Courts across India routinely passed "limited anticipatory bail" orders for 15 or 30 days, causing widespread harassment of citizens facing politically motivated FIRs.'
+    },
+    newCase: {
+      caseName: 'Sushila Aggarwal v. State (NCT of Delhi)',
+      shortName: 'Sushila Aggarwal',
+      year: 2020,
+      citation: '(2020) 5 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'Arun Mishra, Indira Banerjee, Vineet Saran, M.R. Shah, S. Ravindra Bhat JJ.',
+      verdictDate: 'January 29, 2020',
+      theSettledRatio:
+        'Salauddin Shaikh and K.L. Verma are overruled. Anticipatory bail granted under Section 438 CrPC should NOT be subjected to an invariable limitation of time. Normally, anticipatory bail continues until the end of the trial unless special circumstances justify a time-limit. Personal liberty under Article 21 cannot be hedged with judicially invented restrictive conditions not present in the statute. Restored the plenary authority of Gurbaksh Singh Sibbia.',
+      constitutionalArticles: ['Article 21', 'Article 14', 'Section 438 CrPC'],
+      doctrinalShift:
+        'Expansive Protection of Personal Liberty: Freedom from arbitrary arrest is the heartbeat of criminal jurisprudence. Anticipatory bail is an essential shield against political or personal vendettas.',
+      keyTakeawayForMains:
+        'Section 438 CrPC must be interpreted in light of Article 21. Courts should not circumscribe anticipatory bail with inflexible time-limits when the accused cooperates with investigation.'
+    },
+    linkedMainsQuestionId: 'mains-15m-anticipatory-bail-personal-liberty-sushila-aggarwal',
+    summaryTable: [
+      {
+        parameter: 'Duration of Anticipatory Bail',
+        oldLaw: 'Limited duration only; expired upon filing of chargesheet (Salauddin Shaikh).',
+        newLaw: 'Continues till the conclusion of trial; no automatic expiration date.'
+      },
+      {
+        parameter: 'Restoration of Sibbia Principle',
+        oldLaw: 'Restricted and eroded by two decades of smaller bench judgments.',
+        newLaw: 'Fully restored: Section 438 possesses wide, unhampered discretionary power.'
+      },
+      {
+        parameter: 'Filing of Chargesheet Impact',
+        oldLaw: 'Accused was forced to surrender and seek regular bail.',
+        newLaw: 'Bail continues; chargesheet filing does not extinguish anticipatory protection.'
+      }
+    ]
+  },
+  {
+    id: 'clash-tma-pai-unni-krishnan',
+    title: 'Educational Autonomy of Private Institutions: Abolition of the Unni Krishnan Quota Scheme',
+    tagline: '11-Judge Constitution Bench overrules Unni Krishnan, holding private unaided colleges have autonomy over fees and admissions.',
+    topicPillar: 'Social Justice & Quotas: Education Rights (Article 19(1)(g) & Article 30)',
+    overrulingMagnitude: '11-Judge Overruling',
+    yearOverruled: 2002,
+    oldCase: {
+      caseName: 'Unni Krishnan, J.P. v. State of Andhra Pradesh',
+      year: 1993,
+      citation: '(1993) 1 SCC 645',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'L.M. Sharma CJI, S. Mohan, B.P. Jeevan Reddy, S.P. Bharucha JJ.',
+      historicalContext:
+        'To curb rampant commercialization and capitation fees in private medical and engineering colleges, the Supreme Court created a judicial regulatory framework.',
+      theFlawedRatio:
+        'The 5-Judge Bench formulated the "Unni Krishnan Scheme": 50% of seats in private colleges were designated "Free Seats" (admitted on merit with subsidized fees) and 50% were "Payment Seats" (higher fees to cross-subsidize the free seats). The State took over fee structure and admission lists.',
+      whyItFailed:
+        'Nationalized private professional education by judicial decree. Private entrepreneurs who invested capital had no autonomy to manage admissions, resulting in severe financial distress and subversion of quality.',
+      consequences:
+        'Private capital flight from higher education and protracted litigation between colleges and State governments for a decade.'
+    },
+    newCase: {
+      caseName: 'T.M.A. Pai Foundation v. State of Karnataka',
+      shortName: 'T.M.A. Pai Foundation',
+      year: 2002,
+      citation: '(2002) 8 SCC 481',
+      benchStrength: '11-Judge Constitution Bench (6:5 Majority on specific points)',
+      presidingJudges: 'B.N. Kirpal CJI, G.B. Pattanaik, V.N. Khare, S. Rajendra Babu, S.S.M. Quadri, Ruma Pal, S.N. Variava, K.G. Balakrishnan, P. Venkatarama Reddi, Ashok Bhan, Arijit Pasayat JJ.',
+      verdictDate: 'October 31, 2002',
+      theSettledRatio:
+        'The Unni Krishnan Scheme is unconstitutional and overruled. The establishment and administration of educational institutions is an "occupation" under Article 19(1)(g) and an fundamental right for minorities under Article 30(1). Private unaided institutions have full autonomy to fix fees and conduct transparent, merit-based admissions. Commercialization and capitation fees are prohibited, but a reasonable revenue surplus for growth is permissible. The State cannot enforce seat-sharing quotas on private unaided colleges.',
+      constitutionalArticles: ['Article 19(1)(g)', 'Article 30(1)', 'Article 26', 'Article 21A'],
+      doctrinalShift:
+        'Institutional Autonomy & Occupation Right: Education is an occupation; private initiative must be encouraged. State regulation is permissible only to ensure academic excellence and prevent exploitation, not to confiscate management.',
+      keyTakeawayForMains:
+        'Private unaided colleges possess constitutional autonomy. Regulatory oversight is legitimate to enforce transparency and merit, but cannot micro-manage fee structures or impose seat quotas.'
+    },
+    linkedMainsQuestionId: 'mains-15m-private-education-tma-pai-article-19-1-g',
+    summaryTable: [
+      {
+        parameter: 'Unni Krishnan Scheme Validity',
+        oldLaw: 'Mandatory 50% free seats / 50% payment seats cross-subsidization.',
+        newLaw: 'Declared unconstitutional and overruled in toto.'
+      },
+      {
+        parameter: 'Right to Establish Educational Institutions',
+        oldLaw: 'Not recognized as a fundamental occupation under Art 19(1)(g).',
+        newLaw: 'Fundamental right to practice an occupation under Article 19(1)(g).'
+      },
+      {
+        parameter: 'State Power to Fix Quotas',
+        oldLaw: 'State government completely controlled 100% of seats.',
+        newLaw: 'Private unaided colleges control admissions; no state quotas permitted.'
+      }
+    ]
+  },
+  {
+    id: 'clash-pa-inamdar-islamic-academy',
+    title: 'The Quota Prohibition in Private Colleges: 7-Judge Bench Bars State Reservations in Unaided Institutions',
+    tagline: '7-Judge Constitution Bench overrules Islamic Academy, holding the State cannot impose reservation quotas on private colleges.',
+    topicPillar: 'Social Justice & Quotas: Reservations in Higher Education (Articles 15 & 19(1)(g))',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 2005,
+    oldCase: {
+      caseName: 'Islamic Academy of Education v. State of Karnataka',
+      year: 2003,
+      citation: '(2003) 6 SCC 697',
+      benchStrength: '5-Judge Bench',
+      presidingJudges: 'V.N. Khare CJI, S.B. Sinha, A.R. Lakshmanan, S.H. Kapadia JJ.',
+      historicalContext:
+        'Following T.M.A. Pai, State governments attempted to fix quotas for government seats in private unaided medical and engineering colleges.',
+      theFlawedRatio:
+        'The 5-Judge Bench permitted State governments to carve out percentage quotas for State students in private unaided professional colleges, and established permanent State-level committees to regulate fees and admissions.',
+      whyItFailed:
+        'Eroded the core holding of the 11-Judge Bench in T.M.A. Pai by re-introducing backdoor State control over private colleges.',
+      consequences:
+        'Annual warfare over seat-sharing percentages between State governments and private college associations.'
+    },
+    newCase: {
+      caseName: 'P.A. Inamdar v. State of Maharashtra',
+      shortName: 'P.A. Inamdar',
+      year: 2005,
+      citation: '(2005) 6 SCC 537',
+      benchStrength: '7-Judge Constitution Bench (Unanimous 7-0)',
+      presidingJudges: 'R.C. Lahoti CJI, Y.K. Sabharwal, D.M. Dharmadhikari, Arun Kumar, G.P. Mathur, Tarun Chatterjee, P.K. Balasubramanyan JJ.',
+      verdictDate: 'August 12, 2005',
+      theSettledRatio:
+        'Islamic Academy is overruled to the extent it permitted State quotas. Neither the policy of reservation can be enforced by the State nor any quota or percentage of admissions can be carved out by the State in private unaided educational institutions (minority or non-minority). Admissions must be purely merit-based through a Common Entrance Test (CET). (This decision led Parliament to immediately pass the 93rd Constitutional Amendment Act 2005, inserting Article 15(5)).',
+      constitutionalArticles: ['Article 15(4)', 'Article 15(5)', 'Article 19(1)(g)', 'Article 30(1)'],
+      doctrinalShift:
+        'Sanctity of Private Autonomy: The State cannot appropriate private educational seats for its affirmative action policies without providing aid.',
+      keyTakeawayForMains:
+        'P.A. Inamdar ruled that private unaided institutions cannot be forced to bear the State\'s reservation burden. This triggered the 93rd Amendment Act inserting Article 15(5).'
+    },
+    linkedMainsQuestionId: 'mains-15m-inamdar-93rd-amendment-article-15-5',
+    summaryTable: [
+      {
+        parameter: 'State Reservation Quotas in Private Unaided Colleges',
+        oldLaw: 'Permissible for State to carve out quota percentages (Islamic Academy).',
+        newLaw: 'Completely unconstitutional and prohibited (triggered 93rd Amendment).'
+      },
+      {
+        parameter: 'Minority vs Non-Minority Unaided Colleges',
+        oldLaw: 'Divergent standards applied by State admission committees.',
+        newLaw: 'Both enjoy identical protection against involuntary state quota appropriation.'
+      },
+      {
+        parameter: 'Entrance Exam Mechanism',
+        oldLaw: 'Multiple individual college tests allowed.',
+        newLaw: 'Mandatory single Common Entrance Test (CET) to ensure transparency.'
+      }
+    ]
+  },
+  {
+    id: 'clash-pramati-trust-rte-minority-schools',
+    title: 'RTE Act & Minority Rights: Fundamental Protection under Article 30(1) Overrules 25% EWS Quota',
+    tagline: '5-Judge Constitution Bench overrules Society for Unaided Private Schools, exempting minority schools from RTE mandates.',
+    topicPillar: 'Social Justice & Quotas: Minority Rights (Article 30(1)) & Right to Education (Article 21A)',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2014,
+    oldCase: {
+      caseName: 'Society for Unaided Private Schools of India v. Union of India',
+      year: 2012,
+      citation: '(2012) 6 SCC 1',
+      benchStrength: '3-Judge Bench (2:1 Majority)',
+      presidingJudges: 'S.H. Kapadia CJI, Swatanter Kumar J. (Majority); K.S. Radhakrishnan J. (Dissenting)',
+      historicalContext:
+        'Section 12(1)(c) of the Right of Children to Free and Compulsory Education (RTE) Act, 2009 mandated that all private schools must reserve 25% of class 1 seats for children from weaker sections and disadvantaged groups in the neighborhood.',
+      theFlawedRatio:
+        'The majority upheld the application of the 25% quota to private unaided minority schools, holding that Article 21A was a paramount societal duty that applied across all non-aided educational institutions.',
+      whyItFailed:
+        'Directly violated Article 30(1), which guarantees religious and linguistic minorities the fundamental right to establish and administer educational institutions of their choice.',
+      consequences:
+        'Minority institutions faced loss of their distinctive cultural character and administrative autonomy under bureaucratic state quotas.'
+    },
+    newCase: {
+      caseName: 'Pramati Educational and Cultural Trust v. Union of India',
+      shortName: 'Pramati Trust (RTE)',
+      year: 2014,
+      citation: '(2014) 8 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'R.M. Lodha CJI, A.K. Patnaik, S.J. Mukhopadhaya, Dipak Misra, F.M. Ibrahim Kalifulla JJ.',
+      verdictDate: 'May 6, 2014',
+      theSettledRatio:
+        'Society for Unaided Private Schools (2012) is overruled to the extent it applied to minority institutions. The Right to Education Act, 2009 is constitutionally ultra vires insofar as it applies to minority schools (both aided and unaided) protected under Article 30(1). Forcing a minority school to admit 25% students from outside the community destroys its minority character and violates the core guarantee of Article 30(1). The 86th and 93rd Constitutional Amendments were simultaneously upheld as valid.',
+      constitutionalArticles: ['Article 30(1)', 'Article 21A', 'Article 15(5)', 'Article 19(1)(g)'],
+      doctrinalShift:
+        'Pre-eminence of Minority Educational Sovereignty: The State\'s duty to provide free elementary education under Article 21A cannot be discharged by subverting the constitutional rights of minority institutions under Article 30(1).',
+      keyTakeawayForMains:
+        'Article 30(1) is a specialized fundamental right that shields minority schools from involuntary demographic quotas. The RTE Act applies to non-minority private schools, but excludes minority schools.'
+    },
+    linkedMainsQuestionId: 'mains-15m-pramati-trust-rte-minority-rights',
+    summaryTable: [
+      {
+        parameter: 'Application of 25% RTE Quota to Minority Schools',
+        oldLaw: 'Mandatory for all schools including unaided minority institutions (2012).',
+        newLaw: 'Struck down and exempted; violates fundamental right under Article 30(1).'
+      },
+      {
+        parameter: 'Validity of 86th & 93rd Amendments',
+        oldLaw: 'Subject to continuous legal challenges.',
+        newLaw: 'Unanimously upheld: Articles 21A and 15(5) do not alter the Basic Structure.'
+      },
+      {
+        parameter: 'State\'s Duty under Article 21A',
+        oldLaw: 'Could be delegated compulsorily onto all educational institutions.',
+        newLaw: 'State must establish its own schools rather than extinguishing minority autonomy.'
+      }
+    ]
+  },
+  {
+    id: 'clash-aveek-sarkar-ranjit-udeshi',
+    title: 'Obscenity Redefined: Burial of the Victorian Hicklin Test in Favor of Community Standards',
+    tagline: 'Supreme Court overrules the Hicklin Test adopted in Ranjit Udeshi, establishing the contemporary Community Standards Test.',
+    topicPillar: 'Rights & Liberty: Freedom of Speech (Article 19(1)(a)) & Obscenity (Section 292 IPC)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2014,
+    oldCase: {
+      caseName: 'Ranjit D. Udeshi v. State of Maharashtra (Lady Chatterley\'s Lover)',
+      year: 1965,
+      citation: 'AIR 1965 SC 881 / (1965) 1 SCR 65',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'P.B. Gajendragadkar CJI, K.N. Wanchoo, M. Hidayatullah, J.C. Shah, S.M. Sikri JJ.',
+      historicalContext:
+        'A Mumbai bookseller was prosecuted under Section 292 IPC for selling D.H. Lawrence\'s novel "Lady Chatterley\'s Lover". The Constitution Bench adopted the 1868 British Victorian Hicklin Test.',
+      theFlawedRatio:
+        'Under the Hicklin Test, a work was judged obscene if isolated passages had a tendency to deprave and corrupt the minds of the most open, vulnerable, and easily corruptible persons in society (e.g. young teenagers), ignoring the work\'s broader literary context.',
+      whyItFailed:
+        'Institutionalized prudery and moral policing. Evaluated art, literature, and journalism through the lens of extreme puritanical hypersensitivity.',
+      consequences:
+        'Legitimate works of world literature, paintings, medical texts, and classical Indian art faced routine criminal prosecutions across the country.'
+    },
+    newCase: {
+      caseName: 'Aveek Sarkar v. State of West Bengal',
+      shortName: 'Aveek Sarkar (Obscenity)',
+      year: 2014,
+      citation: '(2014) 4 SCC 257',
+      benchStrength: '2-Judge Bench',
+      presidingJudges: 'K.S. Radhakrishnan and A.K. Sikri JJ.',
+      verdictDate: 'February 3, 2014',
+      theSettledRatio:
+        'The Victorian Hicklin Test adopted in Ranjit Udeshi is definitively discarded. Obscenity must be judged by the "Contemporary Community Standards Test": (1) A work cannot be judged by isolated passages or images; it must be viewed as a whole; (2) The standard is that of an ordinary, reasonable, mature average person in modern society, not a sensitive or hypersensitive person; (3) Nudity or erotic depiction is NOT obscene per se unless it appeals to prurient interest and lacks serious literary, artistic, or educational value.',
+      constitutionalArticles: ['Article 19(1)(a)', 'Article 19(2)', 'Section 292 IPC'],
+      doctrinalShift:
+        'From Victorian Prudery to Transformative Free Expression: Freedom of speech under Article 19(1)(a) protects artistic realism. The criminal law cannot be used to impose Victorian moral censorship on modern Indian society.',
+      keyTakeawayForMains:
+        'The Community Standards Test aligns Indian free speech jurisprudence with modern democratic standards. Obscenity requires lascivious intent judged in totality, not isolated discomfort.'
+    },
+    linkedMainsQuestionId: 'mains-10m-freedom-of-speech-obscenity-community-standards',
+    summaryTable: [
+      {
+        parameter: 'Legal Standard of Obscenity',
+        oldLaw: 'Victorian Hicklin Test (1868): Tendency to corrupt the most vulnerable minds.',
+        newLaw: 'Contemporary Community Standards Test: Perspective of an average mature citizen.'
+      },
+      {
+        parameter: 'Method of Evaluation',
+        oldLaw: 'Passages or photographs extracted and judged in isolation.',
+        newLaw: 'Work must be evaluated in its overall context and social message.'
+      },
+      {
+        parameter: 'Nudity & Art',
+        oldLaw: 'Presumed obscene and lascivious per se.',
+        newLaw: 'Nudity is not obscene unless devoid of artistic or social value.'
+      }
+    ]
+  },
+  {
+    id: 'clash-bcci-public-duty-zee-telefilms',
+    title: 'Monopoly Sports Bodies & Public Law: BCCI Subject to Writ Review Despite Article 12 Immunity',
+    tagline: 'Supreme Court pierces the private shield of Zee Telefilms, holding BCCI exercises public functions amenable to Article 226.',
+    topicPillar: 'Judiciary & Courts: Definition of State (Article 12) & High Court Writ Jurisdiction (Article 226)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2015,
+    oldCase: {
+      caseName: 'Zee Telefilms Ltd. v. Union of India',
+      year: 2005,
+      citation: '(2005) 4 SCC 649',
+      benchStrength: '5-Judge Constitution Bench (3:2 Majority)',
+      presidingJudges: 'N. Santosh Hegde, S.N. Variava, B.P. Singh JJ. (Majority); Ashok Bhan, S.B. Sinha JJ. (Dissenting)',
+      historicalContext:
+        'Zee Telefilms challenged the cancellation of cricket telecast rights by the Board of Control for Cricket in India (BCCI), filing a writ petition under Article 32.',
+      theFlawedRatio:
+        'The 5-Judge majority held that BCCI was an autonomous registered society under the Tamil Nadu Societies Registration Act, receiving no state aid and having no statutory character. Therefore, it was NOT "State" under Article 12, immunizing it from fundamental rights scrutiny.',
+      whyItFailed:
+        'Ignored reality: BCCI selected the national team representing the Republic of India, used the national flag and emblem, and exercised an absolute statutory and commercial monopoly over cricket.',
+      consequences:
+        'Allowed unchecked commercial corruption, match-fixing scandals, and conflicts of interest (IPL franchise ownership by BCCI administrators) without public accountability.'
+    },
+    newCase: {
+      caseName: 'BCCI v. Cricket Association of Bihar (IPL Spot-Fixing Case)',
+      shortName: 'BCCI Public Duty',
+      year: 2015,
+      citation: '(2015) 3 SCC 251',
+      benchStrength: '2-Judge Bench',
+      presidingJudges: 'T.S. Thakur and F.M. Ibrahim Kalifulla JJ.',
+      verdictDate: 'January 22, 2015',
+      theSettledRatio:
+        'While maintaining that BCCI is technically not "State" under Article 12, the Court overruled the immunity shield created by Zee Telefilms. BCCI exercises monopoly public functions that are essentially governmental in nature (selecting the Indian national team, regulating domestic cricket). Consequently, BCCI is AMENABLE to High Court writ jurisdiction under Article 226 and is bound by public law standards of fairness, equity, and non-arbitrariness. Struck down Rule 6.2.4 permitting administrators to hold commercial stakes in IPL.',
+      constitutionalArticles: ['Article 12', 'Article 226', 'Article 14', 'Rule of Law'],
+      doctrinalShift:
+        'Functional Test for Public Writs: Article 226 reaches any entity performing a public duty, regardless of its private or corporate legal form. Monopoly control over national sporting representation is a public trust.',
+      keyTakeawayForMains:
+        'Article 226 is wider than Article 32. Any private body discharging public duties or de facto sovereign functions is accountable to judicial review under administrative law.'
+    },
+    linkedMainsQuestionId: 'mains-15m-article-12-state-public-duty-bcci',
+    summaryTable: [
+      {
+        parameter: 'Judicial Scrutiny of BCCI',
+        oldLaw: 'Immune from writ review; treated as purely private club (Zee Telefilms).',
+        newLaw: 'Amenable to Article 226; exercises public functions subject to rule of law.'
+      },
+      {
+        parameter: 'Conflict of Interest in Governance',
+        oldLaw: 'Permitted under internal BCCI amendments (Rule 6.2.4).',
+        newLaw: 'Struck down as violative of public trust and judicial fairness.'
+      },
+      {
+        parameter: 'Reach of Article 226',
+        oldLaw: 'Tied strictly to formal state instrumentalities under Article 12.',
+        newLaw: 'Functional approach: Covers any private entity discharging sovereign public duties.'
+      }
+    ]
+  },
+  {
+    id: 'clash-karunanidhi-repugnancy-zaverbhai',
+    title: 'The Doctrine of Repugnancy Settled: Federal Legislative Conflict under Article 254',
+    tagline: '5-Judge Constitution Bench establishes the definitive 3-condition test for Concurrent List conflict under Article 254.',
+    topicPillar: 'Federalism & Economy: Centre-State Relations (Articles 246 & 254) & Concurrent List III',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1979,
+    oldCase: {
+      caseName: 'Zaverbhai Amaidas (1954) & Ch. Tika Ramji (1956) narrow conflict tests',
+      year: 1954,
+      citation: '(1955) 1 SCR 799 & 1956 SCR 393',
+      benchStrength: '5-Judge Constitution Benches',
+      presidingJudges: 'B.K. Mukherjea, N.H. Bhagwati JJ.',
+      historicalContext:
+        'Former Tamil Nadu Chief Minister M.K. Karunanidhi was prosecuted under the Indian Penal Code and Prevention of Corruption Act (Central laws). He argued that the Tamil Nadu Public Men (Criminal Misconduct) Act, 1973 (State law that had received Presidential assent) completely occupied the field, rendering the Central Act inapplicable in Tamil Nadu under Article 254(2).',
+      theFlawedRatio:
+        'Earlier benches had left open whether mere overlapping subject matters on the Concurrent List constituted "repugnancy" sufficient to supersede central criminal law.',
+      whyItFailed:
+        'State governments could enact toothless state anti-corruption laws with Presidential assent to immunize corrupt leaders from stringent Central CBI prosecutions under the IPC and POCA.',
+      consequences:
+        'Threatened national uniform criminal jurisprudence across States on Concurrent List III.'
+    },
+    newCase: {
+      caseName: 'M.K. Karunanidhi v. Union of India',
+      shortName: 'Karunanidhi (Repugnancy)',
+      year: 1979,
+      citation: '(1979) 3 SCC 431 / AIR 1979 SC 898',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'S. Murtaza Fazal Ali, P.N. Bhagwati, R.S. Sarkaria, N.L. Untwalia, P.S. Kailasam JJ.',
+      verdictDate: 'February 20, 1979',
+      theSettledRatio:
+        'Established the definitive test for Repugnancy under Article 254: (1) There must be a clear and direct inconsistency between the Central Act and State Act; (2) The inconsistency must be absolutely irreconcilable, such that obedience to one law necessarily involves disobedience of the other; (3) There is no repugnancy if both laws can operate concurrently in the same field by creating complementary or cumulative penalties. The Central POCA and State Act were held to be co-extensive; Karunanidhi was liable under both.',
+      constitutionalArticles: ['Article 254(1)', 'Article 254(2)', 'Article 246', 'Seventh Schedule List III'],
+      doctrinalShift:
+        'Harmonious Federal Operation: Repugnancy is not lightly presumed. Courts must make every effort to harmonize Central and State statutes on Concurrent List III before declaring one invalid.',
+      keyTakeawayForMains:
+        'Article 254(2) Presidential assent protects a State law only to the extent of direct, irreconcilable collision. Parallel or complementary provisions do not oust Central criminal statutes.'
+    },
+    linkedMainsQuestionId: 'mains-15m-doctrine-of-repugnancy-article-254',
+    summaryTable: [
+      {
+        parameter: 'Threshold of Repugnancy',
+        oldLaw: 'Subjective field-occupation test; mere overlap could create conflict.',
+        newLaw: 'Direct, irreconcilable contradiction: compliance with one forces breach of other.'
+      },
+      {
+        parameter: 'Cumulative Penal Statutes',
+        oldLaw: 'State assent was argued to displace all Central criminal jurisdiction.',
+        newLaw: 'Both central and state acts can operate harmoniously unless expressly contradictory.'
+      },
+      {
+        parameter: 'Presumption of Constitutionality',
+        oldLaw: 'Strict textual comparison of entries.',
+        newLaw: 'Strong judicial presumption in favor of the co-existence of both laws.'
+      }
+    ]
+  },
+  {
+    id: 'clash-bachan-singh-death-penalty',
+    title: 'The Rarest of Rare Doctrine: Life Imprisonment is the Rule, Capital Punishment the Absolute Exception',
+    tagline: '5-Judge Constitution Bench in Bachan Singh overrules Rajendra Prasad, establishing the definitive death penalty framework under Article 21.',
+    topicPillar: 'Rights & Liberty: Right to Life (Article 21) & Capital Punishment (Section 302 IPC)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 1980,
+    oldCase: {
+      caseName: 'Rajendra Prasad v. State of Uttar Pradesh',
+      year: 1979,
+      citation: '(1979) 3 SCC 646 / AIR 1979 SC 916',
+      benchStrength: '3-Judge Bench (2:1 Majority)',
+      presidingJudges: 'V.R. Krishna Iyer, D.A. Desai JJ. (Majority); A.P. Sen J. (Dissenting)',
+      historicalContext:
+        'Following Jagmohan Singh (1973) which upheld the death penalty, smaller benches led by Justice Krishna Iyer sought to virtually abolish capital punishment by judicial interpretation.',
+      theFlawedRatio:
+        'Justice Krishna Iyer held that the death penalty under Section 302 IPC could ONLY be imposed where the criminal was a persistent menace to society and the crime endangered national security or public order, effectively removing regular heinous murders from capital sentencing.',
+      whyItFailed:
+        'Created massive sentencing inconsistency: different benches applied conflicting personal philosophies, resulting in arbitrary "judge-centric" death sentences.',
+      consequences:
+        'Trial courts and High Courts across India were paralyzed by conflicting Supreme Court interpretations of Section 354(3) CrPC.'
+    },
+    newCase: {
+      caseName: 'Bachan Singh v. State of Punjab',
+      shortName: 'Bachan Singh (Rarest of Rare)',
+      year: 1980,
+      citation: '(1980) 2 SCC 684 / AIR 1980 SC 898',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'Y.V. Chandrachud CJI, A.C. Gupta, N.L. Untwalia, R.S. Sarkaria JJ. (P.N. Bhagwati J. dissenting)',
+      verdictDate: 'May 9, 1980',
+      theSettledRatio:
+        'Rajendra Prasad is overruled. Capital punishment under Section 302 IPC does not violate Articles 14, 19, or 21. Life imprisonment is the rule, and death penalty is the exception. Formulated the definitive "RAREST OF RARE CASES" test: the sentencing judge must draw up a balance sheet of Aggravating Circumstances (heinous nature of crime) AND Mitigating Circumstances (age, reformability, socio-economic background). Death sentence can be awarded ONLY when the alternative option of life imprisonment is unquestionably foreclosed.',
+      constitutionalArticles: ['Article 21', 'Article 14', 'Article 19', 'Section 302 IPC', 'Section 354(3) CrPC'],
+      doctrinalShift:
+        'The Rarest of Rare Framework: Individualized sentencing replacing mechanical retributive punishment. Focus shifted from just the "crime" to the "criminal" and their capacity for reformation.',
+      keyTakeawayForMains:
+        'Bachan Singh anchored capital sentencing within the golden triangle of Part III. The State must prove that the convict is beyond reform before the scaffold can be ordered.'
+    },
+    linkedMainsQuestionId: 'mains-15m-death-penalty-rarest-of-rare-bachan-singh',
+    summaryTable: [
+      {
+        parameter: 'Threshold for Capital Punishment',
+        oldLaw: 'Restricted strictly to crimes against the State or social security (Rajendra Prasad).',
+        newLaw: '"Rarest of Rare Cases": Where alternative of life imprisonment is unquestionably foreclosed.'
+      },
+      {
+        parameter: 'Sentencing Balance Sheet',
+        oldLaw: 'Subjective focus on judge\'s penal philosophy.',
+        newLaw: 'Objective weighing of Aggravating Circumstances vs Mitigating Circumstances.'
+      },
+      {
+        parameter: 'Constitutional Validity of Sec 302 IPC',
+        oldLaw: 'Vigorously debated under Articles 14 and 21.',
+        newLaw: 'Unambiguously upheld as constitutionally valid by 4:1 majority.'
+      }
+    ]
   }
 ];

@@ -22,11 +22,21 @@ import { PRECEDENT_CLASHES_DATA, type PrecedentClash } from '../../data/preceden
 import { useTheme } from '../../context/ThemeContext';
 import { PrecedentDuelArena } from './PrecedentDuelArena';
 
+const PILLARS = [
+  { id: 'all', label: 'All Pillars' },
+  { id: 'rights', label: 'Rights & Liberty', match: ['part iii', 'privacy', 'equality', 'liberty', 'self-incrimination', 'speech', 'obscenity', 'death penalty', 'adultery', 'golden triangle'] },
+  { id: 'social-justice', label: 'Social Justice & Quotas', match: ['quota', 'reservation', 'backward', 'mandal', 'article 16', 'education', 'sc/st', 'promotion', 'inamdar', 'tma pai', 'minority'] },
+  { id: 'judiciary', label: 'Judiciary & Courts', match: ['judiciary', 'collegium', 'contempt', 'curative', 'tribunal', 'article 142', 'review', 'stare decisis', 'scba', 'bengal immunity', 'chandra kumar'] },
+  { id: 'federalism', label: 'Federalism & Economy', match: ['federalism', 'tax', 'mineral', 'arbitration', 'repugnancy', 'inter-state', 'article 246', 'stamp act', 'jindal', 'trade', 'commercial'] },
+  { id: 'governance', label: 'Governance & Democracy', match: ['ordinance', 'emergency', 'defection', 'tenth schedule', 'electoral', 'privilege', 'bommai', 'wadhwa', 'krishna kumar'] }
+];
+
 export const PrecedentClashView: React.FC = () => {
   const { setActiveTab } = useTheme();
   const [viewMode, setViewMode] = useState<'duel' | 'analysis'>('duel');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMagnitude, setSelectedMagnitude] = useState<string>('all');
+  const [selectedPillar, setSelectedPillar] = useState<string>('all');
   const [selectedClashId, setSelectedClashId] = useState<string>(PRECEDENT_CLASHES_DATA[0].id);
 
   // Filtered list
@@ -44,9 +54,18 @@ export const PrecedentClashView: React.FC = () => {
       const matchesMagnitude =
         selectedMagnitude === 'all' || clash.overrulingMagnitude === selectedMagnitude;
 
-      return matchesSearch && matchesMagnitude;
+      const matchesPillar =
+        selectedPillar === 'all' ||
+        (() => {
+          const p = PILLARS.find((pil) => pil.id === selectedPillar);
+          if (!p || !p.match) return true;
+          const text = `${clash.topicPillar} ${clash.title} ${clash.newCase.constitutionalArticles.join(' ')}`.toLowerCase();
+          return p.match.some((kw) => text.includes(kw));
+        })();
+
+      return matchesSearch && matchesMagnitude && matchesPillar;
     });
-  }, [searchQuery, selectedMagnitude]);
+  }, [searchQuery, selectedMagnitude, selectedPillar]);
 
   const activeClash: PrecedentClash = useMemo(() => {
     return (
@@ -154,6 +173,30 @@ export const PrecedentClashView: React.FC = () => {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Thematic Pillar Ribbon */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pt-2 border-t border-[var(--border-subtle)] no-scrollbar">
+          <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider shrink-0 mr-1">
+            Pillar:
+          </span>
+          {PILLARS.map((pil) => {
+            const isSel = selectedPillar === pil.id;
+            return (
+              <button
+                key={pil.id}
+                type="button"
+                onClick={() => setSelectedPillar(pil.id)}
+                className={`px-2.5 py-1 rounded-xl text-[10px] font-mono whitespace-nowrap transition-all cursor-pointer ${
+                  isSel
+                    ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] font-bold shadow-sm'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                }`}
+              >
+                {pil.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
