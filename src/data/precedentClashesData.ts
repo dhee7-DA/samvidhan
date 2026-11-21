@@ -3468,4 +3468,989 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
       }
     ]
   }
+,
+{
+  "id": "clash-mafatlal-unjust-enrichment-tax-refund",
+  "title": "The Doctrine of Unjust Enrichment: 9-Judge Bench Bars Windfall Tax Refunds",
+  "tagline": "9-Judge Bench overrules Kanhaiya Lal, holding tax refunds cannot be granted where the burden was passed to consumers.",
+  "topicPillar": "Federalism & Economy: Taxation, Article 265 & Public Revenue Protection",
+  "overrulingMagnitude": "9-Judge Overruling",
+  "yearOverruled": 1997,
+  "oldCase": {
+    "caseName": "Sales Tax Officer, Banaras v. Kanhaiya Lal Mukundlal Saraf",
+    "year": 1959,
+    "citation": "(1959) SCR 1350 / AIR 1959 SC 135",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "Sudhi Ranjan Das CJI, N.H. Bhagwati, B.P. Sinha, K. Subba Rao, K.N. Wanchoo JJ.",
+    "historicalContext": "Taxpayers who paid indirect taxes later declared unconstitutional sought automatic refunds from the State under Section 72 of the Indian Contract Act based on mistake of law.",
+    "theFlawedRatio": "The 5-Judge Bench held that any tax collected without authority of law must be refunded automatically to the assessee under Section 72 of the Contract Act, regardless of whether the assessee had already collected that tax from retail buyers.",
+    "whyItFailed": "Ignored economic reality: assessees received double enrichment by collecting taxes from consumers and then pocketing refunds from the public treasury.",
+    "consequences": "Massive drain on state development exchequers and private windfalls at public cost."
+  },
+  "newCase": {
+    "caseName": "Mafatlal Industries Ltd. v. Union of India",
+    "shortName": "Mafatlal Industries",
+    "year": 1997,
+    "citation": "(1997) 5 SCC 536 / 1996 INSC 1599",
+    "benchStrength": "9-Judge Constitution Bench (Majority 5:4)",
+    "presidingJudges": "A.M. Ahmadi CJI, J.S. Verma, S.P. Bharucha, K.S. Paripoornan, S.C. Sen JJ.",
+    "verdictDate": "December 19, 1996",
+    "theSettledRatio": "Kanhaiya Lal is OVERRULED. An assessee who has passed on the incidence of an indirect tax to buyers cannot claim a refund from the State. Granting a refund to a seller who bore no economic loss constitutes unjust enrichment. The refund belongs to the consumers who actually paid it or must be credited to the Consumer Welfare Fund.",
+    "constitutionalArticles": [
+      "Article 265",
+      "Article 226",
+      "Article 32"
+    ],
+    "doctrinalShift": "Doctrine of Unjust Enrichment: Public law remedies cannot be leveraged to facilitate windfall private gains where no personal economic injury occurred.",
+    "keyTakeawayForMains": "Essential precedent on the interface of Article 265 fiscal legality and restitutionary equity under Section 72 Contract Act."
+  },
+  "linkedMainsQuestionId": "mains-15m-unjust-enrichment-article-265-mafatlal",
+  "summaryTable": [
+    {
+      "parameter": "Tax Refund Entitlement",
+      "oldLaw": "Automatic refund upon showing payment made under mistake of law.",
+      "newLaw": "Refund conditional on proving tax burden was not passed on to consumers."
+    },
+    {
+      "parameter": "Equitable Defense of Unjust Enrichment",
+      "oldLaw": "Inapplicable against statutory restitution under Section 72 Contract Act.",
+      "newLaw": "Mandatory constitutional bar to prevent unjust personal enrichment."
+    }
+  ]
+},
+{
+  "id": "clash-sbp-patel-arbitration-section-11",
+  "title": "Arbitration Referrals as Judicial Power: 7-Judge Bench Overrules Konkan Railway",
+  "tagline": "7-Judge Bench holds that appointing an arbitrator under Section 11 is a judicial exercise, not an administrative act.",
+  "topicPillar": "Judiciary & Courts: Arbitration Act, Section 11 & Judicial Power",
+  "overrulingMagnitude": "7-Judge Overruling",
+  "yearOverruled": 2005,
+  "oldCase": {
+    "caseName": "Konkan Railway Corp. Ltd. v. Rani Construction Pvt. Ltd.",
+    "year": 2002,
+    "citation": "(2002) 2 SCC 388",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "S.P. Bharucha CJI, Syed Shah Mohammed Quadri, U.C. Banerjee, S.N. Variava, Shivaraj V. Patil JJ.",
+    "historicalContext": "Disputes arose over whether the Chief Justice, when appointing an arbitrator under Section 11 of the 1996 Arbitration Act, acted administratively or judicially.",
+    "theFlawedRatio": "Held that appointing an arbitrator under Section 11 was purely an administrative function. The appointing authority could not examine jurisdictional issues or agreement existence, leaving everything to the arbitral tribunal under Section 16.",
+    "whyItFailed": "Forced parties into expensive arbitration proceedings even when no valid arbitration agreement existed, creating procedural abuse.",
+    "consequences": "Null agreements were referred blindly, clogging arbitration with disputes that should have been dismissed at the threshold."
+  },
+  "newCase": {
+    "caseName": "SBP & Co. v. Patel Engineering Ltd.",
+    "shortName": "SBP & Co.",
+    "year": 2005,
+    "citation": "(2005) 8 SCC 618 / 2005 INSC 505",
+    "benchStrength": "7-Judge Constitution Bench (6:1 Majority)",
+    "presidingJudges": "R.C. Lahoti CJI, B.N. Srikrishna, K.G. Balakrishnan, P.V. Reddi, G.P. Mathur, C.K. Thakker JJ. (P.K. Balasubramanyan J. dissenting)",
+    "verdictDate": "October 26, 2005",
+    "theSettledRatio": "Konkan Railway is OVERRULED. The power exercised by the Chief Justice or their designate under Section 11 is a JUDICIAL POWER, not an administrative act. The court must be satisfied of its own jurisdiction and the threshold existence of a valid arbitration agreement before directing a reference.",
+    "constitutionalArticles": [
+      "Article 136",
+      "Article 226",
+      "Article 227"
+    ],
+    "doctrinalShift": "Judicial Screening at Referral: Re-established that judicial power cannot be exercised blindly or delegated administratively without threshold verification.",
+    "keyTakeawayForMains": "Landmark watershed defining the division of labor between referring courts and arbitral tribunals under the Competence-Competence doctrine."
+  },
+  "linkedMainsQuestionId": "mains-15m-arbitration-section-11-judicial-power-sbp",
+  "summaryTable": [
+    {
+      "parameter": "Nature of Section 11 Appointment Power",
+      "oldLaw": "Purely administrative act with zero judicial inquiry into agreement validity.",
+      "newLaw": "Judicial order determining court jurisdiction and agreement existence."
+    },
+    {
+      "parameter": "Appellate Remedy against Appointment Order",
+      "oldLaw": "Writ petition under Article 226 lay against administrative direction.",
+      "newLaw": "Appealable solely via Special Leave Petition under Article 136."
+    }
+  ]
+},
+{
+  "id": "clash-pradeep-biswas-article-12-state-instrumentality",
+  "title": "The Modern State Test under Article 12: 7-Judge Bench Overrules Sabhajit Tewary",
+  "tagline": "7-Judge Bench overrules Sabhajit Tewary, holding CSIR is an instrumentality of State subject to fundamental rights review.",
+  "topicPillar": "Judiciary & Courts: Definition of \"State\" under Article 12 & Writs",
+  "overrulingMagnitude": "7-Judge Overruling",
+  "yearOverruled": 2002,
+  "oldCase": {
+    "caseName": "Sabhajit Tewary v. Union of India",
+    "year": 1975,
+    "citation": "(1975) 1 SCC 485 / AIR 1975 SC 1329",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "A.N. Ray CJI, K.K. Mathew, Y.V. Chandrachud, A. Alagiriswami, A.C. Gupta JJ.",
+    "historicalContext": "Employees of the Council of Scientific and Industrial Research (CSIR) filed writ petitions challenging discriminatory service conditions under Article 14.",
+    "theFlawedRatio": "Held that because CSIR was registered as a society under the Societies Registration Act, 1860, and not established directly by a statute, it was not \"State\" or \"other authority\" under Article 12.",
+    "whyItFailed": "Relied on mere corporate form rather than the functional, financial, and administrative reality of complete government ownership and funding.",
+    "consequences": "Enabled government-funded societies to evade constitutional mandates of non-discrimination and equality in public employment."
+  },
+  "newCase": {
+    "caseName": "Pradeep Kumar Biswas v. Indian Institute of Chemical Biology",
+    "shortName": "Pradeep Kumar Biswas",
+    "year": 2002,
+    "citation": "(2002) 5 SCC 111 / 2002 INSC 206",
+    "benchStrength": "7-Judge Constitution Bench (5:2 Majority)",
+    "presidingJudges": "S.P. Bharucha CJI, Syed Shah Mohammed Quadri, R.C. Lahoti, N. Santosh Hegde, S.N. Variava JJ. (Ruma Pal & Ashok Bhan JJ. dissenting)",
+    "verdictDate": "April 16, 2002",
+    "theSettledRatio": "Sabhajit Tewary is OVERRULED. The formal corporate veil is irrelevant. An entity is an instrumentality of the State under Article 12 if it is functionally, financially, and administratively dominated by or under the pervasive control of the Government. CSIR is deeply financed and controlled by the Union Government and is an authority under Article 12.",
+    "constitutionalArticles": [
+      "Article 12",
+      "Article 14",
+      "Article 16",
+      "Article 32",
+      "Article 226"
+    ],
+    "doctrinalShift": "Functional Pervasive Control Test: Constitutional obligations attach to substance of public governance, not the legal wrapper of incorporation.",
+    "keyTakeawayForMains": "The definitive 7-Judge standard harmonizing Ajay Hasia and Raman Dayaram Shetty for testing statutory bodies and government corporations under Article 12."
+  },
+  "linkedMainsQuestionId": "mains-15m-article-12-definition-state-pradeep-biswas",
+  "summaryTable": [
+    {
+      "parameter": "Criterion for \"Other Authorities\" under Art 12",
+      "oldLaw": "Entity must be created directly by a statute; societies excluded.",
+      "newLaw": "Substantive test: deep financial, functional, and administrative governmental control."
+    },
+    {
+      "parameter": "Constitutional Status of CSIR",
+      "oldLaw": "Private registered society outside fundamental rights jurisdiction.",
+      "newLaw": "Instrumentality of the Union State bound by Part III."
+    }
+  ]
+},
+{
+  "id": "clash-balco-territoriality-seat-arbitration",
+  "title": "The Territoriality Principle in Arbitration: 5-Judge Bench Overrules Bhatia International",
+  "tagline": "5-Judge Bench in BALCO overrules Bhatia International, establishing that Part I does not apply to foreign-seated arbitrations.",
+  "topicPillar": "Federalism & Economy: International Arbitration, Commercial Sovereignty & Seat of Arbitration",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 2012,
+  "oldCase": {
+    "caseName": "Bhatia International v. Bulk Trading S.A. & Venture Global",
+    "year": 2002,
+    "citation": "(2002) 4 SCC 105 & (2008) 4 SCC 440",
+    "benchStrength": "3-Judge Bench & 2-Judge Bench",
+    "presidingJudges": "B.N. Kirpal CJI, Shivaraj V. Patil, Bisheshwar Prasad Singh JJ.",
+    "historicalContext": "Indian companies entering cross-border commercial contracts with foreign seats faced applications in Indian domestic courts seeking interim injunctions and setting aside of arbitral awards.",
+    "theFlawedRatio": "Held that Part I of the Arbitration and Conciliation Act, 1996 applied to foreign-seated international commercial arbitrations unless expressly excluded by the parties.",
+    "whyItFailed": "Violated the territoriality principle embodied in Article 1(2) of the UNCITRAL Model Law, inviting judicial interference in foreign jurisdictions.",
+    "consequences": "Made India an arbitration-hostile jurisdiction, enabling parties to delay foreign awards through domestic Indian court litigation."
+  },
+  "newCase": {
+    "caseName": "Bharat Aluminium Co. (BALCO) v. Kaiser Aluminium Technical Services Inc.",
+    "shortName": "BALCO",
+    "year": 2012,
+    "citation": "(2012) 9 SCC 552 / 2012 INSC 379",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "S.S. Nijjar, D.K. Jain, P. Sathasivam, J.M. Panchal, Ranjan Gogoi JJ.",
+    "verdictDate": "September 6, 2012",
+    "theSettledRatio": "Bhatia International and Venture Global are OVERRULED. Part I of the 1996 Act applies exclusively to arbitrations having their seat in India. Indian courts have no jurisdiction under Section 9 (interim relief) or Section 34 (annulment) over arbitrations seated outside India. Applied prospective overruling to all arbitration agreements executed after September 6, 2012.",
+    "constitutionalArticles": [
+      "Article 141",
+      "Article 253",
+      "Article 300A"
+    ],
+    "doctrinalShift": "Seat-Centric Territoriality Principle: The supervisory court of an arbitration is exclusively determined by the legal seat chosen by commercial parties.",
+    "keyTakeawayForMains": "Historic pro-arbitration judgment realigning Indian arbitration jurisprudence with global commercial standards and the UNCITRAL Model Law."
+  },
+  "linkedMainsQuestionId": "mains-15m-balco-arbitration-seat-territoriality",
+  "summaryTable": [
+    {
+      "parameter": "Application of Part I to Foreign Arbitrations",
+      "oldLaw": "Applied by default unless parties explicitly contracted out.",
+      "newLaw": "Strictly inapplicable; Part I governs only arbitrations seated inside India."
+    },
+    {
+      "parameter": "Jurisdiction to Grant Interim Measures under Sec 9",
+      "oldLaw": "Indian courts routinely issued injunctions in foreign-seated proceedings.",
+      "newLaw": "Zero jurisdiction under Part I for foreign-seated proceedings."
+    }
+  ]
+},
+{
+  "id": "clash-pucl-nota-secrecy-ballot",
+  "title": "The Right to Reject & Secrecy of Ballot: Supreme Court Introduces NOTA",
+  "tagline": "Supreme Court invalidates Rule 49-O to introduce the None of the Above (NOTA) option on EVMs under Article 19(1)(a).",
+  "topicPillar": "Governance & Democracy: Electoral Democracy, Voter Privacy & Article 19(1)(a)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2013,
+  "oldCase": {
+    "caseName": "Rule 49-O & Rule 41(2)/(3) of the Conduct of Elections Rules, 1961",
+    "year": 1961,
+    "citation": "Conduct of Elections Rules, 1961 under Representation of the People Act, 1951",
+    "benchStrength": "Executive Rule Framework",
+    "presidingJudges": "Central Government Regulatory Scheme",
+    "historicalContext": "Voters wishing not to vote for any candidate were forced under Rule 49-O to enter their name in Form 17A before the presiding officer, destroying the secrecy of their choice.",
+    "theFlawedRatio": "Treated the rejection of all candidates as an exceptional administrative declaration that stripped the voter of ballot confidentiality, exposing dissenting voters to local intimidation.",
+    "whyItFailed": "Compulsory public disclosure of non-voting violated voter privacy and the constitutional requirement of free, confidential franchise.",
+    "consequences": "Deterred citizens from expressing dissatisfaction with candidate quality, encouraging proxy votes and bogus voting."
+  },
+  "newCase": {
+    "caseName": "People's Union for Civil Liberties (PUCL) v. Union of India",
+    "shortName": "PUCL (NOTA)",
+    "year": 2013,
+    "citation": "(2013) 10 SCC 1 / 2013 INSC 644",
+    "benchStrength": "3-Judge Bench (Unanimous 3:0)",
+    "presidingJudges": "P. Sathasivam CJI, Ranjana Prakash Desai, Ranjan Gogoi JJ.",
+    "verdictDate": "September 27, 2013",
+    "theSettledRatio": "Rules 41(2), 41(3), and 49-O are unconstitutional to the extent they violate ballot secrecy. The right to vote under Article 19(1)(a) inherently includes the negative right to reject all candidates. Directed the Election Commission of India to provide a \"None of the Above\" (NOTA) button on all Electronic Voting Machines to protect absolute secrecy.",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 21",
+      "Article 324"
+    ],
+    "doctrinalShift": "Negative Franchise & Ballot Secrecy: Freedom of expression encompasses the right to withhold approval from all candidates without state disclosure.",
+    "keyTakeawayForMains": "Critical electoral reform judgment examining the intersection of speech, voter privacy, and democratic accountability."
+  },
+  "linkedMainsQuestionId": "mains-10m-nota-electoral-reforms-pucl",
+  "summaryTable": [
+    {
+      "parameter": "Mechanism for Rejecting All Candidates",
+      "oldLaw": "Publicly signing Form 17A register before polling agents under Rule 49-O.",
+      "newLaw": "Electronic, secret selection of NOTA button on the voting unit."
+    },
+    {
+      "parameter": "Constitutional Status of Negative Voting",
+      "oldLaw": "Statutory privilege subordinate to administrative convenience.",
+      "newLaw": "Facet of fundamental freedom of speech and expression under Article 19(1)(a)."
+    }
+  ]
+},
+{
+  "id": "clash-adr-pucl-voter-right-to-know-candidate-antecedents",
+  "title": "The Voter's Right to Know: Striking Down Section 33B to Mandate Candidate Disclosures",
+  "tagline": "Supreme Court strikes down Section 33B RPA, ruling voters have a fundamental right to candidate criminal, financial, and educational records.",
+  "topicPillar": "Governance & Democracy: Right to Information, Free Elections & Purity of Legislature",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2003,
+  "oldCase": {
+    "caseName": "Section 33B of the Representation of the People Act, 1951",
+    "year": 2002,
+    "citation": "Section 33B inserted via RPA (3rd Amendment) Act, 2002",
+    "benchStrength": "Statutory Nullification by Parliament",
+    "presidingJudges": "Parliamentary Enactment",
+    "historicalContext": "Following the Supreme Court's 2002 ADR ruling directing disclosure of candidate antecedents, Parliament enacted Section 33B stating no candidate was required to disclose any information not specified in the Act.",
+    "theFlawedRatio": "Asserted that the right to elect was purely a statutory right created by Parliament, meaning the legislature had absolute authority to prevent disclosure of candidate criminal histories.",
+    "whyItFailed": "Direct legislative nullification of a fundamental right declaration without remedying the underlying constitutional defect.",
+    "consequences": "Institutionalized opacity in elections and protected candidates with serious criminal records from voter scrutiny."
+  },
+  "newCase": {
+    "caseName": "People's Union for Civil Liberties (PUCL) v. Union of India",
+    "shortName": "PUCL (Right to Know)",
+    "year": 2003,
+    "citation": "(2003) 4 SCC 399 / 2003 INSC 152",
+    "benchStrength": "3-Judge Bench (Unanimous 3:0)",
+    "presidingJudges": "M.B. Shah, P.V. Reddi, D.M. Dharmadhikari JJ.",
+    "verdictDate": "March 13, 2003",
+    "theSettledRatio": "Section 33B of the RPA is declared unconstitutional and void. The voter's right to make an informed choice at elections is a constituent of the freedom of speech and expression guaranteed under Article 19(1)(a). Parliament cannot take away this fundamental right by statutory decree.",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 14",
+      "Article 324"
+    ],
+    "doctrinalShift": "Voter's Right to Information as a Fundamental Right: Democratic franchise requires informed choice; criminal and asset disclosure is constitutionally compelled.",
+    "keyTakeawayForMains": "Seminal decision holding that statutory election regulations cannot override fundamental expressive rights of voters under Article 19(1)(a)."
+  },
+  "linkedMainsQuestionId": "mains-15m-voter-right-to-know-pucl-adr",
+  "summaryTable": [
+    {
+      "parameter": "Candidate Disclosure Requirement",
+      "oldLaw": "Candidate only required to provide disclosures strictly listed in statute.",
+      "newLaw": "Mandatory sworn affidavit detailing criminal cases, assets, liabilities, and education."
+    },
+    {
+      "parameter": "Nature of Right to Elect",
+      "oldLaw": "Purely statutory right entirely within legislative discretion.",
+      "newLaw": "Informed casting of vote is an integral facet of Article 19(1)(a)."
+    }
+  ]
+},
+{
+  "id": "clash-hussainara-khatoon-speedy-trial-undertrials",
+  "title": "Speedy Trial & Undertrial Liberation: The Historic Hussainara Khatoon Landmark",
+  "tagline": "Supreme Court establishes the Right to Speedy Trial under Article 21, dismantling archaic bail surety bars for poor undertrials.",
+  "topicPillar": "Rights & Liberty: Right to Speedy Trial (Article 21) & Indigent Accused",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1979,
+  "oldCase": {
+    "caseName": "Colonial Money-Bail System & Indefinite Pre-Trial Detention Practice",
+    "year": 1973,
+    "citation": "Code of Criminal Procedure, 1973 Bail Provisions (Pre-Hussainara administration)",
+    "benchStrength": "Colonial Judicial Practice",
+    "presidingJudges": "Traditional Criminal Process Administration",
+    "historicalContext": "A newspaper expose revealed that thousands of impoverished undertrials in Bihar had been languishing in prisons for periods longer than the maximum sentence for their alleged offenses.",
+    "theFlawedRatio": "Criminal procedure routinely conditioned pre-trial release on monetary sureties. Indigent persons unable to provide wealthy guarantors remained locked up indefinitely without trial.",
+    "whyItFailed": "Discriminated against the poor purely on grounds of poverty, transforming pre-trial custody into de facto summary imprisonment.",
+    "consequences": "Severe prison overcrowding, denial of basic justice, and normalization of indefinite custody without adjudication."
+  },
+  "newCase": {
+    "caseName": "Hussainara Khatoon (I to VI) v. Home Secretary, State of Bihar",
+    "shortName": "Hussainara Khatoon",
+    "year": 1979,
+    "citation": "(1980) 1 SCC 81 / (1980) 1 SCC 98",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "P.N. Bhagwati & D.A. Desai JJ.",
+    "verdictDate": "February 12, 1979",
+    "theSettledRatio": "The Right to a Speedy Trial is an integral and essential part of the fundamental right to life and liberty under Article 21. Bail procedures must be reasonable, just, and fair. Indigent accused with roots in the community must be released on their personal bond without demanding monetary sureties.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 14",
+      "Article 39A"
+    ],
+    "doctrinalShift": "Speedy Trial as Inherent Component of Article 21: Pre-trial detention must have strict temporal limits; poverty cannot be penalized through financial bail requirements.",
+    "keyTakeawayForMains": "Foundational case of Indian public interest litigation and the origin of Section 436A CrPC/BNSS statutory bail time limits."
+  },
+  "linkedMainsQuestionId": "mains-15m-speedy-trial-article-21-hussainara",
+  "summaryTable": [
+    {
+      "parameter": "Pre-Trial Release Requirements",
+      "oldLaw": "Compulsory monetary bail bonds and property-owning sureties.",
+      "newLaw": "Release on personal recognizance bond for indigent undertrials with local ties."
+    },
+    {
+      "parameter": "Consequence of Delay in Criminal Trial",
+      "oldLaw": "Administrative delay tolerated without constitutional consequence.",
+      "newLaw": "Violation of fundamental right under Article 21 justifying release."
+    }
+  ]
+},
+{
+  "id": "clash-suk-das-free-legal-aid-article-21",
+  "title": "The Mandatory Right to Free Legal Aid: 5-Judge Bench Overrules Janardan Reddy",
+  "tagline": "5-Judge Bench holds that failure to provide free legal aid to an indigent accused vitiates the trial and renders the conviction void.",
+  "topicPillar": "Rights & Liberty: Free Legal Assistance (Article 21, 39A) & Fair Trial",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 1986,
+  "oldCase": {
+    "caseName": "Janardan Reddy v. State of Hyderabad",
+    "year": 1951,
+    "citation": "(1951) SCR 340 / AIR 1951 SC 217",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "H.J. Kania CJI, Saiyid Fazl Ali, M. Patanjali Sastri, B.K. Mukherjea, S.R. Das, N. Chandrasekhara Aiyar JJ.",
+    "historicalContext": "Indigent accused persons facing serious charges in Hyderabad state courts were tried and convicted without being provided defense counsel by the State.",
+    "theFlawedRatio": "Held that failure to provide a defense lawyer to an indigent accused was merely a procedural irregularity and did not vitiate the conviction unless specific prejudice was demonstrated.",
+    "whyItFailed": "Treated access to legal counsel as a luxury rather than an indispensable pillar of a fair hearing.",
+    "consequences": "Thousands of uneducated and indigent accused stood trial without effective representation across trial courts."
+  },
+  "newCase": {
+    "caseName": "Suk Das v. Union Territory of Arunachal Pradesh",
+    "shortName": "Suk Das",
+    "year": 1986,
+    "citation": "(1986) 2 SCC 401 / 1986 INSC 44",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "P.N. Bhagwati CJI, V.D. Tulzapurkar, R.S. Pathak, D.P. Madon, Sabyasachi Mukharji JJ.",
+    "verdictDate": "March 10, 1986",
+    "theSettledRatio": "Janardan Reddy is OVERRULED. Free legal assistance to an indigent accused is an imperative constitutional requirement under Article 21 and Article 39A. The magistrate has an affirmative duty to inform the accused of this right. A trial held without legal representation for an indigent accused is unconstitutional, and the resulting conviction is vitiated and void.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 39A",
+      "Article 14"
+    ],
+    "doctrinalShift": "Affirmative State Duty of Legal Representation: The state cannot convict without providing competent counsel to those who cannot afford one.",
+    "keyTakeawayForMains": "Central authority establishing that free legal aid is not an act of executive charity but an indispensable element of constitutional due process."
+  },
+  "linkedMainsQuestionId": "mains-15m-free-legal-aid-article-21-suk-das",
+  "summaryTable": [
+    {
+      "parameter": "State Duty to Provide Counsel",
+      "oldLaw": "Discretionary procedural facility; lack of counsel did not void trial.",
+      "newLaw": "Mandatory affirmative duty; trial held without counsel is void ab initio."
+    },
+    {
+      "parameter": "Obligation to Request Legal Aid",
+      "oldLaw": "Accused had to proactively ask and prove poverty.",
+      "newLaw": "Magistrate must actively inform accused of right at first production."
+    }
+  ]
+},
+{
+  "id": "clash-tulsiram-patel-article-311-disciplinary-inquiry",
+  "title": "Exceptions to Departmental Inquiries: 5-Judge Bench Overrules Chellappan",
+  "tagline": "5-Judge Bench in Tulsiram Patel overrules Chellappan, holding inquiry may be dispensed with under Article 311(2) second proviso.",
+  "topicPillar": "Governance & Democracy: Civil Services, Article 311 & Doctrine of Pleasure",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 1985,
+  "oldCase": {
+    "caseName": "Divisional Personnel Officer, Southern Railway v. T.R. Chellappan",
+    "year": 1975,
+    "citation": "(1976) 3 SCC 190 / AIR 1975 SC 2216",
+    "benchStrength": "3-Judge Bench",
+    "presidingJudges": "H.R. Khanna, V.R. Krishna Iyer, N.L. Untwalia JJ.",
+    "historicalContext": "Railway and civil servants convicted of criminal offenses or involved in mass strikes were dismissed without a departmental inquiry under Rule 14 and Article 311(2) second proviso.",
+    "theFlawedRatio": "Held that even when dispensing with an inquiry under the second proviso to Article 311(2), the disciplinary authority was obligated to give the civil servant a pre-decisional hearing regarding the penalty.",
+    "whyItFailed": "Reintroduced common law natural justice requirements into an express constitutional proviso specifically designed by the framers to exclude them.",
+    "consequences": "Paralyzed disciplinary action against public servants involved in security breaches or mutinous conduct."
+  },
+  "newCase": {
+    "caseName": "Union of India v. Tulsiram Patel",
+    "shortName": "Tulsiram Patel",
+    "year": 1985,
+    "citation": "(1985) 3 SCC 398 / 1985 INSC 153",
+    "benchStrength": "5-Judge Constitution Bench (4:1 Majority)",
+    "presidingJudges": "Y.V. Chandrachud CJI, V.D. Tulzapurkar, R.S. Pathak, D.P. Madon JJ. (M.P. Thakkar J. dissenting)",
+    "verdictDate": "July 11, 1985",
+    "theSettledRatio": "Chellappan is OVERRULED. The second proviso to Article 311(2) expressly excludes the rule of audi alteram partem in three specific situations: conviction on a criminal charge, impracticability of holding an inquiry, or national security interests. Where the second proviso applies, no prior hearing is constitutionally required before dismissal, though the decision remains subject to limited judicial review for mala fides.",
+    "constitutionalArticles": [
+      "Article 310",
+      "Article 311(2)",
+      "Article 14"
+    ],
+    "doctrinalShift": "Harmonization of Pleasure Doctrine with Public Interest: Natural justice cannot override explicit constitutional text designed to protect national security.",
+    "keyTakeawayForMains": "Authoritative precedent defining the constitutional boundaries between civil service tenure protections under Article 311 and sovereign security interests."
+  },
+  "linkedMainsQuestionId": "mains-15m-article-311-proviso-inquiry-tulsiram-patel",
+  "summaryTable": [
+    {
+      "parameter": "Hearing Requirement under Second Proviso to Art 311(2)",
+      "oldLaw": "Mandatory prior opportunity to show cause against proposed penalty.",
+      "newLaw": "Expressly excluded by constitutional text; no prior hearing mandated."
+    },
+    {
+      "parameter": "Scope of Judicial Scrutiny",
+      "oldLaw": "Full administrative review on proportionality and procedural compliance.",
+      "newLaw": "Restricted review on grounds of mala fides or complete lack of nexus."
+    }
+  ]
+},
+{
+  "id": "clash-ajay-hasia-article-12-six-factor-test",
+  "title": "The 6-Factor Test for State Instrumentalities: Supreme Court Pierces the Society Shield",
+  "tagline": "5-Judge Constitution Bench formulates the definitive 6-factor test to bring government-controlled registered societies under Article 12.",
+  "topicPillar": "Judiciary & Courts: Article 12 \"Other Authorities\" & Fundamental Rights",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1981,
+  "oldCase": {
+    "caseName": "Narrow Statutory Incorporation Doctrine under Article 12",
+    "year": 1967,
+    "citation": "Rajasthan State Electricity Board v. Mohan Lal (1967) 3 SCR 377",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "K. Subba Rao CJI, J.C. Shah, J.M. Shelat, V. Bhargava, G.K. Mitter JJ.",
+    "historicalContext": "Regional Engineering College, Srinagar was registered under the Jammu & Kashmir Societies Registration Act. Candidates challenging arbitrary admissions quotas were met with the defense that the college was a private registered society.",
+    "theFlawedRatio": "Prior authorities suggested that \"other authorities\" under Article 12 included only bodies created directly by statute or exercising sovereign governmental functions.",
+    "whyItFailed": "Allowed state administrations to bypass fundamental rights simply by routing public operations through registered societies or companies.",
+    "consequences": "Arbitrary admission quotas and discriminatory employment practices shielded from Article 14 judicial review."
+  },
+  "newCase": {
+    "caseName": "Ajay Hasia v. Khalid Mujib Sehravardi",
+    "shortName": "Ajay Hasia",
+    "year": 1981,
+    "citation": "(1981) 1 SCC 722 / 1980 INSC 217",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "Y.V. Chandrachud CJI, P.N. Bhagwati, V.R. Krishna Iyer, Syed Murtaza Fazal Ali, A.D. Koshal JJ.",
+    "verdictDate": "November 13, 1980",
+    "theSettledRatio": "The corporate veil of a registered society is irrelevant for constitutional review. Formulated the landmark 6-Factor Test to identify an instrumentality of the State: (1) entire share capital held by government, (2) financial assistance meeting almost all expenditure, (3) monopoly status conferred by state, (4) deep and pervasive state control, (5) functions of public importance closely related to government functions, (6) transfer of a government department to the corporation.",
+    "constitutionalArticles": [
+      "Article 12",
+      "Article 14",
+      "Article 226"
+    ],
+    "doctrinalShift": "Pervasive Control Doctrine: Substance of governmental authority determines constitutional responsibility under Part III, not corporate registration.",
+    "keyTakeawayForMains": "The foundational 6-factor checklist universally tested in judicial and administrative service examinations for determining Article 12 coverage."
+  },
+  "linkedMainsQuestionId": "mains-15m-article-12-six-factor-test-ajay-hasia",
+  "summaryTable": [
+    {
+      "parameter": "Threshold for \"Other Authorities\"",
+      "oldLaw": "Entity had to be established by statute with sovereign powers.",
+      "newLaw": "Any body satisfying the 6 factors of deep and pervasive state control."
+    },
+    {
+      "parameter": "Status of Registered Societies",
+      "oldLaw": "Presumed private entities outside Article 12 writ jurisdiction.",
+      "newLaw": "Treated as state instrumentalities when financially and administratively dominated."
+    }
+  ]
+},
+{
+  "id": "clash-royappa-anti-arbitrariness-equality",
+  "title": "The Anti-Arbitrariness Doctrine of Equality: 5-Judge Bench Overrules Balsara",
+  "tagline": "5-Judge Bench in Royappa revolutionizes Article 14, establishing that Equality is antithetical to Arbitrariness.",
+  "topicPillar": "Rights & Liberty: Right to Equality (Article 14) & Judicial Review of Discretion",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 1974,
+  "oldCase": {
+    "caseName": "State of Bombay v. F.N. Balsara & Traditional Classification Doctrine",
+    "year": 1951,
+    "citation": "(1951) SCR 682 / AIR 1951 SC 318",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "Saiyid Fazl Ali, M. Patanjali Sastri, B.K. Mukherjea, S.R. Das, Vivian Bose JJ.",
+    "historicalContext": "Senior civil servant E.P. Royappa was abruptly shifted from his post as Chief Secretary of Tamil Nadu to a non-cadre post without assigned duties, challenging the order as arbitrary and vindictive.",
+    "theFlawedRatio": "For two decades, courts treated Article 14 as purely a test of \"reasonable classification\" requiring intelligible differentia and rational nexus to legislative objective.",
+    "whyItFailed": "Reduced the great guarantee of equality to a formalistic classification formula incapable of striking down unreasoned executive arbitrariness.",
+    "consequences": "Executive acts that did not involve group classification were difficult to strike down under Article 14."
+  },
+  "newCase": {
+    "caseName": "E.P. Royappa v. State of Tamil Nadu",
+    "shortName": "E.P. Royappa",
+    "year": 1974,
+    "citation": "(1974) 4 SCC 3 / 1973 INSC 226",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "A.N. Ray CJI, D.G. Palekar, Y.V. Chandrachud, P.N. Bhagwati, V.R. Krishna Iyer JJ.",
+    "verdictDate": "November 23, 1973",
+    "theSettledRatio": "Article 14 cannot be cribbed, cabined, or confined within the narrow limits of reasonable classification. Equality is a dynamic concept with many aspects and dimensions. Equality and arbitrariness are sworn enemies: one belongs to the rule of law in a republic, while the other belongs to the whim of an absolute monarch. Where an act is arbitrary, it implicitly involves a denial of equality under Article 14.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 16",
+      "Article 21"
+    ],
+    "doctrinalShift": "The New Equality Doctrine: Equality is substantive non-arbitrariness, enabling constitutional courts to strike down whimsical executive and legislative action.",
+    "keyTakeawayForMains": "The watershed moment in Indian constitutional law that freed Article 14 from Victorian formal classification and laid the foundation for Maneka Gandhi."
+  },
+  "linkedMainsQuestionId": "mains-20m-royappa-equality-anti-arbitrariness-article-14",
+  "summaryTable": [
+    {
+      "parameter": "Scope of Article 14 Guarantee",
+      "oldLaw": "Confined to checking whether legislative classification met the two-tier nexus test.",
+      "newLaw": "Broad activist umbrella: any arbitrary state action violates Article 14."
+    },
+    {
+      "parameter": "Nature of Equality",
+      "oldLaw": "Formal, comparative doctrine evaluating group differentiation.",
+      "newLaw": "Substantive rule of law principle antithetical to executive whim."
+    }
+  ]
+},
+{
+  "id": "clash-nilabati-behera-sovereign-immunity-overruled",
+  "title": "Abolition of Sovereign Immunity for Constitutional Torts: Nilabati Behera",
+  "tagline": "Supreme Court neutralizes Kasturi Lal, holding sovereign immunity is no defense against constitutional violations under Article 21.",
+  "topicPillar": "Rights & Liberty: Custodial Death, Public Law Compensation & Article 21",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 1993,
+  "oldCase": {
+    "caseName": "Kasturi Lal Ralia Ram Jain v. State of Uttar Pradesh",
+    "year": 1965,
+    "citation": "(1965) 1 SCR 375 / AIR 1965 SC 1039",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "P.B. Gajendragadkar CJI, K.N. Wanchoo, M. Hidayatullah, J.C. Shah, S.M. Sikri JJ.",
+    "historicalContext": "A merchant was wrongfully detained by police in UP and his gold seized. A police officer stole the gold and fled to Pakistan. The merchant sued the State for compensation.",
+    "theFlawedRatio": "Held that the State was immune from tort liability because the police acted in the exercise of \"sovereign functions\" delegated by statute.",
+    "whyItFailed": "Applied archaic English feudal notions of sovereign immunity to a constitutional republic where Fundamental Rights reign supreme.",
+    "consequences": "Shielded state actors from liability for police atrocities, wrongful imprisonment, and illegal asset seizures."
+  },
+  "newCase": {
+    "caseName": "Nilabati Behera v. State of Orissa",
+    "shortName": "Nilabati Behera",
+    "year": 1993,
+    "citation": "(1993) 2 SCC 746 / 1993 INSC 165",
+    "benchStrength": "3-Judge Bench (Unanimous 3:0)",
+    "presidingJudges": "J.S. Verma, K. Ramaswamy, N. Venkatachala JJ.",
+    "verdictDate": "March 24, 1993",
+    "theSettledRatio": "Kasturi Lal is rendered inapplicable to public law remedies. Sovereign immunity has NO PLACE where fundamental rights guaranteed under Article 21 are violated. The remedy in public law under Article 32 and 226 for monetary compensation is strict liability and distinct from a private law claim in tort. The State must compensate the mother of a youth beaten to death in police custody.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 32",
+      "Article 226"
+    ],
+    "doctrinalShift": "Constitutional Tort & Strict State Liability: The sovereign cannot claim immunity when its officers violate the inviolable Right to Life.",
+    "keyTakeawayForMains": "Pivotal authority establishing monetary compensation as a distinct public law remedy for enforcement of Fundamental Rights."
+  },
+  "linkedMainsQuestionId": "mains-15m-sovereign-immunity-constitutional-tort-nilabati-behera",
+  "summaryTable": [
+    {
+      "parameter": "Defense of Sovereign Immunity",
+      "oldLaw": "Shielded State from paying damages if tort occurred during sovereign duty.",
+      "newLaw": "Completely barred in constitutional writ petitions under Articles 32 and 226."
+    },
+    {
+      "parameter": "Monetary Compensation in Writ Petitions",
+      "oldLaw": "Parties relegated to filing separate civil suits against individual officers.",
+      "newLaw": "Direct public law remedy granted by constitutional courts for Art 21 breaches."
+    }
+  ]
+},
+{
+  "id": "clash-pucl-telephone-tapping-privacy-safeguards",
+  "title": "Surveillance & The Right to Privacy: Supreme Court Reins in Phone Tapping",
+  "tagline": "Supreme Court formulates procedural guidelines under Section 5(2) Telegraph Act, holding wiretapping infringes Articles 19 and 21.",
+  "topicPillar": "Rights & Liberty: Privacy, Surveillance & Procedural Safeguards (Article 21)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1997,
+  "oldCase": {
+    "caseName": "Unregulated Wiretapping under Section 5(2) of the Indian Telegraph Act, 1885",
+    "year": 1885,
+    "citation": "Section 5(2) Indian Telegraph Act, 1885 (Pre-1997 administrative practice)",
+    "benchStrength": "Executive Discretion",
+    "presidingJudges": "Colonial Surveillance Framework",
+    "historicalContext": "A CBI report revealed widespread unauthorized telephonic tapping of political leaders and citizens by intelligence agencies without statutory rules or judicial oversight.",
+    "theFlawedRatio": "Administrative agencies exercised unguided discretion to order telephone tapping under vague notions of \"public emergency\" or \"interest of public safety\" with zero records or expiration.",
+    "whyItFailed": "Total absence of procedural safeguards rendered executive wiretapping arbitrary and ripe for political abuse.",
+    "consequences": "Unchecked surveillance state targeting political opposition, journalists, and private citizens."
+  },
+  "newCase": {
+    "caseName": "People's Union for Civil Liberties (PUCL) v. Union of India",
+    "shortName": "PUCL (Phone Tapping)",
+    "year": 1997,
+    "citation": "(1997) 1 SCC 301 / 1996 INSC 1572",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "Kuldip Singh & S. Saghir Ahmad JJ.",
+    "verdictDate": "December 18, 1996",
+    "theSettledRatio": "Telephone conversations are private and interception violates the Right to Privacy under Article 21 and Freedom of Speech under Article 19(1)(a). Since Section 5(2) lacked procedural safeguards, the Supreme Court laid down 9 mandatory safeguards: orders can only be issued by the Union/State Home Secretary, must specify emergency grounds, cannot exceed 60 days, and must be scrutinized by a high-level Review Committee.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 19(1)(a)",
+      "Article 19(2)"
+    ],
+    "doctrinalShift": "Procedural Fencing of Surveillance: Wiretapping is a grave constitutional intrusion permissible solely under strictly documented statutory safeguards.",
+    "keyTakeawayForMains": "Key authority cited in Puttaswamy establishing the informational privacy lineage and procedural due process constraints on state surveillance."
+  },
+  "linkedMainsQuestionId": "mains-15m-telephonic-surveillance-privacy-pucl",
+  "summaryTable": [
+    {
+      "parameter": "Authority to Order Interception",
+      "oldLaw": "Lower-level police and administrative officers issued oral and informal wiretaps.",
+      "newLaw": "Solely Union Home Secretary or State Home Secretary in writing."
+    },
+    {
+      "parameter": "Duration and Oversight",
+      "oldLaw": "Indefinite interception with zero administrative review.",
+      "newLaw": "Maximum 60 days duration subject to mandatory scrutiny by Review Committee."
+    }
+  ]
+},
+{
+  "id": "clash-bijoe-emmanuel-national-anthem-right-to-silence",
+  "title": "The Right to Silence & Conscience: Supreme Court Protects Jehovah's Witnesses",
+  "tagline": "Supreme Court protects children expelled for not singing the National Anthem, anchoring the Right to Silence under Article 19(1)(a).",
+  "topicPillar": "Rights & Liberty: Freedom of Speech, Right to Silence & Conscience (Arts 19 & 25)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1986,
+  "oldCase": {
+    "caseName": "School Expulsion Order under Kerala Department of Education Circulars",
+    "year": 1985,
+    "citation": "Kerala Education Circular / High Court of Kerala Verdict (AIR 1986 Ker 32)",
+    "benchStrength": "High Court Division Bench",
+    "presidingJudges": "High Court of Kerala",
+    "historicalContext": "Three school children belonging to the Jehovah's Witnesses faith stood respectfully in silence during the morning National Anthem but declined to sing because their religious faith prohibited singing praise to any worldly entity.",
+    "theFlawedRatio": "The Kerala High Court held that singing the National Anthem was a patriotic duty and refusal to sing displayed disrespect under the Prevention of Insults to National Honour Act, 1971.",
+    "whyItFailed": "Confused respectful silence with active disrespect, penalizing genuine religious conscience with educational exclusion.",
+    "consequences": "Forced religious minorities into a false choice between conscience and access to school education."
+  },
+  "newCase": {
+    "caseName": "Bijoe Emmanuel v. State of Kerala",
+    "shortName": "Bijoe Emmanuel",
+    "year": 1986,
+    "citation": "(1986) 3 SCC 615 / 1986 INSC 167",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "O. Chinnappa Reddy & M.M. Dutt JJ.",
+    "verdictDate": "August 11, 1986",
+    "theSettledRatio": "Expulsion orders set aside. Standing up respectfully when the National Anthem is sung shows proper respect; there is no legal obligation under the 1971 Act to join in singing. Freedom of speech and expression under Article 19(1)(a) includes the fundamental **Right to Remain Silent**. Expulsion also infringed religious freedom under Article 25(1). \"Our tradition teaches tolerance; our philosophy preaches tolerance; our Constitution practises tolerance.\"",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 25(1)",
+      "Article 51A(a)"
+    ],
+    "doctrinalShift": "Constitutional Tolerance & Negative Free Speech: Coerced patriotic vocalization violates both freedom of conscience and negative expressive liberty.",
+    "keyTakeawayForMains": "Master citation on constitutional tolerance, fundamental duties harmonized with Part III rights, and the scope of the right to silence."
+  },
+  "linkedMainsQuestionId": "mains-15m-national-anthem-right-to-silence-bijoe-emmanuel",
+  "summaryTable": [
+    {
+      "parameter": "Obligation During National Anthem",
+      "oldLaw": "Compulsory vocal singing mandated by departmental executive circulars.",
+      "newLaw": "Respectful standing is sufficient; compelled vocalization violates Article 19(1)(a)."
+    },
+    {
+      "parameter": "Scope of Article 25 Protection",
+      "oldLaw": "Conscientious religious objections overridden by executive patriotic directives.",
+      "newLaw": "Genuine religious conscience protected against state penalties unless order/morality breached."
+    }
+  ]
+},
+{
+  "id": "clash-ismail-faruqui-sovereign-acquisition-religious-places",
+  "title": "Eminent Domain over Religious Places: 5-Judge Bench in Ismail Faruqui",
+  "tagline": "5-Judge Bench holds that places of worship of all faiths can be acquired by the State under eminent domain without violating Article 26.",
+  "topicPillar": "Rights & Liberty: Secularism, Freedom of Religion (Arts 25, 26) & Eminent Domain",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1994,
+  "oldCase": {
+    "caseName": "Claim of Absolute Immunity from Acquisition for Religious Properties",
+    "year": 1993,
+    "citation": "Ayodhya Acquisition Act, 1993 Challenge (Writ Petitions in SC)",
+    "benchStrength": "Constitutional Challenge to Central Act",
+    "presidingJudges": "Challenged Statutory Acquisition Scheme",
+    "historicalContext": "Following the demolition of the Babri structure in December 1992, Parliament enacted the Acquisition of Certain Area at Ayodhya Act, 1993, acquiring 67.7 acres. Petitioners argued a mosque is divine property exempt from state acquisition.",
+    "theFlawedRatio": "Petitioners argued that under Islamic law and constitutional freedom of religion, a mosque property vests in perpetuity in the Almighty and is immune from acquisition under the State's eminent domain power.",
+    "whyItFailed": "Would create an unbridgeable enclave of sovereign immunity for religious properties, paralyzing public acquisitions.",
+    "consequences": "Threatened public order and infrastructure development by rendering religious properties inviolable against sovereign eminent domain."
+  },
+  "newCase": {
+    "caseName": "Dr. M. Ismail Faruqui v. Union of India",
+    "shortName": "M. Ismail Faruqui",
+    "year": 1994,
+    "citation": "(1994) 6 SCC 360 / 1994 INSC 449",
+    "benchStrength": "5-Judge Constitution Bench (3:2 Majority)",
+    "presidingJudges": "M.N. Venkatachaliah CJI, J.S. Verma, G.N. Ray JJ. (A.M. Ahmadi & S.P. Bharucha JJ. dissenting on Sec 4(3))",
+    "verdictDate": "October 24, 1994",
+    "theSettledRatio": "The sovereign power of eminent domain extends to all properties, including places of religious worship of every denomination. A mosque is not an essential and integral part of the practice of Islam unless the place has a particular significance such that the character of practice is lost. The State can acquire a place of religious worship under Article 300A without violating Article 25 or 26.",
+    "constitutionalArticles": [
+      "Article 25",
+      "Article 26",
+      "Article 300A"
+    ],
+    "doctrinalShift": "Sovereign Superiority of Eminent Domain: Religious freedom covers essential spiritual practices, not absolute immunity from secular property acquisition.",
+    "keyTakeawayForMains": "Crucial landmark reconciling freedom of religious denominations under Article 26 with the state’s secular eminent domain power under Article 300A."
+  },
+  "linkedMainsQuestionId": "mains-15m-eminent-domain-religious-places-ismail-faruqui",
+  "summaryTable": [
+    {
+      "parameter": "State Power to Acquire Religious Structures",
+      "oldLaw": "Claimed religious waqf and temple lands possessed divine immunity from acquisition.",
+      "newLaw": "State eminent domain applies equally across all religious properties under Article 300A."
+    },
+    {
+      "parameter": "Essential Practice Test for Places of Worship",
+      "oldLaw": "Every physical structure asserted to be essential to worship.",
+      "newLaw": "Only places with unique, irreplaceable religious significance are protected."
+    }
+  ]
+},
+{
+  "id": "clash-janhit-abhiyan-ews-103rd-amendment",
+  "title": "The EWS Quota Constitutional Triumph: 5-Judge Bench in Janhit Abhiyan",
+  "tagline": "5-Judge Bench upholds the 103rd Amendment, holding economic criteria alone can form the basis of affirmative action without violating Basic Structure.",
+  "topicPillar": "Social Justice & Quotas: 103rd Amendment, EWS Reservations & 50% Ceiling",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2022,
+  "oldCase": {
+    "caseName": "The Absolute 50% Ceiling Doctrine of Indra Sawhney",
+    "year": 1992,
+    "citation": "Indra Sawhney v. Union of India (1992) Supp (3) SCC 217",
+    "benchStrength": "9-Judge Constitution Bench (Historical Doctrine)",
+    "presidingJudges": "M.H. Kania CJI, M.N. Venkatachaliah, S. Ratnavel Pandian, B.P. Jeevan Reddy JJ.",
+    "historicalContext": "Parliament enacted the 103rd Constitutional Amendment in 2019, introducing Articles 15(6) and 16(6) to provide up to 10% reservation for Economically Weaker Sections (EWS), excluding SC, ST, and OBCs.",
+    "theFlawedRatio": "Critics argued that under Indra Sawhney, reservation could never be based solely on economic criteria, and the 50% ceiling was an immutable Basic Structure limit.",
+    "whyItFailed": "Ignored that Indra Sawhney was dealing with social and educational backwardness under Article 16(4), not a distinct constitutional amendment for poverty alleviation.",
+    "consequences": "Excluded millions of impoverished citizens from affirmative action merely because they belonged to unreserved social groups."
+  },
+  "newCase": {
+    "caseName": "Janhit Abhiyan v. Union of India",
+    "shortName": "Janhit Abhiyan (EWS)",
+    "year": 2022,
+    "citation": "(2023) 5 SCC 1 / 2022 INSC 1164",
+    "benchStrength": "5-Judge Constitution Bench (3:2 Majority)",
+    "presidingJudges": "Dinesh Maheshwari, Bela M. Trivedi, J.B. Pardiwala JJ. (U.U. Lalit CJI & S. Ravindra Bhat J. dissenting)",
+    "verdictDate": "November 7, 2022",
+    "theSettledRatio": "The 103rd Constitutional Amendment is constitutionally valid. Reservation based purely on economic criteria does not violate the Basic Structure. The 50% ceiling established in Indra Sawhney was an internal cap for Article 15(4) and 16(4) caste-based quotas and was not an inflexible barrier for a distinct constitutional amendment under Articles 15(6) and 16(6). Exclusion of SC/ST/OBC from EWS is valid as they already enjoy separate affirmative benefits.",
+    "constitutionalArticles": [
+      "Article 15(6)",
+      "Article 16(6)",
+      "Article 14"
+    ],
+    "doctrinalShift": "Economic Affirmative Action: Constitutional equality permits targeted economic classifications to uplift disadvantaged individuals across all social classes.",
+    "keyTakeawayForMains": "Definitive authority on the constitutionality of economic reservations and the limits of the Basic Structure doctrine over constitutional amendments."
+  },
+  "linkedMainsQuestionId": "mains-20m-ews-reservation-103rd-amendment-janhit-abhiyan",
+  "summaryTable": [
+    {
+      "parameter": "Basis for Affirmative Action Quotas",
+      "oldLaw": "Economic backwardness alone could not be the sole basis for reservations.",
+      "newLaw": "Economic status alone is a constitutionally valid classification under Arts 15(6) & 16(6)."
+    },
+    {
+      "parameter": "Rigidity of 50% Reservation Ceiling",
+      "oldLaw": "Treated as an inviolable upper limit across all public reservations.",
+      "newLaw": "Applies to Article 15(4)/16(4) social reservations, not new EWS amendment categories."
+    }
+  ]
+},
+{
+  "id": "clash-babita-puniya-permanent-commission-women-armed-forces",
+  "title": "Gender Equality in the Armed Forces: Babita Puniya Overrules Stereotypes",
+  "tagline": "Supreme Court strikes down discriminatory defence circulars, granting Permanent Commission to women officers on par with men.",
+  "topicPillar": "Rights & Liberty: Gender Equality (Arts 14, 15, 16) & Armed Forces Command",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2020,
+  "oldCase": {
+    "caseName": "Ministry of Defence Circulars Restricting Permanent Commission for Women",
+    "year": 2006,
+    "citation": "MoD Policy Circulars dated 2002 & 2006 (Short Service Commission Restrictions)",
+    "benchStrength": "Executive Defense Policy",
+    "presidingJudges": "Ministry of Defence Policy Formulation",
+    "historicalContext": "Women officers were inducted into the Indian Army only under the Short Service Commission (SSC) for a maximum of 14 years, barred from Permanent Commission (PC) and command postings.",
+    "theFlawedRatio": "The State justified the exclusion by citing physiological differences, physical limitations, societal norms, and domestic obligations of women officers.",
+    "whyItFailed": "Relied on paternalistic and gender-stereotypical assumptions to deny women officers equality of opportunity guaranteed under Article 14 and 16.",
+    "consequences": "Forced highly decorated women officers into premature retirement and barred them from pension and senior military command."
+  },
+  "newCase": {
+    "caseName": "The Secretary, Ministry of Defence v. Babita Puniya",
+    "shortName": "Babita Puniya",
+    "year": 2020,
+    "citation": "(2020) 7 SCC 469 / 2020 INSC 191",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "D.Y. Chandrachud & Ajay Rastogi JJ.",
+    "verdictDate": "February 17, 2020",
+    "theSettledRatio": "All Short Service Commission women officers in the Indian Army are entitled to the grant of Permanent Commission on par with male officers. Arguments based on physiological differences and domestic obligations are grounded in sex stereotypes that violate constitutional equality under Articles 14, 15, and 16. Total bar on women officers holding command appointments is irrational and unconstitutional.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 15(1)",
+      "Article 16",
+      "Article 33"
+    ],
+    "doctrinalShift": "Substantive Gender Equality in Armed Services: Stereotypical assumptions regarding women's capabilities have no place in a constitutional democracy governed by equality.",
+    "keyTakeawayForMains": "Master judgment dismantling patriarchal stereotypes in institutional state employment and applying substantive equality to Article 33."
+  },
+  "linkedMainsQuestionId": "mains-15m-gender-equality-armed-forces-babita-puniya",
+  "summaryTable": [
+    {
+      "parameter": "Tenure of Women Armed Forces Officers",
+      "oldLaw": "Restricted to maximum 14 years SSC without pension or permanent tenure.",
+      "newLaw": "Full entitlement to Permanent Commission and consequential retirement pension."
+    },
+    {
+      "parameter": "Eligibility for Command Postings",
+      "oldLaw": "Blanket exclusion of women officers from military command appointments.",
+      "newLaw": "Equal eligibility for command appointments based solely on merit and criteria."
+    }
+  ]
+},
+{
+  "id": "clash-subramanian-swamy-criminal-defamation-reputation",
+  "title": "Free Speech vs Right to Reputation: Supreme Court Upholds Criminal Defamation",
+  "tagline": "Supreme Court harmonizes Article 19(1)(a) with Article 21, holding Right to Reputation cannot be sacrificed to free speech.",
+  "topicPillar": "Rights & Liberty: Freedom of Speech (Article 19(1)(a)) vs Right to Reputation (Article 21)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2016,
+  "oldCase": {
+    "caseName": "Challenges to the Constitutionality of Sections 499 & 500 IPC",
+    "year": 1860,
+    "citation": "Sections 499 & 500 Indian Penal Code, 1860",
+    "benchStrength": "Colonial Penal Statute",
+    "presidingJudges": "Lord Macaulay's Indian Law Commission",
+    "historicalContext": "Political leaders, media organizations, and activists challenged Sections 499 and 500 IPC, arguing that criminalizing defamation created a severe chilling effect on democratic discourse.",
+    "theFlawedRatio": "Petitioners argued that criminal defamation was an archaic colonial device that exceeded the reasonable restrictions allowed under Article 19(2) and should be restricted to civil damages.",
+    "whyItFailed": "Attempted to elevate freedom of speech to an absolute, uninhibited status at the cost of personal honor and dignity.",
+    "consequences": "Risked leaving vulnerable citizens defenseless against malicious reputational attacks in the media."
+  },
+  "newCase": {
+    "caseName": "Subramanian Swamy v. Union of India",
+    "shortName": "Subramanian Swamy",
+    "year": 2016,
+    "citation": "(2016) 7 SCC 221 / 2016 INSC 436",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "Dipak Misra & Prafulla C. Pant JJ.",
+    "verdictDate": "May 13, 2016",
+    "theSettledRatio": "Sections 499 and 500 IPC are constitutionally valid. The Right to Reputation is an inalienable facet of the Right to Life and Personal Liberty under Article 21. Freedom of speech and expression under Article 19(1)(a) is not absolute and is reasonably restricted by Article 19(2) in relation to \"defamation\". One citizen's right to free speech cannot be exercised so as to destroy another citizen's fundamental right to reputation and human dignity.",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 19(2)",
+      "Article 21"
+    ],
+    "doctrinalShift": "Balancing Fundamental Rights: Right to Reputation under Article 21 co-exists with Freedom of Expression; constitutional equilibrium prohibits absolute speech immunity.",
+    "keyTakeawayForMains": "Key authority on constitutional balancing between competing fundamental rights (Article 19(1)(a) speech vs Article 21 reputation)."
+  },
+  "linkedMainsQuestionId": "mains-15m-criminal-defamation-free-speech-subramanian-swamy",
+  "summaryTable": [
+    {
+      "parameter": "Validity of Criminal Defamation",
+      "oldLaw": "Asserted to be an unconstitutional relic violating democratic free expression.",
+      "newLaw": "Upheld as a constitutional reasonable restriction under Article 19(2)."
+    },
+    {
+      "parameter": "Status of Right to Reputation",
+      "oldLaw": "Private civil interest actionable primarily through monetary tort suits.",
+      "newLaw": "Fundamental right under Article 21 equal in weight to Article 19(1)(a)."
+    }
+  ]
+},
+{
+  "id": "clash-vombatkere-sedition-section-124a-abeyance",
+  "title": "The Freezing of Sedition: Supreme Court Puts Section 124A IPC in Abeyance",
+  "tagline": "Supreme Court freezes colonial sedition law, halting all pending and new prosecutions across India under Section 124A.",
+  "topicPillar": "Rights & Liberty: Free Speech, Political Dissent & Section 124A IPC",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2022,
+  "oldCase": {
+    "caseName": "Kedar Nath Singh v. State of Bihar",
+    "year": 1962,
+    "citation": "(1962) Supp (2) SCR 769 / AIR 1962 SC 955",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "B.P. Sinha CJI, A.K. Sarkar, J.R. Mudholkar, N. Rajagopala Ayyangar, J.K. Subba Rao JJ.",
+    "historicalContext": "Enacted in 1870 to suppress Indian freedom fighters, Section 124A was challenged by Kedar Nath Singh after he was convicted for anti-government political speeches.",
+    "theFlawedRatio": "The 5-Judge Bench saved Section 124A from unconstitutionality by reading it down, holding it applied only where words had a tendency or intention to create public disorder or incite violence.",
+    "whyItFailed": "In practice, police across India ignored the narrow judicial reading-down and routinely registered sedition cases against journalists, critics, and political dissenters.",
+    "consequences": "Pervasive chilling effect on political criticism and democratic dissent for six decades."
+  },
+  "newCase": {
+    "caseName": "S.G. Vombatkere v. Union of India",
+    "shortName": "S.G. Vombatkere (Sedition)",
+    "year": 2022,
+    "citation": "(2022) 7 SCC 433 / 2022 INSC 555",
+    "benchStrength": "3-Judge Bench (Unanimous 3:0)",
+    "presidingJudges": "N.V. Ramana CJI, Surya Kant, Hima Kohli JJ.",
+    "verdictDate": "May 11, 2022",
+    "theSettledRatio": "The 152-year-old sedition provision is placed in complete ABEYANCE. Directed Central and State Governments to refrain from registering any FIR, continuing investigations, or taking coercive action under Section 124A of the IPC. All pending trials, appeals, and proceedings under Section 124A are kept in suspended animation pending legislative re-examination, marking the effective de facto freezing of colonial sedition.",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 19(2)",
+      "Article 21"
+    ],
+    "doctrinalShift": "Protection Against the Chilling Effect of Colonial Statutes: Constitutional courts can freeze the operation of penal provisions that chill democratic dissent.",
+    "keyTakeawayForMains": "Unprecedented constitutional order placing an active penal code provision in abeyance to safeguard core free speech under Article 19(1)(a)."
+  },
+  "linkedMainsQuestionId": "mains-15m-sedition-section-124a-abeyance-vombatkere",
+  "summaryTable": [
+    {
+      "parameter": "Enforceability of Section 124A IPC",
+      "oldLaw": "Operative law upheld with judicial qualification (Kedar Nath Singh).",
+      "newLaw": "Entire section placed in abeyance; zero new FIRs or coercive steps permitted."
+    },
+    {
+      "parameter": "Pending Sedition Prosecutions",
+      "oldLaw": "Trials proceeded normally in trial courts across India.",
+      "newLaw": "All pending trials and investigations stayed in suspended animation."
+    }
+  ]
+},
+{
+  "id": "clash-cpdr-cbi-investigation-without-state-consent",
+  "title": "Writ Powers over Federal Consent: 5-Judge Bench in CPDR Empowers CBI Probes",
+  "tagline": "5-Judge Bench holds that Supreme Court and High Courts can direct CBI investigation without State Government consent.",
+  "topicPillar": "Federalism & Economy: Federalism, Police Powers & Constitutional Writs (Arts 32, 226)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2010,
+  "oldCase": {
+    "caseName": "Section 6 of the Delhi Special Police Establishment Act, 1946 (State Consent Bar)",
+    "year": 1946,
+    "citation": "Section 6 DSPE Act, 1946 / Traditional Federal Police Autonomy",
+    "benchStrength": "Statutory Restriction",
+    "presidingJudges": "Statutory Framework",
+    "historicalContext": "Following political violence in Nandigram, West Bengal, the Calcutta High Court ordered a CBI probe. The State Government argued that under Section 6 of the DSPE Act, the CBI could not investigate without the State's consent.",
+    "theFlawedRatio": "Argued that since \"Police\" and \"Public Order\" are State List subjects (List II Entries 1 and 2), Section 6 of the DSPE Act imposed an absolute statutory bar on federal police investigations without state concurrence.",
+    "whyItFailed": "Would allow ruling state regimes to block independent probes into serious human rights violations committed by state police or ruling party cadres.",
+    "consequences": "Impunity for state-sponsored violence and denial of impartial justice to victims."
+  },
+  "newCase": {
+    "caseName": "State of West Bengal v. Committee for Protection of Democratic Rights (CPDR)",
+    "shortName": "CPDR (CBI Consent)",
+    "year": 2010,
+    "citation": "(2010) 3 SCC 571 / 2010 INSC 119",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "K.G. Balakrishnan CJI, R.V. Raveendran, D.K. Jain, P. Sathasivam, J.M. Panchal JJ.",
+    "verdictDate": "February 17, 2010",
+    "theSettledRatio": "The constitutional power of the Supreme Court under Article 32 and High Courts under Article 226 to direct the CBI to investigate a cognizable offense within a State without the consent of that State is NOT affected by Section 6 of the DSPE Act. Constitutional writ powers are plenary and cannot be curtailed by statutory provisions. Protecting Fundamental Rights under Article 21 overrides statutory federal restrictions.",
+    "constitutionalArticles": [
+      "Article 32",
+      "Article 226",
+      "Article 21",
+      "Article 246"
+    ],
+    "doctrinalShift": "Primacy of Fundamental Rights over Statutory Federal Bars: Constitutional writ jurisdiction can bypass statutory consent requirements to ensure impartial justice.",
+    "keyTakeawayForMains": "Landmark authority resolving the constitutional tension between state police autonomy under the Seventh Schedule and judicial writ power to enforce Article 21."
+  },
+  "linkedMainsQuestionId": "mains-15m-cbi-investigation-state-consent-cpdr",
+  "summaryTable": [
+    {
+      "parameter": "State Consent for CBI Investigation",
+      "oldLaw": "Mandatory under Section 6 DSPE Act; argued to bind all authorities.",
+      "newLaw": "Binds the Central Executive, but cannot limit constitutional courts under Art 32/226."
+    },
+    {
+      "parameter": "Grounds for Court-Directed CBI Probes",
+      "oldLaw": "Permissible only where State legislature or executive consented.",
+      "newLaw": "Exercised sparingly in extraordinary situations to uphold Article 21 rights."
+    }
+  ]
+}
 ];
