@@ -378,7 +378,7 @@ export const ConceptWebGraphView: React.FC = () => {
             {/* Fullscreen Button */}
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
-              className="p-2 rounded-xl bg-purple-600/15 border border-purple-500/30 text-purple-300 hover:bg-purple-600/25 transition-all cursor-pointer"
+              className="p-2 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen Cockpit'}
             >
               {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -388,7 +388,7 @@ export const ConceptWebGraphView: React.FC = () => {
 
         {/* Pathfinder Rationale Banner (when in pathfinder mode) */}
         {viewMode === 'pathfinder' && calculatedPath && (
-          <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-card border border-amber-500/30 text-xs space-y-1 animate-fadeIn">
+          <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs space-y-1 animate-fadeIn">
             <div className="flex items-center gap-2 font-mono font-bold text-amber-400">
               <Sparkles className="w-4 h-4" />
               <span>JUDICIAL BRIDGE DISCOVERED ({calculatedPath.pathNodeIds.length - 1} LEAPS):</span>
@@ -402,7 +402,7 @@ export const ConceptWebGraphView: React.FC = () => {
 
       {/* Main Interactive Stage: SVG Canvas with Floating Glass Dossier */}
       <div
-        className={`relative w-full rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[#09090f] shadow-2xl ${
+        className={`relative w-full rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[#090911] shadow-md ${
           isFullscreen ? 'flex-1' : 'h-[620px]'
         }`}
       >
@@ -417,37 +417,15 @@ export const ConceptWebGraphView: React.FC = () => {
           onPointerLeave={handlePointerUp}
         >
           <defs>
-            {/* Dark Cybernetic Grid */}
-            <pattern id="matrixGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#252538" strokeWidth="0.5" opacity="0.4" />
+            {/* Subtle Matrix Dot Grid (Crisp Vector Pattern, No Gradients) */}
+            <pattern id="matrixGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="#252538" opacity="0.6" />
             </pattern>
-
-            {/* Glowing Nebulas */}
-            <radialGradient id="nebulaCenter" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
-            </radialGradient>
-            <radialGradient id="nebulaRight" cx="80%" cy="50%" r="45%">
-              <stop offset="0%" stopColor="#059669" stopOpacity="0.1" />
-              <stop offset="100%" stopColor="#059669" stopOpacity="0" />
-            </radialGradient>
-
-            {/* Neon Glow Filters */}
-            <filter id="neonPulse" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-            <filter id="goldPathGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
           </defs>
 
-          {/* Canvas Background and Nebulas */}
-          <rect width="1000" height="650" fill="#09090f" />
+          {/* Clean Solid Canvas Background (No Gradients) */}
+          <rect width="1000" height="650" fill="#090911" />
           <rect width="1000" height="650" fill="url(#matrixGrid)" />
-          <circle cx="500" cy="325" r="350" fill="url(#nebulaCenter)" />
-          <circle cx="850" cy="350" r="280" fill="url(#nebulaRight)" />
 
           {/* TRANSFORMED LAYER (Pan & Zoom) */}
           <g transform={`translate(${panOffset.x}, ${panOffset.y}) scale(${zoomLevel})`}>
@@ -489,8 +467,6 @@ export const ConceptWebGraphView: React.FC = () => {
                       strokeOpacity={strokeOpacity}
                       strokeWidth={strokeWidth}
                       strokeDasharray={dashArray}
-                      filter={isPath ? 'url(#goldPathGlow)' : undefined}
-                      className={isPath || isSelectedConn ? 'animate-pulse' : undefined}
                     />
 
                     {/* Edge Relationship Badge (On active connection or path) */}
@@ -561,18 +537,16 @@ export const ConceptWebGraphView: React.FC = () => {
                     className="cursor-grab active:cursor-grabbing group transition-opacity duration-300"
                     opacity={opacity}
                   >
-                    {/* Glowing outer orbit ring for selected node or path node */}
+                    {/* Crisp outer orbit ring for selected node or path node */}
                     {(isSelected || isPathNode) && (
                       <circle
                         cx={pos.x}
                         cy={pos.y}
-                        r={radius + 8}
+                        r={radius + 6}
                         fill="none"
                         stroke={isPathNode ? '#fbbf24' : color.stroke}
-                        strokeWidth="2"
+                        strokeWidth="1.5"
                         strokeDasharray="4 2"
-                        className="animate-spin"
-                        style={{ animationDuration: '9s' }}
                       />
                     )}
 
@@ -581,11 +555,10 @@ export const ConceptWebGraphView: React.FC = () => {
                       cx={pos.x}
                       cy={pos.y}
                       r={radius}
-                      fill={isSelected ? color.fill : isPathNode ? '#fbbf24' : '#14141f'}
+                      fill={isSelected ? color.fill : isPathNode ? '#fbbf24' : '#141420'}
                       stroke={isPathNode ? '#fbbf24' : color.stroke}
-                      strokeWidth={isSelected || isPathNode ? 3.5 : 2}
-                      filter={isSelected || isPathNode ? 'url(#neonPulse)' : undefined}
-                      className="transition-all duration-150 group-hover:scale-110"
+                      strokeWidth={isSelected || isPathNode ? 3 : 1.5}
+                      className="transition-all duration-150 group-hover:scale-105"
                     />
 
                     {/* Node Text Label */}
@@ -595,8 +568,8 @@ export const ConceptWebGraphView: React.FC = () => {
                       textAnchor="middle"
                       fontSize={isSelected || isPathNode ? '11' : '10'}
                       fontWeight={isSelected || isPathNode ? 'bold' : '600'}
-                      fill={isSelected ? '#ffffff' : isPathNode ? '#fbbf24' : color.fill}
-                      className="select-none pointer-events-none drop-shadow"
+                      fill={isSelected ? '#ffffff' : isPathNode ? '#fbbf24' : '#cbd5e1'}
+                      className="select-none pointer-events-none"
                     >
                       {node.label}
                     </text>
@@ -609,13 +582,13 @@ export const ConceptWebGraphView: React.FC = () => {
 
         {/* HUD Overlay: Navigation Help */}
         <div className="absolute top-4 left-4 pointer-events-none space-y-1">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[var(--text-muted)]">
-            <Zap className="w-3.5 h-3.5 text-amber-400" />
+          <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-[var(--bg-base)]/90 backdrop-blur-md border border-[var(--border-subtle)] text-[10px] font-mono text-[var(--text-muted)]">
+            <Zap className="w-3.5 h-3.5 text-amber-500" />
             <span>Drag any node to reposition • Pan canvas by dragging background</span>
           </div>
         </div>
 
-        {/* FLOATING GLASS DOSSIER SIDEBAR (Desktop Cockpit) */}
+        {/* FLOATING DOSSIER SIDEBAR (Desktop Cockpit) */}
         <div
           className={`absolute top-4 right-4 bottom-4 transition-all duration-300 z-10 flex flex-col ${
             dossierCollapsed ? 'w-12' : 'w-80 sm:w-96'
@@ -624,24 +597,20 @@ export const ConceptWebGraphView: React.FC = () => {
           {dossierCollapsed ? (
             <button
               onClick={() => setDossierCollapsed(false)}
-              className="p-3 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/15 text-purple-400 hover:text-white shadow-2xl transition-all cursor-pointer self-end"
+              className="p-3 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)] shadow-md transition-all cursor-pointer self-end"
               title="Expand Dossier"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
           ) : (
-            <div className="h-full rounded-3xl bg-black/80 backdrop-blur-xl border border-white/15 p-5 shadow-2xl overflow-y-auto flex flex-col justify-between space-y-4">
+            <div className="h-full rounded-3xl bg-[var(--bg-surface)]/95 backdrop-blur-md border border-[var(--border-subtle)] p-5 shadow-xl overflow-y-auto flex flex-col justify-between space-y-4">
               <div className="space-y-4">
                 {/* Dossier Header */}
-                <div className="flex items-start justify-between border-b border-white/10 pb-3">
+                <div className="flex items-start justify-between border-b border-[var(--border-subtle)] pb-3">
                   <div>
                     <div className="flex items-center gap-2">
                       <span
-                        className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
-                          getCategoryColor(selectedNode.category).bg
-                        } ${getCategoryColor(selectedNode.category).text} border ${
-                          getCategoryColor(selectedNode.category).border
-                        }`}
+                        className="text-[9px] font-mono font-medium px-2 py-0.5 rounded-full uppercase tracking-wider bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
                       >
                         {selectedNode.category}
                       </span>
@@ -650,12 +619,12 @@ export const ConceptWebGraphView: React.FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-black text-white mt-1 leading-snug">
+                    <h3 className="text-lg font-black text-[var(--text-primary)] mt-1 leading-snug">
                       {selectedNode.label}
                     </h3>
 
                     {selectedNode.articleAnchor && (
-                      <p className="text-[11px] font-mono text-purple-300/80">
+                      <p className="text-[11px] font-mono text-[var(--text-muted)]">
                         {selectedNode.articleAnchor}
                       </p>
                     )}
@@ -663,7 +632,7 @@ export const ConceptWebGraphView: React.FC = () => {
 
                   <button
                     onClick={() => setDossierCollapsed(true)}
-                    className="p-1.5 rounded-xl hover:bg-white/10 text-[var(--text-muted)] hover:text-white transition-all cursor-pointer"
+                    className="p-1.5 rounded-xl hover:bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
                     title="Collapse Dossier"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -672,23 +641,23 @@ export const ConceptWebGraphView: React.FC = () => {
 
                 {/* Constitutional Core */}
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block">
+                  <span className="text-[10px] font-mono font-semibold text-[var(--text-muted)] uppercase tracking-wider block">
                     CONSTITUTIONAL CORE:
                   </span>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed bg-white/5 p-3 rounded-2xl border border-white/5">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed bg-[var(--bg-base)] p-3 rounded-2xl border border-[var(--border-subtle)]">
                     {selectedNode.summary}
                   </p>
                 </div>
 
                 {/* Key Citations & Ratios */}
                 <div className="space-y-1.5">
-                  <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block">
+                  <span className="text-[10px] font-mono font-semibold text-[var(--text-muted)] uppercase tracking-wider block">
                     KEY HOLDINGS & PRECEDENT ANCHORS:
                   </span>
                   <ul className="space-y-1 text-xs text-[var(--text-secondary)]">
                     {selectedNode.keyHoldings.map((h, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] mt-1.5 shrink-0" />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -696,9 +665,9 @@ export const ConceptWebGraphView: React.FC = () => {
                 </div>
 
                 {/* Interactive Connected Nodes with Relationship Tags */}
-                <div className="space-y-2 pt-2 border-t border-white/10">
+                <div className="space-y-2 pt-2 border-t border-[var(--border-subtle)]">
                   <div className="flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
-                    <span className="font-bold uppercase tracking-wider">
+                    <span className="font-semibold uppercase tracking-wider">
                       CONNECTED CONCEPTS ({selectedNode.connections.length}):
                     </span>
                     <span>Click to hop</span>
@@ -721,7 +690,7 @@ export const ConceptWebGraphView: React.FC = () => {
                         <button
                           key={connId}
                           onClick={() => setSelectedNodeId(connId)}
-                          className="px-2.5 py-1 rounded-xl text-[11px] font-medium border border-white/10 bg-white/5 hover:border-purple-400 text-white transition-all cursor-pointer flex items-center gap-1.5"
+                          className="px-2.5 py-1 rounded-xl text-[11px] font-medium border border-[var(--border-subtle)] bg-[var(--bg-base)] hover:border-[var(--border-strong)] text-[var(--text-primary)] transition-all cursor-pointer flex items-center gap-1.5"
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${cColor.bg}`} />
                           <span>{target.label}</span>
@@ -738,10 +707,10 @@ export const ConceptWebGraphView: React.FC = () => {
               </div>
 
               {/* Action Jump Button */}
-              <div className="pt-3 border-t border-white/10">
+              <div className="pt-3 border-t border-[var(--border-subtle)]">
                 <button
                   onClick={() => handleActionJump(selectedNode)}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-purple-600 text-white font-mono text-xs font-bold hover:bg-purple-500 transition-all shadow-md btn-tactile cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--border-strong)] border border-[var(--border-strong)] text-[var(--text-primary)] font-mono text-xs font-semibold transition-all shadow-sm btn-tactile cursor-pointer"
                 >
                   <span>Explore in {selectedNode.category.toUpperCase()} Module</span>
                   <ExternalLink className="w-3.5 h-3.5" />

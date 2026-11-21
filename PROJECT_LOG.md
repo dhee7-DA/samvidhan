@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-21 01:54:57 (+05:30) |
+| **Last Log Sync** | 2026-11-21 11:47:08 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `0d4bd48` (2026-11-21T01:54:43+05:30) |
-| **Total Commits** | 86 |
+| **Branch / HEAD** | `main` @ `a7f7831` (2026-11-21T01:55:07+05:30) |
+| **Total Commits** | 87 |
 | **Total Files Indexed** | 279 (279 tracked, 0 new untracked) |
-| **Working Tree** | Clean |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-21 11:47:08 (+05:30)] Remove all gradients and glowing fog from Knowledge Graphs and Precedent Lineage (DONE)
+- **Details:** Removed SVG radial gradient nebulas, blurry neon glow filters, timeline rainbow gradient, and purple banner gradients from ConceptWebGraphView and PrecedentLineageView, giving a crisp Obsidian/Neo4j-style vector dark canvas
+- **Files Touched (2):** `M src/components/Views/ConceptWebGraphView.tsx`, `M src/components/Views/PrecedentLineageView.tsx`
+- **Git HEAD:** `main` @ `a7f7831`
 
 ### [2026-11-21 01:54:57 (+05:30)] Sync project log with commit 0d4bd48 (DONE)
 - **Details:** Final log sync
@@ -211,7 +216,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 60.1 KB | 735 | `0d4bd48` (2026-11-21) |
+| `PROJECT_LOG.md` | 60.4 KB | 741 | `a7f7831` (2026-11-21) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -306,7 +311,7 @@
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
-| `src/components/Views/ConceptWebGraphView.tsx` | 31.8 KB | 757 | `0d4bd48` (2026-11-21) |
+| `src/components/Views/ConceptWebGraphView.tsx` | 30.5 KB | 726 | `0d4bd48` (2026-11-21) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 22.0 KB | 423 | `9e33658` (2026-11-18) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 95.5 KB | 1837 | `d003041` (2026-11-20) |
@@ -320,7 +325,7 @@
 | `src/components/Views/OverviewDashboard.tsx` | 28.0 KB | 449 | `0d4bd48` (2026-11-21) |
 | `src/components/Views/PrecedentClashView.tsx` | 19.5 KB | 402 | `76d187c` (2026-11-20) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 14.4 KB | 335 | `76d187c` (2026-11-20) |
-| `src/components/Views/PrecedentLineageView.tsx` | 11.2 KB | 250 | `76d187c` (2026-11-20) |
+| `src/components/Views/PrecedentLineageView.tsx` | 12.0 KB | 250 | `76d187c` (2026-11-20) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 77.6 KB | 1446 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
@@ -647,10 +652,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**86** commits, newest first).
+> Complete git history (**87** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 87 | 2026-11-21 | `a7f7831` | 1 | docs(log): sync PROJECT_LOG.md with color hierarchy refactor |
 | 86 | 2026-11-21 | `0d4bd48` | 4 | refactor(ui): streamline color hierarchy and restrict color accents to key statutory words |
 | 85 | 2026-11-20 | `718f0ba` | 1 | docs: sync PROJECT_LOG for commit 7ff35ca |
 | 84 | 2026-11-20 | `7ff35ca` | 3 | feat: upgrade Concept Web Knowledge Graph with drag physics, Path-Finder, edge relations, and fullscreen cockpit |
