@@ -32,6 +32,7 @@ export interface PrecedentClash {
   overrulingMagnitude:
     | '7-Judge Overruling'
     | '9-Judge Overruling'
+    | '11-Judge Overruling'
     | '13-Judge Overruling'
     | '5-Judge Re-anchoring'
     | '5-Judge Overruling';
@@ -1184,6 +1185,291 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
         parameter: 'Economic Impact',
         oldLaw: 'Cascading multi-state tax compliance burden.',
         newLaw: 'Protection of national common market; led to Central Sales Tax Act, 1956.'
+      }
+    ]
+  },
+  {
+    id: 'clash-indra-sawhney-devadasan',
+    title: 'The Mandal Architecture: 50% Ceiling, Carry-Forward & the Creamy Layer Exclusion',
+    tagline: '9-Judge Constitution Bench overrules T. Devadasan and refines M.R. Balaji, cementing substantive equality under Article 16(4).',
+    topicPillar: 'Part III: Equality of Opportunity in Public Employment (Article 16) & Backward Classes',
+    overrulingMagnitude: '9-Judge Overruling',
+    yearOverruled: 1992,
+    oldCase: {
+      caseName: 'T. Devadasan v. Union of India (1964) & M.R. Balaji (1963)',
+      year: 1964,
+      citation: '(1964) 4 SCR 680 / AIR 1964 SC 179',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'J.R. Mudholkar J. for the Majority; K. Subba Rao J. (Dissenting)',
+      historicalContext:
+        'The Central Secretariat Service applied a "carry forward" rule where unfilled reserved posts from previous years accumulated. In 1961, 29 out of 45 appointments (64.4%) went to reserved categories. The petitioner challenged this as discriminatory.',
+      theFlawedRatio:
+        'The 5-Judge majority struck down the carry-forward rule as unconstitutional per se if it pushed total reservations in any single year beyond 50%. Separately, Balaji held that Article 16(4) was an "exception" to the general rule of equality in Article 16(1).',
+      whyItFailed:
+        'Crippled affirmative action: historical backlogs caused by structural systemic exclusion could never be filled if held strictly hostage to annual recruitment quotas.',
+      consequences:
+        'Thousands of reserved backlog vacancies lapsed each year across Union ministries, nullifying effective representation for marginalized groups.'
+    },
+    newCase: {
+      caseName: 'Indra Sawhney v. Union of India (Mandal Case)',
+      shortName: 'Indra Sawhney',
+      year: 1992,
+      citation: '1992 Supp (3) SCC 217 / AIR 1993 SC 477',
+      benchStrength: '9-Judge Constitution Bench (6:3 Majority)',
+      presidingJudges: 'M.H. Kania CJI, M.N. Venkatachaliah, S.R. Pandian, A.M. Ahmadi, Kuldip Singh, P.B. Sawant, B.P. Jeevan Reddy, T.K. Thommen, R.M. Sahai JJ.',
+      verdictDate: 'November 16, 1992',
+      theSettledRatio:
+        'T. Devadasan is overruled. The carry-forward rule is constitutionally valid provided that in any given year, the total reservations (including carry-forward backlogs) do not exceed 50% of the vacancies of that year. Crucially, Article 16(4) is NOT an exception to Article 16(1); it is an emphatic facet of equality. Introduced the mandatory exclusion of the "Creamy Layer" to ensure quotas reach the truly disadvantaged. Reservations are confined to initial appointments and do not apply to promotions.',
+      constitutionalArticles: ['Article 16(1)', 'Article 16(4)', 'Article 14', 'Article 15(4)', 'Article 335', 'Article 340'],
+      doctrinalShift:
+        'Substantive Equality & Creamy Layer: Equality is not formal arithmetic; it is proportional social justice. The Creamy Layer doctrine ensures that the benefits of reservation are not monopolized by the advanced sections within backward classes.',
+      keyTakeawayForMains:
+        'Indra Sawhney established the constitutional bedrock of modern reservations: 50% ceiling, backwardness cannot be determined exclusively by caste, creamy layer exclusion, and balancing efficiency under Article 335.'
+    },
+    linkedMainsQuestionId: 'mains-15m-indra-sawhney-affirmative-action',
+    summaryTable: [
+      {
+        parameter: 'Validity of Carry-Forward Rule',
+        oldLaw: 'Declared void if total reservations exceeded 50% in any year (Devadasan).',
+        newLaw: 'Valid subject to the 50% annual recruitment ceiling (later amended by 81st CAA).'
+      },
+      {
+        parameter: 'Nature of Article 16(4)',
+        oldLaw: 'Treated as an exception/derogation from Article 16(1) equality (Balaji).',
+        newLaw: 'Emphatic facet and affirmative manifestation of substantive equality under Art 16(1).'
+      },
+      {
+        parameter: 'Creamy Layer Exclusion',
+        oldLaw: 'Not recognized; quotas applied across entire caste groups.',
+        newLaw: 'Mandatory constitutional filter to weed out affluent/socially advanced individuals.'
+      }
+    ]
+  },
+  {
+    id: 'clash-rc-cooper-ak-gopalan',
+    title: 'The Direct Effect & Operation Test: Dismantling the Mutual Exclusivity Silos of Fundamental Rights',
+    tagline: '11-Judge Constitution Bench overrules Gopalan\'s object-of-statute test, ruling that laws must be judged by their effect on rights.',
+    topicPillar: 'Part III: Fundamental Rights Matrix • Direct Effect Test (Articles 14, 19, 21 & 31)',
+    overrulingMagnitude: '11-Judge Overruling',
+    yearOverruled: 1970,
+    oldCase: {
+      caseName: 'A.K. Gopalan v. State of Madras (1950) & P. Vajravelu Mudaliar (1965)',
+      year: 1950,
+      citation: 'AIR 1950 SC 27 & (1965) 1 SCR 614',
+      benchStrength: '6-Judge Constitution Bench',
+      presidingJudges: 'H.J. Kania CJI, Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea, S.R. Das JJ.',
+      historicalContext:
+        'In 1969, the Union Government enacted the Banking Companies (Acquisition and Transfer of Undertakings) Act nationalizing 14 major commercial banks. Shareholder and director R.C. Cooper challenged the legislation under Articles 14, 19(1)(f), and 31(2).',
+      theFlawedRatio:
+        'Under A.K. Gopalan, the Court held that the legislative validity of a statute must be judged solely by its "pith and substance" or direct object. If an Act fell under Article 31 (acquisition of property), its validity could not be tested on the touchstone of Article 19(1)(f) (Freedom of property/trade), because Fundamental Rights were mutually exclusive silos.',
+      whyItFailed:
+        'Allowed the State to bypass Article 19 fundamental freedoms simply by framing legislation under another constitutional entry or article, effectively gutting judicial protection of individual liberties.',
+      consequences:
+        'Citizens whose businesses or liberties were wiped out had no recourse to challenge the substantive unreasonableness of the state\'s actions under Article 19.'
+    },
+    newCase: {
+      caseName: 'R.C. Cooper v. Union of India (Bank Nationalisation Case)',
+      shortName: 'R.C. Cooper (Effect Test)',
+      year: 1970,
+      citation: '(1970) 1 SCC 248 / AIR 1970 SC 564',
+      benchStrength: '11-Judge Constitution Bench (10:1 Majority)',
+      presidingJudges: 'J.C. Shah, S.M. Sikri, J.M. Shelat, V. Bhargava, G.K. Mitter, C.A. Vaidialingam, K.S. Hegde, A.N. Grover, P. Jaganmohan Reddy, I.D. Dua JJ. (A.N. Ray J. dissenting)',
+      verdictDate: 'February 10, 1970',
+      theSettledRatio:
+        'A.K. Gopalan\'s "object-of-the-statute" and mutual exclusivity tests are decisively overruled. The constitutional validity of a law must be judged by its DIRECT EFFECT AND OPERATION upon the individual\'s fundamental rights. A law acquiring property or restricting rights cannot exist in a vacuum; it must satisfy the requirements of Article 14 (non-arbitrariness), Article 19(1) (reasonableness), AND Article 31/21 simultaneously. Compensation must be a genuine, just equivalent, not illusory.',
+      constitutionalArticles: ['Article 14', 'Article 19(1)(f)', 'Article 19(1)(g)', 'Article 21', 'Article 31'],
+      doctrinalShift:
+        'The Direct Effect & Operation Test: Pierced formal statutory labels. Laid the intellectual and constitutional groundwork that culminated in Maneka Gandhi (1978) and the birth of the Golden Triangle.',
+      keyTakeawayForMains:
+        'The State cannot defend a rights-violating law by pleading that its legislative object was different. The true test of constitutionality is the impact of the law on the citizen\'s freedoms.'
+    },
+    linkedMainsQuestionId: 'mains-15m-direct-effect-test-rc-cooper',
+    summaryTable: [
+      {
+        parameter: 'Constitutional Review Test',
+        oldLaw: 'Object of the statute test (A.K. Gopalan): Valid if subject matter matches legislative entry.',
+        newLaw: 'Direct Effect & Operation Test: Judged by actual impact on individual fundamental freedoms.'
+      },
+      {
+        parameter: 'Exclusivity of Fundamental Rights',
+        oldLaw: 'Water-tight compartments; Part III articles did not overlap.',
+        newLaw: 'Interlocking code of rights; every law must satisfy all relevant Fundamental Rights.'
+      },
+      {
+        parameter: 'Compensation Standard',
+        oldLaw: 'Nominal or subjective compensation determined solely by Parliament.',
+        newLaw: 'Must represent a fair, market-aligned equivalent, not an illusory figure.'
+      }
+    ]
+  },
+  {
+    id: 'clash-ramachandra-rao-speedy-trial',
+    title: 'The Limits of Judicial Legislation: Speedy Trial under Article 21 Cannot Impose Rigid Time-Bars',
+    tagline: '7-Judge Constitution Bench overrules Common Cause and Raj Deo Sharma, barring courts from framing statutory periods of limitation.',
+    topicPillar: 'Part III: Right to Fair & Speedy Trial (Article 21) & Separation of Powers',
+    overrulingMagnitude: '7-Judge Overruling',
+    yearOverruled: 2002,
+    oldCase: {
+      caseName: '"Common Cause" (1996) & Raj Deo Sharma v. State of Bihar (1998 & 1999)',
+      year: 1998,
+      citation: '(1996) 4 SCC 33 & (1998) 7 SCC 507',
+      benchStrength: '2-Judge & 3-Judge Benches',
+      presidingJudges: 'K.T. Thomas J. for the Majority',
+      historicalContext:
+        'To address catastrophic judicial delays where criminal undertrials languished in jail for decades, smaller benches of the Supreme Court laid down rigid judicial guidelines: if a prosecution did not conclude within 2 or 3 years, the trial must automatically close and the accused be acquitted.',
+      theFlawedRatio:
+        'Judicially manufactured fixed periods of limitation for criminal trials under the guise of Article 21 Speedy Trial, ordering automatic closure of prosecution cases regardless of the gravity of the crime.',
+      whyItFailed:
+        'Usurped the legislative domain. Prescribing periods of limitation is the exclusive constitutional prerogative of Parliament (CrPC). Caused serious offenders (corruption, murder, rape) to walk free simply due to administrative court congestion.',
+      consequences:
+        'Hundreds of serious corruption and criminal prosecutions collapsed across the country without examining the merits of the evidence or who caused the delay.'
+    },
+    newCase: {
+      caseName: 'P. Ramachandra Rao v. State of Karnataka',
+      shortName: 'P. Ramachandra Rao',
+      year: 2002,
+      citation: '(2002) 4 SCC 578 / AIR 2002 SC 1856',
+      benchStrength: '7-Judge Constitution Bench (Unanimous 7-0)',
+      presidingJudges: 'S.P. Bharucha CJI, S.S.M. Quadri, R.C. Lahoti, N. Santosh Hegde, Doraiswamy Raju, Ruma Pal, Arijit Pasayat JJ.',
+      verdictDate: 'April 16, 2002',
+      theSettledRatio:
+        'Common Cause (1996) and Raj Deo Sharma (1998/1999) are overruled. The Supreme Court in exercise of powers under Articles 32, 141, and 142 cannot prescribe fixed periods of limitation or statutory bars beyond which a criminal trial cannot proceed; doing so constitutes impermissible judicial legislation. Re-affirmed A.R. Antulay (1992, 5-J): whether delay violates Article 21 must be decided on a holistic case-by-case basis (nature of offence, conduct of defense, systemic delay).',
+      constitutionalArticles: ['Article 21', 'Article 141', 'Article 142', 'Separation of Powers'],
+      doctrinalShift:
+        'Constitutional Separation of Powers: The Supreme Court can declare law and issue remedial directions, but cannot enact statutes or rewrite codes of procedure. Speedy trial is a qualitative right, not an arbitrary calendar stopwatch.',
+      keyTakeawayForMains:
+        'Judicial activism cannot transgress the boundary of judicial legislation. Prescribing limitation periods for crimes is a legislative function reserved for Parliament.'
+    },
+    linkedMainsQuestionId: 'mains-15m-separation-of-powers-judicial-legislation',
+    summaryTable: [
+      {
+        parameter: 'Automatic Trial Closure by Time-Bar',
+        oldLaw: 'Mandatory closure of prosecution after 2–3 years under Art 21 (Raj Deo Sharma).',
+        newLaw: 'Completely barred and overruled; no judicial period of limitation can be created.'
+      },
+      {
+        parameter: 'Determination of Speedy Trial Breach',
+        oldLaw: 'Strict chronological countdown from date of chargesheet.',
+        newLaw: 'Holistic test: systemic factors, conduct of accused, and gravity of charges (Antulay rule).'
+      },
+      {
+        parameter: 'Judicial Lawmaking Scope under Art 142',
+        oldLaw: 'Courts could invent procedural rules to fill statutory vacuums.',
+        newLaw: 'Article 142 cannot be used to rewrite legislative statutes or bypass separation of powers.'
+      }
+    ]
+  },
+  {
+    id: 'clash-jarnail-singh-nagaraj',
+    title: 'SC/ST Reservations in Promotion: Backwardness Presumption & Creamy Layer Application',
+    tagline: '5-Judge Constitution Bench in Jarnail Singh overrules Nagaraj\'s backwardness data requirement while extending creamy layer to SCs/STs.',
+    topicPillar: 'Part III & Part XVI: Reservation in Promotion (Articles 16(4A), 16(4B), 335, 341 & 342)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2018,
+    oldCase: {
+      caseName: 'M. Nagaraj v. Union of India',
+      year: 2006,
+      citation: '(2006) 8 SCC 212',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'Y.K. Sabharwal CJI, K.G. Balakrishnan, S.H. Kapadia, C.K. Thakker, P.K. Balasubramanyan JJ.',
+      historicalContext:
+        'Parliament enacted the 77th, 81st, 82nd, and 85th Constitutional Amendments to protect reservations in promotions with consequential seniority for SCs/STs. General category officers challenged these amendments.',
+      theFlawedRatio:
+        'The 5-Judge Bench upheld the constitutional amendments, BUT imposed three mandatory preconditions that State governments had to prove with quantifiable empirical data before granting promotion quotas: (1) Backwardness of SCs/STs; (2) Inadequacy of representation; and (3) Overall administrative efficiency under Article 335.',
+      whyItFailed:
+        'Demanding empirical proof of "backwardness" for Scheduled Castes and Scheduled Tribes was contrary to the 9-Judge Bench in Indra Sawhney. Once a community is notified in the Presidential List under Articles 341 and 342, their backwardness is a conclusive constitutional presumption.',
+      consequences:
+        'Promotion processes for hundreds of thousands of SC/ST employees across central and state public services were paralyzed in litigation for over 12 years.'
+    },
+    newCase: {
+      caseName: 'Jarnail Singh v. Lachhmi Narain Gupta',
+      shortName: 'Jarnail Singh',
+      year: 2018,
+      citation: '(2018) 10 SCC 396',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'Dipak Misra CJI, Kurian Joseph, R.F. Nariman, S.K. Kaul, Indu Malhotra JJ.',
+      verdictDate: 'September 26, 2018',
+      theSettledRatio:
+        'M. Nagaraj is overruled to the extent it required States to collect quantifiable data on the backwardness of SCs and STs. The Presidential List under Articles 341/342 conclusively establishes backwardness. However, the Court simultaneously held that the "Creamy Layer" principle applies to Scheduled Castes and Scheduled Tribes in promotion: the affluent vanguard who have attained top positions cannot corner benefits meant for the weakest.',
+      constitutionalArticles: ['Article 16(4A)', 'Article 16(4B)', 'Article 335', 'Article 341', 'Article 342'],
+      doctrinalShift:
+        'Harmonization of Presidential Presumption & Creamy Layer: Protects SC/ST status from bureaucratic data hurdles, while ensuring intra-group equity so benefits trickle down to the most marginalized.',
+      keyTakeawayForMains:
+        'States need only prove "inadequacy of representation" in the cadre and compliance with Article 335 efficiency; backwardness is constitutionally presumed. Creamy layer applies to ensure substantive equality.'
+    },
+    linkedMainsQuestionId: 'mains-15m-reservation-in-promotions-nagaraj-jarnail',
+    summaryTable: [
+      {
+        parameter: 'Data on Backwardness for SC/STs',
+        oldLaw: 'Mandatory empirical proof required before granting promotion quotas (Nagaraj).',
+        newLaw: 'Invalidated and overruled; backwardness is constitutionally presumed under Arts 341/342.'
+      },
+      {
+        parameter: 'Inadequacy of Representation',
+        oldLaw: 'Quantifiable data required across the entire service.',
+        newLaw: 'Retained: Data required specifically for the relevant cadre/class.'
+      },
+      {
+        parameter: 'Creamy Layer for SC/STs',
+        oldLaw: 'Excluded from SC/STs; applied only to OBCs (Indra Sawhney).',
+        newLaw: 'Extended to SC/ST promotions to prevent intra-group monopolization of quotas.'
+      }
+    ]
+  },
+  {
+    id: 'clash-jallikattu-nagaraja',
+    title: 'The Jallikattu Constitution Bench: Legislative Reform of Cultural Sports Overrules Judicial Prohibition',
+    tagline: '5-Judge Constitution Bench upholds State amendments legalizing Jallikattu and Kambala, overriding the absolute judicial ban in A. Nagaraja.',
+    topicPillar: 'Part III & Part IVA: Cultural Heritage (Article 29(1)) vs Animal Welfare (Article 51A(g) & PCA Act)',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2023,
+    oldCase: {
+      caseName: 'Animal Welfare Board of India v. A. Nagaraja',
+      year: 2014,
+      citation: '(2014) 7 SCC 547',
+      benchStrength: '2-Judge Bench',
+      presidingJudges: 'K.S. Radhakrishnan and Pinaki Chandra Ghose JJ.',
+      historicalContext:
+        'Animal rights organizations challenged the practice of Jallikattu (bull-taming in Tamil Nadu) and bullock-cart races in Maharashtra, arguing that baiting, pinching, and twisting bulls\' tails caused immense cruelty and violated Section 3 and 11 of the Prevention of Cruelty to Animals (PCA) Act, 1960.',
+      theFlawedRatio:
+        'The 2-Judge Bench completely banned Jallikattu and similar sports, holding that animals possess inherent rights under Article 21, and that no cultural practice could justify cruelty to bulls.',
+      whyItFailed:
+        'Adopted an absolute judicial prohibition that ignored legislative competence. Following massive civil protests in 2017, State legislatures enacted statutory amendments to the PCA Act with stringent safety regulations to minimize pain.',
+      consequences:
+        'Created a severe constitutional clash between judicial decree and democratic cultural sentiment across Tamil Nadu, Karnataka, and Maharashtra.'
+    },
+    newCase: {
+      caseName: 'Animal Welfare Board of India v. Union of India (Jallikattu Bench)',
+      shortName: 'Jallikattu Bench',
+      year: 2023,
+      citation: '2023 INSC 555 / (2023) 8 SCC 419',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'K.M. Joseph, Ajay Rastogi, Aniruddha Bose, Hrishikesh Roy, C.T. Ravikumar JJ.',
+      verdictDate: 'May 18, 2023',
+      theSettledRatio:
+        'The State amendments enacted by Tamil Nadu, Maharashtra, and Karnataka to the Prevention of Cruelty to Animals Act are valid and lawful. A. Nagaraja is overruled to the extent it held that Jallikattu cannot be regulated. The State amendments substantially eliminate pain and cruelty through stringent regulations, medical inspections, and safety protocols. Whether a tradition is an integral part of cultural heritage under Article 29(1) is a matter for the legislature to decide, not for courts to adjudicate on subjective views.',
+      constitutionalArticles: ['Article 29(1)', 'Article 48', 'Article 51A(g)', 'Seventh Schedule List III Entry 17'],
+      doctrinalShift:
+        'Judicial Deference to Regulated Traditions: When the competent legislature passes valid statutory amendments addressing the factual defect identified by the judiciary, courts will respect legislative policy unless manifestly arbitrary.',
+      keyTakeawayForMains:
+        'Legislatures have the constitutional power to cure defects pointed out by judicial verdicts. Balancing animal welfare with cultural preservation requires statutory regulation, not judicial absolutism.'
+    },
+    linkedMainsQuestionId: 'mains-15m-jallikattu-cultural-rights-animal-welfare',
+    summaryTable: [
+      {
+        parameter: 'Status of Jallikattu and Kambala',
+        oldLaw: 'Completely illegal and banned as inherently cruel (A. Nagaraja).',
+        newLaw: 'Lawful and protected under amended State statutes with safety protocols.'
+      },
+      {
+        parameter: 'Who Decides Cultural Heritage?',
+        oldLaw: 'Judicial determination of whether a practice is essential culture.',
+        newLaw: 'Matter of legislative judgment under Article 29(1) of the Constitution.'
+      },
+      {
+        parameter: 'Legislative Curing of Verdicts',
+        oldLaw: 'State legislation treated as an attempt to overrule a judicial decree.',
+        newLaw: 'Valid exercise of legislative power removing the factual basis of cruelty.'
       }
     ]
   }

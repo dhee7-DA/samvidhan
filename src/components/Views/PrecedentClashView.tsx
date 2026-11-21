@@ -135,6 +135,7 @@ export const PrecedentClashView: React.FC = () => {
               { id: 'all', label: `All (${PRECEDENT_CLASHES_DATA.length})` },
               { id: '7-Judge Overruling', label: '7-Judge' },
               { id: '9-Judge Overruling', label: '9-Judge' },
+              { id: '11-Judge Overruling', label: '11-Judge' },
               { id: '13-Judge Overruling', label: '13-Judge' },
               { id: '5-Judge Overruling', label: '5-J Overrule' },
               { id: '5-Judge Re-anchoring', label: '5-J Re-anchor' }
