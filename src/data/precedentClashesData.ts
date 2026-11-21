@@ -4453,4 +4453,997 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     }
   ]
 }
+,
+{
+  "id": "clash-nanavati-governor-pardon-court-seized",
+  "title": "Executive Clemency vs Judicial Power: 5-Judge Bench in K.M. Nanavati",
+  "tagline": "5-Judge Bench holds Governor cannot suspend sentence under Article 161 when Supreme Court is seized of the appeal.",
+  "topicPillar": "Judiciary & Courts: Executive Pardon (Art 161) vs Supreme Court Powers (Art 142)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1961,
+  "oldCase": {
+    "caseName": "Governor's Suspension Order under Article 161 in State of Bombay v. K.M. Nanavati",
+    "year": 1960,
+    "citation": "Bombay High Court Special Reference / AIR 1961 Bom 186",
+    "benchStrength": "Executive Order under Article 161",
+    "presidingJudges": "Governor of Bombay Executive Clemency",
+    "historicalContext": "Commander K.M. Nanavati was convicted of murder by the Bombay High Court and sentenced to life imprisonment. While Nanavati's appeal to the Supreme Court was pending, the Governor of Bombay issued an order under Article 161 suspending his sentence until the appeal was disposed of.",
+    "theFlawedRatio": "The executive asserted that the Governor's prerogative of clemency under Article 161 was absolute, unfettered, and could be exercised at any stage, even when the judicial process in the Supreme Court was actively pending.",
+    "whyItFailed": "Created a direct constitutional conflict where executive suspension could render the appellate process and remand powers of the Supreme Court under Article 142 ineffective.",
+    "consequences": "Risked subordinating judicial proceedings in high-profile criminal trials to political executive interventions."
+  },
+  "newCase": {
+    "caseName": "K.M. Nanavati v. State of Bombay",
+    "shortName": "K.M. Nanavati",
+    "year": 1961,
+    "citation": "(1961) 1 SCR 497 / AIR 1961 SC 112",
+    "benchStrength": "5-Judge Constitution Bench (4:1 Majority)",
+    "presidingJudges": "B.P. Sinha CJI, P.B. Gajendragadkar, K. Subba Rao, K.N. Wanchoo JJ. (J.L. Kapur J. dissenting)",
+    "verdictDate": "September 5, 1960",
+    "theSettledRatio": "Harmonious Construction of Articles 161 and 142: The Governor has no power under Article 161 to suspend a sentence during the period when the matter is sub judice in the Supreme Court on an application for special leave or appeal. Once the Supreme Court is seized of the case, its powers under Article 142 to grant bail or suspend sentence are exclusive.",
+    "constitutionalArticles": [
+      "Article 161",
+      "Article 142",
+      "Article 72",
+      "Article 136"
+    ],
+    "doctrinalShift": "Primacy of Judicial Process during Sub Judice Appeals: Executive clemency operates post-conviction finality; it cannot supersede active judicial jurisdiction.",
+    "keyTakeawayForMains": "Foundational authority on the demarcation between executive clemency under Articles 72/161 and the plenary judicial powers of the Supreme Court under Article 142."
+  },
+  "linkedMainsQuestionId": "mains-15m-pardon-powers-article-161-article-142-nanavati",
+  "summaryTable": [
+    {
+      "parameter": "Exercise of Pardon during Pending Supreme Court Appeal",
+      "oldLaw": "Governor could suspend sentence unconditionally at any stage.",
+      "newLaw": "Governor cannot suspend sentence once Supreme Court is seized of the appeal."
+    },
+    {
+      "parameter": "Interim Bail and Suspension Jurisdiction",
+      "oldLaw": "Concurrent jurisdiction between Governor and appellate judiciary.",
+      "newLaw": "Exclusively within the domain of the Supreme Court under Article 142."
+    }
+  ]
+},
+{
+  "id": "clash-kehar-singh-article-72-mercy-scope",
+  "title": "The Full Plenary Scope of Presidential Mercy: 5-Judge Bench in Kehar Singh",
+  "tagline": "5-Judge Bench holds President under Article 72 can scrutinize evidence afresh independent of court verdicts.",
+  "topicPillar": "Governance & Democracy: Presidential Clemency (Article 72) & Separation of Powers",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1988,
+  "oldCase": {
+    "caseName": "Restricted Views on Presidential Mercy Jurisdiction post-Maru Ram",
+    "year": 1980,
+    "citation": "Maru Ram v. Union of India (1980) 4 SCC 107",
+    "benchStrength": "5-Judge Constitution Bench (Historical Precedent)",
+    "presidingJudges": "Y.V. Chandrachud CJI, P.N. Bhagwati, V.R. Krishna Iyer JJ.",
+    "historicalContext": "Kehar Singh, convicted of conspiracy in the assassination of Prime Minister Indira Gandhi and sentenced to death, sought an oral hearing before the President under Article 72. The President rejected the petition stating he could not go behind the final verdict of the Supreme Court.",
+    "theFlawedRatio": "Assumed that the President was strictly bound by the factual and evidentiary findings recorded by the courts and could not evaluate whether the conviction itself was justified.",
+    "whyItFailed": "Misconceived the nature of the constitutional pardoning power, which is sovereign and entirely distinct from judicial review.",
+    "consequences": "Reduced the constitutional grace of Article 72 to a rubber-stamp proceeding that failed to prevent potential miscarriages of justice."
+  },
+  "newCase": {
+    "caseName": "Kehar Singh v. Union of India",
+    "shortName": "Kehar Singh",
+    "year": 1988,
+    "citation": "(1989) 1 SCC 204 / 1988 INSC 379",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "R.S. Pathak CJI, E.S. Venkataramiah, Ranganath Misra, M.N. Venkatachaliah, N.D. Ojha JJ.",
+    "verdictDate": "December 16, 1988",
+    "theSettledRatio": "The power of the President under Article 72 is of the widest amplitude and is entirely separate from the judicial power. In exercising Article 72, the President is entitled to scrutinize the evidence on record afresh and reach a different conclusion from that of the courts. However, the convict has no fundamental right to an oral hearing before the President.",
+    "constitutionalArticles": [
+      "Article 72",
+      "Article 21",
+      "Article 74"
+    ],
+    "doctrinalShift": "Independent Executive Sovereign Grace: The President acts on the advice of the Council of Ministers as a distinct constitutional constitutional safety valve against judicial error.",
+    "keyTakeawayForMains": "The definitive ruling on the substantive scope of Article 72, establishing that the President may examine both guilt and sentence independently."
+  },
+  "linkedMainsQuestionId": "mains-15m-presidential-pardon-article-72-kehar-singh",
+  "summaryTable": [
+    {
+      "parameter": "President's Power to Re-Examine Evidence",
+      "oldLaw": "President believed strictly bound by final court findings of fact.",
+      "newLaw": "President can examine entire record afresh and differ from court conclusions."
+    },
+    {
+      "parameter": "Right to Personal Oral Hearing",
+      "oldLaw": "Asserted as a mandatory requirement of natural justice under Art 21.",
+      "newLaw": "No constitutional right to oral hearing; written submissions are sufficient."
+    }
+  ]
+},
+{
+  "id": "clash-epuru-sudhakar-judicial-review-of-pardons",
+  "title": "Judicial Review of Executive Clemency: Epuru Sudhakar Eliminates Political Pardons",
+  "tagline": "Supreme Court establishes that Presidential and Gubernatorial pardons are subject to judicial review against arbitrariness and political bias.",
+  "topicPillar": "Governance & Democracy: Judicial Review of Pardons (Articles 72 & 161) & Rule of Law",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2006,
+  "oldCase": {
+    "caseName": "The Absolute Non-Justiciability Doctrine of Executive Clemency",
+    "year": 1976,
+    "citation": "Traditional English Prerogative of Mercy / De Freitas v. Benny (1976) AC 239",
+    "benchStrength": "Colonial Common Law Principle",
+    "presidingJudges": "Privy Council Common Law Practice",
+    "historicalContext": "A Congress party activist convicted of murdering a political opponent in Andhra Pradesh was granted a gubernatorial pardon under Article 161 on political considerations while having served only a fraction of his sentence.",
+    "theFlawedRatio": "Historically asserted that the exercise of executive clemency was a purely sovereign prerogative of mercy beyond the reach of judicial scrutiny or writ review.",
+    "whyItFailed": "Allowed ruling regimes to abuse Article 161 to release partisan convicts and political murderers, undermining the Rule of Law.",
+    "consequences": "Pardoning power transformed into an instrument of partisan favoritism and political patronage."
+  },
+  "newCase": {
+    "caseName": "Epuru Sudhakar v. Government of Andhra Pradesh",
+    "shortName": "Epuru Sudhakar",
+    "year": 2006,
+    "citation": "(2006) 8 SCC 161 / 2006 INSC 738",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "Arijit Pasayat & S.H. Kapadia JJ.",
+    "verdictDate": "October 11, 2006",
+    "theSettledRatio": "The exercise of clemency under Articles 72 and 161 is subject to JUDICIAL REVIEW. While the merits of the decision are not substitutable, the court will strike down a pardon if: (a) it was passed without application of mind, (b) was mala fide, (c) was based on extraneous or political considerations, (d) relevant materials were ignored, or (e) it suffers from arbitrariness under Article 14.",
+    "constitutionalArticles": [
+      "Article 72",
+      "Article 161",
+      "Article 14",
+      "Article 21"
+    ],
+    "doctrinalShift": "Constitutional Discipline of Executive Mercy: Rule of Law governs every constitutional power; sovereign mercy cannot be exercised on arbitrary or sectarian grounds.",
+    "keyTakeawayForMains": "Essential precedent on the grounds of judicial review of discretionary constitutional powers under Articles 72 and 161."
+  },
+  "linkedMainsQuestionId": "mains-15m-judicial-review-clemency-epuru-sudhakar",
+  "summaryTable": [
+    {
+      "parameter": "Justiciability of Executive Pardons",
+      "oldLaw": "Regarded as an unreviewable sovereign royal prerogative.",
+      "newLaw": "Subject to limited judicial review for arbitrariness, mala fides, and extraneous bias."
+    },
+    {
+      "parameter": "Consideration of Political Allegiance",
+      "oldLaw": "Tolerated as an unreviewable executive political choice.",
+      "newLaw": "Pardon based on political, caste, or religious grounds is unconstitutional and void."
+    }
+  ]
+},
+{
+  "id": "clash-shatrughan-chauhan-death-row-delay-commutation",
+  "title": "Executive Delay & Death Row Commutation: Shatrughan Chauhan Replaces Triveniben",
+  "tagline": "Supreme Court holds inordinate, unexplained executive delay in deciding mercy petitions is a violation of Article 21, commuting death to life.",
+  "topicPillar": "Rights & Liberty: Death Penalty, Article 21 Due Process & Clemency Delays",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2014,
+  "oldCase": {
+    "caseName": "Triveniben v. State of Gujarat & Devender Pal Singh Bhullar",
+    "year": 1989,
+    "citation": "(1989) 1 SCC 678 & (2013) 6 SCC 195",
+    "benchStrength": "5-Judge Constitution Bench & 2-Judge Bench",
+    "presidingJudges": "G.L. Oza, B.C. Ray, M.M. Dutt, K. Jagannatha Shetty, L.M. Sharma JJ.",
+    "historicalContext": "Condemned death row prisoners faced excruciating delays of 8 to 12 years while their mercy petitions languished before the President. In Bhullar (2013), a 2-judge bench held that delay was no ground for commutation in terrorism cases.",
+    "theFlawedRatio": "Treated executive delay as largely discretionary and created a categorical exception in terror cases where inordinate delay could not benefit the condemned prisoner.",
+    "whyItFailed": "Subjected prisoners to prolonged agony and psychological torture on death row, violating the guarantee of humane treatment under Article 21.",
+    "consequences": "Prisoners spent over a decade in solitary confinement awaiting execution orders in violation of fundamental dignity."
+  },
+  "newCase": {
+    "caseName": "Shatrughan Chauhan v. Union of India",
+    "shortName": "Shatrughan Chauhan",
+    "year": 2014,
+    "citation": "(2014) 3 SCC 1 / 2014 INSC 39",
+    "benchStrength": "3-Judge Bench (Unanimous 3:0)",
+    "presidingJudges": "P. Sathasivam CJI, Ranjan Gogoi, N.V. Ramana JJ.",
+    "verdictDate": "January 21, 2014",
+    "theSettledRatio": "Bhullar is OVERRULED. Inordinate, unexplained, and unreasonable executive delay in disposing of a mercy petition infringes the prisoner's Right to Life under Article 21 and is a sufficient supervening ground to COMMUTE death sentence to life imprisonment. Article 21 applies equally to all death row prisoners without distinction between IPC and anti-terror offenses. Mandated minimum 14 days notice between rejection of mercy and execution.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 72",
+      "Article 161",
+      "Article 14"
+    ],
+    "doctrinalShift": "Supervening Circumstances in Capital Punishment: Procedural due process under Article 21 continues until the moment of execution; state delay cannot inflict torturous agony.",
+    "keyTakeawayForMains": "Landmark death penalty reform ruling establishing mandatory procedural guidelines and supervening grounds for commutation under Article 21."
+  },
+  "linkedMainsQuestionId": "mains-15m-mercy-delay-commutation-shatrughan-chauhan",
+  "summaryTable": [
+    {
+      "parameter": "Executive Delay as Ground for Commutation",
+      "oldLaw": "Inapplicable to terrorism and heinous offenses (Bhullar).",
+      "newLaw": "Universal supervening ground under Article 21 across all categories of crime."
+    },
+    {
+      "parameter": "Execution Notice Requirement",
+      "oldLaw": "Executions carried out secretly without mandatory advance notice to family.",
+      "newLaw": "Mandatory minimum 14-day gap between mercy rejection and execution."
+    }
+  ]
+},
+{
+  "id": "clash-shah-bano-danial-latifi-maintenance",
+  "title": "The Muslim Women Maintenance Landmark: From Shah Bano to Danial Latifi",
+  "tagline": "5-Judge Bench in Danial Latifi harmonizes Shah Bano and the 1986 Act, guaranteeing lifetime maintenance for divorced Muslim women.",
+  "topicPillar": "Social Justice & Quotas: Gender Justice, Section 125 CrPC & Secular Maintenance",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2001,
+  "oldCase": {
+    "caseName": "The Muslim Women (Protection of Rights on Divorce) Act, 1986 Statutory Vacuum",
+    "year": 1986,
+    "citation": "Enacted to nullify Mohd. Ahmed Khan v. Shah Bano Begum (1985) 2 SCC 556",
+    "benchStrength": "Parliamentary Statutory Overrule",
+    "presidingJudges": "Legislative Enactment",
+    "historicalContext": "Following the 5-Judge Shah Bano verdict holding that Section 125 CrPC applied to Muslim women, Parliament passed the 1986 Act under conservative pressure, restricting the husband's liability to the 3-month iddat period.",
+    "theFlawedRatio": "The conservative interpretation of Section 3(1)(a) claimed that a Muslim husband was completely discharged of all maintenance obligations once the 90-day iddat period expired, leaving destitute divorcees to relatives or Waqf Boards.",
+    "whyItFailed": "Deprived divorced Muslim women of equal social security and dignity, leaving them vulnerable to destitution and poverty.",
+    "consequences": "Thousands of divorced Muslim women left without basic survival income under the guise of personal law immunity."
+  },
+  "newCase": {
+    "caseName": "Danial Latifi v. Union of India",
+    "shortName": "Danial Latifi",
+    "year": 2001,
+    "citation": "(2001) 7 SCC 740 / 2001 INSC 449",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "G.B. Pattanaik, S. Rajendra Babu, D.P. Mohapatra, Doraiswamy Raju, Shivaraj V. Patil JJ.",
+    "verdictDate": "September 28, 2001",
+    "theSettledRatio": "The 1986 Act is constitutionally valid when read harmoniously with Articles 14, 15, and 21. Section 3(1)(a) requires the husband to make a \"reasonable and fair provision\" WITHIN the iddat period for the ENTIRE FUTURE LIFE of the divorced wife until she remarries. Maintenance is not limited to iddat; it must be calculated to sustain her throughout her remaining lifetime.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 15",
+      "Article 21",
+      "Article 44"
+    ],
+    "doctrinalShift": "Harmonious Constitutional Statutory Construction: Personal law reform statutes must be interpreted to advance substantive gender justice and prevent destitution.",
+    "keyTakeawayForMains": "Masterclass in judicial statesmanship reconciling statutory text, personal law sensitivities, and fundamental guarantees of gender equality."
+  },
+  "linkedMainsQuestionId": "mains-15m-muslim-women-maintenance-danial-latifi",
+  "summaryTable": [
+    {
+      "parameter": "Duration of Husband's Maintenance Liability",
+      "oldLaw": "Confined strictly to the 90-day iddat period under orthodox reading of 1986 Act.",
+      "newLaw": "Lump-sum provision paid within iddat to cover the entire remaining life of the divorcee."
+    },
+    {
+      "parameter": "Interplay with Section 125 CrPC / BNSS",
+      "oldLaw": "Asserted complete exclusion of Muslim women from general secular maintenance.",
+      "newLaw": "Secular maintenance protections preserved through creative statutory reading."
+    }
+  ]
+},
+{
+  "id": "clash-nalsa-third-gender-recognition",
+  "title": "The Third Gender Landmark: Supreme Court Upholds Transgender Rights in NALSA",
+  "tagline": "Supreme Court recognizes transgender persons as \"Third Gender\", anchoring self-perceived gender identity under Articles 14 and 21.",
+  "topicPillar": "Rights & Liberty: Gender Identity, Bodily Autonomy & Equal Protection (Arts 14, 19, 21)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2014,
+  "oldCase": {
+    "caseName": "Rigid Binary Gender Classification under Indian Law",
+    "year": 1871,
+    "citation": "Colonial Criminal Tribes Act, 1871 & Traditional Binary Registration Frameworks",
+    "benchStrength": "Colonial Statutory Framework",
+    "presidingJudges": "Colonial Administrative Architecture",
+    "historicalContext": "For centuries, Indian law and administrative records recognized only male and female genders. Transgender individuals were denied identity cards, passports, healthcare, voting rights, and employment.",
+    "theFlawedRatio": "Treated gender exclusively as a biological assignment determined at birth based on anatomical appearance, denying recognition to gender identity self-perception.",
+    "whyItFailed": "Forced transgender citizens into a binary mold, stripping them of personhood, dignity, and fundamental constitutional rights.",
+    "consequences": "Systemic social ostracization, lack of access to public welfare, and rampant police harassment."
+  },
+  "newCase": {
+    "caseName": "National Legal Services Authority (NALSA) v. Union of India",
+    "shortName": "NALSA",
+    "year": 2014,
+    "citation": "(2014) 5 SCC 438 / 2014 INSC 299",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "K.S. Radhakrishnan & A.K. Sikri JJ.",
+    "verdictDate": "April 15, 2014",
+    "theSettledRatio": "Transgender persons have the fundamental right to self-identify their gender as male, female, or \"Third Gender\". Gender identity is an integral part of personal autonomy and human dignity under Article 21. No one can be forced to undergo medical or sex-reassignment surgery as a prerequisite for legal recognition. Directed the State to treat transgender persons as socially and educationally backward classes for affirmative action.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 15",
+      "Article 19(1)(a)",
+      "Article 21"
+    ],
+    "doctrinalShift": "Self-Determination of Gender Identity: Psychological and self-perceived gender identity is protected by constitutional dignity and expressive liberty.",
+    "keyTakeawayForMains": "Pioneering judgment establishing transgender rights and psychological self-determination under the Yogyakarta Principles and Part III."
+  },
+  "linkedMainsQuestionId": "mains-15m-transgender-rights-nalsa-article-21",
+  "summaryTable": [
+    {
+      "parameter": "Legal Gender Recognition",
+      "oldLaw": "Strict binary classification restricted to biological male or female at birth.",
+      "newLaw": "Full constitutional recognition of \"Third Gender\" and self-perceived gender identity."
+    },
+    {
+      "parameter": "Medical Prerequisite for Gender Identity",
+      "oldLaw": "Mandatory sex-reassignment surgery (SRS) and medical board certification.",
+      "newLaw": "Psychological self-identification is sovereign; surgical alteration not mandatory."
+    }
+  ]
+},
+{
+  "id": "clash-deepika-singh-modern-family-maternity",
+  "title": "Constitutional Protection for Modern Families: Deepika Singh on Maternity Rights",
+  "tagline": "Supreme Court redefines \"family\" beyond patriarchal conventions, granting maternity leave for step-children and non-traditional households.",
+  "topicPillar": "Rights & Liberty: Gender Justice, Maternity Rights & Familial Autonomy (Arts 14 & 21)",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2022,
+  "oldCase": {
+    "caseName": "Central Civil Services (Leave) Rules, 1972 Rigid Two-Surviving-Children Clause",
+    "year": 1972,
+    "citation": "Rule 43 Central Civil Services (Leave) Rules, 1972",
+    "benchStrength": "Administrative Service Regulations",
+    "presidingJudges": "Central Civil Service Administration",
+    "historicalContext": "A government employee married a widower with two biological children and took child-care leave for them. When she gave birth to her own biological child, authorities denied her statutory maternity leave citing the rule restricting leave to mothers with fewer than two surviving children.",
+    "theFlawedRatio": "Administrative bodies interpreted family rules based on rigid patriarchal assumptions that ignored blended, adoptive, single-parent, or non-traditional family structures.",
+    "whyItFailed": "Penalized women for taking care of step-children and denied newborn biological children the essential maternal care protected by Article 21.",
+    "consequences": "Deprived women in non-traditional families of statutory maternity benefits and workplace dignity."
+  },
+  "newCase": {
+    "caseName": "Deepika Singh v. Central Administrative Tribunal",
+    "shortName": "Deepika Singh",
+    "year": 2022,
+    "citation": "(2022) 13 SCC 429 / 2022 INSC 836",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "D.Y. Chandrachud & A.S. Bopanna JJ.",
+    "verdictDate": "August 16, 2022",
+    "theSettledRatio": "Maternity leave cannot be denied to a woman giving birth to her biological child merely because she availed leave for step-children previously. The concept of \"family\" under the Constitution cannot be confined to conventional patriarchal arrangements. Non-traditional family configurations—including blended families, queer partnerships, and single-parent households—are entitled to equal constitutional protection under Articles 14 and 21.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 15(3)",
+      "Article 21",
+      "Article 42"
+    ],
+    "doctrinalShift": "Constitutional Recognition of Non-Traditional Families: Familial structures are diverse and dynamic; social welfare legislation must be interpreted to protect real-world families.",
+    "keyTakeawayForMains": "Forward-looking judgment advancing constitutional recognition of modern, diverse family units and substantive maternity protection."
+  },
+  "linkedMainsQuestionId": "mains-15m-maternity-rights-modern-family-deepika-singh",
+  "summaryTable": [
+    {
+      "parameter": "Definition of Family in Welfare Regulations",
+      "oldLaw": "Confined strictly to conventional heterosexual nuclear family models.",
+      "newLaw": "Includes blended families, step-parents, and non-traditional domestic units."
+    },
+    {
+      "parameter": "Maternity Leave Entitlement",
+      "oldLaw": "Mechanically denied if two children already existed in the household.",
+      "newLaw": "Guaranteed for biological childbirth to protect health of mother and infant."
+    }
+  ]
+},
+{
+  "id": "clash-aruna-shanbaug-passive-euthanasia-guidelines",
+  "title": "The Passive Euthanasia Breakthrough: Supreme Court in Aruna Shanbaug",
+  "tagline": "Supreme Court permits passive euthanasia for patients in permanent vegetative state, laying the foundation for living wills.",
+  "topicPillar": "Rights & Liberty: Right to Die with Dignity, Passive Euthanasia & Article 21",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2011,
+  "oldCase": {
+    "caseName": "Absolute Criminalization of Withdrawing Life-Support under Section 306/309 IPC",
+    "year": 1996,
+    "citation": "Gian Kaur v. State of Punjab (1996) 2 SCC 648 (Rigid Medical Application)",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "J.S. Verma, G.N. Ray, N.P. Singh, B.L. Hansaria, S.B. Majmudar JJ.",
+    "historicalContext": "Aruna Shanbaug, a nurse, had spent 37 years in a permanent vegetative state (PVS) at KEM Hospital following a violent sexual assault. Activist Pinki Virani filed a writ petition seeking permission to withdraw life-sustaining treatment.",
+    "theFlawedRatio": "Traditional legal dogma treated any withdrawal of medical nutrition, hydration, or ventilation as criminal culpable homicide or abetment to suicide under the IPC.",
+    "whyItFailed": "Subjected terminally ill patients in irreversible vegetative states to unnatural, invasive medical prolongation of agony without hope of recovery.",
+    "consequences": "Doctors feared criminal prosecution for withdrawing futile life support, forcing families to watch loved ones suffer indefinitely."
+  },
+  "newCase": {
+    "caseName": "Aruna Ramchandra Shanbaug v. Union of India",
+    "shortName": "Aruna Shanbaug",
+    "year": 2011,
+    "citation": "(2011) 4 SCC 454 / 2011 INSC 190",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "Markandey Katju & Gyan Sudha Misra JJ.",
+    "verdictDate": "March 7, 2011",
+    "theSettledRatio": "Passive Euthanasia (the withdrawal of life-sustaining treatment from a patient in a Permanent Vegetative State or with terminal illness) is legally permissible under strict judicial safeguards. Active euthanasia remains illegal. Formulated procedural guidelines: decisions must be approved by the High Court under Article 226 after examining an independent board of three specialist doctors.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 226"
+    ],
+    "doctrinalShift": "Distinction between Active and Passive Euthanasia: Allowing nature to take its course in irreversible terminal conditions is consistent with constitutional dignity.",
+    "keyTakeawayForMains": "The historic legal breakthrough that opened the door for passive euthanasia and living wills formalized by the 5-Judge Bench in Common Cause (2018)."
+  },
+  "linkedMainsQuestionId": "mains-15m-passive-euthanasia-article-21-aruna-shanbaug",
+  "summaryTable": [
+    {
+      "parameter": "Withdrawal of Life Support in Vegetative State",
+      "oldLaw": "Viewed as criminal homicide under Section 300/306 IPC.",
+      "newLaw": "Permissible passive euthanasia subject to High Court bench approval."
+    },
+    {
+      "parameter": "Scope of Judicial Safeguards",
+      "oldLaw": "Zero legal guidelines; complete statutory prohibition.",
+      "newLaw": "Mandatory independent 3-doctor medical board and High Court supervision."
+    }
+  ]
+},
+{
+  "id": "clash-good-samaritan-article-141-guidelines",
+  "title": "The Good Samaritan Charter: Supreme Court Protects Road Accident Rescuers",
+  "tagline": "Supreme Court issues binding Article 141 guidelines to protect Good Samaritans from police questioning and civil liability.",
+  "topicPillar": "Rights & Liberty: Preservation of Life (Article 21) & Bystander Protection",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2016,
+  "oldCase": {
+    "caseName": "Traditional Police Interrogation & Witness Harassment of Accident Rescuers",
+    "year": 1989,
+    "citation": "Parmanand Katara v. Union of India (1989) 4 SCC 286 (Unenforced vacuum)",
+    "benchStrength": "2-Judge Bench Precedent",
+    "presidingJudges": "Traditional CrPC Witness Procedures",
+    "historicalContext": "Over 50% of road accident fatalities in India occurred because bystanders refused to assist victims during the critical \"Golden Hour\", fearing police harassment, court subpoenas, and hospital deposit demands.",
+    "theFlawedRatio": "Criminal procedure treated any citizen who brought an injured victim to a hospital as a potential suspect or forced witness, subjecting them to grueling police interrogations.",
+    "whyItFailed": "Disincentivized basic human compassion and led to tens of thousands of preventable road deaths every year.",
+    "consequences": "Dying accident victims left unattended on roads while bystanders walked away out of fear of legal entanglements."
+  },
+  "newCase": {
+    "caseName": "SaveLIFE Foundation v. Union of India",
+    "shortName": "Good Samaritan Charter",
+    "year": 2016,
+    "citation": "(2016) 7 SCC 124 / 2016 INSC 283",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "V. Gopala Gowda & Arun Mishra JJ.",
+    "verdictDate": "March 30, 2016",
+    "theSettledRatio": "Supreme Court granted constitutional approval to the Good Samaritan Guidelines under Article 141. A Good Samaritan who transports an injured victim to a hospital cannot be detained, forced to disclose identity, subjected to civil/criminal liability, or compelled to become a witness. Hospitals cannot demand money before treatment. Later codified into Section 134A of the Motor Vehicles Act.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 141",
+      "Article 14"
+    ],
+    "doctrinalShift": "Constitutional Affirmation of Altruistic Rescue: The Right to Life under Article 21 imposes an obligation on the state to shield Good Samaritans from harassment.",
+    "keyTakeawayForMains": "Exemplary exercise of Article 141 judicial guidelines later translated into statutory amendment (Section 134A MVA)."
+  },
+  "linkedMainsQuestionId": "mains-10m-good-samaritan-article-21-savelife",
+  "summaryTable": [
+    {
+      "parameter": "Status of Bystanders Rescuing Victims",
+      "oldLaw": "Subject to coercive police questioning and mandatory court witness appearances.",
+      "newLaw": "Complete immunity; voluntary witness examination; no identity disclosure compelled."
+    },
+    {
+      "parameter": "Hospital Admission Requirements",
+      "oldLaw": "Treatment delayed pending police registration and monetary deposits.",
+      "newLaw": "Immediate emergency medical treatment mandatory with zero delay."
+    }
+  ]
+},
+{
+  "id": "clash-destruction-public-property-mob-violence",
+  "title": "Strict Liability for Mob Violence: Supreme Court in Re: Destruction of Public Properties",
+  "tagline": "Supreme Court formulates binding guidelines making organizers of violent protests strictly liable for destruction of public property.",
+  "topicPillar": "Governance & Democracy: Public Order, Fundamental Duties (Art 51A) & Strict Damage Liability",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2009,
+  "oldCase": {
+    "caseName": "Impotence of the Prevention of Damage to Public Property Act, 1984",
+    "year": 1984,
+    "citation": "PDPP Act, 1984 (Pre-2009 statutory paralysis)",
+    "benchStrength": "Statutory Criminal Framework",
+    "presidingJudges": "Statutory Criminal Law Administration",
+    "historicalContext": "Political parties, trade unions, and agitating mobs routinely destroyed buses, trains, and public infrastructure during strikes with zero financial accountability for leaders who incited the violence.",
+    "theFlawedRatio": "Criminal law required proving individual guilt beyond reasonable doubt against faceless mob participants, allowing political organizers who called the violent bandhs to evade all financial and civil liability.",
+    "whyItFailed": "Created impunity for organized vandalism, causing billions in public losses with near-zero convictions under the 1984 Act.",
+    "consequences": "Public property repeatedly burned during political agitations while innocent citizens suffered loss of transit and life."
+  },
+  "newCase": {
+    "caseName": "In Re: Destruction of Public and Private Properties",
+    "shortName": "Public Property Guidelines",
+    "year": 2009,
+    "citation": "(2009) 5 SCC 212 / 2009 INSC 587",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "Arijit Pasayat & Lokeshwar Singh Panta JJ.",
+    "verdictDate": "April 16, 2009",
+    "theSettledRatio": "Formulated binding guidelines under Article 141 adopting the Thomas and Nariman Committee recommendations. Wherever mass destruction of property occurs during a call for protest, the High Court or Supreme Court may suo motu appoint a Sitting/Retired High Court Judge as Claims Commissioner to assess damages. Organizers of the protest are held STRICTLY LIABLE for compensating public and private losses.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 141",
+      "Article 51A(i)"
+    ],
+    "doctrinalShift": "Strict Civil Liability for Mass Agitations: The right to protest under Article 19 does not encompass destruction; collective organizers bear financial liability.",
+    "keyTakeawayForMains": "Pioneering judgment bridging Article 51A(i) duty to safeguard public property with tortious strict liability for protest organizers."
+  },
+  "linkedMainsQuestionId": "mains-15m-mob-violence-public-property-guidelines",
+  "summaryTable": [
+    {
+      "parameter": "Liability of Protest Organizers",
+      "oldLaw": "Evaded liability; individual mob actors required criminal identification.",
+      "newLaw": "Strict collective liability imposed on sponsoring organizations and leaders."
+    },
+    {
+      "parameter": "Damage Assessment Mechanism",
+      "oldLaw": "Relegated to protracted civil tort suits taking decades in district courts.",
+      "newLaw": "High Court appoints Claims Commissioner to expeditiously recover damages."
+    }
+  ]
+},
+{
+  "id": "clash-bharat-kumar-forced-bandhs-illegal",
+  "title": "The Prohibition of Forced Bandhs: Supreme Court Upholds Kerala High Court in Bharat Kumar",
+  "tagline": "Supreme Court holds political bandhs that paralyze civic life violate citizens' fundamental rights to liberty and livelihood.",
+  "topicPillar": "Rights & Liberty: Freedom of Movement (Article 19(1)(d)) vs Enforced Political Strikes",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1997,
+  "oldCase": {
+    "caseName": "Assertion of Unrestricted Political Right to Call General Bandhs",
+    "year": 1997,
+    "citation": "Bharat Kumar K. Palicha v. State of Kerala (1997) 2 KLT 287 (FB)",
+    "benchStrength": "Full Bench of Kerala High Court",
+    "presidingJudges": "Kerala High Court Precedent",
+    "historicalContext": "Political parties in Kerala and across India routinely called statewide \"Bandhs\", using coercive tactics and violence to force businesses to shutter, vehicles to stop, and citizens to remain indoors.",
+    "theFlawedRatio": "Political organizations claimed that calling an enforced bandh was a legitimate exercise of fundamental expressive and associational rights under Articles 19(1)(a) and 19(1)(c).",
+    "whyItFailed": "Conflated a peaceful voluntary strike (hartal) with an enforced shutdown that held millions of citizens hostage through physical intimidation.",
+    "consequences": "Paralysis of emergency healthcare, denial of daily wage livelihoods, and loss of constitutional freedom of movement."
+  },
+  "newCase": {
+    "caseName": "Communist Party of India (Marxist) v. Bharat Kumar",
+    "shortName": "Bharat Kumar (Bandh Ban)",
+    "year": 1997,
+    "citation": "(1998) 1 SCC 201 / 1997 INSC 847",
+    "benchStrength": "3-Judge Bench (Unanimous 3:0)",
+    "presidingJudges": "J.S. Verma CJI, B.N. Kirpal, V.N. Khare JJ.",
+    "verdictDate": "November 12, 1997",
+    "theSettledRatio": "Affirmed the full bench decision of the Kerala High Court. Calling and enforcing a \"Bandh\" is unconstitutional and illegal. There is a fundamental distinction between a peaceful call for strike/hartal and an enforced bandh. A bandh involves coercion and threat of violence that tramples upon the fundamental rights of other citizens under Article 19(1)(d) (movement), Article 19(1)(g) (trade/occupation), and Article 21 (liberty).",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 19(1)(d)",
+      "Article 19(1)(g)",
+      "Article 21"
+    ],
+    "doctrinalShift": "Individual Liberty Prevails over Coercive Collective Action: Collective expressive rights cannot be exercised by extinguishing individual citizens' constitutional freedoms.",
+    "keyTakeawayForMains": "Classic authority on balancing competing fundamental rights and the illegality of coercive political bandhs."
+  },
+  "linkedMainsQuestionId": "mains-15m-bandhs-strikes-fundamental-rights-bharat-kumar",
+  "summaryTable": [
+    {
+      "parameter": "Nature of Enforced Political Bandhs",
+      "oldLaw": "Claimed as a protected constitutional right of political agitation.",
+      "newLaw": "Declared unconstitutional and illegal due to coercion of non-participants."
+    },
+    {
+      "parameter": "Distinction between Hartal and Bandh",
+      "oldLaw": "Treated as identical interchangeable methods of political protest.",
+      "newLaw": "Voluntary peaceful hartal is lawful; coercive enforced bandh is prohibited."
+    }
+  ]
+},
+{
+  "id": "clash-mirzapur-cow-slaughter-overruling",
+  "title": "The Total Cow Progeny Slaughter Ban: 7-Judge Bench Overrules Hanif Quareshi",
+  "tagline": "7-Judge Bench in Mirzapur overrules Hanif Quareshi, upholding total ban on slaughter of bulls and bullocks of any age.",
+  "topicPillar": "Social Justice & Quotas: Directive Principles (Art 48), Fundamental Duties (Art 51A) & Article 19(1)(g)",
+  "overrulingMagnitude": "7-Judge Overruling",
+  "yearOverruled": 2005,
+  "oldCase": {
+    "caseName": "Mohd. Hanif Quareshi v. State of Bihar",
+    "year": 1958,
+    "citation": "(1959) SCR 629 / AIR 1958 SC 731",
+    "benchStrength": "5-Judge Constitution Bench",
+    "presidingJudges": "S.R. Das CJI, N.H. Bhagwati, S.K. Das, P.B. Gajendragadkar, Vivian Bose JJ.",
+    "historicalContext": "Butchers challenged state statutes banning the slaughter of cows, bulls, and bullocks as an infringement of their freedom of trade and occupation under Article 19(1)(g).",
+    "theFlawedRatio": "The 5-Judge Bench held that while a total ban on the slaughter of cows of all ages was valid, a total ban on the slaughter of bulls and bullocks after they ceased to be capable of breeding or draught work was an unreasonable restriction under Article 19(6).",
+    "whyItFailed": "Viewed cattle utility purely in terms of mechanical labor, ignoring organic manure, biogas, topsoil preservation, and agrarian ecosystem sustenance.",
+    "consequences": "Led to premature slaughter of agricultural livestock under false certification that animals were permanently unfit."
+  },
+  "newCase": {
+    "caseName": "State of Gujarat v. Mirzapur Moti Kureshi Kassab Jamat",
+    "shortName": "Mirzapur Cattle Ban",
+    "year": 2005,
+    "citation": "(2005) 8 SCC 534 / 2005 INSC 509",
+    "benchStrength": "7-Judge Constitution Bench (6:1 Majority)",
+    "presidingJudges": "R.C. Lahoti CJI, B.N. Agrawal, Arun Kumar, G.P. Mathur, C.K. Thakker, P.K. Balasubramanyan JJ. (A.K. Mathur J. dissenting)",
+    "verdictDate": "October 14, 2005",
+    "theSettledRatio": "Hanif Quareshi is OVERRULED to the extent it held slaughter of aged bulls/bullocks could not be banned. A total ban on the slaughter of cows and their entire progeny (including bulls and bullocks of all ages) is a constitutionally valid reasonable restriction under Article 19(6). Re-interpreted Article 19(6) in light of Directive Principles (Article 48) and Fundamental Duties (Article 51A(g)), recognizing livestock dung and urine as vital organic agricultural capital.",
+    "constitutionalArticles": [
+      "Article 19(1)(g)",
+      "Article 19(6)",
+      "Article 48",
+      "Article 51A(g)"
+    ],
+    "doctrinalShift": "Ecological & Organic Re-interpretation of Restrictions: Fundamental Duties and Directive Principles can expand the scope of reasonable restrictions under Article 19(6).",
+    "keyTakeawayForMains": "A landmark 7-Judge ruling demonstrating how Part IV Directive Principles and Part IV-A Fundamental Duties reshape Part III Fundamental Rights."
+  },
+  "linkedMainsQuestionId": "mains-15m-cattle-slaughter-directive-principles-mirzapur",
+  "summaryTable": [
+    {
+      "parameter": "Ban on Slaughter of Aged Bulls and Bullocks",
+      "oldLaw": "Unreasonable restriction under Article 19(6) once animal ceased working (Hanif Quareshi).",
+      "newLaw": "Total ban upheld as reasonable restriction based on organic agriculture and Art 48."
+    },
+    {
+      "parameter": "Role of Fundamental Duties in Part III Testing",
+      "oldLaw": "Fundamental duties treated as non-justiciable decorative clauses.",
+      "newLaw": "Article 51A(g) duty of compassion used to test reasonableness under Art 19(6)."
+    }
+  ]
+},
+{
+  "id": "clash-vc-shukla-interlocutory-framing-charges",
+  "title": "Ending Trial Delays: 4-Judge Bench in V.C. Shukla Bars Revisional Interference",
+  "tagline": "Supreme Court holds orders framing criminal charges are interlocutory, barring revisional stay petitions from halting corruption trials.",
+  "topicPillar": "Judiciary & Courts: Criminal Procedure, Section 397(2) & Speedy Trial",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1980,
+  "oldCase": {
+    "caseName": "Traditional Revisional Stay Practice against Charge Framing under Section 397(1) CrPC",
+    "year": 1977,
+    "citation": "Amar Nath v. State of Haryana (1977) 4 SCC 137 & Madhu Limaye (1977)",
+    "benchStrength": "2-Judge Bench Precedents",
+    "presidingJudges": "Early CrPC Interlocutory Interpretations",
+    "historicalContext": "Politicians and powerful accused in corruption trials routinely filed revision petitions challenging orders framing charges, obtaining multi-year stays that brought trials to a complete standstill.",
+    "theFlawedRatio": "Revision petitions were entertained against charge-framing orders on the theory that if the challenge succeeded, the proceedings would terminate, thereby treating them as intermediate rather than interlocutory orders.",
+    "whyItFailed": "Allowed wealthy accused to manipulate procedural ambiguities to stall criminal corruption trials for decades.",
+    "consequences": "Paralysis of anti-corruption prosecutions and complete breakdown of speedy justice."
+  },
+  "newCase": {
+    "caseName": "V.C. Shukla v. State through C.B.I.",
+    "shortName": "V.C. Shukla",
+    "year": 1980,
+    "citation": "(1980) Supp SCC 92 / 1980 INSC 37",
+    "benchStrength": "4-Judge Bench (3:1 Majority)",
+    "presidingJudges": "S. Murtaza Fazal Ali, P.N. Shinghal, D.A. Desai JJ. (A.P. Sen J. dissenting)",
+    "verdictDate": "March 6, 1980",
+    "theSettledRatio": "An order framing charges does not terminate the proceedings; it merely steps up the trial to the evidence stage. Under Special Courts legislation and Section 397(2) CrPC, an order framing charges or refusing discharge is INTERLOCUTORY in nature. No revision petition lies against such an order, and higher courts should refrain from granting interim stays that paralyze the trial.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 136",
+      "Article 14"
+    ],
+    "doctrinalShift": "Speedy Criminal Process over Dilatory Revisions: Procedural codes must be construed to prevent dilatory tactics and ensure swift adjudication.",
+    "keyTakeawayForMains": "Important precedent on the distinction between final, intermediate, and interlocutory orders under criminal procedural law."
+  },
+  "linkedMainsQuestionId": "mains-15m-interlocutory-orders-charge-framing-vc-shukla",
+  "summaryTable": [
+    {
+      "parameter": "Nature of Order Framing Criminal Charges",
+      "oldLaw": "Treated as intermediate order subject to revisional stays in High Court.",
+      "newLaw": "Interlocutory order; revisions strictly barred to prevent trial obstruction."
+    },
+    {
+      "parameter": "Interference with Ongoing Criminal Trials",
+      "oldLaw": "Frequent interim stays granted at threshold stage.",
+      "newLaw": "Strict policy of non-interference until evidence is fully recorded."
+    }
+  ]
+},
+{
+  "id": "clash-asian-resurfacing-hc-bar-allahabad-overruling",
+  "title": "The Automatic Stay Vacation Overruled: 5-Judge Bench in HC Bar Association Allahabad",
+  "tagline": "5-Judge Constitution Bench in 2024 overrules Asian Resurfacing, holding constitutional courts cannot mandate automatic expiry of interim stays.",
+  "topicPillar": "Judiciary & Courts: Article 226, Stay Vacations & Separation of Powers",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 2024,
+  "oldCase": {
+    "caseName": "Asian Resurfacing of Road Agency Pvt. Ltd. v. CBI",
+    "year": 2018,
+    "citation": "(2018) 16 SCC 299 / 2018 INSC 277",
+    "benchStrength": "3-Judge Bench",
+    "presidingJudges": "Adarsh Kumar Goel, Rohinton Fali Nariman, Navin Sinha JJ.",
+    "historicalContext": "In an effort to speed up criminal trials, the Supreme Court in Asian Resurfacing directed that interim stay orders granted by all High Courts and subordinate courts would automatically expire after 6 months unless specifically extended by a reasoned order.",
+    "theFlawedRatio": "Judicially decreed an automatic guillotine clause on interim orders, assuming that all trials stayed beyond 6 months were abusive and could be terminated mechanically.",
+    "whyItFailed": "Violated the constitutional independence of High Courts under Article 226, punishing litigants for systemic judicial delays beyond their control.",
+    "consequences": "Trial courts resumed proceedings without notice to parties, leading to chaotic conflicting orders and denial of natural justice."
+  },
+  "newCase": {
+    "caseName": "High Court Bar Association, Allahabad v. State of Uttar Pradesh",
+    "shortName": "HCBA Allahabad (Stay Vacation)",
+    "year": 2024,
+    "citation": "2024 INSC 150 / (2024) 6 SCC 267",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "D.Y. Chandrachud CJI, Sanjiv Khanna, B.R. Gavai, Surya Kant, A.S. Oka JJ.",
+    "verdictDate": "February 29, 2024",
+    "theSettledRatio": "Asian Resurfacing is explicitly OVERRULED. The Supreme Court cannot exercise Article 142 to issue blanket directions mandating automatic vacation of interim stays granted by High Courts. High Courts are constitutional courts of record not subordinate to the Supreme Court's administrative superintendence. An interim order can only be vacated after hearing the parties and applying judicial mind.",
+    "constitutionalArticles": [
+      "Article 226",
+      "Article 227",
+      "Article 142",
+      "Article 214"
+    ],
+    "doctrinalShift": "Autonomy of High Courts & Rejection of Automatic Judicial Guillotines: Constitutional discretion cannot be replaced by mechanical time-bars via Article 142.",
+    "keyTakeawayForMains": "Recent 2024 Constitution Bench landmark defining the outer boundaries of Article 142 powers and affirming the coordinate constitutional stature of High Courts."
+  },
+  "linkedMainsQuestionId": "mains-15m-article-142-stay-vacation-asian-resurfacing-overruled",
+  "summaryTable": [
+    {
+      "parameter": "Automatic Expiry of High Court Stay Orders",
+      "oldLaw": "Automatic vacation after 6 months without application of mind (Asian Resurfacing).",
+      "newLaw": "Overruled; automatic vacation is unconstitutional; reasoned hearing mandatory."
+    },
+    {
+      "parameter": "Scope of Article 142 over High Courts",
+      "oldLaw": "Used to dictate mechanical procedural deadlines for High Court proceedings.",
+      "newLaw": "Article 142 cannot encroach upon High Courts' independent constitutional jurisdiction."
+    }
+  ]
+},
+{
+  "id": "clash-third-judges-collegium-institutional-consensus",
+  "title": "The Plural Collegium Architecture: 9-Judge Bench in Special Reference No. 1 of 1998",
+  "tagline": "9-Judge Bench establishes the plural CJI + 4 Collegium consensus, overruling unilateral Chief Justice primacy.",
+  "topicPillar": "Judiciary & Courts: Judicial Appointments, Collegium Consensus & Article 124(2)",
+  "overrulingMagnitude": "9-Judge Overruling",
+  "yearOverruled": 1998,
+  "oldCase": {
+    "caseName": "Ambiguities in Consultation Process following Second Judges Case",
+    "year": 1993,
+    "citation": "Supreme Court Advocates-on-Record Association (1993) 4 SCC 441",
+    "benchStrength": "9-Judge Constitution Bench (Initial formulation)",
+    "presidingJudges": "J.S. Verma, S. Ratnavel Pandian, Kuldip Singh JJ.",
+    "historicalContext": "Following the Second Judges case, tensions arose between the Union Executive and CJI M.M. Punchhi regarding whether \"consultation\" meant the sole personal opinion of the CJI or a collective institutional consensus of the senior judiciary.",
+    "theFlawedRatio": "The risk that the Chief Justice of India might act unilaterally without consulting the senior-most colleagues, reducing judicial primacy to an individual monopoly.",
+    "whyItFailed": "Individual discretion in constitutional appointments invited opacity and internal judicial discord.",
+    "consequences": "Threatened to derail the independence of the appointment process through unilateral recommendations."
+  },
+  "newCase": {
+    "caseName": "Special Reference No. 1 of 1998 (In Re: Presidential Reference)",
+    "shortName": "Third Judges Case",
+    "year": 1998,
+    "citation": "(1998) 7 SCC 739 / 1998 INSC 516",
+    "benchStrength": "9-Judge Constitution Bench (Unanimous 9:0)",
+    "presidingJudges": "A.S. Anand CJI, S.P. Bharucha, M.K. Mukherjee, S.B. Majmudar, Sujata V. Manohar, G.T. Nanavati, S. Saghir Ahmad, K. Venkataswami, B.N. Kirpal JJ.",
+    "verdictDate": "October 28, 1998",
+    "theSettledRatio": "The Chief Justice of India cannot make recommendations to the President solely in personal discretion. \"Consultation\" under Article 124(2) requires consultation with a PLURAL COLLEGIUM of the FOUR SENIOR-MOST puisne Judges of the Supreme Court for Supreme Court appointments, and CJI + TWO senior-most judges for High Court appointments. If the CJI recommends a candidate against the adverse views of two Collegium members, the Government is not bound to accept it.",
+    "constitutionalArticles": [
+      "Article 124(2)",
+      "Article 217(1)",
+      "Article 143"
+    ],
+    "doctrinalShift": "Institutional Plurality in Judicial Primacy: Primacy belongs to the judiciary as an institution represented by a plural collegium, not to the individual office of the CJI.",
+    "keyTakeawayForMains": "The definitive 9-Judge unanimous architecture governing the Collegium system in India that operates to this day."
+  },
+  "linkedMainsQuestionId": "mains-20m-third-judges-collegium-plurality-article-124",
+  "summaryTable": [
+    {
+      "parameter": "Composition of Supreme Court Collegium",
+      "oldLaw": "CJI and two senior-most judges (Second Judges case initial practice).",
+      "newLaw": "CJI and FOUR senior-most puisne judges forming a collective consensus."
+    },
+    {
+      "parameter": "Weight of Dissent within the Collegium",
+      "oldLaw": "CJI could theoretically override dissenting colleagues.",
+      "newLaw": "If two judges dissent, recommendation cannot be sent to the Government."
+    }
+  ]
+},
+{
+  "id": "clash-vinod-dua-sedition-journalistic-protection",
+  "title": "Journalistic Protection from Sedition: Supreme Court in Vinod Dua",
+  "tagline": "Supreme Court quashes sedition FIR against journalist Vinod Dua, protecting democratic dissent and policy criticism under Article 19(1)(a).",
+  "topicPillar": "Rights & Liberty: Press Freedom, Dissent & Section 124A IPC Protection",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2021,
+  "oldCase": {
+    "caseName": "Abusive Registration of Sedition FIRs against Media and Critical Citizens",
+    "year": 1962,
+    "citation": "State Misapplication of Kedar Nath Singh (1962) Supp (2) SCR 769",
+    "benchStrength": "State Police Practice",
+    "presidingJudges": "Investigating Police Machinery",
+    "historicalContext": "Senior journalist Vinod Dua was booked for sedition under Section 124A IPC by Himachal Pradesh police based on a local political complaint for criticizing the Central Government's handling of the COVID-19 migrant crisis on his YouTube talk show.",
+    "theFlawedRatio": "State police agencies routinely treated sharp, aggressive criticism of government policies or administrative failure as an attempt to excite disaffection against the Government established by law.",
+    "whyItFailed": "Criminalized honest journalism and democratic accountability, chilling the free press guaranteed by Article 19(1)(a).",
+    "consequences": "Harassment of investigative reporters, self-censorship, and suppression of critical public interest news."
+  },
+  "newCase": {
+    "caseName": "Vinod Dua v. Union of India",
+    "shortName": "Vinod Dua",
+    "year": 2021,
+    "citation": "(2021) 18 SCC 381 / 2021 INSC 312",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "U.U. Lalit & Vineet Saran JJ.",
+    "verdictDate": "June 3, 2021",
+    "theSettledRatio": "FIR and prosecution quashed. Every journalist is entitled to the full protection of Kedar Nath Singh. Strong criticism of government policies and administrative actions, however vigorous, does not constitute sedition unless there is incitement to violence or a tendency to create public disorder. A citizen has the constitutional right to say that the Government's policy is mistaken without being branded a seditionist.",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 19(2)",
+      "Article 21"
+    ],
+    "doctrinalShift": "Robust Democratic Dissent Shield: Disaffection cannot be equated with dissent; peaceful journalistic critique is the lifeblood of a democracy.",
+    "keyTakeawayForMains": "Crucial free speech judgment reaffirming the strict boundaries of sedition and shielding independent media from state intimidation."
+  },
+  "linkedMainsQuestionId": "mains-15m-press-freedom-sedition-vinod-dua",
+  "summaryTable": [
+    {
+      "parameter": "Criticism of Government Crisis Management",
+      "oldLaw": "Routinely booked as inciting disaffection under Section 124A IPC.",
+      "newLaw": "Protected free expression under Article 19(1)(a); zero seditious element."
+    },
+    {
+      "parameter": "Evidentiary Threshold for Sedition",
+      "oldLaw": "Subjective disquiet of executive officials.",
+      "newLaw": "Demonstrated direct incitement to violence or imminent public disorder."
+    }
+  ]
+},
+{
+  "id": "clash-supriyo-marriage-equality-separation-of-powers",
+  "title": "The Marriage Equality Constitution Bench: Supriyo v. Union of India",
+  "tagline": "5-Judge Constitution Bench holds there is no fundamental right to marry, leaving queer marriage recognition to Parliament.",
+  "topicPillar": "Governance & Democracy: Separation of Powers, Fundamental Rights & LGBTQ+ Civil Unions",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 2023,
+  "oldCase": {
+    "caseName": "Petitions Seeking Judicial Re-writing of the Special Marriage Act, 1954",
+    "year": 1954,
+    "citation": "Special Marriage Act, 1954 (Gendered Statutory Terms: \"husband\" and \"wife\")",
+    "benchStrength": "Statutory Scheme under Challenge",
+    "presidingJudges": "Legislative Framework",
+    "historicalContext": "Same-sex couples filed writ petitions seeking gender-neutral interpretation of the Special Marriage Act (SMA) to legalize queer marriage following the decriminalization of Section 377 and the recognition of privacy.",
+    "theFlawedRatio": "Petitioners argued that the court could simply read gendered terms (\"husband\" and \"wife\") in the SMA as \"person\" to confer marital equality under Article 14 and 21.",
+    "whyItFailed": "Overlooked that re-writing the SMA would dislocate hundreds of interconnected statutes regarding adoption, succession, alimony, and domestic violence that rely on gender binary frameworks.",
+    "consequences": "Risked judicial overreach into the exclusive legislative domain of social family policy."
+  },
+  "newCase": {
+    "caseName": "Supriyo @ Supriya Chakraborty v. Union of India",
+    "shortName": "Supriyo (Marriage Equality)",
+    "year": 2023,
+    "citation": "2023 INSC 920 / (2024) 4 SCC 1",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous on SMA; 3:2 Split on Civil Unions)",
+    "presidingJudges": "D.Y. Chandrachud CJI, Sanjay Kishan Kaul, S. Ravindra Bhat, Hima Kohli, P.S. Narasimha JJ.",
+    "verdictDate": "October 17, 2023",
+    "theSettledRatio": "There is no unqualified Fundamental Right to Marry under the Indian Constitution; marriage is an institution regulated by statutory law. The court cannot judicially redraft the Special Marriage Act, as doing so would violate Separation of Powers. The majority (3:2 - Bhat, Kohli, Narasimha JJ.) held that courts cannot create a civil union status. Recorded the Union Government's binding commitment to set up a high-level committee to grant legal and social benefits to queer couples.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 19",
+      "Article 21",
+      "Article 25",
+      "Article 32"
+    ],
+    "doctrinalShift": "Separation of Powers in Social Institutions: Creation of legal status and complex marital regimes belongs to Parliament, not the constitutional court.",
+    "keyTakeawayForMains": "Masterly study on the institutional boundaries of constitutional adjudication, positive rights vs negative liberty, and Separation of Powers."
+  },
+  "linkedMainsQuestionId": "mains-20m-marriage-equality-separation-powers-supriyo",
+  "summaryTable": [
+    {
+      "parameter": "Right to Marry under the Constitution",
+      "oldLaw": "Argued as a fundamental right flowing naturally from Puttaswamy and Navtej Johar.",
+      "newLaw": "Statutory right regulated by legislature; no standalone constitutional right to marry."
+    },
+    {
+      "parameter": "Role of Judiciary in Amending Marriage Statutes",
+      "oldLaw": "Petitioners urged judicial reading-down of gendered statutory words.",
+      "newLaw": "Refused; re-writing complex statutory architecture violates Separation of Powers."
+    }
+  ]
+},
+{
+  "id": "clash-constitutional-grand-arch-part-three-synthesis",
+  "title": "The Great Constitutional Synthesis: From Gopalan to Kesavananda, Maneka & Puttaswamy",
+  "tagline": "The supreme evolution of Indian constitutionalism: from isolated colonial silos to the interconnected Golden Triangle of human dignity.",
+  "topicPillar": "Rights & Liberty: The Grand Synthesis of Part III & The Basic Structure Doctrine",
+  "overrulingMagnitude": "13-Judge Overruling",
+  "yearOverruled": 2017,
+  "oldCase": {
+    "caseName": "A.K. Gopalan (1950, 6-J) & Colonial Literalism Silo Architecture",
+    "year": 1950,
+    "citation": "(1950) SCR 88 / AIR 1950 SC 27",
+    "benchStrength": "6-Judge Constitution Bench (Foundational Doctrine)",
+    "presidingJudges": "H.J. Kania CJI, Saiyid Fazl Ali, M. Patanjali Sastri, M.C. Mahajan, B.K. Mukherjea, S.R. Das JJ.",
+    "historicalContext": "At the dawn of the Republic, communist leader A.K. Gopalan challenged his preventive detention without trial under the Preventive Detention Act, 1950.",
+    "theFlawedRatio": "The majority held that Articles 19, 21, and 22 were mutually exclusive water-tight compartments. \"Procedure established by law\" meant any enacted statutory procedure, regardless of how harsh, arbitrary, or unjust. Fundamental rights were treated as independent silos.",
+    "whyItFailed": "Allowed tyrannical laws to pass constitutional muster so long as Parliament followed literal procedural forms, stripping citizens of substantive liberty.",
+    "consequences": "For 28 years, executive internment and draconian statutory procedures were shielded from substantive judicial review."
+  },
+  "newCase": {
+    "caseName": "The Constitutional Grand Arch: Kesavananda (1973) + Maneka (1978) + Puttaswamy (2017)",
+    "shortName": "The Constitutional Grand Arch",
+    "year": 2017,
+    "citation": "(1973) 4 SCC 225 + (1978) 1 SCC 248 + (2017) 10 SCC 1",
+    "benchStrength": "13-Judge, 7-Judge & 9-Judge Constitution Benches",
+    "presidingJudges": "S.M. Sikri CJI (1973), M.H. Beg CJI (1978), J.S. Khehar CJI (2017)",
+    "verdictDate": "August 24, 2017",
+    "theSettledRatio": "Gopalan is PERMANENTLY BURIED. Part III of the Constitution is an interconnected organism where Articles 14 (Equality), 19 (Freedoms), and 21 (Life and Liberty) form an unbreakable **Golden Triangle**. Every law affecting human liberty must be just, fair, and reasonable, satisfying the tests of non-arbitrariness, procedural fairness, proportionality, and the inviolable Basic Structure of the Constitution.",
+    "constitutionalArticles": [
+      "Article 14",
+      "Article 19",
+      "Article 21",
+      "Article 32",
+      "Article 368"
+    ],
+    "doctrinalShift": "The Interconnected Golden Triangle & Basic Structure: Constitutional law is transformed from formalistic statutory deference to substantive human dignity and democratic supremacy.",
+    "keyTakeawayForMains": "The ultimate synthesis of Indian constitutional jurisprudence, integrating seventy years of constitutional evolution into an impregnable charter of human liberty."
+  },
+  "linkedMainsQuestionId": "mains-20m-golden-triangle-gopalan-maneka-puttaswamy",
+  "summaryTable": [
+    {
+      "parameter": "Relationship Among Fundamental Rights",
+      "oldLaw": "Mutually exclusive water-tight compartments; Art 19 inapplicable to Art 21 (Gopalan).",
+      "newLaw": "Interconnected Golden Triangle (Arts 14, 19, 21); law must satisfy all three tests."
+    },
+    {
+      "parameter": "Standard for \"Procedure Established by Law\"",
+      "oldLaw": "Formal enacted statutory process, however harsh or oppressive.",
+      "newLaw": "Substantive Due Process: procedure must be just, fair, reasonable, and proportionate."
+    }
+  ]
+}
+,
+{
+  "id": "clash-auto-shankar-privacy-press-pre-censorship",
+  "title": "The Citizen's Privacy vs Press Freedom: Supreme Court in R. Rajagopal (Auto Shankar)",
+  "tagline": "Supreme Court establishes the civil Right to Privacy, barring state pre-censorship of biographies and press publications.",
+  "topicPillar": "Rights & Liberty: Freedom of Press (Article 19(1)(a)) vs Privacy of Public Officials",
+  "overrulingMagnitude": "5-Judge Re-anchoring",
+  "yearOverruled": 1994,
+  "oldCase": {
+    "caseName": "State Injunctions and Prior Restraint against Press Publications",
+    "year": 1994,
+    "citation": "Inspector General of Prisons Injunction Order / Pre-censorship practice",
+    "benchStrength": "Executive Pre-censorship Order",
+    "presidingJudges": "State Prison Administration",
+    "historicalContext": "Condemned prisoner \"Auto Shankar\", awaiting execution for multiple murders, wrote an autobiography detailing connections with senior police and IAS officials. Prison authorities seized the manuscript and prohibited Tamil magazine Nakkheeran from publishing it.",
+    "theFlawedRatio": "State officials claimed that an autobiography of a convict containing allegations against public officials could be subjected to prior administrative restraint and pre-censorship under defamation rules.",
+    "whyItFailed": "Imposed unconstitutional pre-censorship on the press, violating the core guarantee of freedom of circulation under Article 19(1)(a).",
+    "consequences": "Enabled corrupt public officials to use administrative injunctions to suppress investigative journalism."
+  },
+  "newCase": {
+    "caseName": "R. Rajagopal v. State of Tamil Nadu (Auto Shankar Case)",
+    "shortName": "Auto Shankar (Privacy & Press)",
+    "year": 1994,
+    "citation": "(1994) 6 SCC 632 / 1994 INSC 442",
+    "benchStrength": "2-Judge Bench (Unanimous 2:0)",
+    "presidingJudges": "B.P. Jeevan Reddy & S.C. Sen JJ.",
+    "verdictDate": "October 7, 1994",
+    "theSettledRatio": "Injunction set aside. The Right to Privacy is implicit in the Right to Life and Liberty guaranteed by Article 21. A citizen has the right to safeguard the privacy of their home, family, and person. However, public officials have no right to privacy in respect of their public functions or official records. No prior restraint or pre-censorship can be imposed on the press; remedies are confined to post-publication damages.",
+    "constitutionalArticles": [
+      "Article 19(1)(a)",
+      "Article 19(2)",
+      "Article 21"
+    ],
+    "doctrinalShift": "The Civil Tort of Privacy & Ban on Prior Restraint: Freedom of the press prohibits prior executive censorship; public officials cannot claim privacy shields for official actions.",
+    "keyTakeawayForMains": "Pivotal foundation cited in Puttaswamy establishing the tortious and constitutional facets of privacy and freedom from prior restraint."
+  },
+  "linkedMainsQuestionId": "mains-15m-privacy-press-prior-restraint-rajagopal",
+  "summaryTable": [
+    {
+      "parameter": "State Power to Impose Prior Censorship on Press",
+      "oldLaw": "Prior administrative injunctions granted to prevent defamatory disclosures.",
+      "newLaw": "Strictly prohibited; State can only seek post-publication damages in tort."
+    },
+    {
+      "parameter": "Privacy of Public Officials in Official Duties",
+      "oldLaw": "Equated with ordinary private citizens' privacy.",
+      "newLaw": "Public duties and official acts cannot claim privacy shields against press scrutiny."
+    }
+  ]
+},
+{
+  "id": "clash-gian-kaur-rathinam-suicide-constitutionality",
+  "title": "Right to Life Does NOT Include Right to Die: 5-Judge Bench Overrules P. Rathinam",
+  "tagline": "5-Judge Bench in Gian Kaur overrules P. Rathinam, holding Section 306/309 IPC constitutional and rejecting active euthanasia.",
+  "topicPillar": "Rights & Liberty: Sanctity of Life (Article 21) vs Criminalization of Suicide",
+  "overrulingMagnitude": "5-Judge Overruling",
+  "yearOverruled": 1996,
+  "oldCase": {
+    "caseName": "P. Rathinam v. Union of India",
+    "year": 1994,
+    "citation": "(1994) 3 SCC 394 / 1994 INSC 226",
+    "benchStrength": "2-Judge Bench",
+    "presidingJudges": "B.L. Hansaria & R.M. Sahai JJ.",
+    "historicalContext": "Petitioners challenged Section 309 of the Indian Penal Code (penalizing attempt to commit suicide) as cruel, irrational, and violating Article 21.",
+    "theFlawedRatio": "A 2-Judge Bench held that every fundamental right includes a negative aspect: freedom of speech includes freedom not to speak; therefore, the Right to Life under Article 21 inherently includes the \"Right to Die\". Consequently, Section 309 IPC was struck down as unconstitutional.",
+    "whyItFailed": "Flawed analogy: Death is the extinction of life, not the mere negative exercise of it. Straining Article 21 to include self-destruction opened the door to legalized assisted suicide.",
+    "consequences": "Crippled prosecutions under Section 306 IPC for abetment of suicide and dowry deaths, leaving vulnerable persons at risk."
+  },
+  "newCase": {
+    "caseName": "Gian Kaur v. State of Punjab",
+    "shortName": "Gian Kaur",
+    "year": 1996,
+    "citation": "(1996) 2 SCC 648 / 1996 INSC 447",
+    "benchStrength": "5-Judge Constitution Bench (Unanimous 5:0)",
+    "presidingJudges": "J.S. Verma, G.N. Ray, N.P. Singh, B.L. Hansaria, S.B. Majmudar JJ.",
+    "verdictDate": "March 21, 1996",
+    "theSettledRatio": "P. Rathinam is OVERRULED. Article 21 guarantees the \"Protection of Life and Personal Liberty\". By no stretch of language can \"extinction of life\" be read into the \"protection of life\". The Right to Life does NOT include the Right to Die or the right to be killed. Sections 306 and 309 of the IPC are constitutionally valid. However, the right to live with human dignity includes a dignified dying process in terminal states, preserving space for passive euthanasia.",
+    "constitutionalArticles": [
+      "Article 21",
+      "Article 14"
+    ],
+    "doctrinalShift": "Sanctity of Human Life: Article 21 protects life preservation; constitutional liberty cannot be inverted to legitimize self-destruction or assisted suicide.",
+    "keyTakeawayForMains": "The central 5-Judge Constitution Bench authority defining the philosophical and constitutional limits of Article 21 regarding the Right to Life and euthanasia."
+  },
+  "linkedMainsQuestionId": "mains-20m-article-21-right-to-life-right-to-die-gian-kaur",
+  "summaryTable": [
+    {
+      "parameter": "Does Article 21 Include the Right to Die?",
+      "oldLaw": "Yes; negative aspect of right to live included right to die (P. Rathinam).",
+      "newLaw": "Overruled; Article 21 guarantees life protection, not life termination."
+    },
+    {
+      "parameter": "Constitutionality of Section 306 & 309 IPC",
+      "oldLaw": "Struck down as void and violative of personal liberty.",
+      "newLaw": "Fully upheld as constitutional to protect vulnerable human life."
+    }
+  ]
+}
 ];

@@ -56,7 +56,7 @@ const NAV_ITEMS: NavItem[] = [
 
   // 2. Landmark Cases & Precedents
   { id: 'judgments', label: 'Landmark Cases', icon: <Award className="w-4 h-4" />, badge: '100 Cases', sub: 'Authoritative Ratios', category: 'cases' },
-  { id: 'precedent-clash', label: 'Precedent Clash', icon: <Swords className="w-4 h-4" />, badge: 'Overruled vs Settled', sub: '80 Historic Battles', category: 'cases' },
+  { id: 'precedent-clash', label: 'Precedent Clash', icon: <Swords className="w-4 h-4" />, badge: 'Overruled vs Settled', sub: '100 Historic Battles', category: 'cases' },
   { id: 'lineage', label: 'Knowledge Graphs (Trees)', icon: <GitBranch className="w-4 h-4" />, badge: 'Precedent Lineage', sub: '1950–2026 Case Lineages', category: 'cases' },
   { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy', category: 'cases' },
 
