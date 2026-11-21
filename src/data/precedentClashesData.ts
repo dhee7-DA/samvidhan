@@ -12,6 +12,7 @@ export interface OverruledCase {
 
 export interface ModernRuling {
   caseName: string;
+  shortName?: string;
   year: number;
   citation: string;
   benchStrength: string;
@@ -28,7 +29,12 @@ export interface PrecedentClash {
   title: string;
   tagline: string;
   topicPillar: string;
-  overrulingMagnitude: '7-Judge Overruling' | '9-Judge Overruling' | '13-Judge Overruling' | '5-Judge Re-anchoring';
+  overrulingMagnitude:
+    | '7-Judge Overruling'
+    | '9-Judge Overruling'
+    | '13-Judge Overruling'
+    | '5-Judge Re-anchoring'
+    | '5-Judge Overruling';
   yearOverruled: number;
   oldCase: OverruledCase;
   newCase: ModernRuling;
@@ -65,6 +71,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Sita Soren v. Union of India',
+      shortName: 'Sita Soren',
       year: 2024,
       citation: '2024 INSC 165 / (2024) 5 SCC 629',
       benchStrength: '7-Judge Constitution Bench (Unanimous 7-0)',
@@ -121,6 +128,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'State of Punjab v. Davinder Singh',
+      shortName: 'Davinder Singh',
       year: 2024,
       citation: '2024 INSC 562 / (2024) 8 SCC 1',
       benchStrength: '7-Judge Constitution Bench (6:1 Majority)',
@@ -177,6 +185,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Mineral Area Development Authority (MADA) v. SAIL',
+      shortName: 'MADA (Minerals)',
       year: 2024,
       citation: '2024 INSC 554 / (2024) 8 SCC 315',
       benchStrength: '9-Judge Constitution Bench (8:1 Majority)',
@@ -233,6 +242,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Justice K.S. Puttaswamy (Retd.) v. Union of India',
+      shortName: 'Puttaswamy (Privacy)',
       year: 2017,
       citation: '(2017) 10 SCC 1',
       benchStrength: '9-Judge Constitution Bench (Unanimous 9-0)',
@@ -289,6 +299,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Navtej Singh Johar v. Union of India',
+      shortName: 'Navtej Johar',
       year: 2018,
       citation: '(2018) 1 SCC 1',
       benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
@@ -345,6 +356,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Maneka Gandhi v. Union of India',
+      shortName: 'Maneka Gandhi',
       year: 1978,
       citation: '(1978) 1 SCC 248',
       benchStrength: '7-Judge Constitution Bench (Unanimous)',
@@ -401,6 +413,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Jindal Stainless Ltd. v. State of Haryana',
+      shortName: 'Jindal Stainless',
       year: 2016,
       citation: '(2017) 12 SCC 1',
       benchStrength: '9-Judge Constitution Bench (7:2 Majority)',
@@ -457,6 +470,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Kesavananda Bharati v. State of Kerala',
+      shortName: 'Kesavananda',
       year: 1973,
       citation: '(1973) 4 SCC 225',
       benchStrength: '13-Judge Constitution Bench (7:6 Majority)',
@@ -513,6 +527,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Joseph Shine v. Union of India',
+      shortName: 'Joseph Shine',
       year: 2018,
       citation: '(2019) 3 SCC 39',
       benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
@@ -569,6 +584,7 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
     },
     newCase: {
       caseName: 'Common Cause (A Regd. Society) v. Union of India',
+      shortName: 'Common Cause',
       year: 2018,
       citation: '(2018) 5 SCC 1 & (2023) 3 SCC 414',
       benchStrength: '5-Judge Constitution Bench (Unanimous)',
@@ -598,6 +614,291 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
         parameter: 'Active vs Passive Distinction',
         oldLaw: 'Unclear distinction; withdrawal risked criminal prosecution.',
         newLaw: 'Active euthanasia is criminal; passive withdrawal of futile life support is lawful.'
+      }
+    ]
+  },
+  {
+    id: 'clash-electoral-bonds-adr',
+    title: 'The Electoral Bonds Scheme Struck Down: Voter\'s Right to Know Overrules Corporate Anonymity',
+    tagline: '5-Judge Constitution Bench unanimously strikes down the 2018 Electoral Bonds scheme and opaque amendments to RPA, Companies Act, and Income Tax Act.',
+    topicPillar: 'Part III: Freedom of Speech and Expression & Right to Information (Article 19(1)(a)) vs Dark Money',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2024,
+    oldCase: {
+      caseName: 'Union of India (Electoral Bonds Scheme, 2018 & Finance Act Amendments)',
+      year: 2018,
+      citation: 'Gazette Notification G.S.R. 20(E) / Section 31(3) RBI Act',
+      benchStrength: 'Executive Scheme & Statutory Amendments (Interim stays declined 2019–2021)',
+      presidingJudges: 'S.A. Bobde CJI (Interim orders refusing stay)',
+      historicalContext:
+        'In 2017, the Union introduced the Electoral Bonds Scheme via the Finance Act. It removed the 7.5% profit cap on corporate donations, eliminated the requirement for companies to declare recipient political parties in balance sheets, and allowed anonymous bearer instruments issued via SBI.',
+      theFlawedRatio:
+        'The Union defended the scheme on the grounds that donor confidentiality was essential to protect donors from political retribution and to channel political funding into formal banking channels away from black money.',
+      whyItFailed:
+        'Failed the four-pronged Proportionality Test: violated the fundamental right to information of voters under Article 19(1)(a). Allowed loss-making and shell companies to channel unlimited secret donations into ruling parties.',
+      consequences:
+        'Created severe informational asymmetry: the ruling executive through SBI and law enforcement could identify donors, while citizens, opposition parties, and the electorate were kept entirely in the dark.'
+    },
+    newCase: {
+      caseName: 'Association for Democratic Reforms (ADR) v. Union of India',
+      shortName: 'ADR (Bonds)',
+      year: 2024,
+      citation: '2024 INSC 113 / (2024) 4 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'D.Y. Chandrachud CJI, Sanjiv Khanna, B.R. Gavai, J.B. Pardiwala, Manoj Misra JJ.',
+      verdictDate: 'February 15, 2024',
+      theSettledRatio:
+        'The right to information under Article 19(1)(a) is not restricted to administrative state affairs; it extends directly to the ballot box. Voters require knowledge of the financial backers of political parties to detect quid pro quo policy favours. Unlimited corporate funding violates free and fair elections, an essential facet of democracy.',
+      constitutionalArticles: ['Article 19(1)(a)', 'Article 14', 'Article 324', 'Article 21'],
+      doctrinalShift:
+        'Voter Autonomy & Strict Proportionality: Privacy of political affiliation cannot shield purely commercial corporate contributions. The citizen\'s right to an informed vote overrides corporate secrecy.',
+      keyTakeawayForMains:
+        'Money in politics directly influences state policy. Transparency in electoral financing is a prerequisite for democratic accountability under Article 19(1)(a).'
+    },
+    linkedMainsQuestionId: 'mains-15m-electoral-bonds-proportionality-test',
+    summaryTable: [
+      {
+        parameter: 'Corporate Contribution Caps',
+        oldLaw: 'Unlimited without cap; loss-making shell entities permitted.',
+        newLaw: 'Deletion of 7.5% profit cap struck down as manifestly arbitrary.'
+      },
+      {
+        parameter: 'Donor Anonymity',
+        oldLaw: 'SBI bearer bonds kept donor identities secret from the public.',
+        newLaw: 'Struck down; full public disclosure of bond purchaser and recipient party mandated.'
+      },
+      {
+        parameter: 'Voter\'s Right to Know',
+        oldLaw: 'Subordinated to donor privacy and curbing cash transactions.',
+        newLaw: 'Held to be an inviolable fundamental right under Article 19(1)(a).'
+      }
+    ]
+  },
+  {
+    id: 'clash-shayara-bano-narasu-appa',
+    title: 'Triple Talaq (Talaq-e-Biddat) Struck Down: Manifest Arbitrariness Overrules Personal Law Immunity',
+    tagline: '5-Judge Constitution Bench invalidates instantaneous divorce, expanding Article 14 review to statutory personal law practices.',
+    topicPillar: 'Part III: Right to Equality (Article 14), Gender Justice & Freedom of Religion (Article 25)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2017,
+    oldCase: {
+      caseName: 'State of Bombay v. Narasu Appa Mali',
+      year: 1952,
+      citation: 'AIR 1952 Bom 84',
+      benchStrength: '2-Judge High Court Bench (Chagla CJ & Gajendragadkar J)',
+      presidingJudges: 'M.C. Chagla CJ & P.B. Gajendragadkar J.',
+      historicalContext:
+        'In 1952, the Bombay Prevention of Hindu Bigamous Marriages Act was challenged as discriminatory because it banned Hindu polygamy while leaving Muslim polygamy untouched. The High Court sought to insulate traditional personal practices from constitutional review.',
+      theFlawedRatio:
+        'Held that uncodified personal laws are not "laws in force" under Article 13(1) of the Constitution, effectively immunizing religious personal practices from Fundamental Rights scrutiny.',
+      whyItFailed:
+        'Created an untouchable sanctuary where gender-discriminatory practices, arbitrary unilateral repudiation, and feudal customs continued unhindered under the cloak of religious freedom.',
+      consequences:
+        'Muslim women subjected to Talaq-e-Biddat (instantaneous triple divorce via post, phone, or SMS) were left destitute with no legal recourse or constitutional remedy for 65 years.'
+    },
+    newCase: {
+      caseName: 'Shayara Bano v. Union of India',
+      shortName: 'Shayara Bano',
+      year: 2017,
+      citation: '(2017) 9 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (3:2 Majority)',
+      presidingJudges: 'J.S. Khehar CJI, Kurian Joseph, R.F. Nariman, U.U. Lalit, S. Abdul Nazeer JJ.',
+      verdictDate: 'August 22, 2017',
+      theSettledRatio:
+        'Talaq-e-Biddat is arbitrary, whimsical, and capricious. What is bad in theology cannot be good in constitutional law. Justice Nariman formulated the landmark "Manifest Arbitrariness" test under Article 14: statutory personal provisions that are irrational, capricious, or lack determining principle are void.',
+      constitutionalArticles: ['Article 14', 'Article 15(1)', 'Article 21', 'Article 25(1)'],
+      doctrinalShift:
+        'The Manifest Arbitrariness Doctrine: Expanded Article 14 beyond mere reasonable classification to strike down any state action or statutory custom that is unreasonable or without adequate determining principle.',
+      keyTakeawayForMains:
+        'Fundamental Rights under Part III are paramount over discriminatory personal law practices. Religious freedom under Article 25 is expressly subject to public order, morality, health, and other Fundamental Rights.',
+    },
+    linkedMainsQuestionId: 'mains-15m-manifest-arbitrariness-shayara-bano',
+    summaryTable: [
+      {
+        parameter: 'Constitutional Scrutiny of Personal Practices',
+        oldLaw: 'Insulated from Part III review under the Narasu Appa Mali doctrine.',
+        newLaw: 'Subject to Article 14, 15, and 21 scrutiny.'
+      },
+      {
+        parameter: 'Validity of Talaq-e-Biddat',
+        oldLaw: 'Enforceable as valid under Section 2 of Shariat Act, 1937.',
+        newLaw: 'Declared void ab initio and unconstitutional under Article 14.'
+      },
+      {
+        parameter: 'Scope of Article 14',
+        oldLaw: 'Restricted to reasonable classification and intelligible differentia.',
+        newLaw: 'Expanded to invalidate any measure exhibiting "Manifest Arbitrariness".'
+      }
+    ]
+  },
+  {
+    id: 'clash-sabarimala-devaru',
+    title: 'The Sabarimala Verdict: Constitutional Morality Overrules Patriarchal Temple Exclusion',
+    tagline: '5-Judge Constitution Bench opens Sabarimala temple to women of all ages, ruling that biological exclusion violates equality and dignity.',
+    topicPillar: 'Part III: Freedom of Conscience (Article 25), Denominational Rights (Article 26) & Anti-Untouchability (Article 17)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2018,
+    oldCase: {
+      caseName: 'Sri Venkataramana Devaru v. State of Mysore',
+      year: 1958,
+      citation: '1958 SCR 895 / AIR 1958 SC 255',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'T.L. Venkatarama Ayyar J. for the Bench',
+      historicalContext:
+        'Venkataramana Devaru examined whether a denominational temple of Gowda Saraswat Brahmins could exclude other castes based on religious texts, harmonizing Article 26(b) denominational autonomy with Article 25(2)(b) social reform.',
+      theFlawedRatio:
+        'The Court permitted denominational practices to restrict worship rights to specific ceremonies and classes, placing heavy reliance on scriptural orthodoxy rather than fundamental individual rights.',
+      whyItFailed:
+        'Allowed religious customs to institutionalize biological and gender stigma (such as menstruation taboos) as protected "essential religious practices" under Article 26(b).',
+      consequences:
+        'Rule 3(b) of the Kerala Places of Public Worship Rules, 1965 systematically barred all women aged 10–50 from entering the Sabarimala shrine.'
+    },
+    newCase: {
+      caseName: 'Indian Young Lawyers Association v. State of Kerala (Sabarimala Case)',
+      shortName: 'Sabarimala',
+      year: 2018,
+      citation: '(2019) 11 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'Dipak Misra CJI, R.F. Nariman, A.M. Khanwilkar, D.Y. Chandrachud JJ. (Indu Malhotra J. dissenting)',
+      verdictDate: 'September 28, 2018',
+      theSettledRatio:
+        'Devotion cannot be subjected to gender discrimination. Lord Ayyappa devotees do not constitute a separate religious denomination under Article 26. Exclusion based on physiological factors like menstruation violates Article 14 (Equality), Article 15 (Non-discrimination), and Article 21 (Dignity). Menstrual exclusion also perpetuates a form of social untouchability under Article 17.',
+      constitutionalArticles: ['Article 14', 'Article 15', 'Article 17', 'Article 21', 'Article 25(1)'],
+      doctrinalShift:
+        'Constitutional Morality: Overrides popular morality, sectarian customs, and patriarchal traditions. The individual is the foundational unit of the Constitution, not the religious collective.',
+      keyTakeawayForMains:
+        'Freedom of religion under Article 25 is an individual right, subject to equality and human dignity. Denominational autonomy under Article 26 cannot extinguish an individual woman\'s right to pray.'
+    },
+    linkedMainsQuestionId: 'mains-15m-constitutional-morality-sabarimala',
+    summaryTable: [
+      {
+        parameter: 'Basis of Exclusion',
+        oldLaw: 'Preserved as traditional customary denominational rule under Art 26(b).',
+        newLaw: 'Struck down as violative of Articles 14, 15, and 21.'
+      },
+      {
+        parameter: 'Status of Ayyappa Devotees',
+        oldLaw: 'Treated as a distinct denomination with absolute ritual autonomy.',
+        newLaw: 'Held to be ordinary Hindu worshippers, not a separate religious denomination.'
+      },
+      {
+        parameter: 'Constitutional Morality vs Custom',
+        oldLaw: 'Customary traditions respected if rooted in historical lore.',
+        newLaw: 'Constitutional morality decisively trumps religious conservatism.'
+      }
+    ]
+  },
+  {
+    id: 'clash-njac-fourth-judges-case',
+    title: 'The NJAC Overruling: Independence of the Judiciary and the Revival of the Collegium',
+    tagline: '5-Judge Bench strikes down the 99th Constitutional Amendment Act, declaring primacy of the Chief Justice as part of the Basic Structure.',
+    topicPillar: 'Part V: Independence of Judiciary (Articles 124 & 217) & Separation of Powers',
+    overrulingMagnitude: '5-Judge Overruling',
+    yearOverruled: 2015,
+    oldCase: {
+      caseName: 'S.P. Gupta v. Union of India (First Judges Case)',
+      year: 1981,
+      citation: '(1981) Supp SCC 87 / AIR 1982 SC 149',
+      benchStrength: '7-Judge Constitution Bench (4:3 Majority)',
+      presidingJudges: 'P.N. Bhagwati J. for the Majority',
+      historicalContext:
+        'During the post-Emergency era, the executive transferred High Court judges without their consent and superseded senior judges. S.P. Gupta challenged the Union Government\'s absolute power over judicial appointments.',
+      theFlawedRatio:
+        'Held that "consultation" in Article 124(2) does not mean "concurrence". The Central Government had the ultimate power to reject the CJI\'s recommendation for cogent reasons, giving executive absolute primacy.',
+      whyItFailed:
+        'Exposed the judiciary to political interference, partisan appointments, and executive pressure, directly undermining judicial independence.',
+      consequences:
+        'Overruled in Second Judges Case (1993, 9-J) and Third Judges Case (1998, 9-J), which created the Collegium system. Parliament attempted to overturn this via the 99th CAA (NJAC) in 2014.'
+    },
+    newCase: {
+      caseName: 'Supreme Court Advocates-on-Record Association v. Union of India (NJAC Case)',
+      shortName: 'NJAC (Collegium)',
+      year: 2015,
+      citation: '(2016) 5 SCC 1',
+      benchStrength: '5-Judge Constitution Bench (4:1 Majority)',
+      presidingJudges: 'J.S. Khehar, J. Chelameswar (dissenting), M.B. Lokur, Kurian Joseph, A.K. Goel JJ.',
+      verdictDate: 'October 16, 2015',
+      theSettledRatio:
+        'The 99th Constitutional Amendment Act and the NJAC Act, 2014 are unconstitutional and void. Independence of the judiciary is an inviolable basic feature of the Constitution. Giving the Law Minister and two "eminent persons" veto power over judicial appointments violates the separation of powers and compromises the independence of courts.',
+      constitutionalArticles: ['Article 124(2)', 'Article 217(1)', 'Article 50', 'Basic Structure Doctrine'],
+      doctrinalShift:
+        'Primacy of Judiciary in Appointments: Judicial independence is not merely an institutional privilege; it is a fundamental guarantee to citizens that the umpire between citizens and the State is independent.',
+      keyTakeawayForMains:
+        'Judicial primacy in appointments is inextricably linked to the basic structure. The executive cannot be a judge in its own cause as the largest litigant before the courts.'
+    },
+    linkedMainsQuestionId: 'mains-15m-njac-collegium-judicial-independence',
+    summaryTable: [
+      {
+        parameter: 'Judicial Appointment Authority',
+        oldLaw: 'Executive had ultimate veto (S.P. Gupta) / Shared NJAC Commission (2014).',
+        newLaw: 'Supreme Court Collegium has primacy; NJAC declared unconstitutional.'
+      },
+      {
+        parameter: 'Status of "Consultation" in Art 124',
+        oldLaw: 'Consultation meant simple exchange of views, not agreement.',
+        newLaw: 'Consultation requires concurrence of the CJI and senior Collegium judges.'
+      },
+      {
+        parameter: 'Executive Participation',
+        oldLaw: 'Union Law Minister given permanent seat and veto in the 6-member NJAC.',
+        newLaw: 'Executive veto struck down as dangerous threat to the Basic Structure.'
+      }
+    ]
+  },
+  {
+    id: 'clash-subhash-desai-nabam-rebia',
+    title: 'The Maharashtra Political Crisis: Speaker\'s Disqualification Powers & Governor\'s Floor Test Limits',
+    tagline: '5-Judge Constitution Bench re-examines Nabam Rebia (2016), restricting Governor\'s power to topple elected governments under Tenth Schedule.',
+    topicPillar: 'Tenth Schedule (Anti-Defection Law) & Discretionary Powers of the Governor (Article 163 & 174)',
+    overrulingMagnitude: '5-Judge Re-anchoring',
+    yearOverruled: 2023,
+    oldCase: {
+      caseName: 'Nabam Rebia and Bamang Felix v. Deputy Speaker, Arunachal Pradesh',
+      year: 2016,
+      citation: '(2016) 8 SCC 1',
+      benchStrength: '5-Judge Constitution Bench',
+      presidingJudges: 'J.S. Khehar, Dipak Misra, J. Chelameswar, Madan B. Lokur, P.C. Ghose JJ.',
+      historicalContext:
+        'In Arunachal Pradesh in 2015, rebel Congress MLAs issued a notice under Article 179(c) for the removal of the Speaker, and the Governor advanced the Assembly session without the Chief Minister\'s aid and advice.',
+      theFlawedRatio:
+        'The 5-Judge Bench held that a Speaker cannot initiate or proceed with disqualification proceedings under the Tenth Schedule against rebel MLAs if a notice for the Speaker\'s own removal is pending.',
+      whyItFailed:
+        'Created an exploitable legal loophole: defecting rebel MLAs could easily immunize themselves from disqualification by simply sending a frivolous removal notice against the Speaker under Article 179(c).',
+      consequences:
+        'Allowed rebel factions in Maharashtra (2022) to paralyze the Speaker\'s anti-defection authority, split parties, and force government changes.'
+    },
+    newCase: {
+      caseName: 'Subhash Desai v. Principal Secretary, Governor of Maharashtra',
+      shortName: 'Subhash Desai',
+      year: 2023,
+      citation: '2023 INSC 516 / (2023) 8 SCC 333',
+      benchStrength: '5-Judge Constitution Bench (Unanimous 5-0)',
+      presidingJudges: 'D.Y. Chandrachud CJI, M.R. Shah, Krishna Murari, Hima Kohli, P.S. Narasimha JJ.',
+      verdictDate: 'May 11, 2023',
+      theSettledRatio:
+        'Referred Nabam Rebia to a 7-Judge Bench to prevent the abuse of Speaker removal notices. Crucially ruled that the Governor has no constitutional authority to enter the political arena or order a floor test based solely on internal party rifts. The political party (Whip & Leader) controls the legislative party, not vice versa. Factional dissent does not equal defection immunity.',
+      constitutionalArticles: ['Tenth Schedule', 'Article 163', 'Article 174', 'Article 179(c)'],
+      doctrinalShift:
+        'Democracy & Party System Integrity: The Tenth Schedule binds legislators to the political party that sponsored them, not to ad-hoc factions. The Governor\'s discretionary powers under Article 163 are narrow and non-political.',
+      keyTakeawayForMains:
+        'The Governor cannot use floor tests to precipitate the fall of a government unless there is objective material showing loss of confidence on the floor of the House. The Tenth Schedule was meant to curb defections, not facilitate them.'
+    },
+    linkedMainsQuestionId: 'mains-15m-tenth-schedule-speaker-governor-maharashtra',
+    summaryTable: [
+      {
+        parameter: 'Speaker\'s Disqualification Power',
+        oldLaw: 'Paralyzed if a notice for Speaker removal was pending (Nabam Rebia).',
+        newLaw: 'Held problematic and referred to 7-Judge Bench; Speaker remains the sole constitutional arbiter.'
+      },
+      {
+        parameter: 'Governor\'s Floor Test Discretion',
+        oldLaw: 'Governor could call floor test citing internal party correspondence.',
+        newLaw: 'Strictly illegal; Governor cannot act without objective proof of government loss of majority.'
+      },
+      {
+        parameter: 'Political Party vs Legislative Wing',
+        oldLaw: 'Ambiguity allowed legislative rebels to claim the whip.',
+        newLaw: 'The original Political Party appoints the Whip and Leader, not the defecting legislative faction.'
       }
     ]
   }

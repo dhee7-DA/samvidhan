@@ -84,7 +84,7 @@ export const PrecedentClashView: React.FC = () => {
               Precedent Clash Arena
             </h1>
             <p className="text-xs text-[var(--text-secondary)] mt-0.5 line-clamp-1 max-w-2xl">
-              10 historic battles where larger Supreme Court Constitution Benches overruled flawed precedents (1950–2024).
+              {PRECEDENT_CLASHES_DATA.length} historic battles where larger Supreme Court Constitution Benches overruled flawed precedents (1950–2024).
             </p>
           </div>
 
@@ -131,18 +131,25 @@ export const PrecedentClashView: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-1 overflow-x-auto w-full sm:w-auto pb-0.5 no-scrollbar shrink-0">
-            {['all', '7-Judge Overruling', '9-Judge Overruling', '13-Judge Overruling', '5-Judge Re-anchoring'].map((mag) => (
+            {[
+              { id: 'all', label: `All (${PRECEDENT_CLASHES_DATA.length})` },
+              { id: '7-Judge Overruling', label: '7-Judge' },
+              { id: '9-Judge Overruling', label: '9-Judge' },
+              { id: '13-Judge Overruling', label: '13-Judge' },
+              { id: '5-Judge Overruling', label: '5-J Overrule' },
+              { id: '5-Judge Re-anchoring', label: '5-J Re-anchor' }
+            ].map((mag) => (
               <button
-                key={mag}
+                key={mag.id}
                 type="button"
-                onClick={() => setSelectedMagnitude(mag)}
+                onClick={() => setSelectedMagnitude(mag.id)}
                 className={`px-2.5 py-1 rounded-xl text-[11px] font-mono whitespace-nowrap transition-all cursor-pointer ${
-                  selectedMagnitude === mag
+                  selectedMagnitude === mag.id
                     ? 'bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)] font-bold shadow-sm'
                     : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                {mag === 'all' ? 'All (10)' : mag.replace(' Overruling', '').replace(' Re-anchoring', '')}
+                {mag.label}
               </button>
             ))}
           </div>
@@ -164,7 +171,7 @@ export const PrecedentClashView: React.FC = () => {
               }`}
             >
               <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-rose-500' : 'bg-[var(--text-muted)]'}`} />
-              <span>#{i + 1} {c.newCase.caseName.split(' ')[0]}</span>
+              <span>#{i + 1} {c.newCase.shortName || c.newCase.caseName.split(' ')[0]}</span>
               <span className="text-[10px] text-[var(--text-muted)] opacity-70">({c.yearOverruled})</span>
             </button>
           );
@@ -177,7 +184,7 @@ export const PrecedentClashView: React.FC = () => {
         <div className="hidden lg:block lg:col-span-4 space-y-2">
           <div className="flex items-center justify-between pb-1 px-1">
             <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              All 10 Battles
+              All {PRECEDENT_CLASHES_DATA.length} Battles
             </span>
             <span className="text-xs text-[var(--text-muted)] font-mono">
               {filteredClashes.length} of {PRECEDENT_CLASHES_DATA.length}
