@@ -68,9 +68,10 @@ export const ArticlesMasterView: React.FC = () => {
 
   // Sync if another tab or view updates localStorage
   useEffect(() => {
-    const handleStorage = () => {
+    const handleStorage = (e?: Event) => {
       try {
-        const stored = localStorage.getItem('samvidhan_active_article');
+        const raw = (e as CustomEvent)?.detail;
+        const stored = (typeof raw === 'string' ? raw : raw?.articleId) || localStorage.getItem('samvidhan_active_article');
         if (stored && stored !== selectedArticleNum) {
           setSelectedArticleNum(stored);
           setViewMode('reader');
@@ -79,8 +80,13 @@ export const ArticlesMasterView: React.FC = () => {
         // ignore
       }
     };
+    handleStorage();
     window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
+    window.addEventListener('samvidhan_navigate_article', handleStorage);
+    return () => {
+      window.removeEventListener('storage', handleStorage);
+      window.removeEventListener('samvidhan_navigate_article', handleStorage);
+    };
   }, [selectedArticleNum]);
 
   // Active Tab inside Reader view

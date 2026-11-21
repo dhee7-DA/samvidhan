@@ -38,8 +38,43 @@ export const AmendmentsView: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<'All' | AmendmentCategory>('All');
   const [onlyLandmarks, setOnlyLandmarks] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<'eli5' | 'juristic'>('eli5');
-  const [selectedNumber, setSelectedNumber] = useState<number>(AMENDMENTS_DATA[0].number);
+  const [selectedNumber, setSelectedNumber] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('samvidhan_active_amendment');
+      if (saved) {
+        const parsed = parseInt(saved, 10);
+        if (!isNaN(parsed) && AMENDMENTS_DATA.some((a) => a.number === parsed)) return parsed;
+      }
+      return AMENDMENTS_DATA[0].number;
+    } catch {
+      return AMENDMENTS_DATA[0].number;
+    }
+  });
   const [isMobileListOpen, setIsMobileListOpen] = useState(false);
+
+  // Listen for amendment deep links
+  React.useEffect(() => {
+    const handleAmendNav = (e?: Event) => {
+      try {
+        const raw = (e as CustomEvent)?.detail?.amendmentNumber || localStorage.getItem('samvidhan_active_amendment');
+        if (raw) {
+          const parsed = typeof raw === 'number' ? raw : parseInt(String(raw).replace(/\D/g, ''), 10);
+          if (!isNaN(parsed) && AMENDMENTS_DATA.some((a) => a.number === parsed)) {
+            setSelectedNumber(parsed);
+          }
+        }
+      } catch {
+        // ignore
+      }
+    };
+    window.addEventListener('samvidhan_navigate_amendment', handleAmendNav as EventListener);
+    window.addEventListener('storage', handleAmendNav as EventListener);
+    handleAmendNav();
+    return () => {
+      window.removeEventListener('samvidhan_navigate_amendment', handleAmendNav as EventListener);
+      window.removeEventListener('storage', handleAmendNav as EventListener);
+    };
+  }, []);
 
   const filtered = useMemo(() => {
     return AMENDMENTS_DATA.filter((a) => {

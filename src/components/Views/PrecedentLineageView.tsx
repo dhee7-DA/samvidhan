@@ -12,7 +12,8 @@ import {
   ArrowRight,
   Filter,
   Search,
-  BookOpen
+  BookOpen,
+  ExternalLink
 } from 'lucide-react';
 import type {
   PrecedentNode,
@@ -21,18 +22,49 @@ import type {
 import {
   PRECEDENT_LINEAGES
 } from '../../data/precedentLineagesData';
+import { DETAILED_CASE_LAWS_BY_TOPIC } from '../../data/caseLawsDetailedData';
+import { useTheme } from '../../context/ThemeContext';
 import { ConceptWebGraphView } from './ConceptWebGraphView';
 
 export type { PrecedentNode, LineageChain };
 export { PRECEDENT_LINEAGES };
 
 export const PrecedentLineageView: React.FC = () => {
+  const { setActiveTab } = useTheme();
   const [subTab, setSubTab] = useState<'trees' | 'web'>('web');
   const [activeLineageId, setActiveLineageId] = useState<string>('art-21-liberty');
   const [selectedNodeId, setSelectedNodeId] = useState<string>('maneka-gandhi-1978');
 
   const currentLineage = PRECEDENT_LINEAGES.find((l) => l.id === activeLineageId) || PRECEDENT_LINEAGES[0];
   const selectedNode = currentLineage.nodes.find((n) => n.id === selectedNodeId) || currentLineage.nodes[0];
+
+  const handleOpenJudgment = (node: PrecedentNode) => {
+    const allCases = DETAILED_CASE_LAWS_BY_TOPIC.flatMap((g) => g.cases);
+    const cleanNodeName = node.caseName.toLowerCase().trim();
+    const matched = allCases.find((c) => {
+      const cName = c.caseName.toLowerCase();
+      return (
+        cName.includes(cleanNodeName) ||
+        cleanNodeName.includes(cName) ||
+        (node.id.includes('maneka') && c.id.includes('maneka')) ||
+        (node.id.includes('gopalan') && c.id.includes('gopalan')) ||
+        (node.id.includes('kesavananda') && c.id.includes('kesavananda')) ||
+        (node.id.includes('puttaswamy') && c.id.includes('puttaswamy')) ||
+        (node.id.includes('minerva') && c.id.includes('minerva')) ||
+        (node.id.includes('bommai') && c.id.includes('bommai')) ||
+        (node.id.includes('indira') && c.id.includes('indira'))
+      );
+    });
+    const targetCaseId = matched ? matched.id : allCases[0].id;
+    try {
+      localStorage.setItem('samvidhan_active_case', targetCaseId);
+      window.dispatchEvent(new CustomEvent('samvidhan_navigate_case', { detail: targetCaseId }));
+    } catch {
+      // ignore
+    }
+    setActiveTab('judgments');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
@@ -194,8 +226,13 @@ export const PrecedentLineageView: React.FC = () => {
                 </span>
               </div>
 
-              <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] tracking-tight">
-                {selectedNode.caseName}
+              <h2
+                onClick={() => handleOpenJudgment(selectedNode)}
+                className="text-xl md:text-2xl font-black text-[var(--text-primary)] tracking-tight hover:text-[var(--accent)] cursor-pointer transition-colors flex items-center gap-2 group"
+                title={`Open full judgment for ${selectedNode.caseName}`}
+              >
+                <span>{selectedNode.caseName}</span>
+                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[var(--accent)]" />
               </h2>
 
               <div className="flex flex-wrap items-center gap-4 text-xs text-[var(--text-muted)] pt-1">
@@ -239,6 +276,17 @@ export const PrecedentLineageView: React.FC = () => {
               <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
                 {selectedNode.paradigmShift}
               </div>
+            </div>
+
+            {/* Action Jump to Case Vault */}
+            <div className="pt-2 border-t border-[var(--border-subtle)]">
+              <button
+                onClick={() => handleOpenJudgment(selectedNode)}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[var(--accent)] hover:brightness-110 text-slate-900 font-mono text-xs font-bold transition-all shadow-md btn-tactile cursor-pointer"
+              >
+                <span>Open Full Landmark Judgment in Case Vault</span>
+                <ExternalLink className="w-4 h-4 text-slate-900" />
+              </button>
             </div>
           </div>
         </div>

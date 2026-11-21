@@ -23,10 +23,47 @@ import { getCardIdForDoctrine } from '../../services/flashcardService';
 
 export const DoctrinesHubView: React.FC = () => {
   const { launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
-  const [selectedDocId, setSelectedDocId] = useState<string>(DOCTRINES_DATA[0].id);
+  const [selectedDocId, setSelectedDocId] = useState<string>(() => {
+    try {
+      const stored = localStorage.getItem('samvidhan_active_doctrine');
+      if (stored) {
+        const found = DOCTRINES_DATA.find((d) => d.id === stored || d.name.toLowerCase().includes(stored.toLowerCase()));
+        if (found) return found.id;
+      }
+      return DOCTRINES_DATA[0].id;
+    } catch {
+      return DOCTRINES_DATA[0].id;
+    }
+  });
   const [searchDoc, setSearchDoc] = useState('');
   const [isMobileDocOpen, setIsMobileDocOpen] = useState(false);
   const [doctrineMode, setDoctrineMode] = useState<'eli5' | 'juristic'>('eli5');
+
+  // Listen for internal or cross-tab navigation events
+  React.useEffect(() => {
+    const handleDoctrineNav = (e?: Event) => {
+      try {
+        const target = (e as CustomEvent)?.detail?.doctrineId || localStorage.getItem('samvidhan_active_doctrine');
+        if (target) {
+          const found = DOCTRINES_DATA.find(
+            (d) => d.id === target || d.name.toLowerCase().includes(String(target).toLowerCase())
+          );
+          if (found) {
+            setSelectedDocId(found.id);
+          }
+        }
+      } catch {
+        // ignore
+      }
+    };
+    window.addEventListener('samvidhan_navigate_doctrine', handleDoctrineNav as EventListener);
+    window.addEventListener('storage', handleDoctrineNav as EventListener);
+    handleDoctrineNav();
+    return () => {
+      window.removeEventListener('samvidhan_navigate_doctrine', handleDoctrineNav as EventListener);
+      window.removeEventListener('storage', handleDoctrineNav as EventListener);
+    };
+  }, []);
 
   const currentDoctrine = DOCTRINES_DATA.find((d) => d.id === selectedDocId) || DOCTRINES_DATA[0];
 

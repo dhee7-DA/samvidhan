@@ -56,7 +56,50 @@ export const LandmarkCasesView: React.FC = () => {
     return DETAILED_CASE_LAWS_BY_TOPIC.flatMap((group) => group.cases);
   }, []);
 
-  const [selectedCaseId, setSelectedCaseId] = useState<string>(allCasesFlat[0].id);
+  const [selectedCaseId, setSelectedCaseId] = useState<string>(() => {
+    try {
+      const stored = localStorage.getItem('samvidhan_active_case');
+      if (stored && allCasesFlat.some((c) => c.id === stored)) {
+        return stored;
+      }
+      return allCasesFlat[0].id;
+    } catch {
+      return allCasesFlat[0].id;
+    }
+  });
+
+  // Sync active case from navigation events or external deep links
+  useEffect(() => {
+    const handleCaseNav = (e?: Event) => {
+      try {
+        const raw = (e as CustomEvent)?.detail;
+        const stored = (typeof raw === 'string' ? raw : raw?.caseId) || localStorage.getItem('samvidhan_active_case');
+        if (stored) {
+          const match = allCasesFlat.find(
+            (c) =>
+              c.id === stored ||
+              c.caseName.toLowerCase().includes(String(stored).toLowerCase()) ||
+              String(stored).toLowerCase().includes(c.caseName.toLowerCase())
+          );
+          if (match) {
+            setSelectedCaseId(match.id);
+            setSelectedTopicId('all');
+            setViewMode('cases');
+            setMobilePane('dossier');
+          }
+        }
+      } catch {
+        // ignore
+      }
+    };
+    handleCaseNav();
+    window.addEventListener('storage', handleCaseNav);
+    window.addEventListener('samvidhan_navigate_case', handleCaseNav);
+    return () => {
+      window.removeEventListener('storage', handleCaseNav);
+      window.removeEventListener('samvidhan_navigate_case', handleCaseNav);
+    };
+  }, [allCasesFlat]);
 
   // Search & Filter
   const [searchQuery, setSearchQuery] = useState<string>('');

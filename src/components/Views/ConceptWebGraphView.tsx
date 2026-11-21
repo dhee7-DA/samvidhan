@@ -27,10 +27,16 @@ import {
   type ConceptNode,
   type ConceptEdge
 } from '../../data/conceptWebData';
+import { DETAILED_CASE_LAWS_BY_TOPIC } from '../../data/caseLawsDetailedData';
+import { DOCTRINES_DATA } from '../../data/doctrinesData';
+import { AMENDMENTS_DATA } from '../../data/amendmentsData';
 import { useTheme } from '../../context/ThemeContext';
 
 export const ConceptWebGraphView: React.FC = () => {
   const { setActiveTab } = useTheme();
+
+  // Pointer position tracker to differentiate between drag and click
+  const pointerDownPosRef = useRef<{ x: number; y: number } | null>(null);
 
   // Mode: 'explore' | 'pathfinder'
   const [viewMode, setViewMode] = useState<'explore' | 'pathfinder'>('explore');
@@ -168,6 +174,7 @@ export const ConceptWebGraphView: React.FC = () => {
   // Pointer Down on Node (Start Drag)
   const handleNodePointerDown = (nodeId: string, e: React.PointerEvent) => {
     e.stopPropagation();
+    pointerDownPosRef.current = { x: e.clientX, y: e.clientY };
     const { x, y } = getSvgCoordinates(e);
     const current = nodePositions[nodeId];
     if (current) {
@@ -220,17 +227,86 @@ export const ConceptWebGraphView: React.FC = () => {
     setZoomLevel(1);
   };
 
-  const handleActionJump = (node: ConceptNode) => {
+  const handleActionJump = useCallback((node: ConceptNode) => {
     if (node.category === 'article') {
+      const match = node.label.match(/Article\s+([0-9]+[A-Za-z]*)/i) || node.id.match(/art-([0-9]+[a-z]*)/i);
+      const articleId = match ? match[1].toUpperCase() : '21';
+      try {
+        localStorage.setItem('samvidhan_active_article', articleId);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_article', { detail: { articleId } }));
+      } catch {
+        // ignore
+      }
       setActiveTab('articles-master');
     } else if (node.category === 'case') {
+      const allCases = DETAILED_CASE_LAWS_BY_TOPIC.flatMap((g) => g.cases);
+      const cleanNodeLabel = node.label.replace(/\s*\(\d{4}\)/g, '').toLowerCase().trim();
+      const matchedCase = allCases.find((c) => {
+        const cName = c.caseName.toLowerCase();
+        return (
+          c.id === node.id ||
+          cName.includes(cleanNodeLabel) ||
+          cleanNodeLabel.includes(cName) ||
+          (node.id === 'maneka' && c.id.includes('maneka')) ||
+          (node.id === 'kesavananda' && c.id.includes('kesavananda')) ||
+          (node.id === 'minerva-mills' && c.id.includes('minerva')) ||
+          (node.id === 'puttaswamy' && c.id.includes('puttaswamy')) ||
+          (node.id === 'bommai' && c.id.includes('bommai')) ||
+          (node.id === 'navtej' && c.id.includes('navtej')) ||
+          (node.id === 'shayara-bano' && c.id.includes('shayara')) ||
+          (node.id === 'gopalan' && c.id.includes('gopalan')) ||
+          (node.id === 'berubari' && c.id.includes('berubari'))
+        );
+      });
+      const caseId = matchedCase ? matchedCase.id : allCases[0].id;
+      try {
+        localStorage.setItem('samvidhan_active_case', caseId);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_case', { detail: caseId }));
+      } catch {
+        // ignore
+      }
       setActiveTab('judgments');
     } else if (node.category === 'doctrine') {
+      const matchedDoctrine = DOCTRINES_DATA.find((d) => {
+        const dName = d.name.toLowerCase();
+        const nLabel = node.label.toLowerCase();
+        return (
+          d.id === node.id ||
+          dName.includes(nLabel) ||
+          nLabel.includes(dName) ||
+          (node.id === 'golden-triangle' && d.id.includes('golden-triangle')) ||
+          (node.id === 'basic-structure' && d.id.includes('basic-structure')) ||
+          (node.id === 'pith-substance' && d.id.includes('pith')) ||
+          (node.id === 'severability' && d.id.includes('severability')) ||
+          (node.id === 'eclipse' && d.id.includes('eclipse')) ||
+          (node.id === 'colorable-legislation' && d.id.includes('colorable')) ||
+          (node.id === 'arbitrariness' && (d.id.includes('arbitrariness') || d.id.includes('equality'))) ||
+          (node.id === 'curative' && d.id.includes('curative')) ||
+          (node.id === 'territorial-nexus' && d.id.includes('territorial-nexus')) ||
+          (node.id === 'waiver' && d.id.includes('waiver'))
+        );
+      });
+      const docId = matchedDoctrine ? matchedDoctrine.id : DOCTRINES_DATA[0].id;
+      try {
+        localStorage.setItem('samvidhan_active_doctrine', docId);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_doctrine', { detail: { doctrineId: docId } }));
+      } catch {
+        // ignore
+      }
       setActiveTab('doctrines');
     } else if (node.category === 'amendment') {
+      const match = node.label.match(/(\d+)/) || node.id.match(/(\d+)/);
+      const amendNum = match ? parseInt(match[1], 10) : 42;
+      try {
+        localStorage.setItem('samvidhan_active_amendment', String(amendNum));
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_amendment', { detail: { amendmentNumber: amendNum } }));
+      } catch {
+        // ignore
+      }
       setActiveTab('amendments');
     }
-  };
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [setActiveTab]);
 
   return (
     <div
@@ -534,7 +610,26 @@ export const ConceptWebGraphView: React.FC = () => {
                   <g
                     key={node.id}
                     onPointerDown={(e) => handleNodePointerDown(node.id, e)}
-                    className="cursor-grab active:cursor-grabbing group transition-opacity duration-300"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (pointerDownPosRef.current) {
+                        const dist = Math.hypot(
+                          e.clientX - pointerDownPosRef.current.x,
+                          e.clientY - pointerDownPosRef.current.y
+                        );
+                        if (dist > 6) return; // Dragged, not clicked
+                      }
+                      if (selectedNode.id === node.id) {
+                        handleActionJump(node);
+                      } else {
+                        setSelectedNodeId(node.id);
+                      }
+                    }}
+                    onDoubleClick={(e) => {
+                      e.stopPropagation();
+                      handleActionJump(node);
+                    }}
+                    className="cursor-pointer group transition-opacity duration-300"
                     opacity={opacity}
                   >
                     {/* Crisp outer orbit ring for selected node or path node */}
@@ -573,6 +668,41 @@ export const ConceptWebGraphView: React.FC = () => {
                     >
                       {node.label}
                     </text>
+
+                    {/* Floating Pill on Selected Node for Instant One-Click Jump */}
+                    {isSelected && (
+                      <g
+                        transform={`translate(${pos.x}, ${pos.y - radius - 15})`}
+                        className="cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleActionJump(node);
+                        }}
+                      >
+                        <rect
+                          x="-46"
+                          y="-10"
+                          width="92"
+                          height="20"
+                          rx="10"
+                          fill="#0f172a"
+                          stroke={color.stroke}
+                          strokeWidth="1.5"
+                          className="filter drop-shadow-md hover:fill-[#1e1e38] transition-colors"
+                        />
+                        <text
+                          y="3"
+                          textAnchor="middle"
+                          fontSize="9"
+                          fontWeight="700"
+                          fontFamily="monospace"
+                          fill="#38bdf8"
+                          className="select-none pointer-events-none"
+                        >
+                          Open {node.category.toUpperCase()} ↗
+                        </text>
+                      </g>
+                    )}
                   </g>
                 );
               })}
@@ -619,8 +749,13 @@ export const ConceptWebGraphView: React.FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-black text-[var(--text-primary)] mt-1 leading-snug">
-                      {selectedNode.label}
+                    <h3
+                      onClick={() => handleActionJump(selectedNode)}
+                      className="text-lg font-black text-[var(--text-primary)] mt-1 leading-snug hover:text-[var(--accent)] cursor-pointer transition-colors flex items-center gap-1.5 group"
+                      title={`Click to open ${selectedNode.label} in module`}
+                    >
+                      <span>{selectedNode.label}</span>
+                      <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity text-[var(--accent)]" />
                     </h3>
 
                     {selectedNode.articleAnchor && (
@@ -710,10 +845,10 @@ export const ConceptWebGraphView: React.FC = () => {
               <div className="pt-3 border-t border-[var(--border-subtle)]">
                 <button
                   onClick={() => handleActionJump(selectedNode)}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--border-strong)] border border-[var(--border-strong)] text-[var(--text-primary)] font-mono text-xs font-semibold transition-all shadow-sm btn-tactile cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[var(--accent)] hover:brightness-110 text-slate-900 font-mono text-xs font-bold transition-all shadow-md btn-tactile cursor-pointer"
                 >
-                  <span>Explore in {selectedNode.category.toUpperCase()} Module</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Open Full {selectedNode.label}</span>
+                  <ExternalLink className="w-4 h-4 text-slate-900" />
                 </button>
               </div>
             </div>
