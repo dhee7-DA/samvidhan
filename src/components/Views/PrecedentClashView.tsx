@@ -67,102 +67,124 @@ export const PrecedentClashView: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-8 animate-fadeIn">
-      {/* Hero Header */}
-      <div className="rounded-3xl p-6 sm:p-8 bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4 shadow-sm">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
-              <Swords className="w-3.5 h-3.5 text-rose-400" />
-              <span>Precedent Clash Arena • Overruled vs Modern Law</span>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-4 animate-fadeIn">
+      {/* Top Cockpit Header & Navigation Ribbon */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full uppercase tracking-wider bg-[var(--bg-base)] text-rose-400 border border-rose-500/20">
+                Overruled vs Modern Law
+              </span>
+              <span className="text-[11px] font-mono text-[var(--text-muted)]">
+                {PRECEDENT_CLASHES_DATA.length} Landmark Battles
+              </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
-              Tectonic Shifts in Supreme Court Jurisprudence
+            <h1 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight mt-1">
+              Precedent Clash Arena
             </h1>
-            <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-3xl leading-relaxed text-pretty">
-              Explore the 10 greatest constitutional overrulings where larger Constitution Benches struck down flawed historical precedents. Master the exact reasons why the old doctrines failed and how modern 2017–2024 ratios govern India today.
+            <p className="text-xs text-[var(--text-secondary)] mt-0.5 line-clamp-1 max-w-2xl">
+              10 historic battles where larger Supreme Court Constitution Benches overruled flawed precedents (1950–2024).
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 self-start md:self-auto shrink-0">
-            <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-              <button
-                type="button"
-                onClick={() => setViewMode('duel')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                  viewMode === 'duel'
-                    ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                <Swords className="w-3.5 h-3.5 text-rose-400" />
-                <span>Battle-Cards Duel</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setViewMode('analysis')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                  viewMode === 'analysis'
-                    ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                <Layers className="w-3.5 h-3.5 text-[var(--accent)]" />
-                <span>Deep Analysis</span>
-              </button>
-            </div>
-            <span className="hidden sm:inline-block px-3 py-1.5 rounded-xl font-mono text-xs font-semibold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)]">
-              {PRECEDENT_CLASHES_DATA.length} Landmark Battles
-            </span>
+          {/* View Mode Toggle: Duel vs Analysis */}
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 self-start sm:self-auto">
+            <button
+              type="button"
+              onClick={() => setViewMode('duel')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                viewMode === 'duel'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <Swords className="w-3.5 h-3.5 text-rose-400" />
+              <span>Battle Duel</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('analysis')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                viewMode === 'analysis'
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <Layers className="w-3.5 h-3.5 text-[var(--accent)]" />
+              <span>Deep Analysis</span>
+            </button>
           </div>
         </div>
 
         {/* Search & Magnitude Filter Bar */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-2 border-t border-[var(--border-subtle)]">
           <div className="relative flex-1 w-full">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+            <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by case name, article, doctrine (e.g. Sita Soren, Davinder, MADA, Privacy)..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] focus:border-[var(--border-strong)] focus:outline-none transition-colors font-mono"
+              placeholder="Search clashes (e.g. Sita Soren, Davinder, MADA, Privacy, Gopalan)..."
+              className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] focus:border-[var(--border-strong)] focus:outline-none transition-colors font-mono"
             />
           </div>
 
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 scrollbar-none">
+          <div className="flex items-center gap-1 overflow-x-auto w-full sm:w-auto pb-0.5 no-scrollbar shrink-0">
             {['all', '7-Judge Overruling', '9-Judge Overruling', '13-Judge Overruling', '5-Judge Re-anchoring'].map((mag) => (
               <button
                 key={mag}
                 type="button"
                 onClick={() => setSelectedMagnitude(mag)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold font-mono whitespace-nowrap transition-all ${
+                className={`px-2.5 py-1 rounded-xl text-[11px] font-mono whitespace-nowrap transition-all cursor-pointer ${
                   selectedMagnitude === mag
-                    ? 'bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)] shadow-sm'
+                    ? 'bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)] font-bold shadow-sm'
                     : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                {mag === 'all' ? 'All Battles' : mag}
+                {mag === 'all' ? 'All (10)' : mag.replace(' Overruling', '').replace(' Re-anchoring', '')}
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Main Grid: Clash Selector Sidebar + Detailed Clash Arena */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left Column: Clash Pills / Selector (4 Cols) */}
-        <div className="lg:col-span-4 space-y-2.5">
+      {/* Horizontal Quick-Select Battle Strip (Immediate 1-Click Jumping) */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+        {filteredClashes.map((c, i) => {
+          const isSelected = activeClash.id === c.id;
+          return (
+            <button
+              key={c.id}
+              onClick={() => setSelectedClashId(c.id)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-mono whitespace-nowrap transition-all border shrink-0 flex items-center gap-2 cursor-pointer btn-tactile ${
+                isSelected
+                  ? 'bg-[var(--bg-surface-elevated)] border-[var(--border-strong)] text-[var(--text-primary)] font-bold shadow-sm ring-1 ring-rose-500/30'
+                  : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]'
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-rose-500' : 'bg-[var(--text-muted)]'}`} />
+              <span>#{i + 1} {c.newCase.caseName.split(' ')[0]}</span>
+              <span className="text-[10px] text-[var(--text-muted)] opacity-70">({c.yearOverruled})</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Main Grid: Clash Selector Sidebar (Visible on LG) + Detailed Clash Arena */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        {/* Left Column: Clash Pills / Selector (Hidden on Mobile/Split-screen to save space, visible on large desktops) */}
+        <div className="hidden lg:block lg:col-span-4 space-y-2">
           <div className="flex items-center justify-between pb-1 px-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Select Constitutional Battle
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+              All 10 Battles
             </span>
             <span className="text-xs text-[var(--text-muted)] font-mono">
               {filteredClashes.length} of {PRECEDENT_CLASHES_DATA.length}
             </span>
           </div>
 
-          <div className="space-y-2 max-h-[750px] overflow-y-auto pr-1">
+          <div className="space-y-2 max-h-[700px] overflow-y-auto pr-1">
             {filteredClashes.map((c) => {
               const isSelected = activeClash.id === c.id;
               return (
@@ -170,14 +192,14 @@ export const PrecedentClashView: React.FC = () => {
                   key={c.id}
                   type="button"
                   onClick={() => setSelectedClashId(c.id)}
-                  className={`w-full text-left p-4 rounded-2xl border transition-all space-y-2 cursor-pointer ${
+                  className={`w-full text-left p-3.5 rounded-2xl border transition-all space-y-1.5 cursor-pointer ${
                     isSelected
-                      ? 'bg-[var(--bg-card)] border-[var(--accent-primary)] shadow-md ring-1 ring-[var(--accent-primary)]/20'
-                      : 'bg-[var(--bg-card)]/60 border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:bg-[var(--bg-card)]'
+                      ? 'bg-[var(--bg-surface-elevated)] border-[var(--border-strong)] shadow-sm ring-1 ring-rose-500/20'
+                      : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                    <span className="text-[9.5px] font-mono font-medium px-2 py-0.5 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                       {c.overrulingMagnitude}
                     </span>
                     <span className="text-[11px] font-mono text-[var(--text-muted)]">
@@ -185,15 +207,15 @@ export const PrecedentClashView: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-snug line-clamp-2">
+                  <h3 className="text-xs font-bold text-[var(--text-primary)] leading-snug line-clamp-1">
                     {c.title}
                   </h3>
 
-                  <div className="text-[11px] text-[var(--text-muted)] flex items-center gap-1.5 pt-1">
+                  <div className="text-[11px] text-[var(--text-muted)] flex items-center gap-1.5 pt-0.5">
                     <span className="line-through text-rose-400 font-medium truncate max-w-[120px]">
                       {c.oldCase.caseName}
                     </span>
-                    <ArrowRight className="w-3 h-3 text-[var(--accent-primary)] shrink-0" />
+                    <ArrowRight className="w-3 h-3 text-[var(--text-muted)] shrink-0" />
                     <span className="text-emerald-400 font-bold truncate max-w-[130px]">
                       {c.newCase.caseName}
                     </span>
@@ -204,8 +226,8 @@ export const PrecedentClashView: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Interactive Arena Split View (8 Cols) */}
-        <div className="lg:col-span-8 space-y-6">
+        {/* Right Column: Interactive Arena View (Full width on split/mobile, 8 cols on LG) */}
+        <div className="lg:col-span-8 space-y-4">
           {viewMode === 'duel' ? (
             <PrecedentDuelArena
               activeClash={activeClash}
@@ -216,22 +238,22 @@ export const PrecedentClashView: React.FC = () => {
             />
           ) : (
             /* Active Battle Card (Deep Analysis Mode) */
-            <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] p-6 sm:p-8 space-y-6 shadow-xl">
+            <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-4 sm:p-6 space-y-4 shadow-sm">
             {/* Title & Tagline */}
-            <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
+            <div className="space-y-1.5 border-b border-[var(--border-subtle)] pb-3">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[var(--bg-base)] text-rose-400 border border-rose-500/30">
                   {activeClash.overrulingMagnitude} ({activeClash.yearOverruled})
                 </span>
-                <span className="text-xs font-medium text-[var(--text-muted)]">
+                <span className="text-xs font-mono text-[var(--text-muted)]">
                   {activeClash.topicPillar}
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] tracking-tight">
+              <h2 className="text-lg sm:text-xl font-extrabold text-[var(--text-primary)] tracking-tight">
                 {activeClash.title}
               </h2>
-              <p className="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+              <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                 {activeClash.tagline}
               </p>
             </div>
