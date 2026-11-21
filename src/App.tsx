@@ -135,6 +135,7 @@ const MainContent: React.FC = () => {
             {activeTab === 'pyqs' && <PyqVaultView />}
             {activeTab === 'parts' && <TopicDetailView />}
             {activeTab === 'articles-master' && <ArticlesMasterView />}
+            {activeTab === 'article-mastery' && <ArticlesMasterView initialMode="mastery" />}
             {activeTab === 'dictionary' && <DictionaryView />}
             {activeTab === 'visual-lab' && <VisualLabView />}
             {activeTab === 'amendments' && <AmendmentsView />}

@@ -44,7 +44,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   // 1. Foundational Study Material (Whole Study Material First)
   { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Architecture & Preamble', category: 'study' },
-  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Bare Act Explorer', sub: 'Verbatim Clauses & Diffs', category: 'study' },
+  { id: 'articles-master', label: 'Articles 1–395', icon: <Layers className="w-4 h-4" />, badge: 'Bare Act & 395 Lab', sub: 'Clauses, Diffs & Mastery Wall', category: 'study' },
   { id: 'parts', label: '25 Parts', icon: <BookOpen className="w-4 h-4" />, badge: 'Parts I–XXII', sub: 'Analytical Breakdown', category: 'study' },
   { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic', sub: 'TEARS OF OLD PM', category: 'study' },
   { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106', sub: 'Constituent Shifts', category: 'study' },
@@ -61,6 +61,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'audio-lab', label: 'Audio & Viva', icon: <Radio className="w-4 h-4" />, badge: 'Spoken Bench', sub: 'Oral Advocacy', category: 'cases' },
 
   // 3. Practice, Drills & Exam Simulation
+  { id: 'article-mastery', label: '395 Articles Mastery', icon: <BrainCircuit className="w-4 h-4" />, badge: 'Active Recall', sub: 'Matrix Wall, Drills & +89/+90', category: 'practice' },
   { id: 'readiness-index', label: 'Readiness Index', icon: <Target className="w-4 h-4" />, badge: '25-Part Heatmap', sub: 'CRI & Blindspots Sentinel', category: 'practice' },
   { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: '900+ SRS Cards', sub: 'Full-App Leitner', category: 'practice' },
   { id: 'arcade', label: 'Constitutional Arcade', icon: <Gamepad2 className="w-4 h-4" />, badge: '4 Games + XP', sub: 'Bench Sim, Blitz & Writs', category: 'practice' },

@@ -32,8 +32,13 @@ import { getCardIdForArticle } from '../../services/flashcardService';
 import { caseStoryService } from '../../services/caseStoryService';
 import { ArticleRealCaseStoryTab } from './ArticleRealCaseStoryTab';
 import { lookupSpeedHackForArticle } from '../../data/fastTrackHacksData';
+import { ArticleMasteryLab } from './ArticleMastery/ArticleMasteryLab';
 
-export const ArticlesMasterView: React.FC = () => {
+interface ArticlesMasterViewProps {
+  initialMode?: 'reader' | 'grid' | 'mastery';
+}
+
+export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialMode = 'reader' }) => {
   const {
     setActiveTab,
     setSelectedPartId,
@@ -45,8 +50,16 @@ export const ArticlesMasterView: React.FC = () => {
     togglePinFlashcard
   } = useTheme();
 
-  // Mode: 'reader' (Clause-by-Clause Bare Act Explorer) vs 'grid' (Directory Cards)
-  const [viewMode, setViewMode] = useState<'reader' | 'grid'>('reader');
+  // Mode: 'reader' (Clause-by-Clause Bare Act Explorer) vs 'grid' (Directory Cards) vs 'mastery' (395 Mastery Lab)
+  const [viewMode, setViewMode] = useState<'reader' | 'grid' | 'mastery'>(() => {
+    return initialMode;
+  });
+
+  useEffect(() => {
+    if (initialMode) {
+      setViewMode(initialMode);
+    }
+  }, [initialMode]);
 
   // Selected Article for Reader mode
   const [selectedArticleNum, setSelectedArticleNum] = useState<string>(() => {
@@ -262,7 +275,7 @@ export const ArticlesMasterView: React.FC = () => {
           <div className="flex items-center gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
             <button
               onClick={() => setViewMode('reader')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
                 viewMode === 'reader'
                   ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -273,7 +286,7 @@ export const ArticlesMasterView: React.FC = () => {
             </button>
             <button
               onClick={() => setViewMode('grid')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
                 viewMode === 'grid'
                   ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -282,11 +295,23 @@ export const ArticlesMasterView: React.FC = () => {
               <Layers className="w-3.5 h-3.5" />
               <span>Directory Grid</span>
             </button>
+            <button
+              onClick={() => setViewMode('mastery')}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+                viewMode === 'mastery'
+                  ? 'bg-amber-500 text-white shadow-sm'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <BrainCircuit className="w-3.5 h-3.5" />
+              <span>395 Mastery Lab</span>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Global Filter Bar */}
+      {/* Global Filter Bar (Hidden in 395 Mastery Lab mode which has dedicated cluster filters) */}
+      {viewMode !== 'mastery' && (
       <div className="flex flex-col gap-3 p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
           {/* Search Input */}
@@ -399,6 +424,7 @@ export const ArticlesMasterView: React.FC = () => {
           </div>
         </div>
       </div>
+      )}
 
       {/* VIEW MODE 1: CLAUSE-BY-CLAUSE BARE ACT EXPLORER */}
       {viewMode === 'reader' && (
@@ -1365,6 +1391,16 @@ export const ArticlesMasterView: React.FC = () => {
             );
           })}
         </div>
+      )}
+
+      {/* VIEW MODE 3: 395 ARTICLES MASTERY LAB */}
+      {viewMode === 'mastery' && (
+        <ArticleMasteryLab
+          onOpenArticleReader={(num) => {
+            setSelectedArticleNum(num);
+            setViewMode('reader');
+          }}
+        />
       )}
     </div>
   );
