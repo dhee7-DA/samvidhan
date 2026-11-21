@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-21 13:15:22 (+05:30) |
+| **Last Log Sync** | 2026-11-21 13:56:41 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `98ed436` (2026-11-21T11:48:11+05:30) |
-| **Total Commits** | 89 |
+| **Branch / HEAD** | `main` @ `003e2d2` (2026-11-21T13:16:09+05:30) |
+| **Total Commits** | 90 |
 | **Total Files Indexed** | 279 (279 tracked, 0 new untracked) |
-| **Working Tree** | 6 pending change(s) |
+| **Working Tree** | 5 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-21 13:56:41 (+05:30)] Refine UI harmony across Precedent Clash, Speed Hacks, Arcade, and Spotlight Search (DONE)
+- **Details:** Eliminated gradient fog and glowing blobs in PrecedentClashView and PrecedentDuelArena, upgraded SearchModal with / shortcut, arrow-key navigation, and universal deep links, standardized segmented navigation in FastTrackMasteryView and ArcadeHubView, verified live with 0 console errors.
+- **Files Touched (5):** `M src/components/Common/SearchModal.tsx`, `M src/components/Views/ArcadeHubView.tsx`, `M src/components/Views/FastTrackMasteryView.tsx`, `M src/components/Views/PrecedentClashView.tsx`, `M src/components/Views/PrecedentDuelArena.tsx`
+- **Git HEAD:** `main` @ `003e2d2`
 
 ### [2026-11-21 13:15:22 (+05:30)] Add interactive deep-linking & node click-to-open across Knowledge Graphs and Precedent Trees (DONE)
 - **Details:** Implemented bidirectional cross-module navigation between Knowledge Graph nodes and Articles Master, Landmark Cases, Doctrines Hub, and Amendments views via custom events and synced localStorage; added on-node badge pills, double-click triggers, and prominent action buttons verified live in browser with 0 errors.
@@ -226,7 +231,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 61.3 KB | 753 | `98ed436` (2026-11-21) |
+| `PROJECT_LOG.md` | 62.2 KB | 759 | `003e2d2` (2026-11-21) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -276,7 +281,7 @@
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
 | `src/components/Common/ProgressVaultModal.tsx` | 10.5 KB | 259 | `3ce9f3d` (2026-11-18) |
 | `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | `a025b61` (2026-11-19) |
-| `src/components/Common/SearchModal.tsx` | 13.7 KB | 353 | `d003041` (2026-11-20) |
+| `src/components/Common/SearchModal.tsx` | 17.0 KB | 430 | `d003041` (2026-11-20) |
 | `src/components/Common/UniversalDictionaryPopover.tsx` | 10.8 KB | 292 | `b351247` (2026-11-15) |
 
 ### `src/components/Layout` (3 files)
@@ -313,29 +318,29 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Views/AmendmentsView.tsx` | 24.6 KB | 502 | `3ce9f3d` (2026-11-18) |
-| `src/components/Views/ArcadeHubView.tsx` | 10.2 KB | 238 | `d003041` (2026-11-20) |
+| `src/components/Views/AmendmentsView.tsx` | 24.6 KB | 502 | `003e2d2` (2026-11-21) |
+| `src/components/Views/ArcadeHubView.tsx` | 10.5 KB | 238 | `d003041` (2026-11-20) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 71.4 KB | 1372 | `363d360` (2026-11-20) |
+| `src/components/Views/ArticlesMasterView.tsx` | 71.4 KB | 1372 | `003e2d2` (2026-11-21) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
-| `src/components/Views/ConceptWebGraphView.tsx` | 36.9 KB | 861 | `35dec72` (2026-11-21) |
+| `src/components/Views/ConceptWebGraphView.tsx` | 36.9 KB | 861 | `003e2d2` (2026-11-21) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
-| `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `9e33658` (2026-11-18) |
-| `src/components/Views/FastTrackMasteryView.tsx` | 95.5 KB | 1837 | `d003041` (2026-11-20) |
+| `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `003e2d2` (2026-11-21) |
+| `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d003041` (2026-11-20) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
-| `src/components/Views/LandmarkCasesView.tsx` | 57.3 KB | 1058 | `3ce9f3d` (2026-11-18) |
+| `src/components/Views/LandmarkCasesView.tsx` | 57.3 KB | 1058 | `003e2d2` (2026-11-21) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 20.1 KB | 463 | `a058cc1` (2026-11-16) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/OverviewDashboard.tsx` | 28.0 KB | 449 | `0d4bd48` (2026-11-21) |
-| `src/components/Views/PrecedentClashView.tsx` | 19.5 KB | 402 | `76d187c` (2026-11-20) |
-| `src/components/Views/PrecedentDuelArena.tsx` | 14.4 KB | 335 | `76d187c` (2026-11-20) |
-| `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `35dec72` (2026-11-21) |
+| `src/components/Views/PrecedentClashView.tsx` | 19.7 KB | 402 | `76d187c` (2026-11-20) |
+| `src/components/Views/PrecedentDuelArena.tsx` | 14.4 KB | 331 | `76d187c` (2026-11-20) |
+| `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 77.6 KB | 1446 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
@@ -662,10 +667,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**89** commits, newest first).
+> Complete git history (**90** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 90 | 2026-11-21 | `003e2d2` | 7 | feat: enable direct node click-to-open and cross-module deep linking for Knowledge Graphs |
 | 89 | 2026-11-21 | `98ed436` | 1 | docs(log): sync PROJECT_LOG.md with commit 35dec72 |
 | 88 | 2026-11-21 | `35dec72` | 3 | refactor(graph): remove all gradient fog and glow filters from Knowledge Graph canvas |
 | 87 | 2026-11-21 | `a7f7831` | 1 | docs(log): sync PROJECT_LOG.md with color hierarchy refactor |

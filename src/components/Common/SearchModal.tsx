@@ -27,13 +27,22 @@ interface SearchResult {
 export const SearchModal: React.FC = () => {
   const { searchOpen, setSearchOpen, setActiveTab, setSelectedPartId } = useTheme();
   const [query, setQuery] = useState('');
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-  // Keyboard shortcut listener (Ctrl+K or Cmd+K)
+  // Keyboard shortcut listener (Ctrl+K, Cmd+K, or /)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Open modal on Ctrl+K / Cmd+K or "/" (when not focused in an input/textarea)
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setSearchOpen(!searchOpen);
+      } else if (
+        e.key === '/' &&
+        !searchOpen &&
+        !(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)
+      ) {
+        e.preventDefault();
+        setSearchOpen(true);
       }
       if (e.key === 'Escape' && searchOpen) {
         setSearchOpen(false);
@@ -261,11 +270,75 @@ export const SearchModal: React.FC = () => {
     return res.slice(0, 15);
   }, [query]);
 
+  // Reset selected index when results change
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [results]);
+
+  const handleSelectResult = (item: SearchResult) => {
+    setActiveTab(item.targetTab);
+    if (item.targetTab === 'parts' && item.targetId) {
+      setSelectedPartId(item.targetId);
+    }
+    if (item.targetTab === 'articles-master' && item.targetId) {
+      try {
+        localStorage.setItem('samvidhan_active_article', item.targetId);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_article', { detail: { articleId: item.targetId } }));
+      } catch (e) {
+        // ignore
+      }
+    }
+    if (item.targetTab === 'judgments' && item.targetId) {
+      try {
+        localStorage.setItem('samvidhan_active_case', item.targetId);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_case', { detail: item.targetId }));
+      } catch (e) {
+        // ignore
+      }
+    }
+    if (item.targetTab === 'doctrines' && item.targetId) {
+      try {
+        localStorage.setItem('samvidhan_active_doctrine', item.targetId);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_doctrine', { detail: { doctrineId: item.targetId } }));
+      } catch (e) {
+        // ignore
+      }
+    }
+    if (item.targetTab === 'amendments' && item.targetId) {
+      const numStr = item.targetId.replace(/\D/g, '');
+      const parsed = parseInt(numStr, 10);
+      try {
+        localStorage.setItem('samvidhan_active_amendment', numStr);
+        window.dispatchEvent(new CustomEvent('samvidhan_navigate_amendment', { detail: { amendmentNumber: parsed } }));
+      } catch (e) {
+        // ignore
+      }
+    }
+    setSearchOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent) => {
+    if (results.length === 0) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedIndex((prev) => (prev + 1) % results.length);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedIndex((prev) => (prev - 1 + results.length) % results.length);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (results[selectedIndex]) {
+        handleSelectResult(results[selectedIndex]);
+      }
+    }
+  };
+
   if (!searchOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start justify-center pt-20 p-4 animate-fadeIn">
-      <div className="w-full max-w-2xl rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-20 p-4 animate-fadeIn">
+      <div className="w-full max-w-2xl rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl overflow-hidden flex flex-col">
         {/* Search Input Bar */}
         <div className="flex items-center gap-3 p-4 border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]">
           <Search className="w-5 h-5 text-[var(--accent)] shrink-0" />
@@ -274,6 +347,7 @@ export const SearchModal: React.FC = () => {
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleInputKeyDown}
             placeholder="Search articles (1–395), amendments (1–106), doctrines, writs, cases..."
             className="w-full bg-transparent border-none text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none font-mono"
           />
@@ -282,22 +356,30 @@ export const SearchModal: React.FC = () => {
               <X className="w-4 h-4" />
             </button>
           )}
-          <kbd className="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
-            ESC
-          </kbd>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <kbd className="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+              ↑↓ Navigate
+            </kbd>
+            <kbd className="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+              ↵ Select
+            </kbd>
+            <kbd className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+              ESC
+            </kbd>
+          </div>
         </div>
 
         {/* Results List */}
         <div className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-[var(--border-subtle)]">
           {query.trim() === '' ? (
-            <div className="p-8 text-center text-sm text-[var(--text-muted)]">
-              <p className="font-mono">Search across all 25 Parts, 395 Articles, 12 Schedules, and 106 Amendments...</p>
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
-                {['Article 21', 'Basic Structure', '42nd Amendment', 'GST Council', 'Article 311', 'Article 371A'].map((tag) => (
+            <div className="p-8 text-center text-sm text-[var(--text-muted)] space-y-4">
+              <p className="font-mono text-xs">Search across all 25 Parts, 395 Articles, 12 Schedules, 106 Amendments, and 100 Landmark Cases...</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {['Article 21', 'Basic Structure', '42nd Amendment', 'Maneka Gandhi', 'Article 32', 'Preamble'].map((tag) => (
                   <button
                     key={tag}
                     onClick={() => setQuery(tag)}
-                    className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]"
+                    className="text-xs font-mono px-3 py-1.5 rounded-xl bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] border border-[var(--border-subtle)] btn-tactile cursor-pointer"
                   >
                     {tag}
                   </button>
@@ -309,41 +391,36 @@ export const SearchModal: React.FC = () => {
               No matching constitutional items found for "{query}".
             </div>
           ) : (
-            results.map((item, idx) => (
-              <div
-                key={idx}
-                onClick={() => {
-                  setActiveTab(item.targetTab);
-                  if (item.targetTab === 'parts' && item.targetId) {
-                    setSelectedPartId(item.targetId);
-                  }
-                  if (item.targetTab === 'articles-master' && item.targetId) {
-                    try {
-                      localStorage.setItem('samvidhan_active_article', item.targetId);
-                    } catch (e) {
-                      // ignore
-                    }
-                  }
-                  setSearchOpen(false);
-                }}
-                className="p-3 rounded-lg hover:bg-[var(--bg-surface-elevated)] cursor-pointer flex items-center justify-between transition-colors group"
-              >
-                <div className="flex flex-col gap-0.5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
-                      {item.category}
-                    </span>
-                    <span className="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)]">
-                      {item.title}
-                    </span>
+            results.map((item, idx) => {
+              const isSelected = idx === selectedIndex;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => handleSelectResult(item)}
+                  onMouseEnter={() => setSelectedIndex(idx)}
+                  className={`p-3 rounded-2xl cursor-pointer flex items-center justify-between transition-all group ${
+                    isSelected
+                      ? 'bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-sm'
+                      : 'border border-transparent hover:bg-[var(--bg-surface-elevated)]'
+                  }`}
+                >
+                  <div className="flex flex-col gap-1 min-w-0 pr-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9.5px] font-mono px-2 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-semibold shrink-0">
+                        {item.category}
+                      </span>
+                      <span className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--accent)] truncate">
+                        {item.title}
+                      </span>
+                    </div>
+                    <p className="text-xs text-[var(--text-secondary)] line-clamp-1 font-mono">
+                      {item.subtitle}
+                    </p>
                   </div>
-                  <p className="text-xs text-[var(--text-secondary)] line-clamp-1">
-                    {item.subtitle}
-                  </p>
+                  <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? 'text-[var(--accent)] translate-x-1' : 'text-[var(--text-muted)]'}`} />
                 </div>
-                <ChevronRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] shrink-0 transition-transform group-hover:translate-x-0.5" />
-              </div>
-            ))
+              );
+            })
           )}
         </div>
       </div>

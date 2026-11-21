@@ -249,7 +249,7 @@ export const FastTrackMasteryView: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={() => setActiveTab('lineage')}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono text-xs font-semibold transition-all btn-tactile"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
             title="Open Precedent Evolution Knowledge Graphs"
           >
             <GitBranch className="w-4 h-4 text-purple-400" />
@@ -260,14 +260,14 @@ export const FastTrackMasteryView: React.FC = () => {
               setActiveTabMode('drill');
               handleStartDrill();
             }}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--accent)] text-[var(--bg-base)] font-mono text-xs font-bold shadow-md hover:opacity-95 transition-all btn-tactile"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] hover:bg-[var(--border-strong)] border border-[var(--border-strong)] font-mono text-xs font-bold shadow-sm transition-all btn-tactile"
           >
-            <Clock className="w-4 h-4" />
+            <Clock className="w-4 h-4 text-amber-400" />
             <span>60s SPEED SPRINT</span>
           </button>
           <button
             onClick={handlePrintPocketSheet}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-all btn-tactile"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] font-mono text-xs font-semibold transition-all btn-tactile shadow-sm"
           >
             <Printer className="w-4 h-4 text-[var(--text-muted)]" />
             <span>POCKET SHEET</span>
@@ -276,78 +276,78 @@ export const FastTrackMasteryView: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          MODULE NAVIGATION TABS
+          MODULE NAVIGATION TABS (Segmented Control)
           ========================================================================= */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-[var(--border-subtle)] pb-2">
+      <div className="p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1.5 overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveTabMode('cheat-codes')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs font-semibold transition-all btn-tactile shrink-0 cursor-pointer ${
             activeTabMode === 'cheat-codes'
-              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
-              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Sparkles className="w-4 h-4 text-amber-400" />
+          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
           <span>7 Master Cheat Codes ({MASTER_CHEAT_CODES.length})</span>
         </button>
 
         <button
           onClick={() => setActiveTabMode('math')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs font-semibold transition-all btn-tactile shrink-0 cursor-pointer ${
             activeTabMode === 'math'
-              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
-              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Calculator className="w-4 h-4" />
+          <Calculator className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span>Magic +89 / +90 Rule ({MATH_FORMULA_PAIRS.length} Pairs)</span>
         </button>
 
         <button
           onClick={() => setActiveTabMode('majorities')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs font-semibold transition-all btn-tactile shrink-0 cursor-pointer ${
             activeTabMode === 'majorities'
-              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
-              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Scale className="w-4 h-4 text-emerald-400" />
+          <Scale className="w-3.5 h-3.5 text-emerald-400" />
           <span>Majority Matrix (4 Types Decoded)</span>
         </button>
 
         <button
           onClick={() => setActiveTabMode('mnemonics')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs font-semibold transition-all btn-tactile shrink-0 cursor-pointer ${
             activeTabMode === 'mnemonics'
-              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
-              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <BrainCircuit className="w-4 h-4" />
-          <span>Mnemonic Memory Palaces ({MNEMONIC_ENGINES.length} Formulas)</span>
+          <BrainCircuit className="w-3.5 h-3.5 text-[var(--accent)]" />
+          <span>Mnemonic Memory Palaces ({MNEMONIC_ENGINES.length})</span>
         </button>
 
         <button
           onClick={() => setActiveTabMode('emergency')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs font-semibold transition-all btn-tactile shrink-0 cursor-pointer ${
             activeTabMode === 'emergency'
-              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
-              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Shield className="w-4 h-4" />
+          <Shield className="w-3.5 h-3.5 text-rose-400" />
           <span>+4 Emergency Triad</span>
         </button>
 
         <button
           onClick={() => setActiveTabMode('drill')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all btn-tactile ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-mono text-xs font-semibold transition-all btn-tactile shrink-0 cursor-pointer ${
             activeTabMode === 'drill'
-              ? 'bg-[var(--accent)] text-[var(--bg-base)] shadow-sm'
-              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Flame className="w-4 h-4 text-amber-400" />
+          <Flame className="w-3.5 h-3.5 text-amber-400" />
           <span>60s Reflex Speed Sprint</span>
         </button>
       </div>

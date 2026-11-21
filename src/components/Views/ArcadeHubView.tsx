@@ -141,7 +141,7 @@ export const ArcadeHubView: React.FC = () => {
           </div>
           <div className="w-full h-2 rounded-full bg-[var(--bg-base)] overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-500"
+              className="h-full bg-amber-500 rounded-full transition-all duration-500"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -149,65 +149,65 @@ export const ArcadeHubView: React.FC = () => {
       </div>
 
       {/* Arcade Navigation Pills */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[var(--border-subtle)]">
+      <div className="p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1.5 overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveSubTab('bench')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'bench'
-              ? 'bg-amber-500/10 text-amber-500 border-amber-500/40 shadow-sm'
-              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Scale className="w-4 h-4" />
-          Chief Justice Bench Sim
+          <Scale className="w-4 h-4 text-amber-500" />
+          <span>Chief Justice Bench Sim</span>
         </button>
 
         <button
           onClick={() => setActiveSubTab('blitz')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'blitz'
-              ? 'bg-amber-500/10 text-amber-500 border-amber-500/40 shadow-sm'
-              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <Zap className="w-4 h-4" />
-          60s Article Blitz
+          <Zap className="w-4 h-4 text-amber-500" />
+          <span>60s Article Blitz</span>
         </button>
 
         <button
           onClick={() => setActiveSubTab('writs')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'writs'
-              ? 'bg-amber-500/10 text-amber-500 border-amber-500/40 shadow-sm'
-              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <ShieldAlert className="w-4 h-4" />
-          Writs Emergency Room
+          <ShieldAlert className="w-4 h-4 text-amber-500" />
+          <span>Writs Emergency Room</span>
         </button>
 
         <button
           onClick={() => setActiveSubTab('matcher')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'matcher'
-              ? 'bg-amber-500/10 text-amber-500 border-amber-500/40 shadow-sm'
-              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
-          <BrainCircuit className="w-4 h-4" />
-          Synaptic Memory Matcher
+          <BrainCircuit className="w-4 h-4 text-amber-500" />
+          <span>Synaptic Matcher</span>
         </button>
 
         <button
           onClick={() => setActiveSubTab('trap-buster')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'trap-buster'
-              ? 'bg-rose-500/10 text-rose-400 border-rose-500/40 shadow-sm'
-              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
           }`}
         >
           <AlertTriangle className="w-4 h-4 text-rose-400" />
-          Trap-Buster Reflex (30s)
+          <span>Trap-Buster Reflex (30s)</span>
         </button>
       </div>
 

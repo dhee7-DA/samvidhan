@@ -69,49 +69,49 @@ export const PrecedentClashView: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-8 animate-fadeIn">
       {/* Hero Header */}
-      <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[var(--bg-card)] via-[var(--bg-card)] to-[var(--accent-primary)]/10 border border-[var(--border-subtle)] space-y-4 shadow-xl">
+      <div className="rounded-3xl p-6 sm:p-8 bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
-              <Swords className="w-3.5 h-3.5" />
-              Precedent Clash Arena • Overruled vs Modern Law
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
+              <Swords className="w-3.5 h-3.5 text-rose-400" />
+              <span>Precedent Clash Arena • Overruled vs Modern Law</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
               Tectonic Shifts in Supreme Court Jurisprudence
             </h1>
-            <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-3xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-3xl leading-relaxed text-pretty">
               Explore the 10 greatest constitutional overrulings where larger Constitution Benches struck down flawed historical precedents. Master the exact reasons why the old doctrines failed and how modern 2017–2024 ratios govern India today.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 self-start md:self-auto shrink-0">
-            <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shadow-inner">
+            <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
               <button
                 type="button"
                 onClick={() => setViewMode('duel')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   viewMode === 'duel'
-                    ? 'bg-rose-500 text-white shadow-sm'
+                    ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                <Swords className="w-3.5 h-3.5" />
-                <span>⚔️ Battle-Cards Duel</span>
+                <Swords className="w-3.5 h-3.5 text-rose-400" />
+                <span>Battle-Cards Duel</span>
               </button>
               <button
                 type="button"
                 onClick={() => setViewMode('analysis')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   viewMode === 'analysis'
-                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                <Layers className="w-3.5 h-3.5" />
-                <span>📖 Deep Analysis</span>
+                <Layers className="w-3.5 h-3.5 text-[var(--accent)]" />
+                <span>Deep Analysis</span>
               </button>
             </div>
-            <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--accent-primary)]">
+            <span className="hidden sm:inline-block px-3 py-1.5 rounded-xl font-mono text-xs font-semibold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)]">
               {PRECEDENT_CLASHES_DATA.length} Landmark Battles
             </span>
           </div>
@@ -126,7 +126,7 @@ export const PrecedentClashView: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by case name, article, doctrine (e.g. Sita Soren, Davinder, MADA, Privacy)..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] focus:border-[var(--accent-primary)] focus:outline-none transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] focus:border-[var(--border-strong)] focus:outline-none transition-colors font-mono"
             />
           </div>
 
@@ -136,9 +136,9 @@ export const PrecedentClashView: React.FC = () => {
                 key={mag}
                 type="button"
                 onClick={() => setSelectedMagnitude(mag)}
-                className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                className={`px-3 py-2 rounded-xl text-xs font-semibold font-mono whitespace-nowrap transition-all ${
                   selectedMagnitude === mag
-                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
+                    ? 'bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)] shadow-sm'
                     : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
