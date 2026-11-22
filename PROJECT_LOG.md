@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 12:20:25 (+05:30) |
+| **Last Log Sync** | 2026-11-22 12:21:15 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `e4d5718` (2026-11-21T22:47:22+05:30) |
-| **Total Commits** | 100 |
-| **Total Files Indexed** | 285 (281 tracked, 4 new untracked) |
-| **Working Tree** | 7 pending change(s) |
+| **Branch / HEAD** | `main` @ `7dd169f` (2026-11-22T12:21:01+05:30) |
+| **Total Commits** | 101 |
+| **Total Files Indexed** | 285 (285 tracked, 0 new untracked) |
+| **Working Tree** | Clean |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 12:21:15 (+05:30)] Commit 7dd169f: add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab (DONE)
+- **Details:** Final log sync for commit 7dd169f
+- **Files Touched:** No working-tree file diffs
+- **Git HEAD:** `main` @ `7dd169f`
 
 ### [2026-11-22 12:20:25 (+05:30)] Add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab (DONE)
 - **Details:** Created articleExamIntelData.ts with Prelims traps, interactive MCQs, and Mains IRAC blueprints; created ArticleExamIntelTab.tsx integrated into Bare Act Clause Explorer; created constitutionalBodiesData.ts and ConstitutionalBodiesView.tsx covering 15 constitutional and statutory authorities with Appointment, Removal, Tenure, and Post-Retirement bars; passed TypeScript build and verified in browser subagent.
@@ -281,7 +286,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 70.0 KB | 826 | `e4d5718` (2026-11-21) |
+| `PROJECT_LOG.md` | 71.4 KB | 836 | `7dd169f` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -308,7 +313,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 11.7 KB | 206 | `e4d5718` (2026-11-21) |
+| `src/App.tsx` | 11.7 KB | 206 | `7dd169f` (2026-11-22) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -339,7 +344,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.6 KB | 274 | `e4d5718` (2026-11-21) |
+| `src/components/Layout/Sidebar.tsx` | 14.6 KB | 274 | `7dd169f` (2026-11-22) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -370,15 +375,15 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 24.6 KB | 502 | `003e2d2` (2026-11-21) |
 | `src/components/Views/ArcadeHubView.tsx` | 10.5 KB | 238 | `d32e8e2` (2026-11-21) |
-| `src/components/Views/ArticleExamIntelTab.tsx` | 21.8 KB | 475 | new (uncommitted) |
+| `src/components/Views/ArticleExamIntelTab.tsx` | 21.8 KB | 475 | `7dd169f` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `e4d5718` (2026-11-21) |
+| `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/ConceptWebGraphView.tsx` | 36.9 KB | 861 | `003e2d2` (2026-11-21) |
-| `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | new (uncommitted) |
+| `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `7dd169f` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `003e2d2` (2026-11-21) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
@@ -434,13 +439,13 @@
 | `src/data/amendmentDiffsData.ts` | 39.9 KB | 459 | `3db5394` (2026-11-16) |
 | `src/data/amendmentsData.ts` | 101.9 KB | 1413 | `3ce9f3d` (2026-11-18) |
 | `src/data/articleBlitzData.ts` | 15.0 KB | 337 | `7aac50b` (2026-11-19) |
-| `src/data/articleExamIntelData.ts` | 56.1 KB | 827 | new (uncommitted) |
+| `src/data/articleExamIntelData.ts` | 56.1 KB | 827 | `7dd169f` (2026-11-22) |
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
-| `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | new (uncommitted) |
+| `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
@@ -728,10 +733,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**100** commits, newest first).
+> Complete git history (**101** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 101 | 2026-11-22 | `7dd169f` | 8 | feat(exam-intel): add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab |
 | 100 | 2026-11-21 | `e4d5718` | 6 | feat(article-mastery): add dedicated 395 Articles Mastery Lab with Memory Wall, Active Recall Drills, and Symmetry Gym |
 | 99 | 2026-11-21 | `525b7c3` | 3 | feat(precedent-clash): complete 100 landmark battles milestone |
 | 98 | 2026-11-21 | `e44d926` | 3 | feat(precedent-clash): expand to 80 landmark battles |
