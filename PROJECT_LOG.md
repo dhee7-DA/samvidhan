@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-21 22:47:01 (+05:30) |
+| **Last Log Sync** | 2026-11-22 12:20:25 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `525b7c3` (2026-11-21T21:11:40+05:30) |
-| **Total Commits** | 99 |
-| **Total Files Indexed** | 281 (279 tracked, 2 new untracked) |
-| **Working Tree** | 5 pending change(s) |
+| **Branch / HEAD** | `main` @ `e4d5718` (2026-11-21T22:47:22+05:30) |
+| **Total Commits** | 100 |
+| **Total Files Indexed** | 285 (281 tracked, 4 new untracked) |
+| **Working Tree** | 7 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 12:20:25 (+05:30)] Add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab (DONE)
+- **Details:** Created articleExamIntelData.ts with Prelims traps, interactive MCQs, and Mains IRAC blueprints; created ArticleExamIntelTab.tsx integrated into Bare Act Clause Explorer; created constitutionalBodiesData.ts and ConstitutionalBodiesView.tsx covering 15 constitutional and statutory authorities with Appointment, Removal, Tenure, and Post-Retirement bars; passed TypeScript build and verified in browser subagent.
+- **Files Touched (7):** `M src/App.tsx`, `M src/components/Layout/Sidebar.tsx`, `M src/components/Views/ArticlesMasterView.tsx`, `?? src/components/Views/ArticleExamIntelTab.tsx`, `?? src/components/Views/ConstitutionalBodiesView.tsx`, `?? src/data/articleExamIntelData.ts`, `?? src/data/constitutionalBodiesData.ts`
+- **Git HEAD:** `main` @ `e4d5718`
 
 ### [2026-11-21 22:47:01 (+05:30)] Add comprehensive 395 Articles Mastery Lab with Memory Wall, Active Recall Drills and Symmetry Gym (DONE)
 - **Details:** Created ArticleMasteryLab.tsx and articleMasteryService.ts. Features: (1) 395 Articles Interactive Memory Wall with live color-coded mastery tracking across all 22 parts and 505 cataloged articles; (2) Three Active Recall Drills (Article to Subject, Subject to Article reverse search, and +89/+90 Symmetry rule); (3) High-yield superstar cluster filtering; (4) Memory pegs and speed hacks integration; (5) The +89/+90 Symmetry Gym with interactive converter and 23-pair master reference table; (6) Seamless integration into ArticlesMasterView top tabs and Sidebar.
@@ -264,7 +269,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **281** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **285** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -276,7 +281,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 68.7 KB | 813 | `525b7c3` (2026-11-21) |
+| `PROJECT_LOG.md` | 70.0 KB | 826 | `e4d5718` (2026-11-21) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -303,7 +308,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 11.4 KB | 202 | `b3963a3` (2026-11-20) |
+| `src/App.tsx` | 11.7 KB | 206 | `e4d5718` (2026-11-21) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -334,7 +339,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.4 KB | 272 | `525b7c3` (2026-11-21) |
+| `src/components/Layout/Sidebar.tsx` | 14.6 KB | 274 | `e4d5718` (2026-11-21) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -359,19 +364,21 @@
 | `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.1 KB | 279 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
 
-### `src/components/Views` (32 files)
+### `src/components/Views` (34 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 24.6 KB | 502 | `003e2d2` (2026-11-21) |
 | `src/components/Views/ArcadeHubView.tsx` | 10.5 KB | 238 | `d32e8e2` (2026-11-21) |
+| `src/components/Views/ArticleExamIntelTab.tsx` | 21.8 KB | 475 | new (uncommitted) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 72.7 KB | 1408 | `003e2d2` (2026-11-21) |
+| `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `e4d5718` (2026-11-21) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/ConceptWebGraphView.tsx` | 36.9 KB | 861 | `003e2d2` (2026-11-21) |
+| `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | new (uncommitted) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `003e2d2` (2026-11-21) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
@@ -410,7 +417,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Views/ArticleMastery/ArticleMasteryLab.tsx` | 42.3 KB | 853 | new (uncommitted) |
+| `src/components/Views/ArticleMastery/ArticleMasteryLab.tsx` | 42.3 KB | 853 | `e4d5718` (2026-11-21) |
 
 ### `src/context` (1 file)
 
@@ -418,7 +425,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (52 files)
+### `src/data` (54 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -427,11 +434,13 @@
 | `src/data/amendmentDiffsData.ts` | 39.9 KB | 459 | `3db5394` (2026-11-16) |
 | `src/data/amendmentsData.ts` | 101.9 KB | 1413 | `3ce9f3d` (2026-11-18) |
 | `src/data/articleBlitzData.ts` | 15.0 KB | 337 | `7aac50b` (2026-11-19) |
+| `src/data/articleExamIntelData.ts` | 56.1 KB | 827 | new (uncommitted) |
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
+| `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | new (uncommitted) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
@@ -691,7 +700,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/services/answerEvaluatorService.ts` | 15.2 KB | 375 | `5bbabe8` (2026-11-19) |
 | `src/services/arcadeAudioService.ts` | 5.4 KB | 193 | `7aac50b` (2026-11-19) |
-| `src/services/articleMasteryService.ts` | 13.0 KB | 366 | new (uncommitted) |
+| `src/services/articleMasteryService.ts` | 13.0 KB | 366 | `e4d5718` (2026-11-21) |
 | `src/services/bareActService.ts` | 10.6 KB | 289 | `c4ae501` (2026-11-17) |
 | `src/services/caseStoryService.ts` | 3.3 KB | 97 | `75be064` (2026-11-19) |
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
@@ -719,10 +728,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**99** commits, newest first).
+> Complete git history (**100** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 100 | 2026-11-21 | `e4d5718` | 6 | feat(article-mastery): add dedicated 395 Articles Mastery Lab with Memory Wall, Active Recall Drills, and Symmetry Gym |
 | 99 | 2026-11-21 | `525b7c3` | 3 | feat(precedent-clash): complete 100 landmark battles milestone |
 | 98 | 2026-11-21 | `e44d926` | 3 | feat(precedent-clash): expand to 80 landmark battles |
 | 97 | 2026-11-21 | `bf05f7d` | 3 | feat(precedent-clash): expand to 60 landmark battles |

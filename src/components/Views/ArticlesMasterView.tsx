@@ -23,7 +23,8 @@ import {
   BrainCircuit,
   Star,
   Zap,
-  ArrowRight
+  ArrowRight,
+  Target
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
@@ -33,6 +34,8 @@ import { caseStoryService } from '../../services/caseStoryService';
 import { ArticleRealCaseStoryTab } from './ArticleRealCaseStoryTab';
 import { lookupSpeedHackForArticle } from '../../data/fastTrackHacksData';
 import { ArticleMasteryLab } from './ArticleMastery/ArticleMasteryLab';
+import { ArticleExamIntelTab } from './ArticleExamIntelTab';
+import { lookupExamIntelForArticle } from '../../data/articleExamIntelData';
 
 interface ArticlesMasterViewProps {
   initialMode?: 'reader' | 'grid' | 'mastery';
@@ -103,7 +106,7 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
   }, [selectedArticleNum]);
 
   // Active Tab inside Reader view
-  const [readerTab, setReaderTab] = useState<'statutory' | 'story' | 'eli5' | 'diff' | 'analysis' | 'amendments'>('statutory');
+  const [readerTab, setReaderTab] = useState<'statutory' | 'story' | 'eli5' | 'diff' | 'analysis' | 'amendments' | 'exam'>('statutory');
 
   // Search and Filters
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -485,6 +488,11 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                         </div>
 
                         <div className="flex items-center gap-1">
+                          {lookupExamIntelForArticle(art.number) && (
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-rose-500/15 text-rose-400 border border-rose-500/30 font-bold">
+                              EXAM
+                            </span>
+                          )}
                           {art.hasDiff && (
                             <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                               DIFF
@@ -569,6 +577,18 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                   >
                     <FileText className="w-3 h-3" />
                     <span>Bare Act</span>
+                  </button>
+                  <button
+                    onClick={() => setReaderTab('exam')}
+                    title="Read Prelims Traps & Mains Exam Questions"
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
+                      readerTab === 'exam'
+                        ? 'bg-rose-500 text-white font-bold shadow-xs'
+                        : 'text-rose-400 hover:text-rose-300 font-bold'
+                    }`}
+                  >
+                    <Target className="w-3 h-3" />
+                    <span>Exam PYQs & Traps</span>
                   </button>
                   <button
                     onClick={() => setReaderTab('story')}
@@ -707,7 +727,7 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
               </div>
             )}
 
-            {/* 5-Way Tab Bar */}
+            {/* 7-Way Tab Bar */}
             <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] pb-2 flex-wrap">
               <button
                 onClick={() => setReaderTab('statutory')}
@@ -719,6 +739,25 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Statutory Bare Act</span>
+              </button>
+
+              <button
+                onClick={() => setReaderTab('exam')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                  readerTab === 'exam'
+                    ? 'bg-rose-500 text-white border-rose-500 shadow-sm'
+                    : 'bg-[var(--bg-base)] text-rose-400 border-rose-500/30 hover:border-rose-500 hover:text-rose-300'
+                }`}
+              >
+                <Target className="w-3.5 h-3.5" />
+                <span>Exam PYQs & Traps</span>
+                <span className={`text-[9px] px-1.5 py-0.2 rounded-full font-bold ${
+                  readerTab === 'exam'
+                    ? 'bg-white/20 text-white'
+                    : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                }`}>
+                  Prelims & Mains
+                </span>
               </button>
 
               <button
@@ -1291,6 +1330,16 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
               </div>
             )}
 
+            {/* TAB: EXAM INTEL, PYQs & PRELIMS TRAPS */}
+            {readerTab === 'exam' && (
+              <ArticleExamIntelTab
+                articleNumber={activeArticle.number}
+                articleTitle={activeArticle.title}
+                part={activeArticle.part}
+                onOpenBodiesLab={() => setActiveTab('constitutional-bodies')}
+              />
+            )}
+
             {/* Bottom Article Navigation Controls */}
             <div className="flex items-center justify-between gap-3 pt-4 border-t border-[var(--border-subtle)] mt-2">
               {prev ? (
@@ -1345,6 +1394,11 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                       <span className="text-[10px] font-mono text-[var(--text-muted)]">
                         {art.part}
                       </span>
+                      {lookupExamIntelForArticle(art.number) && (
+                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-rose-500/15 text-rose-400 border border-rose-500/30 font-bold">
+                          EXAM
+                        </span>
+                      )}
                       {art.hasDiff && (
                         <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
                           DIFF

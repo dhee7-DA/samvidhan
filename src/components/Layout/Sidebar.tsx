@@ -28,7 +28,8 @@ import {
   Gavel,
   Clock,
   Target,
-  Zap
+  Zap,
+  ShieldAlert
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -49,6 +50,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'schedules', label: '12 Schedules', icon: <Calendar className="w-4 h-4" />, badge: 'Mnemonic', sub: 'TEARS OF OLD PM', category: 'study' },
   { id: 'amendments', label: 'Amendments', icon: <GitCommit className="w-4 h-4" />, badge: '1 to 106', sub: 'Constituent Shifts', category: 'study' },
   { id: 'doctrines', label: 'Doctrines Hub', icon: <Scale className="w-4 h-4" />, badge: '10 Doctrines', sub: 'Judicial Tests', category: 'study' },
+  { id: 'constitutional-bodies', label: 'Constitutional Bodies', icon: <ShieldAlert className="w-4 h-4" />, badge: 'Matrix Lab', sub: 'ECI, CAG, UPSC, NHRC & Traps', category: 'study' },
   { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '17 Blueprints', sub: 'Vector Blueprints', category: 'study' },
   { id: 'fast-track', label: 'Speed Hacks & Tricks', icon: <Zap className="w-4 h-4" />, badge: '+89/+90 & Mnemonics', sub: 'Shortcuts & Memory Palaces', category: 'study' },
   { id: 'dictionary', label: 'Legal Dictionary', icon: <BookOpen className="w-4 h-4" />, badge: 'Hover Engine', sub: 'Maxims & Terms', category: 'study' },
