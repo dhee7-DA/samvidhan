@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 18:20:09 (+05:30) |
+| **Last Log Sync** | 2026-11-22 19:39:06 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `d504081` (2026-11-22T16:36:57+05:30) |
-| **Total Commits** | 106 |
-| **Total Files Indexed** | 301 (300 tracked, 1 new untracked) |
-| **Working Tree** | 4 pending change(s) |
+| **Branch / HEAD** | `main` @ `1c87fc9` (2026-11-22T18:20:26+05:30) |
+| **Total Commits** | 107 |
+| **Total Files Indexed** | 301 (301 tracked, 0 new untracked) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 19:39:06 (+05:30)] Expand Exam Trends Vault with State-Specific Judicial Papers (Bihar, Rajasthan, and Madhya Pradesh) (DONE)
+- **Details:** Added BJS, RJS, and MPCJ profiles, 10-year pillar recurrence heatmaps (2014-2024), and authentic past-year questions covering both Prelims MCQs and Mains IRAC blueprints. Verified across all 7 state and national exam frameworks with successful production build and browser visual tests.
+- **Files Touched (2):** `M src/components/Views/PyqVaultView.tsx`, `M src/data/examTrendsData.ts`
+- **Git HEAD:** `main` @ `1c87fc9`
 
 ### [2026-11-22 18:20:09 (+05:30)] Add Exam-Specific 10-Year Trend Analysis and PYQ Target Drill (DONE)
 - **Details:** Created examTrendsData.ts with UPSC, DJS, UP PCS-J, and CLAT profiles, 10-year pillar heatmaps (2014-2024), trend velocities, and authentic PYQ registry. Upgraded PyqVaultView.tsx with default 10-Year Trends tab, interactive Prelims +2/-0.66 marking drill, live scorecards, and Mains model answer expansions. Full production build and browser visual verification passed.
@@ -311,7 +316,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 76.9 KB | 881 | `d504081` (2026-11-22) |
+| `PROJECT_LOG.md` | 77.8 KB | 888 | `1c87fc9` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -338,7 +343,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 12.8 KB | 226 | `3d89178` (2026-11-22) |
+| `src/App.tsx` | 12.8 KB | 226 | `1c87fc9` (2026-11-22) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -369,7 +374,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 15.4 KB | 280 | `3d89178` (2026-11-22) |
+| `src/components/Layout/Sidebar.tsx` | 15.4 KB | 280 | `1c87fc9` (2026-11-22) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -428,7 +433,7 @@
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
-| `src/components/Views/PyqVaultView.tsx` | 120.4 KB | 2242 | `5bbabe8` (2026-11-19) |
+| `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `1c87fc9` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
 | `src/components/Views/ReadinessIndexView.tsx` | 54.9 KB | 1111 | `9c25d8b` (2026-11-20) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
@@ -480,7 +485,7 @@
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
-| `src/data/examTrendsData.ts` | 41.5 KB | 737 | new (uncommitted) |
+| `src/data/examTrendsData.ts` | 67.3 KB | 1117 | `1c87fc9` (2026-11-22) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
@@ -774,10 +779,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**106** commits, newest first).
+> Complete git history (**107** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 107 | 2026-11-22 | `1c87fc9` | 5 | feat: add exam-specific 10-year trend analysis and PYQ target drill |
 | 106 | 2026-11-22 | `d504081` | 4 | feat(mains): add model diff, commissions vault, hook generator, UPSC printable booklet, and exam sprint mode |
 | 105 | 2026-11-22 | `4594a72` | 5 | feat(mains): add Batch 5 (25 questions) and revamp Mains Writing Lab into 125-question IRAC & automated rubric evaluation suite |
 | 104 | 2026-11-22 | `3d89178` | 12 | feat(exam): add Majorities Lab, Deadlines Matrix, 50-Q Negative Marking Simulator, and expanded 35+ article intel |

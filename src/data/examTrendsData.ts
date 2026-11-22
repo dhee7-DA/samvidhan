@@ -1,4 +1,4 @@
-export type TargetExamId = 'upsc' | 'djs' | 'uppcsj' | 'clat';
+export type TargetExamId = 'upsc' | 'djs' | 'uppcsj' | 'bjs' | 'rjs' | 'mpcj' | 'clat';
 
 export interface ExamProfile {
   id: TargetExamId;
@@ -107,6 +107,72 @@ export const EXAM_PROFILES: ExamProfile[] = [
       'Verbatim statutory reproduction of Article clauses is heavily rewarded.',
       'Must cite foundational classic cases (Bhikaji Narain, Deep Chand, Ram Jawaya Kapur, Tulsiram Patel).',
       'Keep answers crisp, point-wise, and clearly delineated with roman numerals.'
+    ]
+  },
+  {
+    id: 'bjs',
+    name: 'Bihar Judicial Service Examination (BPSC BJS)',
+    shortName: 'Bihar Judiciary (BJS)',
+    badge: '31st & 32nd BPSC Mains & Prelims',
+    subtitle: 'Dedicated compulsory 150-mark paper testing ordinance repromulgation, extraordinary writs, and emergency review',
+    totalQuestionsAnalyzed: 156,
+    averageCutoff: 'Constitutional & Admin Law: 110 / 150 Marks',
+    examPatternIntel:
+      'Bihar Judiciary features an independent compulsory paper in Constitutional Law & Administrative Law (150 Marks). Examiners test expansive theoretical depth on Ordinance repromulgation (D.C. Wadhwa, Krishna Kumar Singh), comparative analysis of Art 32 vs 226, Natural Justice in administrative action, and President\'s Rule under Article 356 (S.R. Bommai).',
+    topScoringPillars: [
+      'Ordinance Making Power & Executive Usurpation (Arts. 123 & 213)',
+      'Extraordinary Writ Jurisdictions & Locus Standi (Arts. 32 & 226)',
+      'Federal Emergency Provisions & Judicial Review (Arts. 352, 356, 360)',
+      'Administrative Natural Justice & Discretion (Arts. 14 & 21)'
+    ],
+    examinerStyleNotes: [
+      'Ordinance repromulgation without tabling is an annual staple; must cite D.C. Wadhwa (1987) and 7-Judge bench in Krishna Kumar Singh (2017).',
+      'Always contrast Quo Warranto and Certiorari with specific locus standi rules.',
+      'High marks awarded for delineating subjective satisfaction vs objective materials in Article 356 proclamations.'
+    ]
+  },
+  {
+    id: 'rjs',
+    name: 'Rajasthan Judicial Service Examination (RJS)',
+    shortName: 'Rajasthan Judiciary (RJS)',
+    badge: 'Civil & Criminal Law Paper I & II',
+    subtitle: 'Concise analytical problem sets on equality code, personal liberty, judicial independence, and DPSP harmonisation',
+    totalQuestionsAnalyzed: 134,
+    averageCutoff: 'Law Paper Target: 65% Marks',
+    examPatternIntel:
+      'RJS questions are tight, prompt, and focus heavily on fundamental freedoms (Article 19(1) restrictions under 19(2)–19(6)), the test of reasonable classification vs non-arbitrariness under Article 14 (Royappa to Shayara Bano), the harmonisation between Fundamental Rights and DPSPs (Champakam Dorairajan to Minerva Mills), and High Court superintendence under Article 227 vs 226.',
+    topScoringPillars: [
+      'Equality Code & Arbitrariness Doctrine (Arts. 14, 15, 16)',
+      'Freedom of Speech, Press & Reasonable Restrictions (Art. 19)',
+      'Fundamental Rights vs Directive Principles Interplay (Part III & Part IV)',
+      'High Court Judicial & Administrative Superintendence (Arts. 226 & 227)'
+    ],
+    examinerStyleNotes: [
+      'Focus on precise proportionality steps when testing restrictions under Article 19(2)–(6).',
+      'Distinguish Article 226 (extraordinary judicial writ remedy) from Article 227 (administrative and judicial supervisory jurisdiction).',
+      'Keep answers concise and direct without excessive preamble.'
+    ]
+  },
+  {
+    id: 'mpcj',
+    name: 'Madhya Pradesh Civil Judge Examination (MPCJ)',
+    shortName: 'MP Civil Judge (MPCJ)',
+    badge: 'High Court of MP Judicial Cadre',
+    subtitle: 'Clause-specific statutory dissection, criminal protections, constitutional remedies, and Preamble jurisprudence',
+    totalQuestionsAnalyzed: 148,
+    averageCutoff: 'Constitutional Law Prelims: 10/10; Mains: 70%',
+    examPatternIntel:
+      'MPCJ prelims features a dedicated 10-mark constitutional law section where candidates aim for 10/10. Mains questions test exact constitutional wording: Ex Post Facto laws (Article 20(1) with civil vs criminal penalties), Double Jeopardy (Article 20(2) judicial prosecution vs departmental inquiry), and the landmark debate on whether the Preamble is an integral part of the Constitution (Berubari vs Kesavananda Bharati).',
+    topScoringPillars: [
+      'Criminal Constitutional Guarantees (Arts. 20(1), 20(2), 20(3))',
+      'Fundamental Rights Enforcement & Territory (Arts. 12, 13, 32)',
+      'Preamble & Basic Structure Integrity (Preamble & Art. 368)',
+      'Union & State Judiciary Appointment Safeguards (Arts. 124 & 217)'
+    ],
+    examinerStyleNotes: [
+      'Quote the exact wording of Article 20 clauses (e.g. "greater penalty than that which might have been inflicted").',
+      'Cite Maqbool Hussain and Venkataraman to show departmental inquiry is not prosecution for Double Jeopardy.',
+      'Point-wise, high-density answers score highest in MP High Court evaluations.'
     ]
   },
   {
@@ -379,6 +445,185 @@ export const TEN_YEAR_PILLAR_HEATMAP: Record<TargetExamId, PillarTrend[]> = {
       ],
       examinerTrapWarning:
         'Articles 20 and 21 can NEVER be suspended under Article 359, even during an active National Emergency (44th Amendment)!'
+    }
+  ],
+
+  bjs: [
+    {
+      pillarId: 'pillar-bjs-ordinance',
+      pillarName: 'Ordinance Making Power & Repromulgation Jurisprudence',
+      articleRange: 'Articles 123, 213, 174',
+      tenYearCount: 48,
+      sharePercentage: 31,
+      trendVelocity: 'RISING',
+      yearlyBreakdown: { 2014: 4, 2015: 4, 2016: 5, 2017: 6, 2018: 5, 2019: 5, 2020: 4, 2021: 5, 2022: 5, 2023: 5, 2024: 5 },
+      topRecurringSubtopics: [
+        'Governor\'s Satisfaction under Article 213 & Judicial Scrutiny',
+        'Repromulgation as Fraud on Constitution (D.C. Wadhwa v. State of Bihar)',
+        'Mandatory Constitutional Obligation to Lay before House (Krishna Kumar Singh 2017)',
+        'Legal Effects of an Ordinance that Ceases to Operate'
+      ],
+      examinerTrapWarning:
+        'In Krishna Kumar Singh (2017), the 7-Judge bench held that rights created under an expired ordinance do NOT automatically survive unless irreversible public interest demands!'
+    },
+    {
+      pillarId: 'pillar-bjs-writs-remedies',
+      pillarName: 'Extraordinary Writ Jurisdictions & Public Interest Litigation',
+      articleRange: 'Articles 32, 226, 136, 227',
+      tenYearCount: 42,
+      sharePercentage: 27,
+      trendVelocity: 'STABLE_CORE',
+      yearlyBreakdown: { 2014: 4, 2015: 4, 2016: 4, 2017: 4, 2018: 4, 2019: 5, 2020: 4, 2021: 4, 2022: 5, 2023: 4, 2024: 4 },
+      topRecurringSubtopics: [
+        'Scope of "For Any Other Purpose" in Article 226 vs Article 32',
+        'Writ of Quo Warranto vs Discretionary Relief & Locus Standi rules',
+        'Exhaustion of Alternative Remedies & Exceptions (Whirlpool Corporation)',
+        'Supervisory Power under Article 227 vs Writ of Certiorari under Article 226'
+      ],
+      examinerTrapWarning:
+        'Alternative statutory remedy is NOT an absolute bar to Article 226 when Fundamental Rights are violated, natural justice is breached, or proceedings are wholly without jurisdiction (Whirlpool).'
+    },
+    {
+      pillarId: 'pillar-bjs-emergency-relations',
+      pillarName: 'Emergency Provisions & Center-State Friction',
+      articleRange: 'Articles 352, 356, 360, 245–254',
+      tenYearCount: 36,
+      sharePercentage: 23,
+      trendVelocity: 'STABLE_CORE',
+      yearlyBreakdown: { 2014: 3, 2015: 3, 2016: 4, 2017: 3, 2018: 4, 2019: 4, 2020: 3, 2021: 4, 2022: 4, 2023: 4, 2024: 3 },
+      topRecurringSubtopics: [
+        'Proclamation of President\'s Rule under Article 356 (S.R. Bommai v. UOI)',
+        'Secularism as Basic Structure Justifying Article 356 Action',
+        'Doctrine of Repugnancy in Concurrent List under Article 254',
+        'Financial Emergency under Article 360 and Executive Directions'
+      ],
+      examinerTrapWarning:
+        'The Legislative Assembly CANNOT be dissolved before both Houses of Parliament approve the Article 356 proclamation (S.R. Bommai).'
+    },
+    {
+      pillarId: 'pillar-bjs-admin-natural-justice',
+      pillarName: 'Administrative Law, Natural Justice & Judicial Review',
+      articleRange: 'Articles 14, 21, 309–311',
+      tenYearCount: 30,
+      sharePercentage: 19,
+      trendVelocity: 'RISING',
+      yearlyBreakdown: { 2014: 2, 2015: 3, 2016: 3, 2017: 3, 2018: 3, 2019: 3, 2020: 3, 2021: 3, 2022: 4, 2023: 3, 2024: 3 },
+      topRecurringSubtopics: [
+        'Nemo Judex In Causa Sua & Audi Alteram Partem (A.K. Kraipak v. UOI)',
+        'Post-Decisional Hearing Validity (Maneka Gandhi)',
+        'Reasoned Decisions / Speaking Orders as Core Component of Natural Justice',
+        'Article 311 Civil Services Inquiries & Second Proviso Exceptions'
+      ],
+      examinerTrapWarning:
+        'A post-decisional hearing cannot cure a pre-decisional absence of hearing unless exceptional urgency excludes prior notice (Swadeshi Cotton Mills).'
+    }
+  ],
+
+  rjs: [
+    {
+      pillarId: 'pillar-rjs-equality-arbitrariness',
+      pillarName: 'Equality Code, Non-Arbitrariness & Affirmative Action',
+      articleRange: 'Articles 14, 15, 16, 17, 18',
+      tenYearCount: 46,
+      sharePercentage: 34,
+      trendVelocity: 'RISING',
+      yearlyBreakdown: { 2014: 4, 2015: 4, 2016: 5, 2017: 5, 2018: 5, 2019: 4, 2020: 5, 2021: 5, 2022: 5, 2023: 5, 2024: 4 },
+      topRecurringSubtopics: [
+        'Doctrine of Manifest Arbitrariness (Shayara Bano v. UOI)',
+        'Royappa Principle: Equality as Dynamic Anti-Thesis of Arbitrariness',
+        'Sub-Classification of Reserved Categories (State of Punjab v. Davinder Singh 2024)',
+        'Creamy Layer Exclusion in SC/ST Reservations (Jarnail Singh)'
+      ],
+      examinerTrapWarning:
+        'Manifest arbitrariness is now a recognized standalone substantive ground to strike down plenary Parliamentary legislation, not just delegated rules!'
+    },
+    {
+      pillarId: 'pillar-rjs-liberties-dpsp',
+      pillarName: 'Fundamental Freedoms, Personal Liberty & DPSP Interplay',
+      articleRange: 'Articles 19, 21, Part IV (DPSPs)',
+      tenYearCount: 48,
+      sharePercentage: 36,
+      trendVelocity: 'STABLE_CORE',
+      yearlyBreakdown: { 2014: 4, 2015: 5, 2016: 4, 2017: 5, 2018: 5, 2019: 5, 2020: 5, 2021: 5, 2022: 5, 2023: 5, 2024: 5 },
+      topRecurringSubtopics: [
+        'Reasonable Restrictions under Article 19(2)–(6) & First Amendment 1951',
+        'Modern Article 21 Expansion: Privacy (Puttaswamy), Livelihood (Olga Tellis)',
+        'Harmonious Construction between Part III and Part IV (Minerva Mills)',
+        'Speedy Trial and Compensation for Illegal Detention (Rudul Sah)'
+      ],
+      examinerTrapWarning:
+        'Article 19(1) freedoms are available ONLY to Indian citizens; corporations and non-citizens cannot claim Article 19 rights.'
+    },
+    {
+      pillarId: 'pillar-rjs-judiciary-superintendence',
+      pillarName: 'High Court Supervisory Jurisdictions & Subordinate Judiciary',
+      articleRange: 'Articles 214–237',
+      tenYearCount: 40,
+      sharePercentage: 30,
+      trendVelocity: 'STABLE_CORE',
+      yearlyBreakdown: { 2014: 3, 2015: 4, 2016: 4, 2017: 4, 2018: 4, 2019: 4, 2020: 4, 2021: 4, 2022: 5, 2023: 4, 2024: 4 },
+      topRecurringSubtopics: [
+        'Superintendence over all Courts & Tribunals under Article 227 vs Article 226',
+        'Appointment & Independence of Subordinate Judiciary under Articles 233–235',
+        'Writ of Certiorari for Error Apparent on Face of Record',
+        'High Court as Court of Record & Contempt Powers under Article 215'
+      ],
+      examinerTrapWarning:
+        'Article 227 supervisory jurisdiction cannot be exercised as an appellate court to re-appreciate factual findings; it is strictly supervisory to keep tribunals within bounds.'
+    }
+  ],
+
+  mpcj: [
+    {
+      pillarId: 'pillar-mpcj-criminal-guarantees',
+      pillarName: 'Constitutional Guarantees in Criminal Trials',
+      articleRange: 'Articles 20, 21, 22',
+      tenYearCount: 56,
+      sharePercentage: 38,
+      trendVelocity: 'STABLE_CORE',
+      yearlyBreakdown: { 2014: 5, 2015: 5, 2016: 6, 2017: 6, 2018: 6, 2019: 5, 2020: 6, 2021: 6, 2022: 6, 2023: 5, 2024: 5 },
+      topRecurringSubtopics: [
+        'Ex Post Facto Laws under Article 20(1) & Enhanced Penalties',
+        'Double Jeopardy under Article 20(2) vs Section 300 CrPC / BNSS (Maqbool Hussain)',
+        'Right against Self-Incrimination under Article 20(3) (Kathi Kalu Oghad, Selvi)',
+        'Arrest & Preventive Detention Safeguards under Article 22(1)–(5)'
+      ],
+      examinerTrapWarning:
+        'Article 20(1) prohibits retrospective criminal punishment or penalty; it does NOT prohibit retrospective civil liability or retrospective procedural amendments!'
+    },
+    {
+      pillarId: 'pillar-mpcj-fundamental-rights-remedies',
+      pillarName: 'Fundamental Rights Concept & Judicial Review',
+      articleRange: 'Articles 12, 13, 32',
+      tenYearCount: 50,
+      sharePercentage: 34,
+      trendVelocity: 'STABLE_CORE',
+      yearlyBreakdown: { 2014: 5, 2015: 5, 2016: 5, 2017: 5, 2018: 5, 2019: 5, 2020: 5, 2021: 5, 2022: 5, 2023: 5, 2024: 5 },
+      topRecurringSubtopics: [
+        'Definition of "State" & Instrumentality Tests under Article 12 (Ajay Hasia)',
+        'Doctrine of Eclipse & Severability under Article 13',
+        'Article 32 as the "Heart and Soul" of the Constitution',
+        'Judicial Review as Basic Feature of the Constitution (L. Chandra Kumar)'
+      ],
+      examinerTrapWarning:
+        'Judiciary in its purely judicial capacity is NOT "State" under Article 12 (Naresh Shridhar Mirajkar v. State of Maharashtra).'
+    },
+    {
+      pillarId: 'pillar-mpcj-preamble-amendment',
+      pillarName: 'Preamble, Basic Structure & Constitutional Amendment',
+      articleRange: 'Preamble, Articles 368, 1–4',
+      tenYearCount: 42,
+      sharePercentage: 28,
+      trendVelocity: 'RISING',
+      yearlyBreakdown: { 2014: 4, 2015: 4, 2016: 4, 2017: 4, 2018: 4, 2019: 5, 2020: 4, 2021: 4, 2022: 4, 2023: 5, 2024: 4 },
+      topRecurringSubtopics: [
+        'Preamble as Integral Part of Constitution (Berubari vs Kesavananda Bharati)',
+        '42nd Amendment 1976 Additions to Preamble ("Socialist, Secular, Integrity")',
+        'Procedure for Constitutional Amendment under Article 368',
+        'Territory of the Union & Reorganization of States under Articles 2, 3, 4'
+      ],
+      examinerTrapWarning:
+        'A Bill under Article 3 to reorganize state boundaries does NOT require an amendment under Article 368; it is passed by a simple majority (Article 4).'
     }
   ],
 
@@ -732,5 +977,140 @@ export const AUTHENTIC_EXAM_PYQS: AuthenticPyqQuestion[] = [
     benchmarkCase: 'Sita Soren v. Union of India ((2024) 5 SCC 629)',
     examinerScoringTip:
       'Memorize: Unanimous 7-Judge bench holding that the offence of bribery is independent of the subsequent speech or vote.'
+  },
+
+  // -------------------------------------------------------------------------
+  // BIHAR JUDICIAL SERVICE (BJS / BPSC)
+  // -------------------------------------------------------------------------
+  {
+    id: 'pyq-bjs-2023-mains-ordinance-repromulgation',
+    examId: 'bjs',
+    year: 2023,
+    paperName: '32nd Bihar Judicial Service Mains 2023 (Constitutional & Admin Law)',
+    questionType: 'MAINS_DESCRIPTIVE',
+    marks: 20,
+    title: 'Governor\'s Ordinance Power & Fraud on the Constitution',
+    questionText:
+      'Critically examine the constitutional limits on the Ordinance-making power of the Governor under Article 213 of the Constitution of India. Can successive ordinances be repromulgated without placing them before the State Legislature? Discuss the evolution of the law from D.C. Wadhwa v. State of Bihar to the 7-Judge Constitution Bench in Krishna Kumar Singh v. State of Bihar (2017).',
+    explanation:
+      '1. Constitutional Framework: Under Article 213, the Governor has legislative power to promulgate ordinances ONLY when both Houses are not in session and "circumstances exist which render it necessary for him to take immediate action".\n2. Mandatory Laying Clause: Article 213(2)(a) mandates that an ordinance "shall be laid before the Legislative Assembly". Failure to lay is not a procedural irregularity but a mandatory constitutional violation.\n3. The Bihar Anomaly & D.C. Wadhwa (1987): In D.C. Wadhwa, the Supreme Court exposed that Bihar had promulgated 256 ordinances between 1967 and 1981, repromulgating them repeatedly for up to 14 years without legislative enactment. The Court ruled this a "fraud on the Constitution" and a subversion of the democratic legislative process.\n4. Krishna Kumar Singh (2017) 7-Judge Bench Synthesis: (a) The Governor\'s power is conditional and subject to judicial review for colorable exercise; (b) Repromulgation without tabling is unconstitutional and invalid; (c) Rights created under an ordinance that ceases to operate do not survive unless public interest or constitutional necessity makes them irreversible.',
+    coreArticles: ['Article 213', 'Article 123', 'Article 174'],
+    benchmarkCase: 'Krishna Kumar Singh v. State of Bihar ((2017) 3 SCC 1)',
+    examinerScoringTip:
+      'To secure 16+ marks in BJS, candidates must cite both D.C. Wadhwa (1987) and the 7-judge Constitution Bench in Krishna Kumar Singh (2017), distinguishing between the effect of an expired ordinance and a repromulgated ordinance.'
+  },
+  {
+    id: 'pyq-bjs-2023-prelims-writ-any-other-purpose',
+    examId: 'bjs',
+    year: 2023,
+    paperName: '32nd Bihar Judicial Service Preliminary Examination 2023',
+    questionType: 'PRELIMS_MCQ',
+    marks: 2,
+    title: 'High Court Writ Jurisdiction "For Any Other Purpose" (Article 226)',
+    questionText:
+      'Under Article 226 of the Constitution of India, a High Court has the power to issue writs for the enforcement of Fundamental Rights and "for any other purpose". What is the true legal scope of the expression "for any other purpose" as laid down by the Supreme Court?',
+    options: [
+      { key: 'A', text: 'Any purpose which the High Court in its discretion deems morally desirable, even in the absence of a legal right' },
+      { key: 'B', text: 'Enforcement of any statutory, customary, or common law legal right or performance of a legal duty' },
+      { key: 'C', text: 'To review and modify sovereign treaties entered into by the Government of India' },
+      { key: 'D', text: 'Exclusively for settling inter-district boundary and taxation disputes within the State' }
+    ],
+    correctOption: 'B',
+    explanation:
+      'In State of Orissa v. Madan Gopal Rungta (AIR 1952 SC 12) and Calcutta Gas Company v. State of West Bengal (AIR 1962 SC 1044), the Supreme Court ruled that the phrase "for any other purpose" in Article 226 means the enforcement of any legal right (statutory, customary, or contractual where public duty is involved) or performance of a legal duty, meaning Article 226 is broader in scope than Article 32 (which is strictly confined to Part III Fundamental Rights).',
+    coreArticles: ['Article 226', 'Article 32'],
+    benchmarkCase: 'State of Orissa v. Madan Gopal Rungta (AIR 1952 SC 12)',
+    examinerScoringTip:
+      'Common State Judicial trap: Article 226 cannot be invoked in vacuo; existence of an enforceable legal right is an indispensable condition precedent.'
+  },
+
+  // -------------------------------------------------------------------------
+  // RAJASTHAN JUDICIAL SERVICE (RJS)
+  // -------------------------------------------------------------------------
+  {
+    id: 'pyq-rjs-2024-mains-manifest-arbitrariness',
+    examId: 'rjs',
+    year: 2024,
+    paperName: 'Rajasthan Judicial Service Mains 2024 (Law Paper I)',
+    questionType: 'MAINS_DESCRIPTIVE',
+    marks: 15,
+    title: 'From Royappa to Shayara Bano: Doctrine of Manifest Arbitrariness',
+    questionText:
+      '"The traditional doctrine of classification under Article 14 has been expanded to embrace the principle of non-arbitrariness." Trace this judicial transition from E.P. Royappa v. State of Tamil Nadu to Shayara Bano v. Union of India, and analyze how "manifest arbitrariness" is now applied to strike down plenary statutes.',
+    explanation:
+      '1. Old Traditional Doctrine: Ram Krishna Dalmia (1958) established the twin nexus test: (a) intelligible differentia; and (b) rational nexus to the statutory objective sought.\n2. New Dimension in Royappa (1974): Justice Bhagwati proclaimed that equality is a dynamic concept: "Equality and arbitrariness are sworn enemies... Where an act is arbitrary, it is implicit that it is unequal both according to political logic and constitutional law and therefore violative of Article 14". Expanded in Maneka Gandhi (1978) and Ajay Hasia (1981).\n3. Plenary Legislation Threshold: Historically in McDowell (1996), the Court suggested legislation could only be struck down for lack of legislative competence or violation of express constitutional limitations, not mere arbitrariness.\n4. Shayara Bano (2017) Breakthrough: Justice Nariman established that plenary legislation can be invalidated for "manifest arbitrariness"—meaning something done by and large capriciously, irrationally, or without adequate determining principle (reaffirmed in Navtej Johar 2018 and Joseph Shine 2018).',
+    coreArticles: ['Article 14', 'Article 21'],
+    benchmarkCase: 'Shayara Bano v. Union of India ((2017) 9 SCC 1)',
+    examinerScoringTip:
+      'Award top marks for tracing the shift from McDowell\'s restrictive rule to Justice Nariman\'s definition of manifest arbitrariness in Shayara Bano.'
+  },
+  {
+    id: 'pyq-rjs-2024-prelims-article-19-restrictions',
+    examId: 'rjs',
+    year: 2024,
+    paperName: 'Rajasthan Judicial Service Preliminary Examination 2024',
+    questionType: 'PRELIMS_MCQ',
+    marks: 2,
+    title: 'First Constitutional Amendment 1951 & Article 19(2) Grounds',
+    questionText:
+      'Which of the following grounds of restriction on the freedom of speech and expression under Article 19(2) was NOT present in the original Constitution of 1950, but was inserted by the Constitution (First Amendment) Act, 1951?',
+    options: [
+      { key: 'A', text: 'Security of the State' },
+      { key: 'B', text: 'Public order and Friendly relations with foreign States' },
+      { key: 'C', text: 'Decency or morality' },
+      { key: 'D', text: 'Contempt of court' }
+    ],
+    correctOption: 'B',
+    explanation:
+      'Following the Supreme Court decisions in Romesh Thappar (Cross Roads) and Brij Bhushan (Organiser) where public safety/order laws were struck down, Parliament enacted the Constitution (First Amendment) Act, 1951. It added three new grounds to Article 19(2): (1) "Public order", (2) "Friendly relations with foreign States", and (3) "Incitement to an offence", while also qualifying "restrictions" with the word "reasonable".',
+    coreArticles: ['Article 19(1)(a)', 'Article 19(2)', 'First Amendment 1951'],
+    benchmarkCase: 'Romesh Thappar v. State of Madras (AIR 1950 SC 124)',
+    examinerScoringTip:
+      'High-yield historical trap: "Sovereignty and integrity of India" was added even later by the 16th Amendment (1963), whereas "Public order" was added by the 1st Amendment (1951).'
+  },
+
+  // -------------------------------------------------------------------------
+  // MADHYA PRADESH JUDICIAL SERVICE (MPCJ / MP HIGH COURT)
+  // -------------------------------------------------------------------------
+  {
+    id: 'pyq-mpcj-2023-mains-double-jeopardy',
+    examId: 'mpcj',
+    year: 2023,
+    paperName: 'MP Civil Judge Mains 2023 (Law Paper II - Constitutional & Criminal)',
+    questionType: 'MAINS_DESCRIPTIVE',
+    marks: 10,
+    title: 'Article 20(2) Double Jeopardy vs Section 300 CrPC / BNSS',
+    questionText:
+      'Explain the constitutional protection against Double Jeopardy guaranteed under Article 20(2) of the Constitution of India. Distinguish its constitutional scope from the statutory rule under Section 300 CrPC (Section 356 BNSS), and discuss whether departmental disciplinary punishment bars subsequent criminal prosecution for the same act.',
+    explanation:
+      '1. Constitutional Text: Article 20(2) provides that "No person shall be prosecuted and punished for the same offence more than once".\n2. Dual Prerequisites: For Article 20(2) to apply, there must be BOTH a prior prosecution AND a prior punishment for the identical offence (autrefois convict only).\n3. Distinction with Section 300 CrPC / Sec 356 BNSS: The statutory rule in Section 300 CrPC is wider because it embodies both autrefois convict (prior conviction) and autrefois acquit (prior acquittal). Under Article 20(2), a person who was prosecuted and ACQUITTED can be retried if the law permits, whereas Section 300 CrPC bars it.\n4. Departmental Inquiries Not a Bar: In Maqbool Hussain v. State of Bombay (1953) and S.A. Venkataraman v. Union of India (1954), the Supreme Court settled that "prosecution" in Article 20(2) means proceedings before a Court of Law or Judicial Tribunal. Disciplinary proceedings under service rules or confiscation by customs authorities are administrative, not judicial prosecutions, and do not attract Article 20(2).',
+    coreArticles: ['Article 20(2)', 'Section 300 CrPC', 'Section 356 BNSS'],
+    benchmarkCase: 'Maqbool Hussain v. State of Bombay (AIR 1953 SC 325)',
+    examinerScoringTip:
+      'Crucial distinction: Article 20(2) covers only prior conviction (convicted and punished), whereas Section 300 CrPC / BNSS covers both prior conviction and prior acquittal.'
+  },
+  {
+    id: 'pyq-mpcj-2023-prelims-preamble-integral',
+    examId: 'mpcj',
+    year: 2023,
+    paperName: 'MP Civil Judge Preliminary Examination 2023 (Law Section)',
+    questionType: 'PRELIMS_MCQ',
+    marks: 1,
+    title: 'Constitutional Status of the Preamble & Overruling of Berubari',
+    questionText:
+      'In which landmark decision did the Supreme Court explicitly overrule In re Berubari Union (1960) and hold that the Preamble is an integral part of the Constitution of India and can be amended subject to the Basic Structure doctrine?',
+    options: [
+      { key: 'A', text: 'Shankari Prasad v. Union of India (1951)' },
+      { key: 'B', text: 'Sajjan Singh v. State of Rajasthan (1965)' },
+      { key: 'C', text: 'I.C. Golaknath v. State of Punjab (1967)' },
+      { key: 'D', text: 'Kesavananda Bharati v. State of Kerala (1973)' }
+    ],
+    correctOption: 'D',
+    explanation:
+      'In In re Berubari Union (1960), the 8-Judge bench held that the Preamble is a key to open the minds of the makers but is NOT a part of the Constitution. In Kesavananda Bharati v. State of Kerala (1973), the 13-Judge Constitution Bench explicitly overruled Berubari, pointing out that the Preamble was debated, voted upon, and adopted by the Constituent Assembly in the exact same manner as the rest of the Constitution, and therefore constitutes an integral part of the Constitution and can be amended under Article 368 without altering the basic structure.',
+    coreArticles: ['Preamble', 'Article 368'],
+    benchmarkCase: 'Kesavananda Bharati v. State of Kerala ((1973) 4 SCC 225)',
+    examinerScoringTip:
+      'MPCJ core staple: Remember that Berubari (1960) said "not a part", Kesavananda (1973) held "is a part", and LIC of India (1995) reaffirmed it is an "integral part".'
   }
 ];

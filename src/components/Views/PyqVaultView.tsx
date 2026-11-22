@@ -437,7 +437,9 @@ export const PyqVaultView: React.FC = () => {
             </h1>
             <p className="text-sm md:text-base text-[var(--text-secondary)] max-w-2xl leading-relaxed">
               Empirical 10-year recurrence analysis and authentic past-year questions across{' '}
-              <strong className="text-[var(--text-primary)]">UPSC CSE, Delhi Judicial Service (DJS), UP PCS-J, and CLAT PG</strong>. 
+              <strong className="text-[var(--text-primary)]">
+                UPSC CSE, Delhi (DJS), UP PCS-J, Bihar (BJS), Rajasthan (RJS), Madhya Pradesh (MPCJ), and CLAT PG
+              </strong>. 
               Pillar heatmaps, trend velocities, examiner traps, and real-time drill scoring.
             </p>
           </div>
@@ -446,7 +448,7 @@ export const PyqVaultView: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3">
             <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center min-w-[100px]">
               <span className="text-[10px] uppercase font-bold text-[var(--text-muted)] block">Exams Analyzed</span>
-              <span className="text-lg font-black text-[var(--accent-primary)]">UPSC • DJS • UP • CLAT</span>
+              <span className="text-base font-black text-[var(--accent-primary)]">7 National & State Papers</span>
             </div>
             <button
               onClick={() => setActiveTab('mains-lab')}
