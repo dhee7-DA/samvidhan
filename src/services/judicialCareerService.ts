@@ -171,6 +171,27 @@ export const ARCADE_BADGES: ArcadeBadge[] = [
     category: 'general'
   },
   {
+    id: 'moot-silk',
+    title: 'Designated Senior Counsel',
+    description: 'Win a 5-Judge Constitution Bench Moot Showdown with at least a 3:2 majority decree.',
+    icon: '🏛️',
+    category: 'general'
+  },
+  {
+    id: 'assembly-architect',
+    title: 'Constituent Assembly Architect',
+    description: 'Steer the Republic through all 10 Central Hall crises to adopt the 1950 Constitution.',
+    icon: '📜',
+    category: 'general'
+  },
+  {
+    id: 'mystery-sleuth',
+    title: 'Constitutional Sleuth',
+    description: 'Crack the LexSamvidhan mystery article puzzle within 6 tries.',
+    icon: '🎯',
+    category: 'general'
+  },
+  {
     id: 'cji-sworn',
     title: 'Oath of the Chief Justice',
     description: 'Reach Level 7 and ascend to the office of Chief Justice of India.',
@@ -415,6 +436,64 @@ export function recordEscapeRoomResult(timeSeconds: number, flawless: boolean): 
   };
 
   checkBadge('escape-master', timeSeconds <= 240);
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordMootCourtResult(caseId: string, won: boolean, unanimous: boolean): AwardResult {
+  const xpEarned = won ? (unanimous ? 500 : 400) : 100;
+  const res = awardCareerXP(xpEarned, won ? 'Constitution Bench Moot Victory' : 'Constitution Bench Moot Submission');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  if (won) {
+    checkBadge('moot-silk', true);
+  }
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordAssemblyRPGResult(alignmentRate: number): AwardResult {
+  const xpEarned = 500 + alignmentRate * 5;
+  const res = awardCareerXP(xpEarned, 'Constituent Assembly 1946-49 Session');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  checkBadge('assembly-architect', alignmentRate >= 50);
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordMysteryGameResult(attemptsUsed: number, isWon: boolean): AwardResult {
+  const xpEarned = isWon ? 250 + (7 - attemptsUsed) * 40 : 50;
+  const res = awardCareerXP(xpEarned, isWon ? 'LexSamvidhan Mystery Cracked' : 'LexSamvidhan Deduction Practice');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  if (isWon) {
+    checkBadge('mystery-sleuth', true);
+  }
 
   saveCareerProfile(res.profile);
   return res;

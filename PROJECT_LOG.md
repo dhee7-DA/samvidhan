@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 20:33:21 (+05:30) |
+| **Last Log Sync** | 2026-11-22 21:05:19 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `59d7a9d` (2026-11-22T19:39:35+05:30) |
-| **Total Commits** | 108 |
-| **Total Files Indexed** | 303 (301 tracked, 2 new untracked) |
-| **Working Tree** | 4 pending change(s) |
+| **Branch / HEAD** | `main` @ `01f8d5d` (2026-11-22T20:33:53+05:30) |
+| **Total Commits** | 109 |
+| **Total Files Indexed** | 309 (303 tracked, 6 new untracked) |
+| **Working Tree** | 8 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 21:05:19 (+05:30)] Add 3 Master Gamified Engines: 5-Judge Constitution Bench Moot Showdown, Constituent Assembly 1946 RPG, and LexSamvidhan Daily Deduction Game (DONE)
+- **Details:** Delivered complete 4-game master gamified constitutional learning suite: 1. Vault of Article 368 Escape Room; 2. 5-Judge Constitution Bench Moot Showdown (3 dossiers, 5 judge archetypes, argument card deck, 15s interlocutory challenge, majority decrees); 3. Constituent Assembly 1946-49 RPG (10 monumental Central Hall crises, tri-pillar gauges for Liberty/Federalism/Executive, authentic CAD quotes, adoption ceremony, Mains answer cheat sheet); 4. LexSamvidhan Daily Mystery Article deduction game (6 tries, 5 evaluation columns, direction arrows, 3 progressive clues, Wordle-style share grid, practice vault). Full browser testing verified with zero compilation errors.
+- **Files Touched (8):** `M src/components/Views/ArcadeHubView.tsx`, `M src/services/judicialCareerService.ts`, `?? src/components/Views/Arcade/ConstituentAssemblyRPG.tsx`, `?? src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx`, `?? src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx`, `?? src/data/constituentAssemblyRpgData.ts`, `?? src/data/lexSamvidhanData.ts`, `?? src/data/mootCourtData.ts`
+- **Git HEAD:** `main` @ `01f8d5d`
 
 ### [2026-11-22 20:33:21 (+05:30)] Add Game 1: The Constitutional Escape Room (Vault of Article 368) (DONE)
 - **Details:** Built escapeRoomData.ts with 4 subterranean chambers (Majority Dials, Golden Triangle Circuit, Emergency Override Keypad, and Overruled Precedents Graveyard). Created ConstitutionalEscapeRoom.tsx integrated with Judicial Career XP and badges. Added Master Vault Locksmith badge and full visual verification across all chambers to escape victory.
@@ -309,7 +314,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **303** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **309** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -321,7 +326,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 78.4 KB | 894 | `59d7a9d` (2026-11-22) |
+| `PROJECT_LOG.md` | 79.4 KB | 902 | `01f8d5d` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -409,7 +414,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 11.5 KB | 259 | `d32e8e2` (2026-11-21) |
+| `src/components/Views/ArcadeHubView.tsx` | 14.6 KB | 328 | `01f8d5d` (2026-11-22) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
@@ -448,14 +453,17 @@
 | `src/components/Views/VisualLabView.tsx` | 16.4 KB | 373 | `fc3e951` (2026-11-13) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `ea98297` (2026-11-22) |
 
-### `src/components/Views/Arcade` (6 files)
+### `src/components/Views/Arcade` (9 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.3 KB | 504 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/CareerBadgesModal.tsx` | 5.9 KB | 135 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.3 KB | 574 | `7aac50b` (2026-11-19) |
-| `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 45.9 KB | 1003 | new (uncommitted) |
+| `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.3 KB | 700 | new (uncommitted) |
+| `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 45.9 KB | 1003 | `01f8d5d` (2026-11-22) |
+| `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.6 KB | 724 | new (uncommitted) |
+| `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 26.6 KB | 586 | new (uncommitted) |
 | `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.8 KB | 364 | `d003041` (2026-11-20) |
 | `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `7aac50b` (2026-11-19) |
 
@@ -471,7 +479,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (65 files)
+### `src/data` (68 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -487,11 +495,12 @@
 | `src/data/commissionsData.ts` | 14.2 KB | 211 | `d504081` (2026-11-22) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
+| `src/data/constituentAssemblyRpgData.ts` | 55.3 KB | 1104 | new (uncommitted) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
-| `src/data/escapeRoomData.ts` | 14.1 KB | 356 | new (uncommitted) |
+| `src/data/escapeRoomData.ts` | 14.1 KB | 356 | `01f8d5d` (2026-11-22) |
 | `src/data/examTrendsData.ts` | 67.3 KB | 1117 | `59d7a9d` (2026-11-22) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
@@ -501,8 +510,10 @@
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
+| `src/data/lexSamvidhanData.ts` | 37.1 KB | 575 | new (uncommitted) |
 | `src/data/mainsQuestionsData.ts` | 591 B | 17 | `4594a72` (2026-11-22) |
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
+| `src/data/mootCourtData.ts` | 18.6 KB | 364 | new (uncommitted) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
@@ -764,7 +775,7 @@
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 11.8 KB | 422 | `7aac50b` (2026-11-19) |
+| `src/services/judicialCareerService.ts` | 14.3 KB | 501 | `01f8d5d` (2026-11-22) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/readinessIndexService.ts` | 80.6 KB | 1460 | `9c25d8b` (2026-11-20) |
@@ -786,10 +797,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**108** commits, newest first).
+> Complete git history (**109** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 109 | 2026-11-22 | `01f8d5d` | 5 | feat(arcade): add Game 1 Constitutional Escape Room (Vault of Article 368) |
 | 108 | 2026-11-22 | `59d7a9d` | 3 | feat: expand exam trends vault with Bihar, Rajasthan, and MP state judicial papers |
 | 107 | 2026-11-22 | `1c87fc9` | 5 | feat: add exam-specific 10-year trend analysis and PYQ target drill |
 | 106 | 2026-11-22 | `d504081` | 4 | feat(mains): add model diff, commissions vault, hook generator, UPSC printable booklet, and exam sprint mode |

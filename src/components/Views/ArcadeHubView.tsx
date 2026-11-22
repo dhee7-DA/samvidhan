@@ -12,9 +12,15 @@ import {
   ChevronRight,
   AlertTriangle,
   Lock,
-  Key
+  Key,
+  Gavel,
+  Scroll,
+  Target
 } from 'lucide-react';
 import { ConstitutionalEscapeRoom } from './Arcade/ConstitutionalEscapeRoom';
+import { ConstitutionBenchMootSimulator } from './Arcade/ConstitutionBenchMootSimulator';
+import { ConstituentAssemblyRPG } from './Arcade/ConstituentAssemblyRPG';
+import { LexSamvidhanMysteryGame } from './Arcade/LexSamvidhanMysteryGame';
 import { ChiefJusticeBenchSimulator } from './Arcade/ChiefJusticeBenchSimulator';
 import { ArticleBlitzGame } from './Arcade/ArticleBlitzGame';
 import { WritsEmergencyRoom } from './Arcade/WritsEmergencyRoom';
@@ -29,7 +35,16 @@ import {
 } from '../../services/judicialCareerService';
 import { arcadeAudio } from '../../services/arcadeAudioService';
 
-export type ArcadeTab = 'escape-room' | 'bench' | 'blitz' | 'writs' | 'matcher' | 'trap-buster';
+export type ArcadeTab =
+  | 'escape-room'
+  | 'moot-court'
+  | 'assembly-rpg'
+  | 'lex-samvidhan'
+  | 'bench'
+  | 'blitz'
+  | 'writs'
+  | 'matcher'
+  | 'trap-buster';
 
 export const ArcadeHubView: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<ArcadeTab>('escape-room');
@@ -169,6 +184,51 @@ export const ArcadeHubView: React.FC = () => {
         </button>
 
         <button
+          onClick={() => setActiveSubTab('moot-court')}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
+            activeSubTab === 'moot-court'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <Gavel className="w-4 h-4 text-amber-500" />
+          <span>5-Judge Moot Court</span>
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
+            NEW
+          </span>
+        </button>
+
+        <button
+          onClick={() => setActiveSubTab('assembly-rpg')}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
+            activeSubTab === 'assembly-rpg'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <Scroll className="w-4 h-4 text-amber-500" />
+          <span>Assembly 1946 RPG</span>
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
+            NEW
+          </span>
+        </button>
+
+        <button
+          onClick={() => setActiveSubTab('lex-samvidhan')}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
+            activeSubTab === 'lex-samvidhan'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <Target className="w-4 h-4 text-amber-500" />
+          <span>LexSamvidhan Daily</span>
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
+            NEW
+          </span>
+        </button>
+
+        <button
           onClick={() => setActiveSubTab('bench')}
           className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'bench'
@@ -232,6 +292,15 @@ export const ArcadeHubView: React.FC = () => {
       {/* Active Game Mode Sub-View */}
       {activeSubTab === 'escape-room' && (
         <ConstitutionalEscapeRoom onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'moot-court' && (
+        <ConstitutionBenchMootSimulator onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'assembly-rpg' && (
+        <ConstituentAssemblyRPG onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'lex-samvidhan' && (
+        <LexSamvidhanMysteryGame onAwardResult={handleAwardResult} />
       )}
       {activeSubTab === 'bench' && (
         <ChiefJusticeBenchSimulator onAwardResult={handleAwardResult} />
