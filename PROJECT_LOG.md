@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 15:31:26 (+05:30) |
+| **Last Log Sync** | 2026-11-22 16:36:11 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `3d89178` (2026-11-22T14:38:25+05:30) |
-| **Total Commits** | 104 |
-| **Total Files Indexed** | 298 (297 tracked, 1 new untracked) |
-| **Working Tree** | 4 pending change(s) |
+| **Branch / HEAD** | `main` @ `4594a72` (2026-11-22T15:31:58+05:30) |
+| **Total Commits** | 105 |
+| **Total Files Indexed** | 300 (298 tracked, 2 new untracked) |
+| **Working Tree** | 3 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 16:36:11 (+05:30)] Add Side-by-Side Model Diff, Commissions Vault, Hook Generator, UPSC Printable Booklet, and Strict Sprint Mode (DONE)
+- **Details:** Created commissionsData.ts and introConclusionHooksData.ts. Added Side-by-Side benchmark diff with missing gold dust insertion, ready-to-cite commissions vault, opening/closing hook generator, authentic UPSC/Judicial printable answer booklet with window.print(), and strict exam sprint mode with hard lock. Full tsc and build verified.
+- **Files Touched (3):** `M src/components/Views/MainsAnswerWritingLabView.tsx`, `?? src/data/commissionsData.ts`, `?? src/data/introConclusionHooksData.ts`
+- **Git HEAD:** `main` @ `4594a72`
 
 ### [2026-11-22 15:31:26 (+05:30)] Add Batch 5 (25 High-Yield Questions) and Revamp Mains Writing Lab into 125-Question IRAC & Rubric Evaluation Suite (DONE)
 - **Details:** Created mainsBatch5.ts adding 25 recent Constitution Bench and UPSC GS-2 questions. Upgraded MainsAnswerWritingLabView.tsx with 125-question search/filters, 4-step IRAC blueprints, examiner trap alerts, full model answers, live timer, and automated rubric scoring engine with article/citation audits. tsc and build verified.
@@ -289,7 +294,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **298** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **300** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -301,7 +306,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 74.9 KB | 866 | `3d89178` (2026-11-22) |
+| `PROJECT_LOG.md` | 75.9 KB | 873 | `4594a72` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -407,7 +412,7 @@
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 57.3 KB | 1058 | `003e2d2` (2026-11-21) |
-| `src/components/Views/MainsAnswerWritingLabView.tsx` | 49.4 KB | 1047 | `a058cc1` (2026-11-16) |
+| `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `4594a72` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
@@ -450,7 +455,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (61 files)
+### `src/data` (63 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -463,6 +468,7 @@
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
+| `src/data/commissionsData.ts` | 14.2 KB | 211 | new (uncommitted) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
@@ -473,10 +479,11 @@
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/highYieldAmendmentsData.ts` | 22.7 KB | 376 | `ea98297` (2026-11-22) |
+| `src/data/introConclusionHooksData.ts` | 10.7 KB | 142 | new (uncommitted) |
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
-| `src/data/mainsQuestionsData.ts` | 591 B | 17 | `96d143e` (2026-11-19) |
+| `src/data/mainsQuestionsData.ts` | 591 B | 17 | `4594a72` (2026-11-22) |
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
@@ -716,7 +723,7 @@
 | `src/data/mains/mainsBatch2.ts` | 139.3 KB | 1773 | `46802c4` (2026-11-19) |
 | `src/data/mains/mainsBatch3.ts` | 170.0 KB | 2111 | `96d143e` (2026-11-19) |
 | `src/data/mains/mainsBatch4.ts` | 155.0 KB | 1831 | `96d143e` (2026-11-19) |
-| `src/data/mains/mainsBatch5.ts` | 197.0 KB | 2029 | new (uncommitted) |
+| `src/data/mains/mainsBatch5.ts` | 197.0 KB | 2029 | `4594a72` (2026-11-22) |
 
 ### `src/data/pyqs` (4 files)
 
@@ -752,7 +759,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/types/constitution.ts` | 2.7 KB | 112 | `c4ae501` (2026-11-17) |
 | `src/types/dictionary.ts` | 341 B | 11 | `650124e` (2026-11-14) |
-| `src/types/mainsQuestionTypes.ts` | 3.0 KB | 100 | `5bbabe8` (2026-11-19) |
+| `src/types/mainsQuestionTypes.ts` | 3.0 KB | 100 | `4594a72` (2026-11-22) |
 
 <!-- AUTO:FILES:END -->
 
@@ -761,10 +768,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**104** commits, newest first).
+> Complete git history (**105** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 105 | 2026-11-22 | `4594a72` | 5 | feat(mains): add Batch 5 (25 questions) and revamp Mains Writing Lab into 125-question IRAC & automated rubric evaluation suite |
 | 104 | 2026-11-22 | `3d89178` | 12 | feat(exam): add Majorities Lab, Deadlines Matrix, 50-Q Negative Marking Simulator, and expanded 35+ article intel |
 | 103 | 2026-11-22 | `ea98297` | 10 | feat(exam): deploy Writs & Emergency Matrix, 7th Schedule Relations, and Top 25 Amendments labs |
 | 102 | 2026-11-22 | `4aacf53` | 1 | docs: sync PROJECT_LOG for commit 7dd169f |
