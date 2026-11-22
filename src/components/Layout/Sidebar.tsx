@@ -78,7 +78,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'mains-mock', label: 'Mains Mock Hall', icon: <Clock className="w-4 h-4" />, badge: '3-Hour Timed', sub: 'Full Paper Simulator', category: 'practice' },
   { id: 'judgment-lab', label: 'Judgment Writing', icon: <Gavel className="w-4 h-4" />, badge: 'Mains Paper III/IV', sub: 'Issues & Judgments', category: 'practice' },
   { id: 'mains-lab', label: 'Mains Writing Lab', icon: <PenTool className="w-4 h-4" />, badge: '150 Cases', sub: 'Answer Writing & Rubrics', category: 'practice' },
-  { id: 'pyqs', label: 'Mains Question Vault', icon: <FileQuestion className="w-4 h-4" />, badge: '126 Solved', sub: '5M–20M+ Questions & Blueprints', category: 'practice' },
+  { id: 'pyqs', label: 'Exam Trends & PYQs', icon: <FileQuestion className="w-4 h-4" />, badge: '10-Yr Audit', sub: 'UPSC • DJS • UP • CLAT', category: 'practice' },
   { id: 'revision-sheets', label: 'Revision Sheets', icon: <Printer className="w-4 h-4" />, badge: 'Printable PDF', sub: 'Rapid Cheat Sheets', category: 'practice' },
   { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Active Recall', sub: 'Conceptual Drills', category: 'practice' },
 

@@ -196,7 +196,7 @@ const MainContent: React.FC = () => {
             <button onClick={() => setActiveTab('arcade')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Constitutional Arcade</button>
             <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Precedent Trees</button>
             <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Audio Lab</button>
-            <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">J&K Mains PYQs</button>
+            <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Exam Trends & PYQs</button>
             <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)] btn-tactile">25 Parts</button>
             <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)] btn-tactile">Articles 1–395</button>
             <button onClick={() => setActiveTab('dictionary')} className="hover:text-[var(--text-primary)] btn-tactile">Legal Dictionary</button>

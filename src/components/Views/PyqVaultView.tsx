@@ -28,7 +28,12 @@ import {
   Pause,
   Timer,
   AlertTriangle,
-  Info
+  Info,
+  Target,
+  XCircle,
+  ExternalLink,
+  Zap,
+  BookMarked
 } from 'lucide-react';
 import { JKPSC_MAINS_PYQ_DATA, type PyqQuestion } from '../../data/pyqData';
 import {
@@ -37,6 +42,15 @@ import {
   type AllIndiaTopicFrequency,
   type CommonJudiciaryQuestion
 } from '../../data/allIndiaJudicialTopics';
+import {
+  EXAM_PROFILES,
+  TEN_YEAR_PILLAR_HEATMAP,
+  AUTHENTIC_EXAM_PYQS,
+  type TargetExamId,
+  type ExamProfile,
+  type PillarTrend,
+  type AuthenticPyqQuestion
+} from '../../data/examTrendsData';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { QuestionIntelHoverCard } from '../Common/QuestionIntelHoverCard';
 import { AnswerEvaluationCard } from '../Common/AnswerEvaluationCard';
@@ -47,8 +61,23 @@ import { useTheme } from '../../context/ThemeContext';
 export const PyqVaultView: React.FC = () => {
   const { setActiveTab } = useTheme();
 
-  // Primary Scope Toggle: 'jkpsc' | 'allIndia'
-  const [examScope, setExamScope] = useState<'jkpsc' | 'allIndia'>('allIndia');
+  // Primary Scope Toggle: 'trends' | 'allIndia' | 'jkpsc'
+  const [examScope, setExamScope] = useState<'trends' | 'allIndia' | 'jkpsc'>('trends');
+
+  // =========================================================================
+  // 10-YEAR EXAM TRENDS & TARGET DRILL STATE
+  // =========================================================================
+  const [selectedTargetExam, setSelectedTargetExam] = useState<TargetExamId>('upsc');
+  const [selectedPillarFilter, setSelectedPillarFilter] = useState<string>('all');
+  const [selectedQuestionType, setSelectedQuestionType] = useState<'all' | 'PRELIMS_MCQ' | 'MAINS_DESCRIPTIVE'>('all');
+  const [examPyqSearch, setExamPyqSearch] = useState<string>('');
+
+  // Prelims MCQ Drill State
+  const [mcqUserSelections, setMcqUserSelections] = useState<Record<string, string>>({});
+  const [mcqSubmitted, setMcqSubmitted] = useState<Record<string, boolean>>({});
+
+  // Mains Model Answers Revealed State
+  const [mainsRevealed, setMainsRevealed] = useState<Record<string, boolean>>({});
 
   // =========================================================================
   // JKPSC SECTION STATE
@@ -288,6 +317,107 @@ export const PyqVaultView: React.FC = () => {
 
   const allIndiaWordCount = (allIndiaDrafts[activeCommonQ.id] || '').split(/\s+/).filter(Boolean).length;
 
+  // =========================================================================
+  // DERIVED STATE FOR 10-YEAR EXAM TRENDS & TARGET DRILL
+  // =========================================================================
+  const currentExamProfile = useMemo(() => {
+    return EXAM_PROFILES.find((p) => p.id === selectedTargetExam) || EXAM_PROFILES[0];
+  }, [selectedTargetExam]);
+
+  const currentPillars = useMemo(() => {
+    return TEN_YEAR_PILLAR_HEATMAP[selectedTargetExam] || [];
+  }, [selectedTargetExam]);
+
+  const filteredExamPyqs = useMemo(() => {
+    return AUTHENTIC_EXAM_PYQS.filter((q) => {
+      if (q.examId !== selectedTargetExam) return false;
+      if (selectedQuestionType !== 'all' && q.questionType !== selectedQuestionType) return false;
+      if (selectedPillarFilter !== 'all') {
+        const pillar = currentPillars.find((p) => p.pillarId === selectedPillarFilter);
+        if (pillar) {
+          const titleLower = q.title.toLowerCase();
+          const textLower = q.questionText.toLowerCase();
+          const caseLower = q.benchmarkCase.toLowerCase();
+          const matchesSubtopic = pillar.topRecurringSubtopics.some((sub) => {
+            const words = sub.toLowerCase().split(/\s+/).filter((w) => w.length > 4);
+            return words.some((w) => titleLower.includes(w) || textLower.includes(w) || caseLower.includes(w));
+          });
+          const matchesArticle = q.coreArticles.some((a) =>
+            pillar.articleRange.includes(a.replace('Article ', 'Art. ').replace('Article ', ''))
+          );
+          if (!matchesSubtopic && !matchesArticle) return false;
+        }
+      }
+      if (examPyqSearch.trim()) {
+        const query = examPyqSearch.toLowerCase();
+        const matchesTitle = q.title.toLowerCase().includes(query);
+        const matchesText = q.questionText.toLowerCase().includes(query);
+        const matchesCase = q.benchmarkCase.toLowerCase().includes(query);
+        const matchesArticles = q.coreArticles.some((a) => a.toLowerCase().includes(query));
+        if (!matchesTitle && !matchesText && !matchesCase && !matchesArticles) return false;
+      }
+      return true;
+    });
+  }, [selectedTargetExam, selectedQuestionType, selectedPillarFilter, examPyqSearch, currentPillars]);
+
+  // Prelims MCQ Drill Score Stats
+  const mcqStats = useMemo(() => {
+    const examMcqs = AUTHENTIC_EXAM_PYQS.filter(
+      (q) => q.examId === selectedTargetExam && q.questionType === 'PRELIMS_MCQ'
+    );
+    let attempted = 0;
+    let correct = 0;
+    let incorrect = 0;
+    examMcqs.forEach((q) => {
+      if (mcqSubmitted[q.id]) {
+        attempted++;
+        if (mcqUserSelections[q.id] === q.correctOption) {
+          correct++;
+        } else {
+          incorrect++;
+        }
+      }
+    });
+    const netScore = correct * 2 - incorrect * 0.66;
+    const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+    return {
+      totalMcqs: examMcqs.length,
+      attempted,
+      correct,
+      incorrect,
+      netScore: Math.round(netScore * 100) / 100,
+      accuracy
+    };
+  }, [selectedTargetExam, mcqSubmitted, mcqUserSelections]);
+
+  const handleSelectOption = (qId: string, optionKey: string) => {
+    if (mcqSubmitted[qId]) return;
+    setMcqUserSelections((prev) => ({
+      ...prev,
+      [qId]: optionKey
+    }));
+  };
+
+  const handleSubmitOption = (qId: string) => {
+    if (!mcqUserSelections[qId]) return;
+    setMcqSubmitted((prev) => ({
+      ...prev,
+      [qId]: true
+    }));
+  };
+
+  const handleResetExamDrill = () => {
+    setMcqUserSelections({});
+    setMcqSubmitted({});
+  };
+
+  const toggleMainsReveal = (qId: string) => {
+    setMainsRevealed((prev) => ({
+      ...prev,
+      [qId]: !prev[qId]
+    }));
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-fadeIn">
       {/* =========================================================================
@@ -300,35 +430,57 @@ export const PyqVaultView: React.FC = () => {
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
               <Scale className="w-3.5 h-3.5" />
-              All-India Judicial & Prosecution Mains Question Intelligence
+              10-Year Empirical Audit & PYQ Target Drill
             </div>
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--text-primary)]">
-              Constitutional Law Mains Vault
+              Exam Trends & PYQ Vault (2014–2024)
             </h1>
             <p className="text-sm md:text-base text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-              Explore the <strong className="text-[var(--text-primary)]">most recurrent topics & universal question blueprints</strong> across 
-              Delhi Judicial Service (DJS), UP PCS-J, Bihar Judicial (BPSC), UPSC Law Optional, and J&K Prosecuting Officer exams.
+              Empirical 10-year recurrence analysis and authentic past-year questions across{' '}
+              <strong className="text-[var(--text-primary)]">UPSC CSE, Delhi Judicial Service (DJS), UP PCS-J, and CLAT PG</strong>. 
+              Pillar heatmaps, trend velocities, examiner traps, and real-time drill scoring.
             </p>
           </div>
 
           {/* Quick Action Badges */}
           <div className="flex flex-wrap items-center gap-3">
             <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center min-w-[100px]">
-              <span className="text-[10px] uppercase font-bold text-[var(--text-muted)] block">Exams Synthesized</span>
-              <span className="text-lg font-black text-[var(--accent-primary)]">DJS, UP, BPSC, UPSC</span>
+              <span className="text-[10px] uppercase font-bold text-[var(--text-muted)] block">Exams Analyzed</span>
+              <span className="text-lg font-black text-[var(--accent-primary)]">UPSC • DJS • UP • CLAT</span>
             </div>
             <button
-              onClick={() => setActiveTab('bootcamp')}
+              onClick={() => setActiveTab('mains-lab')}
               className="px-4 py-3 rounded-xl text-xs font-bold bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-1.5 shadow-sm"
             >
-              <Flame className="w-4 h-4" />
-              <span>15-Day Bootcamp</span>
+              <BookOpen className="w-4 h-4" />
+              <span>125-Q Mains Lab</span>
             </button>
           </div>
         </div>
 
         {/* Primary Mode Tabs */}
         <div className="mt-8 pt-6 border-t border-[var(--border-subtle)] flex flex-wrap items-center gap-3">
+          <button
+            onClick={() => setExamScope('trends')}
+            className={`px-5 py-3 rounded-xl text-xs md:text-sm font-bold flex items-center gap-2.5 transition-all shadow-sm ${
+              examScope === 'trends'
+                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] ring-2 ring-[var(--accent-primary)]/20'
+                : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+            }`}
+          >
+            <TrendingUp className="w-4 h-4" />
+            <span>10-Year Exam Trends & Target PYQs</span>
+            <span
+              className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                examScope === 'trends'
+                  ? 'bg-black/20 text-[var(--bg-base)]'
+                  : 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]'
+              }`}
+            >
+              Featured
+            </span>
+          </button>
+
           <button
             onClick={() => setExamScope('allIndia')}
             className={`px-5 py-3 rounded-xl text-xs md:text-sm font-bold flex items-center gap-2.5 transition-all shadow-sm ${
@@ -339,10 +491,14 @@ export const PyqVaultView: React.FC = () => {
           >
             <BarChart3 className="w-4 h-4" />
             <span>All-India Topic Frequency & Master Blueprints</span>
-            <span className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
-              examScope === 'allIndia' ? 'bg-black/20 text-[var(--bg-base)]' : 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]'
-            }`}>
-              Most Common
+            <span
+              className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                examScope === 'allIndia'
+                  ? 'bg-black/20 text-[var(--bg-base)]'
+                  : 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]'
+              }`}
+            >
+              Doctrinal
             </span>
           </button>
 
@@ -356,14 +512,654 @@ export const PyqVaultView: React.FC = () => {
           >
             <Scale className="w-4 h-4" />
             <span>J&K Mains PYQs (24 Official Questions)</span>
-            <span className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
-              examScope === 'jkpsc' ? 'bg-black/20 text-[var(--bg-base)]' : 'bg-emerald-500/10 text-emerald-400'
-            }`}>
+            <span
+              className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                examScope === 'jkpsc' ? 'bg-black/20 text-[var(--bg-base)]' : 'bg-emerald-500/10 text-emerald-400'
+              }`}
+            >
               2014–2023
             </span>
           </button>
         </div>
       </div>
+
+      {/* =========================================================================
+          VIEW 0: 10-YEAR EXAM TRENDS & TARGET DRILL (UPSC, DJS, UP PCS-J, CLAT PG)
+      ========================================================================= */}
+      {examScope === 'trends' && (
+        <div className="space-y-8 animate-fadeIn">
+          {/* Target Exam Switcher Pills */}
+          <div className="p-2 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap gap-2 shadow-sm">
+            {EXAM_PROFILES.map((profile) => (
+              <button
+                key={profile.id}
+                onClick={() => {
+                  setSelectedTargetExam(profile.id);
+                  setSelectedPillarFilter('all');
+                  handleResetExamDrill();
+                }}
+                className={`flex-1 min-w-[200px] p-3.5 rounded-xl text-left transition-all relative ${
+                  selectedTargetExam === profile.id
+                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-md ring-2 ring-[var(--accent-primary)]/30'
+                    : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <span
+                    className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md ${
+                      selectedTargetExam === profile.id
+                        ? 'bg-black/20 text-[var(--bg-base)]'
+                        : 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]'
+                    }`}
+                  >
+                    {profile.badge}
+                  </span>
+                  <span className="text-[11px] font-mono font-bold opacity-80">
+                    {profile.totalQuestionsAnalyzed} Qs
+                  </span>
+                </div>
+                <div className="text-sm font-extrabold truncate">{profile.shortName}</div>
+                <div className="text-[11px] opacity-80 truncate">{profile.name}</div>
+              </button>
+            ))}
+          </div>
+
+          {/* Exam Profile Deep-Dive Card */}
+          <div className="p-6 md:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-md space-y-6">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-5">
+              <div>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-xs font-black uppercase tracking-wider text-[var(--accent-primary)] flex items-center gap-1.5">
+                    <Target className="w-4 h-4" />
+                    Target Exam Intelligence Profile
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    2014–2024 Audit Complete
+                  </span>
+                </div>
+                <h2 className="text-2xl font-black text-[var(--text-primary)]">
+                  {currentExamProfile.name}
+                </h2>
+                <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1 max-w-3xl">
+                  {currentExamProfile.subtitle}
+                </p>
+              </div>
+
+              {/* Stat Chips */}
+              <div className="flex flex-wrap gap-2.5 shrink-0">
+                <div className="px-3.5 py-2 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center">
+                  <span className="text-[10px] font-bold uppercase text-[var(--text-muted)] block">Analyzed</span>
+                  <span className="text-sm font-extrabold text-[var(--accent-primary)]">
+                    {currentExamProfile.totalQuestionsAnalyzed} Past Qs
+                  </span>
+                </div>
+                <div className="px-3.5 py-2 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center">
+                  <span className="text-[10px] font-bold uppercase text-[var(--text-muted)] block">Safe Target</span>
+                  <span className="text-sm font-extrabold text-amber-400">
+                    {currentExamProfile.averageCutoff.split(':')[1]?.trim() || currentExamProfile.averageCutoff}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Pattern Intel & Top Scoring Pillars */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5" />
+                  Exam Pattern & Question Architecture
+                </span>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                  {currentExamProfile.examPatternIntel}
+                </p>
+                <div className="pt-2">
+                  <span className="text-[10px] font-bold uppercase text-[var(--text-muted)] block mb-1.5">
+                    Highest Yield Recurring Pillars:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {currentExamProfile.topScoringPillars.map((pillar, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20"
+                      >
+                        {pillar}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-amber-500/20 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                  <AlertTriangle className="w-3.5 h-3.5" />
+                  Examiner Style Guidance & Trap Prevention
+                </span>
+                <ul className="space-y-1.5 text-xs text-[var(--text-secondary)]">
+                  {currentExamProfile.examinerStyleNotes.map((note, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5">
+                      <span className="text-amber-400 mt-0.5 font-bold">•</span>
+                      <span>{note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* =====================================================================
+              10-YEAR TOPIC RECURRENCE HEATMAP (2014–2024)
+          ===================================================================== */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="text-lg md:text-xl font-black text-[var(--text-primary)] flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5 text-[var(--accent-primary)]" />
+                  10-Year Topic Recurrence Heatmap (2014–2024)
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)]">
+                  Empirical weightage across Constitutional Pillars in {currentExamProfile.shortName}. Click any pillar to isolate past questions.
+                </p>
+              </div>
+
+              {/* Pillar Filter Indicator */}
+              <div className="flex items-center gap-2">
+                {selectedPillarFilter !== 'all' && (
+                  <button
+                    onClick={() => setSelectedPillarFilter('all')}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 transition-all flex items-center gap-1"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    Reset Pillar Filter
+                  </button>
+                )}
+                <span className="text-xs text-[var(--text-muted)] font-mono">
+                  {currentPillars.length} Constitutional Pillars
+                </span>
+              </div>
+            </div>
+
+            {/* Pillar Heatmap Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {currentPillars.map((pillar) => {
+                const isSelected = selectedPillarFilter === pillar.pillarId;
+                const velocityStyle =
+                  pillar.trendVelocity === 'RISING'
+                    ? {
+                        bg: 'bg-emerald-500/10',
+                        text: 'text-emerald-400',
+                        border: 'border-emerald-500/20',
+                        label: '🔥 High Velocity / Rising'
+                      }
+                    : pillar.trendVelocity === 'STABLE_CORE'
+                    ? {
+                        bg: 'bg-sky-500/10',
+                        text: 'text-sky-400',
+                        border: 'border-sky-500/20',
+                        label: '⚖️ Core Recurring Stable'
+                      }
+                    : {
+                        bg: 'bg-amber-500/10',
+                        text: 'text-amber-400',
+                        border: 'border-amber-500/20',
+                        label: '⚡ Volatile Cycle'
+                      };
+
+                return (
+                  <div
+                    key={pillar.pillarId}
+                    className={`p-5 rounded-2xl transition-all border flex flex-col justify-between space-y-4 cursor-pointer ${
+                      isSelected
+                        ? 'bg-[var(--accent-primary)]/10 border-[var(--accent-primary)] shadow-lg ring-1 ring-[var(--accent-primary)]'
+                        : 'bg-[var(--bg-card)] border-[var(--border-subtle)] hover:border-[var(--accent-primary)]/40 hover:shadow-md'
+                    }`}
+                    onClick={() => {
+                      setSelectedPillarFilter(isSelected ? 'all' : pillar.pillarId);
+                    }}
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span
+                          className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${velocityStyle.bg} ${velocityStyle.text} ${velocityStyle.border}`}
+                        >
+                          {velocityStyle.label}
+                        </span>
+                        <span className="text-xs font-mono font-bold text-[var(--accent-primary)]">
+                          {pillar.tenYearCount} Qs ({pillar.sharePercentage}%)
+                        </span>
+                      </div>
+
+                      <h4 className="text-sm font-extrabold text-[var(--text-primary)] leading-snug">
+                        {pillar.pillarName}
+                      </h4>
+                      <p className="text-[11px] font-mono text-[var(--text-muted)]">
+                        {pillar.articleRange}
+                      </p>
+
+                      {/* Percentage Bar */}
+                      <div className="w-full bg-[var(--bg-base)] rounded-full h-1.5 overflow-hidden">
+                        <div
+                          className="bg-[var(--accent-primary)] h-full rounded-full transition-all duration-500"
+                          style={{ width: `${Math.min(pillar.sharePercentage * 2.5, 100)}%` }}
+                        />
+                      </div>
+
+                      {/* 10-Year Distribution Strip */}
+                      <div className="pt-2">
+                        <span className="text-[10px] uppercase font-bold text-[var(--text-muted)] block mb-1">
+                          2014–2024 Recurrence Trend:
+                        </span>
+                        <div className="grid grid-cols-11 gap-1 text-center">
+                          {Object.entries(pillar.yearlyBreakdown).map(([yr, cnt]) => (
+                            <div
+                              key={yr}
+                              title={`${yr}: ${cnt} questions`}
+                              className={`p-1 rounded text-[9px] font-mono font-bold transition-all ${
+                                cnt > 3
+                                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                                  : cnt > 1
+                                  ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)]'
+                                  : 'bg-[var(--bg-base)] text-[var(--text-muted)]'
+                              }`}
+                            >
+                              <div className="opacity-60 text-[8px]">{yr.slice(2)}</div>
+                              <div>{cnt}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Subtopics */}
+                      <div className="pt-2 space-y-1">
+                        <span className="text-[10px] font-bold uppercase text-[var(--text-muted)] block">
+                          Top Examiner Hotspots:
+                        </span>
+                        <ul className="space-y-1 text-[11px] text-[var(--text-secondary)]">
+                          {pillar.topRecurringSubtopics.slice(0, 3).map((sub, sIdx) => (
+                            <li key={sIdx} className="flex items-start gap-1 leading-tight">
+                              <span className="text-[var(--accent-primary)]">•</span>
+                              <span>{sub}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Examiner Trap Alert */}
+                    <div className="p-2.5 rounded-xl bg-[var(--bg-base)] border border-amber-500/20 text-[11px] text-amber-300 flex items-start gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0 text-amber-400 mt-0.5" />
+                      <span className="line-clamp-2">{pillar.examinerTrapWarning}</span>
+                    </div>
+
+                    {/* Filter Button */}
+                    <button
+                      type="button"
+                      className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                        isSelected
+                          ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                          : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                      }`}
+                    >
+                      <Filter className="w-3.5 h-3.5" />
+                      <span>{isSelected ? 'Active Filter (Click to Clear)' : 'Filter Questions for this Pillar'}</span>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* =====================================================================
+              AUTHENTIC PAST-YEAR QUESTIONS ARCHIVE & INTERACTIVE DRILL
+          ===================================================================== */}
+          <div className="space-y-5 pt-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
+              <div>
+                <h3 className="text-xl font-black text-[var(--text-primary)] flex items-center gap-2">
+                  <BookMarked className="w-5 h-5 text-[var(--accent-primary)]" />
+                  Authentic Past-Year Questions Archive ({filteredExamPyqs.length})
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)]">
+                  Practice authentic {currentExamProfile.shortName} past questions with official answer blueprints, scoring tips, and live MCQ marking (+2 / -0.66).
+                </p>
+              </div>
+
+              {/* Filters */}
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Search Bar */}
+                <div className="relative">
+                  <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+                  <input
+                    type="text"
+                    value={examPyqSearch}
+                    onChange={(e) => setExamPyqSearch(e.target.value)}
+                    placeholder="Search PYQs, articles, cases..."
+                    className="pl-9 pr-3 py-2 rounded-xl text-xs bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] w-48 sm:w-60"
+                  />
+                </div>
+
+                {/* Question Type Filter */}
+                <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+                  {(['all', 'PRELIMS_MCQ', 'MAINS_DESCRIPTIVE'] as const).map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedQuestionType(type)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                        selectedQuestionType === type
+                          ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                          : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      {type === 'all' ? 'All Questions' : type === 'PRELIMS_MCQ' ? 'Prelims MCQ' : 'Mains Descriptive'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Live MCQ Scorecard (if any MCQ exists or attempted) */}
+            {mcqStats.totalMcqs > 0 && (
+              <div className="p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-black uppercase text-[var(--accent-primary)] flex items-center gap-1.5">
+                      <Trophy className="w-4 h-4" />
+                      Prelims Drill Scorecard:
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
+                    <span className="px-2.5 py-1 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)]">
+                      Attempted: <strong className="text-[var(--text-primary)]">{mcqStats.attempted}/{mcqStats.totalMcqs}</strong>
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                      Correct: <strong>+{mcqStats.correct}</strong>
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400">
+                      Wrong: <strong>-{mcqStats.incorrect}</strong>
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 text-[var(--accent-primary)] font-bold">
+                      Net Score: {mcqStats.netScore > 0 ? `+${mcqStats.netScore}` : mcqStats.netScore}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
+                      Accuracy: <strong>{mcqStats.accuracy}%</strong>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleResetExamDrill}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] transition-all flex items-center gap-1"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    Reset Drill
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Questions List */}
+            {filteredExamPyqs.length === 0 ? (
+              <div className="p-12 text-center rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3">
+                <AlertCircle className="w-10 h-10 text-[var(--text-muted)] mx-auto" />
+                <h4 className="text-base font-bold text-[var(--text-primary)]">No Questions Found</h4>
+                <p className="text-xs text-[var(--text-secondary)] max-w-sm mx-auto">
+                  Try clearing your search query or switching the Pillar and Question Type filters above.
+                </p>
+                <button
+                  onClick={() => {
+                    setExamPyqSearch('');
+                    setSelectedQuestionType('all');
+                    setSelectedPillarFilter('all');
+                  }}
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--accent-primary)] text-[var(--bg-base)]"
+                >
+                  Clear All Filters
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {filteredExamPyqs.map((q, qIndex) => {
+                  const isMcq = q.questionType === 'PRELIMS_MCQ';
+                  const userChoice = mcqUserSelections[q.id];
+                  const isSubmitted = mcqSubmitted[q.id];
+                  const isCorrect = isSubmitted && userChoice === q.correctOption;
+                  const isMainsRevealed = mainsRevealed[q.id];
+
+                  return (
+                    <div
+                      key={q.id}
+                      className="p-6 md:p-7 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-5 shadow-sm hover:shadow-md transition-all"
+                    >
+                      {/* Header Row */}
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
+                            {q.paperName}
+                          </span>
+                          <span
+                            className={`px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider ${
+                              isMcq
+                                ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
+                                : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                            }`}
+                          >
+                            {isMcq ? 'Prelims MCQ (+2 / -0.66)' : `Mains Descriptive (${q.marks} Marks)`}
+                          </span>
+                          <span className="text-xs font-mono text-[var(--text-muted)]">
+                            Year {q.year}
+                          </span>
+                        </div>
+
+                        {/* Benchmark Case Badge */}
+                        <div className="flex items-center gap-1.5 text-xs text-[var(--accent-primary)] font-semibold">
+                          <Scale className="w-3.5 h-3.5" />
+                          <span className="truncate max-w-xs">{q.benchmarkCase}</span>
+                        </div>
+                      </div>
+
+                      {/* Title & Question Text */}
+                      <div className="space-y-2">
+                        <h4 className="text-base font-extrabold text-[var(--text-primary)]">
+                          {qIndex + 1}. {q.title}
+                        </h4>
+                        <div className="text-xs md:text-sm text-[var(--text-secondary)] whitespace-pre-line leading-relaxed font-normal bg-[var(--bg-base)] p-4 rounded-xl border border-[var(--border-subtle)]">
+                          {q.questionText}
+                        </div>
+                      </div>
+
+                      {/* Core Articles Tags */}
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <span className="text-[10px] font-bold uppercase text-[var(--text-muted)]">Core Articles:</span>
+                        {q.coreArticles.map((art, aIdx) => (
+                          <span
+                            key={aIdx}
+                            className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)]"
+                          >
+                            {art}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* PRELIMS MCQ INTERACTIVE SOLVER */}
+                      {isMcq && q.options && (
+                        <div className="space-y-4 pt-2">
+                          <div className="grid grid-cols-1 gap-2.5">
+                            {q.options.map((opt) => {
+                              const isThisSelected = userChoice === opt.key;
+                              const isThisCorrect = isSubmitted && opt.key === q.correctOption;
+                              const isThisWrongSelected = isSubmitted && isThisSelected && !isThisCorrect;
+
+                              return (
+                                <button
+                                  key={opt.key}
+                                  type="button"
+                                  onClick={() => handleSelectOption(q.id, opt.key)}
+                                  disabled={isSubmitted}
+                                  className={`p-3.5 rounded-xl text-left text-xs md:text-sm transition-all flex items-start gap-3 border ${
+                                    isThisCorrect
+                                      ? 'bg-emerald-500/15 border-emerald-500 text-emerald-300 font-semibold shadow-sm'
+                                      : isThisWrongSelected
+                                      ? 'bg-rose-500/15 border-rose-500 text-rose-300 font-semibold shadow-sm'
+                                      : isThisSelected
+                                      ? 'bg-[var(--accent-primary)]/15 border-[var(--accent-primary)] text-[var(--text-primary)] font-semibold'
+                                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-base)]'
+                                  }`}
+                                >
+                                  <span
+                                    className={`w-6 h-6 rounded-lg text-xs font-mono font-bold shrink-0 flex items-center justify-center transition-all ${
+                                      isThisCorrect
+                                        ? 'bg-emerald-500 text-black'
+                                        : isThisWrongSelected
+                                        ? 'bg-rose-500 text-white'
+                                        : isThisSelected
+                                        ? 'bg-[var(--accent-primary)] text-[var(--bg-base)]'
+                                        : 'bg-[var(--bg-card)] text-[var(--text-muted)] border border-[var(--border-subtle)]'
+                                    }`}
+                                  >
+                                    {opt.key}
+                                  </span>
+                                  <span className="flex-1 pt-0.5 leading-snug">{opt.text}</span>
+                                  {isThisCorrect && (
+                                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                                  )}
+                                  {isThisWrongSelected && (
+                                    <XCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Action Button for MCQ */}
+                          <div className="flex items-center gap-3 pt-1">
+                            {!isSubmitted ? (
+                              <button
+                                type="button"
+                                onClick={() => handleSubmitOption(q.id)}
+                                disabled={!userChoice}
+                                className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                                  userChoice
+                                    ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 shadow-sm cursor-pointer'
+                                    : 'bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)] cursor-not-allowed opacity-50'
+                                }`}
+                              >
+                                <Check className="w-4 h-4" />
+                                <span>Check Official Answer (+2 / -0.66)</span>
+                              </button>
+                            ) : (
+                              <div className="flex items-center gap-2">
+                                <span
+                                  className={`px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                                    isCorrect
+                                      ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                                      : 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
+                                  }`}
+                                >
+                                  {isCorrect ? (
+                                    <>
+                                      <CheckCircle2 className="w-4 h-4" />
+                                      <span>Correct! +2.00 Marks Awarded</span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <XCircle className="w-4 h-4" />
+                                      <span>Incorrect (-0.66 Marks Negative Penalty)</span>
+                                    </>
+                                  )}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Reveal Detailed Explanation for MCQ */}
+                          {isSubmitted && (
+                            <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3 animate-fadeIn">
+                              <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
+                                <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] flex items-center gap-1.5">
+                                  <Sparkles className="w-4 h-4" />
+                                  Official Explanation & Judicial Authority
+                                </span>
+                                <span className="text-xs font-mono font-bold text-emerald-400">
+                                  Correct Option: {q.correctOption}
+                                </span>
+                              </div>
+                              <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
+                                {q.explanation}
+                              </p>
+                              <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-amber-500/20 text-xs text-amber-300 flex items-start gap-2">
+                                <AlertCircle className="w-4 h-4 shrink-0 text-amber-400 mt-0.5" />
+                                <div>
+                                  <strong className="block text-amber-400 mb-0.5">Examiner Scoring Tip & Trap Intel:</strong>
+                                  <span>{q.examinerScoringTip}</span>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* MAINS DESCRIPTIVE TOGGLE & MODEL BLUEPRINT */}
+                      {!isMcq && (
+                        <div className="space-y-4 pt-2">
+                          <div className="flex flex-wrap items-center gap-3">
+                            <button
+                              type="button"
+                              onClick={() => toggleMainsReveal(q.id)}
+                              className="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)] text-[var(--bg-base)] hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+                            >
+                              <Trophy className="w-4 h-4" />
+                              <span>
+                                {isMainsRevealed
+                                  ? 'Hide Examiner Model Answer'
+                                  : 'Reveal Official Model Answer & IRAC Blueprint'}
+                              </span>
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() => setActiveTab('mains-lab')}
+                              className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-primary)] transition-all flex items-center gap-1.5"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              <span>Practice in Mains Answer Writing Lab</span>
+                            </button>
+                          </div>
+
+                          {isMainsRevealed && (
+                            <div className="p-6 rounded-2xl bg-[var(--bg-base)] border border-emerald-500/30 space-y-4 animate-fadeIn">
+                              <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
+                                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                                  <Sparkles className="w-4 h-4" />
+                                  Examiner-Grade Model Answer Blueprint ({q.marks} Marks)
+                                </span>
+                                <span className="text-xs font-mono text-[var(--text-muted)]">
+                                  {q.paperName}
+                                </span>
+                              </div>
+
+                              <div className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed space-y-3 font-normal">
+                                <AnnotatedLegalText text={q.explanation} />
+                              </div>
+
+                              <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-amber-500/20 text-xs text-amber-300 flex items-start gap-2">
+                                <AlertCircle className="w-4 h-4 shrink-0 text-amber-400 mt-0.5" />
+                                <div>
+                                  <strong className="block text-amber-400 mb-0.5">Examiner Rubric Standard:</strong>
+                                  <span>{q.examinerScoringTip}</span>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* =========================================================================
           VIEW 1: ALL-INDIA TOPIC FREQUENCY & MASTER BLUEPRINTS
