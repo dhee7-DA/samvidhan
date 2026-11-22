@@ -71,6 +71,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'article-mastery', label: '395 Articles Mastery', icon: <BrainCircuit className="w-4 h-4" />, badge: 'Active Recall', sub: 'Matrix Wall, Drills & +89/+90', category: 'practice' },
   { id: 'readiness-index', label: 'Readiness Index', icon: <Target className="w-4 h-4" />, badge: '25-Part Heatmap', sub: 'CRI & Blindspots Sentinel', category: 'practice' },
   { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: '900+ SRS Cards', sub: 'Full-App Leitner', category: 'practice' },
+  { id: 'socratic-tutor', label: 'Socratic Cross-Examiner', icon: <BrainCircuit className="w-4 h-4" />, badge: 'Dialectic Tutor', sub: 'Paradoxes & Fallacies', category: 'practice' },
   { id: 'arcade', label: 'Constitutional Arcade', icon: <Gamepad2 className="w-4 h-4" />, badge: '4 Games + XP', sub: 'Bench Sim, Blitz & Writs', category: 'practice' },
   { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'practice' },
   { id: 'trap-simulator', label: 'Negative Marking Simulator', icon: <ShieldAlert className="w-4 h-4" />, badge: '+2/-0.66 Hall', sub: '50-Q Trap Assessment', category: 'practice' },

@@ -103,6 +103,9 @@ const DeadlinesMatrixView = lazy(() =>
 const NegativeMarkingSimulatorView = lazy(() =>
   import('./components/Views/NegativeMarkingSimulatorView').then((m) => ({ default: m.NegativeMarkingSimulatorView }))
 );
+const SocraticTutorView = lazy(() =>
+  import('./components/Views/SocraticTutorView').then((m) => ({ default: m.SocraticTutorView }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -168,6 +171,7 @@ const MainContent: React.FC = () => {
             {activeTab === 'judgments' && <LandmarkCasesView />}
             {activeTab === 'comparative' && <ComparativeLawView />}
             {activeTab === 'quiz' && <QuizMasteryView />}
+            {activeTab === 'socratic-tutor' && <SocraticTutorView />}
           </Suspense>
         )}
       </main>
@@ -194,6 +198,7 @@ const MainContent: React.FC = () => {
             <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Revision Sheets</button>
             <button onClick={() => setActiveTab('flashcards')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold btn-tactile">Flashcards (SRS)</button>
             <button onClick={() => setActiveTab('arcade')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Constitutional Arcade</button>
+            <button onClick={() => setActiveTab('socratic-tutor')} className="hover:text-[var(--text-primary)] text-amber-400 font-semibold btn-tactile">Socratic Cross-Examiner</button>
             <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Precedent Trees</button>
             <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Audio Lab</button>
             <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Exam Trends & PYQs</button>

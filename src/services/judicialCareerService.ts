@@ -192,6 +192,13 @@ export const ARCADE_BADGES: ArcadeBadge[] = [
     category: 'general'
   },
   {
+    id: 'socratic-jurist',
+    title: 'Socratic Jurist',
+    description: 'Successfully resolve a high-stakes constitutional paradox before the Cross-Examiner with 80%+ Socratic Depth.',
+    icon: '🧠',
+    category: 'general'
+  },
+  {
     id: 'cji-sworn',
     title: 'Oath of the Chief Justice',
     description: 'Reach Level 7 and ascend to the office of Chief Justice of India.',
@@ -494,6 +501,24 @@ export function recordMysteryGameResult(attemptsUsed: number, isWon: boolean): A
   if (isWon) {
     checkBadge('mystery-sleuth', true);
   }
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordSocraticTutorResult(paradoxId: string, depthScorePct: number): AwardResult {
+  const xpEarned = Math.round(200 + depthScorePct * 3);
+  const res = awardCareerXP(xpEarned, 'Socratic Constitutional Synthesis');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  checkBadge('socratic-jurist', depthScorePct >= 75);
 
   saveCareerProfile(res.profile);
   return res;

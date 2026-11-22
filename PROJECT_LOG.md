@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 21:05:19 (+05:30) |
+| **Last Log Sync** | 2026-11-22 23:07:51 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `01f8d5d` (2026-11-22T20:33:53+05:30) |
-| **Total Commits** | 109 |
-| **Total Files Indexed** | 309 (303 tracked, 6 new untracked) |
-| **Working Tree** | 8 pending change(s) |
+| **Branch / HEAD** | `main` @ `1f02703` (2026-11-22T21:05:59+05:30) |
+| **Total Commits** | 110 |
+| **Total Files Indexed** | 311 (309 tracked, 2 new untracked) |
+| **Working Tree** | 6 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 23:07:51 (+05:30)] Add Socratic Constitutional Cross-Examiner (Deep Dive Tutor) (DONE)
+- **Details:** Built and verified interactive dialectical reasoning engine with 6 paradox tracks: Basic Structure & Constituent Power (Minerva Mills), Due Process Subterfuge (Maneka Gandhi & Puttaswamy), Governor Pocket Veto (State of Punjab 2023), Sub-Classification in SC/ST Quotas (Davinder Singh 2024), Collegium vs Executive Primacy (NJAC 2015), and Legislative Bribery vs Parliamentary Immunity (Sita Soren 2024). Features Socratic Depth Meter (30% to 100%), Fallacy Detector alerts, distinguished jurist personas (H.M. Seervai, Nani Palkhivala, CJI Chandrachud), 15-mark Mains answer blueprints, audio cues, and career XP/badges.
+- **Files Touched (6):** `M src/App.tsx`, `M src/components/Layout/Sidebar.tsx`, `M src/components/Views/OverviewDashboard.tsx`, `M src/services/judicialCareerService.ts`, `?? src/components/Views/SocraticTutorView.tsx`, `?? src/data/socraticTutorData.ts`
+- **Git HEAD:** `main` @ `1f02703`
 
 ### [2026-11-22 21:05:19 (+05:30)] Add 3 Master Gamified Engines: 5-Judge Constitution Bench Moot Showdown, Constituent Assembly 1946 RPG, and LexSamvidhan Daily Deduction Game (DONE)
 - **Details:** Delivered complete 4-game master gamified constitutional learning suite: 1. Vault of Article 368 Escape Room; 2. 5-Judge Constitution Bench Moot Showdown (3 dossiers, 5 judge archetypes, argument card deck, 15s interlocutory challenge, majority decrees); 3. Constituent Assembly 1946-49 RPG (10 monumental Central Hall crises, tri-pillar gauges for Liberty/Federalism/Executive, authentic CAD quotes, adoption ceremony, Mains answer cheat sheet); 4. LexSamvidhan Daily Mystery Article deduction game (6 tries, 5 evaluation columns, direction arrows, 3 progressive clues, Wordle-style share grid, practice vault). Full browser testing verified with zero compilation errors.
@@ -314,7 +319,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **309** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **311** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -326,7 +331,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 79.4 KB | 902 | `01f8d5d` (2026-11-22) |
+| `PROJECT_LOG.md` | 81.3 KB | 914 | `1f02703` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -353,7 +358,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 12.8 KB | 226 | `1c87fc9` (2026-11-22) |
+| `src/App.tsx` | 13.2 KB | 231 | `1c87fc9` (2026-11-22) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -384,7 +389,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 15.4 KB | 280 | `1c87fc9` (2026-11-22) |
+| `src/components/Layout/Sidebar.tsx` | 15.6 KB | 281 | `1c87fc9` (2026-11-22) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -409,12 +414,12 @@
 | `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.1 KB | 279 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
 
-### `src/components/Views` (39 files)
+### `src/components/Views` (40 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 14.6 KB | 328 | `01f8d5d` (2026-11-22) |
+| `src/components/Views/ArcadeHubView.tsx` | 14.6 KB | 328 | `1f02703` (2026-11-22) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
@@ -438,7 +443,7 @@
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
-| `src/components/Views/OverviewDashboard.tsx` | 28.0 KB | 449 | `0d4bd48` (2026-11-21) |
+| `src/components/Views/OverviewDashboard.tsx` | 28.6 KB | 457 | `0d4bd48` (2026-11-21) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
@@ -447,6 +452,7 @@
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
 | `src/components/Views/ReadinessIndexView.tsx` | 54.9 KB | 1111 | `9c25d8b` (2026-11-20) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
+| `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | new (uncommitted) |
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `9e33658` (2026-11-18) |
@@ -460,10 +466,10 @@
 | `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.3 KB | 504 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/CareerBadgesModal.tsx` | 5.9 KB | 135 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.3 KB | 574 | `7aac50b` (2026-11-19) |
-| `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.3 KB | 700 | new (uncommitted) |
+| `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.3 KB | 700 | `1f02703` (2026-11-22) |
 | `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 45.9 KB | 1003 | `01f8d5d` (2026-11-22) |
-| `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.6 KB | 724 | new (uncommitted) |
-| `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 26.6 KB | 586 | new (uncommitted) |
+| `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.6 KB | 724 | `1f02703` (2026-11-22) |
+| `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 26.6 KB | 586 | `1f02703` (2026-11-22) |
 | `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.8 KB | 364 | `d003041` (2026-11-20) |
 | `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `7aac50b` (2026-11-19) |
 
@@ -479,7 +485,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (68 files)
+### `src/data` (69 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -495,7 +501,7 @@
 | `src/data/commissionsData.ts` | 14.2 KB | 211 | `d504081` (2026-11-22) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
-| `src/data/constituentAssemblyRpgData.ts` | 55.3 KB | 1104 | new (uncommitted) |
+| `src/data/constituentAssemblyRpgData.ts` | 55.3 KB | 1104 | `1f02703` (2026-11-22) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
@@ -510,10 +516,10 @@
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
-| `src/data/lexSamvidhanData.ts` | 37.1 KB | 575 | new (uncommitted) |
+| `src/data/lexSamvidhanData.ts` | 37.1 KB | 575 | `1f02703` (2026-11-22) |
 | `src/data/mainsQuestionsData.ts` | 591 B | 17 | `4594a72` (2026-11-22) |
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
-| `src/data/mootCourtData.ts` | 18.6 KB | 364 | new (uncommitted) |
+| `src/data/mootCourtData.ts` | 18.6 KB | 364 | `1f02703` (2026-11-22) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
@@ -548,6 +554,7 @@
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
 | `src/data/realCaseStoriesData.ts` | 161.9 KB | 1389 | `75be064` (2026-11-19) |
 | `src/data/schedulesData.ts` | 10.5 KB | 189 | `3c486dd` (2026-11-13) |
+| `src/data/socraticTutorData.ts` | 38.6 KB | 619 | new (uncommitted) |
 | `src/data/trapBusterData.ts` | 11.2 KB | 199 | `d003041` (2026-11-20) |
 | `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `7aac50b` (2026-11-19) |
 | `src/data/writsEmergencyMatrixData.ts` | 19.2 KB | 317 | `ea98297` (2026-11-22) |
@@ -775,7 +782,7 @@
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 14.3 KB | 501 | `01f8d5d` (2026-11-22) |
+| `src/services/judicialCareerService.ts` | 15.1 KB | 526 | `1f02703` (2026-11-22) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/readinessIndexService.ts` | 80.6 KB | 1460 | `9c25d8b` (2026-11-20) |
@@ -797,10 +804,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**109** commits, newest first).
+> Complete git history (**110** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 110 | 2026-11-22 | `1f02703` | 9 | feat(arcade): add 5-Judge Moot Court, Assembly 1946 RPG, and LexSamvidhan games |
 | 109 | 2026-11-22 | `01f8d5d` | 5 | feat(arcade): add Game 1 Constitutional Escape Room (Vault of Article 368) |
 | 108 | 2026-11-22 | `59d7a9d` | 3 | feat: expand exam trends vault with Bihar, Rajasthan, and MP state judicial papers |
 | 107 | 2026-11-22 | `1c87fc9` | 5 | feat: add exam-specific 10-year trend analysis and PYQ target drill |

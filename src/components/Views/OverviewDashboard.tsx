@@ -18,7 +18,8 @@ import {
   Clock,
   Target,
   Zap,
-  GitBranch
+  GitBranch,
+  Scale
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -81,6 +82,13 @@ export const OverviewDashboard: React.FC = () => {
           >
             <BrainCircuit className="w-4 h-4 text-[var(--text-muted)]" />
             <span>LEITNER FLASHCARDS (SRS)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('socratic-tutor')}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-amber-500/50 hover:border-amber-500 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm ring-1 ring-amber-500/20"
+          >
+            <Scale className="w-4 h-4 text-amber-500" />
+            <span>SOCRATIC CROSS-EXAMINER <span className="text-amber-400 font-bold">(NEW)</span></span>
           </button>
           <button
             onClick={() => setActiveTab('mock-exam')}
