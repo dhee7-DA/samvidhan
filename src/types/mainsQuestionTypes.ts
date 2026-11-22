@@ -8,7 +8,8 @@ export type ExamCategory =
   | 'BJS'           // Bihar Judicial Service
   | 'RJS'           // Rajasthan Judicial Service
   | 'PROSECUTION'   // CBI Public Prosecutor / State APP/APO
-  | 'UPSC_LAW';     // UPSC Civil Services Law Optional
+  | 'UPSC_LAW'      // UPSC Civil Services Law Optional
+  | 'UPSC_GS2';     // UPSC Civil Services GS-2 (Polity & Constitution)
 
 export interface QuestionHoverIntel {
   topicName: string;

@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 14:37:49 (+05:30) |
+| **Last Log Sync** | 2026-11-22 15:31:26 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `ea98297` (2026-11-22T13:34:06+05:30) |
-| **Total Commits** | 103 |
-| **Total Files Indexed** | 297 (290 tracked, 7 new untracked) |
-| **Working Tree** | 11 pending change(s) |
+| **Branch / HEAD** | `main` @ `3d89178` (2026-11-22T14:38:25+05:30) |
+| **Total Commits** | 104 |
+| **Total Files Indexed** | 298 (297 tracked, 1 new untracked) |
+| **Working Tree** | 4 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 15:31:26 (+05:30)] Add Batch 5 (25 High-Yield Questions) and Revamp Mains Writing Lab into 125-Question IRAC & Rubric Evaluation Suite (DONE)
+- **Details:** Created mainsBatch5.ts adding 25 recent Constitution Bench and UPSC GS-2 questions. Upgraded MainsAnswerWritingLabView.tsx with 125-question search/filters, 4-step IRAC blueprints, examiner trap alerts, full model answers, live timer, and automated rubric scoring engine with article/citation audits. tsc and build verified.
+- **Files Touched (4):** `M src/components/Views/MainsAnswerWritingLabView.tsx`, `M src/data/mainsQuestionsData.ts`, `M src/types/mainsQuestionTypes.ts`, `?? src/data/mains/mainsBatch5.ts`
+- **Git HEAD:** `main` @ `3d89178`
 
 ### [2026-11-22 14:37:49 (+05:30)] Add Majorities Lab, Deadlines Matrix, 50-Q Negative Marking Simulator, and Expand 35+ Article Exam Intel (DONE)
 - **Details:** Built Majorities & Quorum Lab with 7 majority mathematical threshold calculator, Constitutional Deadlines Matrix with 18 high-yield limits, 50-Question UPSC/Judicial Negative Marking Simulator (+2/-0.66), and expanded Article Exam Intel to Arts 13, 15, 16, 22, 25, 26, 30, 44, 51A, 54, 61, 74, 75, 111, 124, 136, 142, 143, 200, 213, 239AA, 262, 279A, 311, 365. Full tsc and production build verified.
@@ -284,7 +289,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **297** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **298** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -296,7 +301,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 73.1 KB | 853 | `ea98297` (2026-11-22) |
+| `PROJECT_LOG.md` | 74.9 KB | 866 | `3d89178` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -323,7 +328,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 12.8 KB | 226 | `ea98297` (2026-11-22) |
+| `src/App.tsx` | 12.8 KB | 226 | `3d89178` (2026-11-22) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -354,7 +359,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 15.4 KB | 280 | `ea98297` (2026-11-22) |
+| `src/components/Layout/Sidebar.tsx` | 15.4 KB | 280 | `3d89178` (2026-11-22) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -385,7 +390,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
 | `src/components/Views/ArcadeHubView.tsx` | 10.5 KB | 238 | `d32e8e2` (2026-11-21) |
-| `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `ea98297` (2026-11-22) |
+| `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
@@ -394,7 +399,7 @@
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/ConceptWebGraphView.tsx` | 36.9 KB | 861 | `003e2d2` (2026-11-21) |
 | `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `7dd169f` (2026-11-22) |
-| `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | new (uncommitted) |
+| `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | `3d89178` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `003e2d2` (2026-11-21) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
@@ -402,12 +407,12 @@
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 57.3 KB | 1058 | `003e2d2` (2026-11-21) |
-| `src/components/Views/MainsAnswerWritingLabView.tsx` | 20.1 KB | 463 | `a058cc1` (2026-11-16) |
+| `src/components/Views/MainsAnswerWritingLabView.tsx` | 49.4 KB | 1047 | `a058cc1` (2026-11-16) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
-| `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | new (uncommitted) |
+| `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
-| `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | new (uncommitted) |
+| `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
 | `src/components/Views/OverviewDashboard.tsx` | 28.0 KB | 449 | `0d4bd48` (2026-11-21) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
@@ -454,7 +459,7 @@
 | `src/data/amendmentDiffsData.ts` | 39.9 KB | 459 | `3db5394` (2026-11-16) |
 | `src/data/amendmentsData.ts` | 101.9 KB | 1413 | `3ce9f3d` (2026-11-18) |
 | `src/data/articleBlitzData.ts` | 15.0 KB | 337 | `7aac50b` (2026-11-19) |
-| `src/data/articleExamIntelData.ts` | 56.2 KB | 830 | `7dd169f` (2026-11-22) |
+| `src/data/articleExamIntelData.ts` | 56.2 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
@@ -462,7 +467,7 @@
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
-| `src/data/deadlinesData.ts` | 15.9 KB | 270 | new (uncommitted) |
+| `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
@@ -471,10 +476,10 @@
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
-| `src/data/mainsQuestionsData.ts` | 503 B | 15 | `96d143e` (2026-11-19) |
-| `src/data/majoritiesData.ts` | 22.6 KB | 375 | new (uncommitted) |
-| `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | new (uncommitted) |
-| `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | new (uncommitted) |
+| `src/data/mainsQuestionsData.ts` | 591 B | 17 | `96d143e` (2026-11-19) |
+| `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
+| `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
+| `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
 | `src/data/part12FinanceData.ts` | 25.2 KB | 318 | `eae5768` (2026-11-13) |
@@ -703,7 +708,7 @@
 | `src/data/bootcamp/day9/day9McqsRound5.ts` | 53.5 KB | 565 | `4f121c2` (2026-11-15) |
 | `src/data/bootcamp/day9/index.ts` | 737 B | 25 | `4f121c2` (2026-11-15) |
 
-### `src/data/mains` (4 files)
+### `src/data/mains` (5 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -711,6 +716,7 @@
 | `src/data/mains/mainsBatch2.ts` | 139.3 KB | 1773 | `46802c4` (2026-11-19) |
 | `src/data/mains/mainsBatch3.ts` | 170.0 KB | 2111 | `96d143e` (2026-11-19) |
 | `src/data/mains/mainsBatch4.ts` | 155.0 KB | 1831 | `96d143e` (2026-11-19) |
+| `src/data/mains/mainsBatch5.ts` | 197.0 KB | 2029 | new (uncommitted) |
 
 ### `src/data/pyqs` (4 files)
 
@@ -746,7 +752,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/types/constitution.ts` | 2.7 KB | 112 | `c4ae501` (2026-11-17) |
 | `src/types/dictionary.ts` | 341 B | 11 | `650124e` (2026-11-14) |
-| `src/types/mainsQuestionTypes.ts` | 3.0 KB | 99 | `5bbabe8` (2026-11-19) |
+| `src/types/mainsQuestionTypes.ts` | 3.0 KB | 100 | `5bbabe8` (2026-11-19) |
 
 <!-- AUTO:FILES:END -->
 
@@ -755,10 +761,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**103** commits, newest first).
+> Complete git history (**104** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 104 | 2026-11-22 | `3d89178` | 12 | feat(exam): add Majorities Lab, Deadlines Matrix, 50-Q Negative Marking Simulator, and expanded 35+ article intel |
 | 103 | 2026-11-22 | `ea98297` | 10 | feat(exam): deploy Writs & Emergency Matrix, 7th Schedule Relations, and Top 25 Amendments labs |
 | 102 | 2026-11-22 | `4aacf53` | 1 | docs: sync PROJECT_LOG for commit 7dd169f |
 | 101 | 2026-11-22 | `7dd169f` | 8 | feat(exam-intel): add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab |
