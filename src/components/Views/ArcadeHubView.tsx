@@ -10,8 +10,11 @@ import {
   Award,
   Sparkles,
   ChevronRight,
-  AlertTriangle
+  AlertTriangle,
+  Lock,
+  Key
 } from 'lucide-react';
+import { ConstitutionalEscapeRoom } from './Arcade/ConstitutionalEscapeRoom';
 import { ChiefJusticeBenchSimulator } from './Arcade/ChiefJusticeBenchSimulator';
 import { ArticleBlitzGame } from './Arcade/ArticleBlitzGame';
 import { WritsEmergencyRoom } from './Arcade/WritsEmergencyRoom';
@@ -26,10 +29,10 @@ import {
 } from '../../services/judicialCareerService';
 import { arcadeAudio } from '../../services/arcadeAudioService';
 
-export type ArcadeTab = 'bench' | 'blitz' | 'writs' | 'matcher' | 'trap-buster';
+export type ArcadeTab = 'escape-room' | 'bench' | 'blitz' | 'writs' | 'matcher' | 'trap-buster';
 
 export const ArcadeHubView: React.FC = () => {
-  const [activeSubTab, setActiveSubTab] = useState<ArcadeTab>('bench');
+  const [activeSubTab, setActiveSubTab] = useState<ArcadeTab>('escape-room');
   const [profile, setProfile] = useState<PlayerCareerProfile>(() => getCareerProfile());
   const [badgesModalOpen, setBadgesModalOpen] = useState<boolean>(false);
 
@@ -151,6 +154,21 @@ export const ArcadeHubView: React.FC = () => {
       {/* Arcade Navigation Pills */}
       <div className="p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1.5 overflow-x-auto no-scrollbar">
         <button
+          onClick={() => setActiveSubTab('escape-room')}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
+            activeSubTab === 'escape-room'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <Lock className="w-4 h-4 text-amber-500 animate-pulse" />
+          <span>Article 368 Escape Room</span>
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
+            NEW
+          </span>
+        </button>
+
+        <button
           onClick={() => setActiveSubTab('bench')}
           className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'bench'
@@ -212,6 +230,9 @@ export const ArcadeHubView: React.FC = () => {
       </div>
 
       {/* Active Game Mode Sub-View */}
+      {activeSubTab === 'escape-room' && (
+        <ConstitutionalEscapeRoom onAwardResult={handleAwardResult} />
+      )}
       {activeSubTab === 'bench' && (
         <ChiefJusticeBenchSimulator onAwardResult={handleAwardResult} />
       )}

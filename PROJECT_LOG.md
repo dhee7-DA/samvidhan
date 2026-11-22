@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 19:39:06 (+05:30) |
+| **Last Log Sync** | 2026-11-22 20:33:21 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `1c87fc9` (2026-11-22T18:20:26+05:30) |
-| **Total Commits** | 107 |
-| **Total Files Indexed** | 301 (301 tracked, 0 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Branch / HEAD** | `main` @ `59d7a9d` (2026-11-22T19:39:35+05:30) |
+| **Total Commits** | 108 |
+| **Total Files Indexed** | 303 (301 tracked, 2 new untracked) |
+| **Working Tree** | 4 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 20:33:21 (+05:30)] Add Game 1: The Constitutional Escape Room (Vault of Article 368) (DONE)
+- **Details:** Built escapeRoomData.ts with 4 subterranean chambers (Majority Dials, Golden Triangle Circuit, Emergency Override Keypad, and Overruled Precedents Graveyard). Created ConstitutionalEscapeRoom.tsx integrated with Judicial Career XP and badges. Added Master Vault Locksmith badge and full visual verification across all chambers to escape victory.
+- **Files Touched (4):** `M src/components/Views/ArcadeHubView.tsx`, `M src/services/judicialCareerService.ts`, `?? src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx`, `?? src/data/escapeRoomData.ts`
+- **Git HEAD:** `main` @ `59d7a9d`
 
 ### [2026-11-22 19:39:06 (+05:30)] Expand Exam Trends Vault with State-Specific Judicial Papers (Bihar, Rajasthan, and Madhya Pradesh) (DONE)
 - **Details:** Added BJS, RJS, and MPCJ profiles, 10-year pillar recurrence heatmaps (2014-2024), and authentic past-year questions covering both Prelims MCQs and Mains IRAC blueprints. Verified across all 7 state and national exam frameworks with successful production build and browser visual tests.
@@ -304,7 +309,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **301** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **303** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -316,7 +321,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 77.8 KB | 888 | `1c87fc9` (2026-11-22) |
+| `PROJECT_LOG.md` | 78.4 KB | 894 | `59d7a9d` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -404,7 +409,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 10.5 KB | 238 | `d32e8e2` (2026-11-21) |
+| `src/components/Views/ArcadeHubView.tsx` | 11.5 KB | 259 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
@@ -433,7 +438,7 @@
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
-| `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `1c87fc9` (2026-11-22) |
+| `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
 | `src/components/Views/ReadinessIndexView.tsx` | 54.9 KB | 1111 | `9c25d8b` (2026-11-20) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
@@ -443,13 +448,14 @@
 | `src/components/Views/VisualLabView.tsx` | 16.4 KB | 373 | `fc3e951` (2026-11-13) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `ea98297` (2026-11-22) |
 
-### `src/components/Views/Arcade` (5 files)
+### `src/components/Views/Arcade` (6 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.3 KB | 504 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/CareerBadgesModal.tsx` | 5.9 KB | 135 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.3 KB | 574 | `7aac50b` (2026-11-19) |
+| `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 45.9 KB | 1003 | new (uncommitted) |
 | `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.8 KB | 364 | `d003041` (2026-11-20) |
 | `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `7aac50b` (2026-11-19) |
 
@@ -465,7 +471,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (64 files)
+### `src/data` (65 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -485,7 +491,8 @@
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
-| `src/data/examTrendsData.ts` | 67.3 KB | 1117 | `1c87fc9` (2026-11-22) |
+| `src/data/escapeRoomData.ts` | 14.1 KB | 356 | new (uncommitted) |
+| `src/data/examTrendsData.ts` | 67.3 KB | 1117 | `59d7a9d` (2026-11-22) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
@@ -757,7 +764,7 @@
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 11.0 KB | 397 | `7aac50b` (2026-11-19) |
+| `src/services/judicialCareerService.ts` | 11.8 KB | 422 | `7aac50b` (2026-11-19) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/readinessIndexService.ts` | 80.6 KB | 1460 | `9c25d8b` (2026-11-20) |
@@ -779,10 +786,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**107** commits, newest first).
+> Complete git history (**108** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 108 | 2026-11-22 | `59d7a9d` | 3 | feat: expand exam trends vault with Bihar, Rajasthan, and MP state judicial papers |
 | 107 | 2026-11-22 | `1c87fc9` | 5 | feat: add exam-specific 10-year trend analysis and PYQ target drill |
 | 106 | 2026-11-22 | `d504081` | 4 | feat(mains): add model diff, commissions vault, hook generator, UPSC printable booklet, and exam sprint mode |
 | 105 | 2026-11-22 | `4594a72` | 5 | feat(mains): add Batch 5 (25 questions) and revamp Mains Writing Lab into 125-question IRAC & automated rubric evaluation suite |

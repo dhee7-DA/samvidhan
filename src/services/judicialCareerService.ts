@@ -164,6 +164,13 @@ export const ARCADE_BADGES: ArcadeBadge[] = [
     category: 'general'
   },
   {
+    id: 'escape-master',
+    title: 'Master Vault Locksmith',
+    description: 'Breach and escape the Vault of Article 368 in under 4 minutes.',
+    icon: '🔐',
+    category: 'general'
+  },
+  {
     id: 'cji-sworn',
     title: 'Oath of the Chief Justice',
     description: 'Reach Level 7 and ascend to the office of Chief Justice of India.',
@@ -390,6 +397,24 @@ export function recordMatcherResult(timeSeconds: number): AwardResult {
   };
 
   checkBadge('matcher-speed', timeSeconds <= 45);
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordEscapeRoomResult(timeSeconds: number, flawless: boolean): AwardResult {
+  const xpEarned = 350 + (timeSeconds < 240 ? 150 : 50) + (flawless ? 100 : 0);
+  const res = awardCareerXP(xpEarned, 'Vault of Article 368 Breach');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  checkBadge('escape-master', timeSeconds <= 240);
 
   saveCareerProfile(res.profile);
   return res;
