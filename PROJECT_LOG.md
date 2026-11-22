@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-22 12:21:15 (+05:30) |
+| **Last Log Sync** | 2026-11-22 13:33:23 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `7dd169f` (2026-11-22T12:21:01+05:30) |
-| **Total Commits** | 101 |
-| **Total Files Indexed** | 285 (285 tracked, 0 new untracked) |
-| **Working Tree** | Clean |
+| **Branch / HEAD** | `main` @ `4aacf53` (2026-11-22T12:21:30+05:30) |
+| **Total Commits** | 102 |
+| **Total Files Indexed** | 290 (285 tracked, 5 new untracked) |
+| **Working Tree** | 9 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-22 13:33:23 (+05:30)] Deploy Writs & Emergency War Room, 7th Schedule Relations Lab, and Top 25 Exam Amendments (DONE)
+- **Details:** Built WritsEmergencyMatrixView, FederalRelationsView, highYieldAmendmentsData with speed drills, emergency comparison matrix, 5 Parliament Gateways, Repugnancy flowchart, and integrated sidebar and deep-links. Verified via tsc -b, npm run build, and live browser automation.
+- **Files Touched (9):** `M src/App.tsx`, `M src/components/Layout/Sidebar.tsx`, `M src/components/Views/AmendmentsView.tsx`, `M src/components/Views/ArticleExamIntelTab.tsx`, `?? src/components/Views/FederalRelationsView.tsx`, `?? src/components/Views/WritsEmergencyMatrixView.tsx`, `?? src/data/federalRelationsData.ts`, `?? src/data/highYieldAmendmentsData.ts`, `?? src/data/writsEmergencyMatrixData.ts`
+- **Git HEAD:** `main` @ `4aacf53`
 
 ### [2026-11-22 12:21:15 (+05:30)] Commit 7dd169f: add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab (DONE)
 - **Details:** Final log sync for commit 7dd169f
@@ -274,7 +279,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **285** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **290** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -286,7 +291,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 71.4 KB | 836 | `7dd169f` (2026-11-22) |
+| `PROJECT_LOG.md` | 71.8 KB | 842 | `4aacf53` (2026-11-22) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -313,7 +318,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 11.7 KB | 206 | `7dd169f` (2026-11-22) |
+| `src/App.tsx` | 12.1 KB | 214 | `7dd169f` (2026-11-22) |
 | `src/index.css` | 13.6 KB | 515 | `ef6f11d` (2026-11-17) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -344,7 +349,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 5.8 KB | 106 | `3ce9f3d` (2026-11-18) |
-| `src/components/Layout/Sidebar.tsx` | 14.6 KB | 274 | `7dd169f` (2026-11-22) |
+| `src/components/Layout/Sidebar.tsx` | 14.9 KB | 276 | `7dd169f` (2026-11-22) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.3 KB | 241 | `be6170e` (2026-11-17) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -369,13 +374,13 @@
 | `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.1 KB | 279 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
 
-### `src/components/Views` (34 files)
+### `src/components/Views` (36 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Views/AmendmentsView.tsx` | 24.6 KB | 502 | `003e2d2` (2026-11-21) |
+| `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `003e2d2` (2026-11-21) |
 | `src/components/Views/ArcadeHubView.tsx` | 10.5 KB | 238 | `d32e8e2` (2026-11-21) |
-| `src/components/Views/ArticleExamIntelTab.tsx` | 21.8 KB | 475 | `7dd169f` (2026-11-22) |
+| `src/components/Views/ArticleExamIntelTab.tsx` | 24.7 KB | 540 | `7dd169f` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
@@ -387,6 +392,7 @@
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `003e2d2` (2026-11-21) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
+| `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | new (uncommitted) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
 | `src/components/Views/LandmarkCasesView.tsx` | 57.3 KB | 1058 | `003e2d2` (2026-11-21) |
@@ -407,6 +413,7 @@
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `9e33658` (2026-11-18) |
 | `src/components/Views/VisualLabView.tsx` | 16.4 KB | 373 | `fc3e951` (2026-11-13) |
+| `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | new (uncommitted) |
 
 ### `src/components/Views/Arcade` (5 files)
 
@@ -430,7 +437,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 6.4 KB | 185 | `3ce9f3d` (2026-11-18) |
 
-### `src/data` (54 files)
+### `src/data` (57 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -449,7 +456,9 @@
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
 | `src/data/fastTrackHacksData.ts` | 69.3 KB | 1226 | `99a2930` (2026-11-20) |
+| `src/data/federalRelationsData.ts` | 15.5 KB | 186 | new (uncommitted) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
+| `src/data/highYieldAmendmentsData.ts` | 22.7 KB | 376 | new (uncommitted) |
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
@@ -488,6 +497,7 @@
 | `src/data/schedulesData.ts` | 10.5 KB | 189 | `3c486dd` (2026-11-13) |
 | `src/data/trapBusterData.ts` | 11.2 KB | 199 | `d003041` (2026-11-20) |
 | `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `7aac50b` (2026-11-19) |
+| `src/data/writsEmergencyMatrixData.ts` | 19.2 KB | 317 | new (uncommitted) |
 
 ### `src/data/bootcamp` (7 files)
 
@@ -733,10 +743,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**101** commits, newest first).
+> Complete git history (**102** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 102 | 2026-11-22 | `4aacf53` | 1 | docs: sync PROJECT_LOG for commit 7dd169f |
 | 101 | 2026-11-22 | `7dd169f` | 8 | feat(exam-intel): add Exam PYQs & Traps tab and Constitutional vs Statutory Bodies Matrix Lab |
 | 100 | 2026-11-21 | `e4d5718` | 6 | feat(article-mastery): add dedicated 395 Articles Mastery Lab with Memory Wall, Active Recall Drills, and Symmetry Gym |
 | 99 | 2026-11-21 | `525b7c3` | 3 | feat(precedent-clash): complete 100 landmark battles milestone |

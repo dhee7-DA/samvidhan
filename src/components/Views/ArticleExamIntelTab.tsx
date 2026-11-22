@@ -12,7 +12,9 @@ import {
   ShieldAlert,
   Flame,
   Check,
-  Award
+  Award,
+  Scale,
+  Layers
 } from 'lucide-react';
 import {
   lookupExamIntelForArticle,
@@ -86,6 +88,23 @@ export const ArticleExamIntelTab: React.FC<Props> = ({
     '350B'
   ].includes(articleNumber.toUpperCase());
 
+  const isWritOrEmergencyArticle = ['32', '226', '352', '356', '358', '359', '360'].includes(
+    articleNumber.toUpperCase()
+  );
+
+  const isFederalArticle = [
+    '245',
+    '246',
+    '248',
+    '249',
+    '250',
+    '251',
+    '252',
+    '253',
+    '254',
+    '255'
+  ].includes(articleNumber.toUpperCase());
+
   return (
     <div className="flex flex-col gap-6 animate-fadeIn">
       {/* Top Banner */}
@@ -143,6 +162,52 @@ export const ArticleExamIntelTab: React.FC<Props> = ({
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 text-white text-xs font-mono font-bold hover:bg-purple-700 transition-all shrink-0 shadow-sm"
           >
             <span>Open Bodies Comparison Lab &rarr;</span>
+          </button>
+        </div>
+      )}
+
+      {/* Writs & Emergency Fast-Track Link if applicable */}
+      {isWritOrEmergencyArticle && (
+        <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+          <div className="flex items-center gap-2.5">
+            <Scale className="w-5 h-5 text-rose-400 shrink-0" />
+            <div className="text-xs">
+              <span className="font-bold text-[var(--text-primary)]">
+                Article {articleNumber} is part of the Constitutional Writs & Emergency architecture.
+              </span>
+              <p className="text-[var(--text-secondary)] mt-0.5">
+                Questions heavily test: Locus Standi, lies against private individuals (Habeas Corpus), 1-month approval (Art 352), and non-suspendable rights (Arts 20 & 21).
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => setActiveTab('writs-emergency')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-600 text-white text-xs font-mono font-bold hover:bg-rose-700 transition-all shrink-0 shadow-sm"
+          >
+            <span>Open Writs & Emergency War Room &rarr;</span>
+          </button>
+        </div>
+      )}
+
+      {/* 7th Schedule & Legislative Relations Fast-Track Link if applicable */}
+      {isFederalArticle && (
+        <div className="p-4 rounded-xl bg-sky-500/10 border border-sky-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+          <div className="flex items-center gap-2.5">
+            <Layers className="w-5 h-5 text-sky-400 shrink-0" />
+            <div className="text-xs">
+              <span className="font-bold text-[var(--text-primary)]">
+                Article {articleNumber} governs Union-State Legislative Relations (Articles 245–255).
+              </span>
+              <p className="text-[var(--text-secondary)] mt-0.5">
+                Questions heavily test: The 5 Gateways into State List (Arts 249, 250, 252, 253, 356) and Article 254 Presidential Assent Safe Harbour.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => setActiveTab('federal-relations')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 text-white text-xs font-mono font-bold hover:bg-sky-700 transition-all shrink-0 shadow-sm"
+          >
+            <span>Open 7th Schedule & Relations Lab &rarr;</span>
           </button>
         </div>
       )}

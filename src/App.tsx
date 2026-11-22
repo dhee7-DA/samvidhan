@@ -88,6 +88,12 @@ const FastTrackMasteryView = lazy(() =>
 const ConstitutionalBodiesView = lazy(() =>
   import('./components/Views/ConstitutionalBodiesView').then((m) => ({ default: m.ConstitutionalBodiesView }))
 );
+const WritsEmergencyMatrixView = lazy(() =>
+  import('./components/Views/WritsEmergencyMatrixView').then((m) => ({ default: m.WritsEmergencyMatrixView }))
+);
+const FederalRelationsView = lazy(() =>
+  import('./components/Views/FederalRelationsView').then((m) => ({ default: m.FederalRelationsView }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -145,6 +151,8 @@ const MainContent: React.FC = () => {
             {activeTab === 'schedules' && <SchedulesView />}
             {activeTab === 'doctrines' && <DoctrinesHubView />}
             {activeTab === 'constitutional-bodies' && <ConstitutionalBodiesView />}
+            {activeTab === 'writs-emergency' && <WritsEmergencyMatrixView />}
+            {activeTab === 'federal-relations' && <FederalRelationsView />}
             {activeTab === 'judgments' && <LandmarkCasesView />}
             {activeTab === 'comparative' && <ComparativeLawView />}
             {activeTab === 'quiz' && <QuizMasteryView />}
