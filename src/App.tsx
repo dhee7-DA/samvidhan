@@ -94,6 +94,15 @@ const WritsEmergencyMatrixView = lazy(() =>
 const FederalRelationsView = lazy(() =>
   import('./components/Views/FederalRelationsView').then((m) => ({ default: m.FederalRelationsView }))
 );
+const MajoritiesLabView = lazy(() =>
+  import('./components/Views/MajoritiesLabView').then((m) => ({ default: m.MajoritiesLabView }))
+);
+const DeadlinesMatrixView = lazy(() =>
+  import('./components/Views/DeadlinesMatrixView').then((m) => ({ default: m.DeadlinesMatrixView }))
+);
+const NegativeMarkingSimulatorView = lazy(() =>
+  import('./components/Views/NegativeMarkingSimulatorView').then((m) => ({ default: m.NegativeMarkingSimulatorView }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -153,6 +162,9 @@ const MainContent: React.FC = () => {
             {activeTab === 'constitutional-bodies' && <ConstitutionalBodiesView />}
             {activeTab === 'writs-emergency' && <WritsEmergencyMatrixView />}
             {activeTab === 'federal-relations' && <FederalRelationsView />}
+            {activeTab === 'majorities-lab' && <MajoritiesLabView />}
+            {activeTab === 'deadlines-matrix' && <DeadlinesMatrixView />}
+            {activeTab === 'trap-simulator' && <NegativeMarkingSimulatorView />}
             {activeTab === 'judgments' && <LandmarkCasesView />}
             {activeTab === 'comparative' && <ComparativeLawView />}
             {activeTab === 'quiz' && <QuizMasteryView />}

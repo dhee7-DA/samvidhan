@@ -29,7 +29,8 @@ import {
   Clock,
   Target,
   Zap,
-  ShieldAlert
+  ShieldAlert,
+  Vote
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -53,6 +54,8 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'constitutional-bodies', label: 'Constitutional Bodies', icon: <ShieldAlert className="w-4 h-4" />, badge: 'Matrix Lab', sub: 'ECI, CAG, UPSC, NHRC & Traps', category: 'study' },
   { id: 'writs-emergency', label: 'Writs & Emergency', icon: <ShieldAlert className="w-4 h-4" />, badge: 'War Room', sub: '5 Writs & Emergency Trio', category: 'study' },
   { id: 'federal-relations', label: '7th Schedule & Relations', icon: <Layers className="w-4 h-4" />, badge: 'Arts 245–255', sub: '3 Lists, 5 Gateways & Repugnancy', category: 'study' },
+  { id: 'majorities-lab', label: 'Majorities & Quorum', icon: <Vote className="w-4 h-4" />, badge: 'All 7 Types', sub: 'Math Bench & Traps', category: 'study' },
+  { id: 'deadlines-matrix', label: 'Time Limits & Deadlines', icon: <Timer className="w-4 h-4" />, badge: 'Numbers Lab', sub: '14D, 1M, 6W, 6M Traps', category: 'study' },
   { id: 'visual-lab', label: 'Visual Law Lab', icon: <Eye className="w-4 h-4" />, badge: '17 Blueprints', sub: 'Vector Blueprints', category: 'study' },
   { id: 'fast-track', label: 'Speed Hacks & Tricks', icon: <Zap className="w-4 h-4" />, badge: '+89/+90 & Mnemonics', sub: 'Shortcuts & Memory Palaces', category: 'study' },
   { id: 'dictionary', label: 'Legal Dictionary', icon: <BookOpen className="w-4 h-4" />, badge: 'Hover Engine', sub: 'Maxims & Terms', category: 'study' },
@@ -70,6 +73,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'flashcards', label: 'Flashcards', icon: <BrainCircuit className="w-4 h-4" />, badge: '900+ SRS Cards', sub: 'Full-App Leitner', category: 'practice' },
   { id: 'arcade', label: 'Constitutional Arcade', icon: <Gamepad2 className="w-4 h-4" />, badge: '4 Games + XP', sub: 'Bench Sim, Blitz & Writs', category: 'practice' },
   { id: 'mock-exam', label: 'Exam Simulator', icon: <Timer className="w-4 h-4" />, badge: 'Timed Mock', sub: 'Exam Hall Engine', category: 'practice' },
+  { id: 'trap-simulator', label: 'Negative Marking Simulator', icon: <ShieldAlert className="w-4 h-4" />, badge: '+2/-0.66 Hall', sub: '50-Q Trap Assessment', category: 'practice' },
   { id: 'mistakes-notebook', label: 'Mistakes Bank', icon: <AlertTriangle className="w-4 h-4" />, badge: 'Smart Diagnostic', sub: 'Re-Attempt Errors', category: 'practice' },
   { id: 'mains-mock', label: 'Mains Mock Hall', icon: <Clock className="w-4 h-4" />, badge: '3-Hour Timed', sub: 'Full Paper Simulator', category: 'practice' },
   { id: 'judgment-lab', label: 'Judgment Writing', icon: <Gavel className="w-4 h-4" />, badge: 'Mains Paper III/IV', sub: 'Issues & Judgments', category: 'practice' },

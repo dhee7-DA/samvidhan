@@ -1,3 +1,5 @@
+import { MORE_ARTICLE_EXAM_INTEL } from './moreArticleExamIntelData';
+
 export interface PrelimsTrap {
   trapStatement: string;
   isFalse: boolean; // true if the statement is a false trap, false if it's a surprising true fact
@@ -817,7 +819,8 @@ export const ARTICLE_EXAM_INTEL_REGISTRY: Record<string, ArticleExamIntel> = {
         trapWarning: 'Notice how examiners combine prior recommendation, veto power, and joint sitting in one MCQ.'
       }
     ]
-  }
+  },
+  ...MORE_ARTICLE_EXAM_INTEL
 };
 
 export const lookupExamIntelForArticle = (articleNum: string): ArticleExamIntel | null => {

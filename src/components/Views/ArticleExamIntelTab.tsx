@@ -14,7 +14,8 @@ import {
   Check,
   Award,
   Scale,
-  Layers
+  Layers,
+  Vote
 } from 'lucide-react';
 import {
   lookupExamIntelForArticle,
@@ -103,6 +104,26 @@ export const ArticleExamIntelTab: React.FC<Props> = ({
     '253',
     '254',
     '255'
+  ].includes(articleNumber.toUpperCase());
+
+  const isMajorityArticle = [
+    '61',
+    '67',
+    '89',
+    '90',
+    '93',
+    '94',
+    '100',
+    '108',
+    '124',
+    '169',
+    '179',
+    '183',
+    '217',
+    '249',
+    '312',
+    '352',
+    '368'
   ].includes(articleNumber.toUpperCase());
 
   return (
@@ -208,6 +229,29 @@ export const ArticleExamIntelTab: React.FC<Props> = ({
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 text-white text-xs font-mono font-bold hover:bg-sky-700 transition-all shrink-0 shadow-sm"
           >
             <span>Open 7th Schedule & Relations Lab &rarr;</span>
+          </button>
+        </div>
+      )}
+
+      {/* Majorities Lab Fast-Track Link if applicable */}
+      {isMajorityArticle && (
+        <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+          <div className="flex items-center gap-2.5">
+            <Vote className="w-5 h-5 text-rose-400 shrink-0" />
+            <div className="text-xs">
+              <span className="font-bold text-[var(--text-primary)]">
+                Article {articleNumber} involves high-yield parliamentary majority requirements.
+              </span>
+              <p className="text-[var(--text-secondary)] mt-0.5">
+                Questions heavily test: Simple vs Effective vs Special Majority (Art 368 vs Art 61 2/3rd of total membership).
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => setActiveTab('majorities-lab')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-600 text-white text-xs font-mono font-bold hover:bg-rose-700 transition-all shrink-0 shadow-sm"
+          >
+            <span>Open Majorities Master Lab &rarr;</span>
           </button>
         </div>
       )}
