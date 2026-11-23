@@ -15,12 +15,15 @@ import {
   Key,
   Gavel,
   Scroll,
-  Target
+  Target,
+  Puzzle
 } from 'lucide-react';
 import { ConstitutionalEscapeRoom } from './Arcade/ConstitutionalEscapeRoom';
 import { ConstitutionBenchMootSimulator } from './Arcade/ConstitutionBenchMootSimulator';
 import { ConstituentAssemblyRPG } from './Arcade/ConstituentAssemblyRPG';
 import { LexSamvidhanMysteryGame } from './Arcade/LexSamvidhanMysteryGame';
+import { ConstitutionalConnectionsGame } from './Arcade/ConstitutionalConnectionsGame';
+import { UltraViresSwipeGame } from './Arcade/UltraViresSwipeGame';
 import { ChiefJusticeBenchSimulator } from './Arcade/ChiefJusticeBenchSimulator';
 import { ArticleBlitzGame } from './Arcade/ArticleBlitzGame';
 import { WritsEmergencyRoom } from './Arcade/WritsEmergencyRoom';
@@ -40,6 +43,8 @@ export type ArcadeTab =
   | 'moot-court'
   | 'assembly-rpg'
   | 'lex-samvidhan'
+  | 'connections'
+  | 'ultra-vires'
   | 'bench'
   | 'blitz'
   | 'writs'
@@ -47,7 +52,18 @@ export type ArcadeTab =
   | 'trap-buster';
 
 export const ArcadeHubView: React.FC = () => {
-  const [activeSubTab, setActiveSubTab] = useState<ArcadeTab>('escape-room');
+  const [activeSubTab, setActiveSubTab] = useState<ArcadeTab>(() => {
+    try {
+      const saved = sessionStorage.getItem('samvidhan_active_arcade_tab') as ArcadeTab;
+      if (saved) {
+        sessionStorage.removeItem('samvidhan_active_arcade_tab');
+        return saved;
+      }
+    } catch {
+      // ignore
+    }
+    return 'escape-room';
+  });
   const [profile, setProfile] = useState<PlayerCareerProfile>(() => getCareerProfile());
   const [badgesModalOpen, setBadgesModalOpen] = useState<boolean>(false);
 
@@ -229,6 +245,36 @@ export const ArcadeHubView: React.FC = () => {
         </button>
 
         <button
+          onClick={() => setActiveSubTab('connections')}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
+            activeSubTab === 'connections'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <Puzzle className="w-4 h-4 text-amber-500" />
+          <span>Connections 4x4</span>
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
+            NEW
+          </span>
+        </button>
+
+        <button
+          onClick={() => setActiveSubTab('ultra-vires')}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
+            activeSubTab === 'ultra-vires'
+              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-rose-500 shadow-sm ring-1 ring-rose-500/30'
+              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          <Zap className="w-4 h-4 text-rose-500" />
+          <span>Ultra Vires 60s Swipe</span>
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-rose-500/20 text-rose-400">
+            NEW
+          </span>
+        </button>
+
+        <button
           onClick={() => setActiveSubTab('bench')}
           className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
             activeSubTab === 'bench'
@@ -301,6 +347,12 @@ export const ArcadeHubView: React.FC = () => {
       )}
       {activeSubTab === 'lex-samvidhan' && (
         <LexSamvidhanMysteryGame onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'connections' && (
+        <ConstitutionalConnectionsGame onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'ultra-vires' && (
+        <UltraViresSwipeGame onAwardResult={handleAwardResult} />
       )}
       {activeSubTab === 'bench' && (
         <ChiefJusticeBenchSimulator onAwardResult={handleAwardResult} />

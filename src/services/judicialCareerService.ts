@@ -199,6 +199,20 @@ export const ARCADE_BADGES: ArcadeBadge[] = [
     category: 'general'
   },
   {
+    id: 'connections-master',
+    title: 'Connections Master',
+    description: 'Solve all 4 categories in Constitutional Connections with mistakes to spare.',
+    icon: '🧩',
+    category: 'general'
+  },
+  {
+    id: 'ultra-vires-reflex',
+    title: 'Lightning Judicial Reflex',
+    description: 'Score 12 or more correct calls in a single 60s Ultra Vires swipe drill with 80%+ accuracy.',
+    icon: '⚡',
+    category: 'general'
+  },
+  {
     id: 'cji-sworn',
     title: 'Oath of the Chief Justice',
     description: 'Reach Level 7 and ascend to the office of Chief Justice of India.',
@@ -519,6 +533,46 @@ export function recordSocraticTutorResult(paradoxId: string, depthScorePct: numb
   };
 
   checkBadge('socratic-jurist', depthScorePct >= 75);
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordConnectionsResult(mistakesRemaining: number, isWon: boolean): AwardResult {
+  const xpEarned = isWon ? 200 + mistakesRemaining * 40 : 50;
+  const res = awardCareerXP(xpEarned, isWon ? 'Constitutional Connections Solved' : 'Constitutional Connections Practice');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  if (isWon && mistakesRemaining >= 1) {
+    checkBadge('connections-master', true);
+  }
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordUltraViresResult(correctCount: number, bestStreak: number, accuracy: number): AwardResult {
+  const xpEarned = Math.round(correctCount * 15 + bestStreak * 10);
+  const res = awardCareerXP(xpEarned, 'Ultra Vires 60s Swipe Drill');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  if (correctCount >= 12 && accuracy >= 80) {
+    checkBadge('ultra-vires-reflex', true);
+  }
 
   saveCareerProfile(res.profile);
   return res;

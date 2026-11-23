@@ -19,7 +19,8 @@ import {
   Target,
   Zap,
   GitBranch,
-  Scale
+  Scale,
+  Puzzle
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { PREAMBLE_DATA } from '../../data/preambleData';
@@ -89,6 +90,30 @@ export const OverviewDashboard: React.FC = () => {
           >
             <Scale className="w-4 h-4 text-amber-500" />
             <span>SOCRATIC CROSS-EXAMINER <span className="text-amber-400 font-bold">(NEW)</span></span>
+          </button>
+          <button
+            onClick={() => {
+              try {
+                sessionStorage.setItem('samvidhan_active_arcade_tab', 'connections');
+              } catch {}
+              setActiveTab('arcade');
+            }}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-emerald-500/50 hover:border-emerald-500 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm ring-1 ring-emerald-500/20"
+          >
+            <Puzzle className="w-4 h-4 text-emerald-500" />
+            <span>CONNECTIONS 4x4 <span className="text-emerald-400 font-bold">(NEW)</span></span>
+          </button>
+          <button
+            onClick={() => {
+              try {
+                sessionStorage.setItem('samvidhan_active_arcade_tab', 'ultra-vires');
+              } catch {}
+              setActiveTab('arcade');
+            }}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-rose-500/50 hover:border-rose-500 font-mono text-xs font-semibold transition-all btn-tactile shadow-sm ring-1 ring-rose-500/20"
+          >
+            <Zap className="w-4 h-4 text-rose-500" />
+            <span>ULTRA VIRES 60s <span className="text-rose-400 font-bold">(NEW)</span></span>
           </button>
           <button
             onClick={() => setActiveTab('mock-exam')}

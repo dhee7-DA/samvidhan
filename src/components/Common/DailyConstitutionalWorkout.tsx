@@ -13,7 +13,9 @@ import {
   BookOpen,
   ArrowRight,
   HelpCircle,
-  Star
+  Star,
+  Puzzle,
+  Target
 } from 'lucide-react';
 import { getTodayWorkout, type DailyWorkout } from '../../data/dailyWorkoutData';
 import { awardCareerXP } from '../../services/judicialCareerService';
@@ -36,6 +38,15 @@ export const DailyConstitutionalWorkout: React.FC = () => {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [drillScore, setDrillScore] = useState<number>(0);
   const [drillSubmitted, setDrillSubmitted] = useState<boolean>(false);
+
+  const openArcadeGame = (gameTab: string) => {
+    try {
+      sessionStorage.setItem('samvidhan_active_arcade_tab', gameTab);
+    } catch {
+      // ignore
+    }
+    setActiveTab('arcade');
+  };
 
   const todayStr = new Date().toISOString().split('T')[0];
 
@@ -130,6 +141,69 @@ export const DailyConstitutionalWorkout: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Quick Daily Concept Games (Trifecta) */}
+      <div className="mb-5 p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+        <div className="flex items-center justify-between text-[11px] font-mono">
+          <span className="font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            Quick Daily Concept Games (2–3 mins each):
+          </span>
+          <span className="text-[10px] text-amber-400 font-bold">Arcade Mastery Hub</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <button
+            onClick={() => openArcadeGame('lex-samvidhan')}
+            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-amber-500/50 text-left transition-all flex items-center gap-2.5 group cursor-pointer"
+          >
+            <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+              <Target className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-bold text-xs text-[var(--text-primary)] group-hover:text-amber-400 block transition-colors">
+                LexSamvidhan Daily
+              </span>
+              <span className="text-[10px] text-[var(--text-muted)] line-clamp-1">
+                Guess Mystery Article in 6 tries
+              </span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => openArcadeGame('connections')}
+            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-emerald-500/50 text-left transition-all flex items-center gap-2.5 group cursor-pointer"
+          >
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+              <Puzzle className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-bold text-xs text-[var(--text-primary)] group-hover:text-emerald-400 block transition-colors">
+                Connections 4x4
+              </span>
+              <span className="text-[10px] text-[var(--text-muted)] line-clamp-1">
+                Group 4 related concepts
+              </span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => openArcadeGame('ultra-vires')}
+            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-rose-500/50 text-left transition-all flex items-center gap-2.5 group cursor-pointer"
+          >
+            <div className="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 shrink-0">
+              <Zap className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-bold text-xs text-[var(--text-primary)] group-hover:text-rose-400 block transition-colors">
+                Ultra Vires 60s
+              </span>
+              <span className="text-[10px] text-[var(--text-muted)] line-clamp-1">
+                Fast Intra vs Ultra Vires calls
+              </span>
+            </div>
+          </button>
         </div>
       </div>
 
