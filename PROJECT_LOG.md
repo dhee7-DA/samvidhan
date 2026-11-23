@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-23 11:16:56 (+05:30) |
+| **Last Log Sync** | 2026-11-23 11:37:15 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `d72bea9` (2026-11-23T10:13:01+05:30) |
-| **Total Commits** | 112 |
+| **Branch / HEAD** | `main` @ `cfec2e4` (2026-11-23T11:18:09+05:30) |
+| **Total Commits** | 113 |
 | **Total Files Indexed** | 315 (315 tracked, 0 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Working Tree** | 3 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-23 11:37:15 (+05:30)] Streamline Arcade UI to minimalist aesthetic with small tiles and quiet tabs (DONE)
+- **Details:** Redesigned ArcadeHubView into an ultra-compact single-row Judicial Career header and quiet pill tabs with zero loud NEW badges. Scaled down Connections 4x4 tiles to min-h-[44px]/[50px] with clean borders and subtle selection chips. Streamlined Ultra Vires 60s into a compact situation card and sleek buttons, removing redundant stacked header cards and eliminating color noise.
+- **Files Touched (3):** `M src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx`, `M src/components/Views/Arcade/UltraViresSwipeGame.tsx`, `M src/components/Views/ArcadeHubView.tsx`
+- **Git HEAD:** `main` @ `cfec2e4`
 
 ### [2026-11-23 11:16:56 (+05:30)] Refine Constitutional Connections tiles and Ultra Vires cards for compact aesthetic styling (DONE)
 - **Details:** Redesigned Constitutional Connections 4x4 tiles from oversized 112px blocks to compact, sleek, aesthetic tiles (min-h-[58px]/[66px]) with elegant amber gradient active selection, soft backdrop-blur solved category banners with level badges, and refined controls. Scaled down Ultra Vires briefing card, directional pills, and Start 60s Swipe button to polished, proportional dimensions. Visually verified on browser subagent and passed production build.
@@ -341,7 +346,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 84.5 KB | 932 | `d72bea9` (2026-11-23) |
+| `PROJECT_LOG.md` | 85.4 KB | 938 | `cfec2e4` (2026-11-23) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -429,7 +434,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 16.9 KB | 380 | `d72bea9` (2026-11-23) |
+| `src/components/Views/ArcadeHubView.tsx` | 9.1 KB | 228 | `d72bea9` (2026-11-23) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
@@ -477,12 +482,12 @@
 | `src/components/Views/Arcade/CareerBadgesModal.tsx` | 5.9 KB | 135 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.3 KB | 574 | `7aac50b` (2026-11-19) |
 | `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.3 KB | 700 | `1f02703` (2026-11-22) |
-| `src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx` | 20.5 KB | 508 | `d72bea9` (2026-11-23) |
+| `src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx` | 18.6 KB | 484 | `cfec2e4` (2026-11-23) |
 | `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 45.9 KB | 1003 | `01f8d5d` (2026-11-22) |
 | `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.6 KB | 724 | `1f02703` (2026-11-22) |
 | `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 26.6 KB | 586 | `1f02703` (2026-11-22) |
 | `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.8 KB | 364 | `d003041` (2026-11-20) |
-| `src/components/Views/Arcade/UltraViresSwipeGame.tsx` | 21.2 KB | 500 | `d72bea9` (2026-11-23) |
+| `src/components/Views/Arcade/UltraViresSwipeGame.tsx` | 19.1 KB | 467 | `cfec2e4` (2026-11-23) |
 | `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `7aac50b` (2026-11-19) |
 
 ### `src/components/Views/ArticleMastery` (1 file)
@@ -818,10 +823,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**112** commits, newest first).
+> Complete git history (**113** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 113 | 2026-11-23 | `cfec2e4` | 3 | style(arcade): make connections tiles and ultra vires cards compact and aesthetic |
 | 112 | 2026-11-23 | `d72bea9` | 10 | feat(arcade): add Constitutional Connections 4x4 and Ultra Vires 60s Swipe Drill for daily concept mastery |
 | 111 | 2026-11-22 | `326e167` | 7 | feat(socratic): add Socratic Constitutional Cross-Examiner with 6 paradox tracks and fallacy detector |
 | 110 | 2026-11-22 | `1f02703` | 9 | feat(arcade): add 5-Judge Moot Court, Assembly 1946 RPG, and LexSamvidhan games |

@@ -182,191 +182,158 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
   }, [gameState, handleAnswer]);
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6 animate-fadeIn select-none">
+    <div className="max-w-4xl mx-auto space-y-3 animate-fadeIn select-none">
       {/* =====================================================================
-          HEADER BANNER
+          SLIM MINIMALIST STATUS BAR
       ===================================================================== */}
-      <div className="p-5 md:p-6 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] shadow-xl relative overflow-hidden">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-rose-500/15 text-rose-400 border border-rose-500/30 flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5" />
-                60-Second Constitutional Reflex
-              </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono text-[var(--text-muted)] bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-                Intra Vires 🟢 vs Ultra Vires 🔴
-              </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2.5">
-              <span>⚡</span>
-              Ultra Vires: 60s Swipe Drill
-            </h2>
-            <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
-              Test your instinctive constitutional reflexes. Classify real-world executive orders, statutory clauses, and police powers as constitutionally valid or void.
-            </p>
+      <div className="py-2 px-3 sm:px-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono shadow-xs">
+        <div className="flex items-center gap-2.5">
+          <span className="font-bold text-[var(--text-primary)] flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            Ultra Vires 60s
+          </span>
+
+          {/* 60s Countdown Timer */}
+          <div
+            className={`px-2 py-0.5 rounded-lg border flex items-center gap-1 font-bold text-xs transition-all ${
+              timeLeft <= 10 && gameState === 'playing'
+                ? 'bg-rose-500/15 border-rose-500/40 text-rose-400 animate-pulse'
+                : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)]'
+            }`}
+          >
+            <Timer className="w-3 h-3 text-amber-400" />
+            <span>{timeLeft}s</span>
           </div>
+        </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            {/* 60s Countdown Timer */}
-            <div
-              className={`p-3 px-4 rounded-2xl border flex items-center gap-2 font-mono font-black text-base transition-all ${
-                timeLeft <= 10 && gameState === 'playing'
-                  ? 'bg-rose-500/20 border-rose-500 text-rose-400 animate-pulse'
-                  : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-primary)]'
-              }`}
-            >
-              <Timer className="w-4 h-4 text-amber-500" />
-              <span>{timeLeft}s</span>
-            </div>
+        {/* Live Score & Controls */}
+        <div className="flex items-center gap-2.5 text-[11px]">
+          <span className="text-emerald-400 font-semibold">✓ {correctCount}</span>
+          <span className="text-rose-400 font-semibold">✕ {wrongCount}</span>
+          <span className="text-amber-400 font-bold border-l border-[var(--border-subtle)] pl-2 flex items-center gap-1">
+            <Flame className="w-3 h-3 fill-current text-amber-500" />
+            {currentStreak}x
+          </span>
 
+          <div className="flex items-center gap-1 border-l border-[var(--border-subtle)] pl-2">
             <button
               onClick={toggleMute}
-              className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
+              className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-amber-500" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-400" />}
             </button>
 
             {gameState !== 'idle' && (
               <button
                 onClick={handleStartGame}
-                className="p-3 px-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-1.5"
+                className="p-1 rounded-lg text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer"
                 title="Restart Drill"
               >
-                <RotateCcw className="w-4 h-4" />
-                <span>Restart</span>
+                <RotateCcw className="w-3.5 h-3.5" />
               </button>
             )}
-          </div>
-        </div>
-
-        {/* Live Score & Combo Meter */}
-        <div className="pt-3 flex items-center justify-between text-xs font-mono">
-          <div className="flex items-center gap-4">
-            <span className="text-emerald-400 font-bold">
-              ✓ {correctCount} Correct
-            </span>
-            <span className="text-rose-400 font-bold">
-              ✕ {wrongCount} Missed
-            </span>
-          </div>
-
-          {/* Current Streak with Flame */}
-          <div className="flex items-center gap-2">
-            <Flame
-              className={`w-4 h-4 ${
-                currentStreak >= 3 ? 'text-amber-500 fill-current animate-bounce' : 'text-zinc-600'
-              }`}
-            />
-            <span className="font-bold text-amber-400">
-              {currentStreak}x Combo Streak (Best: {bestStreak}x)
-            </span>
           </div>
         </div>
       </div>
 
       {/* =====================================================================
-          SCREEN 1: IDLE / BRIEFING
+          SCREEN 1: IDLE / BRIEFING (Minimalist & Compact)
       ===================================================================== */}
       {gameState === 'idle' && (
-        <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-center space-y-5 animate-fadeIn shadow-lg max-w-2xl mx-auto">
-          <div className="inline-flex p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 text-3xl shadow-xs">
-            ⚡
-          </div>
-
-          <div className="max-w-lg mx-auto space-y-1.5">
-            <h3 className="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
-              60 Seconds of Pure Constitutional Instinct
+        <div className="p-5 sm:p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-center space-y-3.5 animate-fadeIn shadow-xs max-w-xl mx-auto">
+          <div className="space-y-1">
+            <h3 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
+              60 Seconds of Constitutional Reflex
             </h3>
-            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-              Every second counts in civil service and judicial service prelims. You have 60 seconds to decide whether real-world governmental actions are <strong>Intra Vires</strong> (within constitutional powers) or <strong>Ultra Vires</strong> (unconstitutional and void).
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto">
+              Decide whether real-world governmental actions are <strong>Intra Vires</strong> (valid) or <strong>Ultra Vires</strong> (void).
             </p>
           </div>
 
           {/* Key Controls Preview */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-sm mx-auto pt-1">
-            <div className="p-2.5 px-3 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-mono flex items-center justify-center gap-2">
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Left Arrow: <strong>ULTRA VIRES</strong></span>
+          <div className="grid grid-cols-2 gap-2 max-w-xs mx-auto text-[11px] font-mono">
+            <div className="py-1 px-2 rounded-lg bg-rose-500/10 border border-rose-500/25 text-rose-300 flex items-center justify-center gap-1">
+              <ArrowLeft className="w-3 h-3" />
+              <span>← Ultra Vires</span>
             </div>
-            <div className="p-2.5 px-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono flex items-center justify-center gap-2">
-              <span>Right Arrow: <strong>INTRA VIRES</strong></span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="py-1 px-2 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 flex items-center justify-center gap-1">
+              <span>Intra Vires →</span>
+              <ArrowRight className="w-3 h-3" />
             </div>
           </div>
 
-          <div className="pt-2 flex justify-center">
+          <div className="pt-1 flex justify-center">
             <button
               onClick={handleStartGame}
-              className="px-7 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-black text-xs font-mono tracking-wider uppercase transition-all shadow-md shadow-amber-500/15 hover:scale-102 active:scale-98 flex items-center gap-2 cursor-pointer"
+              className="px-6 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
-              <Zap className="w-4 h-4 fill-current" />
-              <span>Start 60s Swipe Drill</span>
+              <Zap className="w-3.5 h-3.5 fill-current" />
+              <span>Start 60s Drill</span>
             </button>
           </div>
         </div>
       )}
 
       {/* =====================================================================
-          SCREEN 2: ACTIVE 60-SECOND DRILL
+          SCREEN 2: ACTIVE 60-SECOND DRILL (Compact & Aesthetic)
       ===================================================================== */}
       {gameState === 'playing' && currentScenario && (
-        <div className="space-y-4 animate-fadeIn">
+        <div className="space-y-2.5 animate-fadeIn">
           {/* Main Scenario Flash Card */}
-          <div className="p-6 md:p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] space-y-4 shadow-xl min-h-[220px] flex flex-col justify-between relative overflow-hidden">
+          <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-2.5 shadow-xs min-h-[130px] flex flex-col justify-between">
             {/* Top Tag & Article Hint */}
-            <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3 text-xs font-mono">
-              <span className="px-2.5 py-0.5 rounded-md bg-amber-500/15 text-amber-400 border border-amber-500/30 font-bold">
+            <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-1.5 text-[11px] font-mono">
+              <span className="font-semibold text-amber-400">
                 {currentScenario.category}
               </span>
-              <span className="text-[var(--text-muted)] font-bold">
+              <span className="text-[var(--text-muted)]">
                 Anchor: {currentScenario.primaryArticle}
               </span>
             </div>
 
             {/* Situation Prompt */}
-            <div className="py-2 text-center">
-              <h3 className="text-lg md:text-2xl font-black text-[var(--text-primary)] leading-snug">
+            <div className="py-1 text-center">
+              <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)] leading-snug">
                 "{currentScenario.situation}"
               </h3>
             </div>
 
             {/* Prompt Instruction */}
-            <div className="text-center text-[11px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
-              Is this Governmental Action Constitutional or Unconstitutional?
+            <div className="text-center text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
+              Constitutional (Intra Vires) or Unconstitutional (Ultra Vires)?
             </div>
           </div>
 
-          {/* Two Big Tactile Swipe Buttons */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Two Sleek Swipe / Click Buttons */}
+          <div className="grid grid-cols-2 gap-2">
             {/* Button 1: ULTRA VIRES (Left) */}
             <button
               onClick={() => handleAnswer('ULTRA_VIRES')}
-              className="p-6 sm:p-7 rounded-3xl bg-rose-500/10 hover:bg-rose-500/25 border-2 border-rose-500/40 text-rose-300 font-mono font-black text-sm sm:text-base uppercase tracking-wider transition-all flex flex-col items-center justify-center gap-1.5 shadow-lg hover:scale-102 active:scale-98 cursor-pointer group"
+              className="py-2.5 px-3 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 text-rose-300 font-mono font-bold text-xs uppercase tracking-wide transition-all flex flex-col items-center justify-center gap-0.5 cursor-pointer shadow-2xs"
             >
-              <div className="flex items-center gap-2 text-rose-400 group-hover:scale-110 transition-transform">
-                <ArrowLeft className="w-5 h-5" />
-                <XCircle className="w-6 h-6" />
+              <div className="flex items-center gap-1 text-rose-400">
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <XCircle className="w-3.5 h-3.5" />
               </div>
               <span>ULTRA VIRES</span>
-              <span className="text-[10px] font-normal text-rose-400/80">
-                (Unconstitutional / Void)
+              <span className="text-[9.5px] font-normal text-rose-400/70">
+                (Void / ← Arrow)
               </span>
             </button>
 
             {/* Button 2: INTRA VIRES (Right) */}
             <button
               onClick={() => handleAnswer('INTRA_VIRES')}
-              className="p-6 sm:p-7 rounded-3xl bg-emerald-500/10 hover:bg-emerald-500/25 border-2 border-emerald-500/40 text-emerald-300 font-mono font-black text-sm sm:text-base uppercase tracking-wider transition-all flex flex-col items-center justify-center gap-1.5 shadow-lg hover:scale-102 active:scale-98 cursor-pointer group"
+              className="py-2.5 px-3 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-mono font-bold text-xs uppercase tracking-wide transition-all flex flex-col items-center justify-center gap-0.5 cursor-pointer shadow-2xs"
             >
-              <div className="flex items-center gap-2 text-emerald-400 group-hover:scale-110 transition-transform">
-                <CheckCircle2 className="w-6 h-6" />
-                <ArrowRight className="w-5 h-5" />
+              <div className="flex items-center gap-1 text-emerald-400">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </div>
               <span>INTRA VIRES</span>
-              <span className="text-[10px] font-normal text-emerald-400/80">
-                (Constitutional / Valid)
+              <span className="text-[9.5px] font-normal text-emerald-400/70">
+                (Valid / Right →)
               </span>
             </button>
           </div>
@@ -374,17 +341,17 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           {/* Instant One-Line Ratio Feed */}
           {lastFeedback && (
             <div
-              className={`p-4 rounded-2xl border text-xs font-mono space-y-1 animate-fadeIn ${
+              className={`py-1.5 px-3 rounded-lg border text-xs font-mono space-y-0.5 animate-fadeIn ${
                 lastFeedback.wasCorrect
                   ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
                   : 'bg-rose-500/10 border-rose-500/30 text-rose-300'
               }`}
             >
-              <div className="flex items-center justify-between font-bold">
+              <div className="flex items-center justify-between font-bold text-[11px]">
                 <span>
-                  {lastFeedback.wasCorrect ? '✓ CORRECT JURIDICAL INSTINCT!' : '✕ CONSTITUTIONAL TRAP!'}
+                  {lastFeedback.wasCorrect ? '✓ CORRECT INSTINCT' : '✕ CONSTITUTIONAL TRAP'}
                 </span>
-                <span>
+                <span className="opacity-80">
                   {lastFeedback.scenario.governingPrecedentOrRule}
                 </span>
               </div>

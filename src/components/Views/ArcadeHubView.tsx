@@ -112,227 +112,75 @@ export const ArcadeHubView: React.FC = () => {
         </div>
       )}
 
-      {/* Top Judicial Career Ribbon */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm space-y-4">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3.5">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl shadow-inner shrink-0">
-              {currentRank.emblem}
+      {/* Top Judicial Career Bar (Minimalist & Compact) */}
+      <div className="py-2 px-3.5 sm:px-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-xs">
+        <div className="flex items-center gap-2.5">
+          <span className="text-base">{currentRank.emblem}</span>
+          <span className="font-bold text-[var(--text-primary)]">{currentRank.title}</span>
+          <span className="text-[10px] text-[var(--text-muted)] border-l border-[var(--border-subtle)] pl-2">
+            Lv. {currentRank.level}/7
+          </span>
+          <div className="hidden sm:flex items-center gap-2 border-l border-[var(--border-subtle)] pl-2 text-[11px] text-[var(--text-muted)]">
+            <span>{profile.xp.toLocaleString()} XP</span>
+            <div className="w-16 h-1.5 rounded-full bg-[var(--bg-base)] overflow-hidden">
+              <div
+                className="h-full bg-amber-400 rounded-full transition-all duration-500"
+                style={{ width: `${progressPct}%` }}
+              />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-500">
-                  Judicial Career Progression
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
-                  Level {currentRank.level} of 7
-                </span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-serif font-bold text-[var(--text-primary)]">
-                {currentRank.title}
-              </h2>
-              <p className="text-xs font-mono text-[var(--text-muted)] mt-0.5">
-                {currentRank.tagline}
-              </p>
-            </div>
-          </div>
-
-          {/* Quick Metrics & Badges CTA */}
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            {/* Daily Streak */}
-            <div className="p-2.5 px-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-2 font-mono text-xs">
-              <Flame className="w-4 h-4 text-rose-500 fill-current animate-pulse" />
-              <div>
-                <span className="text-[10px] text-[var(--text-muted)] block">Daily Streak</span>
-                <span className="font-bold text-[var(--text-primary)]">{profile.streakDays} Day{profile.streakDays > 1 ? 's' : ''}</span>
-              </div>
-            </div>
-
-            {/* Badges Modal Trigger */}
-            <button
-              onClick={() => setBadgesModalOpen(true)}
-              className="p-2.5 px-4 rounded-2xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 flex items-center gap-2 text-amber-400 font-mono text-xs font-bold transition-all shadow-sm"
-            >
-              <Trophy className="w-4 h-4" />
-              <span>{profile.unlockedBadgeIds.length} Badges</span>
-            </button>
+            {nextRank && (
+              <span className="text-[10px] text-[var(--text-muted)]">({nextRank.title})</span>
+            )}
           </div>
         </div>
 
-        {/* Progress to Next Judicial Rank */}
-        <div className="space-y-1.5 pt-2 border-t border-[var(--border-subtle)]">
-          <div className="flex items-center justify-between text-xs font-mono">
-            <span className="text-[var(--text-secondary)]">
-              Current Standing: <strong className="text-[var(--text-primary)]">{profile.xp.toLocaleString()} XP</strong>
-            </span>
-            {nextRank ? (
-              <span className="text-[var(--text-muted)]">
-                Next Rank: <strong className="text-amber-500">{nextRank.title}</strong> ({nextRank.minXP.toLocaleString()} XP)
-              </span>
-            ) : (
-              <span className="text-amber-500 font-bold">Highest Judicial Rank Achieved</span>
-            )}
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1 text-[11px] text-[var(--text-secondary)]">
+            <Flame className="w-3.5 h-3.5 text-amber-500" />
+            <span>{profile.streakDays}d streak</span>
           </div>
-          <div className="w-full h-2 rounded-full bg-[var(--bg-base)] overflow-hidden">
-            <div
-              className="h-full bg-amber-500 rounded-full transition-all duration-500"
-              style={{ width: `${progressPct}%` }}
-            />
-          </div>
+
+          <button
+            onClick={() => setBadgesModalOpen(true)}
+            className="px-2.5 py-1 rounded-lg bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-[10px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center gap-1 cursor-pointer"
+          >
+            <Trophy className="w-3 h-3 text-amber-400" />
+            <span>{profile.unlockedBadgeIds.length} Badges</span>
+          </button>
         </div>
       </div>
 
-      {/* Arcade Navigation Pills */}
-      <div className="p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-        <button
-          onClick={() => setActiveSubTab('escape-room')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'escape-room'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Lock className="w-4 h-4 text-amber-500 animate-pulse" />
-          <span>Article 368 Escape Room</span>
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
-            NEW
-          </span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('moot-court')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'moot-court'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Gavel className="w-4 h-4 text-amber-500" />
-          <span>5-Judge Moot Court</span>
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
-            NEW
-          </span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('assembly-rpg')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'assembly-rpg'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Scroll className="w-4 h-4 text-amber-500" />
-          <span>Assembly 1946 RPG</span>
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
-            NEW
-          </span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('lex-samvidhan')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'lex-samvidhan'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Target className="w-4 h-4 text-amber-500" />
-          <span>LexSamvidhan Daily</span>
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
-            NEW
-          </span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('connections')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'connections'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-amber-500 shadow-sm ring-1 ring-amber-500/30'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Puzzle className="w-4 h-4 text-amber-500" />
-          <span>Connections 4x4</span>
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500/20 text-amber-400">
-            NEW
-          </span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('ultra-vires')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'ultra-vires'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-rose-500 shadow-sm ring-1 ring-rose-500/30'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Zap className="w-4 h-4 text-rose-500" />
-          <span>Ultra Vires 60s Swipe</span>
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-rose-500/20 text-rose-400">
-            NEW
-          </span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('bench')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'bench'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Scale className="w-4 h-4 text-amber-500" />
-          <span>Chief Justice Bench Sim</span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('blitz')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'blitz'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <Zap className="w-4 h-4 text-amber-500" />
-          <span>60s Article Blitz</span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('writs')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'writs'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <ShieldAlert className="w-4 h-4 text-amber-500" />
-          <span>Writs Emergency Room</span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('matcher')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'matcher'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <BrainCircuit className="w-4 h-4 text-amber-500" />
-          <span>Synaptic Matcher</span>
-        </button>
-
-        <button
-          onClick={() => setActiveSubTab('trap-buster')}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer btn-tactile shrink-0 ${
-            activeSubTab === 'trap-buster'
-              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-          }`}
-        >
-          <AlertTriangle className="w-4 h-4 text-rose-400" />
-          <span>Trap-Buster Reflex (30s)</span>
-        </button>
+      {/* Arcade Navigation Pills (Minimalist & Clean) */}
+      <div className="p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1 overflow-x-auto no-scrollbar">
+        {[
+          { id: 'connections', label: 'Connections 4x4', icon: Puzzle },
+          { id: 'ultra-vires', label: 'Ultra Vires 60s', icon: Zap },
+          { id: 'lex-samvidhan', label: 'LexSamvidhan Daily', icon: Target },
+          { id: 'escape-room', label: 'Article 368 Escape', icon: Lock },
+          { id: 'moot-court', label: '5-Judge Moot Court', icon: Gavel },
+          { id: 'assembly-rpg', label: 'Assembly 1946 RPG', icon: Scroll },
+          { id: 'bench', label: 'Chief Justice Bench', icon: Scale },
+          { id: 'blitz', label: '60s Article Blitz', icon: Zap },
+          { id: 'writs', label: 'Writs Emergency', icon: ShieldAlert },
+          { id: 'matcher', label: 'Synaptic Matcher', icon: BrainCircuit },
+          { id: 'trap-buster', label: 'Trap-Buster Reflex', icon: AlertTriangle }
+        ].map((tab) => {
+          const isActive = activeSubTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveSubTab(tab.id as ArcadeTab)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-all cursor-pointer ${
+                isActive
+                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-subtle)] font-bold shadow-xs'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <tab.icon className={`w-3.5 h-3.5 ${isActive ? 'text-amber-400' : 'text-[var(--text-muted)]'}`} />
+              <span>{tab.label}</span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Active Game Mode Sub-View */}
