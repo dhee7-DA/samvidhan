@@ -249,8 +249,8 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
       {screenState === 'intro' && (
         <div className="p-6 md:p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] space-y-6">
           <div className="max-w-2xl mx-auto text-center space-y-3">
-            <div className="inline-flex p-4 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-4xl shadow-inner">
-              🏛️
+            <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto shadow-inner">
+              <Scale className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-black text-[var(--text-primary)]">
               Welcome to Central Hall, Constituent Assembly
@@ -263,7 +263,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
           {/* Historical Pillars Preview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-2xl">⚖️</div>
+              <Scale className="w-5 h-5 text-amber-400" />
               <h4 className="font-bold text-sm text-[var(--text-primary)]">
                 The Individual vs The Leviathan
               </h4>
@@ -273,7 +273,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-2xl">🏛️</div>
+              <Building2 className="w-5 h-5 text-amber-400" />
               <h4 className="font-bold text-sm text-[var(--text-primary)]">
                 The Union vs The Provinces
               </h4>
@@ -283,7 +283,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-2xl">📜</div>
+              <Scroll className="w-5 h-5 text-amber-400" />
               <h4 className="font-bold text-sm text-[var(--text-primary)]">
                 Authentic CAD Debates
               </h4>
@@ -319,7 +319,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
                   Crisis {currentCrisis.number} of {ASSEMBLY_CRISES.length}
                 </span>
                 <span className="text-xs font-mono text-[var(--text-muted)]">
-                  📅 {currentCrisis.date}
+                  {currentCrisis.date}
                 </span>
               </div>
               <span className="text-xs font-mono text-amber-500 font-bold">
@@ -618,7 +618,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
             </h4>
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-emerald-400">⚖️ Civil Liberty & Rights:</span>
+                <span className="text-emerald-400">Civil Liberty & Rights:</span>
                 <span className="font-black text-[var(--text-primary)]">{meters.liberty}%</span>
               </div>
               <div className="w-full h-2 rounded-full bg-[var(--bg-card)] overflow-hidden">
@@ -626,7 +626,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
               </div>
 
               <div className="flex items-center justify-between text-xs font-mono pt-1">
-                <span className="text-sky-400">🏛️ Federal Harmony & Autonomy:</span>
+                <span className="text-sky-400">Federal Harmony & Autonomy:</span>
                 <span className="font-black text-[var(--text-primary)]">{meters.federalism}%</span>
               </div>
               <div className="w-full h-2 rounded-full bg-[var(--bg-card)] overflow-hidden">
@@ -634,7 +634,7 @@ export const ConstituentAssemblyRPG: React.FC<ConstituentAssemblyRPGProps> = ({
               </div>
 
               <div className="flex items-center justify-between text-xs font-mono pt-1">
-                <span className="text-amber-400">⚡ Executive State Capacity:</span>
+                <span className="text-amber-400">Executive State Capacity:</span>
                 <span className="font-black text-[var(--text-primary)]">
                   {meters.executiveCapacity}%
                 </span>

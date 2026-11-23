@@ -18,7 +18,9 @@ import {
   Flame,
   Award,
   Calendar,
-  Shuffle
+  Shuffle,
+  Scale,
+  Target
 } from 'lucide-react';
 import {
   CONSTITUTIONAL_ARTICLES_POOL,
@@ -164,7 +166,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2.5">
-              <span>🎯</span>
+              <Target className="w-6 h-6 text-amber-400" />
               LexSamvidhan: Daily Mystery Article
             </h2>
             <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
@@ -497,8 +499,8 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
       {isGameOver && (
         <div className="p-6 md:p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] space-y-6 animate-fadeIn">
           <div className="text-center space-y-2 pb-4 border-b border-[var(--border-subtle)]">
-            <div className="inline-flex p-4 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-4xl shadow-inner animate-bounce">
-              {isVictory ? '🎉' : '⚖️'}
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mx-auto text-amber-400">
+              {isVictory ? <Award className="w-5 h-5" /> : <Scale className="w-5 h-5 text-[var(--text-muted)]" />}
             </div>
             <h3 className="text-2xl font-black text-[var(--text-primary)]">
               {isVictory

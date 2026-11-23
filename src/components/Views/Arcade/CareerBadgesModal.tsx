@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Award, CheckCircle2, Lock, Sparkles } from 'lucide-react';
+import { X, Award, CheckCircle2, Lock, Sparkles, Scale, Trophy } from 'lucide-react';
 import {
   ARCADE_BADGES,
   JUDICIAL_RANKS,
@@ -30,8 +30,8 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-subtle)] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-xl">
-              {currentRank.emblem}
+            <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <Scale className="w-5 h-5" />
             </div>
             <div>
               <span className="text-[10px] font-mono font-bold uppercase text-amber-500 tracking-wider">
@@ -99,8 +99,12 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
                       : 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-50'
                   }`}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center text-xl shrink-0">
-                    {isUnlocked ? b.icon : <Lock className="w-4 h-4 text-[var(--text-muted)]" />}
+                  <div className="w-9 h-9 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
+                    {isUnlocked ? (
+                      <Award className="w-4 h-4 text-amber-400" />
+                    ) : (
+                      <Lock className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+                    )}
                   </div>
                   <div className="space-y-0.5">
                     <div className="flex items-center gap-1.5">

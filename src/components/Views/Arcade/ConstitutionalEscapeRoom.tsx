@@ -157,7 +157,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
       }, 1200);
     } else {
       applyPenalty(15);
-      setChamber1Feedback('🚨 COMBINATION MISMATCH! The lock pins resisted. -15 Seconds Penalty!');
+      setChamber1Feedback('COMBINATION MISMATCH! The lock pins resisted. -15 Seconds Penalty!');
     }
   };
 
@@ -213,7 +213,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
       }, 1600);
     } else {
       applyPenalty(15);
-      setKeypadFeedback({ text: `🚨 ACCESS DENIED! Invalid Security Code. ${currentRiddle.hint} (-15s penalty)`, isCorrect: false });
+      setKeypadFeedback({ text: `ACCESS DENIED! Invalid Security Code. ${currentRiddle.hint} (-15s penalty)`, isCorrect: false });
     }
   };
 
@@ -221,7 +221,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
     const currentRiddle = EMERGENCY_KEYPAD_RIDDLES[keypadRiddleIdx];
     if (isCorrect) {
       arcadeAudio.playCorrect(keypadRiddleIdx + 1);
-      setKeypadFeedback({ text: `✅ LOCKDOWN DISARMED! ${currentRiddle.explanation}`, isCorrect: true });
+      setKeypadFeedback({ text: `LOCKDOWN DISARMED! ${currentRiddle.explanation}`, isCorrect: true });
       setTimeout(() => {
         setKeypadFeedback(null);
         if (keypadRiddleIdx < EMERGENCY_KEYPAD_RIDDLES.length - 1) {
@@ -233,7 +233,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
       }, 1600);
     } else {
       applyPenalty(15);
-      setKeypadFeedback({ text: `🚨 TRAP TRIGGERED! Incorrect constitutional exception. (-15s penalty)`, isCorrect: false });
+      setKeypadFeedback({ text: `TRAP TRIGGERED! Incorrect constitutional exception. (-15s penalty)`, isCorrect: false });
     }
   };
 
@@ -429,8 +429,8 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
       ===================================================================== */}
       {gameState === 'intro' && (
         <div className="p-8 md:p-12 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-xl text-center space-y-8 animate-fadeIn">
-          <div className="w-20 h-20 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto text-4xl shadow-inner">
-            🔐
+          <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto shadow-inner">
+            <Lock className="w-8 h-8" />
           </div>
 
           <div className="space-y-3 max-w-2xl mx-auto">
@@ -448,7 +448,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
           {/* 4 Chamber Previews */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left max-w-4xl mx-auto">
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-xl">🎛️</div>
+              <Clock className="w-5 h-5 text-amber-400" />
               <h4 className="text-xs font-black uppercase text-[var(--text-primary)]">Chamber 1: Dials</h4>
               <p className="text-[11px] text-[var(--text-muted)]">
                 Align the Article 368 dual majorities, Proviso ratifications, and Article 61 impeachment lock.
@@ -456,7 +456,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-xl">⚡</div>
+              <Zap className="w-5 h-5 text-amber-400" />
               <h4 className="text-xs font-black uppercase text-[var(--text-primary)]">Chamber 2: Circuit</h4>
               <p className="text-[11px] text-[var(--text-muted)]">
                 Power the Golden Triangle (Arts 14, 19, 21) via Maneka Gandhi without blowing the Gopalan fuse.
@@ -464,7 +464,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-xl">🚨</div>
+              <ShieldAlert className="w-5 h-5 text-amber-400" />
               <h4 className="text-xs font-black uppercase text-[var(--text-primary)]">Chamber 3: Keypad</h4>
               <p className="text-[11px] text-[var(--text-muted)]">
                 Disarm the emergency alarm by keying in the two sacred un-suspendable articles (Arts 20 & 21).
@@ -472,7 +472,7 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
             </div>
 
             <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
-              <div className="text-xl">⚰️</div>
+              <Skull className="w-5 h-5 text-amber-400" />
               <h4 className="text-xs font-black uppercase text-[var(--text-primary)]">Chamber 4: Graveyard</h4>
               <p className="text-[11px] text-[var(--text-muted)]">
                 Pair 5 restless ghost precedents with their Constitution Bench slayers to unlock the exit hatch!
@@ -824,7 +824,12 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-extrabold flex items-center gap-1.5">
-                        {isPaired ? '⚰️' : '👻'} {ghost.caseName} ({ghost.year})
+                        {isPaired ? (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        ) : (
+                          <Skull className="w-3.5 h-3.5 text-amber-400" />
+                        )}
+                        <span>{ghost.caseName} ({ghost.year})</span>
                       </span>
                       <span className="text-[10px] font-mono text-[var(--text-muted)]">
                         {ghost.article}
@@ -902,8 +907,8 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
       ===================================================================== */}
       {gameState === 'escaped' && (
         <div className="p-8 md:p-12 rounded-3xl bg-[var(--bg-card)] border-2 border-emerald-500/50 shadow-2xl text-center space-y-8 animate-fadeIn">
-          <div className="w-24 h-24 rounded-3xl bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto text-5xl shadow-xl animate-bounce">
-            🎉
+          <div className="w-16 h-16 rounded-2xl bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto shadow-xl">
+            <Trophy className="w-8 h-8" />
           </div>
 
           <div className="space-y-3 max-w-xl mx-auto">
@@ -970,8 +975,8 @@ export const ConstitutionalEscapeRoom: React.FC<ConstitutionalEscapeRoomProps> =
       ===================================================================== */}
       {gameState === 'failed' && (
         <div className="p-8 md:p-12 rounded-3xl bg-[var(--bg-card)] border-2 border-rose-500/50 shadow-2xl text-center space-y-6 animate-fadeIn">
-          <div className="w-20 h-20 rounded-3xl bg-rose-500/20 border-2 border-rose-500 text-rose-400 flex items-center justify-center mx-auto text-4xl shadow-xl">
-            🚨
+          <div className="w-16 h-16 rounded-2xl bg-rose-500/20 border-2 border-rose-500 text-rose-400 flex items-center justify-center mx-auto shadow-xl">
+            <ShieldAlert className="w-8 h-8" />
           </div>
 
           <div className="space-y-2 max-w-md mx-auto">

@@ -458,9 +458,11 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <span className="text-xl">
-                  {chosenDecreeObj.isCorrect ? '🏛️' : '⚠️'}
-                </span>
+                {chosenDecreeObj.isCorrect ? (
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                ) : (
+                  <AlertCircle className="w-5 h-5 text-rose-400 shrink-0" />
+                )}
                 <div>
                   <span className="text-[11px] font-mono font-bold uppercase tracking-wider block">
                     {chosenDecreeObj.isCorrect

@@ -13,7 +13,9 @@ import {
   BookOpen,
   Calendar,
   Layers,
-  HelpCircle
+  HelpCircle,
+  Trophy,
+  Scale
 } from 'lucide-react';
 import {
   CONNECTIONS_PUZZLES,
@@ -151,7 +153,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
       if (newSolved.length === 4) {
         // Complete Victory!
         arcadeAudio.playFanfare();
-        setToastMessage('🎉 BRAVO! You solved all 4 Constitutional Connections!');
+        setToastMessage('BRAVO! You solved all 4 Constitutional Connections!');
         const res = recordConnectionsResult(mistakesRemaining, true);
         onAwardResult(
           res.gainedXP,
@@ -240,13 +242,13 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
   const getLevelLabel = (level: 'yellow' | 'green' | 'blue' | 'purple') => {
     switch (level) {
       case 'yellow':
-        return { emoji: '🟨', text: 'Level 1' };
+        return { tag: 'L1', text: 'Level 1' };
       case 'green':
-        return { emoji: '🟩', text: 'Level 2' };
+        return { tag: 'L2', text: 'Level 2' };
       case 'blue':
-        return { emoji: '🟦', text: 'Level 3' };
+        return { tag: 'L3', text: 'Level 3' };
       case 'purple':
-        return { emoji: '🟪', text: 'Level 4' };
+        return { tag: 'L4', text: 'Level 4' };
     }
   };
 
@@ -364,8 +366,10 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                 )}`}
               >
                 <div className="flex flex-wrap items-center justify-between gap-1">
-                  <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider">
-                    <span>{levelMeta.emoji}</span>
+                  <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px]">
+                    <span className="px-1.5 py-0.2 rounded text-[9.5px] font-mono bg-[var(--bg-base)] border border-current opacity-80">
+                      {levelMeta.tag}
+                    </span>
                     <span>{cat.title}</span>
                   </div>
                   <span className="text-[10px] opacity-70">[{cat.landmarkRef}]</span>
@@ -379,7 +383,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
 
         {/* Remaining Unsolved 4x4 Tiles Grid (Small & Minimalist) */}
         {!isGameOver && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
             {shuffledTiles.map((item) => {
               const isSelected = selectedItems.includes(item);
 
@@ -387,10 +391,10 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                 <button
                   key={item}
                   onClick={() => handleToggleSelect(item)}
-                  className={`min-h-[44px] sm:min-h-[50px] px-2 py-1.5 rounded-lg text-center flex items-center justify-center font-mono font-medium text-[11px] sm:text-xs leading-tight tracking-tight transition-all duration-150 cursor-pointer ${
+                  className={`min-h-[38px] sm:min-h-[42px] px-2 py-1 rounded-md text-center flex items-center justify-center font-mono font-medium text-[11px] sm:text-[11.5px] leading-snug tracking-tight transition-all duration-100 cursor-pointer ${
                     isSelected
-                      ? 'bg-amber-400 text-zinc-950 font-bold border border-amber-300 shadow-xs scale-[1.01]'
-                      : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] shadow-2xs'
+                      ? 'bg-amber-400 text-zinc-950 font-bold border border-amber-300 shadow-xs'
+                      : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)]'
                   }`}
                 >
                   <span className="line-clamp-2 max-w-[95%]">{item}</span>
@@ -437,32 +441,32 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
           VICTORY / DEFEAT SUMMARY CARD (Compact & Aesthetic)
       ===================================================================== */}
       {isGameOver && (
-        <div className="p-5 sm:p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-center space-y-3 animate-fadeIn shadow-xs max-w-lg mx-auto">
-          <div className="inline-flex p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 text-3xl">
-            {isWon ? '🏆' : '⚖️'}
+        <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-center space-y-2.5 animate-fadeIn shadow-xs max-w-md mx-auto">
+          <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center mx-auto text-amber-400">
+            {isWon ? <Trophy className="w-4 h-4" /> : <Scale className="w-4 h-4 text-[var(--text-muted)]" />}
           </div>
 
-          <h3 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
+          <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
             {isWon
               ? 'Constitutional Connections Solved!'
-              : 'Mistakes Exhausted — All Categories Revealed'}
+              : 'Mistakes Exhausted — Categories Revealed'}
           </h3>
 
-          <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
+          <p className="text-xs text-[var(--text-secondary)] max-w-sm mx-auto leading-relaxed">
             {isWon
-              ? `You mastered all 4 categories with ${mistakesRemaining} mistake${
+              ? `Mastered all 4 categories with ${mistakesRemaining} mistake${
                   mistakesRemaining > 1 ? 's' : ''
                 } remaining.`
-              : 'Review the constitutional relationships above to lock in these doctrinal and article categories.'}
+              : 'Review the constitutional relationships above to lock in these categories.'}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-1">
             <button
               onClick={handleCopyShare}
-              className="w-full sm:w-auto px-5 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+              className="w-full sm:w-auto px-4 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
             >
               <Share2 className="w-3.5 h-3.5" />
-              <span>{copiedShare ? 'Copied Emoji Grid!' : 'Share Emoji Grid'}</span>
+              <span>{copiedShare ? 'Copied Result!' : 'Share Result'}</span>
             </button>
 
             <button
@@ -470,7 +474,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                 setGameMode('practice');
                 initializePuzzle(getRandomConnectionsPuzzle());
               }}
-              className="w-full sm:w-auto px-5 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-4 py-1.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Play Another Puzzle</span>

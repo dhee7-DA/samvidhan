@@ -292,8 +292,8 @@ export const TrapBusterGame: React.FC<TrapBusterGameProps> = ({ onAwardResult })
                   <div className="space-y-1">
                     <div className="font-mono text-xs font-bold uppercase tracking-wider">
                       {lastAnswerCorrect
-                        ? '🎯 TRAP BUSTED! (+100 PTS • +2s BONUS)'
-                        : '⚠️ CAUGHT IN THE EXAMINER’S TRAP! (-3s PENALTY)'}
+                        ? 'TRAP BUSTED! (+100 PTS • +2s BONUS)'
+                        : 'CAUGHT IN THE EXAMINER’S TRAP! (-3s PENALTY)'}
                     </div>
                     <div className="text-xs font-mono font-bold">
                       Correct Answer: <strong>{currentQ.isTrue ? 'TRUE' : 'FALSE'}</strong>

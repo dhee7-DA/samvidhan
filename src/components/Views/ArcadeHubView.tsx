@@ -78,10 +78,10 @@ export const ArcadeHubView: React.FC = () => {
     refreshProfile();
     if (leveledUp) {
       const rank = getCurrentRank(getCareerProfile().xp);
-      setToastMessage(`🎉 PROMOTION: You ascended to ${rank.title}!`);
+      setToastMessage(`PROMOTION: You ascended to ${rank.title}!`);
       arcadeAudio.playFanfare();
     } else if (newBadges.length > 0) {
-      setToastMessage(`🏆 NEW BADGE UNLOCKED: ${newBadges[0]}!`);
+      setToastMessage(`NEW BADGE UNLOCKED: ${newBadges[0]}!`);
       arcadeAudio.playFanfare();
     }
   };
@@ -114,8 +114,8 @@ export const ArcadeHubView: React.FC = () => {
 
       {/* Top Judicial Career Bar (Minimalist & Compact) */}
       <div className="py-2 px-3.5 sm:px-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-xs">
-        <div className="flex items-center gap-2.5">
-          <span className="text-base">{currentRank.emblem}</span>
+        <div className="flex items-center gap-2">
+          <Scale className="w-3.5 h-3.5 text-amber-400 shrink-0" />
           <span className="font-bold text-[var(--text-primary)]">{currentRank.title}</span>
           <span className="text-[10px] text-[var(--text-muted)] border-l border-[var(--border-subtle)] pl-2">
             Lv. {currentRank.level}/7

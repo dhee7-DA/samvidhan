@@ -364,36 +364,33 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
       )}
 
       {/* =====================================================================
-          SCREEN 3: GAME OVER / SCORECARD & TRAP REVIEW
+          SCREEN 3: GAME OVER / SCORECARD & TRAP REVIEW (Minimalist & Compact)
       ===================================================================== */}
       {gameState === 'gameover' && (
-        <div className="p-6 md:p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] space-y-6 animate-fadeIn shadow-2xl">
-          <div className="text-center space-y-2 pb-4 border-b border-[var(--border-subtle)]">
-            <div className="inline-flex p-4 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-4xl shadow-inner animate-bounce">
-              ⚡
-            </div>
-            <h3 className="text-2xl md:text-3xl font-black text-[var(--text-primary)]">
-              60-Second Drill Completed!
+        <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3.5 max-w-xl mx-auto shadow-xs animate-fadeIn">
+          <div className="text-center space-y-1 pb-3 border-b border-[var(--border-subtle)]">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold block">
+              60-Second Drill Completed
+            </span>
+            <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
+              Constitutional Instinct Breakdown
             </h3>
-            <p className="text-xs md:text-sm text-[var(--text-secondary)]">
-              Your instant constitutional reflexes and legal accuracy breakdown:
-            </p>
           </div>
 
-          {/* Metrics Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-            <div className="p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1">
-              <span className="text-[10px] font-mono text-[var(--text-muted)] block uppercase">
-                Correct Calls
+          {/* Minimalist Metrics Strip */}
+          <div className="grid grid-cols-4 gap-2 text-center font-mono">
+            <div className="py-2 px-1.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
+                Correct
               </span>
-              <span className="text-2xl font-black text-emerald-400">{correctCount}</span>
+              <span className="text-sm sm:text-base font-bold text-emerald-400">{correctCount}</span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1">
-              <span className="text-[10px] font-mono text-[var(--text-muted)] block uppercase">
+            <div className="py-2 px-1.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
                 Accuracy
               </span>
-              <span className="text-2xl font-black text-amber-400">
+              <span className="text-sm sm:text-base font-bold text-amber-400">
                 {correctCount + wrongCount > 0
                   ? Math.round((correctCount / (correctCount + wrongCount)) * 100)
                   : 0}
@@ -401,46 +398,46 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
               </span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1">
-              <span className="text-[10px] font-mono text-[var(--text-muted)] block uppercase">
-                Best Combo Streak
+            <div className="py-2 px-1.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
+                Streak
               </span>
-              <span className="text-2xl font-black text-sky-400">{bestStreak}x</span>
+              <span className="text-sm sm:text-base font-bold text-sky-400">{bestStreak}x</span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1">
-              <span className="text-[10px] font-mono text-[var(--text-muted)] block uppercase">
-                Career XP Earned
+            <div className="py-2 px-1.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
+                XP
               </span>
-              <span className="text-2xl font-black text-purple-400">
-                +{correctCount * 15} XP
+              <span className="text-sm sm:text-base font-bold text-purple-400">
+                +{correctCount * 15}
               </span>
             </div>
           </div>
 
           {/* Missed Scenarios Review Drawer */}
           {missedScenarios.length > 0 && (
-            <div className="p-4 rounded-2xl bg-rose-500/5 border border-rose-500/20 space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-rose-400 font-bold flex items-center gap-1.5">
-                <ShieldAlert className="w-4 h-4" />
-                Review Missed Constitutional Traps ({missedScenarios.length}):
+            <div className="p-3 rounded-lg bg-rose-500/5 border border-rose-500/20 space-y-2">
+              <h4 className="text-[11px] font-mono uppercase tracking-wider text-rose-400 font-bold flex items-center gap-1.5">
+                <ShieldAlert className="w-3.5 h-3.5" />
+                Review Missed Traps ({missedScenarios.length}):
               </h4>
 
-              <div className="space-y-2.5 max-h-60 overflow-y-auto divide-y divide-[var(--border-subtle)]">
+              <div className="space-y-2 max-h-48 overflow-y-auto divide-y divide-[var(--border-subtle)]">
                 {missedScenarios.map((sc, idx) => (
-                  <div key={idx} className="pt-2 text-xs space-y-1">
-                    <span className="font-bold text-[var(--text-primary)] block">
+                  <div key={idx} className="pt-1.5 text-xs space-y-0.5">
+                    <span className="font-semibold text-[var(--text-primary)] block text-[11.5px]">
                       "{sc.situation}"
                     </span>
                     <div className="flex items-center gap-2 font-mono text-[10px]">
-                      <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-400 font-bold">
-                        Correct: {sc.verdict.replace('_', ' ')}
+                      <span className="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 font-bold">
+                        {sc.verdict.replace('_', ' ')}
                       </span>
                       <span className="text-[var(--text-muted)]">
                         {sc.governingPrecedentOrRule} ({sc.primaryArticle})
                       </span>
                     </div>
-                    <p className="text-[11px] text-[var(--text-secondary)] italic">
+                    <p className="text-[10.5px] text-[var(--text-secondary)] italic">
                       {sc.oneLineRatio}
                     </p>
                   </div>
@@ -450,13 +447,13 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           )}
 
           {/* Action CTAs */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-1 flex items-center justify-center">
             <button
               onClick={handleStartGame}
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-black text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md shadow-amber-500/15 hover:scale-102 active:scale-98 cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
             >
-              <Zap className="w-4 h-4 fill-current" />
-              <span>Play Another 60s Round</span>
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Play Another Round</span>
             </button>
           </div>
         </div>

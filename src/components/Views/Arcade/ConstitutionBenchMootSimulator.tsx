@@ -667,8 +667,8 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
       ===================================================================== */}
       {screenState === 'verdict' && (
         <div className="p-8 md:p-12 rounded-3xl bg-[var(--bg-card)] border-2 border-amber-500/50 shadow-2xl text-center space-y-8 animate-fadeIn">
-          <div className="w-20 h-20 rounded-3xl bg-amber-500/20 border-2 border-amber-500 text-amber-400 flex items-center justify-center mx-auto text-4xl shadow-xl">
-            {agreeCount >= 3 ? '👑' : '⚖️'}
+          <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border-2 border-amber-500 text-amber-400 flex items-center justify-center mx-auto shadow-xl">
+            {agreeCount >= 3 ? <Trophy className="w-8 h-8 text-amber-400" /> : <Scale className="w-8 h-8 text-[var(--text-muted)]" />}
           </div>
 
           <div className="space-y-3 max-w-xl mx-auto">
