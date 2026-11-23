@@ -227,13 +227,26 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
   const getCategoryBadgeColor = (level: 'yellow' | 'green' | 'blue' | 'purple') => {
     switch (level) {
       case 'yellow':
-        return 'bg-amber-500/15 border-amber-500/40 text-amber-300';
+        return 'bg-amber-500/10 border-amber-500/30 text-amber-200 dark:text-amber-300';
       case 'green':
-        return 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300';
+        return 'bg-emerald-500/10 border-emerald-500/30 text-emerald-200 dark:text-emerald-300';
       case 'blue':
-        return 'bg-sky-500/15 border-sky-500/40 text-sky-300';
+        return 'bg-sky-500/10 border-sky-500/30 text-sky-200 dark:text-sky-300';
       case 'purple':
-        return 'bg-purple-500/15 border-purple-500/40 text-purple-300';
+        return 'bg-purple-500/10 border-purple-500/30 text-purple-200 dark:text-purple-300';
+    }
+  };
+
+  const getLevelLabel = (level: 'yellow' | 'green' | 'blue' | 'purple') => {
+    switch (level) {
+      case 'yellow':
+        return { emoji: '🟨', text: 'Level 1 · Foundational' };
+      case 'green':
+        return { emoji: '🟩', text: 'Level 2 · Structural' };
+      case 'blue':
+        return { emoji: '🟦', text: 'Level 3 · Jurisprudential' };
+      case 'purple':
+        return { emoji: '🟪', text: 'Level 4 · Constitutional Traps' };
     }
   };
 
@@ -241,64 +254,64 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
   const isWon = solvedCategoryIds.length === 4 && mistakesRemaining > 0;
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6 animate-fadeIn select-none">
+    <div className="max-w-4xl mx-auto space-y-4 sm:space-y-5 animate-fadeIn select-none">
       {/* =====================================================================
           HEADER BANNER
       ===================================================================== */}
-      <div className="p-5 md:p-6 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] shadow-xl relative overflow-hidden">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
+      <div className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-md relative overflow-hidden">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1.5">
-                <Puzzle className="w-3.5 h-3.5" />
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/25 flex items-center gap-1">
+                <Puzzle className="w-3 h-3" />
                 Constitutional Connections
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono text-[var(--text-muted)] bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono text-[var(--text-muted)] bg-[var(--bg-base)] border border-[var(--border-subtle)]">
                 4 Groups of 4 Items
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2.5">
+            <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2">
               <span>🧩</span>
               Constitutional Connections
             </h2>
-            <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
-              Find four groups of four related constitutional concepts, articles, doctrines, or historical amendments.
+            <p className="text-xs text-[var(--text-secondary)] mt-0.5">
+              Identify 4 distinct clusters of 4 related constitutional concepts, articles, or doctrines.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Mode Toggle */}
-            <div className="p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1 font-mono text-xs">
+            <div className="p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-0.5 font-mono text-xs">
               <button
                 onClick={() => setGameMode('daily')}
-                className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all ${
+                className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all ${
                   gameMode === 'daily'
-                    ? 'bg-amber-500 text-black shadow-sm'
+                    ? 'bg-amber-400 text-zinc-950 shadow-xs'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                <Calendar className="w-3.5 h-3.5" />
+                <Calendar className="w-3 h-3" />
                 <span>Daily</span>
               </button>
               <button
                 onClick={() => setGameMode('practice')}
-                className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all ${
+                className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all ${
                   gameMode === 'practice'
-                    ? 'bg-amber-500 text-black shadow-sm'
+                    ? 'bg-amber-400 text-zinc-950 shadow-xs'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                <Shuffle className="w-3.5 h-3.5" />
+                <Shuffle className="w-3 h-3" />
                 <span>Practice</span>
               </button>
             </div>
 
             <button
               onClick={toggleMute}
-              className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
+              className="p-2 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-amber-500" />}
+              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-amber-500" />}
             </button>
 
             <button
@@ -307,30 +320,30 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                   gameMode === 'daily' ? getTodayConnectionsPuzzle() : getRandomConnectionsPuzzle()
                 )
               }
-              className="p-3 px-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-1.5"
+              className="p-2 px-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-1"
               title="Reset Puzzle"
             >
-              <RotateCcw className="w-4 h-4" />
+              <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset</span>
             </button>
           </div>
         </div>
 
         {/* Status Strip: Mistakes & Title */}
-        <div className="pt-3 flex items-center justify-between text-xs font-mono">
-          <span className="text-[var(--text-muted)]">
+        <div className="pt-2.5 flex items-center justify-between text-xs font-mono">
+          <span className="text-[var(--text-muted)] text-[11px] truncate mr-2">
             Puzzle: <strong className="text-[var(--text-primary)]">{activePuzzle.puzzleTitle}</strong>
           </span>
 
           {/* Mistakes Remaining Circles */}
-          <div className="flex items-center gap-2">
-            <span className="text-[var(--text-muted)] text-[11px]">Mistakes remaining:</span>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-[var(--text-muted)] text-[11px]">Mistakes:</span>
             <div className="flex items-center gap-1.5">
               {Array.from({ length: 4 }).map((_, idx) => (
                 <span
                   key={idx}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    idx < mistakesRemaining ? 'bg-amber-500 shadow-sm' : 'bg-zinc-700/60'
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    idx < mistakesRemaining ? 'bg-amber-400 shadow-xs shadow-amber-400/50' : 'bg-zinc-700/50'
                   }`}
                 />
               ))}
@@ -341,9 +354,9 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
 
       {/* Toast Alert Message */}
       {toastMessage && (
-        <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs flex items-center justify-between gap-3 animate-fadeIn">
+        <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono text-xs flex items-center justify-between gap-3 animate-fadeIn">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>{toastMessage}</span>
           </div>
           <button
@@ -358,35 +371,39 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
       {/* =====================================================================
           CONNECTIONS BOARD: SOLVED BANNERS + ACTIVE 4X4 TILES
       ===================================================================== */}
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {/* Solved Category Horizontal Banners */}
         {activePuzzle.categories
           .filter((cat) => solvedCategoryIds.includes(cat.id))
-          .map((cat) => (
-            <div
-              key={cat.id}
-              className={`p-4 md:p-5 rounded-2xl border-2 text-center space-y-1 animate-fadeIn shadow-md ${getCategoryBadgeColor(
-                cat.colorLevel
-              )}`}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-4 h-4" />
-                <h4 className="font-black text-sm md:text-base uppercase tracking-wider">
-                  {cat.title}
-                </h4>
+          .map((cat) => {
+            const levelMeta = getLevelLabel(cat.colorLevel);
+            return (
+              <div
+                key={cat.id}
+                className={`py-2.5 px-4 rounded-xl border text-center space-y-0.5 animate-fadeIn shadow-xs transition-all backdrop-blur-xs ${getCategoryBadgeColor(
+                  cat.colorLevel
+                )}`}
+              >
+                <div className="flex items-center justify-center gap-1.5">
+                  <span className="text-xs">{levelMeta.emoji}</span>
+                  <h4 className="font-extrabold text-xs sm:text-sm uppercase tracking-wide">
+                    {cat.title}
+                  </h4>
+                  <span className="text-[10px] font-mono opacity-60">({levelMeta.text})</span>
+                </div>
+                <p className="text-[11px] sm:text-xs font-mono font-semibold tracking-tight">
+                  {cat.items.join('  •  ')}
+                </p>
+                <p className="text-[10px] sm:text-[10.5px] opacity-75 pt-0.5 border-t border-current/15 leading-relaxed max-w-xl mx-auto">
+                  {cat.description} <span className="opacity-90 font-mono">[{cat.landmarkRef}]</span>
+                </p>
               </div>
-              <p className="text-xs font-mono font-bold">
-                {cat.items.join(' • ')}
-              </p>
-              <p className="text-[11px] opacity-80 pt-1 border-t border-current/20 leading-snug">
-                {cat.description} ({cat.landmarkRef})
-              </p>
-            </div>
-          ))}
+            );
+          })}
 
         {/* Remaining Unsolved 4x4 Tiles Grid */}
         {!isGameOver && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
             {shuffledTiles.map((item) => {
               const isSelected = selectedItems.includes(item);
 
@@ -394,13 +411,13 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                 <button
                   key={item}
                   onClick={() => handleToggleSelect(item)}
-                  className={`h-24 sm:h-28 p-3 rounded-2xl text-center flex items-center justify-center font-mono font-bold text-xs sm:text-sm uppercase tracking-tight transition-all cursor-pointer btn-tactile ${
+                  className={`min-h-[58px] sm:min-h-[66px] px-2.5 py-2 rounded-xl text-center flex items-center justify-center font-mono font-semibold text-[11px] sm:text-xs leading-snug tracking-tight transition-all duration-150 cursor-pointer btn-tactile ${
                     isSelected
-                      ? 'bg-amber-500 text-black font-black shadow-lg scale-102 ring-2 ring-amber-400'
-                      : 'bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-amber-500/60 hover:bg-[var(--bg-surface-elevated)]'
+                      ? 'bg-gradient-to-b from-amber-400 to-amber-500 text-zinc-950 font-black shadow-md shadow-amber-500/25 ring-2 ring-amber-300 scale-[1.02] border border-amber-300'
+                      : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-amber-400/50 hover:bg-[var(--bg-surface-elevated)] shadow-2xs'
                   }`}
                 >
-                  <span className="line-clamp-3">{item}</span>
+                  <span className="line-clamp-2 max-w-[95%]">{item}</span>
                 </button>
               );
             })}
@@ -412,19 +429,19 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
           CONTROLS BUTTON BAR
       ===================================================================== */}
       {!isGameOver && (
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
           <button
             onClick={handleShuffleUnsolved}
-            className="px-5 py-2.5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-amber-500 text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-2"
+            className="px-4 py-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-amber-400/50 text-xs font-mono font-semibold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
           >
-            <Shuffle className="w-4 h-4" />
+            <Shuffle className="w-3.5 h-3.5" />
             <span>Shuffle</span>
           </button>
 
           <button
             onClick={handleDeselectAll}
             disabled={selectedItems.length === 0}
-            className="px-5 py-2.5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] disabled:opacity-40 text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-rose-400 transition-all"
+            className="px-4 py-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] disabled:opacity-40 text-xs font-mono font-semibold text-[var(--text-secondary)] hover:text-rose-400 transition-all cursor-pointer disabled:cursor-not-allowed shadow-2xs"
           >
             Deselect All
           </button>
@@ -432,10 +449,10 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
           <button
             onClick={handleSubmitGuess}
             disabled={selectedItems.length !== 4}
-            className="px-8 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-400 disabled:opacity-40 text-black font-black text-xs font-mono uppercase tracking-wider transition-all shadow-md flex items-center gap-2 hover:scale-105 active:scale-95 cursor-pointer disabled:cursor-not-allowed"
+            className="px-6 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 disabled:opacity-40 text-zinc-950 font-black text-xs font-mono uppercase tracking-wider transition-all shadow-sm flex items-center gap-1.5 hover:scale-102 active:scale-98 cursor-pointer disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             <span>Submit Guess</span>
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-3.5 h-3.5" />
           </button>
         </div>
       )}

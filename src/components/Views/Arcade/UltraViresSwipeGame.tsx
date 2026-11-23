@@ -270,13 +270,13 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           SCREEN 1: IDLE / BRIEFING
       ===================================================================== */}
       {gameState === 'idle' && (
-        <div className="p-8 md:p-10 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] text-center space-y-6 animate-fadeIn shadow-2xl">
-          <div className="inline-flex p-5 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-5xl shadow-inner animate-pulse">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-center space-y-5 animate-fadeIn shadow-lg max-w-2xl mx-auto">
+          <div className="inline-flex p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 text-3xl shadow-xs">
             ⚡
           </div>
 
-          <div className="max-w-xl mx-auto space-y-2">
-            <h3 className="text-2xl font-black text-[var(--text-primary)]">
+          <div className="max-w-lg mx-auto space-y-1.5">
+            <h3 className="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
               60 Seconds of Pure Constitutional Instinct
             </h3>
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -285,23 +285,23 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           </div>
 
           {/* Key Controls Preview */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto pt-2">
-            <div className="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono flex items-center justify-center gap-2">
-              <ArrowLeft className="w-4 h-4" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-sm mx-auto pt-1">
+            <div className="p-2.5 px-3 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-mono flex items-center justify-center gap-2">
+              <ArrowLeft className="w-3.5 h-3.5" />
               <span>Left Arrow: <strong>ULTRA VIRES</strong></span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono flex items-center justify-center gap-2">
+            <div className="p-2.5 px-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono flex items-center justify-center gap-2">
               <span>Right Arrow: <strong>INTRA VIRES</strong></span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
 
-          <div className="pt-4 flex justify-center">
+          <div className="pt-2 flex justify-center">
             <button
               onClick={handleStartGame}
-              className="px-10 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-black text-sm font-mono tracking-wider uppercase transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2.5 cursor-pointer"
+              className="px-7 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-black text-xs font-mono tracking-wider uppercase transition-all shadow-md shadow-amber-500/15 hover:scale-102 active:scale-98 flex items-center gap-2 cursor-pointer"
             >
-              <Zap className="w-5 h-5 fill-current" />
+              <Zap className="w-4 h-4 fill-current" />
               <span>Start 60s Swipe Drill</span>
             </button>
           </div>
@@ -486,7 +486,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
             <button
               onClick={handleStartGame}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-black text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-black text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md shadow-amber-500/15 hover:scale-102 active:scale-98 cursor-pointer"
             >
               <Zap className="w-4 h-4 fill-current" />
               <span>Play Another 60s Round</span>
