@@ -16,7 +16,9 @@ import {
   Gavel,
   Scroll,
   Target,
-  Puzzle
+  Puzzle,
+  History,
+  Layers
 } from 'lucide-react';
 import { ConstitutionalEscapeRoom } from './Arcade/ConstitutionalEscapeRoom';
 import { ConstitutionBenchMootSimulator } from './Arcade/ConstitutionBenchMootSimulator';
@@ -24,6 +26,8 @@ import { ConstituentAssemblyRPG } from './Arcade/ConstituentAssemblyRPG';
 import { LexSamvidhanMysteryGame } from './Arcade/LexSamvidhanMysteryGame';
 import { ConstitutionalConnectionsGame } from './Arcade/ConstitutionalConnectionsGame';
 import { UltraViresSwipeGame } from './Arcade/UltraViresSwipeGame';
+import { ChronoTimelineGame } from './Arcade/ChronoTimelineGame';
+import { SeventhScheduleSortGame } from './Arcade/SeventhScheduleSortGame';
 import { ChiefJusticeBenchSimulator } from './Arcade/ChiefJusticeBenchSimulator';
 import { ArticleBlitzGame } from './Arcade/ArticleBlitzGame';
 import { WritsEmergencyRoom } from './Arcade/WritsEmergencyRoom';
@@ -45,6 +49,8 @@ export type ArcadeTab =
   | 'lex-samvidhan'
   | 'connections'
   | 'ultra-vires'
+  | 'chrono-timeline'
+  | 'seventh-schedule'
   | 'bench'
   | 'blitz'
   | 'writs'
@@ -155,6 +161,8 @@ export const ArcadeHubView: React.FC = () => {
         {[
           { id: 'connections', label: 'Connections 4x4', icon: Puzzle },
           { id: 'ultra-vires', label: 'Ultra Vires 60s', icon: Zap },
+          { id: 'chrono-timeline', label: 'ChronoTimeline', icon: History },
+          { id: 'seventh-schedule', label: '7th Schedule Sort', icon: Layers },
           { id: 'lex-samvidhan', label: 'LexSamvidhan Daily', icon: Target },
           { id: 'escape-room', label: 'Article 368 Escape', icon: Lock },
           { id: 'moot-court', label: '5-Judge Moot Court', icon: Gavel },
@@ -201,6 +209,12 @@ export const ArcadeHubView: React.FC = () => {
       )}
       {activeSubTab === 'ultra-vires' && (
         <UltraViresSwipeGame onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'chrono-timeline' && (
+        <ChronoTimelineGame onAwardResult={handleAwardResult} />
+      )}
+      {activeSubTab === 'seventh-schedule' && (
+        <SeventhScheduleSortGame onAwardResult={handleAwardResult} />
       )}
       {activeSubTab === 'bench' && (
         <ChiefJusticeBenchSimulator onAwardResult={handleAwardResult} />

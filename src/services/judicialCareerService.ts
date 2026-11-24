@@ -213,6 +213,20 @@ export const ARCADE_BADGES: ArcadeBadge[] = [
     category: 'general'
   },
   {
+    id: 'chrono-historian',
+    title: 'Constitutional Historian',
+    description: 'Successfully arrange precedent lineages or constitutional amendments in perfect chronological order.',
+    icon: '⏳',
+    category: 'general'
+  },
+  {
+    id: 'seventh-schedule-sniper',
+    title: 'Seventh Schedule Sniper',
+    description: 'Rapidly classify 12 or more legislative entries into Union, State, and Concurrent Lists with 80%+ accuracy.',
+    icon: '🎯',
+    category: 'general'
+  },
+  {
     id: 'cji-sworn',
     title: 'Oath of the Chief Justice',
     description: 'Reach Level 7 and ascend to the office of Chief Justice of India.',
@@ -572,6 +586,46 @@ export function recordUltraViresResult(correctCount: number, bestStreak: number,
 
   if (correctCount >= 12 && accuracy >= 80) {
     checkBadge('ultra-vires-reflex', true);
+  }
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordChronoTimelineResult(isWon: boolean, itemsCount: number): AwardResult {
+  const xpEarned = isWon ? 180 + itemsCount * 20 : 40;
+  const res = awardCareerXP(xpEarned, isWon ? 'Chronological Precedent Lineage Mastered' : 'Timeline Sequencing Practice');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  if (isWon) {
+    checkBadge('chrono-historian', true);
+  }
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordSeventhScheduleResult(correctCount: number, bestStreak: number, accuracy: number): AwardResult {
+  const xpEarned = Math.round(correctCount * 15 + bestStreak * 12);
+  const res = awardCareerXP(xpEarned, '7th Schedule Legislative Sorter');
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  if (correctCount >= 12 && accuracy >= 80) {
+    checkBadge('seventh-schedule-sniper', true);
   }
 
   saveCareerProfile(res.profile);
