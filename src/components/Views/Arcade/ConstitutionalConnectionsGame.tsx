@@ -229,13 +229,13 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
   const getCategoryBadgeColor = (level: 'yellow' | 'green' | 'blue' | 'purple') => {
     switch (level) {
       case 'yellow':
-        return 'bg-amber-500/10 border-amber-500/30 text-amber-300';
+        return 'bg-zinc-850 border-zinc-700 text-zinc-200';
       case 'green':
-        return 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300';
+        return 'bg-emerald-950/30 border-emerald-500/30 text-emerald-300';
       case 'blue':
-        return 'bg-sky-500/10 border-sky-500/30 text-sky-300';
+        return 'bg-sky-950/30 border-sky-500/30 text-sky-300';
       case 'purple':
-        return 'bg-purple-500/10 border-purple-500/30 text-purple-300';
+        return 'bg-purple-950/30 border-purple-500/30 text-purple-300';
     }
   };
 
@@ -263,7 +263,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
       <div className="py-2 px-3 sm:px-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono shadow-xs">
         <div className="flex items-center gap-2.5">
           <span className="font-bold text-[var(--text-primary)] flex items-center gap-1.5">
-            <Puzzle className="w-3.5 h-3.5 text-amber-400" />
+            <Puzzle className="w-3.5 h-3.5 text-zinc-300" />
             Connections
           </span>
           <span className="text-[11px] text-[var(--text-muted)] border-l border-[var(--border-subtle)] pl-2 truncate max-w-[200px] sm:max-w-none">
@@ -278,7 +278,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
               onClick={() => setGameMode('daily')}
               className={`px-2 py-0.5 rounded font-bold transition-all ${
                 gameMode === 'daily'
-                  ? 'bg-amber-400 text-zinc-950'
+                  ? 'bg-zinc-200 text-zinc-950 shadow-xs'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
@@ -288,7 +288,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
               onClick={() => setGameMode('practice')}
               className={`px-2 py-0.5 rounded font-bold transition-all ${
                 gameMode === 'practice'
-                  ? 'bg-amber-400 text-zinc-950'
+                  ? 'bg-zinc-200 text-zinc-950 shadow-xs'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
@@ -303,7 +303,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
               <span
                 key={idx}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  idx < mistakesRemaining ? 'bg-amber-400' : 'bg-zinc-700/60'
+                  idx < mistakesRemaining ? 'bg-zinc-300' : 'bg-zinc-800'
                 }`}
               />
             ))}
@@ -315,7 +315,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
               className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-400" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-zinc-300" />}
             </button>
 
             <button
@@ -324,7 +324,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                   gameMode === 'daily' ? getTodayConnectionsPuzzle() : getRandomConnectionsPuzzle()
                 )
               }
-              className="p-1 rounded-lg text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer"
+              className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title="Reset Puzzle"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -335,14 +335,14 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
 
       {/* Toast Alert Message */}
       {toastMessage && (
-        <div className="py-2 px-3 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono text-xs flex items-center justify-between gap-3 animate-fadeIn">
+        <div className="py-2 px-3 rounded-lg bg-[var(--bg-card)] border border-[var(--border-strong)] text-[var(--text-primary)] font-mono text-xs flex items-center justify-between gap-3 animate-fadeIn">
           <div className="flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 text-zinc-300 shrink-0" />
             <span>{toastMessage}</span>
           </div>
           <button
             onClick={() => setToastMessage(null)}
-            className="text-[10px] text-amber-400 font-bold hover:underline"
+            className="text-[10px] text-[var(--text-muted)] font-bold hover:text-[var(--text-primary)]"
           >
             Dismiss
           </button>
@@ -393,7 +393,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
                   onClick={() => handleToggleSelect(item)}
                   className={`min-h-[38px] sm:min-h-[42px] px-2 py-1 rounded-md text-center flex items-center justify-center font-mono font-medium text-[11px] sm:text-[11.5px] leading-snug tracking-tight transition-all duration-100 cursor-pointer ${
                     isSelected
-                      ? 'bg-amber-400 text-zinc-950 font-bold border border-amber-300 shadow-xs'
+                      ? 'bg-zinc-800 text-zinc-100 font-bold border-2 border-zinc-300 shadow-xs'
                       : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)]'
                   }`}
                 >
@@ -429,10 +429,10 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
           <button
             onClick={handleSubmitGuess}
             disabled={selectedItems.length !== 4}
-            className="px-5 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 disabled:opacity-40 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-xs flex items-center gap-1.5 cursor-pointer disabled:cursor-not-allowed"
+            className="px-5 py-1.5 rounded-lg bg-zinc-100 hover:bg-white disabled:opacity-40 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-xs flex items-center gap-1.5 cursor-pointer disabled:cursor-not-allowed"
           >
             <span>Submit Guess</span>
-            <Sparkles className="w-3 h-3" />
+            <Sparkles className="w-3 h-3 text-zinc-600" />
           </button>
         </div>
       )}
@@ -442,7 +442,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
       ===================================================================== */}
       {isGameOver && (
         <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-center space-y-2.5 animate-fadeIn shadow-xs max-w-md mx-auto">
-          <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center mx-auto text-amber-400">
+          <div className="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto text-zinc-300">
             {isWon ? <Trophy className="w-4 h-4" /> : <Scale className="w-4 h-4 text-[var(--text-muted)]" />}
           </div>
 
@@ -463,7 +463,7 @@ export const ConstitutionalConnectionsGame: React.FC<ConstitutionalConnectionsGa
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-1">
             <button
               onClick={handleCopyShare}
-              className="w-full sm:w-auto px-4 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+              className="w-full sm:w-auto px-4 py-1.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span>{copiedShare ? 'Copied Result!' : 'Share Result'}</span>

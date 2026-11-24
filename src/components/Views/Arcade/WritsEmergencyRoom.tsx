@@ -37,7 +37,7 @@ const WRIT_OPTIONS: { id: WritType; label: string; latinMeaning: string; color: 
     id: 'quo-warranto',
     label: 'Quo Warranto',
     latinMeaning: 'By What Authority?',
-    color: 'border-amber-500/40 text-amber-400 bg-amber-500/10'
+    color: 'border-indigo-500/40 text-indigo-400 bg-indigo-500/10'
   },
   {
     id: 'certiorari',
@@ -124,12 +124,12 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
       {/* Header Banner */}
       <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shadow-inner">
-            <ShieldAlert className="w-6 h-6" />
+          <div className="w-10 h-10 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center text-zinc-300">
+            <ShieldAlert className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-500">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                 Prerogative Writs Desk
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
@@ -151,7 +151,7 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
             </span>
             <div className="w-24 h-1.5 rounded-full bg-[var(--bg-base)] overflow-hidden">
               <div
-                className="h-full bg-amber-500 transition-all duration-300"
+                className="h-full bg-zinc-300 dark:bg-zinc-400 transition-all duration-300"
                 style={{ width: `${((currentIndex + 1) / WRIT_CASES.length) * 100}%` }}
               />
             </div>
@@ -166,7 +166,7 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
           <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-xs font-bold text-amber-500">
+                <div className="w-8 h-8 rounded-full bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center text-xs font-bold text-zinc-300">
                   {currentCase.citizenName[0]}
                 </div>
                 <div>
@@ -183,7 +183,7 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
               </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] border-l-4 border-l-amber-500 text-sm font-serif italic text-[var(--text-primary)] leading-relaxed">
+            <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] border-l-4 border-l-zinc-400 text-sm font-serif italic text-[var(--text-primary)] leading-relaxed">
               {currentCase.distressPlea}
             </div>
 
@@ -267,14 +267,14 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
                   <span className="font-bold text-[var(--text-primary)]">Landmark Precedent:</span>{' '}
                   {currentCase.keyPrecedent}
                 </div>
-                <span className="text-[10px] text-amber-500 font-bold">{currentCase.governingArticles}</span>
+                <span className="text-[10px] text-[var(--text-secondary)] font-bold">{currentCase.governingArticles}</span>
               </div>
 
               {/* Next Button */}
               <div className="flex justify-end pt-2">
                 <button
                   onClick={handleNextCase}
-                  className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-md"
+                  className="px-6 py-2.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-xs cursor-pointer"
                 >
                   {currentIndex + 1 < WRIT_CASES.length ? 'Next Citizen Petition' : 'Complete Session'}{' '}
                   <ChevronRight className="w-4 h-4" />
@@ -288,8 +288,8 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
       {/* Session Completed Screen */}
       {isCompleted && (
         <div className="p-8 sm:p-12 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center space-y-6 animate-fadeIn">
-          <div className="w-16 h-16 rounded-3xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center mx-auto shadow-inner">
-            <Award className="w-8 h-8" />
+          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-zinc-300 flex items-center justify-center mx-auto shadow-xs">
+            <Award className="w-6 h-6" />
           </div>
 
           <div className="max-w-md mx-auto space-y-2">
@@ -310,7 +310,7 @@ export const WritsEmergencyRoom: React.FC<Props> = ({ onAwardResult }) => {
 
           <button
             onClick={resetAll}
-            className="px-8 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs font-mono tracking-wider uppercase inline-flex items-center gap-2 transition-all shadow-md"
+            className="px-8 py-3 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono tracking-wider uppercase inline-flex items-center gap-2 transition-all shadow-xs cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" /> Start New Shift
           </button>

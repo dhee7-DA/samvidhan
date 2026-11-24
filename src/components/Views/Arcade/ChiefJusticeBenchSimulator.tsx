@@ -88,12 +88,12 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
       <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shadow-inner">
-              <Gavel className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center text-zinc-300">
+              <Gavel className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-500">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                   Supreme Court of India • Courtroom 1
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
@@ -112,9 +112,9 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
               <button
                 key={p.id}
                 onClick={() => handleSelectPetition(p.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono whitespace-nowrap transition-all border ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono whitespace-nowrap transition-all border cursor-pointer ${
                   selectedPetitionId === p.id
-                    ? 'bg-amber-500/10 text-amber-500 border-amber-500/30 font-semibold shadow-sm'
+                    ? 'bg-zinc-800 text-zinc-100 border-zinc-500 font-semibold shadow-xs'
                     : 'bg-[var(--bg-base)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -178,7 +178,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
       {stage === 'brief' && (
         <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-5 animate-fadeIn">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20 font-semibold">
+            <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-200 border border-zinc-700 font-semibold">
               {petition.docketTheme}
             </span>
             <span className="text-xs font-mono text-[var(--text-muted)]">{petition.citation}</span>
@@ -189,7 +189,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           </h3>
 
           <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-            <div className="text-xs font-mono uppercase text-amber-500 font-bold mb-1.5 flex items-center gap-1.5">
+            <div className="text-xs font-mono uppercase text-[var(--text-secondary)] font-bold mb-1.5 flex items-center gap-1.5">
               <ShieldAlert className="w-3.5 h-3.5" />
               Factual Matrix & Constitutional Crisis
             </div>
@@ -216,7 +216,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           <div className="flex justify-end pt-2">
             <button
               onClick={() => setStage('arguments')}
-              className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-md"
+              className="px-6 py-2.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-xs cursor-pointer"
             >
               Hear Oral Arguments <ChevronRight className="w-4 h-4" />
             </button>
@@ -279,7 +279,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
             </button>
             <button
               onClick={() => setStage('deliberate')}
-              className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-md"
+              className="px-6 py-2.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-xs cursor-pointer"
             >
               Enter Deliberation Chamber <ChevronRight className="w-4 h-4" />
             </button>
@@ -291,7 +291,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
       {stage === 'deliberate' && (
         <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-6 animate-fadeIn">
           <div className="border-b border-[var(--border-subtle)] pb-3">
-            <span className="text-xs font-mono font-bold text-amber-500 uppercase tracking-wide">
+            <span className="text-xs font-mono font-bold text-[var(--text-secondary)] uppercase tracking-wide">
               Step 3: Judicial Ratio Decidendi
             </span>
             <h3 className="text-lg font-serif font-bold text-[var(--text-primary)]">
@@ -305,7 +305,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           {/* 1. Article Selection */}
           <div className="space-y-3">
             <div className="text-xs font-mono font-bold uppercase text-[var(--text-primary)] flex items-center gap-1.5">
-              <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[10px]">
+              <span className="w-5 h-5 rounded-full bg-zinc-800 text-zinc-200 flex items-center justify-center text-[10px]">
                 1
               </span>
               Select Controlling Constitutional Article(s)
@@ -315,16 +315,16 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
                 <button
                   key={opt.id}
                   onClick={() => setSelectedArticleId(opt.id)}
-                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all ${
+                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all cursor-pointer ${
                     selectedArticleId === opt.id
-                      ? 'border-amber-500 bg-amber-500/10 text-[var(--text-primary)] font-semibold shadow-sm'
+                      ? 'border-zinc-300 bg-zinc-850 text-zinc-100 font-semibold shadow-xs'
                       : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-secondary)] hover:border-[var(--text-muted)]'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span>{opt.label}</span>
                     {selectedArticleId === opt.id && (
-                      <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 ml-2" />
+                      <CheckCircle2 className="w-4 h-4 text-zinc-200 shrink-0 ml-2" />
                     )}
                   </div>
                 </button>
@@ -335,7 +335,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           {/* 2. Precedent Selection */}
           <div className="space-y-3">
             <div className="text-xs font-mono font-bold uppercase text-[var(--text-primary)] flex items-center gap-1.5">
-              <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[10px]">
+              <span className="w-5 h-5 rounded-full bg-zinc-800 text-zinc-200 flex items-center justify-center text-[10px]">
                 2
               </span>
               Select Controlling Supreme Court Precedent
@@ -345,16 +345,16 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
                 <button
                   key={opt.id}
                   onClick={() => setSelectedPrecedentId(opt.id)}
-                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all ${
+                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all cursor-pointer ${
                     selectedPrecedentId === opt.id
-                      ? 'border-amber-500 bg-amber-500/10 text-[var(--text-primary)] font-semibold shadow-sm'
+                      ? 'border-zinc-300 bg-zinc-850 text-zinc-100 font-semibold shadow-xs'
                       : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-secondary)] hover:border-[var(--text-muted)]'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span>{opt.label}</span>
                     {selectedPrecedentId === opt.id && (
-                      <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 ml-2" />
+                      <CheckCircle2 className="w-4 h-4 text-zinc-200 shrink-0 ml-2" />
                     )}
                   </div>
                 </button>
@@ -365,7 +365,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           {/* 3. Doctrine Selection */}
           <div className="space-y-3">
             <div className="text-xs font-mono font-bold uppercase text-[var(--text-primary)] flex items-center gap-1.5">
-              <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[10px]">
+              <span className="w-5 h-5 rounded-full bg-zinc-800 text-zinc-200 flex items-center justify-center text-[10px]">
                 3
               </span>
               Select Governing Judicial Doctrine / Test
@@ -375,16 +375,16 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
                 <button
                   key={opt.id}
                   onClick={() => setSelectedDoctrineId(opt.id)}
-                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all ${
+                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all cursor-pointer ${
                     selectedDoctrineId === opt.id
-                      ? 'border-amber-500 bg-amber-500/10 text-[var(--text-primary)] font-semibold shadow-sm'
+                      ? 'border-zinc-300 bg-zinc-850 text-zinc-100 font-semibold shadow-xs'
                       : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-secondary)] hover:border-[var(--text-muted)]'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span>{opt.label}</span>
                     {selectedDoctrineId === opt.id && (
-                      <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 ml-2" />
+                      <CheckCircle2 className="w-4 h-4 text-zinc-200 shrink-0 ml-2" />
                     )}
                   </div>
                 </button>
@@ -395,7 +395,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           {/* Step 4: Choose Operative Order */}
           <div className="space-y-3 pt-3 border-t border-[var(--border-subtle)]">
             <div className="text-xs font-mono font-bold uppercase text-[var(--text-primary)] flex items-center gap-1.5">
-              <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[10px]">
+              <span className="w-5 h-5 rounded-full bg-zinc-800 text-zinc-200 flex items-center justify-center text-[10px]">
                 4
               </span>
               Formulate Operative Decree of the Court
@@ -405,16 +405,16 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
                 <button
                   key={dec.id}
                   onClick={() => setSelectedDecreeId(dec.id)}
-                  className={`p-4 rounded-xl border text-left text-xs font-mono leading-relaxed transition-all ${
+                  className={`p-4 rounded-xl border text-left text-xs font-mono leading-relaxed transition-all cursor-pointer ${
                     selectedDecreeId === dec.id
-                      ? 'border-amber-500 bg-amber-500/10 text-[var(--text-primary)] font-semibold shadow-md ring-1 ring-amber-500/30'
+                      ? 'border-zinc-300 bg-zinc-850 text-zinc-100 font-semibold shadow-xs ring-1 ring-zinc-400/30'
                       : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-secondary)] hover:border-[var(--text-muted)]'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <p>{dec.decreeText}</p>
                     {selectedDecreeId === dec.id && (
-                      <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-zinc-200 shrink-0 mt-0.5" />
                     )}
                   </div>
                 </button>
@@ -425,16 +425,16 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
           <div className="flex items-center justify-between pt-4">
             <button
               onClick={() => setStage('arguments')}
-              className="px-4 py-2 rounded-xl text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+              className="px-4 py-2 rounded-xl text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
             >
               ← Back to Arguments
             </button>
             <button
               onClick={deliverDecree}
               disabled={!canProceedToDecree || !selectedDecreeId || gavelAnimating}
-              className={`px-8 py-3 rounded-xl font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 transition-all shadow-lg ${
+              className={`px-8 py-3 rounded-xl font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 transition-all shadow-xs cursor-pointer ${
                 canProceedToDecree && selectedDecreeId && !gavelAnimating
-                  ? 'bg-amber-500 hover:bg-amber-600 text-black shadow-amber-500/20 scale-100 hover:scale-[1.02]'
+                  ? 'bg-zinc-100 hover:bg-white text-zinc-950 font-bold'
                   : 'bg-[var(--border-subtle)] text-[var(--text-muted)] cursor-not-allowed'
               }`}
             >
@@ -486,8 +486,8 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
 
           {/* Dissenting Opinion if incorrect */}
           {chosenDecreeObj.dissentingNote && (
-            <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 text-amber-300 space-y-1.5 font-mono text-xs">
-              <span className="font-bold uppercase flex items-center gap-1.5 text-amber-400">
+            <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 space-y-1.5 font-mono text-xs">
+              <span className="font-bold uppercase flex items-center gap-1.5 text-zinc-200">
                 <AlertCircle className="w-3.5 h-3.5" />
                 Historic Judicial Dissent
               </span>

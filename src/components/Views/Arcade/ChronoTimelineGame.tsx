@@ -112,7 +112,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
       <div className="py-2 px-3 sm:px-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono shadow-xs">
         <div className="flex items-center gap-2.5">
           <span className="font-bold text-[var(--text-primary)] flex items-center gap-1.5">
-            <History className="w-3.5 h-3.5 text-amber-400" />
+            <History className="w-3.5 h-3.5 text-zinc-300" />
             ChronoTimeline
           </span>
           <span className="text-[11px] text-[var(--text-muted)] border-l border-[var(--border-subtle)] pl-2">
@@ -127,12 +127,12 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
               className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-400" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-zinc-300" />}
             </button>
 
             <button
               onClick={handleResetChallenge}
-              className="p-1 rounded-lg text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer"
+              className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title="Reset Order"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -154,7 +154,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
       ===================================================================== */}
       <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-1">
         <div className="flex items-center justify-between gap-2 text-xs font-mono">
-          <span className="px-1.5 py-0.2 rounded text-[10px] uppercase font-bold tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20">
+          <span className="px-1.5 py-0.2 rounded text-[10px] uppercase font-bold tracking-wider bg-zinc-800 text-zinc-300 border border-zinc-700">
             {activeChallenge.theme}
           </span>
           <span className="text-[11px] text-[var(--text-muted)]">
@@ -212,7 +212,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
 
                     {/* Exact Year Revealed upon Verification */}
                     {isVerified !== null && (
-                      <span className="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25 shrink-0">
+                      <span className="px-1.5 py-0.2 rounded text-[10px] font-bold bg-zinc-800 text-zinc-200 border border-zinc-700 shrink-0">
                         {item.year}
                       </span>
                     )}
@@ -243,7 +243,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
                   <button
                     onClick={() => handleMoveUp(idx)}
                     disabled={idx === 0}
-                    className="p-1 rounded-md bg-[var(--bg-base)] border border-[var(--border-subtle)] disabled:opacity-30 hover:border-amber-400 text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer disabled:cursor-not-allowed"
+                    className="p-1 rounded-md bg-[var(--bg-base)] border border-[var(--border-subtle)] disabled:opacity-30 hover:border-zinc-400 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer disabled:cursor-not-allowed"
                     title="Move Earlier"
                   >
                     <ArrowUp className="w-3.5 h-3.5" />
@@ -251,7 +251,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
                   <button
                     onClick={() => handleMoveDown(idx)}
                     disabled={idx === currentOrder.length - 1}
-                    className="p-1 rounded-md bg-[var(--bg-base)] border border-[var(--border-subtle)] disabled:opacity-30 hover:border-amber-400 text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer disabled:cursor-not-allowed"
+                    className="p-1 rounded-md bg-[var(--bg-base)] border border-[var(--border-subtle)] disabled:opacity-30 hover:border-zinc-400 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer disabled:cursor-not-allowed"
                     title="Move Later"
                   >
                     <ArrowDown className="w-3.5 h-3.5" />
@@ -287,7 +287,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
           {isVerified === false && (
             <button
               onClick={handleRevealCanonical}
-              className="px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-amber-400 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
+              className="px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-zinc-500 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
             >
               Reveal Canonical Order
             </button>
@@ -296,7 +296,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
           {isVerified === true ? (
             <button
               onClick={handleNextChallenge}
-              className="px-4 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs flex items-center gap-1.5"
+              className="px-4 py-1.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs flex items-center gap-1.5"
             >
               <span>Next Challenge</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -304,7 +304,7 @@ export const ChronoTimelineGame: React.FC<ChronoTimelineGameProps> = ({ onAwardR
           ) : (
             <button
               onClick={handleVerify}
-              className="px-4 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs flex items-center gap-1.5"
+              className="px-4 py-1.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs flex items-center gap-1.5"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Verify Chronology</span>

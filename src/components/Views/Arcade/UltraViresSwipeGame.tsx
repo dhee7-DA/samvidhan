@@ -189,7 +189,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
       <div className="py-2 px-3 sm:px-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono shadow-xs">
         <div className="flex items-center gap-2.5">
           <span className="font-bold text-[var(--text-primary)] flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <Zap className="w-3.5 h-3.5 text-zinc-300" />
             Ultra Vires 60s
           </span>
 
@@ -201,7 +201,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
                 : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)]'
             }`}
           >
-            <Timer className="w-3 h-3 text-amber-400" />
+            <Timer className="w-3 h-3 text-zinc-400" />
             <span>{timeLeft}s</span>
           </div>
         </div>
@@ -210,8 +210,8 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
         <div className="flex items-center gap-2.5 text-[11px]">
           <span className="text-emerald-400 font-semibold">✓ {correctCount}</span>
           <span className="text-rose-400 font-semibold">✕ {wrongCount}</span>
-          <span className="text-amber-400 font-bold border-l border-[var(--border-subtle)] pl-2 flex items-center gap-1">
-            <Flame className="w-3 h-3 fill-current text-amber-500" />
+          <span className="text-zinc-300 font-bold border-l border-[var(--border-subtle)] pl-2 flex items-center gap-1">
+            <Flame className="w-3 h-3 fill-current text-zinc-400" />
             {currentStreak}x
           </span>
 
@@ -221,13 +221,13 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
               className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-400" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-zinc-300" />}
             </button>
 
             {gameState !== 'idle' && (
               <button
                 onClick={handleStartGame}
-                className="p-1 rounded-lg text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer"
+                className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
                 title="Restart Drill"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -266,9 +266,9 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           <div className="pt-1 flex justify-center">
             <button
               onClick={handleStartGame}
-              className="px-6 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
-              <Zap className="w-3.5 h-3.5 fill-current" />
+              <Zap className="w-3.5 h-3.5 text-zinc-900 fill-current" />
               <span>Start 60s Drill</span>
             </button>
           </div>
@@ -284,7 +284,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-2.5 shadow-xs min-h-[130px] flex flex-col justify-between">
             {/* Top Tag & Article Hint */}
             <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-1.5 text-[11px] font-mono">
-              <span className="font-semibold text-amber-400">
+              <span className="font-semibold text-[var(--text-primary)]">
                 {currentScenario.category}
               </span>
               <span className="text-[var(--text-muted)]">
@@ -369,7 +369,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
       {gameState === 'gameover' && (
         <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3.5 max-w-xl mx-auto shadow-xs animate-fadeIn">
           <div className="text-center space-y-1 pb-3 border-b border-[var(--border-subtle)]">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold block">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 font-bold block">
               60-Second Drill Completed
             </span>
             <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
@@ -390,7 +390,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
               <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
                 Accuracy
               </span>
-              <span className="text-sm sm:text-base font-bold text-amber-400">
+              <span className="text-sm sm:text-base font-bold text-zinc-100">
                 {correctCount + wrongCount > 0
                   ? Math.round((correctCount / (correctCount + wrongCount)) * 100)
                   : 0}
@@ -409,7 +409,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
               <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
                 XP
               </span>
-              <span className="text-sm sm:text-base font-bold text-purple-400">
+              <span className="text-sm sm:text-base font-bold text-zinc-300">
                 +{correctCount * 15}
               </span>
             </div>
@@ -430,7 +430,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
                       "{sc.situation}"
                     </span>
                     <div className="flex items-center gap-2 font-mono text-[10px]">
-                      <span className="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 font-bold">
+                      <span className="px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-200 font-bold border border-zinc-700">
                         {sc.verdict.replace('_', ' ')}
                       </span>
                       <span className="text-[var(--text-muted)]">
@@ -450,7 +450,7 @@ export const UltraViresSwipeGame: React.FC<UltraViresSwipeGameProps> = ({
           <div className="pt-1 flex items-center justify-center">
             <button
               onClick={handleStartGame}
-              className="px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+              className="px-4 py-2 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Play Another Round</span>

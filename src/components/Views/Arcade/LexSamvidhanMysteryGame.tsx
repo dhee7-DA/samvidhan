@@ -157,7 +157,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1.5">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-zinc-800 text-zinc-300 border border-zinc-700 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" />
                 Constitutional Deduction Game
               </span>
@@ -166,7 +166,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2.5">
-              <Target className="w-6 h-6 text-amber-400" />
+              <Target className="w-6 h-6 text-zinc-300" />
               LexSamvidhan: Daily Mystery Article
             </h2>
             <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
@@ -179,9 +179,9 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
             <div className="p-1 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1 font-mono text-xs">
               <button
                 onClick={() => startNewGame('daily')}
-                className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all ${
+                className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                   gameMode === 'daily'
-                    ? 'bg-amber-500 text-black shadow-sm'
+                    ? 'bg-zinc-100 text-zinc-950 shadow-xs'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -190,9 +190,9 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
               </button>
               <button
                 onClick={() => startNewGame('practice')}
-                className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all ${
+                className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                   gameMode === 'practice'
-                    ? 'bg-amber-500 text-black shadow-sm'
+                    ? 'bg-zinc-100 text-zinc-950 shadow-xs'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -203,16 +203,16 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
 
             <button
               onClick={toggleMute}
-              className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
+              className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-amber-500" />}
+              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-zinc-300" />}
             </button>
 
             {gameMode === 'practice' && (
               <button
                 onClick={() => startNewGame('practice')}
-                className="p-3 px-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-1.5"
+                className="p-3 px-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-zinc-500 transition-all flex items-center gap-1.5 cursor-pointer"
                 title="Roll New Random Mystery Article"
               >
                 <RotateCcw className="w-4 h-4" />
@@ -228,8 +228,8 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
             <span className="flex items-center gap-1 text-emerald-400 font-bold">
               <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block" /> Exact Match
             </span>
-            <span className="flex items-center gap-1 text-amber-400 font-bold">
-              <span className="w-2.5 h-2.5 rounded-sm bg-amber-500 inline-block" /> Close Part
+            <span className="flex items-center gap-1 text-zinc-300 font-bold">
+              <span className="w-2.5 h-2.5 rounded-sm bg-zinc-400 inline-block" /> Close Part
             </span>
             <span className="flex items-center gap-1 text-[var(--text-muted)]">
               <span className="w-2.5 h-2.5 rounded-sm bg-zinc-600 inline-block" /> Wrong
@@ -239,7 +239,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
             </span>
           </div>
 
-          <span className="font-bold text-amber-400">
+          <span className="font-bold text-[var(--text-primary)]">
             {evaluations.length} of {maxAttempts} Attempts Used
           </span>
         </div>
@@ -289,7 +289,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
                   ev.partMatch === 'EXACT'
                     ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold'
                     : ev.partMatch === 'NEAR'
-                    ? 'bg-amber-500/20 border-amber-500 text-amber-300 font-bold'
+                    ? 'bg-sky-500/20 border-sky-500 text-sky-300 font-bold'
                     : 'bg-zinc-800/60 border-zinc-700 text-zinc-400'
                 }`}
               >
@@ -356,8 +356,8 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
       {!isGameOver && (
         <div className="p-4 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] shadow-lg relative">
           <div className="relative">
-            <div className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20 transition-all">
-              <Search className="w-5 h-5 text-amber-500 shrink-0" />
+            <div className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] focus-within:border-zinc-500 focus-within:ring-2 focus-within:ring-zinc-500/20 transition-all">
+              <Search className="w-5 h-5 text-zinc-400 shrink-0" />
               <input
                 ref={searchInputRef}
                 type="text"
@@ -377,16 +377,16 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
 
             {/* Dropdown Suggestions */}
             {isDropdownOpen && availableArticles.length > 0 && (
-              <div className="absolute left-0 right-0 top-full mt-2 z-30 max-h-64 overflow-y-auto rounded-2xl bg-[var(--bg-surface-elevated)] border-2 border-[var(--border-subtle)] shadow-2xl divide-y divide-[var(--border-subtle)]">
+              <div className="absolute left-0 right-0 top-full mt-2 z-30 max-h-64 overflow-y-auto rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl divide-y divide-[var(--border-subtle)]">
                 {availableArticles.map((article) => (
                   <div
                     key={article.articleNumber}
                     onClick={() => handleSelectArticle(article)}
-                    className="p-3 hover:bg-amber-500/10 cursor-pointer transition-colors flex items-center justify-between gap-3 text-xs"
+                    className="p-3 hover:bg-[var(--bg-card)] cursor-pointer transition-colors flex items-center justify-between gap-3 text-xs"
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-black font-mono text-amber-400">
+                        <span className="font-bold font-mono text-[var(--text-primary)]">
                           {article.articleLabel}
                         </span>
                         <span className="text-[10px] font-mono text-[var(--text-muted)]">
@@ -401,7 +401,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
                       </p>
                     </div>
 
-                    <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider shrink-0">
+                    <span className="text-[10px] font-mono font-bold text-zinc-300 uppercase tracking-wider shrink-0">
                       Select
                     </span>
                   </div>
@@ -417,7 +417,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
       ===================================================================== */}
       <div className="p-4 md:p-5 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3">
         <h4 className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)] font-bold flex items-center gap-2">
-          <BookOpen className="w-4 h-4 text-amber-400" />
+          <BookOpen className="w-4 h-4 text-zinc-300" />
           Progressive Clues Chamber:
         </h4>
 
@@ -426,12 +426,12 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
           <div
             className={`p-3.5 rounded-2xl border space-y-1.5 transition-all ${
               evaluations.length >= 2
-                ? 'bg-amber-500/5 border-amber-500/30 text-[var(--text-primary)]'
+                ? 'bg-[var(--bg-surface-elevated)] border-[var(--border-strong)] text-[var(--text-primary)]'
                 : 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-50'
             }`}
           >
             <div className="flex items-center justify-between text-[10px] font-mono font-bold">
-              <span className="text-amber-400">Clue 1: CAD Historical Framing</span>
+              <span className="text-zinc-300 font-semibold">Clue 1: CAD Historical Framing</span>
               {evaluations.length >= 2 ? (
                 <Unlock className="w-3.5 h-3.5 text-emerald-400" />
               ) : (
@@ -449,12 +449,12 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
           <div
             className={`p-3.5 rounded-2xl border space-y-1.5 transition-all ${
               evaluations.length >= 4
-                ? 'bg-amber-500/5 border-amber-500/30 text-[var(--text-primary)]'
+                ? 'bg-[var(--bg-surface-elevated)] border-[var(--border-strong)] text-[var(--text-primary)]'
                 : 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-50'
             }`}
           >
             <div className="flex items-center justify-between text-[10px] font-mono font-bold">
-              <span className="text-amber-400">Clue 2: Latin Maxim / Doctrine</span>
+              <span className="text-zinc-300 font-semibold">Clue 2: Latin Maxim / Doctrine</span>
               {evaluations.length >= 4 ? (
                 <Unlock className="w-3.5 h-3.5 text-emerald-400" />
               ) : (
@@ -472,12 +472,12 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
           <div
             className={`p-3.5 rounded-2xl border space-y-1.5 transition-all ${
               evaluations.length >= 5
-                ? 'bg-amber-500/5 border-amber-500/30 text-[var(--text-primary)]'
+                ? 'bg-[var(--bg-surface-elevated)] border-[var(--border-strong)] text-[var(--text-primary)]'
                 : 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-50'
             }`}
           >
             <div className="flex items-center justify-between text-[10px] font-mono font-bold">
-              <span className="text-amber-400">Clue 3: Bench Ratio Excerpt</span>
+              <span className="text-zinc-300 font-semibold">Clue 3: Bench Ratio Excerpt</span>
               {evaluations.length >= 5 ? (
                 <Unlock className="w-3.5 h-3.5 text-emerald-400" />
               ) : (
@@ -499,7 +499,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
       {isGameOver && (
         <div className="p-6 md:p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] space-y-6 animate-fadeIn">
           <div className="text-center space-y-2 pb-4 border-b border-[var(--border-subtle)]">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mx-auto text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto text-zinc-300">
               {isVictory ? <Award className="w-5 h-5" /> : <Scale className="w-5 h-5 text-[var(--text-muted)]" />}
             </div>
             <h3 className="text-2xl font-black text-[var(--text-primary)]">
@@ -511,7 +511,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
             </h3>
             <p className="text-xs md:text-sm text-[var(--text-secondary)]">
               The Mystery Target was{' '}
-              <strong className="text-amber-400 font-mono text-base">
+              <strong className="text-[var(--text-primary)] font-mono text-base">
                 {targetArticle.articleLabel}
               </strong>{' '}
               ({targetArticle.partTitle})
@@ -522,14 +522,14 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
           <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2.5">
               <div>
-                <span className="text-[10px] font-mono text-amber-500 uppercase font-bold block">
+                <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase font-bold block">
                   Constitutional Dossier
                 </span>
                 <h4 className="font-black text-lg text-[var(--text-primary)]">
                   {targetArticle.articleLabel}: {targetArticle.category}
                 </h4>
               </div>
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 shrink-0 font-bold">
+              <span className="text-xs font-mono px-3 py-1 rounded-full bg-zinc-800 text-zinc-200 border border-zinc-700 shrink-0 font-bold">
                 {targetArticle.justiciability}
               </span>
             </div>
@@ -540,7 +540,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-xs">
               <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-                <span className="text-[10px] font-mono uppercase text-amber-400 block font-bold">
+                <span className="text-[10px] font-mono uppercase text-[var(--text-secondary)] block font-bold">
                   Lead Precedent:
                 </span>
                 <strong className="text-[var(--text-primary)] block mt-0.5">
@@ -552,7 +552,7 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
               </div>
 
               <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-                <span className="text-[10px] font-mono uppercase text-amber-400 block font-bold">
+                <span className="text-[10px] font-mono uppercase text-[var(--text-secondary)] block font-bold">
                   Constituent Assembly (CAD) History:
                 </span>
                 <p className="text-[11px] text-[var(--text-secondary)] mt-0.5 leading-relaxed">
@@ -566,15 +566,15 @@ export const LexSamvidhanMysteryGame: React.FC<LexSamvidhanMysteryGameProps> = (
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
             <button
               onClick={handleCopyShare}
-              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-black text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg"
+              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
             >
               <Share2 className="w-4 h-4" />
-              <span>{copiedShare ? 'Copied Emoji Grid!' : 'Share Score Grid'}</span>
+              <span>{copiedShare ? 'Copied Score Grid!' : 'Share Score Grid'}</span>
             </button>
 
             <button
               onClick={() => startNewGame('practice')}
-              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-500 text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-zinc-500 text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <RotateCcw className="w-4 h-4" />
               <span>Play Another Practice Puzzle</span>

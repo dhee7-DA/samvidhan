@@ -30,11 +30,11 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-subtle)] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center text-zinc-300">
               <Scale className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-bold uppercase text-amber-500 tracking-wider">
+              <span className="text-[10px] font-mono font-bold uppercase text-[var(--text-secondary)] tracking-wider">
                 Judicial Career Portfolio
               </span>
               <h3 className="text-lg font-serif font-bold text-[var(--text-primary)]">
@@ -44,7 +44,7 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all"
+            className="w-8 h-8 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -58,16 +58,16 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
             </span>
             {nextRank ? (
               <span className="text-[var(--text-muted)]">
-                Next: <strong className="text-amber-500">{nextRank.title}</strong> ({nextRank.minXP.toLocaleString()} XP)
+                Next: <strong className="text-[var(--text-primary)] font-semibold">{nextRank.title}</strong> ({nextRank.minXP.toLocaleString()} XP)
               </span>
             ) : (
-              <span className="text-amber-500 font-bold">Highest Constitutional Office Attained</span>
+              <span className="text-[var(--text-primary)] font-bold">Highest Constitutional Office Attained</span>
             )}
           </div>
 
           <div className="w-full h-2.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-500"
+              className="h-full bg-zinc-300 dark:bg-zinc-400 rounded-full transition-all duration-500"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -82,7 +82,7 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
         <div className="p-6 overflow-y-auto space-y-4 flex-1">
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono uppercase font-bold text-[var(--text-primary)] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <Sparkles className="w-3.5 h-3.5 text-zinc-300" />
               Constitutional Achievements ({profile.unlockedBadgeIds.length} of {ARCADE_BADGES.length})
             </span>
           </div>
@@ -95,13 +95,13 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
                   key={b.id}
                   className={`p-3.5 rounded-2xl border transition-all flex items-start gap-3 ${
                     isUnlocked
-                      ? 'bg-amber-500/5 border-amber-500/30'
+                      ? 'bg-[var(--bg-surface-elevated)] border-[var(--border-strong)]'
                       : 'bg-[var(--bg-base)] border-[var(--border-subtle)] opacity-50'
                   }`}
                 >
                   <div className="w-9 h-9 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                     {isUnlocked ? (
-                      <Award className="w-4 h-4 text-amber-400" />
+                      <Award className="w-4 h-4 text-zinc-200" />
                     ) : (
                       <Lock className="w-3.5 h-3.5 text-[var(--text-muted)]" />
                     )}
@@ -111,7 +111,7 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
                       <span className="text-xs font-bold font-serif text-[var(--text-primary)]">
                         {b.title}
                       </span>
-                      {isUnlocked && <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />}
+                      {isUnlocked && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />}
                     </div>
                     <p className="text-[11px] font-mono text-[var(--text-muted)] leading-relaxed">
                       {b.description}

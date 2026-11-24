@@ -288,7 +288,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1.5">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-zinc-800 text-zinc-300 border border-zinc-700 flex items-center gap-1.5">
                 <Gavel className="w-3.5 h-3.5" />
                 Supreme Court of India • Courtroom 1
               </span>
@@ -297,7 +297,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2.5">
-              <Scale className="w-6 h-6 text-amber-500" />
+              <Scale className="w-6 h-6 text-zinc-300" />
               The Constitution Bench Moot Showdown
             </h2>
             <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
@@ -309,16 +309,16 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={toggleMute}
-              className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
+              className="p-3 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-amber-500" />}
+              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-zinc-300" />}
             </button>
 
             {screenState !== 'select' && (
               <button
                 onClick={() => setScreenState('select')}
-                className="p-3 px-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-amber-400 transition-all flex items-center gap-1.5"
+                className="p-3 px-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-zinc-500 transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Change Case / Role</span>
@@ -399,7 +399,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
       {screenState === 'select' && (
         <div className="p-6 md:p-8 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-xl space-y-8 animate-fadeIn">
           <div>
-            <span className="text-xs font-mono font-bold uppercase text-amber-500">Step 1 of 2</span>
+            <span className="text-xs font-mono font-bold uppercase text-[var(--text-secondary)]">Step 1 of 2</span>
             <h3 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mt-0.5">
               Select Your Landmark Constitution Bench Dossier
             </h3>
@@ -419,12 +419,12 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
                   onClick={() => setSelectedCaseId(dossier.id)}
                   className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between space-y-4 ${
                     isSelected
-                      ? 'bg-amber-500/15 border-amber-500 shadow-lg ring-1 ring-amber-500'
-                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-amber-500/40'
+                      ? 'bg-zinc-850 border-zinc-300 text-zinc-100 shadow-xs ring-1 ring-zinc-500'
+                      : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-zinc-500'
                   }`}
                 >
                   <div className="space-y-2">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-500 block">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--text-secondary)] block">
                       Year {dossier.year} • Constitution Bench
                     </span>
                     <h4 className="text-sm font-black text-[var(--text-primary)] leading-snug">
@@ -455,7 +455,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
 
           {/* Step 2: Role Selection */}
           <div className="space-y-3 pt-2 border-t border-[var(--border-subtle)]">
-            <span className="text-xs font-mono font-bold uppercase text-amber-500">Step 2 of 2</span>
+            <span className="text-xs font-mono font-bold uppercase text-[var(--text-secondary)]">Step 2 of 2</span>
             <h4 className="text-sm font-black text-[var(--text-primary)]">Select Your Courtroom Role:</h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -485,13 +485,13 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
                 onClick={() => setSelectedRole('RESPONDENT')}
                 className={`p-5 rounded-2xl border text-left transition-all cursor-pointer ${
                   selectedRole === 'RESPONDENT'
-                    ? 'bg-amber-500/15 border-amber-500 text-amber-300 ring-2 ring-amber-500 shadow-md'
+                    ? 'bg-indigo-500/15 border-indigo-500 text-indigo-300 ring-2 ring-indigo-500 shadow-md'
                     : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-black uppercase text-amber-400">Solicitor General of India</span>
-                  <Shield className="w-4 h-4 text-amber-400" />
+                  <span className="text-xs font-black uppercase text-indigo-400">Solicitor General of India</span>
+                  <Shield className="w-4 h-4 text-indigo-400" />
                 </div>
                 <div className="text-xs font-semibold text-[var(--text-primary)]">
                   Defend the legislative enactment & presumption of constitutionality!
@@ -507,7 +507,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
           <div className="flex justify-end pt-2">
             <button
               onClick={handleStartTrial}
-              className="px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-wider bg-amber-500 hover:bg-amber-400 text-black shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+              className="px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-100 hover:bg-white text-zinc-950 shadow-xs transition-all flex items-center gap-2 cursor-pointer"
             >
               <Gavel className="w-4 h-4" />
               <span>APPEAR BEFORE THE CONSTITUTION BENCH</span>
@@ -525,7 +525,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
           <div className="lg:col-span-2 space-y-6">
             <div className="p-6 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-xl space-y-5">
               <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
-                <span className="text-xs font-mono font-bold uppercase text-amber-500 flex items-center gap-1.5">
+                <span className="text-xs font-mono font-bold uppercase text-[var(--text-secondary)] flex items-center gap-1.5">
                   <Clock className="w-4 h-4" />
                   Round {currentRound} of 3: {currentRound === 1 ? 'Maintainability & Locus' : currentRound === 2 ? 'Substantive Challenge' : 'Interlocutory Grilling'}
                 </span>
@@ -562,19 +562,19 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
                       return (
                         <div
                           key={card.id}
-                          className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-amber-500/50 flex flex-col justify-between space-y-3 transition-all cursor-pointer shadow-sm group"
+                          className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-zinc-500 flex flex-col justify-between space-y-3 transition-all cursor-pointer shadow-xs group"
                           onClick={() => handlePlayCard(card)}
                         >
                           <div className="space-y-1.5">
                             <div className="flex items-center justify-between">
-                              <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                              <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700">
                                 {card.cardType}
                               </span>
                               <span className="text-[10px] font-mono font-bold text-emerald-400">
                                 Impact: {power}/10
                               </span>
                             </div>
-                            <h4 className="text-xs font-extrabold text-[var(--text-primary)] group-hover:text-amber-400 transition-colors">
+                            <h4 className="text-xs font-extrabold text-[var(--text-primary)] group-hover:text-[var(--text-primary)] transition-colors">
                               {card.title}
                             </h4>
                             <p className="text-[11px] text-[var(--text-secondary)] italic leading-tight">
@@ -586,7 +586,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
                             <span className="text-[10px] font-mono text-[var(--text-muted)] truncate max-w-[150px]">
                               {card.citation}
                             </span>
-                            <span className="text-[11px] font-black text-amber-500 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            <span className="text-[11px] font-bold text-zinc-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                               PLAY CARD <ArrowRight className="w-3 h-3" />
                             </span>
                           </div>
@@ -599,14 +599,15 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
 
               {/* ROUND 3: 15-SECOND INTERLOCUTORY QUESTION */}
               {currentRound === 3 && (
-                <div className="p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/40 space-y-4 animate-fadeIn">
+                <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-700 space-y-4 animate-fadeIn">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase text-amber-400 flex items-center gap-1.5">
-                      <AlertTriangle className="w-4 h-4 text-amber-400 animate-pulse" />
+                    <span className="text-xs font-mono font-bold uppercase text-rose-400 flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-rose-400 animate-pulse" />
                       Interlocutory Challenge from the Bench:
                     </span>
-                    <span className="text-lg font-mono font-black text-rose-400 animate-pulse">
-                      ⏱️ {interlocutoryTimer}s
+                    <span className="text-lg font-mono font-black text-rose-400 animate-pulse flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{interlocutoryTimer}s</span>
                     </span>
                   </div>
 
@@ -620,7 +621,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
                         key={opt.id}
                         type="button"
                         onClick={() => handleInterlocutoryAnswer(opt.id)}
-                        className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-amber-500 text-left text-xs text-[var(--text-primary)] transition-all flex items-start gap-2.5 cursor-pointer"
+                        className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-zinc-500 text-left text-xs text-[var(--text-primary)] transition-all flex items-start gap-2.5 cursor-pointer"
                       >
                         <span className="w-5 h-5 rounded-md bg-[var(--bg-base)] text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
                           {String.fromCharCode(65 + oIdx)}
@@ -638,7 +639,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
           <div className="p-5 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-xl flex flex-col justify-between space-y-4 max-h-[550px] overflow-hidden">
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
-                <span className="text-xs font-mono font-bold uppercase text-amber-500 flex items-center gap-1.5">
+                <span className="text-xs font-mono font-bold uppercase text-zinc-300 flex items-center gap-1.5">
                   <BookOpen className="w-4 h-4" />
                   Courtroom Transcript
                 </span>
@@ -648,7 +649,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
               <div className="space-y-3 overflow-y-auto max-h-[420px] pr-1">
                 {trialLog.map((log, lIdx) => (
                   <div key={lIdx} className="text-xs space-y-1">
-                    <span className="font-mono font-bold text-amber-400 block text-[10px] uppercase">
+                    <span className="font-mono font-bold text-zinc-300 block text-[10px] uppercase">
                       {log.speaker}:
                     </span>
                     <p className="text-[var(--text-secondary)] leading-snug bg-[var(--bg-base)] p-2.5 rounded-xl border border-[var(--border-subtle)]">
@@ -666,9 +667,9 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
           SCREEN 3: FINAL BENCH VERDICT & DECREE
       ===================================================================== */}
       {screenState === 'verdict' && (
-        <div className="p-8 md:p-12 rounded-3xl bg-[var(--bg-card)] border-2 border-amber-500/50 shadow-2xl text-center space-y-8 animate-fadeIn">
-          <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border-2 border-amber-500 text-amber-400 flex items-center justify-center mx-auto shadow-xl">
-            {agreeCount >= 3 ? <Trophy className="w-8 h-8 text-amber-400" /> : <Scale className="w-8 h-8 text-[var(--text-muted)]" />}
+        <div className="p-8 md:p-12 rounded-3xl bg-[var(--bg-card)] border border-zinc-700 shadow-2xl text-center space-y-8 animate-fadeIn">
+          <div className="w-16 h-16 rounded-2xl bg-zinc-800 border border-zinc-700 text-zinc-100 flex items-center justify-center mx-auto shadow-xl">
+            {agreeCount >= 3 ? <Trophy className="w-8 h-8 text-zinc-100" /> : <Scale className="w-8 h-8 text-[var(--text-muted)]" />}
           </div>
 
           <div className="space-y-3 max-w-xl mx-auto">
@@ -695,7 +696,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
 
           {/* Historical Case Outcome Note */}
           <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-left max-w-2xl mx-auto space-y-2">
-            <span className="text-[10px] font-mono font-bold uppercase text-amber-500 block">
+            <span className="text-[10px] font-mono font-bold uppercase text-zinc-400 block">
               Actual Supreme Court Landmark Decision:
             </span>
             <div className="text-xs font-bold text-[var(--text-primary)]">
@@ -710,7 +711,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
           <div className="pt-2 flex justify-center gap-3">
             <button
               onClick={() => setScreenState('select')}
-              className="px-8 py-3.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-amber-500 hover:bg-amber-400 text-black shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+              className="px-8 py-3.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-zinc-100 hover:bg-white text-zinc-950 shadow-lg transition-all flex items-center gap-2 cursor-pointer"
             >
               <RotateCcw className="w-4 h-4" />
               <span>ARGUE ANOTHER LANDMARK CASE</span>

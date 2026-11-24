@@ -186,12 +186,12 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
       {/* Header Banner */}
       <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shadow-inner">
-            <Zap className="w-6 h-6" />
+          <div className="w-10 h-10 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center text-zinc-300">
+            <Zap className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-500">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                 Rapid Reflex Drill
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
@@ -254,8 +254,8 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
       {/* Game Not Started Screen */}
       {!isPlaying && !isGameOver && (
         <div className="p-8 sm:p-12 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center space-y-6 animate-fadeIn">
-          <div className="w-16 h-16 rounded-3xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center mx-auto shadow-sm">
-            <Zap className="w-8 h-8 animate-pulse" />
+          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-zinc-300 flex items-center justify-center mx-auto shadow-xs">
+            <Zap className="w-6 h-6" />
           </div>
 
           <div className="max-w-md mx-auto space-y-2">
@@ -269,7 +269,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-[var(--text-secondary)]">
             <div className="flex items-center gap-2">
-              <Timer className="w-4 h-4 text-amber-500" /> 60-Second Clock
+              <Timer className="w-4 h-4 text-zinc-400" /> 60-Second Clock
             </div>
             <div className="flex items-center gap-2">
               <Flame className="w-4 h-4 text-rose-500" /> Streak Multipliers
@@ -281,7 +281,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
 
           <button
             onClick={startGame}
-            className="px-8 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm font-mono tracking-wider uppercase inline-flex items-center gap-2.5 transition-all shadow-lg shadow-amber-500/20 scale-100 hover:scale-[1.03]"
+            className="px-8 py-3 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono tracking-wider uppercase inline-flex items-center gap-2.5 transition-all shadow-xs cursor-pointer"
           >
             <Play className="w-4 h-4 fill-current" /> Start 60s Blitz
           </button>
@@ -299,7 +299,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
                 className={`w-10 h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm border ${
                   timeLeft <= 10
                     ? 'bg-rose-500/10 border-rose-500 text-rose-500 animate-pulse'
-                    : 'bg-amber-500/10 border-amber-500/30 text-amber-500'
+                    : 'bg-zinc-800 text-zinc-200 border-zinc-700'
                 }`}
               >
                 {timeLeft}s
@@ -328,7 +328,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
           <div className="w-full h-1.5 rounded-full bg-[var(--bg-base)] overflow-hidden">
             <div
               className={`h-full transition-all duration-1000 ${
-                timeLeft <= 10 ? 'bg-rose-500' : 'bg-amber-500'
+                timeLeft <= 10 ? 'bg-rose-500' : 'bg-zinc-300 dark:bg-zinc-400'
               }`}
               style={{ width: `${(timeLeft / 60) * 100}%` }}
             />
@@ -344,7 +344,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
                 : 'bg-[var(--bg-base)] border-[var(--border-subtle)]'
             }`}
           >
-            <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-md bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-amber-500 font-semibold">
+            <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-md bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-secondary)] font-semibold">
               {currentQ.part} • {currentQ.category.toUpperCase()}
             </span>
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-[var(--text-primary)]">
@@ -360,7 +360,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
             {currentQ.options.map((opt, idx) => {
               const isSelected = selectedOpt === opt;
               const isCorrectAnswer = opt === currentQ.correctAnswer;
-              let btnStyle = 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-amber-500/50';
+              let btnStyle = 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-zinc-500 cursor-pointer';
 
               if (feedback) {
                 if (isCorrectAnswer) {
@@ -404,8 +404,8 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
       {isGameOver && (
         <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-6 animate-fadeIn">
           <div className="text-center space-y-2">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center mx-auto shadow-inner">
-              <Trophy className="w-7 h-7" />
+            <div className="w-12 h-12 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-zinc-300 flex items-center justify-center mx-auto shadow-xs">
+              <Trophy className="w-6 h-6" />
             </div>
             <h3 className="text-2xl font-serif font-bold text-[var(--text-primary)]">
               Blitz Round Complete!
@@ -419,7 +419,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center">
               <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">Final Score</span>
-              <p className="text-2xl font-bold font-mono text-amber-500 mt-1">{score}</p>
+              <p className="text-2xl font-bold font-mono text-[var(--text-primary)] mt-1">{score}</p>
             </div>
             <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center">
               <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">Max Streak</span>
@@ -457,7 +457,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
                       className="p-3 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs font-mono"
                     >
                       <div>
-                        <span className="font-bold text-amber-500 mr-2">{q.articleNumber}:</span>
+                        <span className="font-bold text-[var(--text-primary)] mr-2">{q.articleNumber}:</span>
                         <span className="text-[var(--text-primary)]">{q.title}</span>
                         <p className="text-[11px] text-[var(--text-muted)] mt-0.5">{q.examTrapNote}</p>
                       </div>
@@ -491,7 +491,7 @@ export const ArticleBlitzGame: React.FC<Props> = ({ onAwardResult }) => {
           <div className="flex items-center justify-center gap-4 pt-2">
             <button
               onClick={startGame}
-              className="px-8 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-md"
+              className="px-8 py-3 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all shadow-xs cursor-pointer"
             >
               <RotateCcw className="w-4 h-4" /> Play Again
             </button>

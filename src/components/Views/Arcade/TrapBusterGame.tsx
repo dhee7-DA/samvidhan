@@ -172,7 +172,7 @@ export const TrapBusterGame: React.FC<TrapBusterGameProps> = ({ onAwardResult })
           <div className="grid grid-cols-3 gap-3 w-full max-w-md text-left font-mono text-xs">
             <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
               <span className="text-[10px] text-[var(--text-muted)] block">CLOCK</span>
-              <strong className="text-amber-400 font-bold">30s + Time Bonus</strong>
+              <strong className="text-[var(--text-primary)] font-bold">30s + Time Bonus</strong>
             </div>
             <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
               <span className="text-[10px] text-[var(--text-muted)] block">INPUTS</span>
@@ -205,7 +205,7 @@ export const TrapBusterGame: React.FC<TrapBusterGameProps> = ({ onAwardResult })
                 <strong className="text-base text-[var(--text-primary)] font-extrabold">{score}</strong>
               </div>
               {streak > 1 && (
-                <div className="flex items-center gap-1 text-amber-400 font-bold animate-bounce">
+                <div className="flex items-center gap-1 text-rose-400 font-bold animate-bounce">
                   <Flame className="w-4 h-4 fill-current" />
                   <span>{streak}x Combo</span>
                 </div>
@@ -217,7 +217,7 @@ export const TrapBusterGame: React.FC<TrapBusterGameProps> = ({ onAwardResult })
               <div className="w-28 sm:w-40 bg-[var(--bg-base)] h-2.5 rounded-full overflow-hidden border border-[var(--border-subtle)]">
                 <div
                   className={`h-full transition-all duration-300 ${
-                    timeLeft <= 10 ? 'bg-rose-500 animate-pulse' : 'bg-amber-400'
+                    timeLeft <= 10 ? 'bg-rose-500 animate-pulse' : 'bg-zinc-300 dark:bg-zinc-400'
                   }`}
                   style={{ width: `${Math.min(100, (timeLeft / 30) * 100)}%` }}
                 />
@@ -325,8 +325,8 @@ export const TrapBusterGame: React.FC<TrapBusterGameProps> = ({ onAwardResult })
       {/* Summary State */}
       {gameState === 'summary' && (
         <div className="p-8 sm:p-10 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-center max-w-xl mx-auto flex flex-col items-center gap-5 animate-fadeIn">
-          <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-sm">
-            <Award className="w-8 h-8" />
+          <div className="w-12 h-12 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center text-zinc-300 shadow-xs">
+            <Award className="w-6 h-6" />
           </div>
 
           <div>
@@ -345,7 +345,7 @@ export const TrapBusterGame: React.FC<TrapBusterGameProps> = ({ onAwardResult })
             </div>
             <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
               <span className="text-[10px] text-[var(--text-muted)] uppercase block">MAX STREAK</span>
-              <strong className="text-2xl text-amber-400 font-extrabold">{maxStreak}x</strong>
+              <strong className="text-2xl text-[var(--text-primary)] font-extrabold">{maxStreak}x</strong>
             </div>
           </div>
 

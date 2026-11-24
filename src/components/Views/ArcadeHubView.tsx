@@ -109,10 +109,10 @@ export const ArcadeHubView: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6 animate-fadeIn">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-2xl bg-amber-500 text-black font-mono font-bold text-xs shadow-2xl flex items-center gap-3 animate-bounce">
-          <Sparkles className="w-5 h-5 fill-current" />
+        <div className="fixed bottom-6 right-6 z-50 p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-strong)] text-[var(--text-primary)] font-mono font-medium text-xs shadow-xl flex items-center gap-3">
+          <Sparkles className="w-4 h-4 text-zinc-300" />
           <span>{toastMessage}</span>
-          <button onClick={() => setToastMessage(null)} className="ml-2 font-bold hover:opacity-80">
+          <button onClick={() => setToastMessage(null)} className="ml-2 font-bold text-[var(--text-muted)] hover:text-[var(--text-primary)]">
             ✕
           </button>
         </div>
@@ -121,7 +121,7 @@ export const ArcadeHubView: React.FC = () => {
       {/* Top Judicial Career Bar (Minimalist & Compact) */}
       <div className="py-2 px-3.5 sm:px-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-xs">
         <div className="flex items-center gap-2">
-          <Scale className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+          <Scale className="w-3.5 h-3.5 text-zinc-300 shrink-0" />
           <span className="font-bold text-[var(--text-primary)]">{currentRank.title}</span>
           <span className="text-[10px] text-[var(--text-muted)] border-l border-[var(--border-subtle)] pl-2">
             Lv. {currentRank.level}/7
@@ -130,7 +130,7 @@ export const ArcadeHubView: React.FC = () => {
             <span>{profile.xp.toLocaleString()} XP</span>
             <div className="w-16 h-1.5 rounded-full bg-[var(--bg-base)] overflow-hidden">
               <div
-                className="h-full bg-amber-400 rounded-full transition-all duration-500"
+                className="h-full bg-zinc-300 dark:bg-zinc-400 rounded-full transition-all duration-500"
                 style={{ width: `${progressPct}%` }}
               />
             </div>
@@ -142,7 +142,7 @@ export const ArcadeHubView: React.FC = () => {
 
         <div className="flex items-center gap-2.5">
           <div className="flex items-center gap-1 text-[11px] text-[var(--text-secondary)]">
-            <Flame className="w-3.5 h-3.5 text-amber-500" />
+            <Flame className="w-3.5 h-3.5 text-zinc-400" />
             <span>{profile.streakDays}d streak</span>
           </div>
 
@@ -150,7 +150,7 @@ export const ArcadeHubView: React.FC = () => {
             onClick={() => setBadgesModalOpen(true)}
             className="px-2.5 py-1 rounded-lg bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-[10px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center gap-1 cursor-pointer"
           >
-            <Trophy className="w-3 h-3 text-amber-400" />
+            <Trophy className="w-3 h-3 text-zinc-400" />
             <span>{profile.unlockedBadgeIds.length} Badges</span>
           </button>
         </div>
@@ -184,7 +184,7 @@ export const ArcadeHubView: React.FC = () => {
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
-              <tab.icon className={`w-3.5 h-3.5 ${isActive ? 'text-amber-400' : 'text-[var(--text-muted)]'}`} />
+              <tab.icon className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--text-primary)]' : 'text-[var(--text-muted)]'}`} />
               <span>{tab.label}</span>
             </button>
           );

@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-24 23:09:44 (+05:30) |
+| **Last Log Sync** | 2026-11-24 23:52:42 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `3da36ab` (2026-11-23T12:04:02+05:30) |
-| **Total Commits** | 115 |
-| **Total Files Indexed** | 319 (315 tracked, 4 new untracked) |
-| **Working Tree** | 6 pending change(s) |
+| **Branch / HEAD** | `main` @ `65aac87` (2026-11-24T23:10:23+05:30) |
+| **Total Commits** | 116 |
+| **Total Files Indexed** | 319 (319 tracked, 0 new untracked) |
+| **Working Tree** | 14 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-24 23:52:42 (+05:30)] Complete arcade-wide purge of yellow gradients and amber CTAs in favor of editorial monochrome (DONE)
+- **Details:** Refactored all 14 arcade components (Constitutional Connections, Ultra Vires Swipe, Chrono Timeline, Seventh Schedule Sort, Career Badges, LexSamvidhan, Article Blitz, Writs Emergency Room, Trap Buster, Chief Justice Bench, Constitutional Escape Room, Constituent Assembly RPG, Moot Simulator, and Arcade Hub) to eliminate loud yellow gradients and bright amber buttons, adopting a disciplined monochrome aesthetic (bg-zinc-100 text-zinc-950 CTAs, neutral zinc borders, subtle dark elevation, and disciplined semantic indicators for intra/ultra vires). Verified 0 amber color classes remain, npx tsc -b passed with 0 errors, and npm run build passed.
+- **Files Touched (14):** `M src/components/Views/Arcade/ArticleBlitzGame.tsx`, `M src/components/Views/Arcade/CareerBadgesModal.tsx`, `M src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx`, `M src/components/Views/Arcade/ChronoTimelineGame.tsx`, `M src/components/Views/Arcade/ConstituentAssemblyRPG.tsx`, `M src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx`, `M src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx`, `M src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx`, `M src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx`, `M src/components/Views/Arcade/SeventhScheduleSortGame.tsx`, `M src/components/Views/Arcade/TrapBusterGame.tsx`, `M src/components/Views/Arcade/UltraViresSwipeGame.tsx`, `M src/components/Views/Arcade/WritsEmergencyRoom.tsx`, `M src/components/Views/ArcadeHubView.tsx`
+- **Git HEAD:** `main` @ `65aac87`
 
 ### [2026-11-24 23:09:44 (+05:30)] Add ChronoTimeline and 7th Schedule Speed Sorter memory games (DONE)
 - **Details:** Created ChronoTimeline interactive precedent and amendment chronological ordering game and 7th Schedule 3-bucket speed sorter with keyboard shortcuts and trap explanations. Integrated both into ArcadeHub navigation with zero emojis, compact layouts, audio feedback, and judicial career awards.
@@ -356,7 +361,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 87.6 KB | 950 | `3da36ab` (2026-11-23) |
+| `PROJECT_LOG.md` | 88.9 KB | 960 | `65aac87` (2026-11-24) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -444,7 +449,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 9.7 KB | 242 | `3da36ab` (2026-11-23) |
+| `src/components/Views/ArcadeHubView.tsx` | 9.8 KB | 242 | `65aac87` (2026-11-24) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
@@ -488,19 +493,19 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.3 KB | 504 | `7aac50b` (2026-11-19) |
-| `src/components/Views/Arcade/CareerBadgesModal.tsx` | 6.0 KB | 139 | `3da36ab` (2026-11-23) |
+| `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.4 KB | 504 | `7aac50b` (2026-11-19) |
+| `src/components/Views/Arcade/CareerBadgesModal.tsx` | 6.2 KB | 139 | `3da36ab` (2026-11-23) |
 | `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.4 KB | 576 | `3da36ab` (2026-11-23) |
-| `src/components/Views/Arcade/ChronoTimelineGame.tsx` | 13.2 KB | 318 | new (uncommitted) |
-| `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.3 KB | 700 | `3da36ab` (2026-11-23) |
+| `src/components/Views/Arcade/ChronoTimelineGame.tsx` | 13.2 KB | 318 | `65aac87` (2026-11-24) |
+| `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.6 KB | 700 | `3da36ab` (2026-11-23) |
 | `src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx` | 18.8 KB | 488 | `3da36ab` (2026-11-23) |
-| `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 46.2 KB | 1008 | `3da36ab` (2026-11-23) |
-| `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.7 KB | 724 | `3da36ab` (2026-11-23) |
-| `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 26.7 KB | 588 | `3da36ab` (2026-11-23) |
-| `src/components/Views/Arcade/SeventhScheduleSortGame.tsx` | 18.3 KB | 443 | new (uncommitted) |
-| `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.8 KB | 364 | `3da36ab` (2026-11-23) |
+| `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 46.3 KB | 1008 | `3da36ab` (2026-11-23) |
+| `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.9 KB | 725 | `3da36ab` (2026-11-23) |
+| `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 27.0 KB | 588 | `3da36ab` (2026-11-23) |
+| `src/components/Views/Arcade/SeventhScheduleSortGame.tsx` | 18.4 KB | 443 | `65aac87` (2026-11-24) |
+| `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.9 KB | 364 | `3da36ab` (2026-11-23) |
 | `src/components/Views/Arcade/UltraViresSwipeGame.tsx` | 18.8 KB | 464 | `3da36ab` (2026-11-23) |
-| `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.8 KB | 322 | `7aac50b` (2026-11-19) |
+| `src/components/Views/Arcade/WritsEmergencyRoom.tsx` | 12.9 KB | 322 | `7aac50b` (2026-11-19) |
 
 ### `src/components/Views/ArticleMastery` (1 file)
 
@@ -527,7 +532,7 @@
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
-| `src/data/chronoTimelineData.ts` | 16.9 KB | 390 | new (uncommitted) |
+| `src/data/chronoTimelineData.ts` | 16.9 KB | 390 | `65aac87` (2026-11-24) |
 | `src/data/commissionsData.ts` | 14.2 KB | 211 | `d504081` (2026-11-22) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
 | `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
@@ -585,7 +590,7 @@
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
 | `src/data/realCaseStoriesData.ts` | 161.9 KB | 1389 | `75be064` (2026-11-19) |
 | `src/data/schedulesData.ts` | 10.5 KB | 189 | `3c486dd` (2026-11-13) |
-| `src/data/seventhScheduleSortData.ts` | 11.9 KB | 341 | new (uncommitted) |
+| `src/data/seventhScheduleSortData.ts` | 11.9 KB | 341 | `65aac87` (2026-11-24) |
 | `src/data/socraticTutorData.ts` | 38.6 KB | 619 | `326e167` (2026-11-22) |
 | `src/data/trapBusterData.ts` | 11.2 KB | 199 | `d003041` (2026-11-20) |
 | `src/data/ultraViresSwipeData.ts` | 10.3 KB | 238 | `d72bea9` (2026-11-23) |
@@ -815,7 +820,7 @@
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 18.7 KB | 634 | `d72bea9` (2026-11-23) |
+| `src/services/judicialCareerService.ts` | 18.7 KB | 634 | `65aac87` (2026-11-24) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/readinessIndexService.ts` | 80.6 KB | 1460 | `9c25d8b` (2026-11-20) |
@@ -837,10 +842,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**115** commits, newest first).
+> Complete git history (**116** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 116 | 2026-11-24 | `65aac87` | 7 | feat(arcade): add ChronoTimeline and 7th Schedule Speed Sorter memory games |
 | 115 | 2026-11-23 | `3da36ab` | 11 | style(arcade): purge emojis across views, compress scorecard chips and connections tiles into minimalist design |
 | 114 | 2026-11-23 | `2c1134d` | 4 | style(arcade): streamline into minimalist aesthetic with small tiles and quiet tabs |
 | 113 | 2026-11-23 | `cfec2e4` | 3 | style(arcade): make connections tiles and ultra vires cards compact and aesthetic |

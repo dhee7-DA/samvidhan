@@ -177,7 +177,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
       <div className="py-2 px-3 sm:px-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono shadow-xs">
         <div className="flex items-center gap-2.5">
           <span className="font-bold text-[var(--text-primary)] flex items-center gap-1.5">
-            <Layers className="w-3.5 h-3.5 text-amber-400" />
+            <Layers className="w-3.5 h-3.5 text-zinc-300" />
             7th Schedule Sorter
           </span>
 
@@ -189,7 +189,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
                 : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)]'
             }`}
           >
-            <Timer className="w-3 h-3 text-amber-400" />
+            <Timer className="w-3 h-3 text-zinc-400" />
             <span>{timeLeft}s</span>
           </div>
         </div>
@@ -198,8 +198,8 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
         <div className="flex items-center gap-2.5 text-[11px]">
           <span className="text-emerald-400 font-semibold font-mono">✓ {correctCount}</span>
           <span className="text-rose-400 font-semibold font-mono">✕ {wrongCount}</span>
-          <span className="text-amber-400 font-bold border-l border-[var(--border-subtle)] pl-2 flex items-center gap-1 font-mono">
-            <Flame className="w-3 h-3 text-amber-500" />
+          <span className="text-zinc-300 font-bold border-l border-[var(--border-subtle)] pl-2 flex items-center gap-1 font-mono">
+            <Flame className="w-3 h-3 text-zinc-400" />
             {currentStreak}x
           </span>
 
@@ -209,13 +209,13 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
               className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-400" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-zinc-300" />}
             </button>
 
             {gameState !== 'idle' && (
               <button
                 onClick={handleStartGame}
-                className="p-1 rounded-lg text-[var(--text-muted)] hover:text-amber-400 transition-all cursor-pointer"
+                className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
                 title="Restart Sorter"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -247,7 +247,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
             <div className="py-1 px-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-300">
               [2] State List
             </div>
-            <div className="py-1 px-1.5 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-300">
+            <div className="py-1 px-1.5 rounded-lg bg-violet-500/10 border border-violet-500/25 text-violet-300">
               [3] Concurrent
             </div>
           </div>
@@ -255,7 +255,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
           <div className="pt-1">
             <button
               onClick={handleStartGame}
-              className="px-6 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-xs cursor-pointer"
+              className="px-6 py-2 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-xs cursor-pointer"
             >
               <Layers className="w-3.5 h-3.5" />
               <span>Start 45s Sorter</span>
@@ -309,10 +309,10 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
             {/* Button 3: Concurrent List */}
             <button
               onClick={() => handleClassify('concurrent')}
-              className="py-2.5 px-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold text-xs uppercase tracking-wide transition-all flex flex-col items-center justify-center gap-0.5 cursor-pointer shadow-2xs"
+              className="py-2.5 px-2 rounded-xl bg-violet-500/10 hover:bg-violet-500/20 border border-violet-500/30 text-violet-300 font-bold text-xs uppercase tracking-wide transition-all flex flex-col items-center justify-center gap-0.5 cursor-pointer shadow-2xs"
             >
               <span>CONCURRENT</span>
-              <span className="text-[9px] font-normal text-amber-400/70">(List III • Key 3)</span>
+              <span className="text-[9px] font-normal text-violet-400/70">(List III • Key 3)</span>
             </button>
           </div>
 
@@ -348,7 +348,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
       {gameState === 'gameover' && (
         <div className="p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-3.5 max-w-xl mx-auto shadow-xs animate-fadeIn">
           <div className="text-center space-y-1 pb-3 border-b border-[var(--border-subtle)]">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold block">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] font-bold block">
               45-Second Drill Completed
             </span>
             <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
@@ -369,7 +369,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
               <span className="text-[9.5px] text-[var(--text-muted)] block uppercase tracking-wider">
                 Accuracy
               </span>
-              <span className="text-sm sm:text-base font-bold text-amber-400">
+              <span className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
                 {correctCount + wrongCount > 0
                   ? Math.round((correctCount / (correctCount + wrongCount)) * 100)
                   : 0}
@@ -409,7 +409,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
                       {m.item.subject}
                     </span>
                     <div className="flex items-center gap-2 font-mono text-[10px]">
-                      <span className="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 font-bold">
+                      <span className="px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-200 border border-zinc-700 font-bold">
                         Correct: {getListLabel(m.item.list)}
                       </span>
                       <span className="text-[var(--text-muted)]">
@@ -429,7 +429,7 @@ export const SeventhScheduleSortGame: React.FC<SeventhScheduleSortGameProps> = (
           <div className="pt-1 flex items-center justify-center">
             <button
               onClick={handleStartGame}
-              className="px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+              className="px-4 py-2 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs font-mono uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Play Another Round</span>
