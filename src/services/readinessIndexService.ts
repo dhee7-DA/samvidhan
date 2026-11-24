@@ -1457,3 +1457,358 @@ export function computeConstitutionalReadinessReport(
     recommended7DayRevisionPlan
   };
 }
+
+// =========================================================================
+// SYLLABUS PILLARS (Civil Services & Judicial Examination Blocks)
+// =========================================================================
+export interface SyllabusPillar {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  articleSpan: string;
+  partIds: string[];
+  importanceWeight: number; // 1-5
+  upscYield: 'EXTREME' | 'HIGH' | 'MODERATE';
+  keyThemes: string[];
+}
+
+export const SYLLABUS_PILLARS: SyllabusPillar[] = [
+  {
+    id: 'pillar-foundations',
+    title: 'Constitutional Foundations & Territory',
+    shortTitle: 'Foundations',
+    description: 'Preamble philosophy, Union of States (Arts 1–4), Citizenship criteria (Arts 5–11), and basic constitutional character.',
+    articleSpan: 'Arts 1 – 11',
+    partIds: ['part-1', 'part-2'],
+    importanceWeight: 4,
+    upscYield: 'HIGH',
+    keyThemes: ['Cession of Territory', 'Article 3 Reorganisation', 'Citizenship Act 1955', 'Preamble Basic Structure']
+  },
+  {
+    id: 'pillar-fr',
+    title: 'Fundamental Rights & Due Process',
+    shortTitle: 'Fundamental Rights',
+    description: 'Article 12 State definition, Article 13 Judicial Review, Equality (14–18), Freedoms (19), Liberty (21), Religion (25–28), Writs (32).',
+    articleSpan: 'Arts 12 – 35',
+    partIds: ['part-3'],
+    importanceWeight: 5,
+    upscYield: 'EXTREME',
+    keyThemes: ['Golden Triangle', 'Proportionality Test', 'Preventive Detention', 'Article 32 vs 226']
+  },
+  {
+    id: 'pillar-dpsp-fd',
+    title: 'Directive Principles & Fundamental Duties',
+    shortTitle: 'DPSP & Duties',
+    description: 'Socio-economic governance charter (Arts 36–51), Minerva Mills harmony balance, Fundamental Duties (51A), and constitutional morality.',
+    articleSpan: 'Arts 36 – 51A',
+    partIds: ['part-4', 'part-4a'],
+    importanceWeight: 4,
+    upscYield: 'HIGH',
+    keyThemes: ['Article 39(b)(c) vs 14/19', 'Uniform Civil Code Art 44', 'Verma Committee on Duties', 'Enforceability']
+  },
+  {
+    id: 'pillar-union-exec-parliament',
+    title: 'Union Executive & Parliament',
+    shortTitle: 'Union Executive & Parliament',
+    description: 'Presidential election, pardoning power (Art 72), Council of Ministers (Art 74/75), Ordinance power (Art 123), Parliamentary privileges (105), Money Bills (110).',
+    articleSpan: 'Arts 52 – 151',
+    partIds: ['part-5'],
+    importanceWeight: 5,
+    upscYield: 'EXTREME',
+    keyThemes: ['Speaker Discretion', 'Money Bill Certification', 'Joint Sitting Art 108', 'Anti-Defection Law']
+  },
+  {
+    id: 'pillar-state-exec-legislature',
+    title: 'State Executive & Legislature',
+    shortTitle: 'State Executive & Assembly',
+    description: 'Governor constitutional role (Arts 153–163), withholding assent (Art 200), reservation for President (Art 201), State legislature procedures.',
+    articleSpan: 'Arts 152 – 213',
+    partIds: ['part-6'],
+    importanceWeight: 4,
+    upscYield: 'HIGH',
+    keyThemes: ['Governor Discretionary Powers', 'Article 200 Assent Delays', 'Floor Test Jurisprudence', 'Pardoning Art 161']
+  },
+  {
+    id: 'pillar-judiciary',
+    title: 'Union & State Judiciary (SC, HC & Subordinate)',
+    shortTitle: 'Judicial Architecture',
+    description: 'Collegium system, Original jurisdiction (131), Advisory (143), Special Leave (136), Complete Justice (142), Contempt, High Courts (226/227), Subordinate judiciary (233–235).',
+    articleSpan: 'Arts 124–147, 214–237',
+    partIds: ['part-5', 'part-6'],
+    importanceWeight: 5,
+    upscYield: 'EXTREME',
+    keyThemes: ['Collegium vs NJAC', 'Article 142 Powers', 'Article 136 Discretion', 'Judicial Independence']
+  },
+  {
+    id: 'pillar-local-gov',
+    title: 'Local Self-Government (Panchayats & Urban Bodies)',
+    shortTitle: 'Panchayats & Municipalities',
+    description: '73rd & 74th Constitutional Amendments, 11th & 12th Schedules, 3-tier structure, State Election Commission (243K), State Finance Commission (243-I).',
+    articleSpan: 'Arts 243 – 243ZG',
+    partIds: ['part-9', 'part-9a', 'part-9b'],
+    importanceWeight: 4,
+    upscYield: 'HIGH',
+    keyThemes: ['243D Reservation', 'PESA Act 1996', 'Devolution of 29/18 Subjects', 'Ward Committees']
+  },
+  {
+    id: 'pillar-federal-finance',
+    title: 'Centre-State Relations, Finance & Trade',
+    shortTitle: 'Federalism & Finance',
+    description: 'Legislative competence (Arts 245–255), 7th Schedule 3 Lists, Repugnancy (Art 254), Finance Commission (Art 280), GST Council (Art 279A), Inter-State Trade (Arts 301–307).',
+    articleSpan: 'Arts 245 – 307',
+    partIds: ['part-11', 'part-12', 'part-13'],
+    importanceWeight: 5,
+    upscYield: 'EXTREME',
+    keyThemes: ['Doctrine of Pith & Substance', 'Article 254 Repugnancy', 'Article 275 Grants vs 282', 'GST Council Quorum']
+  },
+  {
+    id: 'pillar-elections-bodies',
+    title: 'Elections & Constitutional Bodies',
+    shortTitle: 'Elections & Watchdogs',
+    description: 'Election Commission of India (Art 324), Comptroller & Auditor General (Art 148), UPSC (Arts 315–323), NCST/NCSC/NCBC (Arts 338/338A/338B).',
+    articleSpan: 'Arts 148, 315–338B',
+    partIds: ['part-14', 'part-15', 'part-16'],
+    importanceWeight: 4,
+    upscYield: 'HIGH',
+    keyThemes: ['ECI Appointment Act 2023', 'CAG Mandate & Audit', 'UPSC Constitutional Safeguards', 'Special Minorities Officer']
+  },
+  {
+    id: 'pillar-emergency-amendments',
+    title: 'Emergency Powers & Constitutional Amendment',
+    shortTitle: 'Emergency & Article 368',
+    description: 'National Emergency (Art 352), President Rule (Art 356), Financial Emergency (Art 360), Article 368 Amendment Procedure, Basic Structure Doctrine.',
+    articleSpan: 'Arts 352 – 368',
+    partIds: ['part-18', 'part-20'],
+    importanceWeight: 5,
+    upscYield: 'EXTREME',
+    keyThemes: ['44th Amendment Safeguards', 'SR Bommai Guidelines', 'Article 368 Rigid vs Flexible', 'Basic Structure Limiting Power']
+  }
+];
+
+export interface PillarReadinessStats {
+  pillar: SyllabusPillar;
+  readinessScore: number;
+  tier: 'mastery' | 'moderate' | 'vulnerable';
+  constituentPartStats: PartReadinessStats[];
+  expectedMarkLossRisk: 'CRITICAL' | 'MODERATE' | 'LOW';
+  recommendedDrill: string;
+}
+
+export function computePillarReadinessStats(report: ConstitutionalReadinessReport): PillarReadinessStats[] {
+  return SYLLABUS_PILLARS.map((pillar) => {
+    const matchingParts = report.partsStats.filter((p) => pillar.partIds.includes(p.part.id));
+    const avgScore = matchingParts.length > 0
+      ? Math.round(matchingParts.reduce((acc, curr) => acc + curr.readinessScore, 0) / matchingParts.length)
+      : 50;
+
+    let tier: 'mastery' | 'moderate' | 'vulnerable' = 'moderate';
+    if (avgScore >= 75) tier = 'mastery';
+    else if (avgScore < 50) tier = 'vulnerable';
+
+    let expectedMarkLossRisk: 'CRITICAL' | 'MODERATE' | 'LOW' = 'LOW';
+    if (tier === 'vulnerable' && pillar.importanceWeight >= 4) expectedMarkLossRisk = 'CRITICAL';
+    else if (tier === 'moderate' || (tier === 'vulnerable' && pillar.importanceWeight < 4)) expectedMarkLossRisk = 'MODERATE';
+
+    return {
+      pillar,
+      readinessScore: avgScore,
+      tier,
+      constituentPartStats: matchingParts,
+      expectedMarkLossRisk,
+      recommendedDrill: `Drill high-yield clauses in ${pillar.shortTitle} with emphasis on ${pillar.keyThemes[0]}.`
+    };
+  });
+}
+
+// =========================================================================
+// PRELIMS RISK PROFILE (Negative Marking & Cutoff Appetite Analyzer)
+// =========================================================================
+export interface PrelimsRiskProfile {
+  targetAttempts: number;
+  accuracyRate: number; // e.g. 74%
+  correctQuestions: number;
+  incorrectQuestions: number;
+  grossMarks: number;
+  negativePenaltyMarks: number;
+  netScore: number;
+  penaltyRatioPercent: number; // penaltyMarks / grossMarks * 100
+  historicalCutoff: number; // 88.0 (UPSC CSE Prelims Benchmark)
+  clearanceMargin: number; // netScore - historicalCutoff
+  stanceCategory: 'OPTIMAL_CALIBRATED' | 'HYPER_CAUTIOUS' | 'NEGATIVE_TRAP_HAZARD';
+  stanceTitle: string;
+  stanceBadgeColor: string;
+  tacticalAdvice: string;
+  recommendedAttemptWindow: string;
+}
+
+export function calculatePrelimsRiskProfile(
+  targetAttempts: number = 85,
+  estimatedAccuracy: number = 72
+): PrelimsRiskProfile {
+  const attempts = Math.max(40, Math.min(100, targetAttempts));
+  const accuracy = Math.max(30, Math.min(98, estimatedAccuracy)) / 100;
+
+  const correctQuestions = Math.round(attempts * accuracy);
+  const incorrectQuestions = attempts - correctQuestions;
+
+  const grossMarks = Number((correctQuestions * 2.0).toFixed(2));
+  const negativePenaltyMarks = Number((incorrectQuestions * 0.666).toFixed(2));
+  const netScore = Number((grossMarks - negativePenaltyMarks).toFixed(2));
+
+  const penaltyRatioPercent = grossMarks > 0
+    ? Math.round((negativePenaltyMarks / grossMarks) * 100)
+    : 0;
+
+  const historicalCutoff = 88.0; // Standard UPSC CSE Prelims benchmark cutoff
+  const clearanceMargin = Number((netScore - historicalCutoff).toFixed(2));
+
+  let stanceCategory: 'OPTIMAL_CALIBRATED' | 'HYPER_CAUTIOUS' | 'NEGATIVE_TRAP_HAZARD' = 'OPTIMAL_CALIBRATED';
+  let stanceTitle = 'Optimal Risk / Reward Strategist';
+  let stanceBadgeColor = 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10';
+  let tacticalAdvice = 'Your attempt volume and accuracy provide a healthy safety margin above the cutoff. Maintain this calibrated aggression.';
+  let recommendedAttemptWindow = '82 – 88 Questions';
+
+  if (attempts < 70 && accuracy >= 0.8) {
+    stanceCategory = 'HYPER_CAUTIOUS';
+    stanceTitle = 'Under-Attempting (High Accuracy Trap)';
+    stanceBadgeColor = 'text-sky-400 border-sky-500/30 bg-sky-500/10';
+    tacticalAdvice = 'You are being excessively conservative. While your accuracy is high, low attempt volume leaves you at grave risk of missing cutoffs by 3–5 marks. Expand your elimination zone on 50-50 questions.';
+    recommendedAttemptWindow = 'Push attempts to 80 – 85 Questions';
+  } else if (penaltyRatioPercent >= 22 || accuracy < 0.65) {
+    stanceCategory = 'NEGATIVE_TRAP_HAZARD';
+    stanceTitle = 'Compulsive Guessing Hazard';
+    stanceBadgeColor = 'text-rose-400 border-rose-500/30 bg-rose-500/10';
+    tacticalAdvice = 'Negative penalty is bleeding away more than 20% of your gross score. Cease blind guessing on 4-option unknown questions. Restrict risk strictly to 50-50 elimination pairs.';
+    recommendedAttemptWindow = 'Cap attempts to 75 – 82 Questions';
+  }
+
+  return {
+    targetAttempts: attempts,
+    accuracyRate: Math.round(accuracy * 100),
+    correctQuestions,
+    incorrectQuestions,
+    grossMarks,
+    negativePenaltyMarks,
+    netScore,
+    penaltyRatioPercent,
+    historicalCutoff,
+    clearanceMargin,
+    stanceCategory,
+    stanceTitle,
+    stanceBadgeColor,
+    tacticalAdvice,
+    recommendedAttemptWindow
+  };
+}
+
+// =========================================================================
+// WEAKEST LINK 15-MINUTE DAILY PRESCRIPTION ENGINE
+// =========================================================================
+export interface WeakestLinkDrill {
+  id: string;
+  generatedDate: string;
+  targetPartIds: string[];
+  targetPartTitles: string[];
+  stage1MCQs: DiagnosticMCQ[];
+  stage2Precedent: {
+    caseName: string;
+    year: number;
+    challengeQuestion: string;
+    options: { id: string; text: string; isCorrect: boolean }[];
+    authoritativeRatio: string;
+    articleRef: string;
+  };
+  stage3TrapClause: {
+    statement: string;
+    isDeceptiveTrap: boolean;
+    examinerTrick: string;
+    correctStatutoryRule: string;
+    articleRef: string;
+  };
+}
+
+export function generateWeakestLinkDrill(report: ConstitutionalReadinessReport): WeakestLinkDrill {
+  // Find top 3 weakest parts with highest exam weight
+  const weakestParts = [...report.partsStats]
+    .sort((a, b) => a.readinessScore - b.readinessScore)
+    .slice(0, 3);
+
+  // Pool diagnostic questions from these parts
+  const mcqPool: DiagnosticMCQ[] = [];
+  weakestParts.forEach((p) => {
+    mcqPool.push(...p.part.diagnosticQuestions);
+  });
+
+  // Pick 5 unique MCQs
+  const stage1MCQs = [...mcqPool].sort(() => 0.5 - Math.random()).slice(0, 5);
+
+  // Stage 2: Pick landmark precedent from top weakest part
+  const leadPart = weakestParts[0]?.part || ACTIVE_25_PARTS_METADATA[2];
+  const precedent = leadPart.landmarkPrecedents[0] || {
+    name: 'K.S. Puttaswamy v. Union of India',
+    year: 2017,
+    coreHolding: 'Right to privacy is an intrinsic part of the right to life and personal liberty under Article 21.'
+  };
+
+  const stage2Precedent = {
+    caseName: precedent.name,
+    year: precedent.year,
+    challengeQuestion: `In ${precedent.name} (${precedent.year}), which authoritative constitutional test was established by the Supreme Court regarding ${leadPart.title}?`,
+    options: [
+      { id: 'opt1', text: precedent.coreHolding, isCorrect: true },
+      { id: 'opt2', text: 'Executive orders are completely non-justiciable under Article 13.', isCorrect: false },
+      { id: 'opt3', text: 'State actions are exempt from proportionality tests during administrative convenience.', isCorrect: false },
+      { id: 'opt4', text: 'Parliament possesses unlimited constituent power immune to Basic Structure limitations.', isCorrect: false }
+    ].sort(() => 0.5 - Math.random()),
+    authoritativeRatio: precedent.coreHolding,
+    articleRef: leadPart.highYieldArticles[0]?.number ? `Article ${leadPart.highYieldArticles[0].number}` : leadPart.articlesRange
+  };
+
+  // Stage 3: Trap Statement
+  const stage3TrapClause = {
+    statement: `Under ${leadPart.articlesRange}, the President or Governor possesses absolute non-justiciable discretion to issue ordinances even when both Houses are in session if public interest demands.`,
+    isDeceptiveTrap: true,
+    examinerTrick: 'Absolute phrasing ("absolute non-justiciable discretion") and factual fallacy ("even when both Houses are in session").',
+    correctStatutoryRule: 'Ordinance power (Art 123/213) is contingent upon Houses not being in session, and is subject to judicial review for colorable exercise as held in D.C. Wadhwa (1987).',
+    articleRef: leadPart.articlesRange
+  };
+
+  return {
+    id: `weakest-link-${new Date().toISOString().slice(0, 10)}`,
+    generatedDate: new Date().toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }),
+    targetPartIds: weakestParts.map((p) => p.part.id),
+    targetPartTitles: weakestParts.map((p) => `${p.part.partNumber}: ${p.part.title}`),
+    stage1MCQs,
+    stage2Precedent,
+    stage3TrapClause
+  };
+}
+
+const WEAKEST_LINK_LOG_KEY = 'samvidhan_weakest_link_history_v1';
+
+export function recordWeakestLinkDrillCompletion(
+  targetPartIds: string[],
+  scoreOutOf7: number
+): void {
+  try {
+    const raw = localStorage.getItem(WEAKEST_LINK_LOG_KEY);
+    const history: any[] = raw ? JSON.parse(raw) : [];
+    history.push({
+      date: new Date().toISOString(),
+      targetPartIds,
+      scoreOutOf7
+    });
+    localStorage.setItem(WEAKEST_LINK_LOG_KEY, JSON.stringify(history));
+
+    // Award +5% calibration recovery bonus to each targeted part
+    targetPartIds.forEach((partId) => {
+      const calib = getStoredSelfCalibration();
+      const curr = calib[partId] || 0;
+      saveSelfCalibration(partId, Math.min(25, curr + 5));
+    });
+  } catch {
+    // Ignore storage errors in restricted contexts
+  }
+}
+
