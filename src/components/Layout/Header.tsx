@@ -24,9 +24,9 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-base)]/85 backdrop-blur-md transition-colors">
-      <div className="w-full px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
+      <div className="w-full px-3 sm:px-6 h-14 flex items-center justify-between gap-2 sm:gap-3">
         {/* Left: Rail Toggle (Desktop) + Brand Identity */}
-        <div className="flex items-center gap-2.5 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <button
             onClick={() => setSidebarCollapsed((prev) => !prev)}
             title={sidebarCollapsed ? 'Expand navigation rail' : 'Collapse navigation rail'}
@@ -38,14 +38,14 @@ export const Header: React.FC = () => {
 
           <div
             onClick={() => setActiveTab('overview')}
-            className="flex items-center gap-2.5 cursor-pointer group btn-tactile select-none min-w-0"
+            className="flex items-center gap-2 sm:gap-2.5 cursor-pointer group btn-tactile select-none shrink-0"
           >
-            <div className="w-9 h-9 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--text-primary)] surface-specular group-hover:border-[var(--accent)] transition-colors shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--text-primary)] surface-specular group-hover:border-[var(--accent)] transition-colors shrink-0">
               <Compass className="w-4 h-4 group-hover:rotate-45 transition-transform duration-500 ease-out" />
             </div>
-            <div className="min-w-0">
+            <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold tracking-tight text-base text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+                <span className="font-bold tracking-tight text-sm sm:text-base text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors whitespace-nowrap">
                   SAMVIDHAN
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hidden sm:inline">
@@ -72,12 +72,12 @@ export const Header: React.FC = () => {
           </kbd>
         </button>
 
-        {/* Right: Optical 40x40 Utility Controls */}
-        <div className="flex items-center gap-2 shrink-0">
+        {/* Right: Optical Utility Controls */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => setSearchOpen(true)}
             aria-label="Open global search"
-            className="md:hidden w-10 h-10 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] flex items-center justify-center btn-tactile cursor-pointer"
+            className="md:hidden w-9 h-9 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] flex items-center justify-center btn-tactile cursor-pointer"
           >
             <Search className="w-4 h-4" />
           </button>
@@ -85,7 +85,8 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setDictionaryModalOpen(true)}
             title="Universal Legal & English Dictionary (Alt + D)"
-            className="flex items-center gap-1.5 h-10 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-medium transition-[transform,background-color,border-color,color] duration-150 btn-tactile cursor-pointer"
+            aria-label="Universal Legal & English Dictionary"
+            className="flex items-center justify-center gap-1.5 w-9 h-9 md:w-auto sm:h-10 md:px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-medium transition-[transform,background-color,border-color,color] duration-150 btn-tactile cursor-pointer"
           >
             <BookOpen className="w-4 h-4 text-[var(--text-muted)]" />
             <span className="hidden md:inline">Lexicon</span>
@@ -102,7 +103,7 @@ export const Header: React.FC = () => {
             onClick={() => setVaultModalOpen(true)}
             title="Study Progress Backup & Restore Vault (.json)"
             aria-label="Open progress backup vault"
-            className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 cursor-pointer"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 cursor-pointer"
           >
             <ShieldCheck className="w-4 h-4" />
           </button>
@@ -112,7 +113,7 @@ export const Header: React.FC = () => {
             onClick={() => setActiveTab('parts')}
             title={`Saved Articles (${bookmarkedArticles.length})`}
             aria-label={`Saved articles: ${bookmarkedArticles.length}`}
-            className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 relative cursor-pointer"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 relative cursor-pointer"
           >
             <Bookmark className="w-4 h-4" />
             {bookmarkedArticles.length > 0 && (

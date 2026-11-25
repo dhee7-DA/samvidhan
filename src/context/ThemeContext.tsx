@@ -60,7 +60,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [selectedPartId, setSelectedPartId] = useState<string | null>(null);
-  const [selectedSvgId, setSelectedSvgId] = useState<string | null>('writs-matrix');
+  const [selectedSvgId, setSelectedSvgId] = useState<string | null>('fundamental-rights-funnel');
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
   const [dictionaryModalOpen, setDictionaryModalOpen] = useState<boolean>(false);
   const [dictionaryInitialQuery, setDictionaryInitialQuery] = useState<string>('');

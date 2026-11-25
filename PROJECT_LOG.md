@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-25 13:08:04 (+05:30) |
+| **Last Log Sync** | 2026-11-25 14:00:07 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `2d26b6d` (2026-11-25T12:56:05+05:30) |
-| **Total Commits** | 120 |
-| **Total Files Indexed** | 320 (320 tracked, 0 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Branch / HEAD** | `main` @ `7818b65` (2026-11-25T13:08:36+05:30) |
+| **Total Commits** | 121 |
+| **Total Files Indexed** | 330 (320 tracked, 10 new untracked) |
+| **Working Tree** | 17 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-25 14:00:07 (+05:30)] Expand Visual Law Lab to 27 SVG explainers and fix/polish Constitutional Knowledge Graphs (DONE)
+- **Details:** Created 10 interactive constitutional SVG diagrams across FR, DPSP, President/Governor, SC/HC, Parliament, Reservation, Panchayats, Hemicycle Majorities, and Territory/Citizenship; fixed Concept Web single-click jump bug, coordinate pan/zoom math, filter bar squishing, docked Dossier layout, and light-theme contrast; added synchronized SVG precedent evolution flow to Precedent Trees; fixed 390px header clipping. Verified via tsc/vite build and localhost browser suite.
+- **Files Touched (17):** `M src/components/Layout/Header.tsx`, `M src/components/Views/ConceptWebGraphView.tsx`, `M src/components/Views/PrecedentLineageView.tsx`, `M src/components/Views/VisualLabView.tsx`, `M src/context/ThemeContext.tsx`, `M src/data/conceptWebData.ts`, `M src/data/navigationData.tsx`, `?? src/components/VectorDiagrams/DPSPvsFRHarmonySVG.tsx`, `?? src/components/VectorDiagrams/FundamentalRightsFunnelSVG.tsx`, `?? src/components/VectorDiagrams/GovernorAssentOrdinanceSVG.tsx`, `?? src/components/VectorDiagrams/LocalSelfGovernmentSVG.tsx`, `?? src/components/VectorDiagrams/MajoritiesThresholdSVG.tsx`, `?? src/components/VectorDiagrams/ParliamentaryHouseProceduresSVG.tsx`, `?? src/components/VectorDiagrams/PresidentElectoralImpeachmentSVG.tsx`, `?? src/components/VectorDiagrams/ReservationEvolutionSVG.tsx`, `?? src/components/VectorDiagrams/SupremeCourtJurisdictionSVG.tsx`, `?? src/components/VectorDiagrams/TerritoryCitizenshipFlowSVG.tsx`
+- **Git HEAD:** `main` @ `7818b65`
 
 ### [2026-11-25 13:08:04 (+05:30)] Reorganize Left Workbench Menu into 5 progressive study tracks with distinct icons and zero truncation (DONE)
 - **Details:** Updated navigationData.tsx and Sidebar.tsx: restructured 34 modules into 5 logical tracks (Start & Core with Bootcamp & Readiness at top, Bare Act & Law, Cases & Reference, Prelims & Arcade, Mains & Print); replaced duplicate icons so every collapsed tile is distinct; widened split-screen rail to 208px with concise labels achieving zero ellipsis truncation; restored activeTabRef scrollIntoView auto-scroll. Verified tsc -b && npm run build passed and live browser checks at 770x900.
@@ -369,7 +374,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **320** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **330** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -381,7 +386,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 94.3 KB | 985 | `2d26b6d` (2026-11-25) |
+| `PROJECT_LOG.md` | 95.1 KB | 991 | `7818b65` (2026-11-25) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -438,11 +443,11 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 7.0 KB | 129 | `2d26b6d` (2026-11-25) |
-| `src/components/Layout/Sidebar.tsx` | 15.9 KB | 325 | `2d26b6d` (2026-11-25) |
+| `src/components/Layout/Header.tsx` | 7.2 KB | 130 | `2d26b6d` (2026-11-25) |
+| `src/components/Layout/Sidebar.tsx` | 15.9 KB | 325 | `7818b65` (2026-11-25) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.4 KB | 242 | `d16ebbd` (2026-11-25) |
 
-### `src/components/VectorDiagrams` (17 files)
+### `src/components/VectorDiagrams` (27 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -452,16 +457,26 @@
 | `src/components/VectorDiagrams/BasicStructureEvolutionSVG.tsx` | 10.2 KB | 241 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/CivilServicesSafeguardsSVG.tsx` | 12.8 KB | 183 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/CriminalConstitutionalPipelineSVG.tsx` | 19.8 KB | 402 | `a423d55` (2026-11-13) |
+| `src/components/VectorDiagrams/DPSPvsFRHarmonySVG.tsx` | 10.7 KB | 214 | new (uncommitted) |
 | `src/components/VectorDiagrams/ElectoralArchitectureSVG.tsx` | 7.3 KB | 109 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/EmergencyMatrixSVG.tsx` | 10.3 KB | 198 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/ExecutiveClemencyArchitectureSVG.tsx` | 27.8 KB | 559 | `fc3e951` (2026-11-13) |
 | `src/components/VectorDiagrams/FederalRelationsSVG.tsx` | 10.4 KB | 237 | `19a5ef8` (2026-11-13) |
+| `src/components/VectorDiagrams/FundamentalRightsFunnelSVG.tsx` | 20.6 KB | 356 | new (uncommitted) |
+| `src/components/VectorDiagrams/GovernorAssentOrdinanceSVG.tsx` | 12.8 KB | 206 | new (uncommitted) |
 | `src/components/VectorDiagrams/GSTCouncilFiscalSVG.tsx` | 12.6 KB | 188 | `dc47388` (2026-11-13) |
 | `src/components/VectorDiagrams/LegislativePassageSVG.tsx` | 11.4 KB | 219 | `3c486dd` (2026-11-13) |
+| `src/components/VectorDiagrams/LocalSelfGovernmentSVG.tsx` | 14.7 KB | 275 | new (uncommitted) |
+| `src/components/VectorDiagrams/MajoritiesThresholdSVG.tsx` | 11.1 KB | 248 | new (uncommitted) |
+| `src/components/VectorDiagrams/ParliamentaryHouseProceduresSVG.tsx` | 17.2 KB | 269 | new (uncommitted) |
 | `src/components/VectorDiagrams/PreambleArchitectureSVG.tsx` | 10.9 KB | 256 | `d16ebbd` (2026-11-25) |
 | `src/components/VectorDiagrams/PrecedentLineageSVG.tsx` | 58.0 KB | 1127 | `e980352` (2026-11-14) |
+| `src/components/VectorDiagrams/PresidentElectoralImpeachmentSVG.tsx` | 17.7 KB | 330 | new (uncommitted) |
+| `src/components/VectorDiagrams/ReservationEvolutionSVG.tsx` | 13.3 KB | 233 | new (uncommitted) |
 | `src/components/VectorDiagrams/SchedulesGenealogySVG.tsx` | 6.0 KB | 143 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.1 KB | 279 | `19a5ef8` (2026-11-13) |
+| `src/components/VectorDiagrams/SupremeCourtJurisdictionSVG.tsx` | 12.5 KB | 220 | new (uncommitted) |
+| `src/components/VectorDiagrams/TerritoryCitizenshipFlowSVG.tsx` | 18.3 KB | 299 | new (uncommitted) |
 | `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
 
 ### `src/components/Views` (40 files)
@@ -477,7 +492,7 @@
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
-| `src/components/Views/ConceptWebGraphView.tsx` | 36.9 KB | 861 | `003e2d2` (2026-11-21) |
+| `src/components/Views/ConceptWebGraphView.tsx` | 60.6 KB | 1461 | `003e2d2` (2026-11-21) |
 | `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `7dd169f` (2026-11-22) |
 | `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | `3d89178` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
@@ -496,7 +511,7 @@
 | `src/components/Views/OverviewDashboard.tsx` | 22.4 KB | 410 | `2d26b6d` (2026-11-25) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
-| `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
+| `src/components/Views/PrecedentLineageView.tsx` | 25.3 KB | 552 | `003e2d2` (2026-11-21) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
@@ -506,7 +521,7 @@
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `9e33658` (2026-11-18) |
-| `src/components/Views/VisualLabView.tsx` | 16.4 KB | 373 | `fc3e951` (2026-11-13) |
+| `src/components/Views/VisualLabView.tsx` | 26.5 KB | 612 | `fc3e951` (2026-11-13) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `ea98297` (2026-11-22) |
 
 ### `src/components/Views/Arcade` (13 files)
@@ -555,7 +570,7 @@
 | `src/data/chronoTimelineData.ts` | 16.9 KB | 390 | `65aac87` (2026-11-24) |
 | `src/data/commissionsData.ts` | 14.2 KB | 211 | `d504081` (2026-11-22) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
-| `src/data/conceptWebData.ts` | 35.8 KB | 846 | `7ff35ca` (2026-11-20) |
+| `src/data/conceptWebData.ts` | 40.1 KB | 879 | `7ff35ca` (2026-11-20) |
 | `src/data/constituentAssemblyRpgData.ts` | 55.3 KB | 1104 | `1f02703` (2026-11-22) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/constitutionalConnectionsData.ts` | 7.3 KB | 166 | `d72bea9` (2026-11-23) |
@@ -577,7 +592,7 @@
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
 | `src/data/mootCourtData.ts` | 18.6 KB | 364 | `1f02703` (2026-11-22) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
-| `src/data/navigationData.tsx` | 6.7 KB | 103 | `d16ebbd` (2026-11-25) |
+| `src/data/navigationData.tsx` | 6.7 KB | 103 | `7818b65` (2026-11-25) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
@@ -863,10 +878,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**120** commits, newest first).
+> Complete git history (**121** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 121 | 2026-11-25 | `7818b65` | 3 | refactor(nav): reorganize left menu into 5 progressive study tracks with distinct icons and zero truncation |
 | 120 | 2026-11-25 | `2d26b6d` | 6 | feat(ui): activate categorized left sidebar rail at split-screen widths (768px+) |
 | 119 | 2026-11-25 | `d16ebbd` | 12 | feat(ui): modernize workbench shell, categorized rail & study bento overview |
 | 118 | 2026-11-25 | `733568c` | 3 | feat(readiness): add 10-block syllabus heatmap, prelims negative marking risk engine & 15-min weakest link workout |
