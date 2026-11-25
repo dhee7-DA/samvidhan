@@ -84,7 +84,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'comparative', label: 'Global Matrix', icon: <Globe2 className="w-4 h-4" />, sub: 'Comparative Foreign Sources', category: 'cases' },
 
   // 4. Prelims Practice, Gamified Arcade & Error Audit
-  { id: 'arcade', label: 'Arcade Hub', icon: <Gamepad2 className="w-4 h-4" />, badge: '13 Games', sub: 'Constitutional Memory, Blitz & Moot', category: 'prelims' },
+  { id: 'arcade', label: 'Arcade Hub', icon: <Gamepad2 className="w-4 h-4" />, badge: '14 Games', sub: 'Curriculum Campaign, Blitz & Moot', category: 'prelims' },
   { id: 'flashcards', label: 'Flashcards (SRS)', icon: <BrainCircuit className="w-4 h-4" />, badge: '900+', sub: 'Leitner Spaced Repetition', category: 'prelims' },
   { id: 'article-mastery', label: '395 Mastery Wall', icon: <Grid3x3 className="w-4 h-4" />, badge: 'Recall', sub: 'Articles Matrix & +89/+90', category: 'prelims' },
   { id: 'quiz', label: 'Mastery Quiz', icon: <CheckSquare className="w-4 h-4" />, badge: 'Drill', sub: 'Topic Conceptual Drills', category: 'prelims' },

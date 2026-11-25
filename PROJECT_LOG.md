@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-25 21:19:28 (+05:30) |
+| **Last Log Sync** | 2026-11-25 21:38:49 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `ec161ca` (2026-11-25T14:00:57+05:30) |
-| **Total Commits** | 122 |
-| **Total Files Indexed** | 337 (330 tracked, 7 new untracked) |
-| **Working Tree** | 9 pending change(s) |
+| **Branch / HEAD** | `main` @ `7e1bea1` (2026-11-25T21:19:41+05:30) |
+| **Total Commits** | 123 |
+| **Total Files Indexed** | 339 (337 tracked, 2 new untracked) |
+| **Working Tree** | 5 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-25 21:38:49 (+05:30)] Add Samvidhan Odyssey curriculum-planned 4-round memory campaign game (DONE)
+- **Details:** Added CurriculumOdysseyGame (study plan presets, daily chapter pacing ETA, custom chapter checkboxes, 12-chapter interactive SVG roadmap, 4-round memory mission: Pair Flip Grid, Bare-Act Clause Cloze, Sequence Lock, Boss Guard) powered by 12-chapter curriculumOdysseyData. Wired into ArcadeHubView (14 Games), Career XP/Badges (judicialCareerService), and Navigation. Verified via npm run build and full Ch 1 browser playthrough with 0 console errors.
+- **Files Touched (5):** `M src/components/Views/ArcadeHubView.tsx`, `M src/data/navigationData.tsx`, `M src/services/judicialCareerService.ts`, `?? src/components/Views/Arcade/CurriculumOdysseyGame.tsx`, `?? src/data/curriculumOdysseyData.ts`
+- **Git HEAD:** `main` @ `7e1bea1`
 
 ### [2026-11-25 21:19:28 (+05:30)] Scale Visual Law Lab from 27 to 100 interactive constitutional SVGs (DONE)
 - **Details:** Built ConstitutionalBlueprintEngineSVG supporting 6 interactive vector topologies (flowchart, hub-spoke, balance-beam, pyramid-hierarchy, matrix-split, cycle-sequence) and authored 73 new constitutional blueprints across all 5 tracks (20 per track = 100 total). Updated VisualLabView with #01-#100 indexing and navigationData badge to 100 SVGs. Verified via tsc/vite build and live browser checks across all 6 topologies.
@@ -379,7 +384,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **337** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **339** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -391,7 +396,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 97.9 KB | 1007 | `ec161ca` (2026-11-25) |
+| `PROJECT_LOG.md` | 99.6 KB | 1020 | `7e1bea1` (2026-11-25) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -461,7 +466,7 @@
 | `src/components/VectorDiagrams/AsymmetricFederalismSVG.tsx` | 9.1 KB | 199 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/BasicStructureEvolutionSVG.tsx` | 10.2 KB | 241 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/CivilServicesSafeguardsSVG.tsx` | 12.8 KB | 183 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx` | 37.7 KB | 902 | new (uncommitted) |
+| `src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx` | 37.7 KB | 902 | `7e1bea1` (2026-11-25) |
 | `src/components/VectorDiagrams/CriminalConstitutionalPipelineSVG.tsx` | 19.8 KB | 402 | `a423d55` (2026-11-13) |
 | `src/components/VectorDiagrams/DPSPvsFRHarmonySVG.tsx` | 10.7 KB | 214 | `ec161ca` (2026-11-25) |
 | `src/components/VectorDiagrams/ElectoralArchitectureSVG.tsx` | 7.3 KB | 109 | `19a5ef8` (2026-11-13) |
@@ -490,7 +495,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 9.8 KB | 242 | `1c6aefb` (2026-11-24) |
+| `src/components/Views/ArcadeHubView.tsx` | 10.0 KB | 249 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
 | `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
@@ -527,10 +532,10 @@
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `9e33658` (2026-11-18) |
-| `src/components/Views/VisualLabView.tsx` | 30.8 KB | 703 | `ec161ca` (2026-11-25) |
+| `src/components/Views/VisualLabView.tsx` | 30.8 KB | 703 | `7e1bea1` (2026-11-25) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `ea98297` (2026-11-22) |
 
-### `src/components/Views/Arcade` (13 files)
+### `src/components/Views/Arcade` (14 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -542,6 +547,7 @@
 | `src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx` | 18.8 KB | 488 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 46.3 KB | 1008 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.9 KB | 725 | `1c6aefb` (2026-11-24) |
+| `src/components/Views/Arcade/CurriculumOdysseyGame.tsx` | 65.1 KB | 1505 | new (uncommitted) |
 | `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 27.0 KB | 588 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/SeventhScheduleSortGame.tsx` | 18.4 KB | 443 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.9 KB | 364 | `1c6aefb` (2026-11-24) |
@@ -560,7 +566,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 7.0 KB | 204 | `ec161ca` (2026-11-25) |
 
-### `src/data` (80 files)
+### `src/data` (81 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -572,11 +578,11 @@
 | `src/data/articleExamIntelData.ts` | 56.2 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
-| `src/data/blueprintsTrack1Rights.ts` | 68.2 KB | 1185 | new (uncommitted) |
-| `src/data/blueprintsTrack2ExecParl.ts` | 69.6 KB | 1152 | new (uncommitted) |
-| `src/data/blueprintsTrack3Judiciary.ts` | 77.8 KB | 1230 | new (uncommitted) |
-| `src/data/blueprintsTrack4Federal.ts` | 83.0 KB | 1251 | new (uncommitted) |
-| `src/data/blueprintsTrack5Bodies.ts` | 89.6 KB | 1272 | new (uncommitted) |
+| `src/data/blueprintsTrack1Rights.ts` | 68.2 KB | 1185 | `7e1bea1` (2026-11-25) |
+| `src/data/blueprintsTrack2ExecParl.ts` | 69.6 KB | 1152 | `7e1bea1` (2026-11-25) |
+| `src/data/blueprintsTrack3Judiciary.ts` | 77.8 KB | 1230 | `7e1bea1` (2026-11-25) |
+| `src/data/blueprintsTrack4Federal.ts` | 83.0 KB | 1251 | `7e1bea1` (2026-11-25) |
+| `src/data/blueprintsTrack5Bodies.ts` | 89.6 KB | 1272 | `7e1bea1` (2026-11-25) |
 | `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
 | `src/data/chronoTimelineData.ts` | 16.9 KB | 390 | `65aac87` (2026-11-24) |
 | `src/data/commissionsData.ts` | 14.2 KB | 211 | `d504081` (2026-11-22) |
@@ -585,6 +591,7 @@
 | `src/data/constituentAssemblyRpgData.ts` | 55.3 KB | 1104 | `1f02703` (2026-11-22) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/constitutionalConnectionsData.ts` | 7.3 KB | 166 | `d72bea9` (2026-11-23) |
+| `src/data/curriculumOdysseyData.ts` | 35.7 KB | 639 | new (uncommitted) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
@@ -603,7 +610,7 @@
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
 | `src/data/mootCourtData.ts` | 18.6 KB | 364 | `1f02703` (2026-11-22) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
-| `src/data/navigationData.tsx` | 6.7 KB | 103 | `ec161ca` (2026-11-25) |
+| `src/data/navigationData.tsx` | 6.7 KB | 103 | `7e1bea1` (2026-11-25) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
@@ -641,7 +648,7 @@
 | `src/data/socraticTutorData.ts` | 38.6 KB | 619 | `326e167` (2026-11-22) |
 | `src/data/trapBusterData.ts` | 11.2 KB | 199 | `d003041` (2026-11-20) |
 | `src/data/ultraViresSwipeData.ts` | 10.3 KB | 238 | `d72bea9` (2026-11-23) |
-| `src/data/visualBlueprintsTypes.ts` | 985 B | 47 | new (uncommitted) |
+| `src/data/visualBlueprintsTypes.ts` | 985 B | 47 | `7e1bea1` (2026-11-25) |
 | `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `7aac50b` (2026-11-19) |
 | `src/data/writsEmergencyMatrixData.ts` | 19.2 KB | 317 | `ea98297` (2026-11-22) |
 
@@ -868,7 +875,7 @@
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 18.7 KB | 634 | `65aac87` (2026-11-24) |
+| `src/services/judicialCareerService.ts` | 20.2 KB | 683 | `65aac87` (2026-11-24) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/readinessIndexService.ts` | 95.8 KB | 1815 | `733568c` (2026-11-25) |
@@ -890,10 +897,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**122** commits, newest first).
+> Complete git history (**123** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 123 | 2026-11-25 | `7e1bea1` | 10 | feat(visuals): scale Visual Law Lab to 100 interactive constitutional SVGs |
 | 122 | 2026-11-25 | `ec161ca` | 18 | feat(visuals): add 10 constitutional SVG explainers and overhaul Knowledge Graphs |
 | 121 | 2026-11-25 | `7818b65` | 3 | refactor(nav): reorganize left menu into 5 progressive study tracks with distinct icons and zero truncation |
 | 120 | 2026-11-25 | `2d26b6d` | 6 | feat(ui): activate categorized left sidebar rail at split-screen widths (768px+) |

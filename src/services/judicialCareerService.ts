@@ -227,6 +227,27 @@ export const ARCADE_BADGES: ArcadeBadge[] = [
     category: 'general'
   },
   {
+    id: 'odyssey-first',
+    title: 'Curriculum Pathfinder',
+    description: 'Complete your first structured Curriculum Odyssey memory chapter.',
+    icon: '🗺️',
+    category: 'general'
+  },
+  {
+    id: 'odyssey-strategist',
+    title: 'Syllabus Strategist',
+    description: 'Conquer 6 Constitutional Curriculum Odyssey chapters with at least 2 stars each.',
+    icon: '🧭',
+    category: 'general'
+  },
+  {
+    id: 'odyssey-grandmaster',
+    title: 'Samvidhan Grandmaster',
+    description: 'Master all 12 Curriculum Odyssey chapters from Preamble to Languages.',
+    icon: '🏆',
+    category: 'general'
+  },
+  {
     id: 'cji-sworn',
     title: 'Oath of the Chief Justice',
     description: 'Reach Level 7 and ascend to the office of Chief Justice of India.',
@@ -627,6 +648,34 @@ export function recordSeventhScheduleResult(correctCount: number, bestStreak: nu
   if (correctCount >= 12 && accuracy >= 80) {
     checkBadge('seventh-schedule-sniper', true);
   }
+
+  saveCareerProfile(res.profile);
+  return res;
+}
+
+export function recordCurriculumOdysseyResult(
+  stars: number,
+  accuracy: number,
+  conqueredChaptersCount: number,
+  twoStarChaptersCount: number
+): AwardResult {
+  const xpEarned = Math.round(140 + stars * 55 + accuracy * 1.2);
+  const res = awardCareerXP(
+    xpEarned,
+    stars === 3 ? 'Curriculum Odyssey 3-Star Mastery' : 'Curriculum Odyssey Chapter Cleared'
+  );
+
+  const checkBadge = (id: string, condition: boolean) => {
+    if (condition && !res.profile.unlockedBadgeIds.includes(id)) {
+      res.profile.unlockedBadgeIds.push(id);
+      const b = ARCADE_BADGES.find((x) => x.id === id);
+      if (b) res.newBadges.push(b);
+    }
+  };
+
+  checkBadge('odyssey-first', conqueredChaptersCount >= 1);
+  checkBadge('odyssey-strategist', twoStarChaptersCount >= 6);
+  checkBadge('odyssey-grandmaster', conqueredChaptersCount >= 12);
 
   saveCareerProfile(res.profile);
   return res;

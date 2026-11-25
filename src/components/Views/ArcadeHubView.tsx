@@ -18,8 +18,10 @@ import {
   Target,
   Puzzle,
   History,
-  Layers
+  Layers,
+  Map
 } from 'lucide-react';
+import { CurriculumOdysseyGame } from './Arcade/CurriculumOdysseyGame';
 import { ConstitutionalEscapeRoom } from './Arcade/ConstitutionalEscapeRoom';
 import { ConstitutionBenchMootSimulator } from './Arcade/ConstitutionBenchMootSimulator';
 import { ConstituentAssemblyRPG } from './Arcade/ConstituentAssemblyRPG';
@@ -43,6 +45,7 @@ import {
 import { arcadeAudio } from '../../services/arcadeAudioService';
 
 export type ArcadeTab =
+  | 'odyssey'
   | 'escape-room'
   | 'moot-court'
   | 'assembly-rpg'
@@ -68,7 +71,7 @@ export const ArcadeHubView: React.FC = () => {
     } catch {
       // ignore
     }
-    return 'escape-room';
+    return 'odyssey';
   });
   const [profile, setProfile] = useState<PlayerCareerProfile>(() => getCareerProfile());
   const [badgesModalOpen, setBadgesModalOpen] = useState<boolean>(false);
@@ -159,6 +162,7 @@ export const ArcadeHubView: React.FC = () => {
       {/* Arcade Navigation Pills (Minimalist & Clean) */}
       <div className="p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center gap-1 overflow-x-auto no-scrollbar">
         {[
+          { id: 'odyssey', label: 'Curriculum Odyssey', icon: Map },
           { id: 'connections', label: 'Connections 4x4', icon: Puzzle },
           { id: 'ultra-vires', label: 'Ultra Vires 60s', icon: Zap },
           { id: 'chrono-timeline', label: 'ChronoTimeline', icon: History },
@@ -192,6 +196,9 @@ export const ArcadeHubView: React.FC = () => {
       </div>
 
       {/* Active Game Mode Sub-View */}
+      {activeSubTab === 'odyssey' && (
+        <CurriculumOdysseyGame onAwardResult={handleAwardResult} />
+      )}
       {activeSubTab === 'escape-room' && (
         <ConstitutionalEscapeRoom onAwardResult={handleAwardResult} />
       )}
