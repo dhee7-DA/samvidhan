@@ -30,6 +30,13 @@ import {
   X
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import type { VisualBlueprintSpec, BlueprintTrack } from '../../data/visualBlueprintsTypes';
+import { TRACK_1_RIGHTS_BLUEPRINTS } from '../../data/blueprintsTrack1Rights';
+import { TRACK_2_EXEC_PARL_BLUEPRINTS } from '../../data/blueprintsTrack2ExecParl';
+import { TRACK_3_JUDICIARY_BLUEPRINTS } from '../../data/blueprintsTrack3Judiciary';
+import { TRACK_4_FEDERAL_BLUEPRINTS } from '../../data/blueprintsTrack4Federal';
+import { TRACK_5_BODIES_BLUEPRINTS } from '../../data/blueprintsTrack5Bodies';
+import { ConstitutionalBlueprintEngineSVG } from '../VectorDiagrams/ConstitutionalBlueprintEngineSVG';
 import { WritsMatrixSVG } from '../VectorDiagrams/WritsMatrixSVG';
 import { CriminalConstitutionalPipelineSVG } from '../VectorDiagrams/CriminalConstitutionalPipelineSVG';
 import { PreambleArchitectureSVG } from '../VectorDiagrams/PreambleArchitectureSVG';
@@ -58,20 +65,15 @@ import { LocalSelfGovernmentSVG } from '../VectorDiagrams/LocalSelfGovernmentSVG
 import { MajoritiesThresholdSVG } from '../VectorDiagrams/MajoritiesThresholdSVG';
 import { TerritoryCitizenshipFlowSVG } from '../VectorDiagrams/TerritoryCitizenshipFlowSVG';
 
-type DiagramTrack =
-  | 'All'
-  | 'Rights & Remedies'
-  | 'Executive & Parliament'
-  | 'Judiciary & Doctrines'
-  | 'Federalism & Local Gov'
-  | 'Bodies & Mechanics';
+type DiagramTrack = 'All' | BlueprintTrack;
 
 interface DiagramItem {
   id: string;
   title: string;
   category: string;
-  track: Exclude<DiagramTrack, 'All'>;
+  track: BlueprintTrack;
   articles: string;
+  topologyLabel: string;
   icon: React.ReactNode;
   component: React.ReactNode;
   summary: string;
@@ -87,17 +89,57 @@ const TRACKS: DiagramTrack[] = [
   'Bodies & Mechanics'
 ];
 
-const DIAGRAMS: DiagramItem[] = [
+const TOPOLOGY_LABELS: Record<VisualBlueprintSpec['topology'], string> = {
+  flowchart: 'Flowchart',
+  'hub-spoke': 'Radial Hub',
+  'balance-beam': 'Equilibrium Scale',
+  'pyramid-hierarchy': 'Hierarchy Pyramid',
+  'matrix-split': 'Contrast Matrix',
+  'cycle-sequence': 'Process Cycle'
+};
+
+function getTrackIcon(track: BlueprintTrack): React.ReactNode {
+  switch (track) {
+    case 'Rights & Remedies':
+      return <ShieldCheck className="w-4 h-4" />;
+    case 'Executive & Parliament':
+      return <Building2 className="w-4 h-4" />;
+    case 'Judiciary & Doctrines':
+      return <Scale className="w-4 h-4" />;
+    case 'Federalism & Local Gov':
+      return <Layers className="w-4 h-4" />;
+    case 'Bodies & Mechanics':
+      return <Landmark className="w-4 h-4" />;
+  }
+}
+
+function specToDiagramItem(spec: VisualBlueprintSpec): DiagramItem {
+  return {
+    id: spec.id,
+    title: spec.title,
+    category: spec.category,
+    track: spec.track,
+    articles: spec.articles,
+    topologyLabel: TOPOLOGY_LABELS[spec.topology],
+    icon: getTrackIcon(spec.track),
+    component: <ConstitutionalBlueprintEngineSVG key={spec.id} spec={spec} />,
+    summary: spec.summary,
+    isNew: true
+  };
+}
+
+const BESPOKE_DIAGRAMS: DiagramItem[] = [
+  // Rights & Remedies (6)
   {
     id: 'fundamental-rights-funnel',
     title: 'Fundamental Rights Judicial Filter & Golden Triangle',
     category: 'Fundamental Rights',
     track: 'Rights & Remedies',
     articles: 'Articles 12 – 21',
+    topologyLabel: 'Decision Funnel',
     icon: <ShieldCheck className="w-4 h-4" />,
     component: <FundamentalRightsFunnelSVG />,
-    summary: 'How challenged laws are filtered through Art 12 Statehood, Art 13 Eclipse/Severability, Art 14 Arbitrariness, and Art 19 Restrictions.',
-    isNew: true
+    summary: 'How challenged laws are filtered through Art 12 Statehood, Art 13 Eclipse/Severability, Art 14 Arbitrariness, and Art 19 Restrictions.'
   },
   {
     id: 'dpsp-fr-harmony',
@@ -105,10 +147,10 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Philosophy & Directive Principles',
     track: 'Rights & Remedies',
     articles: 'Articles 31C & 37',
+    topologyLabel: 'Balance Arc',
     icon: <Scale className="w-4 h-4" />,
     component: <DPSPvsFRHarmonySVG />,
-    summary: 'Interactive balance beam tracing Champakam (1951), Golaknath (1967), Kesavananda (1973), and Minerva Mills (1980) Chariot Balance.',
-    isNew: true
+    summary: 'Interactive balance beam tracing Champakam (1951), Golaknath (1967), Kesavananda (1973), and Minerva Mills (1980) Chariot Balance.'
   },
   {
     id: 'reservation-evolution',
@@ -116,10 +158,10 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Equality & Affirmative Action',
     track: 'Rights & Remedies',
     articles: 'Articles 15 & 16',
+    topologyLabel: 'Quota Matrix',
     icon: <Users className="w-4 h-4" />,
     component: <ReservationEvolutionSVG />,
-    summary: 'Visual geometry of SC/ST/OBC/EWS vertical pools, 50% Indra Sawhney bar, Horizontal slots, and Davinder Singh (2024) Sub-classification.',
-    isNew: true
+    summary: 'Visual geometry of SC/ST/OBC/EWS vertical pools, 50% Indra Sawhney bar, Horizontal slots, and Davinder Singh (2024) Sub-classification.'
   },
   {
     id: 'writs-matrix',
@@ -127,6 +169,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Remedies & Part III',
     track: 'Rights & Remedies',
     articles: 'Articles 32 & 226',
+    topologyLabel: 'Interactive Matrix',
     icon: <Shield className="w-4 h-4" />,
     component: <WritsMatrixSVG />,
     summary: 'Interactive comparative blueprint of Habeas Corpus, Mandamus, Prohibition, Certiorari, and Quo-Warranto.'
@@ -137,6 +180,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Fundamental Rights',
     track: 'Rights & Remedies',
     articles: 'Article 21',
+    topologyLabel: 'Evolution Tree',
     icon: <Eye className="w-4 h-4" />,
     component: <Article21EvolutionSVG />,
     summary: 'Metamorphosis from formalist procedure to the Golden Triangle and proportionality privacy.'
@@ -146,21 +190,92 @@ const DIAGRAMS: DiagramItem[] = [
     title: 'Criminal-Constitutional Safeguards Pipeline',
     category: 'Criminal Due Process',
     track: 'Rights & Remedies',
-    articles: 'Articles 20, 21 & 22 ⟷ BNSS',
+    articles: 'Articles 20, 21 & 22 <-> BNSS',
+    topologyLabel: 'Process Pipeline',
     icon: <Gavel className="w-4 h-4" />,
     component: <CriminalConstitutionalPipelineSVG />,
     summary: 'Interactive blueprint mapping constitutional protections to criminal investigation, arrest, forensic discovery, and bail.'
   },
+
+  // Executive & Parliament (6)
+  {
+    id: 'president-electoral-impeachment',
+    title: 'Presidential Election Quota & Art 61 Impeachment',
+    category: 'Union Executive',
+    track: 'Executive & Parliament',
+    articles: 'Articles 54, 55 & 61',
+    topologyLabel: 'Formula & Flow',
+    icon: <Crown className="w-4 h-4" />,
+    component: <PresidentElectoralImpeachmentSVG />,
+    summary: 'Interactive MLA/MP vote-weight equations, Electoral College exclusions, and the 5-stage 2/3rd Total Membership Impeachment track.'
+  },
+  {
+    id: 'parliamentary-house-procedures',
+    title: 'Parliament Floor, Bill Lapse & 10th Schedule Flows',
+    category: 'Parliamentary Procedure',
+    track: 'Executive & Parliament',
+    articles: 'Arts 85, 100, 107, 108 & Sch. 10',
+    topologyLabel: 'Multi-Tab Flow',
+    icon: <Building2 className="w-4 h-4" />,
+    component: <ParliamentaryHouseProceduresSVG />,
+    summary: 'Visual routing of Lok Sabha dissolution bill rules, 10th Schedule Speaker Tribunal (Kihoto Hollohan), and Art 108 Joint Sitting hierarchy.'
+  },
+  {
+    id: 'governor-assent-ordinance',
+    title: 'Governor’s Assent Routes & Ordinance Constraints',
+    category: 'State Executive',
+    track: 'Executive & Parliament',
+    articles: 'Articles 200, 201, 123 & 213',
+    topologyLabel: 'Decision Flowchart',
+    icon: <FileCheck2 className="w-4 h-4" />,
+    component: <GovernorAssentOrdinanceSVG />,
+    summary: 'Decision flowchart of Governor’s 4 options under Art 200, Art 201 President freedom, and the Krishna Kumar repromulgation bar.'
+  },
+  {
+    id: 'majorities-threshold',
+    title: 'Parliamentary Hemicycle: 5 Constitutional Majorities',
+    category: 'Voting Thresholds',
+    track: 'Executive & Parliament',
+    articles: 'Simple · Effective · Special · 61',
+    topologyLabel: 'Seating Hemicycle',
+    icon: <Vote className="w-4 h-4" />,
+    component: <MajoritiesThresholdSVG />,
+    summary: 'Interactive seating floor comparing Simple, Effective (vacancies), Absolute, Special (Art 368), and Impeachment (Art 61) thresholds.'
+  },
+  {
+    id: 'legislative-passage',
+    title: 'Legislative Bill Passage & Veto Architecture',
+    category: 'Parliamentary Procedure',
+    track: 'Executive & Parliament',
+    articles: 'Articles 107 – 111 & 368',
+    topologyLabel: 'Passage Pipeline',
+    icon: <FileText className="w-4 h-4" />,
+    component: <LegislativePassageSVG />,
+    summary: 'Ordinary vs Money vs Constitutional Amendment bill trajectories and presidential veto mechanics.'
+  },
+  {
+    id: 'clemency-architecture',
+    title: 'Executive Clemency Architecture & Judicial Scrutiny',
+    category: 'Executive Governance',
+    track: 'Executive & Parliament',
+    articles: 'Articles 72 & 161 <-> Sec 473 BNSS',
+    topologyLabel: 'Clemency Contrast',
+    icon: <Scale className="w-4 h-4" />,
+    component: <ExecutiveClemencyArchitectureSVG />,
+    summary: 'Interactive comparative blueprint of executive pardoning power, cabinet supremacy, statutory remission primacy, and judicial review safeguards.'
+  },
+
+  // Judiciary & Doctrines (5)
   {
     id: 'supreme-court-jurisdiction',
     title: 'Supreme Court & High Court 6-Vector Jurisdiction',
     category: 'Judicial Architecture',
     track: 'Judiciary & Doctrines',
     articles: 'Articles 124 – 147 & 226',
+    topologyLabel: 'Radial Hub',
     icon: <Landmark className="w-4 h-4" />,
     component: <SupremeCourtJurisdictionSVG />,
-    summary: 'Radial hub diagram contrasting Original (131), Writs (32 vs 226), SLP (136), Advisory (143), Complete Justice (142), and Collegium.',
-    isNew: true
+    summary: 'Radial hub diagram contrasting Original (131), Writs (32 vs 226), SLP (136), Advisory (143), Complete Justice (142), and Collegium.'
   },
   {
     id: 'basic-structure-evolution',
@@ -168,6 +283,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Judicial History',
     track: 'Judiciary & Doctrines',
     articles: '1951 to 2007',
+    topologyLabel: 'Chronology',
     icon: <History className="w-4 h-4" />,
     component: <BasicStructureEvolutionSVG />,
     summary: 'The 56-year constitutional battle from Shankari Prasad through Kesavananda to I.R. Coelho.'
@@ -178,6 +294,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Judicial Precedent',
     track: 'Judiciary & Doctrines',
     articles: '8 Landmark Judicial Trees',
+    topologyLabel: 'Lineage Trees',
     icon: <GitBranch className="w-4 h-4" />,
     component: <PrecedentLineageSVG />,
     summary: 'Evolutionary vector trees tracking how the Supreme Court developed, deepened, and overruled major constitutional precedents.'
@@ -188,6 +305,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Governance Mechanics',
     track: 'Judiciary & Doctrines',
     articles: 'Articles 50, 75, 124, 368',
+    topologyLabel: 'Checks Triangle',
     icon: <Scale className="w-4 h-4" />,
     component: <SeparationOfPowersSVG />,
     summary: 'Triangular balance between Legislature, Executive, and Judiciary with constitutional check vectors.'
@@ -198,84 +316,23 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Foundational Philosophy',
     track: 'Judiciary & Doctrines',
     articles: 'Preamble',
+    topologyLabel: 'Philosophy Graph',
     icon: <BookOpen className="w-4 h-4" />,
     component: <PreambleArchitectureSVG />,
     summary: 'Deconstructs the 4-stage ideological pipeline, popular sovereignty, and 42nd Amendment modifications.'
   },
-  {
-    id: 'president-electoral-impeachment',
-    title: 'Presidential Election Quota & Art 61 Impeachment',
-    category: 'Union Executive',
-    track: 'Executive & Parliament',
-    articles: 'Articles 54, 55 & 61',
-    icon: <Crown className="w-4 h-4" />,
-    component: <PresidentElectoralImpeachmentSVG />,
-    summary: 'Interactive MLA/MP vote-weight equations, Electoral College exclusions, and the 5-stage 2/3rd Total Membership Impeachment track.',
-    isNew: true
-  },
-  {
-    id: 'parliamentary-house-procedures',
-    title: 'Parliament Floor, Bill Lapse & 10th Schedule Flows',
-    category: 'Parliamentary Procedure',
-    track: 'Executive & Parliament',
-    articles: 'Arts 85, 100, 107, 108 & Sch. 10',
-    icon: <Building2 className="w-4 h-4" />,
-    component: <ParliamentaryHouseProceduresSVG />,
-    summary: 'Visual routing of Lok Sabha dissolution bill rules, 10th Schedule Speaker Tribunal (Kihoto Hollohan), and Art 108 Joint Sitting hierarchy.',
-    isNew: true
-  },
-  {
-    id: 'governor-assent-ordinance',
-    title: 'Governor’s Assent Routes & Ordinance Constraints',
-    category: 'State Executive',
-    track: 'Executive & Parliament',
-    articles: 'Articles 200, 201, 123 & 213',
-    icon: <FileCheck2 className="w-4 h-4" />,
-    component: <GovernorAssentOrdinanceSVG />,
-    summary: 'Decision flowchart of Governor’s 4 options under Art 200, Art 201 President freedom, and the Krishna Kumar repromulgation bar.',
-    isNew: true
-  },
-  {
-    id: 'majorities-threshold',
-    title: 'Parliamentary Hemicycle: 5 Constitutional Majorities',
-    category: 'Voting Thresholds',
-    track: 'Executive & Parliament',
-    articles: 'Simple · Effective · Special · 61',
-    icon: <Vote className="w-4 h-4" />,
-    component: <MajoritiesThresholdSVG />,
-    summary: 'Interactive seating floor comparing Simple, Effective (vacancies), Absolute, Special (Art 368), and Impeachment (Art 61) thresholds.',
-    isNew: true
-  },
-  {
-    id: 'legislative-passage',
-    title: 'Legislative Bill Passage & Veto Architecture',
-    category: 'Parliamentary Procedure',
-    track: 'Executive & Parliament',
-    articles: 'Articles 107 – 111 & 368',
-    icon: <FileText className="w-4 h-4" />,
-    component: <LegislativePassageSVG />,
-    summary: 'Ordinary vs Money vs Constitutional Amendment bill trajectories and presidential veto mechanics.'
-  },
-  {
-    id: 'clemency-architecture',
-    title: 'Executive Clemency Architecture & Judicial Scrutiny',
-    category: 'Executive Governance',
-    track: 'Executive & Parliament',
-    articles: 'Articles 72 & 161 ⟷ Sec 473 BNSS',
-    icon: <Scale className="w-4 h-4" />,
-    component: <ExecutiveClemencyArchitectureSVG />,
-    summary: 'Interactive comparative blueprint of executive pardoning power, cabinet supremacy, statutory remission primacy, and judicial review safeguards.'
-  },
+
+  // Federalism & Local Gov (5)
   {
     id: 'territory-citizenship',
     title: 'Territory Reorganisation & Citizenship Vectors',
     category: 'Foundations & Statehood',
     track: 'Federalism & Local Gov',
     articles: 'Articles 1 – 11',
+    topologyLabel: 'Dual Tree',
     icon: <MapPin className="w-4 h-4" />,
     component: <TerritoryCitizenshipFlowSVG />,
-    summary: 'Contrasts Art 2 External Admission, Art 3 Internal Reorganisation, Berubari Cession (Art 368), and Citizenship Act 1955 acquisition/loss.',
-    isNew: true
+    summary: 'Contrasts Art 2 External Admission, Art 3 Internal Reorganisation, Berubari Cession (Art 368), and Citizenship Act 1955 acquisition/loss.'
   },
   {
     id: 'local-self-government',
@@ -283,10 +340,10 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Local Governance',
     track: 'Federalism & Local Gov',
     articles: 'Articles 243 – 243ZG',
+    topologyLabel: 'Twin Pyramids',
     icon: <Home className="w-4 h-4" />,
     component: <LocalSelfGovernmentSVG />,
-    summary: '3-tier Panchayati Raj & Urban Municipal structures paired with State Election Commission (243K), SFC (243-I), and PESA Act 1996.',
-    isNew: true
+    summary: '3-tier Panchayati Raj & Urban Municipal structures paired with State Election Commission (243K), SFC (243-I), and PESA Act 1996.'
   },
   {
     id: 'federal-relations',
@@ -294,6 +351,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Federal Architecture',
     track: 'Federalism & Local Gov',
     articles: 'Articles 246 & 248',
+    topologyLabel: 'Override Map',
     icon: <Layers className="w-4 h-4" />,
     component: <FederalRelationsSVG />,
     summary: 'Union, State, and Concurrent lists with the 5 central overriding pathways.'
@@ -304,6 +362,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Financial Architecture',
     track: 'Federalism & Local Gov',
     articles: 'Articles 279A, 280, 266',
+    topologyLabel: 'Fiscal Flow',
     icon: <Landmark className="w-4 h-4" />,
     component: <GSTCouncilFiscalSVG />,
     summary: 'Cooperative fiscal voting weights (1/3 Centre, 2/3 States), Finance Commission, and constitutional funds.'
@@ -314,16 +373,20 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Special Provisions',
     track: 'Federalism & Local Gov',
     articles: 'Articles 371 to 371-J',
+    topologyLabel: 'State Map',
     icon: <Compass className="w-4 h-4" />,
     component: <AsymmetricFederalismSVG />,
     summary: 'Autonomous constitutional safeguards and customary protections across 11 diverse States.'
   },
+
+  // Bodies & Mechanics (5)
   {
     id: 'amendment-pipeline',
     title: 'Article 368 Amendment Engine',
     category: 'Constituent Power',
     track: 'Bodies & Mechanics',
     articles: 'Article 368',
+    topologyLabel: '3-Track Engine',
     icon: <GitBranch className="w-4 h-4" />,
     component: <AmendmentPipelineSVG />,
     summary: 'Three amendment tracks filtered through the Basic Structure Judicial Shield.'
@@ -334,6 +397,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Crisis Governance',
     track: 'Bodies & Mechanics',
     articles: 'Articles 352, 356, 360',
+    topologyLabel: 'Crisis Matrix',
     icon: <AlertTriangle className="w-4 h-4" />,
     component: <EmergencyMatrixSVG />,
     summary: 'Comparative analysis of National, State, and Financial emergencies with Art 20 & 21 immunity.'
@@ -344,6 +408,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Public Administration',
     track: 'Bodies & Mechanics',
     articles: 'Articles 310, 311, 312',
+    topologyLabel: 'Service Shield',
     icon: <UserCheck className="w-4 h-4" />,
     component: <CivilServicesSafeguardsSVG />,
     summary: 'Twin shields under Art 311(1) & (2), the 3 exceptional provisos, and All-India Services.'
@@ -354,6 +419,7 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Electoral Governance',
     track: 'Bodies & Mechanics',
     articles: 'Articles 324 to 329',
+    topologyLabel: 'Election System',
     icon: <Vote className="w-4 h-4" />,
     component: <ElectoralArchitectureSVG />,
     summary: 'Superintendence of elections, adult franchise under Art 326, single general roll, and bar on court interference.'
@@ -364,10 +430,24 @@ const DIAGRAMS: DiagramItem[] = [
     category: 'Structural Catalog',
     track: 'Bodies & Mechanics',
     articles: 'Schedules 1 – 12',
+    topologyLabel: '12-Node Matrix',
     icon: <Calendar className="w-4 h-4" />,
     component: <SchedulesGenealogySVG />,
     summary: 'Mnemonic "TEARS OF OLD PM" framework mapping all 12 constitutional schedules.'
   }
+];
+
+const DIAGRAMS: DiagramItem[] = [
+  ...BESPOKE_DIAGRAMS.filter((d) => d.track === 'Rights & Remedies'),
+  ...TRACK_1_RIGHTS_BLUEPRINTS.map(specToDiagramItem),
+  ...BESPOKE_DIAGRAMS.filter((d) => d.track === 'Executive & Parliament'),
+  ...TRACK_2_EXEC_PARL_BLUEPRINTS.map(specToDiagramItem),
+  ...BESPOKE_DIAGRAMS.filter((d) => d.track === 'Judiciary & Doctrines'),
+  ...TRACK_3_JUDICIARY_BLUEPRINTS.map(specToDiagramItem),
+  ...BESPOKE_DIAGRAMS.filter((d) => d.track === 'Federalism & Local Gov'),
+  ...TRACK_4_FEDERAL_BLUEPRINTS.map(specToDiagramItem),
+  ...BESPOKE_DIAGRAMS.filter((d) => d.track === 'Bodies & Mechanics'),
+  ...TRACK_5_BODIES_BLUEPRINTS.map(specToDiagramItem)
 ];
 
 export const VisualLabView: React.FC = () => {
@@ -385,6 +465,7 @@ export const VisualLabView: React.FC = () => {
           d.title.toLowerCase().includes(q) ||
           d.articles.toLowerCase().includes(q) ||
           d.category.toLowerCase().includes(q) ||
+          d.topologyLabel.toLowerCase().includes(q) ||
           d.summary.toLowerCase().includes(q)
         );
       }
@@ -415,7 +496,7 @@ export const VisualLabView: React.FC = () => {
               <Eye className="w-3 h-3 text-[var(--accent)]" />
               Visual Law Lab
             </span>
-            <span className="text-xs px-2.5 py-0.5 rounded font-mono font-semibold bg-[var(--bg-surface-elevated)] text-[var(--accent)] border border-[var(--border-strong)]">
+            <span className="text-xs px-2.5 py-0.5 rounded font-mono font-semibold bg-[var(--bg-surface-elevated)] text-[var(--accent)] border border-[var(--border-strong)] tabular-nums">
               {DIAGRAMS.length} Interactive Vector Blueprints
             </span>
           </div>
@@ -423,7 +504,7 @@ export const VisualLabView: React.FC = () => {
             Constitutional Architecture &amp; Vector Explainers
           </h1>
           <p className="text-sm text-[var(--text-secondary)] mt-1 max-w-3xl">
-            Click nodes, directional vectors, and callout branches across {DIAGRAMS.length} custom diagrams covering Fundamental Rights, Parliament, Judiciary, Federalism, and Governance.
+            Click nodes, directional vectors, and callout branches across {DIAGRAMS.length} structured diagrams covering Fundamental Rights, Parliament, Judiciary, Federalism, and Governance.
           </p>
         </div>
       </div>
@@ -438,6 +519,9 @@ export const VisualLabView: React.FC = () => {
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-[var(--accent)] text-[var(--accent-contrast)] tabular-nums">
+                  #{currentIndex + 1}
+                </span>
                 <h2 className="text-sm sm:text-base font-bold text-[var(--text-primary)] truncate">
                   {activeDiagram.title}
                 </h2>
@@ -446,7 +530,7 @@ export const VisualLabView: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-[var(--text-muted)] line-clamp-1 mt-0.5">
-                {activeDiagram.category} &bull; {activeDiagram.summary}
+                {activeDiagram.track} &bull; {activeDiagram.topologyLabel} &bull; {activeDiagram.summary}
               </p>
             </div>
           </div>
@@ -494,7 +578,7 @@ export const VisualLabView: React.FC = () => {
           </div>
         </div>
 
-        {/* Filterable & Searchable Blueprint Gallery Grid */}
+        {/* Filterable & Searchable 100-Blueprint Atlas Grid */}
         {isGalleryOpen && (
           <div className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-xl animate-fadeIn flex flex-col gap-3.5">
             {/* Search & Track Pills Row */}
@@ -510,7 +594,7 @@ export const VisualLabView: React.FC = () => {
                     <button
                       key={track}
                       onClick={() => setSelectedTrack(track)}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors cursor-pointer ${
+                      className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors cursor-pointer tabular-nums ${
                         isActive
                           ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
                           : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
@@ -522,14 +606,15 @@ export const VisualLabView: React.FC = () => {
                 })}
               </div>
 
-              <div className="relative w-full lg:w-64">
-                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+              <div className="relative w-full lg:w-72">
+                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] pointer-events-none" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search blueprint or Article..."
-                  className="w-full h-8 pl-8 pr-7 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--border-strong)]"
+                  placeholder="Search 100 SVGs by concept or Art..."
+                  style={{ color: 'var(--text-primary)', backgroundColor: 'var(--bg-base)' }}
+                  className="w-full h-8 pl-8 pr-7 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
                 />
                 {searchQuery && (
                   <button
@@ -549,8 +634,9 @@ export const VisualLabView: React.FC = () => {
                 No vector blueprints matched &ldquo;{searchQuery}&rdquo;.
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
                 {filteredDiagrams.map((item) => {
+                  const globalNumber = DIAGRAMS.findIndex((d) => d.id === item.id) + 1;
                   const isSelected = item.id === activeDiagram.id;
                   return (
                     <button
@@ -564,23 +650,28 @@ export const VisualLabView: React.FC = () => {
                           : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:bg-[var(--bg-surface-elevated)]'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <span
-                          className={`p-1.5 rounded-lg border ${
-                            isSelected
-                              ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
-                              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)]'
-                          }`}
-                        >
-                          {item.icon}
-                        </span>
-                        <div className="flex items-center gap-1">
+                      <div className="flex items-center justify-between mb-2 gap-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <span
+                            className={`p-1.5 rounded-lg border shrink-0 ${
+                              isSelected
+                                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)]'
+                                : 'bg-[var(--bg-surface)] text-[var(--text-muted)] border-[var(--border-subtle)]'
+                            }`}
+                          >
+                            {item.icon}
+                          </span>
+                          <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] tabular-nums">
+                            {String(globalNumber).padStart(2, '0')}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1 min-w-0">
                           {item.isNew && (
-                            <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold">
+                            <span className="text-[8.5px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-bold shrink-0">
                               NEW
                             </span>
                           )}
-                          <span className="text-[9px] font-mono text-[var(--text-muted)] truncate max-w-[85px]">
+                          <span className="text-[9px] font-mono text-[var(--text-muted)] truncate max-w-[82px]">
                             {item.articles.split(' ')[0]} {item.articles.split(' ')[1] || ''}
                           </span>
                         </div>
@@ -590,7 +681,7 @@ export const VisualLabView: React.FC = () => {
                           {item.title}
                         </h4>
                         <p className="text-[10px] text-[var(--text-muted)] line-clamp-1 mt-1">
-                          {item.category}
+                          {item.topologyLabel} &bull; {item.category}
                         </p>
                       </div>
                     </button>
@@ -602,7 +693,7 @@ export const VisualLabView: React.FC = () => {
         )}
       </div>
 
-      {/* The Rendered Interactive Component */}
+      {/* The Rendered Interactive SVG Diagram */}
       <div className="w-full">
         {activeDiagram.component}
       </div>
