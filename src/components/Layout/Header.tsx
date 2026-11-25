@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
             onClick={() => setSidebarCollapsed((prev) => !prev)}
             title={sidebarCollapsed ? 'Expand navigation rail' : 'Collapse navigation rail'}
             aria-label={sidebarCollapsed ? 'Expand navigation rail' : 'Collapse navigation rail'}
-            className="hidden xl:flex w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 cursor-pointer"
+            className="hidden md:flex w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 cursor-pointer"
           >
             {sidebarCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
           </button>

@@ -153,7 +153,7 @@ export const DailyConstitutionalWorkout: React.FC = () => {
           </span>
           <span className="text-[10px] text-[var(--text-secondary)]">Arcade Mastery Hub</span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           <button
             onClick={() => openArcadeGame('lex-samvidhan')}
             className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-colors flex items-center gap-2.5 group cursor-pointer"
@@ -208,7 +208,7 @@ export const DailyConstitutionalWorkout: React.FC = () => {
       </div>
 
       {/* Progress Step Tabs */}
-      <div className="grid grid-cols-4 gap-2 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-6">
         {[
           { label: '1. Article Twin', icon: Zap },
           { label: '2. Landmark Ratio', icon: BookOpen },

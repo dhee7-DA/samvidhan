@@ -127,7 +127,7 @@ const MainContent: React.FC = () => {
       <UniversalDictionaryPopover />
       <ProgressVaultModal />
 
-      <div className="flex-1 flex flex-col xl:flex-row min-h-0">
+      <div className="flex-1 flex flex-col md:flex-row min-h-0">
         <Sidebar />
 
         <div className="flex-1 min-w-0 flex flex-col">

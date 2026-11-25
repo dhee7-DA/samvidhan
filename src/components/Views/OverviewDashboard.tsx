@@ -206,7 +206,7 @@ export const OverviewDashboard: React.FC = () => {
       {/* =========================================================================
           2. CURATED QUICK WORKSPACES (6 Calm Monochrome Shortcuts)
           ========================================================================= */}
-      <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+      <section className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-2.5">
         {[
           { label: 'Arcade (13 Games)', icon: Gamepad2, action: () => setActiveTab('arcade') },
           { label: 'Flashcards (SRS)', icon: BrainCircuit, action: () => setActiveTab('flashcards') },
@@ -236,7 +236,7 @@ export const OverviewDashboard: React.FC = () => {
       {/* =========================================================================
           4. VITAL STATISTICS OF THE REPUBLIC (Unified Tabular Monochrome)
           ========================================================================= */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { label: 'Total Articles', value: '395 / 470+', sub: '22 Original Parts', tab: 'articles-master' },
           { label: 'Schedules', value: '12 Schedules', sub: 'Originally 8 in 1950', tab: 'schedules' },
@@ -304,7 +304,7 @@ export const OverviewDashboard: React.FC = () => {
         <PreambleArchitectureSVG />
 
         {/* 4 Core Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-1">
           {PREAMBLE_DATA.fourCorePillars.map((pillar, idx) => (
             <div
               key={idx}
@@ -346,7 +346,7 @@ export const OverviewDashboard: React.FC = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {[
             {
               tag: '01 · Study Material & Text',

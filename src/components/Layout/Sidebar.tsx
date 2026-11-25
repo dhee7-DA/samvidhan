@@ -63,9 +63,9 @@ export const Sidebar: React.FC = () => {
   return (
     <>
       {/* =========================================================================
-          MOBILE & SPLIT-SCREEN SELECTOR (< 1280px)
+          MOBILE COMPACT SELECTOR (< 768px)
           ========================================================================= */}
-      <nav className="xl:hidden w-full border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] py-2.5 px-4 transition-colors relative z-30 shrink-0">
+      <nav className="md:hidden w-full border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] py-2.5 px-4 transition-colors relative z-30 shrink-0">
         <div ref={menuRef} className="max-w-7xl mx-auto flex flex-col gap-2 relative">
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -169,12 +169,12 @@ export const Sidebar: React.FC = () => {
       </nav>
 
       {/* =========================================================================
-          DESKTOP CATEGORIZED WORKBENCH RAIL (xl+: 1280px+)
+          CATEGORIZED LEFT WORKBENCH RAIL (Split-screen & Desktop: 768px+)
           ========================================================================= */}
       <aside
         aria-label="Primary Workbench Navigation"
-        className={`hidden xl:flex flex-col shrink-0 border-r border-[var(--border-subtle)] bg-[var(--bg-surface)] sticky top-14 h-[calc(100vh-3.5rem)] transition-[width] duration-200 ease-out select-none z-20 ${
-          sidebarCollapsed ? 'w-[68px]' : 'w-64'
+        className={`hidden md:flex flex-col shrink-0 border-r border-[var(--border-subtle)] bg-[var(--bg-surface)] sticky top-14 h-[calc(100vh-3.5rem)] transition-[width] duration-200 ease-out select-none z-20 ${
+          sidebarCollapsed ? 'w-[64px]' : 'w-48 lg:w-56 xl:w-64'
         }`}
       >
         {/* Rail Quick Filter (Expanded Only) */}
@@ -278,7 +278,7 @@ export const Sidebar: React.FC = () => {
                           </div>
                           {item.badge && (
                             <span
-                              className={`text-[9px] font-mono px-1.5 py-0.2 rounded shrink-0 ${
+                              className={`hidden xl:inline-block text-[9px] font-mono px-1.5 py-0.2 rounded shrink-0 ${
                                 isActive
                                   ? 'bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)]'
                                   : 'text-[var(--text-muted)]'
