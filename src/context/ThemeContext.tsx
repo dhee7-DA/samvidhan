@@ -41,6 +41,8 @@ interface ThemeContextType {
   togglePinFlashcard: (cardId: string) => boolean;
   vaultModalOpen: boolean;
   setVaultModalOpen: (open: boolean) => void;
+  sidebarCollapsed: boolean;
+  setSidebarCollapsed: (collapsed: boolean | ((prev: boolean) => boolean)) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -72,6 +74,21 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [activeFlashcardCardId, setActiveFlashcardCardId] = useState<string | null>(null);
   const [pinnedFlashcardIds, setPinnedFlashcardIds] = useState<string[]>(() => getPinnedFlashcardIds());
   const [vaultModalOpen, setVaultModalOpen] = useState<boolean>(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('samvidhan_sidebar_collapsed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('samvidhan_sidebar_collapsed', String(sidebarCollapsed));
+    } catch {
+      // ignore
+    }
+  }, [sidebarCollapsed]);
 
   const launchGameDeck = (deck: string) => {
     setActiveGameDeck(deck);
@@ -168,6 +185,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         togglePinFlashcard,
         vaultModalOpen,
         setVaultModalOpen,
+        sidebarCollapsed,
+        setSidebarCollapsed,
       }}
     >
       {children}

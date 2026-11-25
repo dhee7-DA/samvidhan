@@ -95,18 +95,19 @@ export const ThemeSelector: React.FC = () => {
 
   return (
     <div className="relative" ref={containerRef}>
-      {/* Compact Colour Icon Trigger (Small, no text) */}
+      {/* Compact Colour Icon Trigger (40x40px optical hit area) */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         title={`Theme & Display: ${currentTheme.name} (${currentFont.label})`}
-        className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-150 border btn-tactile shadow-sm shrink-0 ${
+        aria-label="Theme and typography selector"
+        className={`w-10 h-10 rounded-xl flex items-center justify-center transition-[transform,background-color,border-color,box-shadow] duration-150 border btn-tactile shrink-0 cursor-pointer ${
           isOpen
-            ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] shadow-md ring-2 ring-[var(--accent)]/30'
+            ? 'bg-[var(--bg-surface-elevated)] border-[var(--accent)] shadow-md ring-2 ring-[var(--accent)]/25'
             : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
         }`}
       >
         <span
-          className="w-4 h-4 rounded-full ring-2 ring-black/40 dark:ring-white/20 transition-transform hover:scale-110 shadow-xs"
+          className="w-3.5 h-3.5 rounded-full ring-2 ring-black/40 dark:ring-white/25 transition-transform hover:scale-110"
           style={{ backgroundColor: currentTheme.sampleColor }}
         />
       </button>

@@ -122,101 +122,97 @@ const MainContent: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-primary)]">
       <Header />
-      <Sidebar />
       <SearchModal />
       <GlobalDictionaryModal />
       <UniversalDictionaryPopover />
       <ProgressVaultModal />
 
-      <main className="flex-1 pb-16">
-        {activeTab === 'overview' ? (
-          <OverviewDashboard />
-        ) : (
-          <Suspense fallback={<ViewLoadingFallback />}>
-            {activeTab === 'bootcamp' && <StudyBootcampView />}
-            {activeTab === 'mock-exam' && <MockExamSimulatorView />}
-            {activeTab === 'mains-mock' && <MainsMockExamSimulatorView />}
-            {activeTab === 'readiness-index' && <ReadinessIndexView />}
-            {activeTab === 'fast-track' && <FastTrackMasteryView />}
-            {activeTab === 'judgment-lab' && <JudgmentWritingLabView />}
-            {activeTab === 'mistakes-notebook' && (
-              <MistakesNotebookView
-                onNavigateToBootcampDay={() => {
-                  setActiveTab('bootcamp');
-                }}
-              />
+      <div className="flex-1 flex flex-col xl:flex-row min-h-0">
+        <Sidebar />
+
+        <div className="flex-1 min-w-0 flex flex-col">
+          <main className="flex-1 pb-16">
+            {activeTab === 'overview' ? (
+              <OverviewDashboard />
+            ) : (
+              <Suspense fallback={<ViewLoadingFallback />}>
+                {activeTab === 'bootcamp' && <StudyBootcampView />}
+                {activeTab === 'mock-exam' && <MockExamSimulatorView />}
+                {activeTab === 'mains-mock' && <MainsMockExamSimulatorView />}
+                {activeTab === 'readiness-index' && <ReadinessIndexView />}
+                {activeTab === 'fast-track' && <FastTrackMasteryView />}
+                {activeTab === 'judgment-lab' && <JudgmentWritingLabView />}
+                {activeTab === 'mistakes-notebook' && (
+                  <MistakesNotebookView
+                    onNavigateToBootcampDay={() => {
+                      setActiveTab('bootcamp');
+                    }}
+                  />
+                )}
+                {activeTab === 'mains-lab' && <MainsAnswerWritingLabView />}
+                {activeTab === 'revision-sheets' && <PrintableRevisionView />}
+                {activeTab === 'flashcards' && <FlashcardsView />}
+                {(activeTab === 'arcade' || activeTab === 'tile-matcher') && <ArcadeHubView />}
+                {activeTab === 'lineage' && <PrecedentLineageView />}
+                {activeTab === 'precedent-clash' && <PrecedentClashView />}
+                {activeTab === 'audio-lab' && <AudioBriefingsView />}
+                {activeTab === 'pyqs' && <PyqVaultView />}
+                {activeTab === 'parts' && <TopicDetailView />}
+                {activeTab === 'articles-master' && <ArticlesMasterView />}
+                {activeTab === 'article-mastery' && <ArticlesMasterView initialMode="mastery" />}
+                {activeTab === 'dictionary' && <DictionaryView />}
+                {activeTab === 'visual-lab' && <VisualLabView />}
+                {activeTab === 'amendments' && <AmendmentsView />}
+                {activeTab === 'schedules' && <SchedulesView />}
+                {activeTab === 'doctrines' && <DoctrinesHubView />}
+                {activeTab === 'constitutional-bodies' && <ConstitutionalBodiesView />}
+                {activeTab === 'writs-emergency' && <WritsEmergencyMatrixView />}
+                {activeTab === 'federal-relations' && <FederalRelationsView />}
+                {activeTab === 'majorities-lab' && <MajoritiesLabView />}
+                {activeTab === 'deadlines-matrix' && <DeadlinesMatrixView />}
+                {activeTab === 'trap-simulator' && <NegativeMarkingSimulatorView />}
+                {activeTab === 'judgments' && <LandmarkCasesView />}
+                {activeTab === 'comparative' && <ComparativeLawView />}
+                {activeTab === 'quiz' && <QuizMasteryView />}
+                {activeTab === 'socratic-tutor' && <SocraticTutorView />}
+              </Suspense>
             )}
-            {activeTab === 'mains-lab' && <MainsAnswerWritingLabView />}
-            {activeTab === 'revision-sheets' && <PrintableRevisionView />}
-            {activeTab === 'flashcards' && <FlashcardsView />}
-            {(activeTab === 'arcade' || activeTab === 'tile-matcher') && <ArcadeHubView />}
-            {activeTab === 'lineage' && <PrecedentLineageView />}
-            {activeTab === 'precedent-clash' && <PrecedentClashView />}
-            {activeTab === 'audio-lab' && <AudioBriefingsView />}
-            {activeTab === 'pyqs' && <PyqVaultView />}
-            {activeTab === 'parts' && <TopicDetailView />}
-            {activeTab === 'articles-master' && <ArticlesMasterView />}
-            {activeTab === 'article-mastery' && <ArticlesMasterView initialMode="mastery" />}
-            {activeTab === 'dictionary' && <DictionaryView />}
-            {activeTab === 'visual-lab' && <VisualLabView />}
-            {activeTab === 'amendments' && <AmendmentsView />}
-            {activeTab === 'schedules' && <SchedulesView />}
-            {activeTab === 'doctrines' && <DoctrinesHubView />}
-            {activeTab === 'constitutional-bodies' && <ConstitutionalBodiesView />}
-            {activeTab === 'writs-emergency' && <WritsEmergencyMatrixView />}
-            {activeTab === 'federal-relations' && <FederalRelationsView />}
-            {activeTab === 'majorities-lab' && <MajoritiesLabView />}
-            {activeTab === 'deadlines-matrix' && <DeadlinesMatrixView />}
-            {activeTab === 'trap-simulator' && <NegativeMarkingSimulatorView />}
-            {activeTab === 'judgments' && <LandmarkCasesView />}
-            {activeTab === 'comparative' && <ComparativeLawView />}
-            {activeTab === 'quiz' && <QuizMasteryView />}
-            {activeTab === 'socratic-tutor' && <SocraticTutorView />}
-          </Suspense>
-        )}
-      </main>
+          </main>
 
-      {/* Sleek Minimalist Editorial Footer */}
-      <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] py-8 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-lg bg-[var(--bg-base)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--accent)]">
-              <Scale className="w-3.5 h-3.5" />
+          {/* Quiet Minimalist Editorial Colophon */}
+          <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] py-5 px-4 sm:px-6">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5">
+                <div className="w-6 h-6 rounded-lg bg-[var(--bg-base)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--text-primary)]">
+                  <Scale className="w-3.5 h-3.5" />
+                </div>
+                <span className="font-semibold text-xs tracking-tight text-[var(--text-primary)]">SAMVIDHAN</span>
+                <span className="text-[11px] font-mono text-[var(--text-muted)] hidden md:inline">
+                  &bull; Lex Magna et Fundamentum Reipublicae
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-[var(--text-secondary)]">
+                <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)] transition-colors cursor-pointer">
+                  Overview
+                </button>
+                <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)] transition-colors cursor-pointer">
+                  Articles 1–395
+                </button>
+                <button onClick={() => setActiveTab('readiness-index')} className="hover:text-[var(--text-primary)] transition-colors cursor-pointer">
+                  Readiness Heatmap
+                </button>
+                <button onClick={() => setActiveTab('arcade')} className="hover:text-[var(--text-primary)] transition-colors cursor-pointer">
+                  Arcade
+                </button>
+                <button onClick={() => setVaultModalOpen(true)} className="hover:text-[var(--text-primary)] transition-colors cursor-pointer">
+                  Backup Vault
+                </button>
+              </div>
             </div>
-            <span className="font-bold text-sm text-[var(--text-primary)]">SAMVIDHAN</span>
-            <span className="text-[10px] font-mono text-[var(--text-muted)]">
-              • Lex Magna et Fundamentum Reipublicae
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-[var(--text-secondary)]">
-            <button onClick={() => setActiveTab('overview')} className="hover:text-[var(--text-primary)] btn-tactile">Overview</button>
-            <button onClick={() => setActiveTab('bootcamp')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold btn-tactile">15-Day Bootcamp</button>
-            <button onClick={() => setActiveTab('mock-exam')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Mock Exam</button>
-            <button onClick={() => setActiveTab('mistakes-notebook')} className="hover:text-[var(--text-primary)] text-[var(--error-text)] font-semibold btn-tactile">Mistakes Bank</button>
-            <button onClick={() => setActiveTab('mains-lab')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Mains Writing Lab</button>
-            <button onClick={() => setActiveTab('revision-sheets')} className="hover:text-[var(--text-primary)] text-[var(--warning-text)] font-semibold btn-tactile">Revision Sheets</button>
-            <button onClick={() => setActiveTab('flashcards')} className="hover:text-[var(--text-primary)] text-[var(--accent)] font-semibold btn-tactile">Flashcards (SRS)</button>
-            <button onClick={() => setActiveTab('arcade')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Constitutional Arcade</button>
-            <button onClick={() => setActiveTab('socratic-tutor')} className="hover:text-[var(--text-primary)] text-amber-400 font-semibold btn-tactile">Socratic Cross-Examiner</button>
-            <button onClick={() => setActiveTab('lineage')} className="hover:text-[var(--text-primary)] text-[var(--info-text)] font-semibold btn-tactile">Precedent Trees</button>
-            <button onClick={() => setActiveTab('audio-lab')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Audio Lab</button>
-            <button onClick={() => setActiveTab('pyqs')} className="hover:text-[var(--text-primary)] text-[var(--success-text)] font-semibold btn-tactile">Exam Trends & PYQs</button>
-            <button onClick={() => setActiveTab('parts')} className="hover:text-[var(--text-primary)] btn-tactile">25 Parts</button>
-            <button onClick={() => setActiveTab('articles-master')} className="hover:text-[var(--text-primary)] btn-tactile">Articles 1–395</button>
-            <button onClick={() => setActiveTab('dictionary')} className="hover:text-[var(--text-primary)] btn-tactile">Legal Dictionary</button>
-            <button onClick={() => setActiveTab('visual-lab')} className="hover:text-[var(--text-primary)] btn-tactile">Visual Law Lab</button>
-            <button onClick={() => setActiveTab('amendments')} className="hover:text-[var(--text-primary)] btn-tactile">106 Amendments</button>
-            <button onClick={() => setActiveTab('doctrines')} className="hover:text-[var(--text-primary)] btn-tactile">Doctrines</button>
-            <button onClick={() => setActiveTab('quiz')} className="hover:text-[var(--text-primary)] btn-tactile">Quiz</button>
-            <button onClick={() => setVaultModalOpen(true)} className="hover:text-[var(--text-primary)] text-emerald-400 font-semibold btn-tactile">Backup Vault</button>
-          </div>
-
-          <div className="text-[11px] font-mono text-[var(--text-muted)] text-center sm:text-right">
-            Sovereign Socialist Secular Democratic Republic of India
-          </div>
+          </footer>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };

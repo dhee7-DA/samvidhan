@@ -1,5 +1,13 @@
 import React from 'react';
-import { Search, Bookmark, Compass, BookOpen, ShieldCheck } from 'lucide-react';
+import {
+  Search,
+  Bookmark,
+  Compass,
+  BookOpen,
+  ShieldCheck,
+  PanelLeftClose,
+  PanelLeftOpen
+} from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { ThemeSelector } from './ThemeSelector';
 
@@ -9,54 +17,67 @@ export const Header: React.FC = () => {
     bookmarkedArticles,
     setActiveTab,
     setDictionaryModalOpen,
-    setVaultModalOpen
+    setVaultModalOpen,
+    sidebarCollapsed,
+    setSidebarCollapsed
   } = useTheme();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-base)]/80 backdrop-blur-md transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        {/* Brand / Logo */}
-        <div
-          onClick={() => setActiveTab('overview')}
-          className="flex items-center gap-3 cursor-pointer group btn-tactile select-none"
-        >
-          <div className="w-9 h-9 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--accent)] shadow-sm group-hover:scale-110 group-hover:border-[var(--accent)] transition-all duration-300">
-            <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform duration-500 ease-out" />
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-bold tracking-tight text-base sm:text-lg text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
-                SAMVIDHAN
-              </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] group-hover:border-[var(--accent)] transition-colors">
-                LEX MAGNA
-              </span>
+    <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-base)]/85 backdrop-blur-md transition-colors">
+      <div className="w-full px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
+        {/* Left: Rail Toggle (Desktop) + Brand Identity */}
+        <div className="flex items-center gap-2.5 min-w-0">
+          <button
+            onClick={() => setSidebarCollapsed((prev) => !prev)}
+            title={sidebarCollapsed ? 'Expand navigation rail' : 'Collapse navigation rail'}
+            aria-label={sidebarCollapsed ? 'Expand navigation rail' : 'Collapse navigation rail'}
+            className="hidden xl:flex w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 cursor-pointer"
+          >
+            {sidebarCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
+          </button>
+
+          <div
+            onClick={() => setActiveTab('overview')}
+            className="flex items-center gap-2.5 cursor-pointer group btn-tactile select-none min-w-0"
+          >
+            <div className="w-9 h-9 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-[var(--text-primary)] surface-specular group-hover:border-[var(--accent)] transition-colors shrink-0">
+              <Compass className="w-4 h-4 group-hover:rotate-45 transition-transform duration-500 ease-out" />
             </div>
-            <p className="text-[10px] font-mono text-[var(--text-muted)] hidden xl:block">
-              Constitution of India • Interactive Mastery Hub
-            </p>
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="font-bold tracking-tight text-base text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+                  SAMVIDHAN
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hidden sm:inline">
+                  LEX MAGNA
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Search trigger button */}
+        {/* Center: Command Palette Spotlight Trigger */}
         <button
           onClick={() => setSearchOpen(true)}
-          className="flex-1 max-w-sm lg:max-w-md hidden md:flex items-center justify-between px-3.5 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-mono text-xs min-w-0 btn-tactile shadow-sm hover:shadow"
+          className="flex-1 max-w-md hidden md:flex items-center justify-between h-10 px-3.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-[background-color,border-color,box-shadow] duration-150 text-xs min-w-0 btn-tactile surface-specular cursor-pointer"
         >
-          <div className="flex items-center gap-2 min-w-0">
-            <Search className="w-3.5 h-3.5 text-[var(--text-secondary)] shrink-0" />
-            <span className="truncate whitespace-nowrap text-[var(--text-secondary)]">Search law, articles, cases, doctrines...</span>
+          <div className="flex items-center gap-2.5 min-w-0">
+            <Search className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" />
+            <span className="truncate text-[var(--text-secondary)] font-normal">
+              Jump to module, article (1–395), or case...
+            </span>
           </div>
-          <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] shrink-0 hidden lg:inline font-mono">
+          <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] shrink-0 hidden lg:inline font-mono">
             ⌘K
           </kbd>
         </button>
 
-        {/* Right Controls: Dictionary, Theme (Color Icon Only), Saved (Icon Only) */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        {/* Right: Optical 40x40 Utility Controls */}
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => setSearchOpen(true)}
-            className="md:hidden p-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] btn-tactile"
+            aria-label="Open global search"
+            className="md:hidden w-10 h-10 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] flex items-center justify-center btn-tactile cursor-pointer"
           >
             <Search className="w-4 h-4" />
           </button>
@@ -64,36 +85,38 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setDictionaryModalOpen(true)}
             title="Universal Legal & English Dictionary (Alt + D)"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono transition-all btn-tactile shadow-sm"
+            className="flex items-center gap-1.5 h-10 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-medium transition-[transform,background-color,border-color,color] duration-150 btn-tactile cursor-pointer"
           >
-            <BookOpen className="w-3.5 h-3.5 text-[var(--accent)]" />
-            <span className="hidden md:inline">Dictionary</span>
-            <kbd className="text-[9px] px-1 py-0.2 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hidden xl:inline">
+            <BookOpen className="w-4 h-4 text-[var(--text-muted)]" />
+            <span className="hidden md:inline">Lexicon</span>
+            <kbd className="text-[9px] px-1 py-0.2 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hidden xl:inline font-mono">
               Alt+D
             </kbd>
           </button>
 
-          {/* Theme option with just colour icon only, small and compact */}
+          {/* Theme & Typography Swatch */}
           <ThemeSelector />
 
-          {/* Backup / Progress Vault compact icon */}
+          {/* Progress Vault Backup */}
           <button
             onClick={() => setVaultModalOpen(true)}
             title="Study Progress Backup & Restore Vault (.json)"
-            className="w-9 h-9 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-emerald-400 border border-[var(--border-subtle)] hover:border-emerald-500/40 flex items-center justify-center transition-all btn-tactile shadow-sm shrink-0"
+            aria-label="Open progress backup vault"
+            className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 cursor-pointer"
           >
             <ShieldCheck className="w-4 h-4" />
           </button>
 
-          {/* Save option with just icon only */}
+          {/* Saved Bookmarks */}
           <button
             onClick={() => setActiveTab('parts')}
             title={`Saved Articles (${bookmarkedArticles.length})`}
-            className="w-9 h-9 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-all btn-tactile shadow-sm shrink-0 relative"
+            aria-label={`Saved articles: ${bookmarkedArticles.length}`}
+            className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 relative cursor-pointer"
           >
-            <Bookmark className="w-4 h-4 text-[var(--gold)]" />
+            <Bookmark className="w-4 h-4" />
             {bookmarkedArticles.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[9px] font-bold font-mono flex items-center justify-center shadow-xs">
+              <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[9px] font-bold font-mono tabular-nums flex items-center justify-center shadow-xs">
                 {bookmarkedArticles.length}
               </span>
             )}

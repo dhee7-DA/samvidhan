@@ -42,7 +42,7 @@ export const PreambleArchitectureSVG: React.FC = () => {
       sub: 'Constituent Assembly Enactment',
       desc: 'Adopted and enacted in the Constituent Assembly on 26 Nov 1949 (National Constitution Day); came into full force on 26 Jan 1950 (Republic Day) to commemorate the 1930 Purna Swaraj declaration.',
       articles: 'Articles 393 (Short Title), 394 (Commencement)',
-      color: '#f59e0b'
+      color: 'var(--accent)'
     }
   ];
 
@@ -63,7 +63,7 @@ export const PreambleArchitectureSVG: React.FC = () => {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono text-[var(--gold)] border border-[var(--gold)]/30 px-2.5 py-1 rounded bg-[var(--gold)]/10">
+          <span className="text-xs font-mono text-[var(--text-secondary)] border border-[var(--border-subtle)] px-2.5 py-1 rounded bg-[var(--bg-base)]">
             Kesavananda Bharati (1973): Integral Part of Basic Structure
           </span>
         </div>
@@ -225,8 +225,8 @@ export const PreambleArchitectureSVG: React.FC = () => {
               </p>
 
               {cur.amendmentNote && (
-                <div className="flex items-center gap-2 text-xs font-mono text-[var(--gold)] bg-[var(--gold)]/10 p-2.5 rounded border border-[var(--gold)]/20">
-                  <Sparkles className="w-4 h-4 shrink-0" />
+                <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-primary)] bg-[var(--bg-base)] p-2.5 rounded border border-[var(--border-subtle)]">
+                  <Sparkles className="w-4 h-4 shrink-0 text-[var(--accent)]" />
                   <span>{cur.amendmentNote}</span>
                 </div>
               )}

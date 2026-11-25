@@ -15,9 +15,10 @@ import {
   MASTER_CHEAT_CODES
 } from '../../data/fastTrackHacksData';
 import { PRECEDENT_LINEAGES } from '../../data/precedentLineagesData';
+import { NAV_ITEMS } from '../../data/navigationData';
 
 interface SearchResult {
-  category: 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule' | 'Legal Lexicon' | 'Speed Hack' | 'Majority Type' | 'Mnemonic' | 'Cheat Code' | 'Knowledge Graph';
+  category: 'Workspace' | 'Article' | 'Part' | 'Amendment' | 'Doctrine' | 'Landmark Case' | 'Schedule' | 'Legal Lexicon' | 'Speed Hack' | 'Majority Type' | 'Mnemonic' | 'Cheat Code' | 'Knowledge Graph';
   title: string;
   subtitle: string;
   targetTab: string;
@@ -56,6 +57,23 @@ export const SearchModal: React.FC = () => {
     if (!query.trim()) return [];
     const q = query.toLowerCase();
     const res: SearchResult[] = [];
+
+    // Search App Modules & Workspaces first for fast Cmd+K switching
+    NAV_ITEMS.forEach((mod) => {
+      if (
+        mod.label.toLowerCase().includes(q) ||
+        (mod.sub && mod.sub.toLowerCase().includes(q)) ||
+        (mod.badge && mod.badge.toLowerCase().includes(q)) ||
+        mod.id.toLowerCase().includes(q)
+      ) {
+        res.push({
+          category: 'Workspace',
+          title: mod.label,
+          subtitle: `${mod.badge ? `${mod.badge} • ` : ''}${mod.sub || 'Jump directly to module'}`,
+          targetTab: mod.id
+        });
+      }
+    });
 
     // Search Articles Master Index (1 to 395)
     ARTICLES_MASTER_INDEX.forEach((art) => {
@@ -372,18 +390,47 @@ export const SearchModal: React.FC = () => {
         {/* Results List */}
         <div className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-[var(--border-subtle)]">
           {query.trim() === '' ? (
-            <div className="p-8 text-center text-sm text-[var(--text-muted)] space-y-4">
-              <p className="font-mono text-xs">Search across all 25 Parts, 395 Articles, 12 Schedules, 106 Amendments, and 100 Landmark Cases...</p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Article 21', 'Basic Structure', '42nd Amendment', 'Maneka Gandhi', 'Article 32', 'Preamble'].map((tag) => (
-                  <button
-                    key={tag}
-                    onClick={() => setQuery(tag)}
-                    className="text-xs font-mono px-3 py-1.5 rounded-xl bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] border border-[var(--border-subtle)] btn-tactile cursor-pointer"
-                  >
-                    {tag}
-                  </button>
-                ))}
+            <div className="p-6 text-center text-sm text-[var(--text-muted)] space-y-5">
+              <div className="space-y-2">
+                <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)]">
+                  Quick Jump Workspaces
+                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {[
+                    { id: 'readiness-index', label: 'Readiness Heatmap' },
+                    { id: 'arcade', label: 'Constitutional Arcade' },
+                    { id: 'articles-master', label: 'Articles 1–395' },
+                    { id: 'bootcamp', label: '15-Day Bootcamp' },
+                    { id: 'mains-lab', label: 'Mains Writing Lab' },
+                    { id: 'flashcards', label: 'Flashcards (SRS)' }
+                  ].map((mod) => (
+                    <button
+                      key={mod.id}
+                      onClick={() => {
+                        setActiveTab(mod.id);
+                        setSearchOpen(false);
+                      }}
+                      className="text-xs px-3 py-1.5 rounded-xl bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] hover:border-[var(--accent)] border border-[var(--border-subtle)] btn-tactile cursor-pointer"
+                    >
+                      {mod.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-3 border-t border-[var(--border-subtle)]">
+                <p className="font-mono text-[11px] uppercase tracking-wider">Popular Constitutional Queries</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {['Article 21', 'Basic Structure', '42nd Amendment', 'Maneka Gandhi', 'Article 32', 'Preamble'].map((tag) => (
+                    <button
+                      key={tag}
+                      onClick={() => setQuery(tag)}
+                      className="text-xs font-mono px-3 py-1.5 rounded-xl bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] border border-[var(--border-subtle)] btn-tactile cursor-pointer"
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           ) : results.length === 0 ? (

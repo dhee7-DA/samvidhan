@@ -116,28 +116,28 @@ export const DailyConstitutionalWorkout: React.FC = () => {
       {/* Top Banner & Streak Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4 mb-5">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
-            <Flame className="w-3.5 h-3.5 text-amber-500" />
-            <span>DAILY 5-MINUTE CONSTITUTIONAL WORKOUT</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
+            <Flame className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+            <span>DAILY 5-MINUTE WORKOUT</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] tracking-tight flex items-center gap-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
             <span>{workout.title}</span>
-            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+            <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
               Day {workout.dayId}
             </span>
           </h2>
           <p className="text-xs text-[var(--text-muted)]">
-            Theme Pillar: <span className="font-semibold text-[var(--text-primary)]">{workout.themePillar}</span> • 4 micro-cards for quick recall.
+            Theme Pillar: <span className="font-medium text-[var(--text-primary)]">{workout.themePillar}</span> &bull; 4 micro-cards for quick recall.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] shadow-sm">
-            <Flame className="w-4 h-4 text-amber-500" />
+          <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+            <Flame className="w-4 h-4 text-[var(--text-secondary)]" />
             <div className="text-left">
-              <div className="text-xs font-mono font-bold text-[var(--text-primary)]">{streak}-Day Streak</div>
+              <div className="text-xs font-mono font-bold tabular-nums text-[var(--text-primary)]">{streak}-Day Streak</div>
               <div className="text-[10px] text-[var(--text-muted)]">
-                {isCompletedToday ? 'Completed Today ✓' : 'Daily Goal Active'}
+                {isCompletedToday ? 'Completed Today' : 'Daily Goal Active'}
               </div>
             </div>
           </div>
@@ -145,24 +145,24 @@ export const DailyConstitutionalWorkout: React.FC = () => {
       </div>
 
       {/* Quick Daily Concept Games (Trifecta) */}
-      <div className="mb-5 p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
+      <div className="mb-5 p-3.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2.5">
         <div className="flex items-center justify-between text-[11px] font-mono">
-          <span className="font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            Quick Daily Concept Games (2–3 mins each):
+          <span className="font-semibold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+            Quick Daily Concept Games (2–3 mins each)
           </span>
-          <span className="text-[10px] text-amber-400 font-bold">Arcade Mastery Hub</span>
+          <span className="text-[10px] text-[var(--text-secondary)]">Arcade Mastery Hub</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           <button
             onClick={() => openArcadeGame('lex-samvidhan')}
-            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-amber-500/50 text-left transition-all flex items-center gap-2.5 group cursor-pointer"
+            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-colors flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] shrink-0">
               <Target className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-bold text-xs text-[var(--text-primary)] group-hover:text-amber-400 block transition-colors">
+              <span className="font-semibold text-xs text-[var(--text-primary)] block">
                 LexSamvidhan Daily
               </span>
               <span className="text-[10px] text-[var(--text-muted)] line-clamp-1">
@@ -173,13 +173,13 @@ export const DailyConstitutionalWorkout: React.FC = () => {
 
           <button
             onClick={() => openArcadeGame('connections')}
-            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-emerald-500/50 text-left transition-all flex items-center gap-2.5 group cursor-pointer"
+            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-colors flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] shrink-0">
               <Puzzle className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-bold text-xs text-[var(--text-primary)] group-hover:text-emerald-400 block transition-colors">
+              <span className="font-semibold text-xs text-[var(--text-primary)] block">
                 Connections 4x4
               </span>
               <span className="text-[10px] text-[var(--text-muted)] line-clamp-1">
@@ -190,13 +190,13 @@ export const DailyConstitutionalWorkout: React.FC = () => {
 
           <button
             onClick={() => openArcadeGame('ultra-vires')}
-            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-rose-500/50 text-left transition-all flex items-center gap-2.5 group cursor-pointer"
+            className="p-2.5 px-3 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-colors flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] shrink-0">
               <Zap className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-bold text-xs text-[var(--text-primary)] group-hover:text-rose-400 block transition-colors">
+              <span className="font-semibold text-xs text-[var(--text-primary)] block">
                 Ultra Vires 60s
               </span>
               <span className="text-[10px] text-[var(--text-muted)] line-clamp-1">
@@ -259,8 +259,8 @@ export const DailyConstitutionalWorkout: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-2">
             <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-secondary)]">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Deduction Formula: <span className="font-bold text-amber-400">{workout.articlePair.formula}</span></span>
+              <Sparkles className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+              <span>Deduction Formula: <span className="font-bold text-[var(--text-primary)]">{workout.articlePair.formula}</span></span>
             </div>
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
               <span className="font-bold text-[var(--text-primary)]">Key Difference: </span>
@@ -338,7 +338,7 @@ export const DailyConstitutionalWorkout: React.FC = () => {
           <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-4">
             <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-3">
               <span className="text-xs font-medium uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+                <AlertTriangle className="w-3.5 h-3.5 text-[var(--text-muted)]" />
                 Examiner Assertion Trap: {workout.examinerTrap.trapType}
               </span>
               <span className="text-xs font-mono text-[var(--text-muted)]">
@@ -502,21 +502,21 @@ export const DailyConstitutionalWorkout: React.FC = () => {
       {/* STEP 4: Workout Summary / Reward State */}
       {activeStep === 4 && (
         <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-center space-y-4 animate-fadeIn">
-          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-surface)] text-amber-500 border border-[var(--border-subtle)] flex items-center justify-center mx-auto shadow-sm">
-            <Flame className="w-6 h-6 fill-current" />
+          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto shadow-sm">
+            <Flame className="w-6 h-6" />
           </div>
 
-          <h3 className="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
+          <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
             Today's Workout Complete
           </h3>
           <p className="text-xs sm:text-sm text-[var(--text-secondary)] max-w-lg mx-auto">
-            Score: <span className="font-bold text-[var(--text-primary)]">{drillScore}/3</span>. You earned <span className="font-bold text-emerald-400">+100 Judicial XP</span> and pushed your streak to <span className="font-bold text-amber-400">{streak} Days</span>!
+            Score: <span className="font-bold font-mono tabular-nums text-[var(--text-primary)]">{drillScore}/3</span>. You earned <span className="font-bold font-mono text-emerald-400">+100 Judicial XP</span> and pushed your streak to <span className="font-bold font-mono tabular-nums text-[var(--text-primary)]">{streak} Days</span>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
             <button
               onClick={handleResetForPractice}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono font-medium text-[var(--text-primary)] transition-all cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-medium text-[var(--text-primary)] transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5 text-[var(--text-muted)]" />
               <span>Practice Again</span>
@@ -524,17 +524,17 @@ export const DailyConstitutionalWorkout: React.FC = () => {
 
             <button
               onClick={() => setActiveTab('mistakes-notebook')}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-mono font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
             >
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+              <AlertTriangle className="w-3.5 h-3.5 text-[var(--text-muted)]" />
               <span>Open Mistakes Bank</span>
             </button>
 
             <button
               onClick={() => setActiveTab('fast-track')}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--border-strong)] border border-[var(--border-strong)] text-[var(--text-primary)] text-xs font-mono font-semibold transition-all shadow-sm btn-tactile cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] text-xs font-semibold transition-opacity hover:opacity-95 shadow-sm btn-tactile cursor-pointer"
             >
-              <Zap className="w-3.5 h-3.5 text-amber-400" />
+              <Zap className="w-3.5 h-3.5" />
               <span>Explore More Speed Hacks</span>
             </button>
           </div>
