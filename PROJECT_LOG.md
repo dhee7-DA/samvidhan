@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-25 12:55:40 (+05:30) |
+| **Last Log Sync** | 2026-11-25 13:08:04 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `d16ebbd` (2026-11-25T12:46:18+05:30) |
-| **Total Commits** | 119 |
+| **Branch / HEAD** | `main` @ `2d26b6d` (2026-11-25T12:56:05+05:30) |
+| **Total Commits** | 120 |
 | **Total Files Indexed** | 320 (320 tracked, 0 new untracked) |
-| **Working Tree** | 5 pending change(s) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-25 13:08:04 (+05:30)] Reorganize Left Workbench Menu into 5 progressive study tracks with distinct icons and zero truncation (DONE)
+- **Details:** Updated navigationData.tsx and Sidebar.tsx: restructured 34 modules into 5 logical tracks (Start & Core with Bootcamp & Readiness at top, Bare Act & Law, Cases & Reference, Prelims & Arcade, Mains & Print); replaced duplicate icons so every collapsed tile is distinct; widened split-screen rail to 208px with concise labels achieving zero ellipsis truncation; restored activeTabRef scrollIntoView auto-scroll. Verified tsc -b && npm run build passed and live browser checks at 770x900.
+- **Files Touched (2):** `M src/components/Layout/Sidebar.tsx`, `M src/data/navigationData.tsx`
+- **Git HEAD:** `main` @ `2d26b6d`
 
 ### [2026-11-25 12:55:40 (+05:30)] Enable Categorized Left Sidebar Rail at split-screen widths (768px+) and refine Bento grid breakpoints (DONE)
 - **Details:** Shifted Left Workbench Rail breakpoint from xl (1280px) to md (768px) across App.tsx, Header.tsx, and Sidebar.tsx so split-screen browser panes display a 192px left sidebar rail (collapsible to 64px via the header toggle) with secondary badges hidden below xl to preserve clean labels. Tuned OverviewDashboard.tsx and DailyConstitutionalWorkout.tsx grids for sidebar-aware split-screen framing. Verified tsc -b && npm run build passed and live browser checks at 770x900.
@@ -376,7 +381,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
 | `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 93.3 KB | 979 | `d16ebbd` (2026-11-25) |
+| `PROJECT_LOG.md` | 94.3 KB | 985 | `2d26b6d` (2026-11-25) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -403,7 +408,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 11.2 KB | 227 | `d16ebbd` (2026-11-25) |
+| `src/App.tsx` | 11.2 KB | 227 | `2d26b6d` (2026-11-25) |
 | `src/index.css` | 14.3 KB | 534 | `d16ebbd` (2026-11-25) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -421,7 +426,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Common/AnnotatedLegalText.tsx` | 9.2 KB | 246 | `409818a` (2026-11-14) |
 | `src/components/Common/AnswerEvaluationCard.tsx` | 12.9 KB | 298 | `5bbabe8` (2026-11-19) |
-| `src/components/Common/DailyConstitutionalWorkout.tsx` | 26.4 KB | 546 | `d16ebbd` (2026-11-25) |
+| `src/components/Common/DailyConstitutionalWorkout.tsx` | 26.4 KB | 546 | `2d26b6d` (2026-11-25) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.3 KB | 459 | `3ce9f3d` (2026-11-18) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
 | `src/components/Common/ProgressVaultModal.tsx` | 10.5 KB | 259 | `3ce9f3d` (2026-11-18) |
@@ -433,8 +438,8 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 7.0 KB | 129 | `d16ebbd` (2026-11-25) |
-| `src/components/Layout/Sidebar.tsx` | 15.4 KB | 313 | `d16ebbd` (2026-11-25) |
+| `src/components/Layout/Header.tsx` | 7.0 KB | 129 | `2d26b6d` (2026-11-25) |
+| `src/components/Layout/Sidebar.tsx` | 15.9 KB | 325 | `2d26b6d` (2026-11-25) |
 | `src/components/Layout/ThemeSelector.tsx` | 10.4 KB | 242 | `d16ebbd` (2026-11-25) |
 
 ### `src/components/VectorDiagrams` (17 files)
@@ -488,7 +493,7 @@
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
-| `src/components/Views/OverviewDashboard.tsx` | 22.4 KB | 410 | `d16ebbd` (2026-11-25) |
+| `src/components/Views/OverviewDashboard.tsx` | 22.4 KB | 410 | `2d26b6d` (2026-11-25) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 14.5 KB | 298 | `003e2d2` (2026-11-21) |
@@ -572,7 +577,7 @@
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
 | `src/data/mootCourtData.ts` | 18.6 KB | 364 | `1f02703` (2026-11-22) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
-| `src/data/navigationData.tsx` | 6.3 KB | 93 | `d16ebbd` (2026-11-25) |
+| `src/data/navigationData.tsx` | 6.7 KB | 103 | `d16ebbd` (2026-11-25) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
@@ -858,10 +863,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**119** commits, newest first).
+> Complete git history (**120** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 120 | 2026-11-25 | `2d26b6d` | 6 | feat(ui): activate categorized left sidebar rail at split-screen widths (768px+) |
 | 119 | 2026-11-25 | `d16ebbd` | 12 | feat(ui): modernize workbench shell, categorized rail & study bento overview |
 | 118 | 2026-11-25 | `733568c` | 3 | feat(readiness): add 10-block syllabus heatmap, prelims negative marking risk engine & 15-min weakest link workout |
 | 117 | 2026-11-24 | `1c6aefb` | 15 | style(arcade): purge yellow gradients and amber CTAs across all arcade games in favor of editorial monochrome |

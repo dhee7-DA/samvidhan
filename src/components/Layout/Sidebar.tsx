@@ -8,23 +8,32 @@ export const Sidebar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [railFilter, setRailFilter] = useState('');
   const [collapsedCategories, setCollapsedCategories] = useState<Record<NavCategory, boolean>>({
+    start: false,
     study: false,
     cases: false,
-    practice: false,
-    bootcamp: false
+    prelims: false,
+    mains: false
   });
   const menuRef = useRef<HTMLDivElement>(null);
+  const activeTabRef = useRef<HTMLButtonElement>(null);
 
   const currentItem = NAV_ITEMS.find((item) => item.id === activeTab) || NAV_ITEMS[0];
 
-  // Auto-expand the category of the newly selected module so active state is always visible
+  // Auto-expand the category of the newly selected module and scroll active item into view
   useEffect(() => {
     if (currentItem) {
       setCollapsedCategories((prev) =>
         prev[currentItem.category] ? { ...prev, [currentItem.category]: false } : prev
       );
     }
-  }, [currentItem?.category]);
+    const timer = setTimeout(() => {
+      activeTabRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }, 60);
+    return () => clearTimeout(timer);
+  }, [activeTab, currentItem?.category]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -174,12 +183,12 @@ export const Sidebar: React.FC = () => {
       <aside
         aria-label="Primary Workbench Navigation"
         className={`hidden md:flex flex-col shrink-0 border-r border-[var(--border-subtle)] bg-[var(--bg-surface)] sticky top-14 h-[calc(100vh-3.5rem)] transition-[width] duration-200 ease-out select-none z-20 ${
-          sidebarCollapsed ? 'w-[64px]' : 'w-48 lg:w-56 xl:w-64'
+          sidebarCollapsed ? 'w-[64px]' : 'w-52 lg:w-56 xl:w-64'
         }`}
       >
         {/* Rail Quick Filter (Expanded Only) */}
         {!sidebarCollapsed && (
-          <div className="p-3 border-b border-[var(--border-subtle)]">
+          <div className="p-2.5 border-b border-[var(--border-subtle)]">
             <div className="relative">
               <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
               <input
@@ -203,7 +212,7 @@ export const Sidebar: React.FC = () => {
         )}
 
         {/* Categorized Scrollable Track */}
-        <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-4">
+        <div className="flex-1 overflow-y-auto px-2 py-2.5 space-y-3.5">
           {NAV_CATEGORIES.map((cat, catIdx) => {
             const catItems = filteredItems.filter((item) => item.category === cat.id);
             if (catItems.length === 0) return null;
@@ -213,12 +222,13 @@ export const Sidebar: React.FC = () => {
             if (sidebarCollapsed) {
               return (
                 <div key={cat.id} className="space-y-1 flex flex-col items-center">
-                  {catIdx > 0 && <div className="w-6 h-px bg-[var(--border-subtle)] my-1.5" />}
+                  {catIdx > 0 && <div className="w-6 h-px bg-[var(--border-subtle)] my-1" />}
                   {catItems.map((item) => {
                     const isActive = activeTab === item.id;
                     return (
                       <button
                         key={item.id}
+                        ref={isActive ? activeTabRef : undefined}
                         onClick={() => setActiveTab(item.id)}
                         title={`${item.label}${item.badge ? ` • ${item.badge}` : ''}`}
                         aria-label={item.label}
@@ -245,9 +255,9 @@ export const Sidebar: React.FC = () => {
                   onClick={() => toggleCategory(cat.id)}
                   className="w-full flex items-center justify-between px-2 py-1 text-[10px] font-mono font-semibold uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors cursor-pointer"
                 >
-                  <span>{cat.label}</span>
+                  <span className="truncate whitespace-nowrap">{cat.label}</span>
                   <ChevronRight
-                    className={`w-3 h-3 transition-transform duration-150 ${
+                    className={`w-3 h-3 shrink-0 transition-transform duration-150 ${
                       isGroupCollapsed ? '' : 'rotate-90'
                     }`}
                   />
@@ -260,8 +270,10 @@ export const Sidebar: React.FC = () => {
                       return (
                         <button
                           key={item.id}
+                          ref={isActive ? activeTabRef : undefined}
                           onClick={() => setActiveTab(item.id)}
-                          className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg text-xs transition-[background-color,border-color,color] duration-150 relative cursor-pointer ${
+                          title={item.sub ? `${item.label} — ${item.sub}` : item.label}
+                          className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg text-[12px] transition-[background-color,border-color,color] duration-150 relative cursor-pointer ${
                             isActive
                               ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-semibold border border-[var(--border-subtle)] surface-specular'
                               : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] border border-transparent'
@@ -299,7 +311,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Bottom Shortcuts Hint (Expanded Only) */}
         {!sidebarCollapsed && (
-          <div className="p-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+          <div className="p-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
             <span>Quick Switch</span>
             <kbd className="px-1.5 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)]">
               ⌘K
