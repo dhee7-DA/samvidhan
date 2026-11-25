@@ -1,5 +1,6 @@
 import catalogJson from '../data/allConstitutionArticlesCatalog.json';
 import { AMENDMENT_DIFFS_DATA, type ArticleDiffData } from '../data/amendmentDiffsData';
+import { getHindiArticleMeaning } from '../data/hindiArticleMeanings';
 import type { ArticleItem, ConstitutionalClause, LandmarkCaseReference } from '../types/constitution';
 import { DOCTRINES_DATA } from '../data/doctrinesData';
 import { LANDMARK_JUDGMENTS } from '../data/judgmentsData';
@@ -59,6 +60,8 @@ export interface BareActArticle {
   statutorySnippet: string;
   clauses: ConstitutionalClause[];
   plainEnglish?: string;
+  titleHi?: string;
+  meaningHi?: string;
   realWorldScenario?: string;
   prosecutionNote?: string;
   exceptions?: string[];
@@ -110,6 +113,7 @@ export const BARE_ACT_CATALOG: BareActArticle[] = rawCatalog.map(entry => {
   const numKey = entry.number.trim().toUpperCase();
   const expanded = expandedArticlesMap.get(numKey);
   const diffData = AMENDMENT_DIFFS_DATA[entry.number];
+  const hindiData = getHindiArticleMeaning(entry.number);
 
   const plainEnglish = expanded?.plainEnglish || (
     entry.isRepealed
@@ -148,6 +152,8 @@ export const BARE_ACT_CATALOG: BareActArticle[] = rawCatalog.map(entry => {
       }
     ],
     plainEnglish,
+    titleHi: hindiData?.titleHi,
+    meaningHi: hindiData?.meaningHi,
     realWorldScenario,
     prosecutionNote,
     exceptions: expanded?.exceptions,
@@ -208,9 +214,11 @@ export const bareActService = {
       if (`article ${art.number}`.toLowerCase().includes(q)) return true;
       if (`art ${art.number}`.toLowerCase().includes(q)) return true;
 
-      // Match title and summary
+      // Match title and summary (including Hindi titles/meanings)
       if (art.title.toLowerCase().includes(q)) return true;
       if (art.summary.toLowerCase().includes(q)) return true;
+      if (art.titleHi && art.titleHi.toLowerCase().includes(q)) return true;
+      if (art.meaningHi && art.meaningHi.toLowerCase().includes(q)) return true;
       if (art.statutorySnippet.toLowerCase().includes(q)) return true;
       if (art.partTitle.toLowerCase().includes(q)) return true;
 

@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Palette, Sun, Moon, Sparkles, Feather, ChevronDown, Check, Flame, Type } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import type { ThemeMode, FontMode } from '../../types/constitution';
+import { popoverPanelVariants, springs } from '../../lib/motionTokens';
 
 const THEMES: { id: ThemeMode; name: string; icon: React.ReactNode; desc: string; sampleColor: string; mode: 'Dark' | 'Light' }[] = [
   {
@@ -113,33 +115,54 @@ export const ThemeSelector: React.FC = () => {
       </button>
 
       {/* Unified Themes & Typography Dropdown Menu */}
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl p-3 z-50 animate-fadeIn backdrop-blur-xl">
-          {/* Header Switcher Tabs */}
-          <div className="flex items-center p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] mb-3">
-            <button
-              onClick={() => setActiveSubTab('themes')}
-              className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all btn-tactile ${
-                activeSubTab === 'themes'
-                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] shadow-sm border border-[var(--border-subtle)]'
-                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-              }`}
-            >
-              <Palette className="w-3.5 h-3.5 text-[var(--accent)]" />
-              <span>Theme Palettes</span>
-            </button>
-            <button
-              onClick={() => setActiveSubTab('typography')}
-              className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all btn-tactile ${
-                activeSubTab === 'typography'
-                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] shadow-sm border border-[var(--border-subtle)]'
-                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-              }`}
-            >
-              <Type className="w-3.5 h-3.5 text-[var(--accent)]" />
-              <span>Typography</span>
-            </button>
-          </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={popoverPanelVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="absolute right-0 mt-2 w-80 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl p-3 z-50 backdrop-blur-xl"
+          >
+            {/* Header Switcher Tabs */}
+            <div className="flex items-center p-1 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] mb-3 relative">
+              <button
+                onClick={() => setActiveSubTab('themes')}
+                className={`relative flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors z-10 cursor-pointer ${
+                  activeSubTab === 'themes'
+                    ? 'text-[var(--text-primary)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {activeSubTab === 'themes' && (
+                  <motion.span
+                    layoutId="themeSelectorSubTab"
+                    transition={springs.snappy}
+                    className="absolute inset-0 rounded-lg bg-[var(--bg-surface-elevated)] shadow-sm border border-[var(--border-subtle)] -z-10"
+                  />
+                )}
+                <Palette className="w-3.5 h-3.5 text-[var(--accent)]" />
+                <span>Theme Palettes</span>
+              </button>
+              <button
+                onClick={() => setActiveSubTab('typography')}
+                className={`relative flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors z-10 cursor-pointer ${
+                  activeSubTab === 'typography'
+                    ? 'text-[var(--text-primary)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {activeSubTab === 'typography' && (
+                  <motion.span
+                    layoutId="themeSelectorSubTab"
+                    transition={springs.snappy}
+                    className="absolute inset-0 rounded-lg bg-[var(--bg-surface-elevated)] shadow-sm border border-[var(--border-subtle)] -z-10"
+                  />
+                )}
+                <Type className="w-3.5 h-3.5 text-[var(--accent)]" />
+                <span>Typography</span>
+              </button>
+            </div>
 
           {/* Tab 1: Themes & Palettes */}
           {activeSubTab === 'themes' && (
@@ -234,8 +257,9 @@ export const ThemeSelector: React.FC = () => {
               })}
             </div>
           )}
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import React, { Suspense, lazy } from 'react';
+import { MotionConfig, AnimatePresence, motion } from 'motion/react';
+import { viewTransitionVariants } from './lib/motionTokens';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Header } from './components/Layout/Header';
 import { Sidebar } from './components/Layout/Sidebar';
@@ -131,11 +133,19 @@ const MainContent: React.FC = () => {
         <Sidebar />
 
         <div className="flex-1 min-w-0 flex flex-col">
-          <main className="flex-1 pb-16">
-            {activeTab === 'overview' ? (
-              <OverviewDashboard />
-            ) : (
-              <Suspense fallback={<ViewLoadingFallback />}>
+          <main className="flex-1 pb-16 min-w-0 overflow-x-clip">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeTab === 'tile-matcher' ? 'arcade' : activeTab}
+                variants={viewTransitionVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                {activeTab === 'overview' ? (
+                  <OverviewDashboard />
+                ) : (
+                  <Suspense fallback={<ViewLoadingFallback />}>
                 {activeTab === 'bootcamp' && <StudyBootcampView />}
                 {activeTab === 'mock-exam' && <MockExamSimulatorView />}
                 {activeTab === 'mains-mock' && <MainsMockExamSimulatorView />}
@@ -175,8 +185,10 @@ const MainContent: React.FC = () => {
                 {activeTab === 'comparative' && <ComparativeLawView />}
                 {activeTab === 'quiz' && <QuizMasteryView />}
                 {activeTab === 'socratic-tutor' && <SocraticTutorView />}
-              </Suspense>
-            )}
+                  </Suspense>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </main>
 
           {/* Quiet Minimalist Editorial Colophon */}
@@ -219,8 +231,10 @@ const MainContent: React.FC = () => {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <MainContent />
-    </ThemeProvider>
+    <MotionConfig reducedMotion="user">
+      <ThemeProvider>
+        <MainContent />
+      </ThemeProvider>
+    </MotionConfig>
   );
 }

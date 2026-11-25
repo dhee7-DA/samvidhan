@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs } from '../../../lib/motionTokens';
 import {
   Map,
   CheckCircle2,
@@ -731,6 +733,7 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
                           stroke="var(--accent)"
                           strokeWidth="1.8"
                           strokeDasharray="4 2"
+                          className="vector-orbit-pulse"
                         />
                       )}
                       <circle
@@ -947,14 +950,24 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
 
           <div className="flex items-center justify-center gap-2 pt-3">
             {[1, 2, 3].map((s) => (
-              <Star
+              <motion.div
                 key={s}
-                className={`w-8 h-8 transition-transform ${
-                  s <= lastEarned.stars
-                    ? 'text-emerald-500 fill-emerald-500 scale-105'
-                    : 'text-[var(--border-subtle)]'
-                }`}
-              />
+                initial={{ scale: 0.45, opacity: 0, rotate: -18 }}
+                animate={{
+                  scale: s <= lastEarned.stars ? 1 : 0.92,
+                  opacity: 1,
+                  rotate: 0
+                }}
+                transition={{ ...springs.bouncy, delay: s * 0.1 }}
+              >
+                <Star
+                  className={`w-8 h-8 ${
+                    s <= lastEarned.stars
+                      ? 'text-emerald-500 fill-emerald-500'
+                      : 'text-[var(--border-subtle)]'
+                  }`}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -1118,18 +1131,21 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
             </span>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3" style={{ perspective: 900 }}>
             {flipDeck.map((card) => {
               const isMatched = matchedPairIds.includes(card.pairId);
               const isFlipped = flippedUids.includes(card.uid);
               const isFaceUp = isMatched || isFlipped;
 
               return (
-                <button
+                <motion.button
                   key={card.uid}
                   type="button"
+                  whileHover={!isMatched ? { y: -2 } : undefined}
+                  whileTap={{ scale: 0.97 }}
+                  transition={springs.snappy}
                   onClick={() => handleFlipCard(card)}
-                  className={`min-h-[112px] p-3.5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer ${
+                  className={`min-h-[112px] p-3.5 rounded-2xl border text-left flex flex-col justify-between transition-[background-color,border-color,box-shadow] duration-150 cursor-pointer ${
                     isMatched
                       ? 'bg-emerald-500/10 border-emerald-500/40 text-[var(--text-primary)]'
                       : isFlipped
@@ -1137,33 +1153,49 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
                       : 'bg-[var(--bg-base)] border-[var(--border-strong)] hover:border-[var(--accent)]'
                   }`}
                 >
-                  {isFaceUp ? (
-                    <>
-                      <div className="flex items-center justify-between gap-1">
-                        <span
-                          className={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded ${
-                            card.side === 'prompt'
-                              ? 'bg-sky-500/10 text-sky-600 dark:text-sky-400'
-                              : 'bg-violet-500/10 text-violet-600 dark:text-violet-400'
-                          }`}
-                        >
-                          {card.side === 'prompt' ? 'ANCHOR' : 'DOCTRINE / RULE'}
+                  <AnimatePresence mode="wait" initial={false}>
+                    {isFaceUp ? (
+                      <motion.div
+                        key="front"
+                        initial={{ opacity: 0, rotateY: -65, scale: 0.94 }}
+                        animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+                        exit={{ opacity: 0, rotateY: 65, scale: 0.94 }}
+                        transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                        className="w-full h-full flex flex-col justify-between"
+                      >
+                        <div className="flex items-center justify-between gap-1">
+                          <span
+                            className={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded ${
+                              card.side === 'prompt'
+                                ? 'bg-sky-500/10 text-sky-600 dark:text-sky-400'
+                                : 'bg-violet-500/10 text-violet-600 dark:text-violet-400'
+                            }`}
+                          >
+                            {card.side === 'prompt' ? 'ANCHOR' : 'DOCTRINE / RULE'}
+                          </span>
+                          {isMatched && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />}
+                        </div>
+                        <span className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-snug mt-2">
+                          {card.text}
                         </span>
-                        {isMatched && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />}
-                      </div>
-                      <span className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-snug mt-2">
-                        {card.text}
-                      </span>
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-1.5 py-3 text-center">
-                      <Sparkles className="w-4 h-4 text-[var(--accent)] opacity-70" />
-                      <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
-                        Reveal Card
-                      </span>
-                    </div>
-                  )}
-                </button>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="back"
+                        initial={{ opacity: 0, rotateY: 65, scale: 0.94 }}
+                        animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+                        exit={{ opacity: 0, rotateY: -65, scale: 0.94 }}
+                        transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                        className="w-full h-full flex flex-col items-center justify-center gap-1.5 py-3 text-center"
+                      >
+                        <Sparkles className="w-4 h-4 text-[var(--accent)] opacity-70" />
+                        <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
+                          Reveal Card
+                        </span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
               );
             })}
           </div>
@@ -1231,7 +1263,14 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
                   : 'bg-[var(--bg-surface)] border-dashed border-[var(--border-strong)] text-[var(--text-muted)]'
               }`}
             >
-              {slot1 || '[ Blank 1 ]'}
+              <motion.span
+                key={slot1 || 'empty-slot-1'}
+                initial={{ scale: 0.9, opacity: 0.65 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={springs.snappy}
+              >
+                {slot1 || '[ Blank 1 ]'}
+              </motion.span>
             </button>
             <span>{activeChapter.cloze.middle}</span>
             <button
@@ -1247,7 +1286,14 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
                   : 'bg-[var(--bg-surface)] border-dashed border-[var(--border-strong)] text-[var(--text-muted)]'
               }`}
             >
-              {slot2 || '[ Blank 2 ]'}
+              <motion.span
+                key={slot2 || 'empty-slot-2'}
+                initial={{ scale: 0.9, opacity: 0.65 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={springs.snappy}
+              >
+                {slot2 || '[ Blank 2 ]'}
+              </motion.span>
             </button>
             <span>{activeChapter.cloze.suffix}</span>
           </div>
@@ -1328,10 +1374,13 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
               const isPosCorrect = seqSubmitted && item.canonicalOrder === idx + 1;
 
               return (
-                <div
+                <motion.div
                   key={item.id}
+                  layout
+                  transition={springs.snappy}
+                  whileTap={{ scale: 0.99 }}
                   onClick={() => tapSequenceCard(idx)}
-                  className={`p-3.5 rounded-xl border flex items-center justify-between gap-3 cursor-pointer transition-all ${
+                  className={`p-3.5 rounded-xl border flex items-center justify-between gap-3 cursor-pointer transition-[background-color,border-color,box-shadow] duration-150 ${
                     seqSubmitted
                       ? isPosCorrect
                         ? 'bg-emerald-500/10 border-emerald-500/40'
@@ -1382,7 +1431,7 @@ export const CurriculumOdysseyGame: React.FC<CurriculumOdysseyGameProps> = ({ on
                       </button>
                     </div>
                   )}
-                </div>
+                </motion.div>
               );
             })}
           </div>

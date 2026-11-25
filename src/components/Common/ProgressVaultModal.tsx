@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { modalBackdropVariants, modalPanelVariants } from '../../lib/motionTokens';
 import {
   X,
   Download,
@@ -44,8 +46,6 @@ export const ProgressVaultModal: React.FC = () => {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [vaultModalOpen, setVaultModalOpen]);
-
-  if (!vaultModalOpen) return null;
 
   const handleDownload = () => {
     try {
@@ -99,14 +99,24 @@ export const ProgressVaultModal: React.FC = () => {
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
-      onClick={() => setVaultModalOpen(false)}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-xl rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl overflow-hidden animate-scaleUp"
-      >
+    <AnimatePresence>
+      {vaultModalOpen && (
+        <motion.div
+          variants={modalBackdropVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setVaultModalOpen(false)}
+        >
+          <motion.div
+            variants={modalPanelVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-xl rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl overflow-hidden"
+          >
         {/* Header */}
         <div className="p-5 sm:p-6 border-b border-[var(--border-subtle)] flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -252,7 +262,9 @@ export const ProgressVaultModal: React.FC = () => {
             className="hidden"
           />
         </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

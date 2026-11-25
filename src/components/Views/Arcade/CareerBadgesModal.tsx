@@ -1,4 +1,6 @@
 import React from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { modalBackdropVariants, modalPanelVariants, springs } from '../../../lib/motionTokens';
 import { X, Award, CheckCircle2, Lock, Sparkles, Scale, Trophy } from 'lucide-react';
 import {
   ARCADE_BADGES,
@@ -16,8 +18,6 @@ interface Props {
 }
 
 export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile }) => {
-  if (!isOpen) return null;
-
   const currentRank = getCurrentRank(profile.xp);
   const nextRank = getNextRank(currentRank.level);
   const xpInLevel = profile.xp - currentRank.minXP;
@@ -25,8 +25,24 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
   const progressPct = nextRank ? Math.min(100, Math.round((xpInLevel / levelSpan) * 100)) : 100;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          variants={modalBackdropVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          onClick={onClose}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        >
+          <motion.div
+            variants={modalPanelVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+          >
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-subtle)] flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -66,9 +82,12 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
           </div>
 
           <div className="w-full h-2.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] overflow-hidden">
-            <div
-              className="h-full bg-zinc-300 dark:bg-zinc-400 rounded-full transition-all duration-500"
-              style={{ width: `${progressPct}%` }}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: progressPct / 100 }}
+              transition={springs.gentle}
+              style={{ transformOrigin: 'left' }}
+              className="w-full h-full bg-[var(--accent)] rounded-full"
             />
           </div>
 
@@ -132,7 +151,9 @@ export const CareerBadgesModal: React.FC<Props> = ({ isOpen, onClose, profile })
             Close Portfolio
           </button>
         </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

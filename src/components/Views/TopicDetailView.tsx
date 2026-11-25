@@ -394,7 +394,7 @@ export const TopicDetailView: React.FC = () => {
             </div>
 
             {/* Quick Display Mode Toggle */}
-            <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+            <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
               <button
                 onClick={() => setArticleDisplayMode('all')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${

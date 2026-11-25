@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Search, X, ChevronRight } from 'lucide-react';
+import { modalBackdropVariants, modalPanelVariants } from '../../lib/motionTokens';
 import { useTheme } from '../../context/ThemeContext';
 import { CONSTITUTION_PARTS } from '../../data/partsData';
 import { DOCTRINES_DATA } from '../../data/doctrinesData';
@@ -352,11 +354,25 @@ export const SearchModal: React.FC = () => {
     }
   };
 
-  if (!searchOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-20 p-4 animate-fadeIn">
-      <div className="w-full max-w-2xl rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl overflow-hidden flex flex-col">
+    <AnimatePresence>
+      {searchOpen && (
+        <motion.div
+          variants={modalBackdropVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          onClick={() => setSearchOpen(false)}
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-20 p-4"
+        >
+          <motion.div
+            variants={modalPanelVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-2xl rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl overflow-hidden flex flex-col"
+          >
         {/* Search Input Bar */}
         <div className="flex items-center gap-3 p-4 border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]">
           <Search className="w-5 h-5 text-[var(--accent)] shrink-0" />
@@ -469,8 +485,10 @@ export const SearchModal: React.FC = () => {
               );
             })
           )}
-        </div>
-      </div>
-    </div>
+          </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

@@ -1,4 +1,6 @@
 import React, { useState, useId } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { drawerRevealVariants } from '../../lib/motionTokens';
 import {
   AlertTriangle,
   Scale,
@@ -198,7 +200,9 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
                       x2={x + cardW + gap - 4}
                       y2="160"
                       stroke={isSel ? c.stroke : 'var(--text-secondary)'}
-                      strokeWidth={isSel ? 2 : 1.5}
+                      strokeWidth={isSel ? 2.2 : 1.5}
+                      strokeDasharray={isSel ? '5 3' : undefined}
+                      className={isSel ? 'vector-flow-dash' : undefined}
                       markerEnd={isSel ? `url(#${arrowActiveId})` : `url(#${arrowId})`}
                     />
                     {node.edgeLabel && (
@@ -284,6 +288,8 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
                   fill="none"
                   stroke={isSel ? c.stroke : 'var(--border-strong)'}
                   strokeWidth={isSel ? 2.2 : 1.3}
+                  strokeDasharray={isSel ? '6 4' : undefined}
+                  className={isSel ? 'vector-flow-dash' : undefined}
                   markerEnd={isSel ? `url(#${arrowActiveId})` : `url(#${arrowId})`}
                 />
                 {node.edgeLabel && (
@@ -336,6 +342,8 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
                   fill="none"
                   stroke={isSel ? c.stroke : 'var(--border-strong)'}
                   strokeWidth={isSel ? 2.2 : 1.3}
+                  strokeDasharray={isSel ? '6 4' : undefined}
+                  className={isSel ? 'vector-flow-dash' : undefined}
                   markerEnd={isSel ? `url(#${arrowActiveId})` : `url(#${arrowId})`}
                 />
                 {node.edgeLabel && (
@@ -406,7 +414,13 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
             {clipText(spec.edgeFlowTag, 24)}
           </text>
 
-          <g transform={`rotate(${tilt}, 480, 102)`} className="transition-transform duration-300">
+          <g
+            style={{
+              transform: `rotate(${tilt}deg)`,
+              transformOrigin: '480px 102px',
+              transition: 'transform 380ms cubic-bezier(0.16, 1, 0.3, 1)'
+            }}
+          >
             <line x1="210" y1="102" x2="750" y2="102" stroke="var(--text-primary)" strokeWidth="3.5" strokeLinecap="round" />
             <circle cx="480" cy="102" r="7" fill="var(--accent)" />
 
@@ -535,7 +549,8 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
                     fill="none"
                     stroke={c.stroke}
                     strokeWidth="2"
-                    strokeDasharray="4 2"
+                    strokeDasharray="6 4"
+                    className="vector-flow-dash"
                     markerEnd={`url(#${arrowActiveId})`}
                   />
                 )}
@@ -847,7 +862,15 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
       </div>
 
       {/* Active Callout & Jurisprudence Detail Drawer */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 p-5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={current.id}
+          variants={drawerRevealVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-5 p-5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]"
+        >
         <div className="lg:col-span-7 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded border ${curColor.badgeClass}`}>
@@ -895,7 +918,8 @@ export const ConstitutionalBlueprintEngineSVG: React.FC<Props> = ({ spec }) => {
             <span className="truncate">{spec.category} &bull; {spec.articles}</span>
           </div>
         </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

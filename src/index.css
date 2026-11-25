@@ -65,6 +65,8 @@
 
     --font-current: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-code: 'Geist Mono', monospace;
+    --shadow-card: 0 10px 26px -8px rgba(0, 0, 0, 0.42);
+    --shadow-elevated: 0 20px 44px -12px rgba(0, 0, 0, 0.55);
   }
 
   [data-theme="ink"] {
@@ -199,6 +201,8 @@
     --bootcamp-accent-text: #7f1d1d;
     --bootcamp-btn-bg: linear-gradient(135deg, #991b1b, #7f1d1d);
     --bootcamp-btn-text: #fcf9f2;
+    --shadow-card: 0 8px 20px -6px rgba(28, 25, 23, 0.11);
+    --shadow-elevated: 0 18px 36px -10px rgba(28, 25, 23, 0.16);
   }
 
   [data-theme="chalk"] {
@@ -245,6 +249,8 @@
     --bootcamp-accent-text: #3730a3;
     --bootcamp-btn-bg: linear-gradient(135deg, #4f46e5, #4338ca);
     --bootcamp-btn-text: #ffffff;
+    --shadow-card: 0 8px 20px -6px rgba(15, 23, 42, 0.09);
+    --shadow-elevated: 0 18px 36px -10px rgba(15, 23, 42, 0.14);
   }
 
   [data-theme="pink"] {
@@ -346,10 +352,45 @@ body {
 
 /* Tactile Editorial Vector Styles */
 .vector-node {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease, stroke-width 0.2s ease;
+  transition-property: transform, opacity;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform-box: fill-box;
+  transform-origin: center;
 }
 .vector-node:hover {
-  filter: drop-shadow(0 0 10px var(--accent-glow));
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+.vector-node:active {
+  transform: scale(0.985);
+}
+
+@keyframes vectorDashFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.vector-flow-dash {
+  animation: vectorDashFlow 1.4s linear infinite;
+}
+
+@keyframes orbitPulse {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.vector-orbit-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: orbitPulse 2.4s ease-in-out infinite;
 }
 
 /* =========================================================================
@@ -425,8 +466,25 @@ body {
   50% { transform: translateY(-4px); }
 }
 
+@keyframes enterSoft {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-enterSoft {
+  animation: enterSoft 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-scaleUp {
@@ -473,7 +531,10 @@ body {
 }
 .card-interactive:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-card);
+}
+.card-interactive:active {
+  transform: translateY(0) scale(0.992);
 }
 
 /* Specular Top-Edge Highlight for Dark Elevated Surfaces */

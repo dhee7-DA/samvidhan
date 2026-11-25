@@ -1111,6 +1111,7 @@ export const ConceptWebGraphView: React.FC = () => {
                         stroke = 'var(--accent)';
                         strokeOpacity = 1;
                         strokeWidth = 3;
+                        dashArray = '6 4';
                         markerEnd = 'url(#kgArrowActive)';
                       } else {
                         strokeOpacity = 0.09;
@@ -1119,6 +1120,7 @@ export const ConceptWebGraphView: React.FC = () => {
                       stroke = 'var(--accent)';
                       strokeOpacity = 1;
                       strokeWidth = 2.8;
+                      dashArray = '6 4';
                       markerEnd = 'url(#kgArrowActive)';
                     } else if (isConnectedToSelected && isClusterRelevant) {
                       stroke = 'var(--accent)';
@@ -1127,6 +1129,9 @@ export const ConceptWebGraphView: React.FC = () => {
                       dashArray = '5 3';
                       markerEnd = 'url(#kgArrowActive)';
                     }
+
+                    const shouldAnimateFlow =
+                      (viewMode === 'pathfinder' && isPathEdge) || isEdgeFocused;
 
                     const showPill =
                       (viewMode === 'pathfinder' && isPathEdge) ||
@@ -1158,6 +1163,7 @@ export const ConceptWebGraphView: React.FC = () => {
                           strokeOpacity={strokeOpacity}
                           strokeWidth={strokeWidth}
                           strokeDasharray={dashArray}
+                          className={shouldAnimateFlow ? 'vector-flow-dash' : undefined}
                           markerEnd={markerEnd}
                         />
 

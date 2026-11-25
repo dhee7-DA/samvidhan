@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown, ChevronRight, Search, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { NAV_ITEMS, NAV_CATEGORIES, type NavCategory } from '../../data/navigationData';
+import { springs, popoverPanelVariants, motionTokens } from '../../lib/motionTokens';
 
 export const Sidebar: React.FC = () => {
   const { activeTab, setActiveTab, sidebarCollapsed } = useTheme();
@@ -104,8 +106,15 @@ export const Sidebar: React.FC = () => {
             </div>
           </button>
 
-          {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 z-50 p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl space-y-4 animate-fadeIn max-h-[75vh] overflow-y-auto">
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                variants={popoverPanelVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="absolute top-full left-0 right-0 mt-2 z-50 p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto"
+              >
               <div className="pb-2.5 border-b border-[var(--border-subtle)] flex items-center justify-between text-xs text-[var(--text-muted)]">
                 <span className="font-semibold text-[var(--text-primary)] tracking-tight">
                   Constitutional Workbench ({NAV_ITEMS.length} Modules)
@@ -172,8 +181,9 @@ export const Sidebar: React.FC = () => {
                   </div>
                 );
               })}
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </nav>
 
@@ -239,7 +249,11 @@ export const Sidebar: React.FC = () => {
                         }`}
                       >
                         {isActive && (
-                          <span className="absolute left-0 top-2 bottom-2 w-0.5 rounded-r bg-[var(--accent)]" />
+                          <motion.span
+                            layoutId="sidebarActiveRailCollapsed"
+                            transition={springs.snappy}
+                            className="absolute left-0 top-2 bottom-2 w-0.5 rounded-r bg-[var(--accent)]"
+                          />
                         )}
                         {item.icon}
                       </button>
@@ -263,47 +277,60 @@ export const Sidebar: React.FC = () => {
                   />
                 </button>
 
-                {!isGroupCollapsed && (
-                  <div className="space-y-0.5">
-                    {catItems.map((item) => {
-                      const isActive = activeTab === item.id;
-                      return (
-                        <button
-                          key={item.id}
-                          ref={isActive ? activeTabRef : undefined}
-                          onClick={() => setActiveTab(item.id)}
-                          title={item.sub ? `${item.label} — ${item.sub}` : item.label}
-                          className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg text-[12px] transition-[background-color,border-color,color] duration-150 relative cursor-pointer ${
-                            isActive
-                              ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-semibold border border-[var(--border-subtle)] surface-specular'
-                              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] border border-transparent'
-                          }`}
-                        >
-                          {isActive && (
-                            <span className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-r bg-[var(--accent)]" />
-                          )}
-                          <div className="flex items-center gap-2 min-w-0">
-                            <span className={`shrink-0 ${isActive ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`}>
-                              {item.icon}
-                            </span>
-                            <span className="truncate">{item.label}</span>
-                          </div>
-                          {item.badge && (
-                            <span
-                              className={`hidden xl:inline-block text-[9px] font-mono px-1.5 py-0.2 rounded shrink-0 ${
-                                isActive
-                                  ? 'bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)]'
-                                  : 'text-[var(--text-muted)]'
-                              }`}
-                            >
-                              {item.badge}
-                            </span>
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {!isGroupCollapsed && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: motionTokens.duration.fast, ease: motionTokens.ease.out }}
+                      className="space-y-0.5"
+                    >
+                      {catItems.map((item) => {
+                        const isActive = activeTab === item.id;
+                        return (
+                          <motion.button
+                            key={item.id}
+                            ref={isActive ? activeTabRef : undefined}
+                            onClick={() => setActiveTab(item.id)}
+                            whileTap={{ scale: 0.985 }}
+                            title={item.sub ? `${item.label} — ${item.sub}` : item.label}
+                            className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg text-[12px] transition-[background-color,border-color,color] duration-150 relative cursor-pointer ${
+                              isActive
+                                ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-semibold border border-[var(--border-subtle)] surface-specular'
+                                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)] border border-transparent'
+                            }`}
+                          >
+                            {isActive && (
+                              <motion.span
+                                layoutId="sidebarActiveRail"
+                                transition={springs.snappy}
+                                className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-r bg-[var(--accent)]"
+                              />
+                            )}
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className={`shrink-0 ${isActive ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`}>
+                                {item.icon}
+                              </span>
+                              <span className="truncate">{item.label}</span>
+                            </div>
+                            {item.badge && (
+                              <span
+                                className={`hidden xl:inline-block text-[9px] font-mono px-1.5 py-0.2 rounded shrink-0 ${
+                                  isActive
+                                    ? 'bg-[var(--bg-base)] text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                                    : 'text-[var(--text-muted)]'
+                                }`}
+                              >
+                                {item.badge}
+                              </span>
+                            )}
+                          </motion.button>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

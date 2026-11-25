@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs, popoverPanelVariants, drawerRevealVariants } from '../../lib/motionTokens';
 import {
   Eye,
   Shield,
@@ -487,7 +489,7 @@ export const VisualLabView: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6">
       {/* Title & Banner */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
@@ -579,32 +581,46 @@ export const VisualLabView: React.FC = () => {
         </div>
 
         {/* Filterable & Searchable 100-Blueprint Atlas Grid */}
-        {isGalleryOpen && (
-          <div className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-xl animate-fadeIn flex flex-col gap-3.5">
-            {/* Search & Track Pills Row */}
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">
-              <div className="flex flex-wrap items-center gap-1.5">
-                {TRACKS.map((track) => {
-                  const isActive = selectedTrack === track;
-                  const count =
-                    track === 'All'
-                      ? DIAGRAMS.length
-                      : DIAGRAMS.filter((d) => d.track === track).length;
-                  return (
-                    <button
-                      key={track}
-                      onClick={() => setSelectedTrack(track)}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors cursor-pointer tabular-nums ${
-                        isActive
-                          ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                          : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
-                      }`}
-                    >
-                      {track} ({count})
-                    </button>
-                  );
-                })}
-              </div>
+        <AnimatePresence>
+          {isGalleryOpen && (
+            <motion.div
+              variants={popoverPanelVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-xl flex flex-col gap-3.5"
+            >
+              {/* Search & Track Pills Row */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {TRACKS.map((track) => {
+                    const isActive = selectedTrack === track;
+                    const count =
+                      track === 'All'
+                        ? DIAGRAMS.length
+                        : DIAGRAMS.filter((d) => d.track === track).length;
+                    return (
+                      <button
+                        key={track}
+                        onClick={() => setSelectedTrack(track)}
+                        className={`relative px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors cursor-pointer tabular-nums z-10 ${
+                          isActive
+                            ? 'text-[var(--accent-contrast)] font-bold'
+                            : 'bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.span
+                            layoutId="visualTrackPill"
+                            transition={springs.snappy}
+                            className="absolute inset-0 rounded-lg bg-[var(--accent)] -z-10"
+                          />
+                        )}
+                        {track} ({count})
+                      </button>
+                    );
+                  })}
+                </div>
 
               <div className="relative w-full lg:w-72">
                 <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] pointer-events-none" />
@@ -689,14 +705,24 @@ export const VisualLabView: React.FC = () => {
                 })}
               </div>
             )}
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* The Rendered Interactive SVG Diagram */}
-      <div className="w-full">
-        {activeDiagram.component}
-      </div>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={activeDiagram.id}
+          variants={drawerRevealVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="w-full"
+        >
+          {activeDiagram.component}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

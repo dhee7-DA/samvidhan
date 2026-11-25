@@ -1,4 +1,6 @@
 import React, { useState, useCallback } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs, drawerRevealVariants } from '../../lib/motionTokens';
 import {
   Award,
   GitBranch,
@@ -174,24 +176,38 @@ export const PrecedentLineageView: React.FC = () => {
             <button
               type="button"
               onClick={() => setSubTab('web')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`relative flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer z-10 ${
                 subTab === 'web'
-                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-xs'
+                  ? 'text-[var(--text-primary)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
+              {subTab === 'web' && (
+                <motion.span
+                  layoutId="knowledgeGraphTabPill"
+                  transition={springs.snappy}
+                  className="absolute inset-0 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-xs -z-10"
+                />
+              )}
               <Sparkles className={`w-3.5 h-3.5 ${subTab === 'web' ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`} />
               <span>Live Concept Web</span>
             </button>
             <button
               type="button"
               onClick={() => setSubTab('trees')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`relative flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer z-10 ${
                 subTab === 'trees'
-                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-xs'
+                  ? 'text-[var(--text-primary)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
+              {subTab === 'trees' && (
+                <motion.span
+                  layoutId="knowledgeGraphTabPill"
+                  transition={springs.snappy}
+                  className="absolute inset-0 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] shadow-xs -z-10"
+                />
+              )}
               <GitBranch className={`w-3.5 h-3.5 ${subTab === 'trees' ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`} />
               <span>Precedent Trees</span>
             </button>
@@ -232,10 +248,26 @@ export const PrecedentLineageView: React.FC = () => {
         )}
       </div>
 
-      {subTab === 'web' ? (
-        <ConceptWebGraphView />
-      ) : (
-        <div className="space-y-6">
+      <AnimatePresence mode="wait" initial={false}>
+        {subTab === 'web' ? (
+          <motion.div
+            key="web-view"
+            variants={drawerRevealVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <ConceptWebGraphView />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="trees-view"
+            variants={drawerRevealVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="space-y-6"
+          >
           {/* Interactive Chronological Vector Evolution Graph */}
           <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
@@ -306,7 +338,8 @@ export const PrecedentLineageView: React.FC = () => {
                             y2={y}
                             stroke={isSel ? 'var(--accent)' : 'var(--border-strong)'}
                             strokeWidth={isSel ? 2.2 : 1.5}
-                            strokeDasharray={node.status === 'Overruled' ? '4 3' : undefined}
+                            strokeDasharray={isSel || node.status === 'Overruled' ? '5 3' : undefined}
+                            className={isSel ? 'vector-flow-dash' : undefined}
                             markerEnd={isSel ? 'url(#treeArrow)' : 'url(#treeArrowMuted)'}
                           />
                         )}
@@ -348,6 +381,7 @@ export const PrecedentLineageView: React.FC = () => {
                               stroke="var(--accent)"
                               strokeWidth="1.6"
                               strokeDasharray="3 2"
+                              className="vector-orbit-pulse"
                             />
                           )}
 
@@ -544,8 +578,9 @@ export const PrecedentLineageView: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

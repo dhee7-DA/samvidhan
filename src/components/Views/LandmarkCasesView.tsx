@@ -801,7 +801,7 @@ export const LandmarkCasesView: React.FC = () => {
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         {/* Copy Citation Button */}
                         <button
                           onClick={(e) => handleCopyCitation(currentCase.citation, currentCase.id, e)}
@@ -821,7 +821,7 @@ export const LandmarkCasesView: React.FC = () => {
                         </button>
 
                         {/* ELI5 vs Juristic Toggle */}
-                        <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono">
+                        <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono">
                           <button
                             onClick={() => setCaseExemplarMode('eli5')}
                             className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${

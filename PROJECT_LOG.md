@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-25 21:38:49 (+05:30) |
+| **Last Log Sync** | 2026-11-26 00:25:33 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `7e1bea1` (2026-11-25T21:19:41+05:30) |
-| **Total Commits** | 123 |
-| **Total Files Indexed** | 339 (337 tracked, 2 new untracked) |
-| **Working Tree** | 5 pending change(s) |
+| **Branch / HEAD** | `main` @ `9d5f7c9` (2026-11-25T21:39:05+05:30) |
+| **Total Commits** | 124 |
+| **Total Files Indexed** | 345 (339 tracked, 6 new untracked) |
+| **Working Tree** | 29 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-26 00:25:33 (+05:30)] Add spring animations, fix split-screen right overflow, and add easy Hindi meanings for all 505 articles (DONE)
+- **Details:** Installed motion 14.14.0, added centralized motionTokens/springs, AnimatePresence view/modal/card transitions, layoutId indicators, fixed Articles 1-395 header/toolbar wrapping on narrow panes, and added hindiArticleMeanings covering 505/505 articles in Bare Act and ELI5; tsc -b && vite build + Playwright 860px & 1366px checks passed with 0 errors.
+- **Files Touched (29):** `M package-lock.json`, `M package.json`, `M src/App.tsx`, `M src/components/Common/GlobalDictionaryModal.tsx`, `M src/components/Common/ProgressVaultModal.tsx`, `M src/components/Common/SearchModal.tsx`, `M src/components/Layout/Sidebar.tsx`, `M src/components/Layout/ThemeSelector.tsx`, `M src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx`, `M src/components/Views/AmendmentsView.tsx`, `M src/components/Views/Arcade/CareerBadgesModal.tsx`, `M src/components/Views/Arcade/CurriculumOdysseyGame.tsx`, `M src/components/Views/ArcadeHubView.tsx`, `M src/components/Views/ArticlesMasterView.tsx`, `M src/components/Views/ConceptWebGraphView.tsx`, `M src/components/Views/ConstitutionalBodiesView.tsx`, `M src/components/Views/DoctrinesHubView.tsx`, `M src/components/Views/FederalRelationsView.tsx`, `M src/components/Views/LandmarkCasesView.tsx`, `M src/components/Views/OverviewDashboard.tsx`, `M src/components/Views/PrecedentLineageView.tsx`, `M src/components/Views/TopicDetailView.tsx`, `M src/components/Views/VisualLabView.tsx`, `M src/components/Views/WritsEmergencyMatrixView.tsx`, `M src/index.css`, `M src/services/bareActService.ts`, `?? src/data/hindiArticleMeanings.ts`, `?? src/data/hindiMeanings/`, `?? src/lib/`
+- **Git HEAD:** `main` @ `9d5f7c9`
 
 ### [2026-11-25 21:38:49 (+05:30)] Add Samvidhan Odyssey curriculum-planned 4-round memory campaign game (DONE)
 - **Details:** Added CurriculumOdysseyGame (study plan presets, daily chapter pacing ETA, custom chapter checkboxes, 12-chapter interactive SVG roadmap, 4-round memory mission: Pair Flip Grid, Bare-Act Clause Cloze, Sequence Lock, Boss Guard) powered by 12-chapter curriculumOdysseyData. Wired into ArcadeHubView (14 Games), Career XP/Badges (judicialCareerService), and Navigation. Verified via npm run build and full Ch 1 browser playthrough with 0 console errors.
@@ -384,7 +389,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **339** project files across **33** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **345** project files across **35** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -394,9 +399,9 @@
 | `.oxlintrc.json` | 253 B | 9 | `3c486dd` (2026-11-13) |
 | `AGENTS.md` | 1.4 KB | 19 | `7da595c` (2026-11-18) |
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
-| `package-lock.json` | 74.8 KB | 2307 | `3c486dd` (2026-11-13) |
-| `package.json` | 766 B | 32 | `7da595c` (2026-11-18) |
-| `PROJECT_LOG.md` | 99.6 KB | 1020 | `7e1bea1` (2026-11-25) |
+| `package-lock.json` | 76.9 KB | 2374 | `3c486dd` (2026-11-13) |
+| `package.json` | 793 B | 33 | `7da595c` (2026-11-18) |
+| `PROJECT_LOG.md` | 100.7 KB | 1028 | `9d5f7c9` (2026-11-25) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -423,8 +428,8 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 11.2 KB | 227 | `2d26b6d` (2026-11-25) |
-| `src/index.css` | 14.3 KB | 534 | `d16ebbd` (2026-11-25) |
+| `src/App.tsx` | 11.8 KB | 241 | `2d26b6d` (2026-11-25) |
+| `src/index.css` | 15.7 KB | 595 | `d16ebbd` (2026-11-25) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
 ### `src/assets` (3 files)
@@ -442,11 +447,11 @@
 | `src/components/Common/AnnotatedLegalText.tsx` | 9.2 KB | 246 | `409818a` (2026-11-14) |
 | `src/components/Common/AnswerEvaluationCard.tsx` | 12.9 KB | 298 | `5bbabe8` (2026-11-19) |
 | `src/components/Common/DailyConstitutionalWorkout.tsx` | 26.4 KB | 546 | `2d26b6d` (2026-11-25) |
-| `src/components/Common/GlobalDictionaryModal.tsx` | 21.3 KB | 459 | `3ce9f3d` (2026-11-18) |
+| `src/components/Common/GlobalDictionaryModal.tsx` | 21.8 KB | 474 | `3ce9f3d` (2026-11-18) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
-| `src/components/Common/ProgressVaultModal.tsx` | 10.5 KB | 259 | `3ce9f3d` (2026-11-18) |
+| `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `3ce9f3d` (2026-11-18) |
 | `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | `a025b61` (2026-11-19) |
-| `src/components/Common/SearchModal.tsx` | 19.0 KB | 477 | `d16ebbd` (2026-11-25) |
+| `src/components/Common/SearchModal.tsx` | 19.6 KB | 495 | `d16ebbd` (2026-11-25) |
 | `src/components/Common/UniversalDictionaryPopover.tsx` | 10.8 KB | 292 | `b351247` (2026-11-15) |
 
 ### `src/components/Layout` (3 files)
@@ -454,8 +459,8 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Layout/Header.tsx` | 7.2 KB | 130 | `ec161ca` (2026-11-25) |
-| `src/components/Layout/Sidebar.tsx` | 15.9 KB | 325 | `7818b65` (2026-11-25) |
-| `src/components/Layout/ThemeSelector.tsx` | 10.4 KB | 242 | `d16ebbd` (2026-11-25) |
+| `src/components/Layout/Sidebar.tsx` | 17.2 KB | 352 | `7818b65` (2026-11-25) |
+| `src/components/Layout/ThemeSelector.tsx` | 11.4 KB | 266 | `d16ebbd` (2026-11-25) |
 
 ### `src/components/VectorDiagrams` (28 files)
 
@@ -466,7 +471,7 @@
 | `src/components/VectorDiagrams/AsymmetricFederalismSVG.tsx` | 9.1 KB | 199 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/BasicStructureEvolutionSVG.tsx` | 10.2 KB | 241 | `19a5ef8` (2026-11-13) |
 | `src/components/VectorDiagrams/CivilServicesSafeguardsSVG.tsx` | 12.8 KB | 183 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx` | 37.7 KB | 902 | `7e1bea1` (2026-11-25) |
+| `src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx` | 38.6 KB | 926 | `7e1bea1` (2026-11-25) |
 | `src/components/VectorDiagrams/CriminalConstitutionalPipelineSVG.tsx` | 19.8 KB | 402 | `a423d55` (2026-11-13) |
 | `src/components/VectorDiagrams/DPSPvsFRHarmonySVG.tsx` | 10.7 KB | 214 | `ec161ca` (2026-11-25) |
 | `src/components/VectorDiagrams/ElectoralArchitectureSVG.tsx` | 7.3 KB | 109 | `19a5ef8` (2026-11-13) |
@@ -495,15 +500,15 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `ea98297` (2026-11-22) |
-| `src/components/Views/ArcadeHubView.tsx` | 10.0 KB | 249 | `1c6aefb` (2026-11-24) |
+| `src/components/Views/ArcadeHubView.tsx` | 10.9 KB | 268 | `9d5f7c9` (2026-11-25) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 75.4 KB | 1462 | `7dd169f` (2026-11-22) |
+| `src/components/Views/ArticlesMasterView.tsx` | 78.4 KB | 1509 | `7dd169f` (2026-11-22) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
-| `src/components/Views/ConceptWebGraphView.tsx` | 60.6 KB | 1461 | `ec161ca` (2026-11-25) |
+| `src/components/Views/ConceptWebGraphView.tsx` | 60.9 KB | 1467 | `ec161ca` (2026-11-25) |
 | `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `7dd169f` (2026-11-22) |
 | `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | `3d89178` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
@@ -512,17 +517,17 @@
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `ea98297` (2026-11-22) |
 | `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
-| `src/components/Views/LandmarkCasesView.tsx` | 57.3 KB | 1058 | `003e2d2` (2026-11-21) |
+| `src/components/Views/LandmarkCasesView.tsx` | 57.4 KB | 1058 | `003e2d2` (2026-11-21) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
-| `src/components/Views/OverviewDashboard.tsx` | 22.4 KB | 410 | `2d26b6d` (2026-11-25) |
+| `src/components/Views/OverviewDashboard.tsx` | 23.4 KB | 440 | `2d26b6d` (2026-11-25) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
-| `src/components/Views/PrecedentLineageView.tsx` | 25.3 KB | 552 | `ec161ca` (2026-11-25) |
+| `src/components/Views/PrecedentLineageView.tsx` | 26.6 KB | 587 | `ec161ca` (2026-11-25) |
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
@@ -532,7 +537,7 @@
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `9e33658` (2026-11-18) |
-| `src/components/Views/VisualLabView.tsx` | 30.8 KB | 703 | `7e1bea1` (2026-11-25) |
+| `src/components/Views/VisualLabView.tsx` | 31.7 KB | 729 | `7e1bea1` (2026-11-25) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `ea98297` (2026-11-22) |
 
 ### `src/components/Views/Arcade` (14 files)
@@ -540,14 +545,14 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/Arcade/ArticleBlitzGame.tsx` | 21.4 KB | 504 | `1c6aefb` (2026-11-24) |
-| `src/components/Views/Arcade/CareerBadgesModal.tsx` | 6.2 KB | 139 | `1c6aefb` (2026-11-24) |
+| `src/components/Views/Arcade/CareerBadgesModal.tsx` | 6.8 KB | 160 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ChiefJusticeBenchSimulator.tsx` | 26.4 KB | 576 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ChronoTimelineGame.tsx` | 13.2 KB | 318 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ConstituentAssemblyRPG.tsx` | 33.6 KB | 700 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ConstitutionalConnectionsGame.tsx` | 18.8 KB | 488 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ConstitutionalEscapeRoom.tsx` | 46.3 KB | 1008 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/ConstitutionBenchMootSimulator.tsx` | 31.9 KB | 725 | `1c6aefb` (2026-11-24) |
-| `src/components/Views/Arcade/CurriculumOdysseyGame.tsx` | 65.1 KB | 1505 | new (uncommitted) |
+| `src/components/Views/Arcade/CurriculumOdysseyGame.tsx` | 67.6 KB | 1554 | `9d5f7c9` (2026-11-25) |
 | `src/components/Views/Arcade/LexSamvidhanMysteryGame.tsx` | 27.0 KB | 588 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/SeventhScheduleSortGame.tsx` | 18.4 KB | 443 | `1c6aefb` (2026-11-24) |
 | `src/components/Views/Arcade/TrapBusterGame.tsx` | 15.9 KB | 364 | `1c6aefb` (2026-11-24) |
@@ -566,7 +571,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/context/ThemeContext.tsx` | 7.0 KB | 204 | `ec161ca` (2026-11-25) |
 
-### `src/data` (81 files)
+### `src/data` (82 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -591,7 +596,7 @@
 | `src/data/constituentAssemblyRpgData.ts` | 55.3 KB | 1104 | `1f02703` (2026-11-22) |
 | `src/data/constitutionalBodiesData.ts` | 33.7 KB | 458 | `7dd169f` (2026-11-22) |
 | `src/data/constitutionalConnectionsData.ts` | 7.3 KB | 166 | `d72bea9` (2026-11-23) |
-| `src/data/curriculumOdysseyData.ts` | 35.7 KB | 639 | new (uncommitted) |
+| `src/data/curriculumOdysseyData.ts` | 35.7 KB | 639 | `9d5f7c9` (2026-11-25) |
 | `src/data/dailyWorkoutData.ts` | 16.6 KB | 294 | `76d187c` (2026-11-20) |
 | `src/data/deadlinesData.ts` | 15.9 KB | 270 | `3d89178` (2026-11-22) |
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
@@ -601,6 +606,7 @@
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/highYieldAmendmentsData.ts` | 22.7 KB | 376 | `ea98297` (2026-11-22) |
+| `src/data/hindiArticleMeanings.ts` | 684 B | 19 | new (uncommitted) |
 | `src/data/introConclusionHooksData.ts` | 10.7 KB | 142 | `d504081` (2026-11-22) |
 | `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
@@ -610,7 +616,7 @@
 | `src/data/majoritiesData.ts` | 22.6 KB | 375 | `3d89178` (2026-11-22) |
 | `src/data/mootCourtData.ts` | 18.6 KB | 364 | `1f02703` (2026-11-22) |
 | `src/data/moreArticleExamIntelData.ts` | 74.7 KB | 1109 | `3d89178` (2026-11-22) |
-| `src/data/navigationData.tsx` | 6.7 KB | 103 | `7e1bea1` (2026-11-25) |
+| `src/data/navigationData.tsx` | 6.7 KB | 103 | `9d5f7c9` (2026-11-25) |
 | `src/data/negativeMarkingSimulatorData.ts` | 50.3 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/part10TribalData.ts` | 7.7 KB | 86 | `4fb3dbf` (2026-11-14) |
 | `src/data/part11FederalData.ts` | 27.7 KB | 353 | `eae5768` (2026-11-13) |
@@ -844,6 +850,15 @@
 | `src/data/bootcamp/day9/day9McqsRound5.ts` | 53.5 KB | 565 | `4f121c2` (2026-11-15) |
 | `src/data/bootcamp/day9/index.ts` | 737 B | 25 | `4f121c2` (2026-11-15) |
 
+### `src/data/hindiMeanings` (4 files)
+
+| File | Size | Lines | Last Commit |
+| :--- | ---: | ---: | :--- |
+| `src/data/hindiMeanings/batch1.ts` | 77.2 KB | 508 | new (uncommitted) |
+| `src/data/hindiMeanings/batch2.ts` | 75.3 KB | 505 | new (uncommitted) |
+| `src/data/hindiMeanings/batch3.ts` | 68.2 KB | 525 | new (uncommitted) |
+| `src/data/hindiMeanings/batch4.ts` | 79.3 KB | 505 | new (uncommitted) |
+
 ### `src/data/mains` (5 files)
 
 | File | Size | Lines | Last Commit |
@@ -863,6 +878,12 @@
 | `src/data/pyqs/pyq2022.ts` | 40.3 KB | 437 | `e401e54` (2026-11-14) |
 | `src/data/pyqs/pyq2023.ts` | 7.8 KB | 110 | `ea3d899` (2026-11-16) |
 
+### `src/lib` (1 file)
+
+| File | Size | Lines | Last Commit |
+| :--- | ---: | ---: | :--- |
+| `src/lib/motionTokens.ts` | 3.8 KB | 164 | new (uncommitted) |
+
 ### `src/services` (14 files)
 
 | File | Size | Lines | Last Commit |
@@ -870,12 +891,12 @@
 | `src/services/answerEvaluatorService.ts` | 15.2 KB | 375 | `5bbabe8` (2026-11-19) |
 | `src/services/arcadeAudioService.ts` | 6.1 KB | 218 | `d72bea9` (2026-11-23) |
 | `src/services/articleMasteryService.ts` | 13.0 KB | 366 | `e4d5718` (2026-11-21) |
-| `src/services/bareActService.ts` | 10.6 KB | 289 | `c4ae501` (2026-11-17) |
+| `src/services/bareActService.ts` | 11.0 KB | 297 | `c4ae501` (2026-11-17) |
 | `src/services/caseStoryService.ts` | 3.3 KB | 97 | `75be064` (2026-11-19) |
 | `src/services/dictionaryService.ts` | 6.4 KB | 196 | `b351247` (2026-11-15) |
 | `src/services/flashcardPinStore.ts` | 2.8 KB | 87 | `3ce9f3d` (2026-11-18) |
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
-| `src/services/judicialCareerService.ts` | 20.2 KB | 683 | `65aac87` (2026-11-24) |
+| `src/services/judicialCareerService.ts` | 20.2 KB | 683 | `9d5f7c9` (2026-11-25) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
 | `src/services/readinessIndexService.ts` | 95.8 KB | 1815 | `733568c` (2026-11-25) |
@@ -897,10 +918,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**123** commits, newest first).
+> Complete git history (**124** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 124 | 2026-11-25 | `9d5f7c9` | 6 | feat(arcade): add Samvidhan Odyssey curriculum-planned memory campaign |
 | 123 | 2026-11-25 | `7e1bea1` | 10 | feat(visuals): scale Visual Law Lab to 100 interactive constitutional SVGs |
 | 122 | 2026-11-25 | `ec161ca` | 18 | feat(visuals): add 10 constitutional SVG explainers and overhaul Knowledge Graphs |
 | 121 | 2026-11-25 | `7818b65` | 3 | refactor(nav): reorganize left menu into 5 progressive study tracks with distinct icons and zero truncation |

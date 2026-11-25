@@ -159,7 +159,7 @@ export const WritsEmergencyMatrixView: React.FC = () => {
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex items-center gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)] shrink-0 self-stretch sm:self-auto justify-end">
+        <div className="flex items-center flex-wrap max-w-full gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)] justify-start sm:justify-end">
           <button
             onClick={() => setActiveMode('writs')}
             className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${

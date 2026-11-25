@@ -253,7 +253,7 @@ export const DoctrinesHubView: React.FC = () => {
                 <span>Drill Card</span>
               </button>
 
-              <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+              <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
                 <button
                   onClick={() => setDoctrineMode('eli5')}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${

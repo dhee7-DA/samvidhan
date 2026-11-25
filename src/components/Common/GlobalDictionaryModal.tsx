@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { modalBackdropVariants, modalPanelVariants } from '../../lib/motionTokens';
 import {
   Search,
   X,
@@ -153,14 +155,25 @@ export const GlobalDictionaryModal: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (!dictionaryModalOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div
-        className="relative w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-scaleUp"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <AnimatePresence>
+      {dictionaryModalOpen && (
+        <motion.div
+          variants={modalBackdropVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          onClick={() => setDictionaryModalOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+        >
+          <motion.div
+            variants={modalPanelVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="relative w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
         {/* Header Bar */}
         <div className="p-4 border-b border-[var(--border-subtle)] flex items-center justify-between gap-3 bg-[var(--bg-surface-elevated)]">
           <div className="flex items-center gap-2.5">
@@ -448,11 +461,13 @@ export const GlobalDictionaryModal: React.FC = () => {
             }}
             className="hover:text-[var(--accent)] flex items-center gap-1 font-semibold"
           >
-            <span>Open Dedicated Dictionary Tab</span>
-            <ArrowRight className="w-3 h-3" />
-          </button>
-        </div>
+          <span>Open Dedicated Dictionary Tab</span>
+          <ArrowRight className="w-3 h-3" />
+        </button>
       </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

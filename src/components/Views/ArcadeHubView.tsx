@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs, viewTransitionVariants } from '../../lib/motionTokens';
 import {
   Gamepad2,
   Scale,
@@ -182,12 +184,19 @@ export const ArcadeHubView: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveSubTab(tab.id as ArcadeTab)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-all cursor-pointer ${
+              className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-colors z-10 cursor-pointer ${
                 isActive
-                  ? 'bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-subtle)] font-bold shadow-xs'
+                  ? 'text-[var(--text-primary)] font-bold'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
+              {isActive && (
+                <motion.span
+                  layoutId="arcadeTabPill"
+                  transition={springs.snappy}
+                  className="absolute inset-0 rounded-lg bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xs -z-10"
+                />
+              )}
               <tab.icon className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--text-primary)]' : 'text-[var(--text-muted)]'}`} />
               <span>{tab.label}</span>
             </button>
@@ -196,46 +205,56 @@ export const ArcadeHubView: React.FC = () => {
       </div>
 
       {/* Active Game Mode Sub-View */}
-      {activeSubTab === 'odyssey' && (
-        <CurriculumOdysseyGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'escape-room' && (
-        <ConstitutionalEscapeRoom onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'moot-court' && (
-        <ConstitutionBenchMootSimulator onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'assembly-rpg' && (
-        <ConstituentAssemblyRPG onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'lex-samvidhan' && (
-        <LexSamvidhanMysteryGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'connections' && (
-        <ConstitutionalConnectionsGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'ultra-vires' && (
-        <UltraViresSwipeGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'chrono-timeline' && (
-        <ChronoTimelineGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'seventh-schedule' && (
-        <SeventhScheduleSortGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'bench' && (
-        <ChiefJusticeBenchSimulator onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'blitz' && (
-        <ArticleBlitzGame onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'writs' && (
-        <WritsEmergencyRoom onAwardResult={handleAwardResult} />
-      )}
-      {activeSubTab === 'matcher' && <TileMatcherGameView />}
-      {activeSubTab === 'trap-buster' && (
-        <TrapBusterGame onAwardResult={handleAwardResult} />
-      )}
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={activeSubTab}
+          variants={viewTransitionVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          {activeSubTab === 'odyssey' && (
+            <CurriculumOdysseyGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'escape-room' && (
+            <ConstitutionalEscapeRoom onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'moot-court' && (
+            <ConstitutionBenchMootSimulator onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'assembly-rpg' && (
+            <ConstituentAssemblyRPG onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'lex-samvidhan' && (
+            <LexSamvidhanMysteryGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'connections' && (
+            <ConstitutionalConnectionsGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'ultra-vires' && (
+            <UltraViresSwipeGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'chrono-timeline' && (
+            <ChronoTimelineGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'seventh-schedule' && (
+            <SeventhScheduleSortGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'bench' && (
+            <ChiefJusticeBenchSimulator onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'blitz' && (
+            <ArticleBlitzGame onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'writs' && (
+            <WritsEmergencyRoom onAwardResult={handleAwardResult} />
+          )}
+          {activeSubTab === 'matcher' && <TileMatcherGameView />}
+          {activeSubTab === 'trap-buster' && (
+            <TrapBusterGame onAwardResult={handleAwardResult} />
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Badges Modal */}
       <CareerBadgesModal

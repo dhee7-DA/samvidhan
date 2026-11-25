@@ -13,6 +13,7 @@ import {
   GitCommit,
   Scale,
   AlertTriangle,
+  Gamepad2,
   Layers,
   History,
   FileText,
@@ -227,16 +228,16 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 flex flex-col gap-6 min-w-0 w-full">
       {/* Top Banner & Mode Toggle */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <BookOpen className="w-5 h-5 text-[var(--accent)]" />
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)] min-w-0">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 flex-wrap mb-1">
+            <BookOpen className="w-5 h-5 text-[var(--accent)] shrink-0" />
             <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
               Bare Act Explorer (Articles 1–395)
             </h1>
-            <span className="text-xs px-2.5 py-0.5 rounded font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+            <span className="text-xs px-2.5 py-0.5 rounded font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
               Full Text Verbatim
             </span>
           </div>
@@ -246,7 +247,7 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex items-center gap-2 shrink-0 self-stretch sm:self-auto justify-end flex-wrap">
+        <div className="flex items-center gap-2 w-full lg:w-auto justify-start lg:justify-end flex-wrap min-w-0">
           <button
             onClick={() => {
               if (activeArticle?.part === 'Part III') {
@@ -261,21 +262,22 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                 launchGameDeck('master-shuffle');
               }
             }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)] transition-colors shadow-sm cursor-pointer btn-tactile"
           >
-            <span>🎮 Practice Synaptic Matcher</span>
+            <Gamepad2 className="w-3.5 h-3.5 shrink-0" />
+            <span>Practice Synaptic Matcher</span>
           </button>
 
           <button
             onClick={() => launchFlashcardDeck('articles', activeArticle?.part || 'all')}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 transition-all shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 transition-opacity shadow-sm cursor-pointer btn-tactile"
             title={`Drill ${activeArticle?.part || 'All'} Articles in Leitner SRS Flashcards`}
           >
-            <BrainCircuit className="w-3.5 h-3.5" />
+            <BrainCircuit className="w-3.5 h-3.5 shrink-0" />
             <span>SRS Flashcards ({activeArticle?.part || 'All'})</span>
           </button>
 
-          <div className="flex items-center gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
+          <div className="flex items-center gap-1 flex-wrap max-w-full bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
             <button
               onClick={() => setViewMode('reader')}
               className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
@@ -338,12 +340,12 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
           </div>
 
           {/* Part Filter Dropdown */}
-          <div className="flex items-center gap-2 shrink-0">
-            <label className="text-xs font-mono text-[var(--text-muted)] uppercase">Part:</label>
+          <div className="flex items-center gap-2 min-w-0 sm:shrink-0">
+            <label className="text-xs font-mono text-[var(--text-muted)] uppercase shrink-0">Part:</label>
             <select
               value={selectedPart}
               onChange={(e) => setSelectedPart(e.target.value)}
-              className="px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+              className="min-w-0 w-full sm:w-auto max-w-[230px] px-3 py-2 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
             >
               <option value="All">All Parts (26 Parts)</option>
               {partsList.map((p) => (
@@ -433,7 +435,7 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
       {viewMode === 'reader' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Left Column: Article Selector Pane */}
-          <div className="lg:col-span-4 flex flex-col gap-3 bg-[var(--bg-surface)] p-3 rounded-xl border border-[var(--border-subtle)] max-h-[820px] overflow-y-auto">
+          <div className="lg:col-span-4 min-w-0 flex flex-col gap-3 bg-[var(--bg-surface)] p-3 rounded-xl border border-[var(--border-subtle)] max-h-[820px] overflow-y-auto">
             {/* Quick jump by number */}
             <form onSubmit={handleJumpToArticle} className="flex items-center gap-2 pb-2 border-b border-[var(--border-subtle)]">
               <input
@@ -529,12 +531,12 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
           </div>
 
           {/* Right Column: Deep Statutory Bare Act Reader */}
-          <div className="lg:col-span-8 flex flex-col gap-4 bg-[var(--bg-surface)] p-5 sm:p-6 rounded-xl border border-[var(--border-subtle)]">
+          <div className="lg:col-span-8 min-w-0 w-full flex flex-col gap-4 bg-[var(--bg-surface)] p-5 sm:p-6 rounded-xl border border-[var(--border-subtle)]">
             {/* Active Article Header */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-[var(--border-subtle)]">
-              <div>
-                <div className="flex items-center gap-2 flex-wrap mb-1">
-                  <span className="px-2.5 py-1 rounded font-mono font-bold text-sm bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
+            <div className="flex flex-col gap-3.5 pb-4 border-b border-[var(--border-subtle)] min-w-0">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                  <span className="px-2.5 py-1 rounded font-mono font-bold text-sm bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] shrink-0">
                     Article {activeArticle.number}
                   </span>
                   <span className="text-xs font-mono text-[var(--text-muted)]">
@@ -557,15 +559,20 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                   )}
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] leading-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] leading-tight text-pretty">
                   <AnnotatedLegalText text={activeArticle.title} />
                 </h2>
+                {activeArticle.titleHi && (
+                  <p className="text-sm font-medium text-[var(--accent)] mt-1 leading-snug">
+                    {activeArticle.titleHi}
+                  </p>
+                )}
               </div>
 
-              {/* Action Toolbar */}
-              <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto flex-wrap">
+              {/* Action Toolbar (Wraps cleanly inside narrow/split viewports) */}
+              <div className="flex items-center gap-1.5 flex-wrap w-full min-w-0">
                 {/* Bare Act / Story / ELI5 Quick Toggle */}
-                <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+                <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
                   <button
                     onClick={() => setReaderTab('statutory')}
                     title="Read statutory Bare Act verbatim"
@@ -865,6 +872,26 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                   </button>
                 </div>
 
+                {/* Easy-to-Understand Hindi Meaning Card */}
+                {activeArticle.meaningHi && (
+                  <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-strong)] flex flex-col gap-2">
+                    <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-1.5 text-xs font-mono">
+                      <span className="font-bold text-[var(--accent)] flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>सरल हिंदी अर्थ (Easy Hindi Meaning)</span>
+                      </span>
+                      {activeArticle.titleHi && (
+                        <span className="text-[11px] text-[var(--text-muted)] truncate max-w-[260px]">
+                          {activeArticle.titleHi}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-[var(--text-primary)] leading-relaxed font-sans">
+                      {activeArticle.meaningHi}
+                    </p>
+                  </div>
+                )}
+
                 {/* Clauses Breakdown Accordion */}
                 <div className="flex flex-col gap-3">
                   <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
@@ -955,6 +982,26 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                     <AnnotatedLegalText text={activeArticle.plainEnglish || activeArticle.summary} />
                   </p>
                 </div>
+
+                {/* Section 1B: Easy Hindi Translation (सरल हिंदी) */}
+                {activeArticle.meaningHi && (
+                  <div className="p-5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border-strong)] hover:border-[var(--accent)] transition-colors flex flex-col gap-2.5 shadow-xs">
+                    <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2 text-xs font-mono flex-wrap">
+                      <span className="font-bold text-[var(--accent)] flex items-center gap-1.5">
+                        <Sparkles className="w-4 h-4 text-[var(--accent)]" />
+                        <span>सरल हिंदी में आसान अर्थ (Easy Hindi Meaning)</span>
+                      </span>
+                      {activeArticle.titleHi && (
+                        <span className="text-[11px] text-[var(--text-secondary)] font-sans font-semibold">
+                          {activeArticle.titleHi}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm sm:text-base text-[var(--text-primary)] leading-relaxed font-sans font-medium">
+                      {activeArticle.meaningHi}
+                    </p>
+                  </div>
+                )}
 
                 {/* Section 2: Real-World Practical Application Scenario */}
                 <div className="p-5 rounded-2xl bg-gradient-to-br from-[var(--bg-surface-elevated)] to-[var(--bg-base)] border border-emerald-500/30 flex flex-col gap-3 shadow-xs">

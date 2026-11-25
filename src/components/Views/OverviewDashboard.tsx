@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react';
+import { motion } from 'motion/react';
+import { staggerContainerVariants, staggerItemVariants, motionTokens } from '../../lib/motionTokens';
 import {
   ArrowRight,
   Sparkles,
@@ -30,13 +32,21 @@ export const OverviewDashboard: React.FC = () => {
   const criReport = useMemo(() => computeConstitutionalReadinessReport('holistic'), [pinnedFlashcardIds]);
 
   return (
-    <div className="flex flex-col gap-8 py-6 max-w-6xl mx-auto px-4 sm:px-6 animate-fadeIn">
+    <div className="flex flex-col gap-8 py-6 max-w-6xl mx-auto px-4 sm:px-6">
       {/* =========================================================================
           1. FIRST-VIEWPORT EDITORIAL WORKBENCH BENTO
           ========================================================================= */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+      <motion.section
+        variants={staggerContainerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch"
+      >
         {/* Left: Compact Architectural Identity & Focused Entry Triggers */}
-        <div className="lg:col-span-8 relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-col justify-between gap-6">
+        <motion.div
+          variants={staggerItemVariants}
+          className="lg:col-span-8 relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-col justify-between gap-6"
+        >
           {/* Hairline Constitutional Chakra Watermark (5% Opacity) */}
           <svg
             aria-hidden="true"
@@ -98,10 +108,13 @@ export const OverviewDashboard: React.FC = () => {
               <span>Readiness Heatmap</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right: Live Constitutional Telemetry & Quick Resume Panel */}
-        <div className="lg:col-span-4 p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular flex flex-col justify-between gap-4">
+        <motion.div
+          variants={staggerItemVariants}
+          className="lg:col-span-4 p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular flex flex-col justify-between gap-4"
+        >
           <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] block">
@@ -200,13 +213,18 @@ export const OverviewDashboard: React.FC = () => {
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Backup / Restore Vault</span>
           </button>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* =========================================================================
           2. CURATED QUICK WORKSPACES (6 Calm Monochrome Shortcuts)
           ========================================================================= */}
-      <section className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-2.5">
+      <motion.section
+        variants={staggerContainerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-2.5"
+      >
         {[
           { label: 'Arcade (13 Games)', icon: Gamepad2, action: () => setActiveTab('arcade') },
           { label: 'Flashcards (SRS)', icon: BrainCircuit, action: () => setActiveTab('flashcards') },
@@ -215,16 +233,19 @@ export const OverviewDashboard: React.FC = () => {
           { label: 'Mains Vault (126)', icon: FileText, action: () => setActiveTab('pyqs') },
           { label: 'Exam Simulator', icon: Timer, action: () => setActiveTab('mock-exam') }
         ].map((item) => (
-          <button
+          <motion.button
             key={item.label}
+            variants={staggerItemVariants}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: motionTokens.scale.pressSubtle }}
             onClick={item.action}
-            className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[11.5px] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-[background-color,border-color,color,transform] duration-150 btn-tactile cursor-pointer"
+            className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[11.5px] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-[background-color,border-color,color] duration-150 cursor-pointer"
           >
             <item.icon className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" />
             <span className="truncate">{item.label}</span>
-          </button>
+          </motion.button>
         ))}
-      </section>
+      </motion.section>
 
       {/* =========================================================================
           3. DAILY 5-MINUTE CONSTITUTIONAL WORKOUT
@@ -236,15 +257,24 @@ export const OverviewDashboard: React.FC = () => {
       {/* =========================================================================
           4. VITAL STATISTICS OF THE REPUBLIC (Unified Tabular Monochrome)
           ========================================================================= */}
-      <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <motion.section
+        variants={staggerContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+      >
         {[
           { label: 'Total Articles', value: '395 / 470+', sub: '22 Original Parts', tab: 'articles-master' },
           { label: 'Schedules', value: '12 Schedules', sub: 'Originally 8 in 1950', tab: 'schedules' },
           { label: 'Amendments', value: '106 Passed', sub: '1st (1951) to 106th (2023)', tab: 'amendments' },
           { label: 'Words in Text', value: '146,385', sub: 'Longest written constitution', tab: 'dictionary' }
         ].map((stat, idx) => (
-          <button
+          <motion.button
             key={idx}
+            variants={staggerItemVariants}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: motionTokens.scale.pressSubtle }}
             onClick={() => setActiveTab(stat.tab)}
             className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] surface-specular text-left flex flex-col justify-between card-interactive cursor-pointer group"
           >
@@ -258,9 +288,9 @@ export const OverviewDashboard: React.FC = () => {
               <span>{stat.sub}</span>
               <ArrowRight className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 transition-transform" />
             </span>
-          </button>
+          </motion.button>
         ))}
-      </section>
+      </motion.section>
 
       {/* =========================================================================
           5. THE PREAMBLE ARCHIVAL SPECIMEN
