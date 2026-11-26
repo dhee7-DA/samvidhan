@@ -1,4 +1,6 @@
 import React from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs } from '../../lib/motionTokens';
 import {
   Search,
   Bookmark,
@@ -116,11 +118,20 @@ export const Header: React.FC = () => {
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] flex items-center justify-center transition-[transform,background-color,border-color,color] duration-150 btn-tactile shrink-0 relative cursor-pointer"
           >
             <Bookmark className="w-4 h-4" />
-            {bookmarkedArticles.length > 0 && (
-              <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[9px] font-bold font-mono tabular-nums flex items-center justify-center shadow-xs">
-                {bookmarkedArticles.length}
-              </span>
-            )}
+            <AnimatePresence mode="popLayout" initial={false}>
+              {bookmarkedArticles.length > 0 && (
+                <motion.span
+                  key={bookmarkedArticles.length}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                  transition={springs.bouncy}
+                  className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-[9px] font-bold font-mono tabular-nums flex items-center justify-center shadow-xs"
+                >
+                  {bookmarkedArticles.length}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>

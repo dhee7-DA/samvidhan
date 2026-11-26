@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
+import { springs } from '../../lib/motionTokens';
 import {
   Scale,
   CheckCircle2,
@@ -256,23 +258,37 @@ export const DoctrinesHubView: React.FC = () => {
               <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
                 <button
                   onClick={() => setDoctrineMode('eli5')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors z-10 cursor-pointer ${
                     doctrineMode === 'eli5'
-                      ? 'bg-amber-500 text-black font-bold shadow-xs'
+                      ? 'text-black font-bold'
                       : 'text-amber-500 hover:text-amber-400 font-bold'
                   }`}
                 >
+                  {doctrineMode === 'eli5' && (
+                    <motion.span
+                      layoutId="doctrineModePill"
+                      transition={springs.snappy}
+                      className="absolute inset-0 rounded-lg bg-amber-500 shadow-xs -z-10"
+                    />
+                  )}
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>ELI5 & Analogy</span>
                 </button>
                 <button
                   onClick={() => setDoctrineMode('juristic')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors z-10 cursor-pointer ${
                     doctrineMode === 'juristic'
-                      ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-xs'
+                      ? 'text-[var(--accent-contrast)] font-bold'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
+                  {doctrineMode === 'juristic' && (
+                    <motion.span
+                      layoutId="doctrineModePill"
+                      transition={springs.snappy}
+                      className="absolute inset-0 rounded-lg bg-[var(--accent)] shadow-xs -z-10"
+                    />
+                  )}
                   <Scale className="w-3.5 h-3.5" />
                   <span>Juristic Text</span>
                 </button>

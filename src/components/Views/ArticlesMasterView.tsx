@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs, drawerRevealVariants } from '../../lib/motionTokens';
 import {
   BookOpen,
   Search,
@@ -282,34 +284,55 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
           <div className="flex items-center gap-1 flex-wrap max-w-full bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)]">
             <button
               onClick={() => setViewMode('reader')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+              className={`relative flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer z-10 ${
                 viewMode === 'reader'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
+                  ? 'text-[var(--accent-contrast)]'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
+              {viewMode === 'reader' && (
+                <motion.span
+                  layoutId="articleViewModePill"
+                  transition={springs.snappy}
+                  className="absolute inset-0 rounded-lg bg-[var(--accent)] shadow-sm -z-10"
+                />
+              )}
               <FileText className="w-3.5 h-3.5" />
               <span>Clause Explorer</span>
             </button>
             <button
               onClick={() => setViewMode('grid')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+              className={`relative flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer z-10 ${
                 viewMode === 'grid'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm'
+                  ? 'text-[var(--accent-contrast)]'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
+              {viewMode === 'grid' && (
+                <motion.span
+                  layoutId="articleViewModePill"
+                  transition={springs.snappy}
+                  className="absolute inset-0 rounded-lg bg-[var(--accent)] shadow-sm -z-10"
+                />
+              )}
               <Layers className="w-3.5 h-3.5" />
               <span>Directory Grid</span>
             </button>
             <button
               onClick={() => setViewMode('mastery')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+              className={`relative flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer z-10 ${
                 viewMode === 'mastery'
-                  ? 'bg-amber-500 text-white shadow-sm'
+                  ? 'text-white'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
+              {viewMode === 'mastery' && (
+                <motion.span
+                  layoutId="articleViewModePill"
+                  transition={springs.snappy}
+                  className="absolute inset-0 rounded-lg bg-amber-500 shadow-sm -z-10"
+                />
+              )}
               <BrainCircuit className="w-3.5 h-3.5" />
               <span>395 Mastery Lab</span>
             </button>
@@ -851,7 +874,13 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
 
             {/* TAB 1: STATUTORY BARE ACT VERBATIM */}
             {readerTab === 'statutory' && (
-              <div className="flex flex-col gap-4 animate-fadeIn">
+              <motion.div
+                key={`statutory-${activeArticle.number}`}
+                variants={drawerRevealVariants}
+                initial="initial"
+                animate="animate"
+                className="flex flex-col gap-4"
+              >
                 {/* Official Statutory Snippet Card */}
                 <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col gap-2.5">
                   <div className="flex items-center justify-between text-xs font-mono text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-1.5">
@@ -929,7 +958,7 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* TAB: REAL-LIFE COURTROOM CASE LAW STORY */}

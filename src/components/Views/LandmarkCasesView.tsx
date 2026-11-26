@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { springs } from '../../lib/motionTokens';
 import {
   Award,
   Search,
@@ -824,23 +826,37 @@ export const LandmarkCasesView: React.FC = () => {
                         <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-xs font-mono">
                           <button
                             onClick={() => setCaseExemplarMode('eli5')}
-                            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
+                            className={`relative flex items-center gap-1 px-2.5 py-1 rounded-lg transition-colors z-10 cursor-pointer ${
                               caseExemplarMode === 'eli5'
-                                ? 'bg-amber-500 text-black font-bold'
+                                ? 'text-black font-bold'
                                 : 'text-amber-500 hover:text-amber-400 font-bold'
                             }`}
                           >
+                            {caseExemplarMode === 'eli5' && (
+                              <motion.span
+                                layoutId="caseModePill"
+                                transition={springs.snappy}
+                                className="absolute inset-0 rounded-lg bg-amber-500 -z-10"
+                              />
+                            )}
                             <Sparkles className="w-3 h-3" />
                             <span>ELI5</span>
                           </button>
                           <button
                             onClick={() => setCaseExemplarMode('juristic')}
-                            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
+                            className={`relative flex items-center gap-1 px-2.5 py-1 rounded-lg transition-colors z-10 cursor-pointer ${
                               caseExemplarMode === 'juristic'
-                                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
+                                ? 'text-[var(--accent-contrast)] font-bold'
                                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                             }`}
                           >
+                            {caseExemplarMode === 'juristic' && (
+                              <motion.span
+                                layoutId="caseModePill"
+                                transition={springs.snappy}
+                                className="absolute inset-0 rounded-lg bg-[var(--accent)] -z-10"
+                              />
+                            )}
                             <Scale className="w-3 h-3" />
                             <span>Juristic</span>
                           </button>

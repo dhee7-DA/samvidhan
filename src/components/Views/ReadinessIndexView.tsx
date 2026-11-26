@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs, modalBackdropVariants, modalPanelVariants, staggerContainerVariants, staggerItemVariants } from '../../lib/motionTokens';
 import {
   Target,
   Sparkles,
@@ -1002,15 +1004,24 @@ export const ReadinessIndexView: React.FC = () => {
           THE HEATMAP MATRIX: 2. 25-PART GRID
           ========================================================================= */}
       {viewMode === 'grid' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        <motion.div
+          variants={staggerContainerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3"
+        >
           {displayedParts.map((item) => {
             const scoreColorClass = getScoreColor(item.readinessScore);
             const gradientClass = getScoreBarGradient(item.readinessScore);
             return (
-              <div
+              <motion.div
                 key={item.part.id}
+                variants={staggerItemVariants}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.985 }}
+                transition={springs.snappy}
                 onClick={() => setActivePartForModal(item)}
-                className="group relative p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-zinc-600 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between overflow-hidden"
+                className="group relative p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-zinc-600 hover:shadow-md transition-[border-color,box-shadow] duration-150 cursor-pointer flex flex-col justify-between overflow-hidden"
               >
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${gradientClass}`} />
 
@@ -1058,10 +1069,10 @@ export const ReadinessIndexView: React.FC = () => {
                     Fix &rarr;
                   </button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       )}
 
       {/* =========================================================================
@@ -1176,9 +1187,24 @@ export const ReadinessIndexView: React.FC = () => {
       {/* =========================================================================
           PART DEEP-DIVE MODAL / DRAWER
           ========================================================================= */}
-      {activePartForModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col animate-scaleUp">
+      <AnimatePresence>
+        {activePartForModal && (
+          <motion.div
+            variants={modalBackdropVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onClick={() => setActivePartForModal(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          >
+            <motion.div
+              variants={modalPanelVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+              className="bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col"
+            >
             {/* Modal Header */}
             <div className="p-5 border-b border-[var(--border-subtle)] flex items-start justify-between gap-4 sticky top-0 bg-[var(--bg-surface)]/95 backdrop-blur z-10">
               <div>
@@ -1392,9 +1418,10 @@ export const ReadinessIndexView: React.FC = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* =========================================================================
           🔥 15-MINUTE WEAKEST LINK 3-STAGE WORKOUT MODAL

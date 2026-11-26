@@ -45,11 +45,13 @@ export const springs: Record<'snappy' | 'gentle' | 'bouncy' | 'cardFlip', Transi
 export const viewTransitionVariants: Variants = {
   initial: {
     opacity: 0,
-    y: motionTokens.distance.small
+    y: motionTokens.distance.small,
+    scale: 0.994
   },
   animate: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
       duration: motionTokens.duration.page,
       ease: motionTokens.ease.out
@@ -58,6 +60,7 @@ export const viewTransitionVariants: Variants = {
   exit: {
     opacity: 0,
     y: -motionTokens.distance.micro,
+    scale: 0.996,
     transition: {
       duration: motionTokens.duration.exit,
       ease: motionTokens.ease.out

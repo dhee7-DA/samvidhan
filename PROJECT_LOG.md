@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-26 12:34:43 (+05:30) |
+| **Last Log Sync** | 2026-11-26 13:13:34 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `d52bceb` (2026-11-26T12:08:50+05:30) |
-| **Total Commits** | 127 |
-| **Total Files Indexed** | 347 (346 tracked, 1 new untracked) |
-| **Working Tree** | 14 pending change(s) |
+| **Branch / HEAD** | `main` @ `f697564` (2026-11-26T12:34:53+05:30) |
+| **Total Commits** | 128 |
+| **Total Files Indexed** | 347 (347 tracked, 0 new untracked) |
+| **Working Tree** | 7 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-26 13:13:34 (+05:30)] Extend premium spring animations across Header, Articles 1-395, Flashcards 3D flip, Readiness, Doctrines, and Landmark Cases (DONE)
+- **Details:** Refined viewTransitionVariants, added bouncy bookmark badge in Header, layoutId pill glides in ArticlesMasterView/DoctrinesHubView/LandmarkCasesView, 3D spring card flip in FlashcardsView, and staggered grid + animated modal in ReadinessIndexView; npm run build and 39-check npm run test:smoke passed with 0 errors.
+- **Files Touched (7):** `M src/components/Layout/Header.tsx`, `M src/components/Views/ArticlesMasterView.tsx`, `M src/components/Views/DoctrinesHubView.tsx`, `M src/components/Views/FlashcardsView.tsx`, `M src/components/Views/LandmarkCasesView.tsx`, `M src/components/Views/ReadinessIndexView.tsx`, `M src/lib/motionTokens.ts`
+- **Git HEAD:** `main` @ `f697564`
 
 ### [2026-11-26 12:34:43 (+05:30)] Add animated ConstitutionalWatermark motifs app-wide, sync Odyssey into Vault, add bilingual Revision Sheets, and upgrade PWA offline caching (DONE)
 - **Details:** Added ConstitutionalWatermark (chakra, scales, pillar, scroll, rotunda) across App shell and section banners, synced Odyssey stars and Readiness drills into ProgressVault, added EN+Hindi toggle to PrintableRevisionView, and upgraded public/sw.js + manifest.json; npm run build passed.
@@ -416,7 +421,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 104.7 KB | 1063 | `d52bceb` (2026-11-26) |
+| `PROJECT_LOG.md` | 106.0 KB | 1070 | `f697564` (2026-11-26) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -429,22 +434,22 @@
 | :--- | ---: | ---: | :--- |
 | `public/favicon.svg` | 9.3 KB | 1 | `3c486dd` (2026-11-13) |
 | `public/icons.svg` | 4.9 KB | 25 | `3c486dd` (2026-11-13) |
-| `public/manifest.json` | 760 B | 28 | `ea3d899` (2026-11-16) |
-| `public/sw.js` | 2.1 KB | 73 | `ea3d899` (2026-11-16) |
+| `public/manifest.json` | 760 B | 28 | `f697564` (2026-11-26) |
+| `public/sw.js` | 2.1 KB | 73 | `f697564` (2026-11-26) |
 
 ### `scripts` (3 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `scripts/buildBareActDataset.cjs` | 149.0 KB | 598 | `3db5394` (2026-11-16) |
-| `scripts/smoke_check.py` | 4.7 KB | — | `f993edf` (2026-11-26) |
+| `scripts/smoke_check.py` | 4.7 KB | — | `f697564` (2026-11-26) |
 | `scripts/updateProjectLog.cjs` | 10.2 KB | 345 | `7da595c` (2026-11-18) |
 
 ### `src` (3 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 12.1 KB | 250 | `8a3a645` (2026-11-26) |
+| `src/App.tsx` | 12.1 KB | 250 | `f697564` (2026-11-26) |
 | `src/index.css` | 15.7 KB | 595 | `8a3a645` (2026-11-26) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -462,11 +467,11 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Common/AnnotatedLegalText.tsx` | 9.2 KB | 246 | `409818a` (2026-11-14) |
 | `src/components/Common/AnswerEvaluationCard.tsx` | 12.9 KB | 298 | `5bbabe8` (2026-11-19) |
-| `src/components/Common/ConstitutionalWatermark.tsx` | 7.2 KB | 152 | new (uncommitted) |
+| `src/components/Common/ConstitutionalWatermark.tsx` | 7.2 KB | 152 | `f697564` (2026-11-26) |
 | `src/components/Common/DailyConstitutionalWorkout.tsx` | 26.4 KB | 546 | `2d26b6d` (2026-11-25) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.8 KB | 474 | `8a3a645` (2026-11-26) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
-| `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `8a3a645` (2026-11-26) |
+| `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `f697564` (2026-11-26) |
 | `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | `a025b61` (2026-11-19) |
 | `src/components/Common/SearchModal.tsx` | 19.6 KB | 495 | `8a3a645` (2026-11-26) |
 | `src/components/Common/UniversalDictionaryPopover.tsx` | 10.8 KB | 292 | `b351247` (2026-11-15) |
@@ -475,7 +480,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 7.2 KB | 130 | `ec161ca` (2026-11-25) |
+| `src/components/Layout/Header.tsx` | 7.7 KB | 141 | `ec161ca` (2026-11-25) |
 | `src/components/Layout/Sidebar.tsx` | 17.2 KB | 352 | `8a3a645` (2026-11-26) |
 | `src/components/Layout/ThemeSelector.tsx` | 11.4 KB | 266 | `8a3a645` (2026-11-26) |
 
@@ -517,10 +522,10 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/components/Views/AmendmentsView.tsx` | 34.9 KB | 713 | `8a3a645` (2026-11-26) |
-| `src/components/Views/ArcadeHubView.tsx` | 11.1 KB | 270 | `8a3a645` (2026-11-26) |
+| `src/components/Views/ArcadeHubView.tsx` | 11.1 KB | 270 | `f697564` (2026-11-26) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 78.7 KB | 1511 | `8a3a645` (2026-11-26) |
+| `src/components/Views/ArticlesMasterView.tsx` | 79.9 KB | 1540 | `f697564` (2026-11-26) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -529,32 +534,32 @@
 | `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `8a3a645` (2026-11-26) |
 | `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | `3d89178` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
-| `src/components/Views/DoctrinesHubView.tsx` | 23.3 KB | 460 | `8a3a645` (2026-11-26) |
+| `src/components/Views/DoctrinesHubView.tsx` | 24.1 KB | 476 | `8a3a645` (2026-11-26) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `8a3a645` (2026-11-26) |
-| `src/components/Views/FlashcardsView.tsx` | 51.2 KB | 1141 | `3ce9f3d` (2026-11-18) |
+| `src/components/Views/FlashcardsView.tsx` | 52.5 KB | 1161 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
-| `src/components/Views/LandmarkCasesView.tsx` | 57.4 KB | 1058 | `8a3a645` (2026-11-26) |
+| `src/components/Views/LandmarkCasesView.tsx` | 58.2 KB | 1074 | `8a3a645` (2026-11-26) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
-| `src/components/Views/OverviewDashboard.tsx` | 22.6 KB | 425 | `8a3a645` (2026-11-26) |
+| `src/components/Views/OverviewDashboard.tsx` | 22.6 KB | 425 | `f697564` (2026-11-26) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
-| `src/components/Views/PrecedentLineageView.tsx` | 26.9 KB | 589 | `8a3a645` (2026-11-26) |
-| `src/components/Views/PrintableRevisionView.tsx` | 11.7 KB | 235 | `a058cc1` (2026-11-16) |
+| `src/components/Views/PrecedentLineageView.tsx` | 26.9 KB | 589 | `f697564` (2026-11-26) |
+| `src/components/Views/PrintableRevisionView.tsx` | 11.7 KB | 235 | `f697564` (2026-11-26) |
 | `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
-| `src/components/Views/ReadinessIndexView.tsx` | 94.4 KB | 1882 | `d52bceb` (2026-11-26) |
+| `src/components/Views/ReadinessIndexView.tsx` | 95.5 KB | 1909 | `f697564` (2026-11-26) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `8a3a645` (2026-11-26) |
-| `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `8a3a645` (2026-11-26) |
+| `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `8a3a645` (2026-11-26) |
 
 ### `src/components/Views/Arcade` (14 files)
@@ -899,7 +904,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/lib/motionTokens.ts` | 3.8 KB | 164 | `8a3a645` (2026-11-26) |
+| `src/lib/motionTokens.ts` | 3.8 KB | 167 | `8a3a645` (2026-11-26) |
 
 ### `src/services` (14 files)
 
@@ -915,7 +920,7 @@
 | `src/services/flashcardService.ts` | 91.0 KB | 2180 | `3ce9f3d` (2026-11-18) |
 | `src/services/judicialCareerService.ts` | 20.2 KB | 683 | `9d5f7c9` (2026-11-25) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
-| `src/services/progressVaultService.ts` | 7.9 KB | 275 | `7aac50b` (2026-11-19) |
+| `src/services/progressVaultService.ts` | 7.9 KB | 275 | `f697564` (2026-11-26) |
 | `src/services/readinessIndexService.ts` | 97.2 KB | 1848 | `d52bceb` (2026-11-26) |
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
@@ -935,10 +940,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**127** commits, newest first).
+> Complete git history (**128** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 128 | 2026-11-26 | `f697564` | 15 | feat: add animated chakra & motif watermarks, vault odyssey sync, bilingual revision, and PWA v2 |
 | 127 | 2026-11-26 | `d52bceb` | 3 | feat: add closed-loop Fix Weakest Part targeted remediation in Readiness Index |
 | 126 | 2026-11-26 | `f993edf` | 5 | perf: split bootcamp chunks and add 39-check Playwright smoke suite |
 | 125 | 2026-11-26 | `8a3a645` | 33 | feat: add spring animations, fix split-screen overflow, and add easy Hindi meanings for all 505 articles |

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { springs } from '../../lib/motionTokens';
 import {
   RotateCcw,
   Award,
@@ -950,85 +952,103 @@ export const FlashcardsView: React.FC = () => {
               </div>
             </div>
 
-            {/* Front vs Back Content */}
-            {!isFlipped ? (
-              <div className="py-10 my-auto space-y-4 text-center">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--text-primary)] leading-relaxed max-w-3xl mx-auto">
-                  {currentCard.front}
-                </h3>
-                <p className="text-xs text-[var(--accent)] font-mono flex items-center justify-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
-                  <Zap className="w-3.5 h-3.5 fill-current" />
-                  <span>Click card or press [Space] to reveal statutory rule, ELI5 breakdown & precedent</span>
-                </p>
-              </div>
-            ) : (
-              <div className="py-6 my-auto space-y-4 animate-fadeIn">
-                <div className="space-y-1.5">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 block">
-                    Core Constitutional Rule & Principle:
-                  </span>
-                  <p className="text-base sm:text-lg md:text-xl font-bold text-[var(--text-primary)] leading-relaxed">
-                    {currentCard.back.coreRule}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1.5 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
-                  <span className="font-bold text-[var(--accent)] mr-2 font-mono uppercase text-[11px] block sm:inline">
-                    Detailed Jurisprudence:
-                  </span>
-                  {currentCard.back.statutoryDetails}
-                </div>
-
-                {/* Plain-English ELI5 & Real-World Scenario Panel */}
-                {showEli5 && (currentCard.back.plainEnglish || currentCard.back.realWorldExample) && (
-                  <div className="p-4 rounded-xl bg-sky-500/10 border border-sky-500/30 space-y-2 text-xs sm:text-sm leading-relaxed">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400">
-                      <Lightbulb className="w-3.5 h-3.5" />
-                      <span>Plain-English ELI5 & Real-World Analogy</span>
-                    </div>
-                    {currentCard.back.plainEnglish && (
-                      <p className="text-[var(--text-primary)]">{currentCard.back.plainEnglish}</p>
-                    )}
-                    {currentCard.back.realWorldExample && (
-                      <p className="text-[var(--text-secondary)] italic border-t border-sky-500/20 pt-2">
-                        {currentCard.back.realWorldExample}
+            {/* Front vs Back Content (3D Spring Flip) */}
+            <div style={{ perspective: 1100 }} className="my-auto">
+              <AnimatePresence mode="wait" initial={false}>
+                {!isFlipped ? (
+                  <motion.div
+                    key={`front-${currentCard.id}`}
+                    initial={{ opacity: 0, rotateX: 16, scale: 0.97 }}
+                    animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotateX: -16, scale: 0.97 }}
+                    transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                    className="py-10 space-y-4 text-center"
+                  >
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--text-primary)] leading-relaxed max-w-3xl mx-auto">
+                      {currentCard.front}
+                    </h3>
+                    <p className="text-xs text-[var(--accent)] font-mono flex items-center justify-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                      <Zap className="w-3.5 h-3.5 fill-current" />
+                      <span>Click card or press [Space] to reveal statutory rule, ELI5 breakdown & precedent</span>
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={`back-${currentCard.id}`}
+                    initial={{ opacity: 0, rotateX: -16, scale: 0.97 }}
+                    animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotateX: 16, scale: 0.97 }}
+                    transition={springs.cardFlip}
+                    className="py-6 space-y-4"
+                  >
+                    <div className="space-y-1.5">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 block">
+                        Core Constitutional Rule & Principle:
+                      </span>
+                      <p className="text-base sm:text-lg md:text-xl font-bold text-[var(--text-primary)] leading-relaxed">
+                        {currentCard.back.coreRule}
                       </p>
-                    )}
-                  </div>
-                )}
+                    </div>
 
-                <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
-                  {currentCard.back.statutoryAnchor && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleAnchorJump(currentCard);
-                      }}
-                      className="px-3 py-1 rounded-lg bg-[var(--badge-bg)] border border-[var(--badge-border)] text-[var(--accent)] hover:opacity-80 flex items-center gap-1.5 transition-all"
-                      title="Jump directly to source module"
-                    >
-                      <Layers className="w-3.5 h-3.5" />
-                      <span>Anchor: {currentCard.back.statutoryAnchor}</span>
-                      <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
-                    </button>
-                  )}
-                  {currentCard.back.precedentRef && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveTab('judgments');
-                      }}
-                      className="px-3 py-1 rounded-lg bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] hover:text-[var(--accent)] flex items-center gap-1.5 transition-all btn-tactile shadow-sm"
-                      title="Open in Landmark Precedents Lab"
-                    >
-                      <Award className="w-3.5 h-3.5 text-[var(--gold)]" />
-                      <span>Ref: {currentCard.back.precedentRef}</span>
-                      <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
+                    <div className="p-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] space-y-1.5 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
+                      <span className="font-bold text-[var(--accent)] mr-2 font-mono uppercase text-[11px] block sm:inline">
+                        Detailed Jurisprudence:
+                      </span>
+                      {currentCard.back.statutoryDetails}
+                    </div>
+
+                    {/* Plain-English ELI5 & Real-World Scenario Panel */}
+                    {showEli5 && (currentCard.back.plainEnglish || currentCard.back.realWorldExample) && (
+                      <div className="p-4 rounded-xl bg-sky-500/10 border border-sky-500/30 space-y-2 text-xs sm:text-sm leading-relaxed">
+                        <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-sky-400">
+                          <Lightbulb className="w-3.5 h-3.5" />
+                          <span>Plain-English ELI5 & Real-World Analogy</span>
+                        </div>
+                        {currentCard.back.plainEnglish && (
+                          <p className="text-[var(--text-primary)]">{currentCard.back.plainEnglish}</p>
+                        )}
+                        {currentCard.back.realWorldExample && (
+                          <p className="text-[var(--text-secondary)] italic border-t border-sky-500/20 pt-2">
+                            {currentCard.back.realWorldExample}
+                          </p>
+                        )}
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
+                      {currentCard.back.statutoryAnchor && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleAnchorJump(currentCard);
+                          }}
+                          className="px-3 py-1 rounded-lg bg-[var(--badge-bg)] border border-[var(--badge-border)] text-[var(--accent)] hover:opacity-80 flex items-center gap-1.5 transition-all"
+                          title="Jump directly to source module"
+                        >
+                          <Layers className="w-3.5 h-3.5" />
+                          <span>Anchor: {currentCard.back.statutoryAnchor}</span>
+                          <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
+                        </button>
+                      )}
+                      {currentCard.back.precedentRef && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveTab('judgments');
+                          }}
+                          className="px-3 py-1 rounded-lg bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-primary)] hover:text-[var(--accent)] flex items-center gap-1.5 transition-all btn-tactile shadow-sm"
+                          title="Open in Landmark Precedents Lab"
+                        >
+                          <Award className="w-3.5 h-3.5 text-[var(--gold)]" />
+                          <span>Ref: {currentCard.back.precedentRef}</span>
+                          <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
+                        </button>
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Card Footer */}
             <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
