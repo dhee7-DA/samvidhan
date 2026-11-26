@@ -310,5 +310,160 @@ export const JUDGMENT_LAB_DATA: JudicialProblem[] = [
       { dimension: '2018 Specific Relief Amendment (Mandatory Specific Performance)', marks: 10, tips: 'Cite Section 10 amendment taking away court\'s discretion.' },
       { dimension: 'Conveyance Decree Clause', marks: 10, tips: 'Provide default mechanism (Court Commissioner executes deed if defendant defaults).' }
     ]
+  },
+  {
+    id: 'judgment-civil-art226-vs-227-injunction',
+    type: 'Civil Judgment',
+    title: 'High Court Bench Order: Maintainability Under Article 226 vs 227 Against Civil Court Injunction Order',
+    examOrigin: 'Higher Judicial Service (HJS / DJS) Constitutional & CPC Bench Paper',
+    marksWeightage: 50,
+    plaintOrChargesheetSummary:
+      'Petitioner-Defendant filed a Writ Petition styled under Article 226 of the Constitution before the High Court challenging an interlocutory order passed by the Civil Judge (Senior Division) rejecting an application for temporary injunction under Order XXXIX Rules 1 & 2 CPC in a pending title suit. Petitioner contends the Civil Judge ignored registered revenue records and committed a manifest error of law.',
+    writtenStatementOrDefenseSummary:
+      'Respondent-Plaintiff raises a preliminary objection to maintainability: (1) A judicial order passed by a Civil Court is NOT amenable to a Writ of Certiorari under Article 226 in view of Radhey Shyam v. Chhabi Nath (2015); (2) Even under Article 227, supervisory jurisdiction should not be invoked when an efficacious statutory appeal lies under Order XLIII Rule 1(r) CPC.',
+    admittedFacts: [
+      'Impugned order was passed judicially by a regular Civil Court (Civil Judge, Senior Division) under Order XXXIX Rules 1 & 2 CPC.',
+      'The petition before the High Court is filed expressly invoking Article 226 writ jurisdiction.',
+      'No statutory Miscellaneous Civil Appeal under Order XLIII Rule 1(r) CPC was filed before the District Judge.'
+    ],
+    disputedFacts: [
+      'Whether a Writ of Certiorari under Article 226 is maintainable against a judicial order of a Civil Court.',
+      'Whether extraordinary supervisory jurisdiction under Article 227 should be exercised bypassing the statutory appeal under Order XLIII Rule 1(r) CPC.'
+    ],
+    modelFramedIssuesOrCharges: [
+      {
+        number: 1,
+        issueText: 'Whether a Writ Petition under Article 226 of the Constitution is maintainable against an interlocutory judicial order passed by a Civil Court under Order XXXIX Rules 1 & 2 CPC?',
+        issueType: 'Issue of Law',
+        burdenOfProof: 'Burden on Petitioner to establish Constitutional Maintainability'
+      },
+      {
+        number: 2,
+        issueText: 'Whether, in the alternative, the High Court ought to exercise supervisory jurisdiction under Article 227 despite the availability of an alternative statutory appeal under Order XLIII Rule 1(r) read with Section 104 CPC?',
+        issueType: 'Issue of Law',
+        burdenOfProof: 'Burden on Petitioner to show exceptional jurisdictional error / lack of alternative remedy'
+      }
+    ],
+    keyStatutes: [
+      'Constitution of India — Articles 226 & 227',
+      'Code of Civil Procedure, 1908 — Order XXXIX Rules 1 & 2, Order XLIII Rule 1(r), Section 104'
+    ],
+    keyPrecedents: [
+      'Radhey Shyam v. Chhabi Nath, (2015) 5 SCC 423 (overruling Surya Dev Rai on Art 226)',
+      'Shalini Shyam Shetty v. Rajendra Shankar Patil, (2010) 8 SCC 329 (scope of Art 227)',
+      'Virudhunagar Hindu Nadargal Dharma Paribalana Sabai v. Tuticorin Educational Society, (2019) 9 SCC 538 (CPC appellate remedy bars Art 227)'
+    ],
+    modelJudgment: {
+      courtTitle: 'IN THE HIGH COURT OF JUDICATURE AT NEW DELHI (CIVIL EXTRAORDINARY JURISDICTION)',
+      caseNumber: 'W.P.(C) No. 1408 of 2025',
+      parties: {
+        plaintiffOrState: 'M/s Aakash Infrastructure Pvt. Ltd. (Petitioner)',
+        defendantOrAccused: 'Raghavendra & Ors. (Respondents)'
+      },
+      briefPleadings:
+        'Challenge under Article 226 to an interlocutory order dated 04.01.2025 passed by the Civil Judge (Senior Division) refusing ad-interim injunction under Order XXXIX Rules 1 & 2 CPC.',
+      marshallingOfEvidence:
+        'Perusal of the certified copy of the impugned order confirms it is a reasoned judicial order passed in a pending civil suit after hearing both sides. No exceptional patent lack of jurisdiction is shown on the face of the record.',
+      issueWiseFindings: [
+        {
+          issueNumber: 1,
+          finding: 'Decided against Petitioner. Petition under Article 226 is NOT maintainable.',
+          reasoning:
+            'The 3-Judge Bench in Radhey Shyam v. Chhabi Nath (2015) expressly overruled Surya Dev Rai and settled that judicial orders of Civil Courts are not amenable to a writ of certiorari under Article 226. Civil Courts are not "inferior tribunals" or executive authorities amenable to writ certiorari.'
+        },
+        {
+          issueNumber: 2,
+          finding: 'Decided against Petitioner. Supervisory power under Article 227 declined.',
+          reasoning:
+            'Under Order XLIII Rule 1(r) CPC, an appealable remedy lies before the District Judge. As held in Virudhunagar Hindu Nadargal (2019) and Shalini Shyam Shetty (2010), when the CPC provides a specific statutory appellate remedy, High Courts must refrain from exercising supervisory jurisdiction under Article 227 unless there is a total lack of jurisdiction.'
+        }
+      ],
+      operativeOrder:
+        'Preliminary objection upheld. The Writ Petition is dismissed as not maintainable with liberty to the Petitioner to prefer an appeal under Order XLIII Rule 1(r) CPC before the competent District Court within 30 days. No order as to costs.'
+    },
+    scoringGuide: [
+      { dimension: 'Applying Radhey Shyam v. Chhabi Nath (Art 226 vs 227)', marks: 15, tips: 'Clearly state Surya Dev Rai is overruled and explain why Civil Court orders are not amenable to Art 226.' },
+      { dimension: 'Alternative Statutory Remedy (Order XLIII Rule 1(r) CPC)', marks: 15, tips: 'Cite Order XLIII Rule 1(r) + Virudhunagar rule restraining Art 227 interference.' },
+      { dimension: 'Issue Framing & Liberty Clause in Operative Order', marks: 10, tips: 'Dismiss on maintainability while granting liberty to file statutory appeal with limitation protection.' },
+      { dimension: 'Judicial Structure & Concise Tone', marks: 10, tips: 'Avoid merits adjudication once preliminary maintainability bar succeeds.' }
+    ]
+  },
+  {
+    id: 'judgment-criminal-art20-22-remand-safeguards',
+    type: 'Criminal Judgment',
+    title: 'Magistrate Remand Order: Written Grounds of Arrest (Art 22(1)) & Compelled Device Passcode (Art 20(3))',
+    examOrigin: 'DJS / UP PCS-J Criminal Procedure & Constitutional Safeguards Benchmark',
+    marksWeightage: 50,
+    plaintOrChargesheetSummary:
+      'Investigating Officer produces Accused X before the Judicial Magistrate seeking 7 days Police Custody Remand in an economic offences FIR (punishable up to 7 years). IO also moves an application seeking a judicial direction compelling the accused to disclose his smartphone biometric/alphanumeric passcode and give a voice sample. Case diary shows no written "grounds of arrest" were handed to the accused; only a printed arrest memo listing FIR sections was signed.',
+    writtenStatementOrDefenseSummary:
+      'Defence Counsel opposes remand and the device-unlocking application on two constitutional grounds: (1) Under Prabir Purkayastha (2024) and Article 22(1), failure to furnish written grounds of arrest vitiates both arrest and remand; (2) Compelling disclosure of a device passcode violates the protection against self-incrimination under Article 20(3) (Selvi v. State of Karnataka), though voice sample per Ritesh Sinha (2019) stands on a distinct footing.',
+    admittedFacts: [
+      'Accused X was arrested on 10.02.2025 and produced within 24 hours under Article 22(2).',
+      'Only a standard Arrest Memo mentioning FIR number and penal sections was served; no separate written "grounds of arrest" document was supplied.',
+      'IO seeks compelled disclosure of smartphone passcode and a voice exemplar.'
+    ],
+    disputedFacts: [
+      'Whether failure to supply written grounds of arrest renders the arrest and remand prayer invalid under Article 22(1).',
+      'Whether a Magistrate can compel an accused to reveal a testimonial smartphone passcode under Article 20(3), as distinguished from a physical voice sample.'
+    ],
+    modelFramedIssuesOrCharges: [
+      {
+        number: 1,
+        issueText: 'Whether the arrest and prayer for Police Custody Remand are vitiated for non-supply of written "grounds of arrest" in violation of Article 22(1) and BNSS / CrPC safeguards?',
+        issueType: 'Issue of Law',
+        burdenOfProof: 'Burden on Prosecution / IO to prove strict Article 22(1) compliance'
+      },
+      {
+        number: 2,
+        issueText: 'Whether compelling the accused to disclose an alphanumeric smartphone passcode violates Article 20(3) (self-incrimination), and how it differs from taking a voice sample?',
+        issueType: 'Issue of Law',
+        burdenOfProof: 'Constitutional Bar under Article 20(3) examined by Court'
+      }
+    ],
+    keyStatutes: [
+      'Constitution of India — Articles 20(3), 21 & 22(1)–(2)',
+      'Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 — Sections 35, 47, 187 (corresponding to Sections 41, 50, 167 CrPC)'
+    ],
+    keyPrecedents: [
+      'Prabir Purkayastha v. State (NCT of Delhi), (2024) 8 SCC 254 (mandatory written grounds of arrest)',
+      'Arnesh Kumar v. State of Bihar, (2014) 8 SCC 273 (no mechanical arrest/remand for <= 7 yr offences)',
+      'Selvi v. State of Karnataka, (2010) 7 SCC 263 (mental/testimonial compulsion barred under Art 20(3))',
+      'Ritesh Sinha v. State of Uttar Pradesh, (2019) 8 SCC 1 (voice sample permitted as physical exemplar)'
+    ],
+    modelJudgment: {
+      courtTitle: 'IN THE COURT OF THE JUDICIAL MAGISTRATE FIRST CLASS, PATIALA HOUSE, NEW DELHI',
+      caseNumber: 'FIR No. 88/2025 · Remand & Misc. Application',
+      parties: {
+        plaintiffOrState: 'State (Through Economic Offences Wing)',
+        defendantOrAccused: 'Accused X'
+      },
+      briefPleadings:
+        'IO seeks 7-day Police Custody Remand along with directions to unlock seized smartphone and obtain voice exemplar.',
+      marshallingOfEvidence:
+        'Case diary and arrest memo examined in open Court. The arrest memo merely reproduces statutory sections without any factual "grounds of arrest" communicated in writing to the accused or his counsel.',
+      issueWiseFindings: [
+        {
+          issueNumber: 1,
+          finding: 'Decided in favour of Accused. Remand prayer rejected for breach of Article 22(1).',
+          reasoning:
+            'In Prabir Purkayastha (2024), the Supreme Court held that "grounds of arrest" must be furnished in writing to the accused to enable meaningful legal consultation under Article 22(1). Mere "reasons for arrest" or FIR numbers in an arrest memo do not satisfy this constitutional mandate, and further Arnesh Kumar guidelines apply to offences punishable up to 7 years.'
+        },
+        {
+          issueNumber: 2,
+          finding: 'Passcode compulsion refused under Art 20(3); Voice exemplar stands on separate statutory footing.',
+          reasoning:
+            'Revealing a secret password stored solely in the accused\'s mind constitutes testimonial compulsion barred by Article 20(3) and Selvi (2010), whereas a physical voice sample is non-testimonial identification permissible under Ritesh Sinha (2019) — though moot here since arrest itself stands vitiated.'
+        }
+      ],
+      operativeOrder:
+        'Application for Police Custody Remand is dismissed; arrest is declared illegal for non-compliance with Article 22(1). Accused X is directed to be released forthwith on furnishing personal bond of ₹25,000/-, without prejudice to lawful investigation. Application for compelled passcode disclosure is dismissed.'
+    },
+    scoringGuide: [
+      { dimension: 'Prabir Purkayastha (2024) Distinction: Grounds vs Reasons of Arrest', marks: 15, tips: 'Explain why written factual grounds are mandatory under Art 22(1) across all penal laws.' },
+      { dimension: 'Arnesh Kumar & Anti-Mechanical Remand Duty of Magistrate', marks: 10, tips: 'Record independent judicial scrutiny of case diary for <= 7 year offences.' },
+      { dimension: 'Article 20(3) Passcode (Selvi) vs Voice Sample (Ritesh Sinha)', marks: 15, tips: 'Contrast mental testimonial knowledge vs physical identification exemplar.' },
+      { dimension: 'Operative Release Order & Bond', marks: 10, tips: 'Ensure unlawful custody ends immediately while preserving lawful investigation.' }
+    ]
   }
 ];

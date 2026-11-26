@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-26 13:13:34 (+05:30) |
+| **Last Log Sync** | 2026-11-26 13:30:33 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `f697564` (2026-11-26T12:34:53+05:30) |
-| **Total Commits** | 128 |
+| **Branch / HEAD** | `main` @ `5a91b93` (2026-11-26T13:13:54+05:30) |
+| **Total Commits** | 129 |
 | **Total Files Indexed** | 347 (347 tracked, 0 new untracked) |
-| **Working Tree** | 7 pending change(s) |
+| **Working Tree** | 3 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-26 13:30:33 (+05:30)] Add Judiciary POV Landmark Cases, Constitution Bench Clashes, and Constitutional Judgment Labs (DONE)
+- **Details:** Added Radhey Shyam v. Chhabi Nath & Prabir Purkayastha (2024) to caseLawsDetailedData.ts; added 3 Constitution Bench overruling clashes to precedentClashesData.ts; added 2 Judicial Services Mains bench problems to judgmentLabData.ts. Verified with npm run build (tsc -b && vite build) and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (3):** `M src/data/caseLawsDetailedData.ts`, `M src/data/judgmentLabData.ts`, `M src/data/precedentClashesData.ts`
+- **Git HEAD:** `main` @ `5a91b93`
 
 ### [2026-11-26 13:13:34 (+05:30)] Extend premium spring animations across Header, Articles 1-395, Flashcards 3D flip, Readiness, Doctrines, and Landmark Cases (DONE)
 - **Details:** Refined viewTransitionVariants, added bouncy bookmark badge in Header, layoutId pill glides in ArticlesMasterView/DoctrinesHubView/LandmarkCasesView, 3D spring card flip in FlashcardsView, and staggered grid + animated modal in ReadinessIndexView; npm run build and 39-check npm run test:smoke passed with 0 errors.
@@ -421,7 +426,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 106.0 KB | 1070 | `f697564` (2026-11-26) |
+| `PROJECT_LOG.md` | 107.0 KB | 1076 | `5a91b93` (2026-11-26) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -480,7 +485,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 7.7 KB | 141 | `ec161ca` (2026-11-25) |
+| `src/components/Layout/Header.tsx` | 7.7 KB | 141 | `5a91b93` (2026-11-26) |
 | `src/components/Layout/Sidebar.tsx` | 17.2 KB | 352 | `8a3a645` (2026-11-26) |
 | `src/components/Layout/ThemeSelector.tsx` | 11.4 KB | 266 | `8a3a645` (2026-11-26) |
 
@@ -525,7 +530,7 @@
 | `src/components/Views/ArcadeHubView.tsx` | 11.1 KB | 270 | `f697564` (2026-11-26) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 79.9 KB | 1540 | `f697564` (2026-11-26) |
+| `src/components/Views/ArticlesMasterView.tsx` | 79.9 KB | 1540 | `5a91b93` (2026-11-26) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -534,12 +539,12 @@
 | `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `8a3a645` (2026-11-26) |
 | `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | `3d89178` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
-| `src/components/Views/DoctrinesHubView.tsx` | 24.1 KB | 476 | `8a3a645` (2026-11-26) |
+| `src/components/Views/DoctrinesHubView.tsx` | 24.1 KB | 476 | `5a91b93` (2026-11-26) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `8a3a645` (2026-11-26) |
-| `src/components/Views/FlashcardsView.tsx` | 52.5 KB | 1161 | `3ce9f3d` (2026-11-18) |
+| `src/components/Views/FlashcardsView.tsx` | 52.5 KB | 1161 | `5a91b93` (2026-11-26) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
-| `src/components/Views/LandmarkCasesView.tsx` | 58.2 KB | 1074 | `8a3a645` (2026-11-26) |
+| `src/components/Views/LandmarkCasesView.tsx` | 58.2 KB | 1074 | `5a91b93` (2026-11-26) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
@@ -553,7 +558,7 @@
 | `src/components/Views/PrintableRevisionView.tsx` | 11.7 KB | 235 | `f697564` (2026-11-26) |
 | `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
-| `src/components/Views/ReadinessIndexView.tsx` | 95.5 KB | 1909 | `f697564` (2026-11-26) |
+| `src/components/Views/ReadinessIndexView.tsx` | 95.5 KB | 1909 | `5a91b93` (2026-11-26) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
@@ -610,7 +615,7 @@
 | `src/data/blueprintsTrack3Judiciary.ts` | 77.8 KB | 1230 | `7e1bea1` (2026-11-25) |
 | `src/data/blueprintsTrack4Federal.ts` | 83.0 KB | 1251 | `7e1bea1` (2026-11-25) |
 | `src/data/blueprintsTrack5Bodies.ts` | 89.6 KB | 1272 | `7e1bea1` (2026-11-25) |
-| `src/data/caseLawsDetailedData.ts` | 237.9 KB | 2339 | `e980352` (2026-11-14) |
+| `src/data/caseLawsDetailedData.ts` | 242.1 KB | 2375 | `e980352` (2026-11-14) |
 | `src/data/chronoTimelineData.ts` | 16.9 KB | 390 | `65aac87` (2026-11-24) |
 | `src/data/commissionsData.ts` | 14.2 KB | 211 | `d504081` (2026-11-22) |
 | `src/data/comparativeData.ts` | 8.3 KB | 200 | `3c486dd` (2026-11-13) |
@@ -630,7 +635,7 @@
 | `src/data/highYieldAmendmentsData.ts` | 22.7 KB | 376 | `ea98297` (2026-11-22) |
 | `src/data/hindiArticleMeanings.ts` | 684 B | 19 | `8a3a645` (2026-11-26) |
 | `src/data/introConclusionHooksData.ts` | 10.7 KB | 142 | `d504081` (2026-11-22) |
-| `src/data/judgmentLabData.ts` | 20.8 KB | 315 | `5bbabe8` (2026-11-19) |
+| `src/data/judgmentLabData.ts` | 33.0 KB | 470 | `5bbabe8` (2026-11-19) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
 | `src/data/lexSamvidhanData.ts` | 37.1 KB | 575 | `1f02703` (2026-11-22) |
@@ -666,7 +671,7 @@
 | `src/data/part9LocalGovernanceData.ts` | 17.8 KB | 219 | `e365e73` (2026-11-14) |
 | `src/data/partsData.ts` | 44.6 KB | 740 | `4fb3dbf` (2026-11-14) |
 | `src/data/preambleData.ts` | 6.9 KB | 121 | `3c486dd` (2026-11-13) |
-| `src/data/precedentClashesData.ts` | 371.8 KB | 5449 | `525b7c3` (2026-11-21) |
+| `src/data/precedentClashesData.ts` | 380.7 KB | 5581 | `525b7c3` (2026-11-21) |
 | `src/data/precedentLineagesData.ts` | 17.2 KB | 296 | `d003041` (2026-11-20) |
 | `src/data/pyqData.ts` | 1.1 KB | 39 | `ea3d899` (2026-11-16) |
 | `src/data/quizData.ts` | 6.8 KB | 125 | `3c486dd` (2026-11-13) |
@@ -904,7 +909,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/lib/motionTokens.ts` | 3.8 KB | 167 | `8a3a645` (2026-11-26) |
+| `src/lib/motionTokens.ts` | 3.8 KB | 167 | `5a91b93` (2026-11-26) |
 
 ### `src/services` (14 files)
 
@@ -940,10 +945,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**128** commits, newest first).
+> Complete git history (**129** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 129 | 2026-11-26 | `5a91b93` | 8 | feat: extend spring animations, 3D flashcard flips, and layoutId pills across core views |
 | 128 | 2026-11-26 | `f697564` | 15 | feat: add animated chakra & motif watermarks, vault odyssey sync, bilingual revision, and PWA v2 |
 | 127 | 2026-11-26 | `d52bceb` | 3 | feat: add closed-loop Fix Weakest Part targeted remediation in Readiness Index |
 | 126 | 2026-11-26 | `f993edf` | 5 | perf: split bootcamp chunks and add 39-check Playwright smoke suite |

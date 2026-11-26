@@ -5445,5 +5445,137 @@ export const PRECEDENT_CLASHES_DATA: PrecedentClash[] = [
       "newLaw": "Fully upheld as constitutional to protect vulnerable human life."
     }
   ]
+},
+{
+  id: 'clash-radhey-shyam-surya-dev-rai',
+  title: 'Civil Court Judicial Orders: Article 227 Supervisory Control vs Article 226 Writs',
+  tagline: '3-Judge Bench ends 12 years of procedural confusion over whether writ certiorari lies against Civil Judge orders.',
+  topicPillar: 'Judiciary & Remedies (Articles 226 vs 227 & CPC Maintainability)',
+  overrulingMagnitude: '5-Judge Re-anchoring',
+  yearOverruled: 2015,
+  oldCase: {
+    caseName: 'Surya Dev Rai v. Ram Chander Rai',
+    year: 2003,
+    citation: '(2003) 6 SCC 675',
+    benchStrength: '2-Judge Bench',
+    presidingJudges: 'R.C. Lahoti, Brijesh Kumar JJ.',
+    historicalContext: 'After the 1999/2002 CPC Amendment curtailed Section 115 revision petitions against interlocutory orders, litigants flooded High Courts with writ petitions under Article 226.',
+    theFlawedRatio: 'Held that judicial orders of subordinate civil courts are amenable to a Writ of Certiorari under Article 226 in addition to supervisory review under Article 227.',
+    whyItFailed: 'Conflated judicial decrees of regular Civil Courts with administrative/tribunal orders and bypassed the 9-Judge Bench ratio in Mirajkar (1966), improperly creating intra-court Letters Patent Appeals.',
+    consequences: 'Every interlocutory CPC order triggered parallel Article 226 writ litigation and intra-court appeals, delaying civil trials for years.'
+  },
+  newCase: {
+    caseName: 'Radhey Shyam v. Chhabi Nath',
+    shortName: 'Radhey Shyam',
+    year: 2015,
+    citation: '(2015) 5 SCC 423',
+    benchStrength: '3-Judge Bench (Unanimous)',
+    presidingJudges: 'H.L. Dattu CJI, A.K. Sikri, A.K. Goel JJ.',
+    verdictDate: 'February 26, 2015',
+    theSettledRatio: 'Surya Dev Rai is OVERRULED on Article 226 maintainability. Judicial orders of Civil Courts are NOT amenable to a writ of certiorari under Article 226. Challenge against such orders lies strictly under Article 227 supervisory jurisdiction (where no Letters Patent Appeal is maintainable).',
+    constitutionalArticles: ['Article 226', 'Article 227', 'Section 115 CPC'],
+    doctrinalShift: 'Restores the strict boundary between constitutional writ remedies against State/tribunals (Art 226) and High Court judicial superintendence over Civil Courts (Art 227).',
+    keyTakeawayForMains: 'Essential Judiciary Mains distinction: always examine whether the impugned order is passed by a Civil Court (Art 227 only) vs a statutory Tribunal/Executive body (Art 226).'
+  },
+  summaryTable: [
+    {
+      parameter: 'Writ of Certiorari (Art 226) vs Civil Court Order',
+      oldLaw: 'Maintainable under Surya Dev Rai (2003).',
+      newLaw: 'Barred; Civil Court judicial orders are NOT amenable to Art 226 writs.'
+    },
+    {
+      parameter: 'Proper Remedy & Intra-Court Appeal',
+      oldLaw: 'Art 226 petition allowed Letters Patent Appeal before Division Bench.',
+      newLaw: 'Art 227 supervisory petition only; no intra-court appeal.'
+    }
+  ]
+},
+{
+  id: 'clash-property-owners-ranganatha-reddy',
+  title: 'Article 39(b) "Material Resources": Does Private Property Automatically Belong to the State?',
+  tagline: '9-Judge Constitution Bench rejects Justice Krishna Iyer’s sweeping socialist doctrine after 46 years.',
+  topicPillar: 'Part IV DPSP vs Property Rights (Articles 39(b), 31C & 300A)',
+  overrulingMagnitude: '9-Judge Overruling',
+  yearOverruled: 2024,
+  oldCase: {
+    caseName: 'State of Karnataka v. Ranganatha Reddy / Sanjeev Coke Mfg. Co.',
+    year: 1978,
+    citation: '(1977) 4 SCC 471 / (1983) 1 SCC 147',
+    benchStrength: '7-Judge / 5-Judge Bench',
+    presidingJudges: 'V.R. Krishna Iyer J. (minority/concurring) & O. Chinnappa Reddy J.',
+    historicalContext: '1970s–80s nationalisation statutes invoked Article 39(b) ("material resources of the community") and Article 31C to shield acquisition of private businesses from Articles 14 and 19 challenges.',
+    theFlawedRatio: 'Declared that all private property, buildings, and resources owned by individuals automatically qualify as "material resources of the community" under Article 39(b).',
+    whyItFailed: 'Erased the constitutional distinction between community-held resources and private property, handing the State unchecked Article 31C immunity to expropriate private assets.',
+    consequences: 'Enabled sweeping expropriation legislation shielded from Part III judicial review for over four decades.'
+  },
+  newCase: {
+    caseName: 'Property Owners Association v. State of Maharashtra',
+    shortName: 'Property Owners (2024)',
+    year: 2024,
+    citation: '2024 INSC 835',
+    benchStrength: '9-Judge Constitution Bench (7:2 Majority)',
+    presidingJudges: 'D.Y. Chandrachud CJI (Majority); B.V. Nagarathna & Sudhanshu Dhulia JJ.',
+    verdictDate: 'November 5, 2024',
+    theSettledRatio: 'Ranganatha Reddy (Krishna Iyer J. view) and Sanjeev Coke are OVERRULED. Not all privately owned property is a "material resource of the community" under Article 39(b). Whether a private resource qualifies depends on its nature, scarcity, community impact, and public-trust characteristics (Public Trust Doctrine).',
+    constitutionalArticles: ['Article 39(b)', 'Article 31C', 'Article 300A', 'Article 14'],
+    doctrinalShift: 'Rebalances Directive Principles with economic liberty: prevents automatic State nationalisation of private property under Art 39(b) while keeping Art 31C surviving post-Minerva Mills as originally enacted.',
+    keyTakeawayForMains: 'Must-cite 2024 9-Judge Bench ruling in both Constitutional Law and Property/DPSP Mains questions.'
+  },
+  summaryTable: [
+    {
+      parameter: 'Scope of "Material Resources" (Art 39(b))',
+      oldLaw: 'Included ALL private property regardless of nature (Sanjeev Coke).',
+      newLaw: 'Private property is NOT automatically included; judged by scarcity & community nexus.'
+    },
+    {
+      parameter: 'Status of Article 31C Shield',
+      oldLaw: 'Broadly immunized state takeover of any private enterprise.',
+      newLaw: 'Art 31C (pre-42nd Amd form) survives, but applies only to genuine Art 39(b)/(c) resources.'
+    }
+  ]
+},
+{
+  id: 'clash-amu-naresh-agarwal-azeez-basha',
+  title: 'Article 30(1) Minority Educational Institutions: Statute vs Founding Community',
+  tagline: '7-Judge Constitution Bench overrules 57-year-old Azeez Basha bar on statutory universities.',
+  topicPillar: 'Part III Cultural & Educational Rights (Article 30(1))',
+  overrulingMagnitude: '7-Judge Overruling',
+  yearOverruled: 2024,
+  oldCase: {
+    caseName: 'S. Azeez Basha v. Union of India',
+    year: 1967,
+    citation: 'AIR 1968 SC 662',
+    benchStrength: '5-Judge Constitution Bench',
+    presidingJudges: 'K.N. Wanchoo CJI',
+    historicalContext: 'Aligarh Muslim University (AMU) Act amendments of 1951 & 1965 altered governance of AMU, originally founded as MAO College (1877) and incorporated by the 1920 Act.',
+    theFlawedRatio: 'Held that since AMU was incorporated by an Act of the Central Legislature (1920), it was "established" by Parliament and NOT by the Muslim minority, barring Article 30(1) protection.',
+    whyItFailed: 'Confused statutory incorporation (legal recognition required to award degrees) with the actual origin, brainchild, funding, and foundational initiative of the minority community.',
+    consequences: 'Denied minority status to historic community-founded institutions merely because they sought statutory university recognition.'
+  },
+  newCase: {
+    caseName: 'Aligarh Muslim University v. Naresh Agarwal',
+    shortName: 'AMU 7-Judge (2024)',
+    year: 2024,
+    citation: '2024 INSC 856',
+    benchStrength: '7-Judge Constitution Bench (4:3 Majority)',
+    presidingJudges: 'D.Y. Chandrachud CJI, Sanjiv Khanna, J.B. Pardiwala, Manoj Misra JJ.',
+    verdictDate: 'November 8, 2024',
+    theSettledRatio: 'S. Azeez Basha (1967) is OVERRULED. An institution does NOT lose its minority character under Article 30(1) merely because it is incorporated by a statute or its administration includes non-minority officials. Courts must examine the "indicia of establishment": who ideated, funded, acquired land, and founded the institution.',
+    constitutionalArticles: ['Article 30(1)', 'Article 29', 'Article 14'],
+    doctrinalShift: 'Shifts Article 30(1) from rigid statutory formalism to substance-over-form historical origin (indicia of establishment test).',
+    keyTakeawayForMains: 'Landmark 2024 7-Judge test for Article 30(1): "Establish" looks to founding origin and funding; "Administer" does not require 100% minority-only management.'
+  },
+  summaryTable: [
+    {
+      parameter: 'Effect of Statutory Incorporation on Art 30(1)',
+      oldLaw: 'Statutory incorporation barred minority status (Azeez Basha).',
+      newLaw: 'Does not bar minority status; degree-granting recognition ≠ State establishment.'
+    },
+    {
+      parameter: 'Test for Minority Character',
+      oldLaw: 'Formal text of enacting statute.',
+      newLaw: 'Substantive "Indicia of Establishment" (ideation, funding, founding purpose).'
+    }
+  ]
 }
 ];
