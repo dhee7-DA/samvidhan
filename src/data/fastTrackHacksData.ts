@@ -492,6 +492,218 @@ export const MNEMONIC_ENGINES: MnemonicEngine[] = [
       { letter: '371-J', word: 'Karnataka', article: 'Art. 371-J', details: 'Hyderabad-Karnataka region special development board (98th Amend 2012).' }
     ],
     proTip: 'Article 371E governs the establishment of a Central University in Andhra Pradesh.'
+  },
+  {
+    id: 'sixth-schedule-amtm',
+    title: 'Sixth Schedule Tribal States: A-M-T-M ("ATMs Without Money")',
+    catchphrase: 'Assam, Meghalaya, Tripura, Mizoram — NO Manipur!',
+    articlesCovered: 'Article 244(2) & Sixth Schedule',
+    category: 'Emergency & States',
+    explanation: 'The #1 UPSC/Judiciary trap in Part X is sneaking Manipur or Nagaland into the Sixth Schedule. Remember AMTM: Assam, Meghalaya, Tripura, Mizoram.',
+    breakdown: [
+      { letter: 'A', word: 'Assam', article: 'Sixth Schedule', details: 'Bodoland, Karbi Anglong, Dima Hasao Autonomous Councils.' },
+      { letter: 'M', word: 'Meghalaya', article: 'Sixth Schedule', details: 'Khasi Hills, Jaintia Hills, Garo Hills Autonomous District Councils.' },
+      { letter: 'T', word: 'Tripura', article: 'Sixth Schedule', details: 'Tripura Tribal Areas Autonomous District Council.' },
+      { letter: 'M', word: 'Mizoram', article: 'Sixth Schedule', details: 'Chakma, Mara, and Lai Autonomous District Councils.' }
+    ],
+    proTip: 'Whenever you see "Manipur" or "Nagaland" in a Sixth Schedule MCQ option, eliminate it immediately!'
+  },
+  {
+    id: 'article-19-six-freedoms',
+    title: 'Article 19(1) Six Freedoms: S-A-A-M-R-P ("SAAM-RP")',
+    catchphrase: 'Speech, Assembly, Association, Movement, Residence, Profession',
+    articlesCovered: 'Article 19(1)(a) to 19(1)(g)',
+    category: 'Fundamental Rights',
+    explanation: 'Recall all six surviving freedoms under Article 19(1) in exact Bare Act letter sequence (notice (f) Right to Property was deleted by 44th Amendment 1978!).',
+    breakdown: [
+      { letter: 'S', word: 'Speech & Expression', article: 'Art. 19(1)(a)', details: 'Includes press freedom, RTI, internet access (Anuradha Bhasin), and commercial speech.' },
+      { letter: 'A', word: 'Assemble Peaceably', article: 'Art. 19(1)(b)', details: 'Peaceably and without arms (does not include right to strike).' },
+      { letter: 'A', word: 'Associations / Unions / Co-ops', article: 'Art. 19(1)(c)', details: 'Co-operative societies added by 97th Amendment, 2011.' },
+      { letter: 'M', word: 'Move Freely', article: 'Art. 19(1)(d)', details: 'Internal movement throughout the territory of India (foreign travel is Art 21).' },
+      { letter: 'R', word: 'Reside & Settle', article: 'Art. 19(1)(e)', details: 'Reside and settle in any part of India (subject to tribal area protections).' },
+      { letter: 'P', word: 'Profession / Trade / Business', article: 'Art. 19(1)(g)', details: 'Practice any profession or carry on any occupation, trade, or business.' }
+    ],
+    proTip: 'Clause (f) Property is gone (44th Amendment -> moved to Art 300A), so (e) jumps straight to (g)!'
+  },
+  {
+    id: 'citizens-only-rights',
+    title: 'Citizens-Only Fundamental Rights: 15-16-19-29-30',
+    catchphrase: 'Five Finger Rule: 15, 16, 19, 29, 30 are Citizens-Only; ALL others cover Foreigners too!',
+    articlesCovered: 'Articles 15, 16, 19, 29, 30',
+    category: 'Fundamental Rights',
+    explanation: 'Exam questions routinely ask which rights foreigners CANNOT claim. Memorize these 5 numbers: 15, 16, 19, 29, 30.',
+    breakdown: [
+      { letter: '15', word: 'Non-Discrimination', article: 'Art. 15', details: 'Prohibition of discrimination on religion, race, caste, sex, place of birth.' },
+      { letter: '16', word: 'Public Employment', article: 'Art. 16', details: 'Equality of opportunity in matters of public employment.' },
+      { letter: '19', word: 'Six Democratic Freedoms', article: 'Art. 19', details: 'Speech, assembly, association, movement, residence, profession.' },
+      { letter: '29', word: 'Minority Script/Culture', article: 'Art. 29', details: 'Protection of language, script, and culture of any section of citizens.' },
+      { letter: '30', word: 'Minority Institutions', article: 'Art. 30', details: 'Right of minorities to establish and administer educational institutions.' }
+    ],
+    proTip: 'Articles 14, 20, 21, 21A, 22, 23, 24, 25, 26, 27, 28 use "person" — available to citizens AND foreigners!'
+  },
+  {
+    id: 'writs-hmpcq-targets',
+    title: 'Five Writs Target & Timing Filter: H-M-P-C-Q',
+    catchphrase: 'Body • Command • Stop • Quash • Authority',
+    articlesCovered: 'Articles 32 & 226',
+    category: 'Judiciary & Writs',
+    explanation: 'Instant 1-word meaning + private-vs-public target filter for all 5 prerogative writs.',
+    breakdown: [
+      { letter: 'H', word: 'Habeas Corpus', article: 'Arts. 32/226', details: '"Produce the body" — lies against BOTH State and private illegal detention.' },
+      { letter: 'M', word: 'Mandamus', article: 'Arts. 32/226', details: '"We command" — public duty only; NEVER against President, Governor, or private party.' },
+      { letter: 'P', word: 'Prohibition', article: 'Arts. 32/226', details: '"To forbid" — preventive writ to stop a pending inferior tribunal exceeding jurisdiction.' },
+      { letter: 'C', word: 'Certiorari', article: 'Arts. 32/226', details: '"To be certified" — curative writ to quash an order already passed (NOT against Civil Courts: Radhey Shyam 2015).' },
+      { letter: 'Q', word: 'Quo-Warranto', article: 'Arts. 32/226', details: '"By what authority" — tests usurpation of public office; ANY citizen can file (relaxed locus standi).' }
+    ],
+    proTip: 'Prohibition = Pending proceedings; Certiorari = Completed order!'
+  },
+  {
+    id: 'article-20-criminal-triad',
+    title: 'Article 20 Criminal Shield Triad: E-D-S (20(1) - 20(2) - 20(3))',
+    catchphrase: 'Ex-post facto • Double jeopardy • Self-incrimination',
+    articlesCovered: 'Article 20(1), 20(2), 20(3)',
+    category: 'Fundamental Rights',
+    explanation: 'Remember the exact clause order of Article 20 in criminal trials and remand orders.',
+    breakdown: [
+      { letter: '1', word: 'Ex-Post Facto Law', article: 'Art. 20(1)', details: 'Criminal laws only (retrospective civil/tax laws are allowed!).' },
+      { letter: '2', word: 'Double Jeopardy', article: 'Art. 20(2)', details: 'Prosecuted AND punished by a Court (excludes departmental inquiries).' },
+      { letter: '3', word: 'Self-Incrimination', article: 'Art. 20(3)', details: 'Bars testimonial compulsion (narco/passwords), allows physical samples (fingerprints/voice).' }
+    ],
+    proTip: 'Article 20 + Article 21 = Unbreakable Twins (never suspended even in National Emergency).'
+  },
+  {
+    id: '42nd-vs-44th-amendment',
+    title: '42nd (1976) vs 44th (1978) Amendment Quick-Split',
+    catchphrase: '42nd = Mini-Constitution (Added S-S-I, 51A, 39A, 43A, 48A) • 44th = Liberty Shield',
+    articlesCovered: 'Preamble, Arts. 20, 21, 39A, 43A, 48A, 51A, 300A, 352',
+    category: 'Preamble & Schedules',
+    explanation: 'Separate the two biggest constitutional amendments in 5 seconds without mixing up clauses.',
+    breakdown: [
+      { letter: '42', word: '42nd Amendment (1976)', article: 'Mini-Constitution', details: 'Added Socialist/Secular/Integrity; 10 Fundamental Duties (51A); DPSPs 39A, 43A, 48A; Tribunals (323A/B).' },
+      { letter: '44', word: '44th Amendment (1978)', article: 'Emergency Safeguard', details: 'Moved Property to Art 300A; protected Arts 20 & 21 from Art 359; "armed rebellion" + written Cabinet advice in Art 352; 1-time reconsideration in Art 74.' }
+    ],
+    proTip: '42nd expanded State & DPSP power; 44th restored citizen liberty & emergency checks.'
+  },
+  {
+    id: 'national-commissions-338-triad',
+    title: 'National Commissions Ladder: 338 -> 338A -> 338B',
+    catchphrase: 'SC (Original/65th) -> ST (89th) -> BC/OBC (102nd)',
+    articlesCovered: 'Articles 338, 338A, 338B',
+    category: 'Emergency & States',
+    explanation: 'Memorize the three constitutional social-justice commissions and the exact amendments that created them.',
+    breakdown: [
+      { letter: '338', word: 'NCSC (Scheduled Castes)', article: 'Art. 338', details: 'Multi-member status via 65th Amendment (1990).' },
+      { letter: '338A', word: 'NCST (Scheduled Tribes)', article: 'Art. 338A', details: 'Bifurcated by 89th Amendment (2003).' },
+      { letter: '338B', word: 'NCBC (Backward Classes)', article: 'Art. 338B', details: 'Constitutional status conferred by 102nd Amendment (2018).' }
+    ],
+    proTip: 'Remember amendment sequence: 65 -> 89 -> 102.'
+  },
+  {
+    id: 'presidential-vs-vp-electoral',
+    title: 'President (Art 54) vs Vice-President (Art 66) Electoral College Shortcut',
+    catchphrase: 'President = Elected MPs + Elected MLAs • VP = ALL MPs (Elected + Nominated), ZERO MLAs',
+    articlesCovered: 'Articles 54, 61, 66, 67',
+    category: 'Emergency & States',
+    explanation: 'Never mix up who votes in Election vs Removal for the President and Vice-President.',
+    breakdown: [
+      { letter: 'P-E', word: 'President Election (Art 54)', article: 'Art. 54', details: 'Elected MPs + Elected MLAs (incl. Delhi & Puducherry). NO nominated members, NO MLCs.' },
+      { letter: 'P-R', word: 'President Impeachment (Art 61)', article: 'Art. 61', details: 'ALL MPs (Elected + Nominated) by 2/3rds TOTAL membership. NO MLAs!' },
+      { letter: 'V-E', word: 'VP Election (Art 66)', article: 'Art. 66', details: 'ALL MPs (Elected + Nominated). ZERO MLAs.' },
+      { letter: 'V-R', word: 'VP Removal (Art 67(b))', article: 'Art. 67(b)', details: 'Originates ONLY in Rajya Sabha (effective majority) + Lok Sabha simple majority.' }
+    ],
+    proTip: 'MLAs vote ONLY to elect the President — never in Presidential impeachment or VP election/removal!'
+  },
+  {
+    id: 'emergency-approval-grid',
+    title: 'Emergency Approval & Majority Grid: 1-2-2 / S-Simple-Simple',
+    catchphrase: '352 = 1 Month (Special) • 356 = 2 Months (Simple) • 360 = 2 Months (Simple)',
+    articlesCovered: 'Articles 352, 356, 360',
+    category: 'Emergency & States',
+    explanation: 'A 3-second matrix for timelines, majorities, and renewal limits across all three Emergencies.',
+    breakdown: [
+      { letter: '352', word: 'National Emergency', article: 'Art. 352', details: '1 Month | Special Majority | Renew every 6 months (no max limit).' },
+      { letter: '356', word: 'President\'s Rule', article: 'Art. 356', details: '2 Months | Simple Majority | Renew every 6 months (max 3 years).' },
+      { letter: '360', word: 'Financial Emergency', article: 'Art. 360', details: '2 Months | Simple Majority | Indefinite once approved (NO 6-month renewals!).' }
+    ],
+    proTip: 'Only Article 352 needs 1 month and Special Majority; both 356 & 360 need 2 months and Simple Majority.'
+  },
+  {
+    id: 'rajya-sabha-exclusive-powers',
+    title: 'Rajya Sabha\'s 3 Exclusive Federal Weapons: 249 - 312 - 67(b)',
+    catchphrase: 'State List (249) • All-India Services (312) • VP Removal Initiation (67(b))',
+    articlesCovered: 'Articles 249, 312, 67(b)',
+    category: 'Emergency & States',
+    explanation: 'Memorize the three constitutional powers where Rajya Sabha has exclusive initiating authority over Lok Sabha.',
+    breakdown: [
+      { letter: '249', word: 'State List Legislation', article: 'Art. 249', details: '2/3rds present & voting unlocks State List for Parliament for 1 year.' },
+      { letter: '312', word: 'All-India Services', article: 'Art. 312', details: '2/3rds present & voting creates new All-India Services (incl. Judicial Service).' },
+      { letter: '67b', word: 'VP Removal Origin', article: 'Art. 67(b)', details: 'Resolution to remove the Vice-President can be introduced ONLY in Rajya Sabha.' }
+    ],
+    proTip: 'By contrast, Money Bills (Art 110) and No-Confidence Motions (Art 75(3)) belong exclusively to Lok Sabha.'
+  },
+  {
+    id: 'borrowed-features-map',
+    title: 'Borrowed Features Speed-Map (9 Countries in 10 Seconds)',
+    catchphrase: 'UK=Writs/Parl • US=FR/JR • Ireland=DPSP • Canada=Residuary • Australia=Concurrent • Weimar=Emergency • USSR=Duties • France=Republic • SA=368',
+    articlesCovered: 'Parts III, IV, IVA, XI, XVIII, XX',
+    category: 'Preamble & Schedules',
+    explanation: 'High-frequency Prelims match-the-following cheat sheet for Constitutional Sources.',
+    breakdown: [
+      { letter: 'UK', word: 'United Kingdom', article: 'Arts. 32, 75', details: 'Parliamentary government, Rule of Law, Single Citizenship, Prerogative Writs, Bicameralism.' },
+      { letter: 'US', word: 'United States', article: 'Part III & Art 13', details: 'Fundamental Rights, Judicial Review, Independence of Judiciary, Impeachment of President, Removal of SC/HC Judges.' },
+      { letter: 'IE', word: 'Ireland', article: 'Part IV & Art 54', details: 'Directive Principles (DPSP), President\'s electoral college method, Rajya Sabha nominations.' },
+      { letter: 'CA', word: 'Canada', article: 'Arts. 248, 143', details: 'Federation with strong Centre, Residuary powers in Centre, Governor appointment, SC Advisory jurisdiction.' },
+      { letter: 'AU', word: 'Australia', article: 'List III & Art 108', details: 'Concurrent List, Freedom of Trade (Art 301), Joint Sitting of Parliament (Art 108).' },
+      { letter: 'DE', word: 'Weimar (Germany)', article: 'Part XVIII', details: 'Suspension of Fundamental Rights during Emergency (Art 359).' },
+      { letter: 'ZA', word: 'South Africa', article: 'Art. 368', details: 'Procedure for Amendment of the Constitution & election of Rajya Sabha members.' }
+    ],
+    proTip: 'Watch out: "Procedure established by law" (Art 21) came from JAPAN, while "Due Process" jurisprudence came from the US!'
+  },
+  {
+    id: '2024-bench-overrulings',
+    title: '2024 Constitution Bench Overrulings Cheat Sheet (4 Big Flips)',
+    catchphrase: 'Davinder->Chinnaiah • Sita Soren->Narasimha Rao • Property Owners->Ranganatha • MADA->India Cement • AMU->Azeez Basha',
+    articlesCovered: 'Arts. 16(4), 30(1), 39(b), 105(2), List II Entries 49-50',
+    category: 'Judiciary & Writs',
+    explanation: 'Every 2024 Constitution Bench decision that expressly overruled an older Supreme Court landmark.',
+    breakdown: [
+      { letter: '1', word: 'Davinder Singh (2024, 7J)', article: 'Art. 16(4)', details: 'Overruled E.V. Chinnaiah (2004): SC sub-classification is valid with empirical data.' },
+      { letter: '2', word: 'Sita Soren (2024, 7J)', article: 'Art. 105(2)', details: 'Overruled P.V. Narasimha Rao (1998): Bribery is NOT protected by legislative immunity.' },
+      { letter: '3', word: 'Property Owners (2024, 9J)', article: 'Art. 39(b)', details: 'Overruled Ranganatha Reddy/Sanjeev Coke: All private property is NOT automatically "material resources".' },
+      { letter: '4', word: 'MADA v. SAIL (2024, 9J)', article: 'List II E.49-50', details: 'Overruled India Cement (1990): Mineral royalty is NOT a tax; States can tax mineral-bearing land.' },
+      { letter: '5', word: 'AMU v. Naresh Agarwal (2024, 7J)', article: 'Art. 30(1)', details: 'Overruled Azeez Basha (1968): Statutory incorporation does not automatically strip minority status.' }
+    ],
+    proTip: 'Memorize the exact Bench strength too: Davinder (7J), Sita Soren (7J), AMU (7J), Property Owners (9J), MADA (9J)!'
+  },
+  {
+    id: 'education-age-split',
+    title: 'Education Trio Split: 21A (6-14) vs 45 (0-6) vs 51A(k) (Parent Duty)',
+    catchphrase: '86th Amendment 2002 split education across Part III, Part IV, and Part IVA',
+    articlesCovered: 'Articles 21A, 45, 51A(k)',
+    category: 'Fundamental Rights',
+    explanation: 'Never confuse the age brackets or constitutional parts of the three education provisions.',
+    breakdown: [
+      { letter: 'FR', word: 'Article 21A', article: 'Part III', details: 'Free & compulsory education for ages 6 to 14 years (Justiciable Right).' },
+      { letter: 'DP', word: 'Article 45', article: 'Part IV', details: 'Early childhood care & education for ages 0 to 6 years (DPSP).' },
+      { letter: 'FD', word: 'Article 51A(k)', article: 'Part IVA', details: '11th Fundamental Duty on parents/guardians for children aged 6 to 14 years.' }
+    ],
+    proTip: 'All three were enacted/modified together by a single Act: the 86th Constitutional Amendment Act, 2002!'
+  },
+  {
+    id: 'local-bodies-73-74-mirror',
+    title: '73rd vs 74th Amendment Mirror: 243 to 243O (Rural) vs 243P to 243ZG (Urban)',
+    catchphrase: 'D->T (Reservation) • E->U (5-Yr Duration) • K->ZA (Election Comm) • O->ZG (Court Bar)',
+    articlesCovered: 'Articles 243 to 243ZG',
+    category: 'Emergency & States',
+    explanation: 'Map Panchayat and Municipality articles effortlessly using parallel letter offsets.',
+    breakdown: [
+      { letter: 'D/T', word: 'Reservation of Seats', article: '243D / 243T', details: 'SC/ST proportional + minimum 1/3rd seats for women.' },
+      { letter: 'E/U', word: '5-Year Term & 6-Mo Rule', article: '243E / 243U', details: '5-year term; election within 6 months if dissolved early.' },
+      { letter: 'I/Y', word: 'State Finance Commission', article: '243I / 243Y', details: 'Constituted by Governor every 5 years (same SFC covers both).' },
+      { letter: 'K/ZA', word: 'State Election Commission', article: '243K / 243ZA', details: 'Independent State Election Commissioner removed like an HC Judge.' },
+      { letter: 'O/ZG', word: 'Bar to Court Interference', article: '243O / 243ZG', details: 'No challenge to delimitation; election disputes via election petition only.' }
+    ],
+    proTip: 'Remember: 243ZD = District Planning Committee (DPC); 243ZE = Metropolitan Planning Committee (MPC).'
   }
 ];
 
@@ -598,6 +810,141 @@ export const RAPID_REFLEX_QUESTIONS: RapidReflexDrillQuestion[] = [
     correctIndex: 2,
     explanation: 'Article 105 + 89 = Article 194 (Powers, Privileges and Immunities of State Legislatures & Members).',
     formulaNote: 'Formula: Union Art 105 + 89 = State Art 194'
+  },
+  {
+    id: 'rf-11',
+    question: 'Applying the +89 Rule: Article 76 establishes the Attorney General of India. Which article establishes the State Advocate General?',
+    shortcutRule: '76 + 89 = 165',
+    options: ['Article 163', 'Article 165', 'Article 167', 'Article 169'],
+    correctIndex: 1,
+    explanation: '76 + 89 = Article 165 (Advocate-General for the State).',
+    formulaNote: 'Formula: Union Art 76 + 89 = State Art 165'
+  },
+  {
+    id: 'rf-12',
+    question: 'Applying the +89 Rule: Article 78 sets out the PM\'s duty to inform the President. Which article sets out the Chief Minister\'s duty to inform the Governor?',
+    shortcutRule: '78 + 89 = 167',
+    options: ['Article 164', 'Article 166', 'Article 167', 'Article 168'],
+    correctIndex: 2,
+    explanation: '78 + 89 = Article 167 (Duties of Chief Minister as respects the furnishing of information to Governor).',
+    formulaNote: 'Formula: Union Art 78 + 89 = State Art 167'
+  },
+  {
+    id: 'rf-13',
+    question: 'Applying the +89 Rule: Article 110 defines a Union Money Bill. Which article defines a State Money Bill?',
+    shortcutRule: '110 + 89 = 199',
+    options: ['Article 198', 'Article 199', 'Article 200', 'Article 202'],
+    correctIndex: 1,
+    explanation: '110 + 89 = Article 199 (Definition of "Money Bills" in State Legislature).',
+    formulaNote: 'Formula: Union Art 110 + 89 = State Art 199'
+  },
+  {
+    id: 'rf-14',
+    question: 'Applying the +89 Rule: Article 111 governs Presidential Assent to Bills. Which article governs Governor Assent to Bills?',
+    shortcutRule: '111 + 89 = 200',
+    options: ['Article 199', 'Article 200', 'Article 201', 'Article 202'],
+    correctIndex: 1,
+    explanation: '111 + 89 = Article 200 (Assent to Bills by Governor — landmark Punjab Governor 2023 case).',
+    formulaNote: 'Formula: Union Art 111 + 89 = State Art 200'
+  },
+  {
+    id: 'rf-15',
+    question: 'Applying the +90 Rule (Budget & Ordinances): Article 112 is the Union Annual Financial Statement. Which is the State counterpart?',
+    shortcutRule: '112 + 90 = 202',
+    options: ['Article 200', 'Article 201', 'Article 202', 'Article 204'],
+    correctIndex: 2,
+    explanation: 'From Article 112 onwards, the offset shifts from +89 to +90: 112 + 90 = Article 202 (State Annual Financial Statement).',
+    formulaNote: 'Formula: Union Art 112 + 90 = State Art 202'
+  },
+  {
+    id: 'rf-16',
+    question: 'Applying the +90 Rule: Article 123 grants the President Ordinance-making power. Which article grants the Governor Ordinance-making power?',
+    shortcutRule: '123 + 90 = 213',
+    options: ['Article 212', 'Article 213', 'Article 214', 'Article 215'],
+    correctIndex: 1,
+    explanation: '123 + 90 = Article 213 (Power of Governor to promulgate Ordinances during recess of Legislature).',
+    formulaNote: 'Formula: Union Art 123 + 90 = State Art 213'
+  },
+  {
+    id: 'rf-17',
+    question: 'Using the +4 Emergency Triad: National Emergency is Art 352 and President\'s Rule is Art 356. What is Financial Emergency?',
+    shortcutRule: '352 (+4) -> 356 (+4) -> 360',
+    options: ['Article 358', 'Article 359', 'Article 360', 'Article 365'],
+    correctIndex: 2,
+    explanation: '352 + 4 = 356; 356 + 4 = Article 360 (Financial Emergency).',
+    formulaNote: 'Emergency +4 Triad: 352 -> 356 -> 360'
+  },
+  {
+    id: 'rf-18',
+    question: 'Using the Citizens-Only 5-Finger Rule: Which of the following Fundamental Rights IS available to foreign nationals in India?',
+    shortcutRule: 'Citizens-Only = 15, 16, 19, 29, 30',
+    options: ['Article 15', 'Article 19', 'Article 21A', 'Article 29'],
+    correctIndex: 2,
+    explanation: 'Only 15, 16, 19, 29, 30 are restricted to citizens. Article 21A (like 14, 20, 21, 22, 23, 24, 25–28) applies to ALL persons!',
+    formulaNote: 'Shortcut: 15-16-19-29-30 = Citizens Only'
+  },
+  {
+    id: 'rf-19',
+    question: 'Using the Sixth Schedule AMTM Rule: Which North-Eastern State is NOT governed by the Sixth Schedule?',
+    shortcutRule: 'AMTM = Assam, Meghalaya, Tripura, Mizoram',
+    options: ['Assam', 'Meghalaya', 'Manipur', 'Mizoram'],
+    correctIndex: 2,
+    explanation: 'AMTM stands for Assam, Meghalaya, Tripura, Mizoram. Manipur (along with Nagaland and Arunachal) is NOT in the Sixth Schedule!',
+    formulaNote: 'Shortcut: AMTM (No Manipur!)'
+  },
+  {
+    id: 'rf-20',
+    question: 'Using the 62 vs 65 Age Staircase: At what age do High Court Judges (Art 217) and State PSC Members (Art 316) retire?',
+    shortcutRule: 'State Apex = 62 | Union Apex = 65',
+    options: ['60 years', '62 years', '65 years', '67 years'],
+    correctIndex: 1,
+    explanation: 'State-level constitutional authorities (HC Judges & State PSC) retire at 62; Union-level (SC Judges, CAG, UPSC, CEC) retire at 65.',
+    formulaNote: 'Age Staircase: State = 62, Union = 65'
+  },
+  {
+    id: 'rf-21',
+    question: 'Using the 91st Amendment Cap Rule: What is the minimum number of Ministers required in a State Council of Ministers?',
+    shortcutRule: 'Max 15% | Min 12 (States) | 10% (Delhi)',
+    options: ['7 ministers', '10 ministers', '12 ministers', '15 ministers'],
+    correctIndex: 2,
+    explanation: 'Proviso to Article 164(1A) fixes a constitutional floor of 12 ministers (including CM) in every State, with a ceiling of 15% of the Assembly.',
+    formulaNote: '91st Amendment: 15% Ceiling, 12 State Floor'
+  },
+  {
+    id: 'rf-22',
+    question: 'Using the P-E-J-S-L-A Ratification Rule: Which of these amendments requires ratification by at least 50% of State Legislatures under Art 368(2)?',
+    shortcutRule: 'P-E-J-S-L-A (President, Exec, Judiciary, 7th Sched, Parl Seats, Art 368)',
+    options: ['Altering Fundamental Rights (Part III)', 'Amending Directive Principles (Part IV)', 'Modifying Supreme Court & High Court powers (Judiciary)', 'Creating a new State under Article 3'],
+    correctIndex: 2,
+    explanation: '"J" in P-E-J-S-L-A stands for Judiciary (SC & HCs). Fundamental Rights and DPSPs need only Parliamentary Special Majority; Art 3 needs Simple Majority.',
+    formulaNote: 'P-E-J-S-L-A = 6 Federal Entrenched Pillars'
+  },
+  {
+    id: 'rf-23',
+    question: 'Using the Education Trio Split: Which article covers Early Childhood Care & Education for children BELOW 6 years of age?',
+    shortcutRule: '21A = 6-14 (FR) | 45 = 0-6 (DPSP) | 51A(k) = Parent Duty',
+    options: ['Article 21A', 'Article 45', 'Article 46', 'Article 51A(k)'],
+    correctIndex: 1,
+    explanation: 'The 86th Amendment (2002) assigned 6–14 years to Art 21A (FR) & 51A(k) (FD), and refocused Art 45 (DPSP) on children aged 0–6 years.',
+    formulaNote: 'Education Split: 45 = 0–6 yrs; 21A = 6–14 yrs'
+  },
+  {
+    id: 'rf-24',
+    question: 'Using the +89 Rule: Article 85 deals with Parliament sessions (max 6-month gap). Which article governs State Legislature sessions?',
+    shortcutRule: '85 + 89 = 174',
+    options: ['Article 172', 'Article 174', 'Article 175', 'Article 176'],
+    correctIndex: 1,
+    explanation: '85 + 89 = Article 174 (Sessions of State Legislature, prorogation and dissolution).',
+    formulaNote: 'Formula: Union Art 85 + 89 = State Art 174'
+  },
+  {
+    id: 'rf-25',
+    question: 'Using the Commissions Ladder: Which Constitutional Amendment created the National Commission for Backward Classes (Art 338B)?',
+    shortcutRule: '338 (65th) -> 338A (89th) -> 338B (102nd)',
+    options: ['89th Amendment', '97th Amendment', '102nd Amendment', '104th Amendment'],
+    correctIndex: 2,
+    explanation: '65th = Multi-member NCSC (338); 89th = NCST (338A); 102nd Amendment (2018) = NCBC (338B).',
+    formulaNote: 'Ladder: 338 (65th) -> 338A (89th) -> 338B (102nd)'
   }
 ];
 
