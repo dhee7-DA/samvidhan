@@ -54,7 +54,7 @@ import {
 import { useTheme } from '../../context/ThemeContext';
 
 export const ReadinessIndexView: React.FC = () => {
-  const { setActiveTab } = useTheme();
+  const { setActiveTab, launchFlashcardDeck, setSelectedPartId } = useTheme();
 
   // Active exam profile
   const [selectedProfile, setSelectedProfile] = useState<ExamProfileType>('holistic');
@@ -225,9 +225,9 @@ export const ReadinessIndexView: React.FC = () => {
     }
   };
 
-  // Launch Weakest Link 15-Minute Workout
-  const handleLaunchWeakestLink = () => {
-    const drill = generateWeakestLinkDrill(report);
+  // Launch Weakest Link 15-Minute Workout (global or targeted to a specific Part)
+  const handleLaunchWeakestLink = (focusPartId?: string) => {
+    const drill = generateWeakestLinkDrill(report, focusPartId);
     setActiveWeakestDrill(drill);
     setWeakestStage('mcqs');
     setWeakestMcqIndex(0);
@@ -299,6 +299,19 @@ export const ReadinessIndexView: React.FC = () => {
     setRefreshTrigger((prev) => prev + 1);
   };
 
+  const openLeadArticleInBareAct = (stat: PartReadinessStats) => {
+    const rawNum = stat.part.highYieldArticles[0]?.number || '1';
+    const artId = rawNum.replace(/[^0-9A-Za-z]/g, '').toUpperCase() || '1';
+    try {
+      localStorage.setItem('samvidhan_active_article', artId);
+      window.dispatchEvent(new CustomEvent('samvidhan_navigate_article', { detail: { articleId: artId } }));
+    } catch {
+      // ignore storage errors
+    }
+    setActivePartForModal(null);
+    setActiveTab('articles-master');
+  };
+
   const handlePrintAuditReport = () => {
     window.print();
   };
@@ -342,7 +355,7 @@ export const ReadinessIndexView: React.FC = () => {
 
         <div className="flex flex-wrap items-center gap-2.5">
           <button
-            onClick={handleLaunchWeakestLink}
+            onClick={() => handleLaunchWeakestLink()}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-mono text-xs font-bold shadow-md transition-all btn-tactile cursor-pointer"
           >
             <Play className="w-4 h-4 fill-current" />
@@ -588,7 +601,7 @@ export const ReadinessIndexView: React.FC = () => {
         </div>
 
         <button
-          onClick={handleLaunchWeakestLink}
+          onClick={() => handleLaunchWeakestLink()}
           className="shrink-0 px-6 py-3.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all flex items-center gap-2.5 cursor-pointer btn-tactile"
         >
           <Play className="w-4 h-4 fill-current" />
@@ -1023,14 +1036,24 @@ export const ReadinessIndexView: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+                <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between gap-1 text-[10px] font-mono text-[var(--text-muted)]">
                   <span>{item.mcqsAttempted} MCQs</span>
-                  <span>{item.mainsDraftsCount} Drafts</span>
                   {item.unresolvedMistakesCount > 0 ? (
                     <span className="text-rose-400 font-bold">{item.unresolvedMistakesCount} Err</span>
                   ) : (
                     <span className="text-emerald-400">Clean</span>
                   )}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleLaunchWeakestLink(item.part.id);
+                    }}
+                    className="px-2 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-[var(--text-primary)] font-bold transition-colors cursor-pointer"
+                    title={`Launch targeted 3-stage drill for ${item.part.partNumber}`}
+                  >
+                    Fix &rarr;
+                  </button>
                 </div>
               </div>
             );
@@ -1310,37 +1333,59 @@ export const ReadinessIndexView: React.FC = () => {
               </div>
             </div>
 
-            {/* Modal Footer Controls */}
+            {/* Modal Footer Controls: Closed-Loop Weak-Part Remediation */}
             <div className="p-4 border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] flex flex-wrap items-center justify-between gap-2">
-              <button
-                onClick={() => {
-                  setActivePartForModal(null);
-                  handleLaunchDiagnosticDrill(activePartForModal.part.id);
-                }}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-mono text-xs font-bold shadow-md transition-all btn-tactile cursor-pointer"
-              >
-                <Zap className="w-3.5 h-3.5" />
-                <span>DRILL PART QUESTIONS</span>
-              </button>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  onClick={() => {
+                    const targetId = activePartForModal.part.id;
+                    setActivePartForModal(null);
+                    handleLaunchWeakestLink(targetId);
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] font-mono text-xs font-bold shadow-md transition-opacity hover:opacity-90 btn-tactile cursor-pointer"
+                >
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>Fix This Part (3-Stage Drill)</span>
+                </button>
 
-              <div className="flex items-center gap-2">
                 <button
                   onClick={() => {
                     setActivePartForModal(null);
-                    setActiveTab('pyqs');
+                    handleLaunchDiagnosticDrill(activePartForModal.part.id);
                   }}
-                  className="px-3 py-2 rounded-xl bg-[var(--bg-base)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-all btn-tactile cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-base)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors btn-tactile cursor-pointer"
                 >
-                  Mains Vault
+                  <span>Quick MCQs</span>
+                </button>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  onClick={() => {
+                    const partNum = activePartForModal.part.partNumber;
+                    setActivePartForModal(null);
+                    launchFlashcardDeck('articles', partNum);
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-base)] text-[var(--accent)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors btn-tactile cursor-pointer"
+                >
+                  <BrainCircuit className="w-3.5 h-3.5" />
+                  <span>SRS Flashcards</span>
+                </button>
+                <button
+                  onClick={() => openLeadArticleInBareAct(activePartForModal)}
+                  className="px-3 py-2 rounded-xl bg-[var(--bg-base)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors btn-tactile cursor-pointer"
+                >
+                  Bare Act &amp; Hindi
                 </button>
                 <button
                   onClick={() => {
+                    setSelectedPartId(activePartForModal.part.id);
                     setActivePartForModal(null);
-                    setActiveTab('articles-master');
+                    setActiveTab('parts');
                   }}
-                  className="px-3 py-2 rounded-xl bg-[var(--bg-base)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-all btn-tactile cursor-pointer"
+                  className="px-3 py-2 rounded-xl bg-[var(--bg-base)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-semibold transition-colors btn-tactile cursor-pointer"
                 >
-                  Bare Act Explorer
+                  Part Guide
                 </button>
               </div>
             </div>

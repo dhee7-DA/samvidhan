@@ -1728,22 +1728,44 @@ export interface WeakestLinkDrill {
   };
 }
 
-export function generateWeakestLinkDrill(report: ConstitutionalReadinessReport): WeakestLinkDrill {
-  // Find top 3 weakest parts with highest exam weight
-  const weakestParts = [...report.partsStats]
-    .sort((a, b) => a.readinessScore - b.readinessScore)
-    .slice(0, 3);
+export function generateWeakestLinkDrill(
+  report: ConstitutionalReadinessReport,
+  focusPartId?: string
+): WeakestLinkDrill {
+  const focusedStat = focusPartId
+    ? report.partsStats.find((p) => p.part.id === focusPartId)
+    : undefined;
 
-  // Pool diagnostic questions from these parts
+  // Find top 3 weakest parts (or prioritize the user-selected Part first)
+  const weakestSorted = [...report.partsStats].sort((a, b) => a.readinessScore - b.readinessScore);
+  const weakestParts = focusedStat
+    ? [focusedStat, ...weakestSorted.filter((p) => p.part.id !== focusedStat.part.id).slice(0, 2)]
+    : weakestSorted.slice(0, 3);
+
+  // Pool diagnostic questions: prioritize focused Part's own questions first
   const mcqPool: DiagnosticMCQ[] = [];
-  weakestParts.forEach((p) => {
-    mcqPool.push(...p.part.diagnosticQuestions);
-  });
+  if (focusedStat) {
+    mcqPool.push(...focusedStat.part.diagnosticQuestions);
+  }
+  if (mcqPool.length < 5) {
+    weakestParts.forEach((p) => {
+      if (!focusedStat || p.part.id !== focusedStat.part.id) {
+        mcqPool.push(...p.part.diagnosticQuestions);
+      }
+    });
+  }
 
-  // Pick 5 unique MCQs
-  const stage1MCQs = [...mcqPool].sort(() => 0.5 - Math.random()).slice(0, 5);
+  // Pick up to 5 unique MCQs (preserving focusPart questions first)
+  const stage1MCQs = focusedStat
+    ? [
+        ...focusedStat.part.diagnosticQuestions.slice(0, 5),
+        ...mcqPool
+          .filter((q) => q.partId !== focusedStat.part.id)
+          .sort(() => 0.5 - Math.random())
+      ].slice(0, 5)
+    : [...mcqPool].sort(() => 0.5 - Math.random()).slice(0, 5);
 
-  // Stage 2: Pick landmark precedent from top weakest part
+  // Stage 2: Pick landmark precedent from lead part
   const leadPart = weakestParts[0]?.part || ACTIVE_25_PARTS_METADATA[2];
   const precedent = leadPart.landmarkPrecedents[0] || {
     name: 'K.S. Puttaswamy v. Union of India',
@@ -1765,20 +1787,31 @@ export function generateWeakestLinkDrill(report: ConstitutionalReadinessReport):
     articleRef: leadPart.highYieldArticles[0]?.number ? `Article ${leadPart.highYieldArticles[0].number}` : leadPart.articlesRange
   };
 
-  // Stage 3: Trap Statement
-  const stage3TrapClause = {
-    statement: `Under ${leadPart.articlesRange}, the President or Governor possesses absolute non-justiciable discretion to issue ordinances even when both Houses are in session if public interest demands.`,
-    isDeceptiveTrap: true,
-    examinerTrick: 'Absolute phrasing ("absolute non-justiciable discretion") and factual fallacy ("even when both Houses are in session").',
-    correctStatutoryRule: 'Ordinance power (Art 123/213) is contingent upon Houses not being in session, and is subject to judicial review for colorable exercise as held in D.C. Wadhwa (1987).',
-    articleRef: leadPart.articlesRange
-  };
+  // Stage 3: Part-aware Trap Statement
+  const leadArt = leadPart.highYieldArticles[0];
+  const stage3TrapClause = leadArt
+    ? {
+        statement: `Under ${leadPart.partNumber} (${leadPart.articlesRange}), powers exercised under Article ${leadArt.number} (${leadArt.title}) are completely non-justiciable and immune from judicial review or constitutional proportionality.`,
+        isDeceptiveTrap: true,
+        examinerTrick: `Absolutist phrasing ("completely non-justiciable and immune from judicial review") contradicts Basic Structure judicial review in ${leadPart.title}.`,
+        correctStatutoryRule: `${leadArt.note} Judicial review and constitutional limits remain enforceable under ${leadPart.partNumber} (${leadPart.articlesRange}).`,
+        articleRef: `Article ${leadArt.number}`
+      }
+    : {
+        statement: `Under ${leadPart.articlesRange}, executive or legislative discretion operates as an absolute bar against constitutional judicial review.`,
+        isDeceptiveTrap: true,
+        examinerTrick: 'Absolute phrasing ("absolute bar against judicial review") violates Basic Structure doctrine.',
+        correctStatutoryRule: `${leadPart.mainsFocusBlueprint}`,
+        articleRef: leadPart.articlesRange
+      };
+
+  const targetedParts = focusedStat ? [focusedStat] : weakestParts;
 
   return {
-    id: `weakest-link-${new Date().toISOString().slice(0, 10)}`,
+    id: `weakest-link-${focusedStat ? focusedStat.part.id : 'auto'}-${new Date().toISOString().slice(0, 10)}`,
     generatedDate: new Date().toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }),
-    targetPartIds: weakestParts.map((p) => p.part.id),
-    targetPartTitles: weakestParts.map((p) => `${p.part.partNumber}: ${p.part.title}`),
+    targetPartIds: targetedParts.map((p) => p.part.id),
+    targetPartTitles: targetedParts.map((p) => `${p.part.partNumber}: ${p.part.title}`),
     stage1MCQs,
     stage2Precedent,
     stage3TrapClause

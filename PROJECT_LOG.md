@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-26 10:46:24 (+05:30) |
+| **Last Log Sync** | 2026-11-26 12:08:26 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `8a3a645` (2026-11-26T00:26:28+05:30) |
-| **Total Commits** | 125 |
-| **Total Files Indexed** | 346 (345 tracked, 1 new untracked) |
-| **Working Tree** | 4 pending change(s) |
+| **Branch / HEAD** | `main` @ `f993edf` (2026-11-26T10:46:45+05:30) |
+| **Total Commits** | 126 |
+| **Total Files Indexed** | 346 (346 tracked, 0 new untracked) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-26 12:08:26 (+05:30)] Add closed-loop Fix Weakest Part targeted remediation in Readiness Index (DONE)
+- **Details:** Upgraded generateWeakestLinkDrill(report, focusPartId) for Part-specific 3-stage drills and Part-aware trap clauses; added 1-click Fix -> action on 25-Part heatmap cards plus Fix This Part, SRS Flashcards, Bare Act & Hindi, and Part Guide deep-dive controls; npm run build + 39-check npm run test:smoke passed with 0 errors.
+- **Files Touched (2):** `M src/components/Views/ReadinessIndexView.tsx`, `M src/services/readinessIndexService.ts`
+- **Git HEAD:** `main` @ `f993edf`
 
 ### [2026-11-26 10:46:24 (+05:30)] Code-split bootcamp chunks via Rolldown and add 39-check Playwright smoke suite (DONE)
 - **Details:** Split 4.7MB bootcamp-core into 6 chunks under 831KB with zero Vite warnings, fixed duplicate mainsBatch5 React key, and added npm run test:smoke (5 split-screen 860x760 + 34 desktop 1366x860 checks, all passing with 0 console errors).
@@ -405,13 +410,13 @@
 | `AGENTS.md` | 1.4 KB | 19 | `7da595c` (2026-11-18) |
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
-| `package.json` | 845 B | 34 | `8a3a645` (2026-11-26) |
-| `PROJECT_LOG.md` | 103.3 KB | 1050 | `8a3a645` (2026-11-26) |
+| `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
+| `PROJECT_LOG.md` | 104.0 KB | 1057 | `f993edf` (2026-11-26) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
 | `tsconfig.node.json` | 581 B | 24 | `3c486dd` (2026-11-13) |
-| `vite.config.ts` | 1.9 KB | 72 | `a058cc1` (2026-11-16) |
+| `vite.config.ts` | 1.9 KB | 72 | `f993edf` (2026-11-26) |
 
 ### `public` (4 files)
 
@@ -427,7 +432,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `scripts/buildBareActDataset.cjs` | 149.0 KB | 598 | `3db5394` (2026-11-16) |
-| `scripts/smoke_check.py` | 4.6 KB | — | new (uncommitted) |
+| `scripts/smoke_check.py` | 4.6 KB | — | `f993edf` (2026-11-26) |
 | `scripts/updateProjectLog.cjs` | 10.2 KB | 345 | `7da595c` (2026-11-18) |
 
 ### `src` (3 files)
@@ -537,7 +542,7 @@
 | `src/components/Views/PrintableRevisionView.tsx` | 9.8 KB | 210 | `a058cc1` (2026-11-16) |
 | `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
 | `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
-| `src/components/Views/ReadinessIndexView.tsx` | 91.3 KB | 1834 | `733568c` (2026-11-25) |
+| `src/components/Views/ReadinessIndexView.tsx` | 94.0 KB | 1879 | `733568c` (2026-11-25) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
@@ -873,7 +878,7 @@
 | `src/data/mains/mainsBatch2.ts` | 139.3 KB | 1773 | `46802c4` (2026-11-19) |
 | `src/data/mains/mainsBatch3.ts` | 170.0 KB | 2111 | `96d143e` (2026-11-19) |
 | `src/data/mains/mainsBatch4.ts` | 155.0 KB | 1831 | `96d143e` (2026-11-19) |
-| `src/data/mains/mainsBatch5.ts` | 197.0 KB | 2029 | `4594a72` (2026-11-22) |
+| `src/data/mains/mainsBatch5.ts` | 197.0 KB | 2029 | `f993edf` (2026-11-26) |
 
 ### `src/data/pyqs` (4 files)
 
@@ -905,7 +910,7 @@
 | `src/services/judicialCareerService.ts` | 20.2 KB | 683 | `9d5f7c9` (2026-11-25) |
 | `src/services/mistakesService.ts` | 2.7 KB | 109 | `a058cc1` (2026-11-16) |
 | `src/services/progressVaultService.ts` | 6.9 KB | 239 | `7aac50b` (2026-11-19) |
-| `src/services/readinessIndexService.ts` | 95.8 KB | 1815 | `733568c` (2026-11-25) |
+| `src/services/readinessIndexService.ts` | 97.2 KB | 1848 | `733568c` (2026-11-25) |
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
 
@@ -924,10 +929,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**125** commits, newest first).
+> Complete git history (**126** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 126 | 2026-11-26 | `f993edf` | 5 | perf: split bootcamp chunks and add 39-check Playwright smoke suite |
 | 125 | 2026-11-26 | `8a3a645` | 33 | feat: add spring animations, fix split-screen overflow, and add easy Hindi meanings for all 505 articles |
 | 124 | 2026-11-25 | `9d5f7c9` | 6 | feat(arcade): add Samvidhan Odyssey curriculum-planned memory campaign |
 | 123 | 2026-11-25 | `7e1bea1` | 10 | feat(visuals): scale Visual Law Lab to 100 interactive constitutional SVGs |
