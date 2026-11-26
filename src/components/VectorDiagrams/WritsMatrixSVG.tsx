@@ -126,7 +126,7 @@ export const WritsMatrixSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 980 340"
-          className="w-full min-w-[760px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           <defs>
             {/* Grid Pattern */}

@@ -185,7 +185,7 @@ export const ExecutiveClemencyArchitectureSVG: React.FC = () => {
       <div className="w-full bg-[var(--bg-base)] border border-[var(--border-subtle)] rounded-xl p-4 overflow-x-auto shadow-inner">
         <svg
           viewBox="0 0 1000 360"
-          className="w-full min-w-[850px] h-auto select-none"
+          className="w-full h-auto select-none"
         >
           <defs>
             <linearGradient id="clemencyGrad" x1="0%" y1="0%" x2="100%" y2="0%">

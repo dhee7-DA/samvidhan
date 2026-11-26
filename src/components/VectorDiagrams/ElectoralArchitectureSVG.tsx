@@ -24,7 +24,7 @@ export const ElectoralArchitectureSVG: React.FC = () => {
 
       {/* SVG Vector Canvas */}
       <div className="w-full overflow-x-auto pb-2">
-        <svg viewBox="0 0 940 300" className="w-full min-w-[720px] h-auto select-none font-mono">
+        <svg viewBox="0 0 940 300" className="w-full h-auto select-none font-mono">
           {/* Top Axis: Article 324 Central ECI Node */}
           <g transform="translate(470, 18)">
             <rect x="-240" y="0" width="480" height="96" rx="10" fill="var(--bg-surface-elevated)" stroke="#38bdf8" strokeWidth="2" />

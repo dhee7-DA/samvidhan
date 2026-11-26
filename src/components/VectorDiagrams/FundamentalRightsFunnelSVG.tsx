@@ -126,7 +126,7 @@ export const FundamentalRightsFunnelSVG: React.FC = () => {
 
       {/* Interactive Blueprint Canvas */}
       <div className="w-full overflow-x-auto pb-2">
-        <svg viewBox="0 0 980 390" className="w-full min-w-[760px] h-auto select-none font-mono">
+        <svg viewBox="0 0 980 390" className="w-full h-auto select-none font-mono">
           <defs>
             <pattern id="frBpGrid" width="24" height="24" patternUnits="userSpaceOnUse">
               <circle cx="1" cy="1" r="0.8" fill="var(--border-strong)" opacity="0.4" />

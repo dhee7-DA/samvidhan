@@ -149,7 +149,7 @@ export const MajoritiesThresholdSVG: React.FC = () => {
 
       {/* Interactive Hemicycle SVG */}
       <div className="w-full overflow-x-auto pb-2">
-        <svg viewBox="0 0 960 300" className="w-full min-w-[740px] h-auto select-none font-mono">
+        <svg viewBox="0 0 960 300" className="w-full h-auto select-none font-mono">
           <defs>
             <pattern id="majGrid" width="24" height="24" patternUnits="userSpaceOnUse">
               <circle cx="1" cy="1" r="0.8" fill="var(--border-strong)" opacity="0.35" />

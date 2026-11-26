@@ -49,7 +49,7 @@ export const CivilServicesSafeguardsSVG: React.FC = () => {
       {/* SVG Canvas for Twin Shields */}
       {activeTab === 'shield' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
-          <svg viewBox="0 0 940 260" className="w-full min-w-[720px] h-auto select-none font-mono">
+          <svg viewBox="0 0 940 260" className="w-full h-auto select-none font-mono">
             {/* Top Doctrine of Pleasure Rail */}
             <g transform="translate(60, 20)">
               <rect x="0" y="0" width="820" height="44" rx="8" fill="var(--bg-base)" stroke="var(--border-strong)" strokeWidth="1" />
@@ -94,7 +94,7 @@ export const CivilServicesSafeguardsSVG: React.FC = () => {
       {/* SVG Canvas for 3 Exceptions */}
       {activeTab === 'exceptions' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
-          <svg viewBox="0 0 940 240" className="w-full min-w-[720px] h-auto select-none font-mono">
+          <svg viewBox="0 0 940 240" className="w-full h-auto select-none font-mono">
               {/* Proviso (a) */}
               <g transform="translate(50, 20)">
                 <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#ef4444" strokeWidth="1.5" />
@@ -148,7 +148,7 @@ export const CivilServicesSafeguardsSVG: React.FC = () => {
       {/* SVG Canvas for All-India Services */}
       {activeTab === 'ais' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
-          <svg viewBox="0 0 940 220" className="w-full min-w-[720px] h-auto select-none font-mono">
+          <svg viewBox="0 0 940 220" className="w-full h-auto select-none font-mono">
             {/* Rajya Sabha Special Power */}
             <g transform="translate(60, 20)">
               <rect x="0" y="0" width="380" height="170" rx="10" fill="var(--bg-surface-elevated)" stroke="#38bdf8" strokeWidth="2" />

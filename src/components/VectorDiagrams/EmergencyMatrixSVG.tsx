@@ -82,7 +82,7 @@ export const EmergencyMatrixSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 940 280"
-          className="w-full min-w-[720px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           {EMERGENCIES.map((em, idx) => {
             const x = 50 + idx * 300;

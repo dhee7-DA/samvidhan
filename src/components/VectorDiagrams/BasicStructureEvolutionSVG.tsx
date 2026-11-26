@@ -120,7 +120,7 @@ export const BasicStructureEvolutionSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 960 180"
-          className="w-full min-w-[760px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           {/* Main Chronology Rail */}
           <line x1="50" y1="90" x2="880" y2="90" stroke="var(--border-strong)" strokeWidth="3" />

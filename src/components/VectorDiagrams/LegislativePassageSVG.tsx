@@ -74,7 +74,7 @@ export const LegislativePassageSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 940 260"
-          className="w-full min-w-[720px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           {/* Bill Type Selector Buttons inside SVG Canvas */}
           {BILL_TYPES.map((bill, idx) => {

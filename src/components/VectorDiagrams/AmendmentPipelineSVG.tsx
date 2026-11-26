@@ -85,7 +85,7 @@ export const AmendmentPipelineSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 960 360"
-          className="w-full min-w-[750px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           <defs>
             <marker id="pipeArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">

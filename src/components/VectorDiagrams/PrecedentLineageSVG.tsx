@@ -893,7 +893,7 @@ export const PrecedentLineageSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 960 220"
-          className="w-full min-w-[760px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           {/* Subtle Dot Grid Background Pattern */}
           <defs>

@@ -86,7 +86,7 @@ export const Article21EvolutionSVG: React.FC = () => {
       <div className="w-full overflow-x-auto pb-2">
         <svg
           viewBox="0 0 940 220"
-          className="w-full min-w-[700px] h-auto select-none font-mono"
+          className="w-full h-auto select-none font-mono"
         >
           {/* Connector Rail */}
           <line x1="160" y1="100" x2="780" y2="100" stroke="var(--border-strong)" strokeWidth="2" strokeDasharray="4 4" />

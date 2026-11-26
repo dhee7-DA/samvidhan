@@ -49,7 +49,7 @@ export const GSTCouncilFiscalSVG: React.FC = () => {
       {/* SVG Canvas for GST Council */}
       {activeTab === 'council' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
-          <svg viewBox="0 0 940 280" className="w-full min-w-[720px] h-auto select-none font-mono">
+          <svg viewBox="0 0 940 280" className="w-full h-auto select-none font-mono">
             {/* Voting Weights Visualizer */}
             <g transform="translate(50, 20)">
               {/* Centre Weight Card */}
@@ -93,7 +93,7 @@ export const GSTCouncilFiscalSVG: React.FC = () => {
       {/* SVG Canvas for Finance Commission */}
       {activeTab === 'finance-commission' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
-          <svg viewBox="0 0 940 260" className="w-full min-w-[720px] h-auto select-none font-mono">
+          <svg viewBox="0 0 940 260" className="w-full h-auto select-none font-mono">
             {/* Net Tax Proceeds Pool */}
             <g transform="translate(60, 20)">
               <rect x="0" y="0" width="240" height="100" rx="8" fill="var(--bg-surface-elevated)" stroke="var(--border-strong)" strokeWidth="1.5" />
@@ -143,7 +143,7 @@ export const GSTCouncilFiscalSVG: React.FC = () => {
       {/* SVG Canvas for Funds */}
       {activeTab === 'funds' && (
         <div className="w-full overflow-x-auto pb-2 animate-fadeIn">
-          <svg viewBox="0 0 940 240" className="w-full min-w-[720px] h-auto select-none font-mono">
+          <svg viewBox="0 0 940 240" className="w-full h-auto select-none font-mono">
             {/* Consolidated Fund */}
             <g transform="translate(60, 20)">
               <rect x="0" y="0" width="260" height="190" rx="10" fill="var(--bg-surface-elevated)" stroke="#38bdf8" strokeWidth="1.5" />

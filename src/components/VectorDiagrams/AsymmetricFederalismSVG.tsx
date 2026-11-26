@@ -120,7 +120,7 @@ export const AsymmetricFederalismSVG: React.FC = () => {
 
       {/* SVG Vector Rail of Articles */}
       <div className="w-full overflow-x-auto pb-2">
-        <svg viewBox="0 0 940 130" className="w-full min-w-[720px] h-auto select-none font-mono">
+        <svg viewBox="0 0 940 130" className="w-full h-auto select-none font-mono">
           {ASYMMETRIC_STATES.map((st, idx) => {
             const x = 20 + idx * 100;
             const isSelected = selectedState.article === st.article;
