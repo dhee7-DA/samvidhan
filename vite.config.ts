@@ -9,54 +9,59 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks(id) {
-          const normalizedId = id.replace(/\\/g, '/').toLowerCase();
-          if (normalizedId.includes('node_modules')) {
-            if (normalizedId.includes('lucide-react')) return 'vendor-lucide';
-            if (normalizedId.includes('react') || normalizedId.includes('react-dom')) return 'vendor-react';
-            return 'vendor';
-          }
-          if (normalizedId.includes('/data/bootcamp/')) {
-            if (
-              normalizedId.includes('days1to5') ||
-              normalizedId.includes('/day1/') ||
-              normalizedId.includes('/day2/') ||
-              normalizedId.includes('/day3/') ||
-              normalizedId.includes('/day4/') ||
-              normalizedId.includes('/day5/')
-            ) {
-              return 'bootcamp-days-1-to-5';
+        codeSplitting: {
+          groups: [
+            {
+              name: 'vendor-lucide',
+              test: /node_modules[\\/]lucide-react/
+            },
+            {
+              name: 'vendor-react',
+              test: /node_modules[\\/](react|react-dom)[\\/]/
+            },
+            {
+              name: 'vendor-motion',
+              test: /node_modules[\\/](motion|framer-motion|motion-dom|motion-utils)[\\/]/
+            },
+            {
+              name: 'vendor',
+              test: /node_modules/
+            },
+            {
+              name: 'bootcamp-days-1-to-3',
+              test: /\/data\/bootcamp\/day[1-3]\//
+            },
+            {
+              name: 'bootcamp-days-4-to-6',
+              test: /\/data\/bootcamp\/day[4-6]\//
+            },
+            {
+              name: 'bootcamp-days-7-to-9',
+              test: /\/data\/bootcamp\/day[7-9]\//
+            },
+            {
+              name: 'bootcamp-days-10-to-12',
+              test: /\/data\/bootcamp\/day1[0-2]\//
+            },
+            {
+              name: 'bootcamp-days-13-to-15',
+              test: /\/data\/bootcamp\/day1[3-5]\//
+            },
+            {
+              name: 'bootcamp-core',
+              test: /\/data\/bootcamp\//
+            },
+            {
+              name: 'constitution-parts',
+              test: /\/data\/part.*data/i
+            },
+            {
+              name: 'dictionary-data',
+              test: /(legaldictionarydata|forensicvocabularydata)/i
             }
-            if (
-              normalizedId.includes('days6to10') ||
-              normalizedId.includes('/day6/') ||
-              normalizedId.includes('/day7/') ||
-              normalizedId.includes('/day8/') ||
-              normalizedId.includes('/day9/') ||
-              normalizedId.includes('/day10/')
-            ) {
-              return 'bootcamp-days-6-to-10';
-            }
-            if (
-              normalizedId.includes('days11to15') ||
-              normalizedId.includes('/day11/') ||
-              normalizedId.includes('/day12/') ||
-              normalizedId.includes('/day13/') ||
-              normalizedId.includes('/day14/') ||
-              normalizedId.includes('/day15/')
-            ) {
-              return 'bootcamp-days-11-to-15';
-            }
-            return 'bootcamp-core';
-          }
-          if (normalizedId.includes('/data/part') && normalizedId.includes('data')) {
-            return 'constitution-parts';
-          }
-          if (normalizedId.includes('legaldictionarydata') || normalizedId.includes('forensicvocabularydata')) {
-            return 'dictionary-data';
-          }
+          ]
         }
       }
     },

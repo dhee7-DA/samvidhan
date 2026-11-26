@@ -1448,7 +1448,7 @@ Dissent is the safety valve of democracy. While the State possesses legitimate a
   // 19. PREVENTIVE DETENTION (ARTICLE 22 & PRAMOD SINGLA 2023)
   // =========================================================================
   {
-    id: 'mains-15m-preventive-detention-art22',
+    id: 'mains-15m-preventive-detention-pramod-singla-art22',
     title: 'Preventive Detention Jurisprudence: Constitutional Safeguards under Article 22',
     topicId: 'art-22-protection-against-arrest-detention',
     marksCategory: 15,
