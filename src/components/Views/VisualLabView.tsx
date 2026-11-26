@@ -32,6 +32,7 @@ import {
   X
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 import type { VisualBlueprintSpec, BlueprintTrack } from '../../data/visualBlueprintsTypes';
 import { TRACK_1_RIGHTS_BLUEPRINTS } from '../../data/blueprintsTrack1Rights';
 import { TRACK_2_EXEC_PARL_BLUEPRINTS } from '../../data/blueprintsTrack2ExecParl';
@@ -491,8 +492,9 @@ export const VisualLabView: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6">
       {/* Title & Banner */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
-        <div>
+      <div className="relative overflow-hidden p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <ConstitutionalWatermark variant="rotunda" position="center-right" size="md" animated />
+        <div className="relative z-10">
           <div className="flex flex-wrap items-center gap-2 mb-1.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
               <Eye className="w-3 h-3 text-[var(--accent)]" />

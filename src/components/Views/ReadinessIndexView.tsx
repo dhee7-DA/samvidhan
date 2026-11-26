@@ -52,6 +52,7 @@ import {
   type WeakestLinkDrill
 } from '../../services/readinessIndexService';
 import { useTheme } from '../../context/ThemeContext';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 
 export const ReadinessIndexView: React.FC = () => {
   const { setActiveTab, launchFlashcardDeck, setSelectedPartId } = useTheme();
@@ -334,8 +335,9 @@ export const ReadinessIndexView: React.FC = () => {
       {/* =========================================================================
           HEADER: Title, Subtitle, Quick Controls
           ========================================================================= */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-6">
-        <div>
+      <div className="relative overflow-hidden p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <ConstitutionalWatermark variant="pillar" position="center-right" size="md" animated />
+        <div className="relative z-10">
           <div className="flex items-center gap-2 mb-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-mono font-bold bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)]">
               <Target className="w-3.5 h-3.5" />
@@ -564,7 +566,8 @@ export const ReadinessIndexView: React.FC = () => {
           🔥 15-MINUTE DAILY PRESCRIPTION: WEAKEST LINK REMEDIATION ENGINE
           ========================================================================= */}
       <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="space-y-2 max-w-2xl">
+        <ConstitutionalWatermark variant="chakra" position="bottom-right" size="md" animated className="text-white !opacity-[0.06]" />
+        <div className="relative z-10 space-y-2 max-w-2xl">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-rose-500/10 text-rose-400 border border-rose-500/30 flex items-center gap-1.5">
               <Zap className="w-3 h-3" />

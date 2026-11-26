@@ -60,7 +60,8 @@ DESKTOP_ROUTES = [
 def check_viewport(page, base_url: str, width: int, height: int, routes: list[str]) -> list[str]:
     failures: list[str] = []
     page.set_viewport_size({"width": width, "height": height})
-    page.goto(base_url, wait_until="networkidle", timeout=30000)
+    page.goto(base_url, wait_until="domcontentloaded", timeout=30000)
+    page.locator("aside").first.wait_for(state="visible", timeout=20000)
     page.wait_for_timeout(350)
 
     for label in routes:

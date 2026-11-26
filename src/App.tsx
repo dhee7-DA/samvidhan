@@ -8,6 +8,7 @@ import { SearchModal } from './components/Common/SearchModal';
 import { UniversalDictionaryPopover } from './components/Common/UniversalDictionaryPopover';
 import { GlobalDictionaryModal } from './components/Common/GlobalDictionaryModal';
 import { ProgressVaultModal } from './components/Common/ProgressVaultModal';
+import { ConstitutionalWatermark } from './components/Common/ConstitutionalWatermark';
 import { OverviewDashboard } from './components/Views/OverviewDashboard';
 import { Scale, Loader2 } from 'lucide-react';
 
@@ -133,7 +134,14 @@ const MainContent: React.FC = () => {
         <Sidebar />
 
         <div className="flex-1 min-w-0 flex flex-col">
-          <main className="flex-1 pb-16 min-w-0 overflow-x-clip">
+          <main className="flex-1 pb-16 min-w-0 overflow-x-clip relative">
+            <ConstitutionalWatermark
+              variant="chakra"
+              size="lg"
+              animated
+              className="!fixed !right-4 !bottom-4 !opacity-[0.025] z-0 print:hidden"
+            />
+            <div className="relative z-10">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={activeTab === 'tile-matcher' ? 'arcade' : activeTab}
@@ -189,6 +197,7 @@ const MainContent: React.FC = () => {
                 )}
               </motion.div>
             </AnimatePresence>
+            </div>
           </main>
 
           {/* Quiet Minimalist Editorial Colophon */}

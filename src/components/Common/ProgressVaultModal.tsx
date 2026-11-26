@@ -128,7 +128,7 @@ export const ProgressVaultModal: React.FC = () => {
                 Study Progress Backup Vault
               </h2>
               <p className="text-xs font-mono text-[var(--text-muted)]">
-                Export or restore Bootcamp, Leitner SRS, Mistakes Bank & Bookmarks
+                Export or restore Bootcamp, Odyssey, Readiness Drills, Leitner SRS &amp; Bookmarks
               </p>
             </div>
           </div>
@@ -183,13 +183,13 @@ export const ProgressVaultModal: React.FC = () => {
 
             <div className="p-3 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
               <div className="flex items-center gap-1.5 text-[10px] font-mono text-[var(--gold)] uppercase font-bold">
-                <Bookmark className="w-3 h-3" /> Saved
+                <Bookmark className="w-3 h-3" /> Saved &amp; Odyssey
               </div>
               <div className="text-lg font-extrabold font-mono text-[var(--text-primary)] mt-1">
                 {snapshot.bookmarkedArticlesCount + snapshot.bookmarkedCasesCount}
               </div>
               <div className="text-[10px] text-[var(--text-muted)] font-mono">
-                {snapshot.estimatedSizeKB} KB stored
+                {snapshot.odysseyStarsEarned}/36 ★ &bull; {snapshot.readinessDrillsCompleted} drills
               </div>
             </div>
           </div>

@@ -13,6 +13,9 @@ export interface ProgressVaultSnapshot {
   judicialRankTitle?: string;
   judicialXP?: number;
   badgesCount?: number;
+  odysseyChaptersCompleted: number;
+  odysseyStarsEarned: number;
+  readinessDrillsCompleted: number;
   totalKeysBackedUp: number;
   estimatedSizeKB: number;
   lastBackupDate: string | null;
@@ -63,6 +66,36 @@ export function getStudyReadinessSnapshot(): ProgressVaultSnapshot {
   let judicialRankTitle = 'Law Student / Intern';
   let judicialXP = 0;
   let badgesCount = 0;
+  let odysseyChaptersCompleted = 0;
+  let odysseyStarsEarned = 0;
+  let readinessDrillsCompleted = 0;
+
+  try {
+    const rawOdyssey = data['samvidhan_curriculum_odyssey_v1'];
+    if (rawOdyssey) {
+      const parsed = JSON.parse(rawOdyssey);
+      const progMap = parsed?.progressByChapter || {};
+      for (const ch of Object.values<any>(progMap)) {
+        const stars = Number(ch?.stars || 0);
+        if (stars > 0) {
+          odysseyChaptersCompleted++;
+          odysseyStarsEarned += stars;
+        }
+      }
+    }
+  } catch {
+    // ignore
+  }
+
+  try {
+    const rawDrills = data['samvidhan_weakest_link_history_v1'];
+    if (rawDrills) {
+      const arr = JSON.parse(rawDrills);
+      if (Array.isArray(arr)) readinessDrillsCompleted = arr.length;
+    }
+  } catch {
+    // ignore
+  }
 
   try {
     const rawCareer = data['samvidhan_judicial_career_v1'];
@@ -173,6 +206,9 @@ export function getStudyReadinessSnapshot(): ProgressVaultSnapshot {
     judicialRankTitle,
     judicialXP,
     badgesCount,
+    odysseyChaptersCompleted,
+    odysseyStarsEarned,
+    readinessDrillsCompleted,
     totalKeysBackedUp: Object.keys(data).length,
     estimatedSizeKB: Math.max(1, Math.round((serializedBytes / 1024) * 10) / 10),
     lastBackupDate: localStorage.getItem(LAST_BACKUP_KEY),

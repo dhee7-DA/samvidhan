@@ -17,6 +17,7 @@ import { PRECEDENT_LINEAGES } from '../../data/precedentLineagesData';
 import { DETAILED_CASE_LAWS_BY_TOPIC } from '../../data/caseLawsDetailedData';
 import { useTheme } from '../../context/ThemeContext';
 import { ConceptWebGraphView } from './ConceptWebGraphView';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 
 export type { PrecedentNode, LineageChain };
 export { PRECEDENT_LINEAGES };
@@ -156,8 +157,9 @@ export const PrecedentLineageView: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6 animate-fadeIn">
       {/* Top Banner */}
-      <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="relative overflow-hidden p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid shadow-sm">
+        <ConstitutionalWatermark variant="scales" position="center-right" size="md" animated />
+        <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] text-xs font-mono font-medium mb-2">
               <GitBranch className="w-3.5 h-3.5 text-[var(--accent)]" />

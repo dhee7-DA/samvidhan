@@ -14,9 +14,12 @@ import {
   FIFTEEN_DAY_BOOTCAMP_DATA,
   type BootcampDay
 } from '../../data/bootcamp';
+import { getHindiArticleMeaning } from '../../data/hindiArticleMeanings';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 
 export const PrintableRevisionView: React.FC = () => {
   const [selectedDayNumber, setSelectedDayNumber] = useState<number | 'all'>(1);
+  const [bilingualHindi, setBilingualHindi] = useState<boolean>(true);
 
   const selectedDays: BootcampDay[] = useMemo(() => {
     if (selectedDayNumber === 'all') {
@@ -33,25 +36,37 @@ export const PrintableRevisionView: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
       {/* Top Controls (Hidden during print) */}
-      <div className="print:hidden p-6 rounded-2xl bg-gradient-to-r from-amber-950/30 via-slate-900 to-card border border-amber-500/30 shadow-lg space-y-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="print:hidden relative overflow-hidden p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid shadow-sm space-y-4">
+        <ConstitutionalWatermark variant="scroll" position="bottom-right" size="md" />
+        <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-2">
-              <Printer className="w-3.5 h-3.5" />
-              <span>Printable Dossiers & Rapid Revision Sheets</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] text-xs font-mono font-semibold uppercase tracking-wider mb-2">
+              <Printer className="w-3.5 h-3.5 text-[var(--accent)]" />
+              <span>Printable Dossiers &amp; Bilingual Revision Sheets</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Constitutional Law Revision Cheat Sheets
             </h1>
-            <p className="text-sm text-muted-foreground mt-1 max-w-xl">
-              Clean, high-density printable summaries designed for rapid offline revision before preliminary & mains examinations. Click "Print / Save as PDF" to generate clean A4 pages.
+            <p className="text-sm text-[var(--text-secondary)] mt-1 max-w-xl">
+              Clean, high-density printable summaries designed for rapid offline revision before preliminary &amp; mains examinations. Click &ldquo;Print / Save as PDF&rdquo; to generate clean A4 pages.
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <button
+              type="button"
+              onClick={() => setBilingualHindi((prev) => !prev)}
+              className={`px-3.5 py-2.5 rounded-xl font-mono text-xs font-bold border transition-colors cursor-pointer btn-tactile ${
+                bilingualHindi
+                  ? 'bg-[var(--bg-base)] border-[var(--accent)] text-[var(--accent)]'
+                  : 'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)]'
+              }`}
+            >
+              {bilingualHindi ? 'EN + सरल हिंदी: ON' : 'English Only'}
+            </button>
             <button
               onClick={handlePrint}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] font-bold text-sm shadow-sm hover:opacity-95 transition-opacity flex items-center gap-2 cursor-pointer btn-tactile"
             >
               <Printer className="w-4 h-4" />
               <span>Print / Save as PDF</span>
@@ -121,24 +136,34 @@ export const PrintableRevisionView: React.FC = () => {
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {day.coreConcepts.map((concept, cIdx) => (
-                    <div
-                      key={cIdx}
-                      className="p-3 rounded-xl border border-border/80 bg-muted/20 print:border-gray-400 print:bg-white text-xs space-y-1"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-foreground print:text-black block">
-                          {concept.heading}
-                        </span>
-                        <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-semibold print:text-black">
-                          {concept.articleAnchor}
-                        </span>
+                  {day.coreConcepts.map((concept, cIdx) => {
+                    const artMatch = concept.articleAnchor.match(/([0-9]+[A-Za-z]*)/);
+                    const hindiDigest = bilingualHindi && artMatch ? getHindiArticleMeaning(artMatch[1]) : undefined;
+                    return (
+                      <div
+                        key={cIdx}
+                        className="p-3 rounded-xl border border-border/80 bg-muted/20 print:border-gray-400 print:bg-white text-xs space-y-1.5"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-bold text-foreground print:text-black block">
+                            {concept.heading}
+                          </span>
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-semibold print:text-black shrink-0">
+                            {concept.articleAnchor}
+                          </span>
+                        </div>
+                        <p className="text-muted-foreground print:text-gray-800 text-[11px] leading-relaxed">
+                          {concept.synopsis}
+                        </p>
+                        {hindiDigest && (
+                          <p className="text-[11px] text-foreground/90 print:text-gray-900 pt-1 border-t border-border/40 print:border-gray-300 leading-relaxed">
+                            <strong className="text-[var(--accent)] print:text-black">सरल हिंदी: </strong>
+                            {hindiDigest.meaningHi}
+                          </p>
+                        )}
                       </div>
-                      <p className="text-muted-foreground print:text-gray-800 text-[11px] leading-relaxed">
-                        {concept.synopsis}
-                      </p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 

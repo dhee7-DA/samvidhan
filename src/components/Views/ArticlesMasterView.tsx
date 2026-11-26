@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 import { bareActService, type BareActArticle } from '../../services/bareActService';
 import { getCardIdForArticle } from '../../services/flashcardService';
 import { caseStoryService } from '../../services/caseStoryService';
@@ -230,8 +231,9 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 flex flex-col gap-6 min-w-0 w-full">
       {/* Top Banner & Mode Toggle */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)] min-w-0">
-        <div className="min-w-0">
+      <div className="relative overflow-hidden p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 min-w-0">
+        <ConstitutionalWatermark variant="scroll" position="center-right" size="md" animated />
+        <div className="relative z-10 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1">
             <BookOpen className="w-5 h-5 text-[var(--accent)] shrink-0" />
             <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
@@ -247,7 +249,7 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex items-center gap-2 w-full lg:w-auto justify-start lg:justify-end flex-wrap min-w-0">
+        <div className="relative z-10 flex items-center gap-2 w-full lg:w-auto justify-start lg:justify-end flex-wrap min-w-0">
           <button
             onClick={() => {
               if (activeArticle?.part === 'Part III') {

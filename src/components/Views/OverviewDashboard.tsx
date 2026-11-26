@@ -25,6 +25,7 @@ import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { getStudyReadinessSnapshot } from '../../services/progressVaultService';
 import { computeConstitutionalReadinessReport } from '../../services/readinessIndexService';
 import { DailyConstitutionalWorkout } from '../Common/DailyConstitutionalWorkout';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 
 export const OverviewDashboard: React.FC = () => {
   const { setActiveTab, setVaultModalOpen, launchFlashcardDeck, pinnedFlashcardIds } = useTheme();
@@ -47,24 +48,8 @@ export const OverviewDashboard: React.FC = () => {
           variants={staggerItemVariants}
           className="lg:col-span-8 relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-col justify-between gap-6"
         >
-          {/* Hairline Constitutional Chakra Watermark (5% Opacity) */}
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 200 200"
-            className="pointer-events-none select-none absolute -right-12 -bottom-12 w-64 h-64 text-[var(--text-primary)] opacity-[0.04]"
-          >
-            <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <circle cx="100" cy="100" r="76" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 3" />
-            <circle cx="100" cy="100" r="16" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            {Array.from({ length: 24 }).map((_, i) => {
-              const angle = (i * 15 * Math.PI) / 180;
-              const x1 = 100 + 16 * Math.cos(angle);
-              const y1 = 100 + 16 * Math.sin(angle);
-              const x2 = 100 + 88 * Math.cos(angle);
-              const y2 = 100 + 88 * Math.sin(angle);
-              return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="1" />;
-            })}
-          </svg>
+          {/* Animated Hairline Constitutional Chakra Watermark */}
+          <ConstitutionalWatermark variant="chakra" position="bottom-right" size="md" animated />
 
           <div className="relative z-10 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)] text-[11px] font-mono">

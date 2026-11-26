@@ -45,6 +45,7 @@ import {
   type PlayerCareerProfile
 } from '../../services/judicialCareerService';
 import { arcadeAudio } from '../../services/arcadeAudioService';
+import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
 
 export type ArcadeTab =
   | 'odyssey'
@@ -124,7 +125,8 @@ export const ArcadeHubView: React.FC = () => {
       )}
 
       {/* Top Judicial Career Bar (Minimalist & Compact) */}
-      <div className="py-2 px-3.5 sm:px-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-xs">
+      <div className="relative overflow-hidden py-2.5 px-3.5 sm:px-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] surface-specular bg-editorial-grid flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-xs">
+        <ConstitutionalWatermark variant="chakra" position="center-right" size="sm" animated />
         <div className="flex items-center gap-2">
           <Scale className="w-3.5 h-3.5 text-zinc-300 shrink-0" />
           <span className="font-bold text-[var(--text-primary)]">{currentRank.title}</span>
