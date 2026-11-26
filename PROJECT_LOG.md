@@ -8,11 +8,11 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-26 20:53:27 (+05:30) |
+| **Last Log Sync** | 2026-11-26 21:12:37 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `0eb89c2` (2026-11-26T14:05:46+05:30) |
-| **Total Commits** | 131 |
-| **Total Files Indexed** | 363 (347 tracked, 16 new untracked) |
+| **Branch / HEAD** | `main` @ `957f8a4` (2026-11-26T20:54:50+05:30) |
+| **Total Commits** | 132 |
+| **Total Files Indexed** | 390 (363 tracked, 27 new untracked) |
 | **Working Tree** | 3 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-26 21:12:37 (+05:30)] Add 200 Case Studies per Constitutional Part (5,200 Total across all Parts) (DONE)
+- **Details:** Added scripts/generate_part_case_studies.py generating 200 Part-grounded case studies for every Part in CONSTITUTION_PARTS (26 Parts x 200 = 5,200 Case Studies in public/data/part-case-studies/*.json). Added lazy JSON loader, 25-case batch jumper, interactive MCQs, and IRAC model answer/rubric reveal in TopicDetailView.tsx. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (3):** `M src/components/Views/TopicDetailView.tsx`, `?? public/data/part-case-studies/`, `?? scripts/generate_part_case_studies.py`
+- **Git HEAD:** `main` @ `957f8a4`
 
 ### [2026-11-26 20:53:27 (+05:30)] Add 200 Case Studies per Chapter (3,000 Total) via Lazy JSON Packs (DONE)
 - **Details:** Added scripts/generate_case_studies.py and generated 190 chapter-grounded comprehension case studies per day into public/data/case-studies/day1.json..day15.json (2,850 new + 150 core = 3,000 total Case Studies across Days 1-15). Wired lazy per-day JSON fetch and 25-case batch pagination in StudyBootcampView.tsx. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -424,7 +429,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **363** project files across **36** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **390** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -436,7 +441,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 108.7 KB | 1088 | `0eb89c2` (2026-11-26) |
+| `PROJECT_LOG.md` | 110.8 KB | 1115 | `957f8a4` (2026-11-26) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -456,28 +461,60 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `public/data/case-studies/day1.json` | 971.9 KB | 1 | new (uncommitted) |
-| `public/data/case-studies/day10.json` | 1.06 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day11.json` | 1.01 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day12.json` | 1.11 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day13.json` | 1.07 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day14.json` | 1.09 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day15.json` | 1.08 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day2.json` | 1.05 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day3.json` | 1.04 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day4.json` | 1.06 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day5.json` | 1.01 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day6.json` | 1.06 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day7.json` | 1.09 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day8.json` | 1.13 MB | 1 | new (uncommitted) |
-| `public/data/case-studies/day9.json` | 1.17 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day1.json` | 971.9 KB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day10.json` | 1.06 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day11.json` | 1.01 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day12.json` | 1.11 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day13.json` | 1.07 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day14.json` | 1.09 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day15.json` | 1.08 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day2.json` | 1.05 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day3.json` | 1.04 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day4.json` | 1.06 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day5.json` | 1.01 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day6.json` | 1.06 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day7.json` | 1.09 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day8.json` | 1.13 MB | 1 | `957f8a4` (2026-11-26) |
+| `public/data/case-studies/day9.json` | 1.17 MB | 1 | `957f8a4` (2026-11-26) |
 
-### `scripts` (4 files)
+### `public/data/part-case-studies` (26 files)
+
+| File | Size | Lines | Last Commit |
+| :--- | ---: | ---: | :--- |
+| `public/data/part-case-studies/part-1.json` | 777.0 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-10.json` | 805.2 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-11.json` | 770.5 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-12.json` | 796.7 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-13.json` | 854.1 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-14.json` | 797.0 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-14a.json` | 843.4 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-15.json` | 808.9 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-16.json` | 832.4 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-17.json` | 805.3 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-18.json` | 800.9 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-19.json` | 831.4 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-2.json` | 763.0 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-20.json` | 818.1 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-21.json` | 850.5 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-22.json` | 827.1 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-3.json` | 734.2 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-4.json` | 762.1 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-4a.json` | 787.1 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-5.json` | 762.4 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-6.json` | 742.2 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-7.json` | 713.8 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-8.json` | 816.6 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-9.json` | 764.1 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-9a.json` | 803.7 KB | 1 | new (uncommitted) |
+| `public/data/part-case-studies/part-9b.json` | 811.1 KB | 1 | new (uncommitted) |
+
+### `scripts` (5 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `scripts/buildBareActDataset.cjs` | 149.0 KB | 598 | `3db5394` (2026-11-16) |
-| `scripts/generate_case_studies.py` | 14.7 KB | — | new (uncommitted) |
+| `scripts/generate_case_studies.py` | 14.7 KB | — | `957f8a4` (2026-11-26) |
+| `scripts/generate_part_case_studies.py` | 12.3 KB | — | new (uncommitted) |
 | `scripts/smoke_check.py` | 4.7 KB | — | `f697564` (2026-11-26) |
 | `scripts/updateProjectLog.cjs` | 10.2 KB | 345 | `7da595c` (2026-11-18) |
 
@@ -592,9 +629,9 @@
 | `src/components/Views/ReadinessIndexView.tsx` | 95.5 KB | 1909 | `5a91b93` (2026-11-26) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
-| `src/components/Views/StudyBootcampView.tsx` | 130.5 KB | 2558 | `9e33658` (2026-11-18) |
+| `src/components/Views/StudyBootcampView.tsx` | 130.5 KB | 2558 | `957f8a4` (2026-11-26) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
-| `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `8a3a645` (2026-11-26) |
+| `src/components/Views/TopicDetailView.tsx` | 48.1 KB | 937 | `8a3a645` (2026-11-26) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `8a3a645` (2026-11-26) |
 
@@ -976,10 +1013,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**131** commits, newest first).
+> Complete git history (**132** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 132 | 2026-11-26 | `957f8a4` | 18 | feat: expand Bootcamp to 200 case studies per chapter (3,000 total) via lazy JSON packs |
 | 131 | 2026-11-26 | `0eb89c2` | 7 | feat: 5x expand practice decks, judiciary judgment labs, and memory shortcuts |
 | 130 | 2026-11-26 | `be9957e` | 4 | feat: add Judiciary POV landmark cases, 2024 clashes, and constitutional judgment labs |
 | 129 | 2026-11-26 | `5a91b93` | 8 | feat: extend spring animations, 3D flashcard flips, and layoutId pills across core views |

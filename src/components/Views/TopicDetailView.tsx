@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen,
   Bookmark,
@@ -56,9 +56,34 @@ export const TopicDetailView: React.FC = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobilePartsOpen, setIsMobilePartsOpen] = useState(false);
   const [articleDisplayMode, setArticleDisplayMode] = useState<'all' | 'eli5_focus'>('all');
+  const [partCasesMap, setPartCasesMap] = useState<Record<string, any[]>>({});
+  const [activePartCaseIdx, setActivePartCaseIdx] = useState(0);
+  const [partMcqAnswers, setPartMcqAnswers] = useState<Record<string, number>>({});
+  const [showPartModelAnswer, setShowPartModelAnswer] = useState(false);
 
   // Selected Part or default to Part III
   const currentPart = CONSTITUTION_PARTS.find((p) => p.id === selectedPartId) || CONSTITUTION_PARTS[2];
+
+  useEffect(() => {
+    setActivePartCaseIdx(0);
+    setShowPartModelAnswer(false);
+    let cancelled = false;
+    if (partCasesMap[currentPart.id]) return;
+    fetch(`/data/part-case-studies/${currentPart.id}.json`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && Array.isArray(data)) {
+          setPartCasesMap((prev) => ({ ...prev, [currentPart.id]: data }));
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [currentPart.id, partCasesMap]);
+
+  const currentPartCases = partCasesMap[currentPart.id] || [];
+  const activePartCase = currentPartCases[activePartCaseIdx] || currentPartCases[0] || null;
 
   const getPartDeckId = (partId: string): string => {
     if (partId === 'part-3') return 'part3-rights';
@@ -709,6 +734,198 @@ export const TopicDetailView: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* 200 Case Studies Lab for this Constitutional Part */}
+        {currentPartCases.length > 0 && activePartCase && (
+          <div className="flex flex-col gap-4 p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-4">
+              <div>
+                <span className="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20">
+                  {currentPartCases.length} Part-Wise Case Studies
+                </span>
+                <h3 className="text-lg font-bold text-[var(--text-primary)] mt-1 flex items-center gap-2">
+                  <Gavel className="w-5 h-5 text-[var(--accent)]" />
+                  <span>{currentPart.partNumber} Applied Case Study Arena</span>
+                </h3>
+              </div>
+              <div className="text-xs font-mono text-[var(--text-muted)]">
+                Case {activePartCaseIdx + 1} / {currentPartCases.length}
+              </div>
+            </div>
+
+            {/* 25-Case Batch Jumper */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)] mr-1">
+                Batch:
+              </span>
+              {Array.from({ length: Math.ceil(currentPartCases.length / 25) }, (_, bIdx) => {
+                const start = bIdx * 25;
+                const end = Math.min(start + 25, currentPartCases.length);
+                const isBatchActive = activePartCaseIdx >= start && activePartCaseIdx < end;
+                return (
+                  <button
+                    key={bIdx}
+                    onClick={() => {
+                      setActivePartCaseIdx(start);
+                      setShowPartModelAnswer(false);
+                    }}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
+                      isBatchActive
+                        ? 'bg-[var(--accent)]/15 text-[var(--accent)] border-[var(--accent)]/40'
+                        : 'bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                    }`}
+                  >
+                    {start + 1}–{end}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Batch Selector Strip */}
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+              {(() => {
+                const bStart = Math.floor(activePartCaseIdx / 25) * 25;
+                const bEnd = Math.min(bStart + 25, currentPartCases.length);
+                return currentPartCases.slice(bStart, bEnd).map((cs, relIdx) => {
+                  const idx = bStart + relIdx;
+                  const isSel = idx === activePartCaseIdx;
+                  return (
+                    <button
+                      key={cs.id}
+                      onClick={() => {
+                        setActivePartCaseIdx(idx);
+                        setShowPartModelAnswer(false);
+                      }}
+                      className={`px-3 py-2 rounded-xl border text-left shrink-0 min-w-[150px] max-w-[195px] transition-all text-xs ${
+                        isSel
+                          ? 'bg-[var(--accent)] text-[var(--accent-contrast)] border-[var(--accent)] shadow-sm'
+                          : 'bg-[var(--bg-surface-elevated)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent)]/50'
+                      }`}
+                    >
+                      <div className="font-bold text-[11px]">Case {idx + 1}</div>
+                      <div className="text-[10px] truncate opacity-85">
+                        {String(cs.title || '').replace(/^Case \d+:\s*/i, '')}
+                      </div>
+                    </button>
+                  );
+                });
+              })()}
+            </div>
+
+            {/* Active Case Matrix & Interactive Questions */}
+            <div className="p-5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] space-y-4">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-2">
+                  {(activePartCase.statutoryApplicability || []).map((tag: string, tIdx: number) => (
+                    <span
+                      key={tIdx}
+                      className="px-2 py-0.5 rounded bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[10px] font-mono text-[var(--text-muted)]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h4 className="text-base font-bold text-[var(--text-primary)]">{activePartCase.title}</h4>
+                <p className="text-xs text-[var(--accent)] font-mono mt-0.5">{activePartCase.legalTheme}</p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)] mb-1">
+                  Factual Matrix
+                </div>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                  {activePartCase.factualMatrix}
+                </p>
+              </div>
+
+              {Array.isArray(activePartCase.framingQuestions) && (
+                <div className="space-y-1.5">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    Issues for Determination
+                  </div>
+                  {activePartCase.framingQuestions.map((fq: string, fIdx: number) => (
+                    <div key={fIdx} className="text-xs text-[var(--text-primary)] leading-relaxed">
+                      {fq}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Comprehension MCQs */}
+              {Array.isArray(activePartCase.comprehensionMCQs) && (
+                <div className="space-y-3 pt-2 border-t border-[var(--border-subtle)]">
+                  {activePartCase.comprehensionMCQs.map((mcq: any, qIdx: number) => {
+                    const chosen = partMcqAnswers[mcq.id];
+                    const answered = chosen !== undefined;
+                    return (
+                      <div key={mcq.id} className="p-3.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2">
+                        <div className="text-xs font-semibold text-[var(--text-primary)]">
+                          Q{qIdx + 1}. {mcq.question}
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {mcq.options.map((opt: string, oIdx: number) => {
+                            const isCorrect = oIdx === mcq.correctIndex;
+                            const isPicked = chosen === oIdx;
+                            let cls = 'bg-[var(--bg-surface-elevated)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent)]/50';
+                            if (answered) {
+                              if (isCorrect) cls = 'bg-emerald-500/15 border-emerald-500/50 text-emerald-300';
+                              else if (isPicked) cls = 'bg-rose-500/15 border-rose-500/50 text-rose-300';
+                            }
+                            return (
+                              <button
+                                key={oIdx}
+                                disabled={answered}
+                                onClick={() => setPartMcqAnswers((prev) => ({ ...prev, [mcq.id]: oIdx }))}
+                                className={`p-2.5 rounded-lg border text-left text-xs transition-all ${cls}`}
+                              >
+                                {opt}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        {answered && (
+                          <p className="text-[11px] text-[var(--text-muted)] pt-1 leading-relaxed">
+                            {mcq.explanation}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Toggle Model Answer & Rubric */}
+              <div className="pt-2">
+                <button
+                  onClick={() => setShowPartModelAnswer((v) => !v)}
+                  className="px-4 py-2 rounded-lg text-xs font-bold bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/30 hover:bg-[var(--accent)]/25 transition-all"
+                >
+                  {showPartModelAnswer ? 'Hide IRAC Model Answer & Rubric' : 'Reveal IRAC Model Answer & 10-Mark Rubric'}
+                </button>
+                {showPartModelAnswer && (
+                  <div className="mt-3 p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-3">
+                    <div className="text-xs text-[var(--text-secondary)] whitespace-pre-line leading-relaxed">
+                      {activePartCase.modelAnswer}
+                    </div>
+                    {Array.isArray(activePartCase.markingRubric) && (
+                      <div className="pt-2 border-t border-[var(--border-subtle)] space-y-1">
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                          Marking Rubric
+                        </div>
+                        {activePartCase.markingRubric.map((r: any, rIdx: number) => (
+                          <div key={rIdx} className="flex justify-between text-[11px] text-[var(--text-secondary)]">
+                            <span>{r.criterion}</span>
+                            <span className="font-mono text-[var(--gold)] font-bold">{r.marks} marks</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         )}
