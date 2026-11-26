@@ -352,18 +352,15 @@ body {
 
 /* Tactile Editorial Vector Styles */
 .vector-node {
-  transition-property: transform, opacity;
+  transition-property: filter, opacity;
   transition-duration: 180ms;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  transform-box: fill-box;
-  transform-origin: center;
 }
 .vector-node:hover {
-  transform: translateY(-2px);
   filter: drop-shadow(0 0 8px var(--accent-glow));
 }
 .vector-node:active {
-  transform: scale(0.985);
+  opacity: 0.88;
 }
 
 @keyframes vectorDashFlow {

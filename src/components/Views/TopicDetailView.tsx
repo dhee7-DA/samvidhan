@@ -109,7 +109,7 @@ export const TopicDetailView: React.FC = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
       {/* Mobile Collapsible Parts Trigger */}
       <div className="lg:hidden flex flex-col gap-2">
         <button
@@ -162,10 +162,10 @@ export const TopicDetailView: React.FC = () => {
         )}
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <div className="w-full flex flex-col lg:flex-row gap-6 xl:gap-8 items-start">
         {/* Desktop Parts Sidebar (Collapsible) */}
         {!isSidebarCollapsed ? (
-          <div className="hidden lg:flex w-80 shrink-0 flex-col gap-4 animate-fadeIn">
+          <div className="hidden lg:flex lg:w-72 xl:w-80 shrink-0 flex-col gap-4 animate-fadeIn">
             {/* Header with Collapse Button */}
             <div className="flex items-center justify-between px-1 text-xs font-mono text-[var(--text-muted)]">
               <span className="font-bold uppercase tracking-wider text-[var(--text-primary)]">
@@ -259,7 +259,7 @@ export const TopicDetailView: React.FC = () => {
         )}
 
       {/* Right Column: In-Depth Part Details & Articles */}
-      <div className="flex-1 flex flex-col gap-8 min-w-0">
+      <div className="w-full flex-1 flex flex-col gap-8 min-w-0">
         {/* Part Header Card */}
         <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-4">
           <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[var(--border-subtle)]">

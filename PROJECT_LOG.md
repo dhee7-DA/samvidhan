@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-27 00:32:39 (+05:30) |
+| **Last Log Sync** | 2026-11-27 00:45:51 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `2d653a6` (2026-11-26T21:13:51+05:30) |
-| **Total Commits** | 133 |
+| **Branch / HEAD** | `main` @ `c87eb51` (2026-11-27T00:33:12+05:30) |
+| **Total Commits** | 134 |
 | **Total Files Indexed** | 390 (390 tracked, 0 new untracked) |
-| **Working Tree** | 28 pending change(s) |
+| **Working Tree** | 2 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-27 00:45:51 (+05:30)] Fix 25 Parts responsive alignment and SVG vector-node hover flicker (DONE)
+- **Details:** Added w-full and responsive lg:w-72 xl:w-80 sidebar sizing in TopicDetailView.tsx, and removed CSS transform overrides from .vector-node:hover/:active in src/index.css so SVG <g transform> nodes glow smoothly without jumping or flickering. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (2):** `M src/components/Views/TopicDetailView.tsx`, `M src/index.css`
+- **Git HEAD:** `main` @ `c87eb51`
 
 ### [2026-11-27 00:32:39 (+05:30)] Fix responsive SVG scaling across VectorDiagrams on split-screen viewports (DONE)
 - **Details:** Removed 32 fixed min-w-[700px..850px] constraints from <svg> elements across src/components/VectorDiagrams/*.tsx so all constitutional diagrams scale proportionally with w-full h-auto inside their viewBox. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -446,7 +451,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 114.1 KB | 1153 | `2d653a6` (2026-11-26) |
+| `PROJECT_LOG.md` | 116.5 KB | 1159 | `c87eb51` (2026-11-27) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -528,7 +533,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/App.tsx` | 12.1 KB | 250 | `f697564` (2026-11-26) |
-| `src/index.css` | 15.7 KB | 595 | `8a3a645` (2026-11-26) |
+| `src/index.css` | 15.6 KB | 592 | `8a3a645` (2026-11-26) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
 ### `src/assets` (3 files)
@@ -566,34 +571,34 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/VectorDiagrams/AmendmentPipelineSVG.tsx` | 13.4 KB | 261 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/Article21EvolutionSVG.tsx` | 8.6 KB | 192 | `3c486dd` (2026-11-13) |
-| `src/components/VectorDiagrams/AsymmetricFederalismSVG.tsx` | 9.1 KB | 199 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/BasicStructureEvolutionSVG.tsx` | 10.2 KB | 241 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/CivilServicesSafeguardsSVG.tsx` | 12.7 KB | 183 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx` | 39.5 KB | 926 | `8a3a645` (2026-11-26) |
-| `src/components/VectorDiagrams/CriminalConstitutionalPipelineSVG.tsx` | 19.7 KB | 402 | `a423d55` (2026-11-13) |
-| `src/components/VectorDiagrams/DPSPvsFRHarmonySVG.tsx` | 10.8 KB | 214 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/ElectoralArchitectureSVG.tsx` | 7.3 KB | 109 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/EmergencyMatrixSVG.tsx` | 10.3 KB | 198 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/ExecutiveClemencyArchitectureSVG.tsx` | 27.8 KB | 559 | `fc3e951` (2026-11-13) |
-| `src/components/VectorDiagrams/FederalRelationsSVG.tsx` | 10.4 KB | 237 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/FundamentalRightsFunnelSVG.tsx` | 20.9 KB | 356 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/GovernorAssentOrdinanceSVG.tsx` | 13.0 KB | 206 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/GSTCouncilFiscalSVG.tsx` | 12.6 KB | 188 | `dc47388` (2026-11-13) |
-| `src/components/VectorDiagrams/LegislativePassageSVG.tsx` | 11.4 KB | 219 | `3c486dd` (2026-11-13) |
-| `src/components/VectorDiagrams/LocalSelfGovernmentSVG.tsx` | 14.9 KB | 275 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/MajoritiesThresholdSVG.tsx` | 11.3 KB | 248 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/ParliamentaryHouseProceduresSVG.tsx` | 17.4 KB | 269 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/PreambleArchitectureSVG.tsx` | 10.9 KB | 256 | `d16ebbd` (2026-11-25) |
-| `src/components/VectorDiagrams/PrecedentLineageSVG.tsx` | 58.0 KB | 1127 | `e980352` (2026-11-14) |
-| `src/components/VectorDiagrams/PresidentElectoralImpeachmentSVG.tsx` | 18.0 KB | 330 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/ReservationEvolutionSVG.tsx` | 13.5 KB | 233 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/SchedulesGenealogySVG.tsx` | 6.0 KB | 143 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.0 KB | 279 | `19a5ef8` (2026-11-13) |
-| `src/components/VectorDiagrams/SupremeCourtJurisdictionSVG.tsx` | 12.7 KB | 220 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/TerritoryCitizenshipFlowSVG.tsx` | 18.5 KB | 299 | `ec161ca` (2026-11-25) |
-| `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `19a5ef8` (2026-11-13) |
+| `src/components/VectorDiagrams/AmendmentPipelineSVG.tsx` | 13.4 KB | 261 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/Article21EvolutionSVG.tsx` | 8.6 KB | 192 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/AsymmetricFederalismSVG.tsx` | 9.1 KB | 199 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/BasicStructureEvolutionSVG.tsx` | 10.2 KB | 241 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/CivilServicesSafeguardsSVG.tsx` | 12.7 KB | 183 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/ConstitutionalBlueprintEngineSVG.tsx` | 39.5 KB | 926 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/CriminalConstitutionalPipelineSVG.tsx` | 19.7 KB | 402 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/DPSPvsFRHarmonySVG.tsx` | 10.8 KB | 214 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/ElectoralArchitectureSVG.tsx` | 7.3 KB | 109 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/EmergencyMatrixSVG.tsx` | 10.3 KB | 198 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/ExecutiveClemencyArchitectureSVG.tsx` | 27.8 KB | 559 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/FederalRelationsSVG.tsx` | 10.4 KB | 237 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/FundamentalRightsFunnelSVG.tsx` | 20.9 KB | 356 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/GovernorAssentOrdinanceSVG.tsx` | 13.0 KB | 206 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/GSTCouncilFiscalSVG.tsx` | 12.6 KB | 188 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/LegislativePassageSVG.tsx` | 11.4 KB | 219 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/LocalSelfGovernmentSVG.tsx` | 14.9 KB | 275 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/MajoritiesThresholdSVG.tsx` | 11.3 KB | 248 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/ParliamentaryHouseProceduresSVG.tsx` | 17.4 KB | 269 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/PreambleArchitectureSVG.tsx` | 10.9 KB | 256 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/PrecedentLineageSVG.tsx` | 58.0 KB | 1127 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/PresidentElectoralImpeachmentSVG.tsx` | 18.0 KB | 330 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/ReservationEvolutionSVG.tsx` | 13.5 KB | 233 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/SchedulesGenealogySVG.tsx` | 6.0 KB | 143 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/SeparationOfPowersSVG.tsx` | 15.0 KB | 279 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/SupremeCourtJurisdictionSVG.tsx` | 12.7 KB | 220 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/TerritoryCitizenshipFlowSVG.tsx` | 18.5 KB | 299 | `c87eb51` (2026-11-27) |
+| `src/components/VectorDiagrams/WritsMatrixSVG.tsx` | 17.2 KB | 424 | `c87eb51` (2026-11-27) |
 
 ### `src/components/Views` (40 files)
 
@@ -636,7 +641,7 @@
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 130.5 KB | 2558 | `957f8a4` (2026-11-26) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
-| `src/components/Views/TopicDetailView.tsx` | 48.1 KB | 937 | `2d653a6` (2026-11-26) |
+| `src/components/Views/TopicDetailView.tsx` | 48.2 KB | 937 | `2d653a6` (2026-11-26) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `8a3a645` (2026-11-26) |
 
@@ -1018,10 +1023,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**133** commits, newest first).
+> Complete git history (**134** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 134 | 2026-11-27 | `c87eb51` | 29 | fix: remove fixed min-w on VectorDiagrams SVGs for responsive split-screen scaling |
 | 133 | 2026-11-26 | `2d653a6` | 29 | feat: add 200 case studies for each of the 25 Constitutional Parts (5,200 total) |
 | 132 | 2026-11-26 | `957f8a4` | 18 | feat: expand Bootcamp to 200 case studies per chapter (3,000 total) via lazy JSON packs |
 | 131 | 2026-11-26 | `0eb89c2` | 7 | feat: 5x expand practice decks, judiciary judgment labs, and memory shortcuts |
