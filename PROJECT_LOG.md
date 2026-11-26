@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-26 14:05:24 (+05:30) |
+| **Last Log Sync** | 2026-11-26 20:53:27 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `be9957e` (2026-11-26T13:30:44+05:30) |
-| **Total Commits** | 130 |
-| **Total Files Indexed** | 347 (347 tracked, 0 new untracked) |
-| **Working Tree** | 6 pending change(s) |
+| **Branch / HEAD** | `main` @ `0eb89c2` (2026-11-26T14:05:46+05:30) |
+| **Total Commits** | 131 |
+| **Total Files Indexed** | 363 (347 tracked, 16 new untracked) |
+| **Working Tree** | 3 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-26 20:53:27 (+05:30)] Add 200 Case Studies per Chapter (3,000 Total) via Lazy JSON Packs (DONE)
+- **Details:** Added scripts/generate_case_studies.py and generated 190 chapter-grounded comprehension case studies per day into public/data/case-studies/day1.json..day15.json (2,850 new + 150 core = 3,000 total Case Studies across Days 1-15). Wired lazy per-day JSON fetch and 25-case batch pagination in StudyBootcampView.tsx. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (3):** `M src/components/Views/StudyBootcampView.tsx`, `?? public/data/`, `?? scripts/generate_case_studies.py`
+- **Git HEAD:** `main` @ `0eb89c2`
 
 ### [2026-11-26 14:05:24 (+05:30)] Expand Practice Decks, Judiciary Bench Problems, and Memory Shortcuts (DONE)
 - **Details:** Expanded quizData.ts (8->48, 6x, covering all 26 previously uncovered Bare Act articles), judgmentLabData.ts (5->13 Judicial Services Mains bench problems), trapBusterData.ts (20->100, 5x), ultraViresSwipeData.ts (20->100, 5x), articleBlitzData.ts (29->133 unique, 4.6x), and fastTrackHacksData.ts (8->22 Mnemonic Engines & 10->25 Rapid Reflex Drills). Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -419,7 +424,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **347** project files across **35** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **363** project files across **36** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -431,7 +436,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 107.8 KB | 1082 | `be9957e` (2026-11-26) |
+| `PROJECT_LOG.md` | 108.7 KB | 1088 | `0eb89c2` (2026-11-26) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -447,11 +452,32 @@
 | `public/manifest.json` | 760 B | 28 | `f697564` (2026-11-26) |
 | `public/sw.js` | 2.1 KB | 73 | `f697564` (2026-11-26) |
 
-### `scripts` (3 files)
+### `public/data/case-studies` (15 files)
+
+| File | Size | Lines | Last Commit |
+| :--- | ---: | ---: | :--- |
+| `public/data/case-studies/day1.json` | 971.9 KB | 1 | new (uncommitted) |
+| `public/data/case-studies/day10.json` | 1.06 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day11.json` | 1.01 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day12.json` | 1.11 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day13.json` | 1.07 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day14.json` | 1.09 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day15.json` | 1.08 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day2.json` | 1.05 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day3.json` | 1.04 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day4.json` | 1.06 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day5.json` | 1.01 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day6.json` | 1.06 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day7.json` | 1.09 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day8.json` | 1.13 MB | 1 | new (uncommitted) |
+| `public/data/case-studies/day9.json` | 1.17 MB | 1 | new (uncommitted) |
+
+### `scripts` (4 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `scripts/buildBareActDataset.cjs` | 149.0 KB | 598 | `3db5394` (2026-11-16) |
+| `scripts/generate_case_studies.py` | 14.7 KB | — | new (uncommitted) |
 | `scripts/smoke_check.py` | 4.7 KB | — | `f697564` (2026-11-26) |
 | `scripts/updateProjectLog.cjs` | 10.2 KB | 345 | `7da595c` (2026-11-18) |
 
@@ -566,7 +592,7 @@
 | `src/components/Views/ReadinessIndexView.tsx` | 95.5 KB | 1909 | `5a91b93` (2026-11-26) |
 | `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
-| `src/components/Views/StudyBootcampView.tsx` | 127.1 KB | 2492 | `9e33658` (2026-11-18) |
+| `src/components/Views/StudyBootcampView.tsx` | 130.5 KB | 2558 | `9e33658` (2026-11-18) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/TopicDetailView.tsx` | 36.8 KB | 720 | `8a3a645` (2026-11-26) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
@@ -611,7 +637,7 @@
 | `src/data/allIndiaJudicialTopics.ts` | 15.5 KB | 291 | `a025b61` (2026-11-19) |
 | `src/data/amendmentDiffsData.ts` | 39.9 KB | 459 | `3db5394` (2026-11-16) |
 | `src/data/amendmentsData.ts` | 101.9 KB | 1413 | `3ce9f3d` (2026-11-18) |
-| `src/data/articleBlitzData.ts` | 72.3 KB | 1487 | `7aac50b` (2026-11-19) |
+| `src/data/articleBlitzData.ts` | 72.3 KB | 1487 | `0eb89c2` (2026-11-26) |
 | `src/data/articleExamIntelData.ts` | 56.2 KB | 830 | `3d89178` (2026-11-22) |
 | `src/data/articlesMasterData.ts` | 33.1 KB | 175 | `e3546e4` (2026-11-14) |
 | `src/data/benchSimulatorData.ts` | 23.1 KB | 469 | `7aac50b` (2026-11-19) |
@@ -634,13 +660,13 @@
 | `src/data/doctrinesData.ts` | 28.0 KB | 243 | `c4ae501` (2026-11-17) |
 | `src/data/escapeRoomData.ts` | 14.1 KB | 356 | `01f8d5d` (2026-11-22) |
 | `src/data/examTrendsData.ts` | 67.3 KB | 1117 | `59d7a9d` (2026-11-22) |
-| `src/data/fastTrackHacksData.ts` | 93.8 KB | 1573 | `99a2930` (2026-11-20) |
+| `src/data/fastTrackHacksData.ts` | 93.8 KB | 1573 | `0eb89c2` (2026-11-26) |
 | `src/data/federalRelationsData.ts` | 15.5 KB | 186 | `ea98297` (2026-11-22) |
 | `src/data/forensicVocabularyData.ts` | 19.1 KB | 314 | `b351247` (2026-11-15) |
 | `src/data/highYieldAmendmentsData.ts` | 22.7 KB | 376 | `ea98297` (2026-11-22) |
 | `src/data/hindiArticleMeanings.ts` | 684 B | 19 | `8a3a645` (2026-11-26) |
 | `src/data/introConclusionHooksData.ts` | 10.7 KB | 142 | `d504081` (2026-11-22) |
-| `src/data/judgmentLabData.ts` | 75.6 KB | 1097 | `be9957e` (2026-11-26) |
+| `src/data/judgmentLabData.ts` | 75.6 KB | 1097 | `0eb89c2` (2026-11-26) |
 | `src/data/judgmentsData.ts` | 8.1 KB | 112 | `3c486dd` (2026-11-13) |
 | `src/data/legalDictionaryData.ts` | 239.6 KB | 2159 | `f3c4d68` (2026-11-14) |
 | `src/data/lexSamvidhanData.ts` | 37.1 KB | 575 | `1f02703` (2026-11-22) |
@@ -679,13 +705,13 @@
 | `src/data/precedentClashesData.ts` | 380.7 KB | 5581 | `be9957e` (2026-11-26) |
 | `src/data/precedentLineagesData.ts` | 17.2 KB | 296 | `d003041` (2026-11-20) |
 | `src/data/pyqData.ts` | 1.1 KB | 39 | `ea3d899` (2026-11-16) |
-| `src/data/quizData.ts` | 40.3 KB | 725 | `3c486dd` (2026-11-13) |
+| `src/data/quizData.ts` | 40.3 KB | 725 | `0eb89c2` (2026-11-26) |
 | `src/data/realCaseStoriesData.ts` | 161.9 KB | 1389 | `75be064` (2026-11-19) |
 | `src/data/schedulesData.ts` | 10.5 KB | 189 | `3c486dd` (2026-11-13) |
 | `src/data/seventhScheduleSortData.ts` | 11.9 KB | 341 | `65aac87` (2026-11-24) |
 | `src/data/socraticTutorData.ts` | 38.6 KB | 619 | `326e167` (2026-11-22) |
-| `src/data/trapBusterData.ts` | 54.8 KB | 948 | `d003041` (2026-11-20) |
-| `src/data/ultraViresSwipeData.ts` | 51.2 KB | 958 | `d72bea9` (2026-11-23) |
+| `src/data/trapBusterData.ts` | 54.8 KB | 948 | `0eb89c2` (2026-11-26) |
+| `src/data/ultraViresSwipeData.ts` | 51.2 KB | 958 | `0eb89c2` (2026-11-26) |
 | `src/data/visualBlueprintsTypes.ts` | 985 B | 47 | `7e1bea1` (2026-11-25) |
 | `src/data/writsEmergencyData.ts` | 10.8 KB | 164 | `7aac50b` (2026-11-19) |
 | `src/data/writsEmergencyMatrixData.ts` | 19.2 KB | 317 | `ea98297` (2026-11-22) |
@@ -950,10 +976,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**130** commits, newest first).
+> Complete git history (**131** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 131 | 2026-11-26 | `0eb89c2` | 7 | feat: 5x expand practice decks, judiciary judgment labs, and memory shortcuts |
 | 130 | 2026-11-26 | `be9957e` | 4 | feat: add Judiciary POV landmark cases, 2024 clashes, and constitutional judgment labs |
 | 129 | 2026-11-26 | `5a91b93` | 8 | feat: extend spring animations, 3D flashcard flips, and layoutId pills across core views |
 | 128 | 2026-11-26 | `f697564` | 15 | feat: add animated chakra & motif watermarks, vault odyssey sync, bilingual revision, and PWA v2 |

@@ -202,13 +202,38 @@ export const StudyBootcampView: React.FC = () => {
     }
   }, [progress]);
 
-  // Current Day Data
+  // Current Day Data (with lazily loaded 200-case-study chapter packs)
+  const [extraCasesByDay, setExtraCasesByDay] = useState<Record<number, BootcampComprehensionCaseStudy[]>>({});
+
+  useEffect(() => {
+    let cancelled = false;
+    if (extraCasesByDay[selectedDayNumber]) return;
+    fetch(`/data/case-studies/day${selectedDayNumber}.json`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: BootcampComprehensionCaseStudy[] | null) => {
+        if (!cancelled && Array.isArray(data) && data.length > 0) {
+          setExtraCasesByDay((prev) => ({ ...prev, [selectedDayNumber]: data }));
+        }
+      })
+      .catch(() => {
+        // Offline or pack not present: keep core static case studies
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedDayNumber, extraCasesByDay]);
+
   const currentDay: BootcampDay = useMemo(() => {
-    return (
+    const baseDay =
       FIFTEEN_DAY_BOOTCAMP_DATA.find((d) => d.dayNumber === selectedDayNumber) ||
-      FIFTEEN_DAY_BOOTCAMP_DATA[0]
-    );
-  }, [selectedDayNumber]);
+      FIFTEEN_DAY_BOOTCAMP_DATA[0];
+    const extras = extraCasesByDay[baseDay.dayNumber];
+    if (!extras || extras.length === 0) return baseDay;
+    return {
+      ...baseDay,
+      comprehensionCaseStudies: [...(baseDay.comprehensionCaseStudies || []), ...extras],
+    };
+  }, [selectedDayNumber, extraCasesByDay]);
 
   // Current Day Links & Metadata
   const currentDayLinks: DayModuleLinks = useMemo(() => {
@@ -2058,7 +2083,7 @@ export const StudyBootcampView: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
                   <div className="space-y-1">
                     <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20">
-                      10 Master Case Studies & Judicial Comprehension Arena
+                      {currentDay.comprehensionCaseStudies.length} Master Case Studies & Judicial Comprehension Arena
                     </span>
                     <h3 className="text-lg md:text-xl font-black text-[var(--text-primary)]">
                       Constitutional Case Formulation Lab (Day {currentDay.dayNumber})
@@ -2069,9 +2094,49 @@ export const StudyBootcampView: React.FC = () => {
                   </div>
                 </div>
 
-                {/* 10 Case Navigation Tabs */}
+                {/* Chapter Batch Jumper (Groups of 25 for 200-case-study depth) */}
+                {currentDay.comprehensionCaseStudies.length > 25 && (
+                  <div className="flex flex-wrap items-center gap-1.5 pb-1">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)] mr-1">
+                      Batch:
+                    </span>
+                    {Array.from(
+                      { length: Math.ceil(currentDay.comprehensionCaseStudies.length / 25) },
+                      (_, batchIdx) => {
+                        const start = batchIdx * 25;
+                        const end = Math.min(start + 25, currentDay.comprehensionCaseStudies!.length);
+                        const isBatchActive =
+                          activeCaseStudyIndex >= start && activeCaseStudyIndex < end;
+                        return (
+                          <button
+                            key={batchIdx}
+                            onClick={() => setActiveCaseStudyIndex(start)}
+                            className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
+                              isBatchActive
+                                ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] border-[var(--accent-primary)]/40'
+                                : 'bg-[var(--bg-base)] text-[var(--text-muted)] border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
+                            }`}
+                          >
+                            {start + 1}–{end}
+                          </button>
+                        );
+                      }
+                    )}
+                  </div>
+                )}
+
+                {/* Active Batch Case Navigation Tabs */}
                 <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
-                  {currentDay.comprehensionCaseStudies.map((cs, csIdx) => {
+                  {(() => {
+                    const batchStart = Math.floor(activeCaseStudyIndex / 25) * 25;
+                    const batchEnd = Math.min(
+                      batchStart + 25,
+                      currentDay.comprehensionCaseStudies.length
+                    );
+                    return currentDay.comprehensionCaseStudies
+                      .slice(batchStart, batchEnd)
+                      .map((cs, relIdx) => {
+                        const csIdx = batchStart + relIdx;
                     const isSelected = csIdx === activeCaseStudyIndex;
                     const subAnsweredCount = cs.comprehensionMCQs.filter(
                       (sm) => currentDayProgress.caseStudyMcqAnswers?.[sm.id] !== undefined
@@ -2104,7 +2169,7 @@ export const StudyBootcampView: React.FC = () => {
                                   : 'bg-[var(--bg-card)] text-[var(--text-muted)]'
                               }`}
                             >
-                              {subAnsweredCount}/4
+                              {subAnsweredCount}/{cs.comprehensionMCQs.length}
                             </span>
                           )}
                         </div>
@@ -2113,7 +2178,8 @@ export const StudyBootcampView: React.FC = () => {
                         </span>
                       </button>
                     );
-                  })}
+                  });
+                  })()}
                 </div>
               </div>
 
