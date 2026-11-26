@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { EDITORIAL_SPRING, SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   BookOpen,
   Bookmark,
@@ -194,21 +196,13 @@ export const TopicDetailView: React.FC = () => {
                 />
               </div>
 
-              <div className="flex flex-wrap gap-1">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-2 py-0.5 rounded text-[10px] font-mono transition-colors ${
-                      activeCategory === cat
-                        ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                        : 'bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
+              <SlidingSegmentedControl
+                layoutGroupId="parts-category-filter"
+                variant="pill"
+                value={activeCategory}
+                onChange={setActiveCategory}
+                options={categories.map((cat) => ({ id: cat, label: cat }))}
+              />
             </div>
 
             {/* Parts List */}
@@ -816,7 +810,15 @@ export const TopicDetailView: React.FC = () => {
             </div>
 
             {/* Active Case Matrix & Interactive Questions */}
-            <div className="p-5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] space-y-4">
+            <AnimatePresence mode="wait">
+            <motion.div
+              key={activePartCase.id}
+              initial={{ opacity: 0, y: 10, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={EDITORIAL_SPRING}
+              className="p-5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] space-y-4"
+            >
               <div>
                 <div className="flex flex-wrap gap-1.5 mb-2">
                   {(activePartCase.statutoryApplicability || []).map((tag: string, tIdx: number) => (
@@ -926,7 +928,8 @@ export const TopicDetailView: React.FC = () => {
                   </div>
                 )}
               </div>
-            </div>
+            </motion.div>
+            </AnimatePresence>
           </div>
         )}
       </div>

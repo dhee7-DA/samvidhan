@@ -26,11 +26,14 @@ import { getStudyReadinessSnapshot } from '../../services/progressVaultService';
 import { computeConstitutionalReadinessReport } from '../../services/readinessIndexService';
 import { DailyConstitutionalWorkout } from '../Common/DailyConstitutionalWorkout';
 import { ConstitutionalWatermark } from '../Common/ConstitutionalWatermark';
+import { getStudyActivitySnapshot } from '../../services/studyActivityService';
+import { StudyTelemetryCard, StreakMatrixCard, UpNextHeroQueue } from '../Common/EditorialMotionCards';
 
 export const OverviewDashboard: React.FC = () => {
   const { setActiveTab, setVaultModalOpen, launchFlashcardDeck, pinnedFlashcardIds } = useTheme();
   const readiness = useMemo(() => getStudyReadinessSnapshot(), [pinnedFlashcardIds]);
   const criReport = useMemo(() => computeConstitutionalReadinessReport('holistic'), [pinnedFlashcardIds]);
+  const activitySnapshot = useMemo(() => getStudyActivitySnapshot(), [pinnedFlashcardIds]);
 
   return (
     <div className="flex flex-col gap-8 py-6 max-w-6xl mx-auto px-4 sm:px-6">
@@ -231,6 +234,56 @@ export const OverviewDashboard: React.FC = () => {
           </motion.button>
         ))}
       </motion.section>
+
+      {/* =========================================================================
+          2B. EDITORIAL TELEMETRY, STREAK MATRIX & UP-NEXT QUEUE CARDS
+          ========================================================================= */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6">
+          <StudyTelemetryCard snapshot={activitySnapshot} />
+        </div>
+        <div className="lg:col-span-6 space-y-4">
+          <StreakMatrixCard snapshot={activitySnapshot} />
+          <UpNextHeroQueue
+            items={[
+              {
+                id: 'queue-bootcamp',
+                tag: 'Keeps your streak',
+                subtitle: `${readiness.bootcampDaysCompleted}/15 days`,
+                title: 'Resume 15-Day Constitutional Bootcamp & Case Studies',
+                ctaLabel: 'Start reading',
+                onStart: () => setActiveTab('bootcamp'),
+                onAudio: () => setActiveTab('audio-briefings'),
+              },
+              {
+                id: 'queue-parts',
+                tag: '25 Parts · 5,200 Cases',
+                subtitle: 'Bare Act + Applied',
+                title: 'Explore Part III Fundamental Rights & 200 Case Studies',
+                ctaLabel: 'Open 25 Parts',
+                onStart: () => setActiveTab('topics'),
+                onAudio: () => setActiveTab('audio-briefings'),
+              },
+              {
+                id: 'queue-srs',
+                tag: 'Spaced Repetition',
+                subtitle: `${readiness.srsPinnedCount} pinned · ${readiness.srsCardsMastered} mastered`,
+                title: 'Clear Your 5-Box Leitner Flashcard Queue',
+                ctaLabel: 'Review cards',
+                onStart: () => launchFlashcardDeck('all', 'pinned'),
+              },
+              {
+                id: 'queue-judiciary',
+                tag: 'Judiciary Mains',
+                subtitle: '13 Bench Labs',
+                title: 'Draft Civil & Criminal Constitutional Judgments',
+                ctaLabel: 'Open Judgment Lab',
+                onStart: () => setActiveTab('judgment-lab'),
+              },
+            ]}
+          />
+        </div>
+      </section>
 
       {/* =========================================================================
           3. DAILY 5-MINUTE CONSTITUTIONAL WORKOUT

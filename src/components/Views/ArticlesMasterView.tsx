@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { springs, drawerRevealVariants } from '../../lib/motionTokens';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   BookOpen,
   Search,
@@ -399,52 +400,41 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
           </div>
         </div>
 
-        {/* Quick Filter Badges */}
+        {/* Quick Filter Badges (Sliding Editorial Pill Bar) */}
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[var(--border-subtle)] text-xs font-mono">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <button
-              onClick={() => setOnlyDiffs((prev) => !prev)}
-              className={`px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 ${
+          <div className="flex items-center gap-2 flex-wrap">
+            <SlidingSegmentedControl
+              layoutGroupId="articles-quick-filter"
+              variant="pill"
+              value={
                 onlyDiffs
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold border-[var(--accent)]'
-                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
-              }`}
-            >
-              <GitCommit className="w-3 h-3" />
-              <span>1950 vs Modern Diffs (12 Landmark Articles)</span>
-            </button>
-
-            <button
-              onClick={() => setOnlyAmended((prev) => !prev)}
-              className={`px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 ${
-                onlyAmended
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold border-[var(--accent)]'
-                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
-              }`}
-            >
-              <History className="w-3 h-3" />
-              <span>Amended Articles Only</span>
-            </button>
-
-            <button
-              onClick={() => setOnlyBookmarked((prev) => !prev)}
-              className={`px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 ${
-                onlyBookmarked
-                  ? 'bg-[var(--gold)]/20 text-[var(--gold)] font-bold border-[var(--gold)]/50'
-                  : 'bg-[var(--bg-base)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
-              }`}
-            >
-              <Bookmark className="w-3 h-3" />
-              <span>Bookmarked ({bookmarkedArticles.length})</span>
-            </button>
+                  ? 'diffs'
+                  : onlyAmended
+                  ? 'amended'
+                  : onlyBookmarked
+                  ? 'saved'
+                  : 'all'
+              }
+              onChange={(val) => {
+                setOnlyDiffs(val === 'diffs');
+                setOnlyAmended(val === 'amended');
+                setOnlyBookmarked(val === 'saved');
+              }}
+              options={[
+                { id: 'all', label: 'All' },
+                { id: 'diffs', label: '1950 vs Modern', count: 12 },
+                { id: 'amended', label: 'Amended' },
+                { id: 'saved', label: 'Saved', count: bookmarkedArticles.length },
+              ]}
+            />
 
             {(searchTerm || selectedPart !== 'All' || selectedCategory !== 'All' || onlyAmended || onlyDiffs || onlyBookmarked) && (
               <button
                 onClick={resetAllFilters}
-                className="px-2.5 py-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--bg-base)] flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)] transition-colors"
+                className="px-2.5 py-1 rounded-full text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--bg-base)] flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)] transition-colors"
               >
                 <RotateCcw className="w-3 h-3" />
-                <span>Reset Filters</span>
+                <span>Reset</span>
               </button>
             )}
           </div>

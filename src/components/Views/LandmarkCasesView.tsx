@@ -42,6 +42,7 @@ import { PrecedentLineageSVG } from '../VectorDiagrams/PrecedentLineageSVG';
 import { useTheme } from '../../context/ThemeContext';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { getCardIdForCase } from '../../services/flashcardService';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 
 export const LandmarkCasesView: React.FC = () => {
   const { setActiveTab, launchGameDeck, launchFlashcardDeck, pinnedFlashcardIds, togglePinFlashcard } = useTheme();
@@ -278,66 +279,19 @@ export const LandmarkCasesView: React.FC = () => {
         </div>
       </div>
 
-      {/* View Mode Segmented Control Bar (Dedicated Full-Width Toolbar) */}
-      <div className="flex items-center overflow-x-auto p-1.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm scrollbar-none">
-        <div className="flex items-center gap-1.5 min-w-max w-full sm:w-auto">
-          <button
-            onClick={() => setViewMode('cases')}
-            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
-              viewMode === 'cases'
-                ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
-            }`}
-          >
-            <BookOpen className="w-4 h-4" />
-            <span>100 Cases Explorer</span>
-            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-subtle)]">
-              100
-            </span>
-          </button>
-
-          <button
-            onClick={() => setViewMode('lineage')}
-            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
-              viewMode === 'lineage'
-                ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
-            }`}
-          >
-            <GitBranch className="w-4 h-4" />
-            <span>Precedent Lineage</span>
-            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
-              8 Trees
-            </span>
-          </button>
-
-          <button
-            onClick={() => setViewMode('principles')}
-            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
-              viewMode === 'principles'
-                ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
-            }`}
-          >
-            <Scale className="w-4 h-4" />
-            <span>Doctrine of Stare Decisis</span>
-          </button>
-
-          <button
-            onClick={() => setViewMode('bookmarks')}
-            className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
-              viewMode === 'bookmarks'
-                ? 'bg-[var(--bg-surface-elevated)] text-[var(--accent)] font-bold shadow-sm border border-[var(--border-strong)]'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-base)]'
-            }`}
-          >
-            <BookMarked className="w-4 h-4 text-[var(--gold)]" />
-            <span>Saved Precedents</span>
-            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[var(--badge-bg)] text-[var(--gold)] border border-[var(--gold)]/30 font-bold">
-              {bookmarkedCaseIds.length}
-            </span>
-          </button>
-        </div>
+      {/* View Mode Sliding Segmented Control */}
+      <div className="flex items-center overflow-x-auto pb-1 scrollbar-none">
+        <SlidingSegmentedControl
+          layoutGroupId="landmark-cases-view-mode"
+          value={viewMode}
+          onChange={setViewMode}
+          options={[
+            { id: 'cases', label: '100 Cases Explorer', count: 100 },
+            { id: 'lineage', label: 'Precedent Lineage', count: 8 },
+            { id: 'principles', label: 'Doctrine of Stare Decisis' },
+            { id: 'bookmarks', label: 'Saved Precedents', count: bookmarkedCaseIds.length },
+          ]}
+        />
       </div>
 
       {/* LINEAGE SVG VIEW */}

@@ -899,11 +899,20 @@ export const FlashcardsView: React.FC = () => {
             </span>
           </div>
 
-          {/* Interactive Flip Card */}
-          <div
-            onClick={handleFlip}
-            className="cursor-pointer min-h-[360px] md:min-h-[410px] p-6 md:p-10 rounded-3xl bg-[var(--bg-surface)] border-2 border-[var(--border-subtle)] hover:border-[var(--accent)] shadow-xl transition-all duration-200 flex flex-col justify-between group relative select-none"
-          >
+          {/* Interactive Flip Card with Tactile Card Stack Depth */}
+          <div className="relative pt-1 pb-3">
+            {/* Stacked Background Deck Cards */}
+            <div className="pointer-events-none absolute inset-x-4 bottom-0 h-8 rounded-3xl bg-[var(--bg-surface)]/50 border border-[var(--border-subtle)]/70 scale-[0.96] translate-y-1 transition-transform" />
+            <div className="pointer-events-none absolute inset-x-2 bottom-1.5 h-8 rounded-3xl bg-[var(--bg-surface)]/80 border border-[var(--border-subtle)] scale-[0.98] transition-transform" />
+
+            <motion.div
+              key={currentCard.id}
+              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 380, damping: 30, mass: 0.8 }}
+              onClick={handleFlip}
+              className="relative z-10 cursor-pointer min-h-[360px] md:min-h-[410px] p-6 md:p-10 rounded-3xl bg-[var(--bg-surface)] border-2 border-[var(--border-subtle)] hover:border-[var(--accent)] shadow-xl transition-colors duration-200 flex flex-col justify-between group select-none"
+            >
             {/* Top Card Badges + Pin Action */}
             <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-4 flex-wrap">
               <div className="flex items-center gap-2 flex-wrap">
@@ -1055,6 +1064,7 @@ export const FlashcardsView: React.FC = () => {
               <span>{isFlipped ? 'Grade recall using buttons below (or keys 1–4)' : 'Press Space to flip · ← / → to browse'}</span>
               <span>Leitner Box {currentCard.box} / 5</span>
             </div>
+          </motion.div>
           </div>
 
           {/* Spaced Repetition Grading Controls */}

@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-27 00:45:51 (+05:30) |
+| **Last Log Sync** | 2026-11-27 01:39:04 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `c87eb51` (2026-11-27T00:33:12+05:30) |
-| **Total Commits** | 134 |
-| **Total Files Indexed** | 390 (390 tracked, 0 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Branch / HEAD** | `main` @ `f896449` (2026-11-27T00:46:04+05:30) |
+| **Total Commits** | 135 |
+| **Total Files Indexed** | 392 (390 tracked, 2 new untracked) |
+| **Working Tree** | 7 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-27 01:39:04 (+05:30)] Implement Editorial Motion Cards, Study Telemetry, Streak Matrix & Up-Next Queue (DONE)
+- **Details:** Added src/services/studyActivityService.ts and src/components/Common/EditorialMotionCards.tsx (SlidingSegmentedControl, StudyTelemetryCard with Day/Week/Month interactive bar chart, StreakMatrixCard 30-day dot grid, UpNextHeroQueue with spring promotion). Wired into OverviewDashboard, ArticlesMasterView, TopicDetailView (25 Parts), LandmarkCasesView, and FlashcardsView (tactile card stack depth). Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (7):** `M src/components/Views/ArticlesMasterView.tsx`, `M src/components/Views/FlashcardsView.tsx`, `M src/components/Views/LandmarkCasesView.tsx`, `M src/components/Views/OverviewDashboard.tsx`, `M src/components/Views/TopicDetailView.tsx`, `?? src/components/Common/EditorialMotionCards.tsx`, `?? src/services/studyActivityService.ts`
+- **Git HEAD:** `main` @ `f896449`
 
 ### [2026-11-27 00:45:51 (+05:30)] Fix 25 Parts responsive alignment and SVG vector-node hover flicker (DONE)
 - **Details:** Added w-full and responsive lg:w-72 xl:w-80 sidebar sizing in TopicDetailView.tsx, and removed CSS transform overrides from .vector-node:hover/:active in src/index.css so SVG <g transform> nodes glow smoothly without jumping or flickering. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -439,7 +444,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **390** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **392** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -451,7 +456,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 116.5 KB | 1159 | `c87eb51` (2026-11-27) |
+| `PROJECT_LOG.md` | 117.2 KB | 1165 | `f896449` (2026-11-27) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -533,7 +538,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/App.tsx` | 12.1 KB | 250 | `f697564` (2026-11-26) |
-| `src/index.css` | 15.6 KB | 592 | `8a3a645` (2026-11-26) |
+| `src/index.css` | 15.6 KB | 592 | `f896449` (2026-11-27) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
 ### `src/assets` (3 files)
@@ -544,7 +549,7 @@
 | `src/assets/react.svg` | 4.0 KB | 1 | `3c486dd` (2026-11-13) |
 | `src/assets/vite.svg` | 8.5 KB | 2 | `3c486dd` (2026-11-13) |
 
-### `src/components/Common` (10 files)
+### `src/components/Common` (11 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -552,6 +557,7 @@
 | `src/components/Common/AnswerEvaluationCard.tsx` | 12.9 KB | 298 | `5bbabe8` (2026-11-19) |
 | `src/components/Common/ConstitutionalWatermark.tsx` | 7.2 KB | 152 | `f697564` (2026-11-26) |
 | `src/components/Common/DailyConstitutionalWorkout.tsx` | 26.4 KB | 546 | `2d26b6d` (2026-11-25) |
+| `src/components/Common/EditorialMotionCards.tsx` | 15.9 KB | 427 | new (uncommitted) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.8 KB | 474 | `8a3a645` (2026-11-26) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
 | `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `f697564` (2026-11-26) |
@@ -608,7 +614,7 @@
 | `src/components/Views/ArcadeHubView.tsx` | 11.1 KB | 270 | `f697564` (2026-11-26) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 79.9 KB | 1540 | `5a91b93` (2026-11-26) |
+| `src/components/Views/ArticlesMasterView.tsx` | 79.0 KB | 1530 | `5a91b93` (2026-11-26) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -620,16 +626,16 @@
 | `src/components/Views/DoctrinesHubView.tsx` | 24.1 KB | 476 | `5a91b93` (2026-11-26) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `8a3a645` (2026-11-26) |
-| `src/components/Views/FlashcardsView.tsx` | 52.5 KB | 1161 | `5a91b93` (2026-11-26) |
+| `src/components/Views/FlashcardsView.tsx` | 53.3 KB | 1171 | `5a91b93` (2026-11-26) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
-| `src/components/Views/LandmarkCasesView.tsx` | 58.2 KB | 1074 | `5a91b93` (2026-11-26) |
+| `src/components/Views/LandmarkCasesView.tsx` | 55.5 KB | 1028 | `5a91b93` (2026-11-26) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
-| `src/components/Views/OverviewDashboard.tsx` | 22.6 KB | 425 | `f697564` (2026-11-26) |
+| `src/components/Views/OverviewDashboard.tsx` | 25.0 KB | 478 | `f697564` (2026-11-26) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 26.9 KB | 589 | `f697564` (2026-11-26) |
@@ -641,7 +647,7 @@
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 130.5 KB | 2558 | `957f8a4` (2026-11-26) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
-| `src/components/Views/TopicDetailView.tsx` | 48.2 KB | 937 | `2d653a6` (2026-11-26) |
+| `src/components/Views/TopicDetailView.tsx` | 48.3 KB | 940 | `f896449` (2026-11-27) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `8a3a645` (2026-11-26) |
 
@@ -989,7 +995,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/lib/motionTokens.ts` | 3.8 KB | 167 | `5a91b93` (2026-11-26) |
 
-### `src/services` (14 files)
+### `src/services` (15 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -1006,6 +1012,7 @@
 | `src/services/progressVaultService.ts` | 7.9 KB | 275 | `f697564` (2026-11-26) |
 | `src/services/readinessIndexService.ts` | 97.2 KB | 1848 | `d52bceb` (2026-11-26) |
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
+| `src/services/studyActivityService.ts` | 6.0 KB | 191 | new (uncommitted) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
 
 ### `src/types` (3 files)
@@ -1023,10 +1030,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**134** commits, newest first).
+> Complete git history (**135** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 135 | 2026-11-27 | `f896449` | 3 | fix: fix 25 Parts alignment and eliminate SVG vector-node hover flicker |
 | 134 | 2026-11-27 | `c87eb51` | 29 | fix: remove fixed min-w on VectorDiagrams SVGs for responsive split-screen scaling |
 | 133 | 2026-11-26 | `2d653a6` | 29 | feat: add 200 case studies for each of the 25 Constitutional Parts (5,200 total) |
 | 132 | 2026-11-26 | `957f8a4` | 18 | feat: expand Bootcamp to 200 case studies per chapter (3,000 total) via lazy JSON packs |
