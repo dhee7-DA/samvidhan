@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { EDITORIAL_SPRING, EditorialHoverCard, SlidingSegmentedControl } from '../Common/EditorialMotionCards';
+import { recordStudyPulse } from '../../services/studyActivityService';
 import {
   CheckSquare,
   CheckCircle2,
@@ -91,31 +94,36 @@ export const QuizMasteryView: React.FC = () => {
         </div>
       </div>
 
-      {/* Difficulty Filter Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1">
-        {difficulties.map((diff) => (
-          <button
-            key={diff}
-            onClick={() => {
-              setSelectedDifficulty(diff);
-              setCurrentIndex(0);
-              setSelectedOption(null);
-              setHasAnswered(false);
-            }}
-            className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all ${
-              selectedDifficulty === diff
-                ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold shadow-sm'
-                : 'bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)]'
-            }`}
-          >
-            {diff}
-          </button>
-        ))}
+      {/* Difficulty Filter Tabs (Sliding Pill Bar) */}
+      <div className="overflow-x-auto pb-1">
+        <SlidingSegmentedControl
+          layoutGroupId="quiz-difficulty-filter"
+          variant="pill"
+          value={selectedDifficulty}
+          onChange={(diff) => {
+            setSelectedDifficulty(diff);
+            setCurrentIndex(0);
+            setSelectedOption(null);
+            setHasAnswered(false);
+          }}
+          options={difficulties.map((d) => ({ id: d, label: d }))}
+        />
       </div>
 
-      {/* Question Card */}
+      {/* Question Card with Stacked Depth & Spring Transition */}
       {currentQ ? (
-        <div className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-6">
+        <div className="relative pt-1 pb-3">
+          <div className="pointer-events-none absolute inset-x-4 bottom-0 h-8 rounded-2xl bg-[var(--bg-surface)]/50 border border-[var(--border-subtle)]/70 scale-[0.97] translate-y-1" />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQ.id}
+              initial={{ opacity: 0, y: 10, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={EDITORIAL_SPRING}
+              className="relative z-10"
+            >
+              <EditorialHoverCard className="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col gap-6 shadow-sm">
           {/* Question Metadata */}
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-[var(--text-muted)]">
@@ -225,6 +233,9 @@ export const QuizMasteryView: React.FC = () => {
               </div>
             )}
           </div>
+              </EditorialHoverCard>
+            </motion.div>
+          </AnimatePresence>
         </div>
       ) : (
         <div className="p-12 text-center text-sm font-mono text-[var(--text-muted)] bg-[var(--bg-surface)] rounded-2xl border border-[var(--border-subtle)]">

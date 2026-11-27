@@ -5,6 +5,7 @@ import { SchedulesGenealogySVG } from '../VectorDiagrams/SchedulesGenealogySVG';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
 import { useTheme } from '../../context/ThemeContext';
 import { getCardIdForSchedule } from '../../services/flashcardService';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 
 const SCHEDULE_ELI5_MAP: Record<number, { plain: string; example: string }> = {
   1: {
@@ -119,31 +120,16 @@ export const SchedulesView: React.FC = () => {
             <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
               Complete Schedule Catalog
             </h3>
-            {/* ELI5 vs Juristic Toggle */}
-            <div className="flex items-center p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono">
-              <button
-                onClick={() => setScheduleMode('eli5')}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
-                  scheduleMode === 'eli5'
-                    ? 'bg-amber-500 text-black font-bold'
-                    : 'text-amber-500 hover:text-amber-400 font-bold'
-                }`}
-              >
-                <Sparkles className="w-3 h-3" />
-                <span>ELI5</span>
-              </button>
-              <button
-                onClick={() => setScheduleMode('juristic')}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg transition-all ${
-                  scheduleMode === 'juristic'
-                    ? 'bg-[var(--accent)] text-[var(--accent-contrast)] font-bold'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                <Scale className="w-3 h-3" />
-                <span>Juristic</span>
-              </button>
-            </div>
+            {/* ELI5 vs Juristic Sliding Toggle */}
+            <SlidingSegmentedControl
+              layoutGroupId="schedules-mode-toggle"
+              value={scheduleMode}
+              onChange={setScheduleMode}
+              options={[
+                { id: 'eli5', label: 'ELI5' },
+                { id: 'juristic', label: 'Juristic' },
+              ]}
+            />
           </div>
           <input
             type="text"

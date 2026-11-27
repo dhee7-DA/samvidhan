@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   ShieldAlert,
   Search,
@@ -226,41 +227,16 @@ export const ConstitutionalBodiesView: React.FC = () => {
         </div>
 
         {/* View Switcher */}
-        <div className="flex items-center flex-wrap max-w-full gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)] justify-start sm:justify-end">
-          <button
-            onClick={() => setViewMode('matrix')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-              viewMode === 'matrix'
-                ? 'bg-purple-600 text-white shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Comparison Matrix</span>
-          </button>
-          <button
-            onClick={() => setViewMode('dossiers')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-              viewMode === 'dossiers'
-                ? 'bg-purple-600 text-white shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Body Dossiers</span>
-          </button>
-          <button
-            onClick={() => setViewMode('drill')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-              viewMode === 'drill'
-                ? 'bg-amber-500 text-white shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <Award className="w-3.5 h-3.5" />
-            <span>Recall Drill ({drillQuestions.length})</span>
-          </button>
-        </div>
+        <SlidingSegmentedControl
+          layoutGroupId="bodies-view-mode"
+          value={viewMode}
+          onChange={setViewMode}
+          options={[
+            { id: 'matrix', label: 'Comparison Matrix' },
+            { id: 'dossiers', label: 'Body Dossiers' },
+            { id: 'drill', label: 'Recall Drill', count: drillQuestions.length },
+          ]}
+        />
       </div>
 
       {/* FILTER CONTROLS (Active in Matrix & Dossiers modes) */}

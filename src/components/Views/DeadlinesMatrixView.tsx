@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   Clock,
   Calendar,
@@ -102,37 +103,17 @@ export const DeadlinesMatrixView: React.FC = () => {
         </div>
 
         {/* PRIMARY SUBVIEW TABS */}
-        <div className="flex items-center gap-2 mt-6 overflow-x-auto pb-1 border-b border-neutral-800">
-          <button
-            onClick={() => setActiveMode('cards')}
-            className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
-              activeMode === 'cards'
-                ? 'bg-amber-500 text-neutral-950 font-bold shadow-lg shadow-amber-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
-            }`}
-          >
-            <Timer className="w-3.5 h-3.5" /> High-Yield Deadline Cards ({CONSTITUTIONAL_DEADLINES_DATA.length})
-          </button>
-          <button
-            onClick={() => setActiveMode('table')}
-            className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
-              activeMode === 'table'
-                ? 'bg-amber-500 text-neutral-950 font-bold shadow-lg shadow-amber-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
-            }`}
-          >
-            <Calendar className="w-3.5 h-3.5" /> Comparative Timeline Matrix
-          </button>
-          <button
-            onClick={() => setActiveMode('drill')}
-            className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
-              activeMode === 'drill'
-                ? 'bg-amber-500 text-neutral-950 font-bold shadow-lg shadow-amber-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
-            }`}
-          >
-            <Zap className="w-3.5 h-3.5" /> Deadlines Speed Drill ({DEADLINES_DRILL_QUESTIONS.length})
-          </button>
+        <div className="mt-6 overflow-x-auto pb-1">
+          <SlidingSegmentedControl
+            layoutGroupId="deadlines-view-mode"
+            value={activeMode}
+            onChange={setActiveMode}
+            options={[
+              { id: 'cards', label: 'Deadline Cards', count: CONSTITUTIONAL_DEADLINES_DATA.length },
+              { id: 'table', label: 'Comparative Matrix' },
+              { id: 'drill', label: 'Speed Drill', count: DEADLINES_DRILL_QUESTIONS.length },
+            ]}
+          />
         </div>
       </div>
 

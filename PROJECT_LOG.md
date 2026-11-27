@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-27 01:39:04 (+05:30) |
+| **Last Log Sync** | 2026-11-27 15:51:12 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `f896449` (2026-11-27T00:46:04+05:30) |
-| **Total Commits** | 135 |
-| **Total Files Indexed** | 392 (390 tracked, 2 new untracked) |
-| **Working Tree** | 7 pending change(s) |
+| **Branch / HEAD** | `main` @ `78d0908` (2026-11-27T01:39:44+05:30) |
+| **Total Commits** | 136 |
+| **Total Files Indexed** | 392 (392 tracked, 0 new untracked) |
+| **Working Tree** | 12 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-27 15:51:12 (+05:30)] Roll out EditorialHoverCard, SlidingSegmentedControl, Live Study Heartbeat & Clean Inline Headers App-Wide (DONE)
+- **Details:** Added EditorialHoverCard with cursor-aware spotlight glow (.editorial-spotlight) and 60s active study heartbeat in App.tsx. Upgraded mode/filter switchers to SlidingSegmentedControl across SchedulesView, ConstitutionalBodiesView, WritsEmergencyMatrixView, DeadlinesMatrixView, StudyBootcampView, QuizMasteryView (plus stacked depth), ReadinessIndexView, and JudgmentWritingLabView. Simplified DailyConstitutionalWorkout Day/Streak headers to clean inline text. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (12):** `M src/App.tsx`, `M src/components/Common/DailyConstitutionalWorkout.tsx`, `M src/components/Common/EditorialMotionCards.tsx`, `M src/components/Views/ConstitutionalBodiesView.tsx`, `M src/components/Views/DeadlinesMatrixView.tsx`, `M src/components/Views/JudgmentWritingLabView.tsx`, `M src/components/Views/QuizMasteryView.tsx`, `M src/components/Views/ReadinessIndexView.tsx`, `M src/components/Views/SchedulesView.tsx`, `M src/components/Views/StudyBootcampView.tsx`, `M src/components/Views/WritsEmergencyMatrixView.tsx`, `M src/index.css`
+- **Git HEAD:** `main` @ `78d0908`
 
 ### [2026-11-27 01:39:04 (+05:30)] Implement Editorial Motion Cards, Study Telemetry, Streak Matrix & Up-Next Queue (DONE)
 - **Details:** Added src/services/studyActivityService.ts and src/components/Common/EditorialMotionCards.tsx (SlidingSegmentedControl, StudyTelemetryCard with Day/Week/Month interactive bar chart, StreakMatrixCard 30-day dot grid, UpNextHeroQueue with spring promotion). Wired into OverviewDashboard, ArticlesMasterView, TopicDetailView (25 Parts), LandmarkCasesView, and FlashcardsView (tactile card stack depth). Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -456,7 +461,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 117.2 KB | 1165 | `f896449` (2026-11-27) |
+| `PROJECT_LOG.md` | 118.5 KB | 1173 | `78d0908` (2026-11-27) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -537,8 +542,8 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 12.1 KB | 250 | `f697564` (2026-11-26) |
-| `src/index.css` | 15.6 KB | 592 | `f896449` (2026-11-27) |
+| `src/App.tsx` | 12.5 KB | 261 | `f697564` (2026-11-26) |
+| `src/index.css` | 16.1 KB | 615 | `f896449` (2026-11-27) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
 ### `src/assets` (3 files)
@@ -556,8 +561,8 @@
 | `src/components/Common/AnnotatedLegalText.tsx` | 9.2 KB | 246 | `409818a` (2026-11-14) |
 | `src/components/Common/AnswerEvaluationCard.tsx` | 12.9 KB | 298 | `5bbabe8` (2026-11-19) |
 | `src/components/Common/ConstitutionalWatermark.tsx` | 7.2 KB | 152 | `f697564` (2026-11-26) |
-| `src/components/Common/DailyConstitutionalWorkout.tsx` | 26.4 KB | 546 | `2d26b6d` (2026-11-25) |
-| `src/components/Common/EditorialMotionCards.tsx` | 15.9 KB | 427 | new (uncommitted) |
+| `src/components/Common/DailyConstitutionalWorkout.tsx` | 25.7 KB | 535 | `2d26b6d` (2026-11-25) |
+| `src/components/Common/EditorialMotionCards.tsx` | 17.0 KB | 463 | `78d0908` (2026-11-27) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.8 KB | 474 | `8a3a645` (2026-11-26) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
 | `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `f697564` (2026-11-26) |
@@ -614,42 +619,42 @@
 | `src/components/Views/ArcadeHubView.tsx` | 11.1 KB | 270 | `f697564` (2026-11-26) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 79.0 KB | 1530 | `5a91b93` (2026-11-26) |
+| `src/components/Views/ArticlesMasterView.tsx` | 79.0 KB | 1530 | `78d0908` (2026-11-27) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
 | `src/components/Views/ComparativeLawView.tsx` | 7.8 KB | 162 | `409818a` (2026-11-14) |
 | `src/components/Views/ConceptWebGraphView.tsx` | 60.9 KB | 1467 | `8a3a645` (2026-11-26) |
-| `src/components/Views/ConstitutionalBodiesView.tsx` | 34.1 KB | 713 | `8a3a645` (2026-11-26) |
-| `src/components/Views/DeadlinesMatrixView.tsx` | 17.0 KB | 374 | `3d89178` (2026-11-22) |
+| `src/components/Views/ConstitutionalBodiesView.tsx` | 32.9 KB | 689 | `8a3a645` (2026-11-26) |
+| `src/components/Views/DeadlinesMatrixView.tsx` | 15.8 KB | 355 | `3d89178` (2026-11-22) |
 | `src/components/Views/DictionaryView.tsx` | 13.3 KB | 270 | `9e33658` (2026-11-18) |
 | `src/components/Views/DoctrinesHubView.tsx` | 24.1 KB | 476 | `5a91b93` (2026-11-26) |
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `8a3a645` (2026-11-26) |
-| `src/components/Views/FlashcardsView.tsx` | 53.3 KB | 1171 | `5a91b93` (2026-11-26) |
-| `src/components/Views/JudgmentWritingLabView.tsx` | 24.8 KB | 497 | `5bbabe8` (2026-11-19) |
-| `src/components/Views/LandmarkCasesView.tsx` | 55.5 KB | 1028 | `5a91b93` (2026-11-26) |
+| `src/components/Views/FlashcardsView.tsx` | 53.3 KB | 1171 | `78d0908` (2026-11-27) |
+| `src/components/Views/JudgmentWritingLabView.tsx` | 23.5 KB | 470 | `5bbabe8` (2026-11-19) |
+| `src/components/Views/LandmarkCasesView.tsx` | 55.5 KB | 1028 | `78d0908` (2026-11-27) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 32.0 KB | 674 | `3d89178` (2026-11-22) |
 | `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 27.9 KB | 632 | `3d89178` (2026-11-22) |
-| `src/components/Views/OverviewDashboard.tsx` | 25.0 KB | 478 | `f697564` (2026-11-26) |
+| `src/components/Views/OverviewDashboard.tsx` | 25.0 KB | 478 | `78d0908` (2026-11-27) |
 | `src/components/Views/PrecedentClashView.tsx` | 23.7 KB | 475 | `f0a81f6` (2026-11-21) |
 | `src/components/Views/PrecedentDuelArena.tsx` | 13.8 KB | 314 | `5294c7c` (2026-11-21) |
 | `src/components/Views/PrecedentLineageView.tsx` | 26.9 KB | 589 | `f697564` (2026-11-26) |
 | `src/components/Views/PrintableRevisionView.tsx` | 11.7 KB | 235 | `f697564` (2026-11-26) |
 | `src/components/Views/PyqVaultView.tsx` | 120.5 KB | 2244 | `59d7a9d` (2026-11-22) |
-| `src/components/Views/QuizMasteryView.tsx` | 10.2 KB | 237 | `eb17fbd` (2026-11-14) |
-| `src/components/Views/ReadinessIndexView.tsx` | 95.5 KB | 1909 | `5a91b93` (2026-11-26) |
-| `src/components/Views/SchedulesView.tsx` | 14.6 KB | 254 | `3ce9f3d` (2026-11-18) |
+| `src/components/Views/QuizMasteryView.tsx` | 10.9 KB | 248 | `eb17fbd` (2026-11-14) |
+| `src/components/Views/ReadinessIndexView.tsx` | 94.5 KB | 1888 | `5a91b93` (2026-11-26) |
+| `src/components/Views/SchedulesView.tsx` | 13.8 KB | 240 | `3ce9f3d` (2026-11-18) |
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
-| `src/components/Views/StudyBootcampView.tsx` | 130.5 KB | 2558 | `957f8a4` (2026-11-26) |
+| `src/components/Views/StudyBootcampView.tsx` | 126.7 KB | 2483 | `957f8a4` (2026-11-26) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
-| `src/components/Views/TopicDetailView.tsx` | 48.3 KB | 940 | `f896449` (2026-11-27) |
+| `src/components/Views/TopicDetailView.tsx` | 48.3 KB | 940 | `78d0908` (2026-11-27) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
-| `src/components/Views/WritsEmergencyMatrixView.tsx` | 29.5 KB | 564 | `8a3a645` (2026-11-26) |
+| `src/components/Views/WritsEmergencyMatrixView.tsx` | 28.2 KB | 540 | `8a3a645` (2026-11-26) |
 
 ### `src/components/Views/Arcade` (14 files)
 
@@ -1012,7 +1017,7 @@
 | `src/services/progressVaultService.ts` | 7.9 KB | 275 | `f697564` (2026-11-26) |
 | `src/services/readinessIndexService.ts` | 97.2 KB | 1848 | `d52bceb` (2026-11-26) |
 | `src/services/speechService.ts` | 2.7 KB | 107 | `ea3d899` (2026-11-16) |
-| `src/services/studyActivityService.ts` | 6.0 KB | 191 | new (uncommitted) |
+| `src/services/studyActivityService.ts` | 6.0 KB | 191 | `78d0908` (2026-11-27) |
 | `src/services/tileMatcherGameService.ts` | 51.7 KB | 1375 | `fc1ea4c` (2026-11-16) |
 
 ### `src/types` (3 files)
@@ -1030,10 +1035,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**135** commits, newest first).
+> Complete git history (**136** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 136 | 2026-11-27 | `78d0908` | 8 | feat: add editorial card animations, study telemetry, streak matrix, and up-next queue |
 | 135 | 2026-11-27 | `f896449` | 3 | fix: fix 25 Parts alignment and eliminate SVG vector-node hover flicker |
 | 134 | 2026-11-27 | `c87eb51` | 29 | fix: remove fixed min-w on VectorDiagrams SVGs for responsive split-screen scaling |
 | 133 | 2026-11-26 | `2d653a6` | 29 | feat: add 200 case studies for each of the 25 Constitutional Parts (5,200 total) |

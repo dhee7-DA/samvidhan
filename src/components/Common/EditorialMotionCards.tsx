@@ -10,6 +10,42 @@ export const EDITORIAL_SPRING = {
   mass: 0.8,
 };
 
+interface EditorialHoverCardProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+}
+
+/**
+ * Tactile editorial card with crisp spring lift, tap compression, and cursor-aware spotlight glow.
+ */
+export const EditorialHoverCard: React.FC<EditorialHoverCardProps> = ({
+  children,
+  className = '',
+  onClick,
+}) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  };
+
+  return (
+    <motion.div
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      whileHover={{ y: -2 }}
+      whileTap={onClick ? { scale: 0.988 } : undefined}
+      transition={EDITORIAL_SPRING}
+      className={`editorial-spotlight transition-[border-color,box-shadow] duration-200 hover:border-[var(--border-strong)] ${
+        onClick ? 'cursor-pointer' : ''
+      } ${className}`}
+    >
+      <div className="relative z-10 h-full">{children}</div>
+    </motion.div>
+  );
+};
+
 export interface SegmentedOption<T extends string> {
   id: T;
   label: string;

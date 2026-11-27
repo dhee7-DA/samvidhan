@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   Gavel,
   Scale,
@@ -62,46 +63,18 @@ export const JudgmentWritingLabView: React.FC = () => {
           </div>
         </div>
 
-        {/* Sub-Tab Navigation Bar */}
-        <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
-          <button
-            type="button"
-            onClick={() => setActiveSubTab('issues')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
-              activeSubTab === 'issues'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
-                : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>1. Framing of Issues & Charges</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setActiveSubTab('studio')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
-              activeSubTab === 'studio'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
-                : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>2. Judgment Drafting Canvas</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setActiveSubTab('model')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
-              activeSubTab === 'model'
-                ? 'bg-[var(--accent-primary)] text-[var(--bg-base)] shadow-sm'
-                : 'bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <Award className="w-3.5 h-3.5" />
-            <span>3. Solved Benchmark Judgment & Rubric</span>
-          </button>
+        {/* Sub-Tab Navigation Bar (Sliding Segmented Control) */}
+        <div className="pt-2 border-t border-[var(--border-subtle)] overflow-x-auto">
+          <SlidingSegmentedControl
+            layoutGroupId="judgment-lab-subtabs"
+            value={activeSubTab}
+            onChange={setActiveSubTab}
+            options={[
+              { id: 'issues', label: '1. Framing Issues & Charges' },
+              { id: 'studio', label: '2. Drafting Canvas' },
+              { id: 'model', label: '3. Benchmark Judgment & Rubric' },
+            ]}
+          />
         </div>
       </div>
 

@@ -54,7 +54,9 @@ import {
   type ResolvedArticleDetails
 } from '../../data/bootcamp';
 import { recordMistake, recordSuccess } from '../../services/mistakesService';
+import { recordStudyPulse } from '../../services/studyActivityService';
 import { AnnotatedLegalText } from '../Common/AnnotatedLegalText';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import { useTheme } from '../../context/ThemeContext';
 
 // Import all 17 Handcrafted Vector Diagrams
@@ -280,6 +282,7 @@ export const StudyBootcampView: React.FC = () => {
 
   // Answer MCQ
   const handleAnswerMCQ = (mcqId: string, optionIndex: number) => {
+    recordStudyPulse(0, 1);
     // Record into Mistakes Bank
     const mcqObj = currentDay.mcqs.find((m) => m.id === mcqId);
     if (mcqObj) {
@@ -1205,99 +1208,21 @@ export const StudyBootcampView: React.FC = () => {
 
         {/* Sub-Tab Navigation Bar (Active in 'tabs' mode) */}
         {viewLayout === 'tabs' && (
-          <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] overflow-x-auto pb-2">
-            <button
-              onClick={() => setActiveSubTab('curriculum')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'curriculum'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <BookOpen className="w-4 h-4" />
-              1. Study Curriculum & Articles
-            </button>
-
-            <button
-              onClick={() => setActiveSubTab('svg')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'svg'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <Eye className="w-4 h-4" />
-              2. Vector Blueprint ({currentDayLinks.primarySvg.title.split(' ')[0]})
-            </button>
-
-            <button
-              onClick={() => setActiveSubTab('cases')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'cases'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <Award className="w-4 h-4" />
-              3. Classic vs 2024 Pairs
-            </button>
-
-            <button
-              onClick={() => setActiveSubTab('mcqs')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'mcqs'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <HelpCircle className="w-4 h-4" />
-              4. MCQ Arena ({currentDay.mcqs.length} Qs)
-              <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-[var(--bg-base)] text-[var(--accent-primary)] font-bold">
-                {currentDayMCQScore.answered}/{currentDay.mcqs.length}
-              </span>
-            </button>
-
-            <button
-              onClick={() => setActiveSubTab('casestudy')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'casestudy'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <Scale className="w-4 h-4" />
-              5. Case Studies ({currentDay.comprehensionCaseStudies?.length || 1} Scenarios)
-            </button>
-
-            <button
-              onClick={() => setActiveSubTab('memory-game')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'memory-game'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <Gamepad2 className="w-4 h-4" />
-              6. Memory Tile Matcher
-              {currentDayProgress.tasks.memoryGame && (
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 ml-0.5" />
-              )}
-            </button>
-
-            <button
-              onClick={() => setActiveSubTab('flashcards')}
-              className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
-                activeSubTab === 'flashcards'
-                  ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-md'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
-              }`}
-            >
-              <BrainCircuit className="w-4 h-4" />
-              7. SRS Flashcards
-              {currentDayProgress.tasks.flashcards && (
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 ml-0.5" />
-              )}
-            </button>
+          <div className="overflow-x-auto pb-2 border-b border-[var(--border-subtle)]">
+            <SlidingSegmentedControl
+              layoutGroupId="bootcamp-sub-tabs"
+              value={activeSubTab}
+              onChange={setActiveSubTab}
+              options={[
+                { id: 'curriculum', label: '1. Curriculum & Articles' },
+                { id: 'svg', label: `2. Blueprint (${currentDayLinks.primarySvg.title.split(' ')[0]})` },
+                { id: 'cases', label: '3. Classic vs 2024' },
+                { id: 'mcqs', label: '4. MCQ Arena', count: currentDay.mcqs.length },
+                { id: 'casestudy', label: '5. Case Studies', count: currentDay.comprehensionCaseStudies?.length || 1 },
+                { id: 'memory-game', label: '6. Tile Matcher' },
+                { id: 'flashcards', label: '7. SRS Flashcards' },
+              ]}
+            />
           </div>
         )}
       </div>

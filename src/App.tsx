@@ -1,6 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { MotionConfig, AnimatePresence, motion } from 'motion/react';
 import { viewTransitionVariants } from './lib/motionTokens';
+import { recordStudyPulse } from './services/studyActivityService';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Header } from './components/Layout/Header';
 import { Sidebar } from './components/Layout/Sidebar';
@@ -121,6 +122,16 @@ const ViewLoadingFallback: React.FC = () => (
 
 const MainContent: React.FC = () => {
   const { activeTab, setActiveTab, setVaultModalOpen } = useTheme();
+
+  // Record 1 active study minute every 60s while the app tab is visible
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === 'visible') {
+        recordStudyPulse(1, 0);
+      }
+    }, 60000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-primary)]">

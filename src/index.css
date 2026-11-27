@@ -581,6 +581,29 @@ html {
   scrollbar-width: none;
 }
 
+/* Cursor-aware editorial card spotlight (zero React re-renders) */
+.editorial-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.editorial-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+  background: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--accent) 12%, transparent),
+    transparent 70%
+  );
+  z-index: 0;
+}
+.editorial-spotlight:hover::before {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

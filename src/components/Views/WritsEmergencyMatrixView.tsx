@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   ShieldAlert,
   Scale,
@@ -159,41 +160,16 @@ export const WritsEmergencyMatrixView: React.FC = () => {
         </div>
 
         {/* View Mode Switcher */}
-        <div className="flex items-center flex-wrap max-w-full gap-1 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-subtle)] justify-start sm:justify-end">
-          <button
-            onClick={() => setActiveMode('writs')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-              activeMode === 'writs'
-                ? 'bg-rose-500 text-white shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <ShieldAlert className="w-3.5 h-3.5" />
-            <span>5 Writs Matrix</span>
-          </button>
-          <button
-            onClick={() => setActiveMode('emergency')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-              activeMode === 'emergency'
-                ? 'bg-rose-500 text-white shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <AlertTriangle className="w-3.5 h-3.5" />
-            <span>Emergency Trio (352/356/360)</span>
-          </button>
-          <button
-            onClick={() => setActiveMode('drill')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-              activeMode === 'drill'
-                ? 'bg-amber-500 text-white shadow-sm'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-            }`}
-          >
-            <Award className="w-3.5 h-3.5" />
-            <span>Speed Drill ({drillItems.length})</span>
-          </button>
-        </div>
+        <SlidingSegmentedControl
+          layoutGroupId="writs-emergency-mode"
+          value={activeMode}
+          onChange={setActiveMode}
+          options={[
+            { id: 'writs', label: '5 Writs Matrix' },
+            { id: 'emergency', label: 'Emergency Trio (352/356/360)' },
+            { id: 'drill', label: 'Speed Drill', count: drillItems.length },
+          ]}
+        />
       </div>
 
       {/* MODE 1: 5 PREROGATIVE WRITS MASTER MATRIX */}

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { springs, modalBackdropVariants, modalPanelVariants, staggerContainerVariants, staggerItemVariants } from '../../lib/motionTokens';
+import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
   Target,
   Sparkles,
@@ -827,40 +828,18 @@ export const ReadinessIndexView: React.FC = () => {
           HEATMAP TOOLBAR: View mode, filters, search, sort
           ========================================================================= */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-3 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
-        <div className="flex items-center gap-2">
-          {/* View Mode Toggle */}
-          <div className="inline-flex rounded-lg border border-[var(--border-subtle)] p-0.5 bg-[var(--bg-base)]">
-            <button
-              onClick={() => setViewMode('pillars')}
-              className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-pointer ${
-                viewMode === 'pillars'
-                  ? 'bg-zinc-100 text-zinc-950 shadow-sm'
-                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-              }`}
-            >
-              Syllabus Pillars (10 Exam Blocks)
-            </button>
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-pointer ${
-                viewMode === 'grid'
-                  ? 'bg-zinc-100 text-zinc-950 shadow-sm'
-                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-              }`}
-            >
-              25-Grid View
-            </button>
-            <button
-              onClick={() => setViewMode('grouped')}
-              className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-pointer ${
-                viewMode === 'grouped'
-                  ? 'bg-zinc-100 text-zinc-950 shadow-sm'
-                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-              }`}
-            >
-              By Category
-            </button>
-          </div>
+        <div className="flex items-center gap-2 flex-wrap">
+          {/* View Mode Sliding Segmented Control */}
+          <SlidingSegmentedControl
+            layoutGroupId="readiness-view-mode"
+            value={viewMode}
+            onChange={setViewMode}
+            options={[
+              { id: 'pillars', label: 'Syllabus Pillars (10)' },
+              { id: 'grid', label: '25-Grid View' },
+              { id: 'grouped', label: 'By Category' },
+            ]}
+          />
 
           {/* Quick Filter Status */}
           <div className="hidden md:flex items-center gap-1.5 pl-2 border-l border-[var(--border-subtle)]">

@@ -114,33 +114,22 @@ export const DailyConstitutionalWorkout: React.FC = () => {
   return (
     <div className="rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-5 sm:p-7 shadow-sm relative overflow-hidden transition-all">
       {/* Top Banner & Streak Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4 mb-5">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[var(--border-subtle)] pb-4 mb-5">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-[var(--bg-base)] text-[var(--text-secondary)] border border-[var(--border-subtle)]">
-            <Flame className="w-3.5 h-3.5 text-[var(--text-muted)]" />
-            <span>DAILY 5-MINUTE WORKOUT</span>
+          <div className="flex items-center gap-1.5 text-[11px] font-mono font-medium text-[var(--text-muted)]">
+            <Flame className="w-3.5 h-3.5 text-[var(--accent)]" />
+            <span>DAILY 5-MINUTE WORKOUT · DAY {workout.dayId}</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
-            <span>{workout.title}</span>
-            <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
-              Day {workout.dayId}
-            </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] tracking-tight">
+            {workout.title}
           </h2>
           <p className="text-xs text-[var(--text-muted)]">
             Theme Pillar: <span className="font-medium text-[var(--text-primary)]">{workout.themePillar}</span> &bull; 4 micro-cards for quick recall.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-            <Flame className="w-4 h-4 text-[var(--text-secondary)]" />
-            <div className="text-left">
-              <div className="text-xs font-mono font-bold tabular-nums text-[var(--text-primary)]">{streak}-Day Streak</div>
-              <div className="text-[10px] text-[var(--text-muted)]">
-                {isCompletedToday ? 'Completed Today' : 'Daily Goal Active'}
-              </div>
-            </div>
-          </div>
+        <div className="text-xs font-mono text-[var(--text-muted)] shrink-0">
+          <span className="font-bold text-[var(--text-primary)]">{streak}-day streak</span> · {isCompletedToday ? 'Completed Today' : 'Daily Goal Active'}
         </div>
       </div>
 
