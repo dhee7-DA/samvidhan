@@ -6,6 +6,8 @@ interface ThreeBurningCandleProps {
   isBurning: boolean;
   /** 0.0 (fresh full candle) -> 1.0 (burned down) */
   burnProgress: number;
+  /** Compact 1-inch framing for floating corner widget */
+  compact?: boolean;
   className?: string;
 }
 
@@ -28,6 +30,7 @@ function createSoftGlowTexture(innerColor: string, midColor: string): THREE.Canv
 export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
   isBurning,
   burnProgress,
+  compact = false,
   className = '',
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -50,8 +53,8 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       return;
     }
 
-    const width = container.clientWidth || 320;
-    const height = container.clientHeight || 340;
+    const width = container.clientWidth || (compact ? 96 : 320);
+    const height = container.clientHeight || (compact ? 96 : 260);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -59,9 +62,14 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 50);
-    camera.position.set(0, 1.35, 5.1);
-    camera.lookAt(0, 0.55, 0);
+    const camera = new THREE.PerspectiveCamera(compact ? 34 : 36, width / height, 0.1, 50);
+    if (compact) {
+      camera.position.set(0, 1.05, 4.15);
+      camera.lookAt(0, 0.42, 0);
+    } else {
+      camera.position.set(0, 1.35, 5.1);
+      camera.lookAt(0, 0.55, 0);
+    }
 
     // Ambient & rim studio lighting
     const ambientLight = new THREE.AmbientLight(0xfff1e0, 0.45);
@@ -348,11 +356,17 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
 
   if (webglError) {
     return (
-      <div className={`flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] p-6 ${className}`}>
-        <div className="text-3xl mb-2">{isBurning ? '🕯️' : '💨'}</div>
-        <span className="text-xs font-mono text-[var(--text-muted)]">
-          {isBurning ? 'Focus flame burning' : 'Candle paused'}
-        </span>
+      <div
+        className={`flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] ${
+          compact ? 'w-24 h-24 p-2' : 'p-6'
+        } ${className}`}
+      >
+        <div className={compact ? 'text-2xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
+        {!compact && (
+          <span className="text-xs font-mono text-[var(--text-muted)]">
+            {isBurning ? 'Focus flame burning' : 'Candle paused'}
+          </span>
+        )}
       </div>
     );
   }
@@ -360,7 +374,11 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
   return (
     <div
       ref={mountRef}
-      className={`relative w-full h-[300px] sm:h-[340px] rounded-2xl bg-gradient-to-b from-[#07070a]/70 via-[#0e0b09]/60 to-[var(--bg-base)] border border-[var(--border-subtle)] overflow-hidden ${className}`}
+      className={
+        compact
+          ? `relative w-24 h-24 rounded-xl bg-gradient-to-b from-[#07070a]/80 via-[#0e0b09]/70 to-transparent overflow-hidden ${className}`
+          : `relative w-full h-[230px] sm:h-[265px] rounded-2xl bg-gradient-to-b from-[#07070a]/70 via-[#0e0b09]/60 to-[var(--bg-base)] border border-[var(--border-subtle)] overflow-hidden ${className}`
+      }
     />
   );
 };

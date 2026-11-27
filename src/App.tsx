@@ -3,6 +3,7 @@ import { MotionConfig, AnimatePresence, motion } from 'motion/react';
 import { viewTransitionVariants } from './lib/motionTokens';
 import { recordStudyPulse } from './services/studyActivityService';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { FocusTimerProvider } from './context/FocusTimerContext';
 import { Header } from './components/Layout/Header';
 import { Sidebar } from './components/Layout/Sidebar';
 import { SearchModal } from './components/Common/SearchModal';
@@ -113,6 +114,9 @@ const SocraticTutorView = lazy(() =>
 const FocusTimerView = lazy(() =>
   import('./components/Views/FocusTimerView').then((m) => ({ default: m.FocusTimerView }))
 );
+const FloatingFocusCandle = lazy(() =>
+  import('./components/Common/FloatingFocusCandle').then((m) => ({ default: m.FloatingFocusCandle }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -143,6 +147,9 @@ const MainContent: React.FC = () => {
       <GlobalDictionaryModal />
       <UniversalDictionaryPopover />
       <ProgressVaultModal />
+      <Suspense fallback={null}>
+        <FloatingFocusCandle />
+      </Suspense>
 
       <div className="flex-1 flex flex-col md:flex-row min-h-0">
         <Sidebar />
@@ -257,7 +264,9 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <ThemeProvider>
-        <MainContent />
+        <FocusTimerProvider>
+          <MainContent />
+        </FocusTimerProvider>
       </ThemeProvider>
     </MotionConfig>
   );
