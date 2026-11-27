@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { EDITORIAL_SPRING, SlidingSegmentedControl } from '../Common/EditorialMotionCards';
+import { ChapterComprehensionLab } from '../Common/ChapterComprehensionLab';
 import {
   BookOpen,
   Bookmark,
@@ -932,6 +933,9 @@ export const TopicDetailView: React.FC = () => {
             </AnimatePresence>
           </div>
         )}
+
+        {/* Chapter Comprehension, Fill-in-the-Blanks & Quick Check */}
+        <ChapterComprehensionLab part={currentPart} />
       </div>
     </div>
   </div>
