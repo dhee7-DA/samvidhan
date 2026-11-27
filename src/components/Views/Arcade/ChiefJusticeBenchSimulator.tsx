@@ -486,7 +486,7 @@ export const ChiefJusticeBenchSimulator: React.FC<Props> = ({ onAwardResult }) =
 
           {/* Dissenting Opinion if incorrect */}
           {chosenDecreeObj.dissentingNote && (
-            <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 space-y-1.5 font-mono text-xs">
+            <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-zinc-700 text-zinc-300 space-y-1.5 font-mono text-xs">
               <span className="font-bold uppercase flex items-center gap-1.5 text-zinc-200">
                 <AlertCircle className="w-3.5 h-3.5" />
                 Historic Judicial Dissent

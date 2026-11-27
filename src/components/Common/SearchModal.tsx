@@ -139,7 +139,7 @@ export const SearchModal: React.FC = () => {
       }
     });
 
-    // Search 100 Landmark Cases
+    // Search 118 Landmark Cases
     DETAILED_CASE_LAWS_BY_TOPIC.forEach((topic) => {
       topic.cases.forEach((caseItem) => {
         if (

@@ -216,9 +216,9 @@ export const OverviewDashboard: React.FC = () => {
         {[
           { label: 'Arcade (13 Games)', icon: Gamepad2, action: () => setActiveTab('arcade') },
           { label: 'Flashcards (SRS)', icon: BrainCircuit, action: () => setActiveTab('flashcards') },
-          { label: '100 Cases', icon: Award, action: () => setActiveTab('judgments') },
+          { label: '118 Cases', icon: Award, action: () => setActiveTab('judgments') },
           { label: 'Socratic Tutor', icon: Scale, action: () => setActiveTab('socratic-tutor') },
-          { label: 'Mains Vault (126)', icon: FileText, action: () => setActiveTab('pyqs') },
+          { label: 'Mains Vault (125)', icon: FileText, action: () => setActiveTab('pyqs') },
           { label: 'Exam Simulator', icon: Timer, action: () => setActiveTab('mock-exam') }
         ].map((item) => (
           <motion.button
@@ -425,9 +425,9 @@ export const OverviewDashboard: React.FC = () => {
             },
             {
               tag: '02 · Case Law & Precedents',
-              title: '100 Landmark Cases & Lineage Trees',
+              title: '118 Landmark Cases & Lineage Trees',
               desc: 'Master 100 landmark Supreme Court rulings from Gopalan (1950) to Electoral Bonds (2024), precedent genealogy trees, and oral advocacy labs.',
-              cta: 'Review 100 Landmark Ratios',
+              cta: 'Review 118 Landmark Ratios',
               tab: 'judgments'
             },
             {

@@ -155,14 +155,14 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30">
                 <ShieldAlert className="w-3.5 h-3.5 text-rose-400" /> Negative Marking Trap Simulator
               </span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-neutral-800 text-neutral-400 font-mono">
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] font-mono">
                 +2.00 / -0.66 Scoring
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-100 flex items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)] flex items-center gap-3">
               50-Question Negative Marking Exam Hall
             </h1>
-            <p className="mt-2 text-sm text-neutral-400 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
               Curated specifically with deceptive trap statements, word-swaps, and unnotified amendments where over 70% of UPSC and Judicial Service aspirants lose marks.
             </p>
           </div>
@@ -180,53 +180,53 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
       {/* 1. INTRO / SETUP STATE */}
       {/* ============================================================== */}
       {examState === 'intro' && (
-        <div className="max-w-2xl mx-auto rounded-2xl border border-neutral-800 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-md space-y-6">
+        <div className="max-w-2xl mx-auto rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md space-y-6">
           <div>
-            <h2 className="text-lg font-bold text-neutral-100">Configure Your Trap Exam Session</h2>
-            <p className="text-xs text-neutral-400 mt-1">
+            <h2 className="text-lg font-bold text-[var(--text-primary)]">Configure Your Trap Exam Session</h2>
+            <p className="text-xs text-[var(--text-muted)] mt-1">
               Test your ability to spot examiner traps under strict UPSC/State Judicial marking standards.
             </p>
           </div>
 
           {/* EXAM LENGTH SELECTOR */}
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-neutral-300 block">Select Question Count:</label>
+            <label className="text-xs font-semibold text-[var(--text-secondary)] block">Select Question Count:</label>
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => setExamLength(50)}
                 className={`p-4 rounded-xl border text-left transition-all ${
                   examLength === 50
                     ? 'border-rose-500 bg-rose-950/20 text-rose-200 shadow-md ring-1 ring-rose-500/50'
-                    : 'border-neutral-800 bg-neutral-950/60 text-neutral-400 hover:bg-neutral-800'
+                    : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-muted)] hover:bg-[var(--bg-surface-elevated)]'
                 }`}
               >
                 <div className="text-sm font-bold">Full Mock: 50 Questions</div>
-                <div className="text-xs text-neutral-400 mt-1">60 Minutes • 100 Marks</div>
+                <div className="text-xs text-[var(--text-muted)] mt-1">60 Minutes • 100 Marks</div>
               </button>
               <button
                 onClick={() => setExamLength(25)}
                 className={`p-4 rounded-xl border text-left transition-all ${
                   examLength === 25
                     ? 'border-rose-500 bg-rose-950/20 text-rose-200 shadow-md ring-1 ring-rose-500/50'
-                    : 'border-neutral-800 bg-neutral-950/60 text-neutral-400 hover:bg-neutral-800'
+                    : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-muted)] hover:bg-[var(--bg-surface-elevated)]'
                 }`}
               >
                 <div className="text-sm font-bold">Sprint: 25 Questions</div>
-                <div className="text-xs text-neutral-400 mt-1">30 Minutes • 50 Marks</div>
+                <div className="text-xs text-[var(--text-muted)] mt-1">30 Minutes • 50 Marks</div>
               </button>
             </div>
           </div>
 
           {/* TIMED VS UNTIMED */}
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-neutral-300 block">Exam Hall Timer:</label>
+            <label className="text-xs font-semibold text-[var(--text-secondary)] block">Exam Hall Timer:</label>
             <div className="flex gap-3">
               <button
                 onClick={() => setIsTimed(true)}
                 className={`flex-1 py-2.5 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                   isTimed
                     ? 'border-rose-500 bg-rose-500 text-white'
-                    : 'border-neutral-800 bg-neutral-950 text-neutral-400'
+                    : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-muted)]'
                 }`}
               >
                 <Clock className="w-3.5 h-3.5" /> Timed Exam (Strict Countdown)
@@ -236,7 +236,7 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                 className={`flex-1 py-2.5 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                   !isTimed
                     ? 'border-rose-500 bg-rose-500 text-white'
-                    : 'border-neutral-800 bg-neutral-950 text-neutral-400'
+                    : 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-muted)]'
                 }`}
               >
                 Untimed Study Mode
@@ -245,8 +245,8 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
           </div>
 
           {/* SCORING RULES */}
-          <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/60 text-xs text-neutral-300 space-y-1.5">
-            <div className="font-bold text-neutral-200 uppercase tracking-wider text-[11px] mb-2 flex items-center gap-1.5">
+          <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)] text-xs text-[var(--text-secondary)] space-y-1.5">
+            <div className="font-bold text-[var(--text-primary)] uppercase tracking-wider text-[11px] mb-2 flex items-center gap-1.5">
               <Award className="w-4 h-4 text-rose-400" /> Negative Marking Rules
             </div>
             <div className="flex items-center justify-between">
@@ -278,12 +278,12 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
       {examState === 'running' && (
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* QUESTION PANE (3 COLS) */}
-          <div className="lg:col-span-3 rounded-2xl border border-neutral-800 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-md flex flex-col justify-between">
+          <div className="lg:col-span-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md flex flex-col justify-between">
             <div>
               {/* QUESTION TOP BAR */}
-              <div className="flex items-center justify-between border-b border-neutral-800 pb-4 mb-6">
+              <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-4 mb-6">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-neutral-800 text-neutral-300 font-bold">
+                  <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] font-bold">
                     Q{currentIndex + 1} of {examLength}
                   </span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">
@@ -291,12 +291,12 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                   </span>
                 </div>
                 <div className="text-xs font-mono text-neutral-500">
-                  Core: <span className="text-neutral-300">{currentQuestion.coreArticle}</span>
+                  Core: <span className="text-[var(--text-secondary)]">{currentQuestion.coreArticle}</span>
                 </div>
               </div>
 
               {/* QUESTION TEXT */}
-              <h2 className="text-base sm:text-lg font-medium text-neutral-100 leading-relaxed mb-6">
+              <h2 className="text-base sm:text-lg font-medium text-[var(--text-primary)] leading-relaxed mb-6">
                 {currentQuestion.question}
               </h2>
 
@@ -311,14 +311,14 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                       className={`w-full p-4 rounded-xl border text-left text-xs sm:text-sm transition-all flex items-start gap-3 ${
                         isSelected
                           ? 'border-rose-500 bg-rose-950/30 text-rose-200 font-semibold shadow-md'
-                          : 'border-neutral-800 bg-neutral-950/60 hover:bg-neutral-800 text-neutral-300'
+                          : 'border-[var(--border-subtle)] bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)]'
                       }`}
                     >
                       <span
                         className={`w-5 h-5 rounded-full border text-[11px] font-mono flex items-center justify-center shrink-0 mt-0.5 ${
                           isSelected
                             ? 'border-rose-400 bg-rose-500 text-white font-bold'
-                            : 'border-neutral-700 text-neutral-500'
+                            : 'border-[var(--border-strong)] text-neutral-500'
                         }`}
                       >
                         {opt.key}
@@ -331,11 +331,11 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
             </div>
 
             {/* ACTION BUTTONS */}
-            <div className="mt-8 pt-4 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-8 pt-4 border-t border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleClearAnswer}
-                  className="px-3 py-1.5 rounded-lg border border-neutral-800 text-xs text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800 transition-colors"
+                  className="px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] transition-colors"
                 >
                   Clear Selection
                 </button>
@@ -344,7 +344,7 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                   className={`px-3 py-1.5 rounded-lg border text-xs transition-colors flex items-center gap-1.5 ${
                     markedForReview[currentQuestion.id]
                       ? 'border-amber-500/60 bg-amber-950/30 text-amber-300 font-bold'
-                      : 'border-neutral-800 text-neutral-400 hover:bg-neutral-800'
+                      : 'border-[var(--border-subtle)] text-[var(--text-muted)] hover:bg-[var(--bg-surface-elevated)]'
                   }`}
                 >
                   <Bookmark className="w-3.5 h-3.5" />
@@ -356,14 +356,14 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                 <button
                   disabled={currentIndex === 0}
                   onClick={() => setCurrentIndex((i) => i - 1)}
-                  className="px-3 py-1.5 rounded-lg border border-neutral-800 text-xs text-neutral-300 hover:bg-neutral-800 disabled:opacity-40 transition-colors flex items-center gap-1"
+                  className="px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-surface-elevated)] disabled:opacity-40 transition-colors flex items-center gap-1"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" /> Prev
                 </button>
                 {currentIndex < examLength - 1 ? (
                   <button
                     onClick={() => setCurrentIndex((i) => i + 1)}
-                    className="px-4 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs font-bold text-neutral-100 transition-colors flex items-center gap-1"
+                    className="px-4 py-1.5 rounded-lg bg-[var(--bg-surface-elevated)] hover:bg-neutral-700 text-xs font-bold text-[var(--text-primary)] transition-colors flex items-center gap-1"
                   >
                     Next <ChevronRight className="w-3.5 h-3.5" />
                   </button>
@@ -380,9 +380,9 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
           </div>
 
           {/* PALETTE (1 COL) */}
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/80 p-5 backdrop-blur-md space-y-4">
-            <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 backdrop-blur-md space-y-4">
+            <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                 Question Palette
               </h3>
               <span className="text-[11px] font-mono text-neutral-500">
@@ -391,7 +391,7 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
             </div>
 
             {/* STATUS LEGEND */}
-            <div className="grid grid-cols-2 gap-2 text-[10px] text-neutral-400 font-mono">
+            <div className="grid grid-cols-2 gap-2 text-[10px] text-[var(--text-muted)] font-mono">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded bg-rose-500" /> Answered
               </div>
@@ -399,7 +399,7 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                 <span className="w-2.5 h-2.5 rounded bg-amber-500" /> Review
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded bg-neutral-800" /> Unanswered
+                <span className="w-2.5 h-2.5 rounded bg-[var(--bg-surface-elevated)]" /> Unanswered
               </div>
             </div>
 
@@ -410,7 +410,7 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                 const isReview = !!markedForReview[q.id];
                 const isCurrent = idx === currentIndex;
 
-                let tileColor = 'bg-neutral-950 text-neutral-500 border-neutral-800';
+                let tileColor = 'bg-[var(--bg-base)] text-neutral-500 border-[var(--border-subtle)]';
                 if (isAnswered) {
                   tileColor = 'bg-rose-500 text-white font-bold border-rose-400';
                 }
@@ -448,20 +448,20 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
       {examState === 'submitted' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           {/* MAIN SCORECARD BANNER */}
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/90 p-6 sm:p-8 backdrop-blur-md">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-neutral-800 pb-6">
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-6">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-rose-400 font-bold flex items-center gap-1.5">
                   <Award className="w-4 h-4" /> Official Examination Scorecard
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-neutral-100 mt-1">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mt-1">
                   Trap Vulnerability Assessment
                 </h2>
               </div>
 
               <button
                 onClick={handleStartExam}
-                className="px-4 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-bold transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-neutral-700 text-[var(--text-primary)] text-xs font-bold transition-colors flex items-center gap-1.5"
               >
                 <RotateCcw className="w-3.5 h-3.5" /> Retake Exam
               </button>
@@ -469,8 +469,8 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
 
             {/* MARKS GRID */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
-              <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/60">
-                <div className="text-xs text-neutral-400 font-medium">Net Score</div>
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
+                <div className="text-xs text-[var(--text-muted)] font-medium">Net Score</div>
                 <div className="text-3xl font-bold font-mono text-rose-400 mt-1">
                   {netMarks} <span className="text-xs text-neutral-500 font-normal">/ {maxMarks}</span>
                 </div>
@@ -499,9 +499,9 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/60">
-                <div className="text-xs text-neutral-400 font-medium">Accuracy</div>
-                <div className="text-3xl font-bold font-mono text-neutral-200 mt-1">
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
+                <div className="text-xs text-[var(--text-muted)] font-medium">Accuracy</div>
+                <div className="text-3xl font-bold font-mono text-[var(--text-primary)] mt-1">
                   {accuracyPercent}%
                 </div>
                 <div className="text-[11px] text-neutral-500 mt-1 font-mono">
@@ -511,8 +511,8 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
             </div>
 
             {/* TOPIC VULNERABILITY AUDIT */}
-            <div className="mt-8 pt-6 border-t border-neutral-800">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-300 mb-4 flex items-center gap-2">
+            <div className="mt-8 pt-6 border-t border-[var(--border-subtle)]">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-2">
                 <BarChart3 className="w-4 h-4 text-rose-400" /> Topic-Wise Vulnerability Diagnosis
               </h3>
 
@@ -529,9 +529,9 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                           : 'border-amber-500/30 bg-amber-950/10'
                       }`}
                     >
-                      <div className="text-xs font-bold text-neutral-200 line-clamp-1">{topic}</div>
+                      <div className="text-xs font-bold text-[var(--text-primary)] line-clamp-1">{topic}</div>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-xs font-mono font-bold text-neutral-300">
+                        <span className="text-xs font-mono font-bold text-[var(--text-secondary)]">
                           {stat.correct} / {stat.total}
                         </span>
                         <span
@@ -553,8 +553,8 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
 
           {/* QUESTION-BY-QUESTION AUDIT */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-neutral-400" /> Complete Question-By-Question Analysis ({examLength})
+            <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-[var(--text-muted)]" /> Complete Question-By-Question Analysis ({examLength})
             </h3>
 
             {activeQuestions.map((q, idx) => {
@@ -569,16 +569,16 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                     isCorrect
                       ? 'border-emerald-500/30 bg-emerald-950/10'
                       : isSkipped
-                      ? 'border-neutral-800 bg-neutral-900/60'
+                      ? 'border-[var(--border-subtle)] bg-[var(--bg-surface)]'
                       : 'border-rose-500/30 bg-rose-950/10'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-2 border-b border-neutral-800/80 pb-3 mb-3">
+                  <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-3 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-neutral-800 text-neutral-300">
+                      <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)]">
                         Q{idx + 1}
                       </span>
-                      <span className="text-xs font-mono text-neutral-400">{q.coreArticle}</span>
+                      <span className="text-xs font-mono text-[var(--text-muted)]">{q.coreArticle}</span>
                     </div>
 
                     <div className="text-xs font-mono">
@@ -598,25 +598,25 @@ export const NegativeMarkingSimulatorView: React.FC = () => {
                     </div>
                   </div>
 
-                  <h4 className="text-sm font-medium text-neutral-100 leading-relaxed">{q.question}</h4>
+                  <h4 className="text-sm font-medium text-[var(--text-primary)] leading-relaxed">{q.question}</h4>
 
                   {/* USER VS CORRECT KEY */}
                   <div className="grid grid-cols-2 gap-3 mt-3 text-xs font-mono">
-                    <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-300">
+                    <div className="p-2 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-secondary)]">
                       Your Answer: <strong className={isCorrect ? 'text-emerald-400' : 'text-rose-400'}>{userAns || 'None (Skipped)'}</strong>
                     </div>
-                    <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-emerald-400 font-bold">
+                    <div className="p-2 rounded bg-[var(--bg-base)] border border-[var(--border-subtle)] text-emerald-400 font-bold">
                       Correct Key: <strong>Option ({q.correctOption})</strong>
                     </div>
                   </div>
 
                   {/* EXPLANATION & TRAP NOTE */}
-                  <div className="mt-3 p-3 rounded-lg border border-neutral-800/80 bg-neutral-950/80 text-xs text-neutral-300 leading-relaxed">
+                  <div className="mt-3 p-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-base)] text-xs text-[var(--text-secondary)] leading-relaxed">
                     <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1 mb-1">
                       <AlertTriangle className="w-3.5 h-3.5 text-amber-400" /> Why Examiners Trap Candidates Here:
                     </div>
                     <p className="text-amber-200/90">{q.trapExplanation}</p>
-                    <p className="mt-2 text-neutral-400 border-t border-neutral-800/60 pt-2">
+                    <p className="mt-2 text-[var(--text-muted)] border-t border-[var(--border-subtle)] pt-2">
                       <strong>Legal Analysis:</strong> {q.detailedAnalysis}
                     </p>
                   </div>

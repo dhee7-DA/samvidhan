@@ -111,14 +111,14 @@ export const MajoritiesLabView: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30">
                 <Vote className="w-3.5 h-3.5" /> High-Yield Voting & Quorum Engine
               </span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-neutral-800 text-neutral-400 font-mono">
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] font-mono">
                 Art. 100(3) • Art. 368 • Art. 61
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-100 flex items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)] flex items-center gap-3">
               Constitutional Majorities Master Lab
             </h1>
-            <p className="mt-2 text-sm text-neutral-400 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
               Every type of parliamentary majority (Simple, Effective, Absolute, Special Types 1, 2, 3, and Federal Ratification), quorum rules, live math simulator, and negative marking trap alerts.
             </p>
           </div>
@@ -126,7 +126,7 @@ export const MajoritiesLabView: React.FC = () => {
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={() => setActiveTab('articles')}
-              className="flex-1 sm:flex-none px-4 py-2 text-xs font-medium rounded-lg border border-neutral-700 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-200 transition-colors flex items-center justify-center gap-1.5"
+              className="flex-1 sm:flex-none px-4 py-2 text-xs font-medium rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface-elevated)] hover:bg-neutral-700/80 text-[var(--text-primary)] transition-colors flex items-center justify-center gap-1.5"
             >
               Bare Act Explorer →
             </button>
@@ -134,13 +134,13 @@ export const MajoritiesLabView: React.FC = () => {
         </div>
 
         {/* PRIMARY SUBVIEW TABS */}
-        <div className="flex items-center gap-2 mt-6 overflow-x-auto pb-1 border-b border-neutral-800">
+        <div className="flex items-center gap-2 mt-6 overflow-x-auto pb-1 border-b border-[var(--border-subtle)]">
           <button
             onClick={() => setActiveMode('types')}
             className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
               activeMode === 'types'
                 ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)]'
             }`}
           >
             <Vote className="w-3.5 h-3.5" /> All 7 Majorities Breakdown
@@ -150,7 +150,7 @@ export const MajoritiesLabView: React.FC = () => {
             className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
               activeMode === 'matrix'
                 ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)]'
             }`}
           >
             <Scale className="w-3.5 h-3.5" /> Constitutional Action Matrix (11 Actions)
@@ -160,7 +160,7 @@ export const MajoritiesLabView: React.FC = () => {
             className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
               activeMode === 'calculator'
                 ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)]'
             }`}
           >
             <Calculator className="w-3.5 h-3.5" /> Interactive Threshold Calculator
@@ -170,7 +170,7 @@ export const MajoritiesLabView: React.FC = () => {
             className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all flex items-center gap-2 shrink-0 ${
               activeMode === 'drill'
                 ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/25'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)]'
             }`}
           >
             <Zap className="w-3.5 h-3.5" /> Majorities Speed Drill ({MAJORITY_DRILL_QUESTIONS.length})
@@ -192,7 +192,7 @@ export const MajoritiesLabView: React.FC = () => {
                 className={`p-3 rounded-xl border text-left transition-all ${
                   selectedMajorityId === maj.id
                     ? 'border-rose-500 bg-rose-950/30 text-rose-200 shadow-md ring-1 ring-rose-500/50'
-                    : 'border-neutral-800 bg-neutral-900/60 hover:bg-neutral-800 text-neutral-400'
+                    : 'border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)]'
                 }`}
               >
                 <div className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">
@@ -208,19 +208,19 @@ export const MajoritiesLabView: React.FC = () => {
           </div>
 
           {/* DETAILED ACTIVE MAJORITY DOSSIER */}
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-md">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-neutral-800 pb-4">
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
               <div>
                 <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">
                   {selectedMajorityDetail.hindiName}
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-neutral-100 mt-2">
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mt-2">
                   {selectedMajorityDetail.name}
                 </h2>
-                <p className="text-sm text-neutral-400 mt-1">{selectedMajorityDetail.description}</p>
+                <p className="text-sm text-[var(--text-muted)] mt-1">{selectedMajorityDetail.description}</p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-neutral-800 border border-neutral-700 text-neutral-300">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-secondary)]">
                   Formula: {selectedMajorityDetail.formula}
                 </span>
               </div>
@@ -232,19 +232,19 @@ export const MajoritiesLabView: React.FC = () => {
                 <div className="text-xs font-semibold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
                   <Calculator className="w-4 h-4" /> Voting Formula & Math
                 </div>
-                <div className="text-sm font-mono text-neutral-200 mt-2 font-medium">
+                <div className="text-sm font-mono text-[var(--text-primary)] mt-2 font-medium">
                   {selectedMajorityDetail.formula}
                 </div>
-                <div className="text-xs text-neutral-400 mt-2 leading-relaxed bg-neutral-900/80 p-2.5 rounded-lg border border-neutral-800">
+                <div className="text-xs text-[var(--text-muted)] mt-2 leading-relaxed bg-[var(--bg-surface)] p-2.5 rounded-lg border border-[var(--border-subtle)]">
                   <strong>Practical Example:</strong> {selectedMajorityDetail.exampleMath}
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/60">
-                <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Scale className="w-4 h-4 text-neutral-300" /> Quorum & Counting Rules
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
+                <div className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
+                  <Scale className="w-4 h-4 text-[var(--text-secondary)]" /> Quorum & Counting Rules
                 </div>
-                <div className="text-sm text-neutral-300 mt-2 leading-relaxed">
+                <div className="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">
                   {selectedMajorityDetail.quorumRule}
                 </div>
               </div>
@@ -252,14 +252,14 @@ export const MajoritiesLabView: React.FC = () => {
 
             {/* WHERE IT IS APPLIED */}
             <div className="mt-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-300 mb-3 flex items-center gap-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-3 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Constitutional Actions Requiring This Majority
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {selectedMajorityDetail.appliedActions.map((action, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-lg border border-neutral-800/80 bg-neutral-950/40 text-xs text-neutral-200 flex items-start gap-2"
+                    className="p-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-base)] text-xs text-[var(--text-primary)] flex items-start gap-2"
                   >
                     <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{action}</span>
@@ -273,7 +273,7 @@ export const MajoritiesLabView: React.FC = () => {
               <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4 text-amber-400" /> Primary Examiner Negative Marking Traps
               </div>
-              <ul className="mt-3 space-y-2 text-xs text-neutral-300">
+              <ul className="mt-3 space-y-2 text-xs text-[var(--text-secondary)]">
                 {selectedMajorityDetail.examinerTraps.map((trap, idx) => (
                   <li key={idx} className="flex items-start gap-2 leading-relaxed">
                     <span className="text-amber-400 font-bold shrink-0">•</span>
@@ -300,7 +300,7 @@ export const MajoritiesLabView: React.FC = () => {
                 placeholder="Search action or article..."
                 value={actionSearchTerm}
                 onChange={(e) => setActionSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 rounded-xl border border-neutral-800 bg-neutral-900 text-xs text-neutral-200 focus:outline-none focus:border-rose-500"
+                className="w-full pl-9 pr-4 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs text-[var(--text-primary)] focus:outline-none focus:border-rose-500"
               />
             </div>
 
@@ -316,7 +316,7 @@ export const MajoritiesLabView: React.FC = () => {
                     className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors shrink-0 ${
                       selectedCategory === cat
                         ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40'
-                        : 'bg-neutral-800 text-neutral-400 hover:text-neutral-200'
+                        : 'bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                     }`}
                   >
                     {cat}
@@ -333,11 +333,11 @@ export const MajoritiesLabView: React.FC = () => {
               return (
                 <div
                   key={action.id}
-                  className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-5 hover:border-neutral-700 transition-all flex flex-col justify-between"
+                  className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 hover:border-[var(--border-strong)] transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-muted)]">
                         {action.category}
                       </span>
                       <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
@@ -345,13 +345,13 @@ export const MajoritiesLabView: React.FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-sm font-bold text-neutral-100">{action.actionTitle}</h3>
+                    <h3 className="text-sm font-bold text-[var(--text-primary)]">{action.actionTitle}</h3>
 
                     <div className="flex flex-wrap gap-1 mt-2">
                       {action.articlesInvolved.map((art, idx) => (
                         <span
                           key={idx}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-950 text-neutral-400 border border-neutral-800"
+                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)]"
                         >
                           {art}
                         </span>
@@ -359,23 +359,23 @@ export const MajoritiesLabView: React.FC = () => {
                     </div>
 
                     {/* REQUIRED MAJORITY BADGE */}
-                    <div className="mt-3 p-2.5 rounded-lg border border-neutral-800 bg-neutral-950/80">
+                    <div className="mt-3 p-2.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-base)]">
                       <div className="text-[10px] uppercase font-bold tracking-wider text-rose-400">
                         Required Majority:
                       </div>
-                      <div className="text-xs font-bold text-neutral-200 mt-0.5">
+                      <div className="text-xs font-bold text-[var(--text-primary)] mt-0.5">
                         {matchedMaj ? matchedMaj.name : action.majorityRequiredId}
                       </div>
-                      <div className="text-[10px] text-neutral-400 font-mono mt-1">
+                      <div className="text-[10px] text-[var(--text-muted)] font-mono mt-1">
                         {matchedMaj?.formula}
                       </div>
                     </div>
 
-                    <p className="text-xs text-neutral-400 mt-3 leading-relaxed">{action.keyNuance}</p>
+                    <p className="text-xs text-[var(--text-muted)] mt-3 leading-relaxed">{action.keyNuance}</p>
                   </div>
 
                   {/* EXAMINER TRAP CALLOUT */}
-                  <div className="mt-4 pt-3 border-t border-neutral-800/80">
+                  <div className="mt-4 pt-3 border-t border-[var(--border-subtle)]">
                     <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1">
                       <AlertTriangle className="w-3 h-3 text-amber-400" /> Examiner Trap:
                     </div>
@@ -395,30 +395,30 @@ export const MajoritiesLabView: React.FC = () => {
       {/* ============================================================== */}
       {activeMode === 'calculator' && (
         <div className="space-y-6">
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-md">
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md">
             <div className="max-w-xl">
               <div className="text-xs font-mono uppercase tracking-wider text-rose-400 flex items-center gap-1.5">
                 <Calculator className="w-4 h-4" /> Real-Time Mathematical Threshold Simulator
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-neutral-100 mt-1">
+              <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mt-1">
                 Parliamentary Majority Math Bench
               </h2>
-              <p className="text-xs text-neutral-400 mt-1">
+              <p className="text-xs text-[var(--text-muted)] mt-1">
                 Enter simulated attendance, vacancies, and voting numbers to instantly compute the exact cutoff required for every constitutional majority type.
               </p>
             </div>
 
             {/* INPUTS ROW */}
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-6 p-4 rounded-xl border border-neutral-800 bg-neutral-950/60">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-6 p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
               <div>
-                <label className="text-xs font-semibold text-neutral-400 block mb-1.5">Select House:</label>
+                <label className="text-xs font-semibold text-[var(--text-muted)] block mb-1.5">Select House:</label>
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleHouseChange('LS')}
                     className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${
                       selectedHouse === 'LS'
                         ? 'bg-rose-500 text-white'
-                        : 'bg-neutral-800 text-neutral-400 hover:text-neutral-200'
+                        : 'bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                     }`}
                   >
                     Lok Sabha (543)
@@ -428,7 +428,7 @@ export const MajoritiesLabView: React.FC = () => {
                     className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${
                       selectedHouse === 'RS'
                         ? 'bg-rose-500 text-white'
-                        : 'bg-neutral-800 text-neutral-400 hover:text-neutral-200'
+                        : 'bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                     }`}
                   >
                     Rajya Sabha (245)
@@ -437,38 +437,38 @@ export const MajoritiesLabView: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-400 block mb-1.5">
+                <label className="text-xs font-semibold text-[var(--text-muted)] block mb-1.5">
                   Total Sanctioned Seats:
                 </label>
                 <input
                   type="number"
                   value={totalSeats}
                   onChange={(e) => setTotalSeats(Number(e.target.value))}
-                  className="w-full px-3 py-1.5 rounded-lg border border-neutral-800 bg-neutral-900 text-xs font-mono text-neutral-100 focus:outline-none focus:border-rose-500"
+                  className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-rose-500"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-400 block mb-1.5">
+                <label className="text-xs font-semibold text-[var(--text-muted)] block mb-1.5">
                   Vacant Seats (Deaths/Resignations):
                 </label>
                 <input
                   type="number"
                   value={vacancies}
                   onChange={(e) => setVacancies(Number(e.target.value))}
-                  className="w-full px-3 py-1.5 rounded-lg border border-neutral-800 bg-neutral-900 text-xs font-mono text-neutral-100 focus:outline-none focus:border-rose-500"
+                  className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-rose-500"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-400 block mb-1.5">
+                <label className="text-xs font-semibold text-[var(--text-muted)] block mb-1.5">
                   Members Present & Voting:
                 </label>
                 <input
                   type="number"
                   value={presentAndVoting}
                   onChange={(e) => setPresentAndVoting(Number(e.target.value))}
-                  className="w-full px-3 py-1.5 rounded-lg border border-neutral-800 bg-neutral-900 text-xs font-mono text-neutral-100 focus:outline-none focus:border-rose-500"
+                  className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-mono text-[var(--text-primary)] focus:outline-none focus:border-rose-500"
                 />
               </div>
             </div>
@@ -476,9 +476,9 @@ export const MajoritiesLabView: React.FC = () => {
             {/* LIVE COMPUTATION RESULTS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
               {/* Simple */}
-              <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/40">
-                <div className="text-xs text-neutral-400 font-medium">Simple Majority Cutoff</div>
-                <div className="text-2xl font-bold font-mono text-neutral-100 mt-1">
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
+                <div className="text-xs text-[var(--text-muted)] font-medium">Simple Majority Cutoff</div>
+                <div className="text-2xl font-bold font-mono text-[var(--text-primary)] mt-1">
                   {simpleReq} <span className="text-xs text-neutral-500 font-normal">votes needed</span>
                 </div>
                 <div className="text-[11px] text-neutral-500 mt-1 font-mono">
@@ -495,15 +495,15 @@ export const MajoritiesLabView: React.FC = () => {
                 <div className="text-2xl font-bold font-mono text-amber-200 mt-1">
                   {effectiveReq} <span className="text-xs text-neutral-500 font-normal">votes needed</span>
                 </div>
-                <div className="text-[11px] text-neutral-400 mt-1 font-mono">
+                <div className="text-[11px] text-[var(--text-muted)] mt-1 font-mono">
                   &gt; 50% of ({totalSeats} - {vacancies} vacancies)
                 </div>
               </div>
 
               {/* Absolute */}
-              <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/40">
-                <div className="text-xs text-neutral-400 font-medium">Absolute Majority Cutoff</div>
-                <div className="text-2xl font-bold font-mono text-neutral-100 mt-1">
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
+                <div className="text-xs text-[var(--text-muted)] font-medium">Absolute Majority Cutoff</div>
+                <div className="text-2xl font-bold font-mono text-[var(--text-primary)] mt-1">
                   {absoluteReq} <span className="text-xs text-neutral-500 font-normal">votes needed</span>
                 </div>
                 <div className="text-[11px] text-neutral-500 mt-1 font-mono">
@@ -512,9 +512,9 @@ export const MajoritiesLabView: React.FC = () => {
               </div>
 
               {/* Special Type 1 */}
-              <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/40">
-                <div className="text-xs text-neutral-400 font-medium">Special Type 1 (Art 249/312)</div>
-                <div className="text-2xl font-bold font-mono text-neutral-100 mt-1">
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]">
+                <div className="text-xs text-[var(--text-muted)] font-medium">Special Type 1 (Art 249/312)</div>
+                <div className="text-2xl font-bold font-mono text-[var(--text-primary)] mt-1">
                   {specialType1Req} <span className="text-xs text-neutral-500 font-normal">votes needed</span>
                 </div>
                 <div className="text-[11px] text-neutral-500 mt-1 font-mono">
@@ -531,7 +531,7 @@ export const MajoritiesLabView: React.FC = () => {
                 <div className="text-2xl font-bold font-mono text-rose-200 mt-1">
                   {specialType2Req} <span className="text-xs text-neutral-500 font-normal">votes needed</span>
                 </div>
-                <div className="text-[11px] text-neutral-300 mt-1 font-mono">
+                <div className="text-[11px] text-[var(--text-secondary)] mt-1 font-mono">
                   Max({absoluteReq} absolute floor, {specialType1Req} 2/3rd voting)
                 </div>
               </div>
@@ -545,7 +545,7 @@ export const MajoritiesLabView: React.FC = () => {
                 <div className="text-2xl font-bold font-mono text-purple-200 mt-1">
                   {specialType3Req} <span className="text-xs text-neutral-500 font-normal">votes needed</span>
                 </div>
-                <div className="text-[11px] text-neutral-400 mt-1 font-mono">
+                <div className="text-[11px] text-[var(--text-muted)] mt-1 font-mono">
                   2/3rd of TOTAL {totalSeats} seats
                 </div>
               </div>
@@ -558,22 +558,22 @@ export const MajoritiesLabView: React.FC = () => {
       {/* MODE 4: MAJORITIES SPEED DRILL */}
       {/* ============================================================== */}
       {activeMode === 'drill' && (
-        <div className="max-w-3xl mx-auto rounded-2xl border border-neutral-800 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-md">
-          <div className="flex items-center justify-between border-b border-neutral-800 pb-4 mb-6">
+        <div className="max-w-3xl mx-auto rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md">
+          <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-4 mb-6">
             <div>
               <span className="text-xs font-mono text-rose-400 font-semibold uppercase tracking-wider">
                 Question {currentDrillIndex + 1} of {MAJORITY_DRILL_QUESTIONS.length}
               </span>
-              <h2 className="text-sm sm:text-base font-bold text-neutral-100 mt-1">
+              <h2 className="text-sm sm:text-base font-bold text-[var(--text-primary)] mt-1">
                 Parliamentary Majorities Recall Drill
               </h2>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-xs font-mono text-neutral-300">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-xs font-mono text-[var(--text-secondary)]">
               <Award className="w-3.5 h-3.5 text-rose-400" /> Score: {score} / {MAJORITY_DRILL_QUESTIONS.length}
             </div>
           </div>
 
-          <h3 className="text-base sm:text-lg font-medium text-neutral-100 leading-relaxed mb-6">
+          <h3 className="text-base sm:text-lg font-medium text-[var(--text-primary)] leading-relaxed mb-6">
             {currentQuestion.question}
           </h3>
 
@@ -584,14 +584,14 @@ export const MajoritiesLabView: React.FC = () => {
               const isCorrect = opt === currentQuestion.correctAnswer;
 
               let btnStyle =
-                'border-neutral-800 bg-neutral-950/60 hover:bg-neutral-800/80 text-neutral-300';
+                'border-[var(--border-subtle)] bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)]';
               if (isAnswerSubmitted) {
                 if (isCorrect) {
                   btnStyle = 'border-emerald-500/60 bg-emerald-950/30 text-emerald-200 font-semibold';
                 } else if (isSelected && !isCorrect) {
                   btnStyle = 'border-rose-500/60 bg-rose-950/30 text-rose-200';
                 } else {
-                  btnStyle = 'border-neutral-800/40 bg-neutral-950/20 text-neutral-600 opacity-60';
+                  btnStyle = 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-neutral-600 opacity-60';
                 }
               }
 
@@ -638,7 +638,7 @@ export const MajoritiesLabView: React.FC = () => {
                     </>
                   )}
                 </div>
-                <p className="mt-2 text-neutral-300">
+                <p className="mt-2 text-[var(--text-secondary)]">
                   <strong>Official Key Explanation:</strong> {currentQuestion.explanation}
                 </p>
               </div>

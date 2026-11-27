@@ -323,7 +323,7 @@ export const ReadinessIndexView: React.FC = () => {
   // Modernized monochrome & disciplined score styling
   const getScoreColor = (score: number) => {
     if (score >= 75) return 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
-    if (score >= 50) return 'text-zinc-200 bg-zinc-800 border-zinc-700';
+    if (score >= 50) return 'text-[var(--text-primary)] bg-[var(--bg-surface-elevated)] border-[var(--border-strong)]';
     return 'text-rose-400 bg-rose-500/10 border-rose-500/30';
   };
 
@@ -370,7 +370,7 @@ export const ReadinessIndexView: React.FC = () => {
             onClick={() => handleLaunchDiagnosticDrill()}
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-mono text-xs font-bold shadow-xs transition-all btn-tactile cursor-pointer"
           >
-            <Zap className="w-4 h-4 text-zinc-300" />
+            <Zap className="w-4 h-4 text-[var(--text-secondary)]" />
             <span>10-Q DIAGNOSTIC</span>
           </button>
           <button
@@ -391,7 +391,7 @@ export const ReadinessIndexView: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
             Select Target Examination Focus
           </span>
-          <span className="text-xs font-mono text-zinc-300">
+          <span className="text-xs font-mono text-[var(--text-secondary)]">
             {EXAM_PROFILES[selectedProfile].focusArea}
           </span>
         </div>
@@ -405,8 +405,8 @@ export const ReadinessIndexView: React.FC = () => {
                 onClick={() => setSelectedProfile(key)}
                 className={`p-3 rounded-xl text-left border transition-all btn-tactile flex flex-col justify-between cursor-pointer ${
                   isSelected
-                    ? 'bg-zinc-900 border-zinc-400 ring-1 ring-zinc-400 shadow-sm'
-                    : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-zinc-700'
+                    ? 'bg-[var(--bg-surface)] border-zinc-400 ring-1 ring-zinc-400 shadow-sm'
+                    : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
                 }`}
               >
                 <div>
@@ -414,7 +414,7 @@ export const ReadinessIndexView: React.FC = () => {
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--badge-bg)] text-[var(--text-muted)] font-bold">
                       {p.badge}
                     </span>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-zinc-200" />}
+                    {isSelected && <Check className="w-3.5 h-3.5 text-[var(--text-primary)]" />}
                   </div>
                   <div className="text-xs font-bold text-[var(--text-primary)] leading-tight">
                     {p.title}
@@ -513,11 +513,11 @@ export const ReadinessIndexView: React.FC = () => {
             onClick={() => setFilterTier(filterTier === 'moderate' ? 'all' : 'moderate')}
             className={`p-3.5 rounded-xl border text-left transition-all btn-tactile flex flex-col justify-between cursor-pointer ${
               filterTier === 'moderate'
-                ? 'bg-zinc-800 border-zinc-400 ring-1 ring-zinc-400'
-                : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-zinc-700'
+                ? 'bg-[var(--bg-surface-elevated)] border-zinc-400 ring-1 ring-zinc-400'
+                : 'bg-[var(--bg-base)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
             }`}
           >
-            <div className="flex items-center justify-between text-zinc-300">
+            <div className="flex items-center justify-between text-[var(--text-secondary)]">
               <span className="text-[10px] font-mono font-bold uppercase">Moderate (50-74%)</span>
               <AlertTriangle className="w-4 h-4" />
             </div>
@@ -548,7 +548,7 @@ export const ReadinessIndexView: React.FC = () => {
 
           {/* Card 4: Exam Projections */}
           <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col justify-between">
-            <div className="flex items-center justify-between text-zinc-300">
+            <div className="flex items-center justify-between text-[var(--text-secondary)]">
               <span className="text-[10px] font-mono font-bold uppercase">Competence</span>
               <TrendingUp className="w-4 h-4" />
             </div>
@@ -557,7 +557,7 @@ export const ReadinessIndexView: React.FC = () => {
                 Prelims: <span className="text-emerald-400">{report.projectedPrelimsAccuracy}%</span>
               </div>
               <div className="text-xs font-mono text-[var(--text-primary)] font-bold mt-0.5">
-                Mains: <span className="text-zinc-200">{report.projectedMainsCompetence}%</span>
+                Mains: <span className="text-[var(--text-primary)]">{report.projectedMainsCompetence}%</span>
               </div>
             </div>
             <div className="text-[10px] text-[var(--text-muted)] mt-1">Projected conversion</div>
@@ -568,7 +568,7 @@ export const ReadinessIndexView: React.FC = () => {
       {/* =========================================================================
           🔥 15-MINUTE DAILY PRESCRIPTION: WEAKEST LINK REMEDIATION ENGINE
           ========================================================================= */}
-      <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <ConstitutionalWatermark variant="chakra" position="bottom-right" size="md" animated className="text-white !opacity-[0.06]" />
         <div className="relative z-10 space-y-2 max-w-2xl">
           <div className="flex items-center gap-2">
@@ -576,7 +576,7 @@ export const ReadinessIndexView: React.FC = () => {
               <Zap className="w-3 h-3" />
               Dynamic Remediation Engine
             </span>
-            <span className="text-[11px] font-mono text-zinc-400">
+            <span className="text-[11px] font-mono text-[var(--text-muted)]">
               15-Minute Daily Tactical Prescription
             </span>
           </div>
@@ -585,20 +585,20 @@ export const ReadinessIndexView: React.FC = () => {
             Targeted Remediation for Your Weakest Constitutional Nodes
           </h2>
 
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-            Synthesized from your lowest scoring syllabus segments: <strong className="text-zinc-100">{report.criticalBlindspots.map(b => b.part.partNumber).join(', ')}</strong> ({report.criticalBlindspots.map(b => b.part.title).join(', ')}). Bypasses familiar material to target high-yield failure points.
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+            Synthesized from your lowest scoring syllabus segments: <strong className="text-[var(--text-primary)]">{report.criticalBlindspots.map(b => b.part.partNumber).join(', ')}</strong> ({report.criticalBlindspots.map(b => b.part.title).join(', ')}). Bypasses familiar material to target high-yield failure points.
           </p>
 
-          <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] font-mono text-zinc-400">
-            <span className="px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-200">
+          <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] font-mono text-[var(--text-muted)]">
+            <span className="px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)]">
               5 Diagnostic MCQs
             </span>
             <span className="text-zinc-600">&bull;</span>
-            <span className="px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-200">
+            <span className="px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)]">
               1 Landmark Ratio
             </span>
             <span className="text-zinc-600">&bull;</span>
-            <span className="px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-200">
+            <span className="px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-[var(--text-primary)]">
               1 Trap Statement
             </span>
             <span className="text-zinc-600">&bull;</span>
@@ -622,7 +622,7 @@ export const ReadinessIndexView: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-zinc-800 text-zinc-200 border border-zinc-700 flex items-center gap-1.5">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] flex items-center gap-1.5">
                 <Gauge className="w-3.5 h-3.5" />
                 Prelims Risk Engine
               </span>
@@ -651,7 +651,7 @@ export const ReadinessIndexView: React.FC = () => {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between text-xs font-mono">
                 <span className="text-[var(--text-secondary)] font-semibold">Target Questions Attempted:</span>
-                <span className="font-extrabold text-[var(--text-primary)] px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700">
+                <span className="font-extrabold text-[var(--text-primary)] px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)]">
                   {targetAttempts} / 100 Questions
                 </span>
               </div>
@@ -662,7 +662,7 @@ export const ReadinessIndexView: React.FC = () => {
                 step="1"
                 value={targetAttempts}
                 onChange={(e) => setTargetAttempts(Number(e.target.value))}
-                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
+                className="w-full h-1.5 bg-[var(--bg-surface-elevated)] rounded-lg appearance-none cursor-pointer accent-white"
               />
               <div className="flex justify-between text-[10px] font-mono text-[var(--text-muted)]">
                 <span>Conservative (50)</span>
@@ -674,7 +674,7 @@ export const ReadinessIndexView: React.FC = () => {
             <div className="space-y-1.5 pt-2 border-t border-[var(--border-subtle)]">
               <div className="flex items-center justify-between text-xs font-mono">
                 <span className="text-[var(--text-secondary)] font-semibold">Estimated Gross Accuracy:</span>
-                <span className="font-extrabold text-[var(--text-primary)] px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700">
+                <span className="font-extrabold text-[var(--text-primary)] px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)]">
                   {estimatedAccuracy}%
                 </span>
               </div>
@@ -685,7 +685,7 @@ export const ReadinessIndexView: React.FC = () => {
                 step="1"
                 value={estimatedAccuracy}
                 onChange={(e) => setEstimatedAccuracy(Number(e.target.value))}
-                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
+                className="w-full h-1.5 bg-[var(--bg-surface-elevated)] rounded-lg appearance-none cursor-pointer accent-white"
               />
               <div className="flex justify-between text-[10px] font-mono text-[var(--text-muted)]">
                 <span>Vulnerable (50%)</span>
@@ -694,12 +694,12 @@ export const ReadinessIndexView: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-lg bg-zinc-900 border border-zinc-800 text-[11px] text-zinc-300 space-y-1 leading-snug">
+            <div className="p-3 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[11px] text-[var(--text-secondary)] space-y-1 leading-snug">
               <div className="font-bold text-white flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-zinc-300" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
                 <span>Tactical Prescription:</span>
               </div>
-              <p className="text-zinc-400">
+              <p className="text-[var(--text-muted)]">
                 {riskProfile.tacticalAdvice}
               </p>
             </div>
@@ -708,11 +708,11 @@ export const ReadinessIndexView: React.FC = () => {
           {/* Right Column: Calculated Mathematical Score Breakdown (7 cols) */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col justify-between">
-              <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">Gross Marks</span>
+              <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] font-bold">Gross Marks</span>
               <div className="text-2xl font-mono font-black text-emerald-400 mt-1">
                 +{riskProfile.grossMarks}
               </div>
-              <span className="text-[10px] font-mono text-zinc-400 mt-0.5">
+              <span className="text-[10px] font-mono text-[var(--text-muted)] mt-0.5">
                 {riskProfile.correctQuestions} correct (+2.0)
               </span>
             </div>
@@ -728,11 +728,11 @@ export const ReadinessIndexView: React.FC = () => {
             </div>
 
             <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex flex-col justify-between">
-              <span className="text-[10px] font-mono uppercase text-zinc-300 font-bold">Projected Net</span>
+              <span className="text-[10px] font-mono uppercase text-[var(--text-secondary)] font-bold">Projected Net</span>
               <div className="text-2xl font-mono font-black text-white mt-1">
                 {riskProfile.netScore}
               </div>
-              <span className="text-[10px] font-mono text-zinc-400 mt-0.5">
+              <span className="text-[10px] font-mono text-[var(--text-muted)] mt-0.5">
                 Out of 200.0 Marks
               </span>
             </div>
@@ -742,13 +742,13 @@ export const ReadinessIndexView: React.FC = () => {
                 ? 'bg-emerald-500/10 border-emerald-500/30'
                 : 'bg-rose-500/10 border-rose-500/30'
             }`}>
-              <span className="text-[10px] font-mono uppercase font-bold text-zinc-300">Cutoff Margin</span>
+              <span className="text-[10px] font-mono uppercase font-bold text-[var(--text-secondary)]">Cutoff Margin</span>
               <div className={`text-2xl font-mono font-black mt-1 ${
                 riskProfile.clearanceMargin >= 0 ? 'text-emerald-400' : 'text-rose-400'
               }`}>
                 {riskProfile.clearanceMargin >= 0 ? `+${riskProfile.clearanceMargin}` : riskProfile.clearanceMargin}
               </div>
-              <span className="text-[10px] font-mono text-zinc-400 mt-0.5">
+              <span className="text-[10px] font-mono text-[var(--text-muted)] mt-0.5">
                 vs 88.0 Benchmark
               </span>
             </div>
@@ -796,7 +796,7 @@ export const ReadinessIndexView: React.FC = () => {
 
                 <div className="text-xs text-[var(--text-secondary)] mt-2.5 leading-relaxed bg-[var(--bg-base)] p-2.5 rounded-lg border border-[var(--border-subtle)]">
                   <div className="font-semibold text-[var(--text-primary)] mb-1 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-zinc-300" />
+                    <Sparkles className="w-3 h-3 text-[var(--text-secondary)]" />
                     <span>2024–2025 Bench Anchor:</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] line-clamp-2">
@@ -849,7 +849,7 @@ export const ReadinessIndexView: React.FC = () => {
                 onClick={() => setFilterTier(tier)}
                 className={`px-2.5 py-1 rounded-lg text-xs font-mono capitalize transition-all cursor-pointer ${
                   filterTier === tier
-                    ? 'bg-zinc-800 text-white font-bold border border-zinc-700'
+                    ? 'bg-[var(--bg-surface-elevated)] text-white font-bold border border-[var(--border-strong)]'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
                 }`}
               >
@@ -906,18 +906,18 @@ export const ReadinessIndexView: React.FC = () => {
             return (
               <div
                 key={pStat.pillar.id}
-                className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-zinc-700 transition-all flex flex-col justify-between space-y-4 shadow-sm"
+                className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col justify-between space-y-4 shadow-sm"
               >
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700">
+                    <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)]">
                       {pStat.pillar.articleSpan}
                     </span>
                     <div className="flex items-center gap-2">
                       <span className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded ${
                         pStat.pillar.upscYield === 'EXTREME'
                           ? 'bg-rose-500/10 text-rose-400 border border-rose-500/30'
-                          : 'bg-zinc-800 text-zinc-300 border border-zinc-700'
+                          : 'bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-strong)]'
                       }`}>
                         {pStat.pillar.upscYield} Yield
                       </span>
@@ -937,7 +937,7 @@ export const ReadinessIndexView: React.FC = () => {
                   </div>
 
                   {/* Progress Bar */}
-                  <div className="w-full h-1.5 rounded-full bg-zinc-800 overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-[var(--bg-surface-elevated)] overflow-hidden">
                     <div
                       className={`h-full bg-gradient-to-r ${gradient}`}
                       style={{ width: `${pStat.readinessScore}%` }}
@@ -1023,7 +1023,7 @@ export const ReadinessIndexView: React.FC = () => {
 
                   <div className="flex items-center gap-1 mt-2 text-[10px] text-[var(--text-muted)] font-mono">
                     <span>Yield:</span>
-                    <span className="text-zinc-300 font-bold">
+                    <span className="text-[var(--text-secondary)] font-bold">
                       {'★'.repeat(item.part.mainsImportance)}
                     </span>
                   </div>
@@ -1062,7 +1062,7 @@ export const ReadinessIndexView: React.FC = () => {
           {Object.entries(groupedParts).map(([category, items]) => (
             <div key={category} className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-200 bg-zinc-800 px-2.5 py-0.5 rounded-md border border-zinc-700">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-primary)] bg-[var(--bg-surface-elevated)] px-2.5 py-0.5 rounded-md border border-[var(--border-strong)]">
                   {category}
                 </span>
                 <span className="text-xs font-mono text-[var(--text-muted)]">
@@ -1124,7 +1124,7 @@ export const ReadinessIndexView: React.FC = () => {
       <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-4">
           <div>
-            <div className="flex items-center gap-2 text-zinc-300 mb-1">
+            <div className="flex items-center gap-2 text-[var(--text-secondary)] mb-1">
               <Clock className="w-4 h-4" />
               <h2 className="text-sm font-extrabold uppercase font-mono tracking-wider">
                 Prescribed 7-Day Tactical Revision Schedule
@@ -1147,7 +1147,7 @@ export const ReadinessIndexView: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono font-extrabold px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700">
+                  <span className="text-[10px] font-mono font-extrabold px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)]">
                     DAY {plan.day} SPRINT
                   </span>
                 </div>
@@ -1188,7 +1188,7 @@ export const ReadinessIndexView: React.FC = () => {
             <div className="p-5 border-b border-[var(--border-subtle)] flex items-start justify-between gap-4 sticky top-0 bg-[var(--bg-surface)]/95 backdrop-blur z-10">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)]">
                     {activePartForModal.part.partNumber} &bull; {activePartForModal.part.category}
                   </span>
                   <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded border ${getScoreColor(activePartForModal.readinessScore)}`}>
@@ -1229,7 +1229,7 @@ export const ReadinessIndexView: React.FC = () => {
                   </div>
                   <div className="p-2 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
                     <div className="text-xs font-mono text-[var(--text-muted)]">Mains Drafts</div>
-                    <div className="text-base font-extrabold font-mono text-zinc-200 mt-0.5">
+                    <div className="text-base font-extrabold font-mono text-[var(--text-primary)] mt-0.5">
                       {activePartForModal.mainsDraftsCount}
                     </div>
                     <div className="text-[10px] text-[var(--text-muted)]">
@@ -1256,7 +1256,7 @@ export const ReadinessIndexView: React.FC = () => {
                 <div className="pt-2 border-t border-[var(--border-subtle)]">
                   <div className="flex items-center justify-between text-xs font-mono mb-1">
                     <span className="text-[var(--text-secondary)]">Offline Reading Calibration (Self-Audit):</span>
-                    <span className="text-zinc-200 font-bold">+{offlineBonusSlider}% Bonus</span>
+                    <span className="text-[var(--text-primary)] font-bold">+{offlineBonusSlider}% Bonus</span>
                   </div>
                   <input
                     type="range"
@@ -1274,8 +1274,8 @@ export const ReadinessIndexView: React.FC = () => {
               </div>
 
               {/* 2024–2025 Bench Anchor */}
-              <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-700">
-                <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-zinc-300 uppercase mb-1">
+              <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-strong)]">
+                <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--text-secondary)] uppercase mb-1">
                   <Sparkles className="w-4 h-4" />
                   <span>2024–2025 Landmark Bench Anchor</span>
                 </div>
@@ -1295,7 +1295,7 @@ export const ReadinessIndexView: React.FC = () => {
                       key={art.number}
                       className="p-2.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-start gap-2.5 text-xs"
                     >
-                      <span className="font-mono font-bold text-zinc-200 shrink-0">
+                      <span className="font-mono font-bold text-[var(--text-primary)] shrink-0">
                         Art. {art.number}
                       </span>
                       <div>
@@ -1332,7 +1332,7 @@ export const ReadinessIndexView: React.FC = () => {
 
               {/* Mains Blueprint */}
               <div className="p-3.5 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)]">
-                <div className="text-xs font-mono font-bold text-zinc-300 uppercase mb-1">
+                <div className="text-xs font-mono font-bold text-[var(--text-secondary)] uppercase mb-1">
                   Mains Formulation Focus
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed italic">
@@ -1407,34 +1407,34 @@ export const ReadinessIndexView: React.FC = () => {
           ========================================================================= */}
       {isWeakestLinkModalOpen && activeWeakestDrill && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-          <div className="bg-zinc-950 border border-zinc-800 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col animate-scaleUp">
+          <div className="bg-[var(--bg-base)] border border-[var(--border-subtle)] rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col animate-scaleUp">
             {/* Modal Header with Live 15:00 Timer */}
-            <div className="p-5 border-b border-zinc-800 bg-zinc-900 flex items-center justify-between">
+            <div className="p-5 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white">
+                <div className="w-8 h-8 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] flex items-center justify-center text-white">
                   <Flame className="w-4 h-4 text-rose-400" />
                 </div>
                 <div>
                   <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
                     15-Minute Weakest Link Prescription
                   </h3>
-                  <div className="text-[10px] font-mono text-zinc-400 flex items-center gap-1.5">
+                  <div className="text-[10px] font-mono text-[var(--text-muted)] flex items-center gap-1.5">
                     <span>Target Nodes:</span>
-                    <span className="text-zinc-200">{activeWeakestDrill.targetPartTitles[0]}</span>
+                    <span className="text-[var(--text-primary)]">{activeWeakestDrill.targetPartTitles[0]}</span>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="px-3 py-1 rounded-xl bg-zinc-800 border border-zinc-700 font-mono text-xs font-bold text-white flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-zinc-400" />
+                <div className="px-3 py-1 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] font-mono text-xs font-bold text-white flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[var(--text-muted)]" />
                   <span>
                     {Math.floor(weakestTimerSeconds / 60)}:{(weakestTimerSeconds % 60).toString().padStart(2, '0')}
                   </span>
                 </div>
                 <button
                   onClick={() => setIsWeakestLinkModalOpen(false)}
-                  className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-white hover:bg-[var(--bg-surface-elevated)] transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -1442,14 +1442,14 @@ export const ReadinessIndexView: React.FC = () => {
             </div>
 
             {/* Stage Progress Pills */}
-            <div className="grid grid-cols-3 border-b border-zinc-800 bg-zinc-900/50 text-center font-mono text-[11px] font-bold">
-              <div className={`py-2.5 border-r border-zinc-800 ${weakestStage === 'mcqs' ? 'text-white bg-zinc-800/80' : 'text-zinc-400'}`}>
+            <div className="grid grid-cols-3 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] text-center font-mono text-[11px] font-bold">
+              <div className={`py-2.5 border-r border-[var(--border-subtle)] ${weakestStage === 'mcqs' ? 'text-white bg-[var(--bg-surface-elevated)]' : 'text-[var(--text-muted)]'}`}>
                 1. MCQs (5 Qs)
               </div>
-              <div className={`py-2.5 border-r border-zinc-800 ${weakestStage === 'precedent' ? 'text-white bg-zinc-800/80' : 'text-zinc-400'}`}>
+              <div className={`py-2.5 border-r border-[var(--border-subtle)] ${weakestStage === 'precedent' ? 'text-white bg-[var(--bg-surface-elevated)]' : 'text-[var(--text-muted)]'}`}>
                 2. Landmark Ratio
               </div>
-              <div className={`py-2.5 ${weakestStage === 'trap' || weakestStage === 'summary' ? 'text-white bg-zinc-800/80' : 'text-zinc-400'}`}>
+              <div className={`py-2.5 ${weakestStage === 'trap' || weakestStage === 'summary' ? 'text-white bg-[var(--bg-surface-elevated)]' : 'text-[var(--text-muted)]'}`}>
                 3. Trap Statement
               </div>
             </div>
@@ -1458,10 +1458,10 @@ export const ReadinessIndexView: React.FC = () => {
             {weakestStage === 'mcqs' && activeWeakestDrill.stage1MCQs.length > 0 && (
               <div className="p-6 space-y-5">
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-200 font-bold">
+                  <span className="px-2.5 py-1 rounded-md bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-bold">
                     Question {weakestMcqIndex + 1} of {activeWeakestDrill.stage1MCQs.length}
                   </span>
-                  <span className="text-zinc-400">
+                  <span className="text-[var(--text-muted)]">
                     Score: {weakestScore} Correct
                   </span>
                 </div>
@@ -1473,7 +1473,7 @@ export const ReadinessIndexView: React.FC = () => {
                 <div className="space-y-2">
                   {activeWeakestDrill.stage1MCQs[weakestMcqIndex].options.map((opt, idx) => {
                     const currentQ = activeWeakestDrill.stage1MCQs[weakestMcqIndex];
-                    let btnStyle = 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:border-zinc-500';
+                    let btnStyle = 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-zinc-500';
                     if (weakestOptionRevealed) {
                       if (idx === currentQ.correctIndex) {
                         btnStyle = 'bg-emerald-500/10 border-emerald-500 text-emerald-400 font-bold';
@@ -1499,16 +1499,16 @@ export const ReadinessIndexView: React.FC = () => {
                 </div>
 
                 {weakestOptionRevealed && (
-                  <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2 animate-fadeIn">
+                  <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2 animate-fadeIn">
                     <div className="flex items-center justify-between text-xs font-mono">
                       <span className={weakestSelectedOption === activeWeakestDrill.stage1MCQs[weakestMcqIndex].correctIndex ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
                         {weakestSelectedOption === activeWeakestDrill.stage1MCQs[weakestMcqIndex].correctIndex ? '✓ Correct Answer!' : '✗ Option Mismatch'}
                       </span>
-                      <span className="text-zinc-200 font-bold">
+                      <span className="text-[var(--text-primary)] font-bold">
                         {activeWeakestDrill.stage1MCQs[weakestMcqIndex].articleRef}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-300 leading-relaxed">
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                       {activeWeakestDrill.stage1MCQs[weakestMcqIndex].explanation}
                     </p>
                     <div className="pt-2 flex justify-end">
@@ -1531,29 +1531,29 @@ export const ReadinessIndexView: React.FC = () => {
             {weakestStage === 'precedent' && (
               <div className="p-6 space-y-5 animate-fadeIn">
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-200 font-bold">
+                  <span className="px-2.5 py-1 rounded-md bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-bold">
                     Stage 2: Landmark Precedent Ratio Test
                   </span>
-                  <span className="text-zinc-400">
+                  <span className="text-[var(--text-muted)]">
                     {activeWeakestDrill.stage2Precedent.articleRef}
                   </span>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-1">
-                  <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">
+                <div className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-1">
+                  <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] font-bold">
                     Landmark Precedent Challenge
                   </span>
                   <h4 className="text-sm font-extrabold text-white">
                     {activeWeakestDrill.stage2Precedent.caseName} ({activeWeakestDrill.stage2Precedent.year})
                   </h4>
-                  <p className="text-xs text-zinc-300 pt-1 leading-relaxed">
+                  <p className="text-xs text-[var(--text-secondary)] pt-1 leading-relaxed">
                     {activeWeakestDrill.stage2Precedent.challengeQuestion}
                   </p>
                 </div>
 
                 <div className="space-y-2.5">
                   {activeWeakestDrill.stage2Precedent.options.map((opt) => {
-                    let btnStyle = 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:border-zinc-500';
+                    let btnStyle = 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-zinc-500';
                     if (weakestPrecedentRevealed) {
                       if (opt.isCorrect) {
                         btnStyle = 'bg-emerald-500/10 border-emerald-500 text-emerald-400 font-bold';
@@ -1577,11 +1577,11 @@ export const ReadinessIndexView: React.FC = () => {
                 </div>
 
                 {weakestPrecedentRevealed && (
-                  <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2 animate-fadeIn">
+                  <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2 animate-fadeIn">
                     <span className="text-xs font-mono font-bold text-emerald-400 block">
                       Authoritative Supreme Court Ratio:
                     </span>
-                    <p className="text-xs text-zinc-300 leading-relaxed italic">
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed italic">
                       &ldquo;{activeWeakestDrill.stage2Precedent.authoritativeRatio}&rdquo;
                     </p>
                     <div className="pt-2 flex justify-end">
@@ -1602,16 +1602,16 @@ export const ReadinessIndexView: React.FC = () => {
             {weakestStage === 'trap' && (
               <div className="p-6 space-y-5 animate-fadeIn">
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-200 font-bold">
+                  <span className="px-2.5 py-1 rounded-md bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] font-bold">
                     Stage 3: Trap Statement Spotter
                   </span>
-                  <span className="text-zinc-400">
+                  <span className="text-[var(--text-muted)]">
                     Spot the Examiner Trick
                   </span>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-2 text-center">
-                  <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">
+                <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2 text-center">
+                  <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] font-bold">
                     Consider the Following Proposition:
                   </span>
                   <p className="text-sm font-bold text-white leading-relaxed italic">
@@ -1627,8 +1627,8 @@ export const ReadinessIndexView: React.FC = () => {
                       weakestTrapRevealed
                         ? activeWeakestDrill.stage3TrapClause.isDeceptiveTrap
                           ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400'
-                          : 'bg-zinc-900 border-zinc-800 text-zinc-500'
-                        : 'bg-zinc-900 border-zinc-800 text-white hover:border-zinc-500'
+                          : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-zinc-500'
+                        : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-white hover:border-zinc-500'
                     }`}
                   >
                     <AlertTriangle className="w-5 h-5 text-rose-400" />
@@ -1642,8 +1642,8 @@ export const ReadinessIndexView: React.FC = () => {
                       weakestTrapRevealed
                         ? !activeWeakestDrill.stage3TrapClause.isDeceptiveTrap
                           ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400'
-                          : 'bg-zinc-900 border-zinc-800 text-zinc-500'
-                        : 'bg-zinc-900 border-zinc-800 text-white hover:border-zinc-500'
+                          : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-zinc-500'
+                        : 'bg-[var(--bg-surface)] border-[var(--border-subtle)] text-white hover:border-zinc-500'
                     }`}
                   >
                     <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -1652,17 +1652,17 @@ export const ReadinessIndexView: React.FC = () => {
                 </div>
 
                 {weakestTrapRevealed && (
-                  <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2 animate-fadeIn">
+                  <div className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2 animate-fadeIn">
                     <div className="flex items-center justify-between text-xs font-mono">
                       <span className={weakestTrapChoice === activeWeakestDrill.stage3TrapClause.isDeceptiveTrap ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
                         {weakestTrapChoice === activeWeakestDrill.stage3TrapClause.isDeceptiveTrap ? '✓ Trap Identified!' : '✗ Fooled by Trap Phrasing'}
                       </span>
-                      <span className="text-zinc-400">{activeWeakestDrill.stage3TrapClause.articleRef}</span>
+                      <span className="text-[var(--text-muted)]">{activeWeakestDrill.stage3TrapClause.articleRef}</span>
                     </div>
-                    <div className="text-xs text-zinc-300 leading-relaxed">
+                    <div className="text-xs text-[var(--text-secondary)] leading-relaxed">
                       <strong>Examiner Trick:</strong> {activeWeakestDrill.stage3TrapClause.examinerTrick}
                     </div>
-                    <div className="text-xs text-zinc-300 leading-relaxed">
+                    <div className="text-xs text-[var(--text-secondary)] leading-relaxed">
                       <strong>True Constitutional Rule:</strong> {activeWeakestDrill.stage3TrapClause.correctStatutoryRule}
                     </div>
                     <div className="pt-2 flex justify-end">
@@ -1682,7 +1682,7 @@ export const ReadinessIndexView: React.FC = () => {
             {/* STAGE 4: WORKOUT SUMMARY */}
             {weakestStage === 'summary' && (
               <div className="p-8 text-center space-y-6 animate-fadeIn">
-                <div className="w-16 h-16 rounded-2xl bg-zinc-800 border border-zinc-700 text-white flex items-center justify-center mx-auto shadow-xl">
+                <div className="w-16 h-16 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-white flex items-center justify-center mx-auto shadow-xl">
                   <Award className="w-8 h-8 text-emerald-400" />
                 </div>
 
@@ -1693,7 +1693,7 @@ export const ReadinessIndexView: React.FC = () => {
                   <h3 className="text-2xl font-black text-white">
                     {weakestScore} / 7 Items Solved Correctly!
                   </h3>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                     Targeted recovery applied to your weakest constitutional nodes. +150 XP awarded, and a +5% statutory retention bonus applied to {activeWeakestDrill.targetPartTitles[0]}.
                   </p>
                 </div>
@@ -1782,7 +1782,7 @@ export const ReadinessIndexView: React.FC = () => {
                         <span className={selectedOption === currentQ.correctIndex ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
                           {selectedOption === currentQ.correctIndex ? '✓ Correct Answer!' : '✗ Incorrect Option'}
                         </span>
-                        <span className="text-zinc-200 font-bold">{currentQ.articleRef}</span>
+                        <span className="text-[var(--text-primary)] font-bold">{currentQ.articleRef}</span>
                       </div>
                       <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                         {currentQ.explanation}

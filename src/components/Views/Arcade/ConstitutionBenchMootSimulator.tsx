@@ -599,7 +599,7 @@ export const ConstitutionBenchMootSimulator: React.FC<ConstitutionBenchMootSimul
 
               {/* ROUND 3: 15-SECOND INTERLOCUTORY QUESTION */}
               {currentRound === 3 && (
-                <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-700 space-y-4 animate-fadeIn">
+                <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-zinc-700 space-y-4 animate-fadeIn">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold uppercase text-rose-400 flex items-center gap-1.5">
                       <AlertTriangle className="w-4 h-4 text-rose-400 animate-pulse" />

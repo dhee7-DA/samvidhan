@@ -265,7 +265,7 @@ export const LandmarkCasesView: React.FC = () => {
 
         <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-[var(--border-subtle)]/60 text-xs font-mono text-[var(--text-muted)]">
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span> 100 Detailed Judgments
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span> 118 Detailed Judgments
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-sky-400"></span> 20 Constitutional Clusters
@@ -286,7 +286,7 @@ export const LandmarkCasesView: React.FC = () => {
           value={viewMode}
           onChange={setViewMode}
           options={[
-            { id: 'cases', label: '100 Cases Explorer', count: 100 },
+            { id: 'cases', label: '118 Cases Explorer', count: 100 },
             { id: 'lineage', label: 'Precedent Lineage', count: 8 },
             { id: 'principles', label: 'Doctrine of Stare Decisis' },
             { id: 'bookmarks', label: 'Saved Precedents', count: bookmarkedCaseIds.length },
@@ -407,7 +407,7 @@ export const LandmarkCasesView: React.FC = () => {
                     <Filter className="w-3.5 h-3.5" />
                     <span>
                       {selectedTopicId === 'all'
-                        ? 'All 20 Topics (100 Cases)'
+                        ? 'All 20 Topics (118 Cases)'
                         : DETAILED_CASE_LAWS_BY_TOPIC.find((t) => t.id === selectedTopicId)?.name || 'Selected Topic'}
                     </span>
                     <span className={`text-[10px] px-1.5 py-0.2 rounded-full border ${
@@ -434,14 +434,14 @@ export const LandmarkCasesView: React.FC = () => {
                       className="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--accent)] px-2.5 py-1 rounded-lg hover:bg-[var(--bg-base)] transition-colors flex items-center gap-1 border border-transparent hover:border-[var(--border-subtle)]"
                     >
                       <RotateCcw className="w-3 h-3" />
-                      <span>Show All 100 Cases</span>
+                      <span>Show All 118 Cases</span>
                     </button>
                   )}
                 </div>
 
                 <div className="flex items-center gap-3 text-xs font-mono text-[var(--text-muted)] self-end sm:self-auto">
                   <span>
-                    Showing <strong className="text-[var(--text-primary)]">{filteredCases.length}</strong> of 100 Cases
+                    Showing <strong className="text-[var(--text-primary)]">{filteredCases.length}</strong> of 118 Cases
                   </span>
                   <button
                     onClick={() => setIsTopicDrawerOpen((prev) => !prev)}

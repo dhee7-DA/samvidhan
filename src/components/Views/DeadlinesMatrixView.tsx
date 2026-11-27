@@ -80,14 +80,14 @@ export const DeadlinesMatrixView: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
                 <Clock className="w-3.5 h-3.5" /> Constitutional Deadlines & Time Limits
               </span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-neutral-800 text-neutral-400 font-mono">
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] font-mono">
                 14 Days • 1 Month • 6 Weeks • 6 Months
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-100 flex items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)] flex items-center gap-3">
               Time Limits & Numerical Deadlines Lab
             </h1>
-            <p className="mt-2 text-sm text-neutral-400 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
               Every critical constitutional timeline, interval, emergency approval window, ordinance countdown, and tenure limit tested in UPSC Prelims and Judicial Services.
             </p>
           </div>
@@ -95,7 +95,7 @@ export const DeadlinesMatrixView: React.FC = () => {
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={() => setActiveTab('majorities-lab')}
-              className="flex-1 sm:flex-none px-4 py-2 text-xs font-medium rounded-lg border border-neutral-700 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-200 transition-colors flex items-center justify-center gap-1.5"
+              className="flex-1 sm:flex-none px-4 py-2 text-xs font-medium rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface-elevated)] hover:bg-neutral-700/80 text-[var(--text-primary)] transition-colors flex items-center justify-center gap-1.5"
             >
               Majorities Lab →
             </button>
@@ -131,7 +131,7 @@ export const DeadlinesMatrixView: React.FC = () => {
                 placeholder="Search duration or article..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 rounded-xl border border-neutral-800 bg-neutral-900 text-xs text-neutral-200 focus:outline-none focus:border-amber-500"
+                className="w-full pl-9 pr-4 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs text-[var(--text-primary)] focus:outline-none focus:border-amber-500"
               />
             </div>
 
@@ -146,7 +146,7 @@ export const DeadlinesMatrixView: React.FC = () => {
                   className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors shrink-0 ${
                     selectedCategory === cat
                       ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold'
-                      : 'bg-neutral-800 text-neutral-400 hover:text-neutral-200'
+                      : 'bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   {cat}
@@ -160,31 +160,31 @@ export const DeadlinesMatrixView: React.FC = () => {
             {filteredDeadlines.map((item) => (
               <div
                 key={item.id}
-                className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-5 hover:border-neutral-700 transition-all flex flex-col justify-between"
+                className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 hover:border-[var(--border-strong)] transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="px-2.5 py-1 rounded-lg text-xs font-bold font-mono bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1">
                       <Clock className="w-3 h-3" /> {item.durationLabel}
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-950 text-neutral-400 border border-neutral-800 font-semibold">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--text-muted)] border border-[var(--border-subtle)] font-semibold">
                       {item.constitutionalArticle}
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-bold text-neutral-100 mt-2">{item.actionTitle}</h3>
+                  <h3 className="text-sm font-bold text-[var(--text-primary)] mt-2">{item.actionTitle}</h3>
 
                   <div className="text-[11px] font-mono text-neutral-500 mt-1">
                     Authority: {item.authorityInvolved}
                   </div>
 
-                  <p className="text-xs text-neutral-300 mt-3 leading-relaxed bg-neutral-950/60 p-3 rounded-lg border border-neutral-800/80">
+                  <p className="text-xs text-[var(--text-secondary)] mt-3 leading-relaxed bg-[var(--bg-base)] p-3 rounded-lg border border-[var(--border-subtle)]">
                     {item.statutoryDetail}
                   </p>
                 </div>
 
                 {/* EXAMINER TRAP CALLOUT */}
-                <div className="mt-4 pt-3 border-t border-neutral-800/80">
+                <div className="mt-4 pt-3 border-t border-[var(--border-subtle)]">
                   <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1">
                     <AlertTriangle className="w-3 h-3 text-amber-400" /> Examiner Trap:
                   </div>
@@ -202,10 +202,10 @@ export const DeadlinesMatrixView: React.FC = () => {
       {/* MODE 2: COMPARATIVE TABLE */}
       {/* ============================================================== */}
       {activeMode === 'table' && (
-        <div className="overflow-x-auto rounded-xl border border-neutral-800 bg-neutral-900/80">
+        <div className="overflow-x-auto rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-neutral-800 bg-neutral-950 text-neutral-400 font-mono uppercase tracking-wider">
+              <tr className="border-b border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-muted)] font-mono uppercase tracking-wider">
                 <th className="p-3.5">Duration</th>
                 <th className="p-3.5">Subject / Constitutional Event</th>
                 <th className="p-3.5">Article</th>
@@ -213,17 +213,17 @@ export const DeadlinesMatrixView: React.FC = () => {
                 <th className="p-3.5">Top Prelims Trap</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-neutral-800/60 text-neutral-300">
+            <tbody className="divide-y divide-neutral-800/60 text-[var(--text-secondary)]">
               {CONSTITUTIONAL_DEADLINES_DATA.map((item) => (
-                <tr key={item.id} className="hover:bg-neutral-800/30 transition-colors">
+                <tr key={item.id} className="hover:bg-[var(--bg-surface-elevated)] transition-colors">
                   <td className="p-3.5 font-bold font-mono text-amber-400 whitespace-nowrap">
                     {item.durationLabel}
                   </td>
-                  <td className="p-3.5 font-medium text-neutral-100">{item.actionTitle}</td>
-                  <td className="p-3.5 font-mono text-neutral-400 whitespace-nowrap">
+                  <td className="p-3.5 font-medium text-[var(--text-primary)]">{item.actionTitle}</td>
+                  <td className="p-3.5 font-mono text-[var(--text-muted)] whitespace-nowrap">
                     {item.constitutionalArticle}
                   </td>
-                  <td className="p-3.5 text-neutral-400 leading-relaxed max-w-xs">{item.statutoryDetail}</td>
+                  <td className="p-3.5 text-[var(--text-muted)] leading-relaxed max-w-xs">{item.statutoryDetail}</td>
                   <td className="p-3.5 text-amber-200/90 text-[11px] leading-snug max-w-sm">
                     {item.examinerTrap}
                   </td>
@@ -238,23 +238,23 @@ export const DeadlinesMatrixView: React.FC = () => {
       {/* MODE 3: DEADLINES SPEED DRILL */}
       {/* ============================================================== */}
       {activeMode === 'drill' && (
-        <div className="max-w-3xl mx-auto rounded-2xl border border-neutral-800 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-md">
-          <div className="flex items-center justify-between border-b border-neutral-800 pb-4 mb-6">
+        <div className="max-w-3xl mx-auto rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 backdrop-blur-md">
+          <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-4 mb-6">
             <div>
               <span className="text-xs font-mono text-amber-400 font-semibold uppercase tracking-wider">
                 Question {currentDrillIndex + 1} of {DEADLINES_DRILL_QUESTIONS.length}
               </span>
-              <h2 className="text-sm sm:text-base font-bold text-neutral-100 mt-1">
+              <h2 className="text-sm sm:text-base font-bold text-[var(--text-primary)] mt-1">
                 Deadlines & Time Limits Recall Drill
               </h2>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-xs font-mono text-neutral-300">
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface-elevated)] border border-[var(--border-strong)] text-xs font-mono text-[var(--text-secondary)]">
               <Award className="w-3.5 h-3.5 text-amber-400" /> Score: {score} /{' '}
               {DEADLINES_DRILL_QUESTIONS.length}
             </div>
           </div>
 
-          <h3 className="text-base sm:text-lg font-medium text-neutral-100 leading-relaxed mb-6">
+          <h3 className="text-base sm:text-lg font-medium text-[var(--text-primary)] leading-relaxed mb-6">
             {currentQuestion.question}
           </h3>
 
@@ -265,14 +265,14 @@ export const DeadlinesMatrixView: React.FC = () => {
               const isCorrect = opt === currentQuestion.correctAnswer;
 
               let btnStyle =
-                'border-neutral-800 bg-neutral-950/60 hover:bg-neutral-800/80 text-neutral-300';
+                'border-[var(--border-subtle)] bg-[var(--bg-base)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)]';
               if (isAnswerSubmitted) {
                 if (isCorrect) {
                   btnStyle = 'border-emerald-500/60 bg-emerald-950/30 text-emerald-200 font-semibold';
                 } else if (isSelected && !isCorrect) {
                   btnStyle = 'border-rose-500/60 bg-rose-950/30 text-rose-200';
                 } else {
-                  btnStyle = 'border-neutral-800/40 bg-neutral-950/20 text-neutral-600 opacity-60';
+                  btnStyle = 'border-[var(--border-subtle)] bg-[var(--bg-base)] text-neutral-600 opacity-60';
                 }
               }
 
@@ -319,7 +319,7 @@ export const DeadlinesMatrixView: React.FC = () => {
                     </>
                   )}
                 </div>
-                <p className="mt-2 text-neutral-300">
+                <p className="mt-2 text-[var(--text-secondary)]">
                   <strong>Official Key Explanation:</strong> {currentQuestion.explanation}
                 </p>
               </div>
