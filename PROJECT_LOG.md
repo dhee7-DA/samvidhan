@@ -8,10 +8,10 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-28 02:27:00 (+05:30) |
+| **Last Log Sync** | 2026-11-28 02:29:02 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `d6b9ff6` (2026-11-27T23:15:24+05:30) |
-| **Total Commits** | 141 |
+| **Branch / HEAD** | `main` @ `507a55a` (2026-11-28T02:27:16+05:30) |
+| **Total Commits** | 142 |
 | **Total Files Indexed** | 393 (393 tracked, 0 new untracked) |
 | **Working Tree** | 1 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-28 02:29:02 (+05:30)] Add Frontend Design System, Themes, Fonts & Motion Specs to README.md (DONE)
+- **Details:** Documented exact Google Fonts (Geist, Geist Mono, JetBrains Mono, Newsreader), 6 CSS variable themes (default, ink, carbon, paper, chalk, pink), spring presets, and all reusable Editorial Motion primitives in README.md.
+- **Files Touched (1):** `M README.md`
+- **Git HEAD:** `main` @ `507a55a`
 
 ### [2026-11-28 02:27:00 (+05:30)] Document Full Architecture & BNSS/BNS/BSA Replication Playbook in README.md (DONE)
 - **Details:** Replaced default Vite template README.md with complete SAMVIDHAN inventory, directory architecture, verification workflow, and 8-rule replication blueprint for future BNSS, BNS, and BSA projects. Synced PROJECT_LOG.md.
@@ -486,8 +491,8 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 123.5 KB | 1204 | `d6b9ff6` (2026-11-27) |
-| `README.md` | 7.5 KB | 94 | `3c486dd` (2026-11-13) |
+| `PROJECT_LOG.md` | 124.0 KB | 1210 | `507a55a` (2026-11-28) |
+| `README.md` | 10.3 KB | 128 | `507a55a` (2026-11-28) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
 | `tsconfig.node.json` | 581 B | 24 | `3c486dd` (2026-11-13) |
@@ -1061,10 +1066,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**141** commits, newest first).
+> Complete git history (**142** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 142 | 2026-11-28 | `507a55a` | 2 | docs: add complete SAMVIDHAN architecture & BNSS/BNS/BSA blueprint to README.md |
 | 141 | 2026-11-27 | `d6b9ff6` | 2 | feat: make 25 Parts article cards collapsible tiles with Jump to Practice |
 | 140 | 2026-11-27 | `7bbd76a` | 2 | feat: add Assertion & Reasoning questions to Chapter Comprehension Lab |
 | 139 | 2026-11-27 | `d71f1fd` | 3 | feat: add chapter comprehension, fill-in-the-blanks, and true/false lab after case studies |

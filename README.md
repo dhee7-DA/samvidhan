@@ -38,6 +38,40 @@ npm run log:update -- --step "Summary" --details "Details"
 
 ---
 
+## Frontend Design System: Themes, Fonts & Motion
+
+### 1. Typography (`index.html` + `src/index.css`)
+- **Primary UI Sans:** `Geist` (`--font-current: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif`)
+- **Monospace / Tabular Telemetry:** `Geist Mono` (`--font-code`) & `JetBrains Mono` — used for article numbers, study timers (`tabular-nums`), citations, and formula readouts
+- **Editorial Serif:** `Newsreader` (optical size `6..72`, italic & weights `400–600`) for long-form constitutional/Bare Act reading
+
+### 2. Multi-Theme CSS Variable Architecture (`src/index.css`)
+Six built-in themes switched via `[data-theme="..."]` on `<html>` (`ThemeContext.tsx`):
+- **Default (`:root`):** Monochrome Editorial Dark (`--bg-base: #09090b`, `--bg-surface: #121215`, `--accent: #ffffff`)
+- **`ink`:** Pure OLED Black + Electric Cyan (`--bg-base: #000000`, `--accent: #00f0ff`)
+- **`carbon`:** Deep Slate Graphite (`--bg-base: #0b0d0e`, `--bg-surface: #121517`)
+- **`paper`:** Warm Editorial Parchment/Paper (with dedicated `.surface-specular` and `.bg-editorial-grid` light overrides)
+- **`chalk`:** Crisp Daylight / Chalk
+- **`pink`:** Editorial Rose Accent
+
+All components bind strictly to semantic tokens (`--bg-base`, `--bg-surface`, `--bg-surface-elevated`, `--bg-card`, `--border-subtle`, `--border-strong`, `--text-primary`, `--text-secondary`, `--text-muted`, `--accent`, `--accent-contrast`, `--gold`, `--emerald`, `--crimson`).
+
+### 3. UI & Animation System (`src/lib/motionTokens.ts` + `EditorialMotionCards.tsx`)
+- **Global Accessibility:** Root `<MotionConfig reducedMotion="user">` in `src/App.tsx` + `@media (prefers-reduced-motion: reduce)` CSS fallback.
+- **Spring Presets:**
+  - `EDITORIAL_SPRING`: `stiffness: 380, damping: 30, mass: 0.8` (cards, tabs, segmented controls)
+  - `springs.snappy` (`480 / 36 / 0.85`), `springs.gentle` (`280 / 30 / 1`), `springs.bouncy` (`380 / 22 / 0.9`), `springs.cardFlip` (`320 / 26 / 0.9`)
+- **Reusable Motion Primitives:**
+  - `SlidingSegmentedControl`: `layoutId`-driven gliding pill switcher for tabs & filters
+  - `EditorialHoverCard` + `.editorial-spotlight`: `y: -2` spring lift, `0.988` tap compression, and cursor-aware radial accent glow using `--mx`/`--my` CSS variables (zero React re-renders)
+  - `StudyTelemetryCard`: `Day | Week | Month` switcher + hover-scrubbable bar chart with dashed `avg` baseline and floating tooltip pill
+  - `StreakMatrixCard`: 30-day intensity-shaded emerald dot matrix
+  - `UpNextHeroQueue`: Featured action card + faded queue with `AnimatePresence` + `layout` spring promotion
+  - `ConstitutionalWatermark`: Hairline animated Ashok Chakra & architectural SVG watermarks (`src/components/Common/ConstitutionalWatermark.tsx`)
+  - `viewTransitionVariants`: `opacity` + `8px` vertical glide (`0.20s`, `ease: [0.16, 1, 0.3, 1]`) between routes
+
+---
+
 ## Repository Architecture
 
 ```text
