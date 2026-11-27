@@ -8,10 +8,10 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-27 23:15:12 (+05:30) |
+| **Last Log Sync** | 2026-11-28 02:27:00 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `7bbd76a` (2026-11-27T22:23:07+05:30) |
-| **Total Commits** | 140 |
+| **Branch / HEAD** | `main` @ `d6b9ff6` (2026-11-27T23:15:24+05:30) |
+| **Total Commits** | 141 |
 | **Total Files Indexed** | 393 (393 tracked, 0 new untracked) |
 | **Working Tree** | 1 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-28 02:27:00 (+05:30)] Document Full Architecture & BNSS/BNS/BSA Replication Playbook in README.md (DONE)
+- **Details:** Replaced default Vite template README.md with complete SAMVIDHAN inventory, directory architecture, verification workflow, and 8-rule replication blueprint for future BNSS, BNS, and BSA projects. Synced PROJECT_LOG.md.
+- **Files Touched (1):** `M README.md`
+- **Git HEAD:** `main` @ `d6b9ff6`
 
 ### [2026-11-27 23:15:12 (+05:30)] Make 25 Parts Article Cards Collapsible Tiles with Jump-to-Practice (DONE)
 - **Details:** Converted article cards in TopicDetailView.tsx into compact collapsible tiles (collapsed by default with 1-line summary preview, Expand All / Collapse All toggle, and Jump to Practice ↓ smooth-scroll button). Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -481,8 +486,8 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 122.8 KB | 1198 | `7bbd76a` (2026-11-27) |
-| `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
+| `PROJECT_LOG.md` | 123.5 KB | 1204 | `d6b9ff6` (2026-11-27) |
+| `README.md` | 7.5 KB | 94 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
 | `tsconfig.node.json` | 581 B | 24 | `3c486dd` (2026-11-13) |
@@ -673,7 +678,7 @@
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 126.7 KB | 2483 | `5c4ca12` (2026-11-27) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
-| `src/components/Views/TopicDetailView.tsx` | 52.7 KB | 1033 | `d71f1fd` (2026-11-27) |
+| `src/components/Views/TopicDetailView.tsx` | 52.7 KB | 1033 | `d6b9ff6` (2026-11-27) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 28.2 KB | 540 | `dbf046c` (2026-11-27) |
 
@@ -1056,10 +1061,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**140** commits, newest first).
+> Complete git history (**141** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 141 | 2026-11-27 | `d6b9ff6` | 2 | feat: make 25 Parts article cards collapsible tiles with Jump to Practice |
 | 140 | 2026-11-27 | `7bbd76a` | 2 | feat: add Assertion & Reasoning questions to Chapter Comprehension Lab |
 | 139 | 2026-11-27 | `d71f1fd` | 3 | feat: add chapter comprehension, fill-in-the-blanks, and true/false lab after case studies |
 | 138 | 2026-11-27 | `5c4ca12` | 11 | fix: sync 118/125 UI counts and migrate 418 dark-only classes to theme variables |
