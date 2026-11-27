@@ -63,6 +63,7 @@ export const TopicDetailView: React.FC = () => {
   const [activePartCaseIdx, setActivePartCaseIdx] = useState(0);
   const [partMcqAnswers, setPartMcqAnswers] = useState<Record<string, number>>({});
   const [showPartModelAnswer, setShowPartModelAnswer] = useState(false);
+  const [expandedArticleNums, setExpandedArticleNums] = useState<Record<string, boolean>>({});
 
   // Selected Part or default to Part III
   const currentPart = CONSTITUTION_PARTS.find((p) => p.id === selectedPartId) || CONSTITUTION_PARTS[2];
@@ -70,6 +71,7 @@ export const TopicDetailView: React.FC = () => {
   useEffect(() => {
     setActivePartCaseIdx(0);
     setShowPartModelAnswer(false);
+    setExpandedArticleNums({});
     let cancelled = false;
     if (partCasesMap[currentPart.id]) return;
     fetch(`/data/part-case-studies/${currentPart.id}.json`)
@@ -413,8 +415,43 @@ export const TopicDetailView: React.FC = () => {
               </span>
             </div>
 
-            {/* Quick Display Mode Toggle */}
-            <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
+            {/* Quick Display Mode + Expand/Collapse + Jump to Practice */}
+            <div className="flex items-center flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  const allExpanded =
+                    currentPart.articles.length > 0 &&
+                    currentPart.articles.every((a) => expandedArticleNums[a.number]);
+                  if (allExpanded) {
+                    setExpandedArticleNums({});
+                  } else {
+                    const next: Record<string, boolean> = {};
+                    currentPart.articles.forEach((a) => {
+                      next[a.number] = true;
+                    });
+                    setExpandedArticleNums(next);
+                  }
+                }}
+                className="px-2.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[11px] font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] cursor-pointer"
+              >
+                {currentPart.articles.length > 0 &&
+                currentPart.articles.every((a) => expandedArticleNums[a.number])
+                  ? 'Collapse All'
+                  : 'Expand All'}
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  document.getElementById('part-practice-arena')?.scrollIntoView({ behavior: 'smooth' })
+                }
+                className="px-2.5 py-1.5 rounded-lg border border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[11px] font-mono font-bold text-[var(--accent)] hover:bg-[var(--accent)]/20 cursor-pointer"
+              >
+                Jump to Practice ↓
+              </button>
+
+              <div className="flex items-center flex-wrap max-w-full p-0.5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-mono shadow-inner">
               <button
                 onClick={() => setArticleDisplayMode('all')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
@@ -436,39 +473,67 @@ export const TopicDetailView: React.FC = () => {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>ELI5 & Scenarios</span>
               </button>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2.5">
             {currentPart.articles.map((art) => {
               const artLabel = `Art ${art.number}`;
               const isBookmarked = bookmarkedArticles.includes(artLabel);
+              const isExpanded = !!expandedArticleNums[art.number];
 
               return (
                 <div
                   key={art.number}
-                  className={`p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border transition-all flex flex-col gap-3.5 shadow-sm ${
+                  className={`rounded-2xl bg-[var(--bg-surface)] border transition-all flex flex-col shadow-sm ${
                     articleDisplayMode === 'eli5_focus'
                       ? 'border-amber-500/30 ring-1 ring-amber-500/20'
                       : 'border-[var(--border-subtle)] hover:border-[var(--border-strong)]'
                   }`}
                 >
-                  {/* Article Title & Bookmark */}
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-2.5 flex-wrap">
-                      <span className={`px-2.5 py-0.5 rounded-lg font-mono text-xs font-bold border ${
-                        articleDisplayMode === 'eli5_focus'
-                          ? 'bg-amber-500/20 text-amber-500 border-amber-500/40'
-                          : 'bg-[var(--badge-bg)] text-[var(--accent)] border-[var(--badge-border)]'
-                      }`}>
-                        Article {art.number}
-                      </span>
-                      <h4 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
-                        <AnnotatedLegalText text={art.title} />
-                      </h4>
+                  {/* Collapsible Tile Header */}
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() =>
+                      setExpandedArticleNums((prev) => ({
+                        ...prev,
+                        [art.number]: !prev[art.number],
+                      }))
+                    }
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setExpandedArticleNums((prev) => ({
+                          ...prev,
+                          [art.number]: !prev[art.number],
+                        }));
+                      }
+                    }}
+                    className="p-4 sm:px-5 sm:py-4 flex items-start justify-between gap-3 cursor-pointer select-none"
+                  >
+                    <div className="min-w-0 flex-1 space-y-1">
+                      <div className="flex items-center gap-2.5 flex-wrap">
+                        <span className={`px-2.5 py-0.5 rounded-lg font-mono text-xs font-bold border ${
+                          articleDisplayMode === 'eli5_focus'
+                            ? 'bg-amber-500/20 text-amber-500 border-amber-500/40'
+                            : 'bg-[var(--badge-bg)] text-[var(--accent)] border-[var(--badge-border)]'
+                        }`}>
+                          Article {art.number}
+                        </span>
+                        <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
+                          <AnnotatedLegalText text={art.title} />
+                        </h4>
+                      </div>
+                      {!isExpanded && (
+                        <p className="text-xs text-[var(--text-muted)] line-clamp-1">
+                          {art.summary}
+                        </p>
+                      )}
                     </div>
 
-                    <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="flex items-center gap-1.5 shrink-0" onClick={(e) => e.stopPropagation()}>
                       <button
                         onClick={() => togglePinFlashcard(getCardIdForArticle(art.number))}
                         title={pinnedFlashcardIds.includes(getCardIdForArticle(art.number)) ? 'Unpin from SRS Flashcards' : 'Pin Article to SRS Flashcards'}
@@ -502,8 +567,30 @@ export const TopicDetailView: React.FC = () => {
                       >
                         <Bookmark className="w-4 h-4 fill-current" />
                       </button>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setExpandedArticleNums((prev) => ({
+                            ...prev,
+                            [art.number]: !prev[art.number],
+                          }))
+                        }
+                        aria-label={isExpanded ? 'Collapse article' : 'Expand article'}
+                        className="p-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                      >
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[var(--accent)]' : ''}`} />
+                      </button>
                     </div>
                   </div>
+
+                  {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={EDITORIAL_SPRING}
+                    className="px-5 pb-5 pt-3 border-t border-[var(--border-subtle)]/60 flex flex-col gap-3.5"
+                  >
 
                   {/* IF ELI5 FOCUS MODE: Surface Plain English and Real-World First */}
                   {articleDisplayMode === 'eli5_focus' ? (
@@ -686,6 +773,8 @@ export const TopicDetailView: React.FC = () => {
                       ))}
                     </div>
                   )}
+                  </motion.div>
+                  )}
                 </div>
               );
             })}
@@ -735,7 +824,7 @@ export const TopicDetailView: React.FC = () => {
 
         {/* 200 Case Studies Lab for this Constitutional Part */}
         {currentPartCases.length > 0 && activePartCase && (
-          <div className="flex flex-col gap-4 p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+          <div id="part-practice-arena" className="flex flex-col gap-4 p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-4">
               <div>
                 <span className="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20">
