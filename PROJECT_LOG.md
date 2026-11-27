@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-27 21:15:17 (+05:30) |
+| **Last Log Sync** | 2026-11-27 22:22:48 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `5c4ca12` (2026-11-27T16:23:18+05:30) |
-| **Total Commits** | 138 |
-| **Total Files Indexed** | 393 (392 tracked, 1 new untracked) |
-| **Working Tree** | 2 pending change(s) |
+| **Branch / HEAD** | `main` @ `d71f1fd` (2026-11-27T21:15:34+05:30) |
+| **Total Commits** | 139 |
+| **Total Files Indexed** | 393 (393 tracked, 0 new untracked) |
+| **Working Tree** | 1 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-27 22:22:48 (+05:30)] Add Assertion & Reasoning Questions to Chapter Comprehension Lab (DONE)
+- **Details:** Added 4 Part-grounded UPSC/Judiciary-style Assertion (A) / Reason (R) questions per Constitutional Part in src/components/Common/ChapterComprehensionLab.tsx. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
+- **Files Touched (1):** `M src/components/Common/ChapterComprehensionLab.tsx`
+- **Git HEAD:** `main` @ `d71f1fd`
 
 ### [2026-11-27 21:15:17 (+05:30)] Add Chapter Comprehension, Fill-in-the-Blanks & True/False Lab after Case Studies (DONE)
 - **Details:** Created src/components/Common/ChapterComprehensionLab.tsx (chapter-grounded Reading Passage + Comprehension MCQs, interactive Fill-in-the-Blanks with hints & live validation, and True/False quick check) and mounted it right below the 200 Part-Wise Case Studies in TopicDetailView.tsx. Verified with npm run build and npm run test:smoke (5 split-screen + 34 desktop routes, 0 errors).
@@ -471,7 +476,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 76.9 KB | 2374 | `8a3a645` (2026-11-26) |
 | `package.json` | 845 B | 34 | `f993edf` (2026-11-26) |
-| `PROJECT_LOG.md` | 121.3 KB | 1185 | `5c4ca12` (2026-11-27) |
+| `PROJECT_LOG.md` | 122.2 KB | 1192 | `d71f1fd` (2026-11-27) |
 | `README.md` | 1.3 KB | 33 | `3c486dd` (2026-11-13) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -570,7 +575,7 @@
 | :--- | ---: | ---: | :--- |
 | `src/components/Common/AnnotatedLegalText.tsx` | 9.2 KB | 246 | `409818a` (2026-11-14) |
 | `src/components/Common/AnswerEvaluationCard.tsx` | 12.9 KB | 298 | `5bbabe8` (2026-11-19) |
-| `src/components/Common/ChapterComprehensionLab.tsx` | 18.7 KB | 463 | new (uncommitted) |
+| `src/components/Common/ChapterComprehensionLab.tsx` | 24.7 KB | 596 | `d71f1fd` (2026-11-27) |
 | `src/components/Common/ConstitutionalWatermark.tsx` | 7.2 KB | 152 | `f697564` (2026-11-26) |
 | `src/components/Common/DailyConstitutionalWorkout.tsx` | 25.7 KB | 535 | `dbf046c` (2026-11-27) |
 | `src/components/Common/EditorialMotionCards.tsx` | 17.0 KB | 463 | `dbf046c` (2026-11-27) |
@@ -663,7 +668,7 @@
 | `src/components/Views/SocraticTutorView.tsx` | 28.0 KB | 595 | `326e167` (2026-11-22) |
 | `src/components/Views/StudyBootcampView.tsx` | 126.7 KB | 2483 | `5c4ca12` (2026-11-27) |
 | `src/components/Views/TileMatcherGameView.tsx` | 25.3 KB | 602 | `ef6f11d` (2026-11-17) |
-| `src/components/Views/TopicDetailView.tsx` | 48.5 KB | 944 | `78d0908` (2026-11-27) |
+| `src/components/Views/TopicDetailView.tsx` | 48.5 KB | 944 | `d71f1fd` (2026-11-27) |
 | `src/components/Views/VisualLabView.tsx` | 32.0 KB | 731 | `f697564` (2026-11-26) |
 | `src/components/Views/WritsEmergencyMatrixView.tsx` | 28.2 KB | 540 | `dbf046c` (2026-11-27) |
 
@@ -1046,10 +1051,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**138** commits, newest first).
+> Complete git history (**139** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 139 | 2026-11-27 | `d71f1fd` | 3 | feat: add chapter comprehension, fill-in-the-blanks, and true/false lab after case studies |
 | 138 | 2026-11-27 | `5c4ca12` | 11 | fix: sync 118/125 UI counts and migrate 418 dark-only classes to theme variables |
 | 137 | 2026-11-27 | `dbf046c` | 13 | feat: roll out editorial hover cards, sliding controls, live telemetry, and clean inline headers |
 | 136 | 2026-11-27 | `78d0908` | 8 | feat: add editorial card animations, study telemetry, streak matrix, and up-next queue |

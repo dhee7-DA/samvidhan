@@ -18,12 +18,13 @@ function normalizeBlankInput(val: string): string {
 }
 
 export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = ({ part }) => {
-  const [mode, setMode] = useState<'comprehension' | 'blanks' | 'truefalse'>('comprehension');
+  const [mode, setMode] = useState<'comprehension' | 'blanks' | 'truefalse' | 'reasoning'>('comprehension');
   const [mcqAnswers, setMcqAnswers] = useState<Record<string, number>>({});
   const [blankInputs, setBlankInputs] = useState<Record<string, string>>({});
   const [blankChecked, setBlankChecked] = useState<Record<string, boolean>>({});
   const [blankHints, setBlankHints] = useState<Record<string, boolean>>({});
   const [tfAnswers, setTfAnswers] = useState<Record<string, boolean>>({});
+  const [arAnswers, setArAnswers] = useState<Record<string, number>>({});
 
   // Reset local exercise state when switching chapters/parts
   useEffect(() => {
@@ -32,6 +33,7 @@ export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = (
     setBlankChecked({});
     setBlankHints({});
     setTfAnswers({});
+    setArAnswers({});
   }, [part.id]);
 
   const exercises = useMemo(() => {
@@ -173,11 +175,69 @@ export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = (
       });
     }
 
-    return { passageParts, compQuestions, blanks, tfItems };
+    // 4. Assertion & Reasoning Questions (4 UPSC / Judiciary A-R items)
+    const arOptions = [
+      'Both (A) and (R) are true, and (R) is the correct explanation of (A)',
+      'Both (A) and (R) are true, but (R) is NOT the correct explanation of (A)',
+      '(A) is true, but (R) is false',
+      '(A) is false, but (R) is true',
+    ];
+
+    const arItems: {
+      id: string;
+      assertion: string;
+      reason: string;
+      correctIndex: number;
+      explanation: string;
+    }[] = [
+      {
+        id: `${part.id}-ar-1`,
+        assertion: `${part.partNumber} (${part.title}) forms an integral part of India's constitutional architecture under ${part.articlesRange}.`,
+        reason: principles[0] || part.description,
+        correctIndex: 0,
+        explanation: `Both (A) and (R) are true, and (R) directly explains the constitutional purpose and scope of ${part.partNumber}.`,
+      },
+      {
+        id: `${part.id}-ar-2`,
+        assertion: `All provisions within ${part.partNumber} are completely immune from Supreme Court interpretation or constitutional review.`,
+        reason: cases[0]
+          ? `In ${cases[0].caseName} (${cases[0].year}), the Court laid down binding constitutional principles governing ${part.partNumber}.`
+          : `Judicial review is a Basic Structure feature guiding the interpretation of constitutional Parts.`,
+        correctIndex: 3,
+        explanation: `(A) is false because Indian courts routinely interpret and enforce constitutional limits across ${part.partNumber}, whereas (R) is true.`,
+      },
+    ];
+
+    if (articles[0]) {
+      const art0Num = articles[0].number.replace(/^Art\.?\s*/i, '');
+      arItems.push({
+        id: `${part.id}-ar-3`,
+        assertion: `Article ${art0Num} in ${part.partNumber} is titled "${articles[0].title}".`,
+        reason: `Article ${art0Num} applies exclusively during a Financial Emergency under Article 360 and has no peacetime operation.`,
+        correctIndex: 2,
+        explanation: `(A) is true (${articles[0].summary}), while (R) is false because Article ${art0Num} is part of the regular constitutional scheme of ${part.partNumber}.`,
+      });
+    }
+
+    if (articles[1] && cases[0]) {
+      const art1Num = articles[1].number.replace(/^Art\.?\s*/i, '');
+      arItems.push({
+        id: `${part.id}-ar-4`,
+        assertion: `Article ${art1Num} governs "${articles[1].title}" under ${part.partNumber}.`,
+        reason: `Separately, ${cases[0].caseName} (${cases[0].year}) addressed ${cases[0].significance || cases[0].summary}.`,
+        correctIndex: 1,
+        explanation: `Both statements are independently true, though ${cases[0].caseName} (${cases[0].year}) is a distinct precedent rather than the sole textual origin of Article ${art1Num}.`,
+      });
+    }
+
+    return { passageParts, compQuestions, blanks, tfItems, arItems, arOptions };
   }, [part]);
 
   const totalItems =
-    exercises.compQuestions.length + exercises.blanks.length + exercises.tfItems.length;
+    exercises.compQuestions.length +
+    exercises.blanks.length +
+    exercises.tfItems.length +
+    exercises.arItems.length;
   const correctCount =
     exercises.compQuestions.filter((q) => mcqAnswers[q.id] === q.correctIndex).length +
     exercises.blanks.filter(
@@ -185,7 +245,8 @@ export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = (
         blankChecked[b.id] &&
         normalizeBlankInput(blankInputs[b.id] || '') === normalizeBlankInput(b.answer)
     ).length +
-    exercises.tfItems.filter((t) => tfAnswers[t.id] === t.isTrue).length;
+    exercises.tfItems.filter((t) => tfAnswers[t.id] === t.isTrue).length +
+    exercises.arItems.filter((a) => arAnswers[a.id] === a.correctIndex).length;
 
   const handleReset = () => {
     setMcqAnswers({});
@@ -193,6 +254,7 @@ export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = (
     setBlankChecked({});
     setBlankHints({});
     setTfAnswers({});
+    setArAnswers({});
   };
 
   return (
@@ -233,6 +295,7 @@ export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = (
             { id: 'comprehension', label: 'Comprehension Passage', count: exercises.compQuestions.length },
             { id: 'blanks', label: 'Fill in the Blanks', count: exercises.blanks.length },
             { id: 'truefalse', label: 'True / False Check', count: exercises.tfItems.length },
+            { id: 'reasoning', label: 'Assertion & Reasoning', count: exercises.arItems.length },
           ]}
         />
       </div>
@@ -449,6 +512,76 @@ export const ChapterComprehensionLab: React.FC<ChapterComprehensionLabProps> = (
                   {answered && (
                     <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
                       {item.explanation}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </motion.div>
+        )}
+
+        {mode === 'reasoning' && (
+          <motion.div
+            key="reasoning"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={EDITORIAL_SPRING}
+            className="space-y-3"
+          >
+            {exercises.arItems.map((ar, idx) => {
+              const chosen = arAnswers[ar.id];
+              const answered = chosen !== undefined;
+              return (
+                <div
+                  key={ar.id}
+                  className="p-4 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] space-y-3"
+                >
+                  <div className="space-y-1.5 text-xs sm:text-sm">
+                    <div className="text-[var(--text-primary)]">
+                      <span className="font-mono font-bold text-[var(--accent)] mr-1.5">
+                        Q{idx + 1} Assertion (A):
+                      </span>
+                      {ar.assertion}
+                    </div>
+                    <div className="text-[var(--text-secondary)]">
+                      <span className="font-mono font-bold text-[var(--gold)] mr-1.5">
+                        Reason (R):
+                      </span>
+                      {ar.reason}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-2">
+                    {exercises.arOptions.map((opt, oIdx) => {
+                      const isCorrect = oIdx === ar.correctIndex;
+                      const isPicked = chosen === oIdx;
+                      let cls =
+                        'bg-[var(--bg-base)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent)]/50';
+                      if (answered) {
+                        if (isCorrect) cls = 'bg-emerald-500/15 border-emerald-500/50 text-emerald-400 font-semibold';
+                        else if (isPicked) cls = 'bg-rose-500/15 border-rose-500/50 text-rose-400';
+                      }
+                      return (
+                        <button
+                          key={oIdx}
+                          type="button"
+                          disabled={answered}
+                          onClick={() => {
+                            setArAnswers((prev) => ({ ...prev, [ar.id]: oIdx }));
+                            recordStudyPulse(0, 1);
+                          }}
+                          className={`p-2.5 rounded-lg border text-left text-xs transition-all cursor-pointer ${cls}`}
+                        >
+                          {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {answered && (
+                    <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
+                      {ar.explanation}
                     </p>
                   )}
                 </div>
