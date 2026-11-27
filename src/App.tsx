@@ -110,6 +110,9 @@ const NegativeMarkingSimulatorView = lazy(() =>
 const SocraticTutorView = lazy(() =>
   import('./components/Views/SocraticTutorView').then((m) => ({ default: m.SocraticTutorView }))
 );
+const FocusTimerView = lazy(() =>
+  import('./components/Views/FocusTimerView').then((m) => ({ default: m.FocusTimerView }))
+);
 
 const ViewLoadingFallback: React.FC = () => (
   <div className="max-w-5xl mx-auto px-4 py-20 flex flex-col items-center justify-center gap-3 text-[var(--text-muted)] animate-fadeIn">
@@ -204,6 +207,7 @@ const MainContent: React.FC = () => {
                 {activeTab === 'comparative' && <ComparativeLawView />}
                 {activeTab === 'quiz' && <QuizMasteryView />}
                 {activeTab === 'socratic-tutor' && <SocraticTutorView />}
+                {activeTab === 'focus-timer' && <FocusTimerView />}
                   </Suspense>
                 )}
               </motion.div>

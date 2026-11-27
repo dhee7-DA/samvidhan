@@ -60,6 +60,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'overview', label: 'Overview', icon: <Compass className="w-4 h-4" />, sub: 'Workbench & Preamble', category: 'start' },
   { id: 'bootcamp', label: '15-Day Bootcamp', icon: <Flame className="w-4 h-4" />, badge: '3,000 MCQs', sub: 'Daily Study Sprint', category: 'start' },
   { id: 'readiness-index', label: 'Readiness Index', icon: <Target className="w-4 h-4" />, badge: 'Heatmap', sub: 'CRI, Risk & Weakest Link', category: 'start' },
+  { id: 'focus-timer', label: 'Focus Timer', icon: <Timer className="w-4 h-4" />, badge: '3D Flame', sub: 'Pomodoro & Study Tracker', category: 'start' },
 
   // 2. Bare Act & Structural Law (Articles -> Parts -> Schedules -> Amendments -> Doctrines -> Mechanisms)
   { id: 'articles-master', label: 'Articles 1–395', icon: <ScrollText className="w-4 h-4" />, badge: 'Bare Act', sub: 'Verbatim Clauses & Diffs', category: 'study' },

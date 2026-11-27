@@ -26,6 +26,10 @@ export default defineConfig({
               test: /node_modules[\\/](motion|framer-motion|motion-dom|motion-utils)[\\/]/
             },
             {
+              name: 'vendor-three',
+              test: /node_modules[\\/]three[\\/]/
+            },
+            {
               name: 'vendor',
               test: /node_modules/
             },

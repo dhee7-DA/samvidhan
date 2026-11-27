@@ -23,6 +23,7 @@ DESKTOP_ROUTES = [
     "Overview",
     "15-Day Bootcamp",
     "Readiness Index",
+    "Focus Timer",
     "Articles 1–395",
     "25 Parts",
     "12 Schedules",
