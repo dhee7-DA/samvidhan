@@ -1,28 +1,18 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Flame, Maximize2, Minus, Pause, Play } from 'lucide-react';
-import { ThreeBurningCandle } from './ThreeBurningCandle';
+import { motion } from 'motion/react';
+import { Maximize2, Pause, Play } from 'lucide-react';
+import { ThreeSandHourglass } from './ThreeSandHourglass';
 import { useFocusTimer } from '../../context/FocusTimerContext';
 import { useTheme } from '../../context/ThemeContext';
 import { EDITORIAL_SPRING } from './EditorialMotionCards';
 
-const MODE_SHORT: Record<string, string> = {
-  pomodoro: 'POMO',
-  deep: 'DEEP',
-  break: 'BREAK',
-  stopwatch: 'STUDY',
-};
-
 export const FloatingFocusCandle: React.FC = () => {
   const { activeTab, setActiveTab } = useTheme();
   const {
-    mode,
     isRunning,
     minsDisplay,
     secsDisplay,
     burnProgress,
-    widgetMinimized,
-    setWidgetMinimized,
     toggleRunning,
   } = useFocusTimer();
 
@@ -32,85 +22,54 @@ export const FloatingFocusCandle: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 print:hidden select-none">
-      <AnimatePresence mode="wait">
-        {widgetMinimized ? (
-          <motion.button
-            key="candle-pill"
-            type="button"
-            initial={{ opacity: 0, scale: 0.85, y: 8 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.85, y: 8 }}
-            transition={EDITORIAL_SPRING}
-            onClick={() => setWidgetMinimized(false)}
-            title="Show 3D Focus Candle"
-            className="flex items-center gap-2 px-3 py-2 rounded-full bg-[var(--bg-surface)]/95 backdrop-blur-md border border-[var(--border-strong)] shadow-lg text-xs font-mono text-[var(--text-primary)] hover:border-amber-500/60 transition-colors cursor-pointer"
-          >
-            <Flame className={`w-3.5 h-3.5 ${isRunning ? 'text-amber-500 animate-pulse' : 'text-[var(--text-muted)]'}`} />
-            <span className="tabular-nums font-bold">
-              {minsDisplay}:{secsDisplay}
-            </span>
-          </motion.button>
-        ) : (
-          <motion.div
-            key="candle-popup"
-            initial={{ opacity: 0, scale: 0.9, y: 12 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 12 }}
-            transition={EDITORIAL_SPRING}
-            className="w-[112px] rounded-2xl bg-[var(--bg-surface)]/95 backdrop-blur-md border border-[var(--border-strong)] shadow-xl p-2 flex flex-col items-center gap-1.5"
-          >
-            {/* Top micro-bar */}
-            <div className="w-full flex items-center justify-between px-0.5 text-[9px] font-mono text-[var(--text-muted)]">
-              <span className="tracking-wider font-semibold">{MODE_SHORT[mode] || 'FOCUS'}</span>
-              <div className="flex items-center gap-1">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('focus-timer')}
-                  title="Open full Focus Timer"
-                  className="p-0.5 rounded hover:text-[var(--text-primary)] cursor-pointer"
-                >
-                  <Maximize2 className="w-2.5 h-2.5" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setWidgetMinimized(true)}
-                  title="Minimize candle"
-                  className="p-0.5 rounded hover:text-[var(--text-primary)] cursor-pointer"
-                >
-                  <Minus className="w-2.5 h-2.5" />
-                </button>
-              </div>
-            </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85, y: 12 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={EDITORIAL_SPRING}
+      className="fixed bottom-7 right-1.5 z-40 print:hidden select-none group flex flex-col items-center"
+    >
+      {/* Subtle hover-only micro pill for timer readout & open full view */}
+      <div className="mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[var(--bg-surface)]/90 backdrop-blur-md border border-[var(--border-subtle)] shadow-sm text-[10px] font-mono text-[var(--text-primary)]">
+        <span className="tabular-nums font-bold">
+          {minsDisplay}:{secsDisplay}
+        </span>
+        <button
+          type="button"
+          onClick={toggleRunning}
+          title={isRunning ? 'Pause timer' : 'Start timer'}
+          className="p-0.5 hover:text-amber-400 cursor-pointer"
+        >
+          {isRunning ? <Pause className="w-2.5 h-2.5" /> : <Play className="w-2.5 h-2.5" />}
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('focus-timer')}
+          title="Open Focus Timer"
+          className="p-0.5 hover:text-[var(--accent)] cursor-pointer"
+        >
+          <Maximize2 className="w-2.5 h-2.5" />
+        </button>
+      </div>
 
-            {/* 1-inch (96x96px) 3D Burning Candle */}
-            <ThreeBurningCandle
-              isBurning={isRunning}
-              burnProgress={burnProgress}
-              compact
-            />
-
-            {/* Bottom timer + play/pause pill */}
-            <div className="w-full flex items-center justify-between gap-1 px-1 pt-0.5">
-              <span className="text-xs font-mono font-bold tabular-nums text-[var(--text-primary)]">
-                {minsDisplay}:{secsDisplay}
-              </span>
-              <button
-                type="button"
-                onClick={toggleRunning}
-                title={isRunning ? 'Pause flame' : 'Light & start timer'}
-                className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
-                  isRunning
-                    ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
-                    : 'bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90'
-                }`}
-              >
-                {isRunning ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 ml-0.5" />}
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      {/* Pure ~0.85-inch (84x84px) floating 3D Sand Hourglass — click to start/pause */}
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={toggleRunning}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleRunning();
+          }
+        }}
+        title={isRunning ? `Focus running (${minsDisplay}:${secsDisplay}) — click to pause` : `Timer paused (${minsDisplay}:${secsDisplay}) — click to start`}
+        className="cursor-pointer drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)] hover:scale-105 transition-transform"
+      >
+        <ThreeSandHourglass
+          isRunning={isRunning}
+          progress={burnProgress}
+        />
+      </div>
+    </motion.div>
   );
 };

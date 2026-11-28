@@ -53,8 +53,8 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       return;
     }
 
-    const width = container.clientWidth || (compact ? 96 : 320);
-    const height = container.clientHeight || (compact ? 96 : 260);
+    const width = container.clientWidth || (compact ? 72 : 320);
+    const height = container.clientHeight || (compact ? 72 : 260);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -62,10 +62,12 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
+    const candleGroup = new THREE.Group();
+    scene.add(candleGroup);
     const camera = new THREE.PerspectiveCamera(compact ? 34 : 36, width / height, 0.1, 50);
     if (compact) {
-      camera.position.set(0, 1.05, 4.15);
-      camera.lookAt(0, 0.42, 0);
+      camera.position.set(0, 1.0, 4.35);
+      camera.lookAt(0, 0.28, 0);
     } else {
       camera.position.set(0, 1.35, 5.1);
       camera.lookAt(0, 0.55, 0);
@@ -80,57 +82,145 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
 
     // Warm flickering flame PointLight
     const flameLight = new THREE.PointLight(0xff922b, 3.2, 8, 1.6);
-    scene.add(flameLight);
+    candleGroup.add(flameLight);
 
-    // Brass pedestal saucer
-    const saucerGeo = new THREE.CylinderGeometry(1.15, 0.92, 0.16, 40);
+    // Cute brass pedestal saucer with tiny side ring handle
+    const saucerGeo = new THREE.CylinderGeometry(1.08, 0.86, 0.16, 40);
     const brassMat = new THREE.MeshStandardMaterial({
-      color: 0xb8860b,
-      metalness: 0.78,
+      color: 0xc9962b,
+      metalness: 0.72,
       roughness: 0.28,
     });
     const saucer = new THREE.Mesh(saucerGeo, brassMat);
     saucer.position.y = -1.1;
-    scene.add(saucer);
+    candleGroup.add(saucer);
 
-    const rimGeo = new THREE.TorusGeometry(1.14, 0.045, 16, 48);
+    const rimGeo = new THREE.TorusGeometry(1.07, 0.05, 16, 48);
     const rim = new THREE.Mesh(rimGeo, brassMat);
     rim.rotation.x = Math.PI / 2;
     rim.position.y = -1.03;
-    scene.add(rim);
+    candleGroup.add(rim);
 
-    // Candle wax pillar (pivot at bottom so it melts downward)
-    const baseWaxHeight = 1.95;
-    const waxGeo = new THREE.CylinderGeometry(0.46, 0.48, baseWaxHeight, 36, 1);
+    const handleGeo = new THREE.TorusGeometry(0.16, 0.032, 12, 24);
+    const handleMesh = new THREE.Mesh(handleGeo, brassMat);
+    handleMesh.position.set(1.16, -0.98, 0);
+    handleMesh.rotation.y = Math.PI * 0.15;
+    candleGroup.add(handleMesh);
+
+    // Cute chubby game-style candle wax pillar (pivot at bottom so it melts downward)
+    const baseWaxHeight = compact ? 1.38 : 1.85;
+    const waxRadius = compact ? 0.58 : 0.5;
+    const waxGeo = new THREE.CylinderGeometry(waxRadius - 0.02, waxRadius + 0.02, baseWaxHeight, 36, 1);
     waxGeo.translate(0, baseWaxHeight / 2, 0);
     const waxMat = new THREE.MeshStandardMaterial({
-      color: 0xfaf0dc,
-      roughness: 0.52,
-      metalness: 0.04,
-      emissive: 0xff6b1a,
-      emissiveIntensity: 0.08,
+      color: 0xfff4df,
+      roughness: 0.44,
+      metalness: 0.02,
+      emissive: 0xff8a3d,
+      emissiveIntensity: 0.11,
     });
     const waxMesh = new THREE.Mesh(waxGeo, waxMat);
     waxMesh.position.y = -1.02;
-    scene.add(waxMesh);
+    candleGroup.add(waxMesh);
+
+    // Cute game-style face on the front of the candle (eyes + catchlights + rosy cheeks + tiny smile)
+    const faceGroup = new THREE.Group();
+    const eyeGeo = new THREE.SphereGeometry(0.068, 14, 14);
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x2b1d14 });
+    const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
+    leftEye.position.set(-0.17, 0.06, waxRadius - 0.01);
+    leftEye.scale.set(1, 1.15, 0.5);
+    const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
+    rightEye.position.set(0.17, 0.06, waxRadius - 0.01);
+    rightEye.scale.set(1, 1.15, 0.5);
+
+    const sparkleGeo = new THREE.SphereGeometry(0.022, 10, 10);
+    const sparkleMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const leftSparkle = new THREE.Mesh(sparkleGeo, sparkleMat);
+    leftSparkle.position.set(-0.15, 0.085, waxRadius + 0.022);
+    const rightSparkle = new THREE.Mesh(sparkleGeo, sparkleMat);
+    rightSparkle.position.set(0.19, 0.085, waxRadius + 0.022);
+
+    const blushGeo = new THREE.SphereGeometry(0.065, 12, 12);
+    const blushMat = new THREE.MeshBasicMaterial({
+      color: 0xff8fa3,
+      transparent: true,
+      opacity: 0.72,
+    });
+    const leftBlush = new THREE.Mesh(blushGeo, blushMat);
+    leftBlush.position.set(-0.27, -0.02, waxRadius - 0.025);
+    leftBlush.scale.set(1.25, 0.75, 0.4);
+    const rightBlush = new THREE.Mesh(blushGeo, blushMat);
+    rightBlush.position.set(0.27, -0.02, waxRadius - 0.025);
+    rightBlush.scale.set(1.25, 0.75, 0.4);
+
+    const smileGeo = new THREE.TorusGeometry(0.065, 0.014, 8, 16, Math.PI);
+    const smileMesh = new THREE.Mesh(smileGeo, eyeMat);
+    smileMesh.position.set(0, -0.01, waxRadius - 0.005);
+    smileMesh.rotation.z = Math.PI;
+
+    faceGroup.add(leftEye, rightEye, leftSparkle, rightSparkle, leftBlush, rightBlush, smileMesh);
+    candleGroup.add(faceGroup);
 
     // Melted wax pool ring at top
-    const poolGeo = new THREE.TorusGeometry(0.41, 0.055, 12, 32);
+    const poolGeo = new THREE.TorusGeometry(waxRadius - 0.07, 0.06, 12, 32);
     const poolMesh = new THREE.Mesh(poolGeo, waxMat);
     poolMesh.rotation.x = Math.PI / 2;
-    scene.add(poolMesh);
+    candleGroup.add(poolMesh);
+
+    // Melted wax puddle gathering at the bottom on the saucer
+    const bottomPuddleGeo = new THREE.CylinderGeometry(waxRadius + 0.08, waxRadius + 0.16, 0.055, 32);
+    const bottomPuddle = new THREE.Mesh(bottomPuddleGeo, waxMat);
+    bottomPuddle.position.y = -1.005;
+    candleGroup.add(bottomPuddle);
+
+    // Slow dripping liquid wax drops & solidified rim streaks
+    const dripMat = new THREE.MeshStandardMaterial({
+      color: 0xfff7e8,
+      roughness: 0.18,
+      metalness: 0.06,
+      emissive: 0xff8c2a,
+      emissiveIntensity: 0.16,
+      transparent: true,
+      opacity: 0.95,
+    });
+    const dripGeo = new THREE.SphereGeometry(0.044, 12, 12);
+    const DRIP_COUNT = 5;
+    const drips = Array.from({ length: DRIP_COUNT }, (_, idx) => {
+      const mesh = new THREE.Mesh(dripGeo, dripMat);
+      candleGroup.add(mesh);
+      return {
+        mesh,
+        angle: -Math.PI * 0.38 + (idx / (DRIP_COUNT - 1)) * Math.PI * 0.76,
+        cycle: idx / DRIP_COUNT,
+        // Very slow viscous wax drip (~28-40s per drop)
+        speed: 0.024 + (idx % 3) * 0.008,
+        size: 0.85 + (idx % 2) * 0.25,
+      };
+    });
+
+    const streakGeo = new THREE.CylinderGeometry(0.02, 0.034, 0.2, 10);
+    const streaks = Array.from({ length: 4 }, (_, idx) => {
+      const mesh = new THREE.Mesh(streakGeo, waxMat);
+      candleGroup.add(mesh);
+      return {
+        mesh,
+        angle: -Math.PI * 0.34 + idx * 0.72,
+        lenScale: 0.7 + (idx % 2) * 0.35,
+      };
+    });
 
     // Wick
     const wickGeo = new THREE.CylinderGeometry(0.022, 0.028, 0.22, 10);
     const wickMat = new THREE.MeshStandardMaterial({ color: 0x1e1b18, roughness: 0.9 });
     const wick = new THREE.Mesh(wickGeo, wickMat);
-    scene.add(wick);
+    candleGroup.add(wick);
 
     // Glowing ember tip
     const emberGeo = new THREE.SphereGeometry(0.028, 10, 10);
     const emberMat = new THREE.MeshBasicMaterial({ color: 0xff5400 });
     const ember = new THREE.Mesh(emberGeo, emberMat);
-    scene.add(ember);
+    candleGroup.add(ember);
 
     // Sculpted Outer Flame Mesh (teardrop with dynamic vertex displacement)
     const outerFlameGeo = new THREE.SphereGeometry(0.18, 24, 24);
@@ -156,7 +246,7 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       depthWrite: false,
     });
     const outerFlame = new THREE.Mesh(outerFlameGeo, outerFlameMat);
-    scene.add(outerFlame);
+    candleGroup.add(outerFlame);
 
     // Inner White-Gold Flame Core
     const innerFlameGeo = new THREE.SphereGeometry(0.095, 18, 18);
@@ -180,7 +270,7 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       depthWrite: false,
     });
     const innerFlame = new THREE.Mesh(innerFlameGeo, innerFlameMat);
-    scene.add(innerFlame);
+    candleGroup.add(innerFlame);
 
     // Soft Volumetric Halo Sprite
     const haloTex = createSoftGlowTexture('rgba(255, 220, 130, 0.85)', 'rgba(255, 105, 15, 0.28)');
@@ -192,7 +282,7 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     });
     const haloSprite = new THREE.Sprite(haloMat);
     haloSprite.scale.set(1.5, 1.8, 1);
-    scene.add(haloSprite);
+    candleGroup.add(haloSprite);
 
     // Rising Smoke / Fumes Particle System
     const SMOKE_COUNT = 72;
@@ -218,7 +308,7 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       blending: THREE.NormalBlending,
     });
     const smokePoints = new THREE.Points(smokeGeo, smokeMat);
-    scene.add(smokePoints);
+    candleGroup.add(smokePoints);
 
     // ResizeObserver for crisp responsive canvas
     const resizeObserver = new ResizeObserver((entries) => {
@@ -248,6 +338,12 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       const targetStrength = burning ? 1.0 : 0.0;
       flameStrength += (targetStrength - flameStrength) * Math.min(1, dt * 6);
 
+      // Gentle living sway/turn animation on the candle
+      candleGroup.rotation.y = Math.sin(t * 0.65) * 0.08;
+      if (compact) {
+        candleGroup.position.y = Math.sin(t * 1.4) * 0.02;
+      }
+
       // Melt wax down smoothly from 1.0 -> 0.28
       const clampedProg = Math.max(0, Math.min(1, prog));
       const waxScaleY = 1.0 - clampedProg * 0.72;
@@ -258,6 +354,78 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       wick.position.y = waxTopY + 0.08;
       ember.position.y = waxTopY + 0.19;
       emberMat.color.setHex(burning ? 0xff6a00 : 0x552200);
+
+      // Keep cute game-style face centered on the remaining wax & animate blinking
+      faceGroup.position.y = -1.02 + baseWaxHeight * waxScaleY * 0.46;
+      const blinkCycle = t % 4.2;
+      const isBlinking = !burning || (blinkCycle > 3.95 && blinkCycle < 4.1);
+      const eyeScaleY = isBlinking ? 0.18 : 1.15;
+      leftEye.scale.y = eyeScaleY;
+      rightEye.scale.y = eyeScaleY;
+      leftSparkle.visible = !isBlinking;
+      rightSparkle.visible = !isBlinking;
+
+      // Grow melted wax puddle at the bottom as candle melts over time
+      const puddleGrowth = 0.72 + clampedProg * 0.68;
+      bottomPuddle.scale.set(puddleGrowth, 0.55 + clampedProg * 0.9, puddleGrowth);
+
+      // Update solidified rim streaks as wax melts
+      const streakScale = (0.45 + clampedProg * 0.85) * waxScaleY;
+      const surfaceRadius = waxRadius - 0.012;
+      for (const s of streaks) {
+        s.mesh.position.set(
+          Math.sin(s.angle) * surfaceRadius,
+          waxTopY - 0.09 * s.lenScale * streakScale,
+          Math.cos(s.angle) * surfaceRadius
+        );
+        s.mesh.scale.set(1, s.lenScale * streakScale, 1);
+      }
+
+      // Update slow dripping liquid wax drops that gather into the bottom puddle
+      const meltSpeedMult = 1 + clampedProg * 0.5;
+      const fallHeight = Math.max(0.2, waxTopY - -1.01);
+      for (const d of drips) {
+        if (burning) {
+          d.cycle = (d.cycle + dt * d.speed * meltSpeedMult) % 1;
+        }
+        // 0..0.35: swell at rim; 0.35..0.90: slide slowly down; 0.90..1.0: pool/flatten at bottom
+        if (d.cycle < 0.35) {
+          const swell = d.cycle / 0.35;
+          d.mesh.position.set(
+            Math.sin(d.angle) * (surfaceRadius + 0.005),
+            waxTopY - 0.02 - swell * 0.025,
+            Math.cos(d.angle) * (surfaceRadius + 0.005)
+          );
+          d.mesh.scale.setScalar(d.size * (0.3 + swell * 0.7));
+        } else if (d.cycle < 0.9) {
+          const fall = (d.cycle - 0.35) / 0.55;
+          const easeFall = fall * fall * 0.55 + fall * 0.45;
+          const dropY = waxTopY - 0.045 - easeFall * fallHeight;
+          d.mesh.position.set(
+            Math.sin(d.angle) * (surfaceRadius + 0.01),
+            dropY,
+            Math.cos(d.angle) * (surfaceRadius + 0.01)
+          );
+          d.mesh.scale.set(
+            d.size * 0.78,
+            d.size * (1.05 + fall * 1.15),
+            d.size * 0.78
+          );
+        } else {
+          const poolPhase = (d.cycle - 0.9) / 0.1;
+          d.mesh.position.set(
+            Math.sin(d.angle) * (surfaceRadius + 0.04 + poolPhase * 0.08),
+            -0.995,
+            Math.cos(d.angle) * (surfaceRadius + 0.04 + poolPhase * 0.08)
+          );
+          const fade = 1 - poolPhase * 0.85;
+          d.mesh.scale.set(
+            d.size * (1.25 + poolPhase * 0.65) * fade,
+            d.size * 0.32 * fade,
+            d.size * (1.25 + poolPhase * 0.65) * fade
+          );
+        }
+      }
 
       // Flame sway & organic turbulence
       const swayX = Math.sin(t * 4.3) * 0.025 + Math.cos(t * 7.1) * 0.012;
@@ -330,15 +498,27 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       resizeObserver.disconnect();
       saucerGeo.dispose();
       rimGeo.dispose();
+      handleGeo.dispose();
       waxGeo.dispose();
       poolGeo.dispose();
+      bottomPuddleGeo.dispose();
       wickGeo.dispose();
       emberGeo.dispose();
+      eyeGeo.dispose();
+      sparkleGeo.dispose();
+      blushGeo.dispose();
+      smileGeo.dispose();
+      dripGeo.dispose();
+      streakGeo.dispose();
       outerFlameGeo.dispose();
       innerFlameGeo.dispose();
       smokeGeo.dispose();
       brassMat.dispose();
       waxMat.dispose();
+      eyeMat.dispose();
+      sparkleMat.dispose();
+      blushMat.dispose();
+      dripMat.dispose();
       wickMat.dispose();
       emberMat.dispose();
       outerFlameMat.dispose();
@@ -358,10 +538,10 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     return (
       <div
         className={`flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] ${
-          compact ? 'w-24 h-24 p-2' : 'p-6'
+          compact ? 'w-[72px] h-[72px] p-1' : 'p-6'
         } ${className}`}
       >
-        <div className={compact ? 'text-2xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
+        <div className={compact ? 'text-xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
         {!compact && (
           <span className="text-xs font-mono text-[var(--text-muted)]">
             {isBurning ? 'Focus flame burning' : 'Candle paused'}
@@ -376,7 +556,7 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       ref={mountRef}
       className={
         compact
-          ? `relative w-24 h-24 rounded-xl bg-gradient-to-b from-[#07070a]/80 via-[#0e0b09]/70 to-transparent overflow-hidden ${className}`
+          ? `relative w-[72px] h-[72px] bg-transparent overflow-visible ${className}`
           : `relative w-full h-[230px] sm:h-[265px] rounded-2xl bg-gradient-to-b from-[#07070a]/70 via-[#0e0b09]/60 to-[var(--bg-base)] border border-[var(--border-subtle)] overflow-hidden ${className}`
       }
     />
