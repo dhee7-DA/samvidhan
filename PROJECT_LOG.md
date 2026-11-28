@@ -8,10 +8,10 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-28 12:53:23 (+05:30) |
+| **Last Log Sync** | 2026-11-28 13:09:19 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `3a7133b` (2026-11-28T12:28:06+05:30) |
-| **Total Commits** | 146 |
+| **Branch / HEAD** | `main` @ `2b50f8f` (2026-11-28T12:53:46+05:30) |
+| **Total Commits** | 147 |
 | **Total Files Indexed** | 398 (398 tracked, 0 new untracked) |
 | **Working Tree** | 4 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-28 13:09:19 (+05:30)] Make 3D Sand Hourglass & Header Candle smaller and firmly fixed (DONE)
+- **Details:** Reduced ThreeSandHourglass to 64x64px compact / 195-220px full view with fixed position/angle, reduced Header candle to 28x28px with fixed position, increased smoke_check lazy timeout to 25s, and verified npm run build + npm run test:smoke (5 split-screen + 35 desktop routes, 0 errors).
+- **Files Touched (4):** `M scripts/smoke_check.py`, `M src/components/Common/ThreeBurningCandle.tsx`, `M src/components/Common/ThreeSandHourglass.tsx`, `M src/components/Layout/Header.tsx`
+- **Git HEAD:** `main` @ `2b50f8f`
 
 ### [2026-11-28 12:53:23 (+05:30)] Use 4-pillar 3D Sand Hourglass in FocusTimerView & move mini 3D candle to Header beside SAMVIDHAN (DONE)
 - **Details:** Upgraded ThreeSandHourglass with 4 brass pillars, double-tiered walnut plinths, and radial glow for FocusTimerView; added headerMini (36x36px) mode to ThreeBurningCandle and placed it beside SAMVIDHAN in Header.tsx; verified npm run build + npm run test:smoke (5 split-screen + 35 desktop routes, 0 errors).
@@ -511,7 +516,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 79.6 KB | 2432 | `14299dd` (2026-11-28) |
 | `package.json` | 904 B | 36 | `14299dd` (2026-11-28) |
-| `PROJECT_LOG.md` | 127.6 KB | 1239 | `3a7133b` (2026-11-28) |
+| `PROJECT_LOG.md` | 128.4 KB | 1245 | `2b50f8f` (2026-11-28) |
 | `README.md` | 10.3 KB | 128 | `fda46bc` (2026-11-28) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -620,15 +625,15 @@
 | `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `f697564` (2026-11-26) |
 | `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | `a025b61` (2026-11-19) |
 | `src/components/Common/SearchModal.tsx` | 19.6 KB | 495 | `5c4ca12` (2026-11-27) |
-| `src/components/Common/ThreeBurningCandle.tsx` | 20.9 KB | 574 | `3a7133b` (2026-11-28) |
-| `src/components/Common/ThreeSandHourglass.tsx` | 10.8 KB | 321 | `3a7133b` (2026-11-28) |
+| `src/components/Common/ThreeBurningCandle.tsx` | 20.9 KB | 572 | `2b50f8f` (2026-11-28) |
+| `src/components/Common/ThreeSandHourglass.tsx` | 10.8 KB | 321 | `2b50f8f` (2026-11-28) |
 | `src/components/Common/UniversalDictionaryPopover.tsx` | 10.8 KB | 292 | `b351247` (2026-11-15) |
 
 ### `src/components/Layout` (3 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 8.7 KB | 165 | `5a91b93` (2026-11-26) |
+| `src/components/Layout/Header.tsx` | 8.7 KB | 165 | `2b50f8f` (2026-11-28) |
 | `src/components/Layout/Sidebar.tsx` | 17.2 KB | 352 | `8a3a645` (2026-11-26) |
 | `src/components/Layout/ThemeSelector.tsx` | 11.4 KB | 266 | `8a3a645` (2026-11-26) |
 
@@ -686,7 +691,7 @@
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `8a3a645` (2026-11-26) |
 | `src/components/Views/FlashcardsView.tsx` | 53.3 KB | 1171 | `78d0908` (2026-11-27) |
-| `src/components/Views/FocusTimerView.tsx` | 7.1 KB | 161 | `bb726be` (2026-11-28) |
+| `src/components/Views/FocusTimerView.tsx` | 7.1 KB | 161 | `2b50f8f` (2026-11-28) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 23.5 KB | 470 | `dbf046c` (2026-11-27) |
 | `src/components/Views/LandmarkCasesView.tsx` | 55.5 KB | 1028 | `5c4ca12` (2026-11-27) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
@@ -1091,10 +1096,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**146** commits, newest first).
+> Complete git history (**147** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 147 | 2026-11-28 | `2b50f8f` | 5 | feat: use 3D Sand Hourglass in FocusTimerView and add mini candle to Header |
 | 146 | 2026-11-28 | `3a7133b` | 4 | feat: replace floating corner widget with 3D Three.js Sand Hourglass |
 | 145 | 2026-11-28 | `bb726be` | 6 | feat: add 1-inch floating lower-right Three.js focus candle pop-up |
 | 144 | 2026-11-28 | `14299dd` | 9 | feat: add Three.js Focus Timer & Pomodoro with animated burning candle, flames, and fumes |

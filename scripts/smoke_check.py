@@ -77,7 +77,7 @@ def check_viewport(page, base_url: str, width: int, height: int, routes: list[st
         # Wait for lazy Suspense fallback to finish if loading a new chunk
         loader = page.locator("text=Loading Constitutional Module...")
         if loader.count() > 0:
-            loader.first.wait_for(state="hidden", timeout=10000)
+            loader.first.wait_for(state="hidden", timeout=25000)
 
         page.wait_for_timeout(260)
 

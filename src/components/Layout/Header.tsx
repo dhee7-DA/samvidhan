@@ -70,9 +70,9 @@ export const Header: React.FC = () => {
             onClick={() => setActiveTab('focus-timer')}
             title="Open Focus Timer & Sand Hourglass"
             aria-label="Open Focus Timer"
-            className="hidden sm:flex items-center justify-center w-9 h-9 rounded-xl hover:bg-[var(--bg-surface)]/70 transition-colors cursor-pointer shrink-0"
+            className="hidden sm:flex items-center justify-center w-7 h-7 rounded-lg hover:bg-[var(--bg-surface)]/70 transition-colors cursor-pointer shrink-0"
           >
-            <Suspense fallback={<span className="w-9 h-9" />}>
+            <Suspense fallback={<span className="w-7 h-7" />}>
               <ThreeBurningCandle
                 isBurning={isRunning || true}
                 burnProgress={burnProgress * 0.45}

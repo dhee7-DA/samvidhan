@@ -57,8 +57,8 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     }
 
     const isMini = compact || headerMini;
-    const width = container.clientWidth || (headerMini ? 38 : compact ? 72 : 320);
-    const height = container.clientHeight || (headerMini ? 38 : compact ? 72 : 260);
+    const width = container.clientWidth || (headerMini ? 28 : compact ? 64 : 320);
+    const height = container.clientHeight || (headerMini ? 28 : compact ? 64 : 260);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -345,11 +345,9 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       const targetStrength = burning ? 1.0 : 0.0;
       flameStrength += (targetStrength - flameStrength) * Math.min(1, dt * 6);
 
-      // Gentle living sway/turn animation on the candle
-      candleGroup.rotation.y = Math.sin(t * 0.65) * 0.08;
-      if (compact) {
-        candleGroup.position.y = Math.sin(t * 1.4) * 0.02;
-      }
+      // Keep candle fixed in place (no floating bobbing)
+      candleGroup.rotation.y = headerMini ? 0 : Math.sin(t * 0.65) * 0.06;
+      candleGroup.position.y = 0;
 
       // Melt wax down smoothly from 1.0 -> 0.28
       const clampedProg = Math.max(0, Math.min(1, prog));
@@ -545,10 +543,10 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     return (
       <div
         className={`flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] ${
-          headerMini ? 'w-9 h-9 p-0.5' : compact ? 'w-[72px] h-[72px] p-1' : 'p-6'
+          headerMini ? 'w-7 h-7 p-0.5' : compact ? 'w-16 h-16 p-1' : 'p-6'
         } ${className}`}
       >
-        <div className={headerMini ? 'text-base' : compact ? 'text-xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
+        <div className={headerMini ? 'text-sm' : compact ? 'text-xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
         {!compact && !headerMini && (
           <span className="text-xs font-mono text-[var(--text-muted)]">
             {isBurning ? 'Focus flame burning' : 'Candle paused'}
@@ -563,9 +561,9 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       ref={mountRef}
       className={
         headerMini
-          ? `relative w-9 h-9 bg-transparent overflow-visible ${className}`
+          ? `relative w-7 h-7 bg-transparent overflow-visible ${className}`
           : compact
-          ? `relative w-[72px] h-[72px] bg-transparent overflow-visible ${className}`
+          ? `relative w-16 h-16 bg-transparent overflow-visible ${className}`
           : `relative w-full h-[230px] sm:h-[265px] rounded-2xl bg-gradient-to-b from-[#07070a]/70 via-[#0e0b09]/60 to-[var(--bg-base)] border border-[var(--border-subtle)] overflow-hidden ${className}`
       }
     />

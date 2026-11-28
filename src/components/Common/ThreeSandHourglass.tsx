@@ -37,8 +37,8 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       return;
     }
 
-    const width = container.clientWidth || (compact ? 84 : 320);
-    const height = container.clientHeight || (compact ? 84 : 260);
+    const width = container.clientWidth || (compact ? 64 : 320);
+    const height = container.clientHeight || (compact ? 64 : 220);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -51,7 +51,7 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
 
     // Generous camera framing so zero geometry is ever clipped
     const camera = new THREE.PerspectiveCamera(compact ? 38 : 34, width / height, 0.1, 50);
-    camera.position.set(0, compact ? 0.25 : 0.3, compact ? 4.45 : 4.25);
+    camera.position.set(0, compact ? 0.25 : 0.28, compact ? 4.65 : 4.75);
     camera.lookAt(0, 0, 0);
 
     // Studio & warm sand lighting
@@ -227,9 +227,9 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       const { isRunning: running, progress: prog } = stateRef.current;
       const clampedProg = Math.max(0.02, Math.min(0.98, prog));
 
-      // Gentle game-style idle turn & float
-      hourglassGroup.rotation.y = Math.sin(t * 0.75) * 0.24;
-      hourglassGroup.position.y = Math.sin(t * 1.5) * 0.028;
+      // Keep hourglass firmly fixed in place (subtle fixed 3/4 architectural angle)
+      hourglassGroup.rotation.y = 0.26;
+      hourglassGroup.position.y = 0;
 
       // Top sand shrinks, bottom sand mound grows
       const topScale = Math.max(0.08, 1 - clampedProg);
@@ -298,8 +298,8 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       <div
         className={
           compact
-            ? `w-[84px] h-[84px] flex items-center justify-center text-2xl ${className}`
-            : `w-full h-[240px] sm:h-[270px] rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-4xl ${className}`
+            ? `w-16 h-16 flex items-center justify-center text-xl ${className}`
+            : `w-full h-[195px] sm:h-[220px] rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-3xl ${className}`
         }
       >
         ⏳
@@ -312,8 +312,8 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       ref={mountRef}
       className={
         compact
-          ? `relative w-[84px] h-[84px] bg-transparent overflow-visible ${className}`
-          : `relative w-full h-[240px] sm:h-[270px] rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.14)_0%,rgba(14,11,9,0.78)_58%,var(--bg-base)_100%)] border border-[var(--border-subtle)] overflow-hidden ${className}`
+          ? `relative w-16 h-16 bg-transparent overflow-visible ${className}`
+          : `relative w-full h-[195px] sm:h-[220px] rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.14)_0%,rgba(14,11,9,0.78)_58%,var(--bg-base)_100%)] border border-[var(--border-subtle)] overflow-hidden ${className}`
       }
     />
   );
