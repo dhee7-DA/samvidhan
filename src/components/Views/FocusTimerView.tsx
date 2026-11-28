@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Flame, Pause, Play, RotateCcw, Timer, Volume2, VolumeX, CheckCircle2 } from 'lucide-react';
-import { ThreeSandHourglass } from '../Common/ThreeSandHourglass';
+import { Sparkles, Pause, Play, RotateCcw, Timer, Volume2, VolumeX, CheckCircle2 } from 'lucide-react';
+import { DOT_RHYTHMS, DotMatrixPulse, ShimmerLabel } from '../Common/DotMatrixPulse';
 import { EDITORIAL_SPRING, SlidingSegmentedControl, StudyTelemetryCard } from '../Common/EditorialMotionCards';
 import { useFocusTimer } from '../../context/FocusTimerContext';
 
@@ -16,6 +16,8 @@ export const FocusTimerView: React.FC = () => {
     minsDisplay,
     secsDisplay,
     burnProgress,
+    rhythm,
+    setRhythm,
     toggleRunning,
     toggleSound,
     handleModeChange,
@@ -23,20 +25,22 @@ export const FocusTimerView: React.FC = () => {
     handleReset,
   } = useFocusTimer();
 
+  const activeMeta = DOT_RHYTHMS.find((r) => r.id === rhythm) || DOT_RHYTHMS[2];
+
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 animate-fadeIn">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[var(--border-subtle)] pb-4">
         <div className="space-y-1">
           <div className="flex items-center gap-1.5 text-[11px] font-mono font-medium text-[var(--text-muted)]">
-            <Flame className="w-3.5 h-3.5 text-amber-500" />
-            <span>THREE.JS FOCUS CANDLE & POMODORO</span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span>8 RHYTHMS · DOT-MATRIX FOCUS STUDIO</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] tracking-tight">
-            Study Timer & Focus Flame
+            Study Timer & Focus Rhythm
           </h1>
           <p className="text-xs sm:text-sm text-[var(--text-muted)]">
-            Every active focus minute melts the wax, feeds the flame, and keeps burning in the bottom-right corner while you study.
+            Choose from 8 breathing dot-matrix light rhythms synced live to your header badge, corner pill, and Study Telemetry.
           </p>
         </div>
 
@@ -73,12 +77,54 @@ export const FocusTimerView: React.FC = () => {
 
       {/* Main 2-Column Arena */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-        {/* Left: Three.js Premium Sand Hourglass */}
-        <div className="lg:col-span-5 p-5 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between gap-3 shadow-sm">
-          <ThreeSandHourglass isRunning={isRunning} progress={burnProgress} compact={false} />
-          <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] px-1">
-            <span>{isRunning ? 'Golden sand flowing · Session active' : 'Hourglass paused · Ready'}</span>
-            <span>{Math.round(burnProgress * 100)}% elapsed</span>
+        {/* Left: @guanmo_ai-inspired 7x7 Dot-Matrix Showcase + 8-Rhythm Grid */}
+        <div className="lg:col-span-5 p-5 rounded-3xl bg-[#09090c] border border-white/10 flex flex-col justify-between gap-5 shadow-xl">
+          <div className="flex flex-col items-center justify-center py-4 gap-3 rounded-2xl bg-[#050507] border border-white/[0.06]">
+            <DotMatrixPulse rhythm={rhythm} active={isRunning} size="lg" />
+            <div className="flex items-center gap-2 pt-1">
+              <ShimmerLabel
+                text={isRunning ? 'Focusing' : 'Thinking'}
+                active={isRunning}
+                accentColor={activeMeta.color}
+                className="text-sm"
+              />
+              <span className="text-[11px] font-mono text-zinc-500">
+                · {activeMeta.label} ({Math.round(burnProgress * 100)}%)
+              </span>
+            </div>
+          </div>
+
+          {/* 2x4 Grid of 8 Selectable Dot-Matrix Pills */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.16em] text-zinc-500 px-1">
+              <span>8 Ways To Focus</span>
+              <span>Select Rhythm</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2.5">
+              {DOT_RHYTHMS.map((item) => {
+                const selected = item.id === rhythm;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setRhythm(item.id)}
+                    className={`flex items-center gap-2.5 px-3 py-2 rounded-full bg-[#050507] border transition-all cursor-pointer ${
+                      selected
+                        ? 'border-white/30 shadow-[0_0_16px_rgba(255,255,255,0.06)]'
+                        : 'border-white/[0.07] hover:border-white/20'
+                    }`}
+                  >
+                    <DotMatrixPulse rhythm={item.id} active size="sm" />
+                    <ShimmerLabel
+                      text={item.label}
+                      active={selected}
+                      accentColor={item.color}
+                      className="text-xs"
+                    />
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -134,7 +180,7 @@ export const FocusTimerView: React.FC = () => {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-contrast)] text-sm font-bold shadow-sm cursor-pointer"
               >
                 {isRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                <span>{isRunning ? 'Pause Flame' : 'Light & Start'}</span>
+                <span>{isRunning ? 'Pause Session' : 'Start Focus'}</span>
               </motion.button>
 
               <motion.button

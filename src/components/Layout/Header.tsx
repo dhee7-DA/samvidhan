@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { springs } from '../../lib/motionTokens';
 import {
@@ -12,11 +12,8 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useFocusTimer } from '../../context/FocusTimerContext';
+import { DOT_RHYTHMS, DotMatrixPulse, ShimmerLabel } from '../Common/DotMatrixPulse';
 import { ThemeSelector } from './ThemeSelector';
-
-const ThreeBurningCandle = lazy(() =>
-  import('../Common/ThreeBurningCandle').then((m) => ({ default: m.ThreeBurningCandle }))
-);
 
 export const Header: React.FC = () => {
   const {
@@ -29,7 +26,8 @@ export const Header: React.FC = () => {
     setSidebarCollapsed
   } = useTheme();
 
-  const { isRunning, burnProgress } = useFocusTimer();
+  const { isRunning, minsDisplay, secsDisplay, rhythm } = useFocusTimer();
+  const rhythmMeta = DOT_RHYTHMS.find((r) => r.id === rhythm) || DOT_RHYTHMS[2];
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-base)]/85 backdrop-blur-md transition-colors">
@@ -64,21 +62,21 @@ export const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Cute 3D Study Candle Mascot beside SAMVIDHAN branding */}
+          {/* Modern 7x7 Dot-Matrix Focus Pill beside SAMVIDHAN branding */}
           <button
             type="button"
             onClick={() => setActiveTab('focus-timer')}
-            title="Open Focus Timer & Sand Hourglass"
+            title="Open Focus Timer"
             aria-label="Open Focus Timer"
-            className="hidden sm:flex items-center justify-center w-7 h-7 rounded-lg hover:bg-[var(--bg-surface)]/70 transition-colors cursor-pointer shrink-0"
+            className="hidden sm:inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#070709] border border-white/12 hover:border-white/25 shadow-sm transition-colors cursor-pointer shrink-0"
           >
-            <Suspense fallback={<span className="w-7 h-7" />}>
-              <ThreeBurningCandle
-                isBurning={isRunning || true}
-                burnProgress={burnProgress * 0.45}
-                headerMini
-              />
-            </Suspense>
+            <DotMatrixPulse rhythm={rhythm} active size="xs" />
+            <ShimmerLabel
+              text={isRunning ? `${minsDisplay}:${secsDisplay}` : 'Focus'}
+              active={isRunning}
+              accentColor={rhythmMeta.color}
+              className="text-[11px] font-mono tabular-nums"
+            />
           </button>
         </div>
 

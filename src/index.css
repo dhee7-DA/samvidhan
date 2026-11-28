@@ -458,6 +458,11 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes dotShimmerSweep {
+  0% { background-position: 120% 0; }
+  100% { background-position: -100% 0; }
+}
+
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }

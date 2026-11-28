@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-28 13:09:19 (+05:30) |
+| **Last Log Sync** | 2026-11-28 13:59:03 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `2b50f8f` (2026-11-28T12:53:46+05:30) |
-| **Total Commits** | 147 |
-| **Total Files Indexed** | 398 (398 tracked, 0 new untracked) |
-| **Working Tree** | 4 pending change(s) |
+| **Branch / HEAD** | `main` @ `fa4d58c` (2026-11-28T13:09:40+05:30) |
+| **Total Commits** | 148 |
+| **Total Files Indexed** | 399 (398 tracked, 1 new untracked) |
+| **Working Tree** | 6 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-28 13:59:03 (+05:30)] Implement @guanmo_ai-inspired 8-rhythm 7x7 Dot-Matrix Focus Studio, Header Pill & Floating Pill (DONE)
+- **Details:** Created DotMatrixPulse.tsx with 8 selectable rhythms (Ember, Pulse, Diamond, Orbit, Perimeter, Arrow, Wave, Glider) + synchronized ShimmerLabel; integrated into FocusTimerView, Header beside SAMVIDHAN, and FloatingFocusCandle corner pill; verified npm run test:smoke (5 split-screen + 35 desktop routes, 0 errors) and npm run build.
+- **Files Touched (6):** `M src/components/Common/FloatingFocusCandle.tsx`, `M src/components/Layout/Header.tsx`, `M src/components/Views/FocusTimerView.tsx`, `M src/context/FocusTimerContext.tsx`, `M src/index.css`, `?? src/components/Common/DotMatrixPulse.tsx`
+- **Git HEAD:** `main` @ `fa4d58c`
 
 ### [2026-11-28 13:09:19 (+05:30)] Make 3D Sand Hourglass & Header Candle smaller and firmly fixed (DONE)
 - **Details:** Reduced ThreeSandHourglass to 64x64px compact / 195-220px full view with fixed position/angle, reduced Header candle to 28x28px with fixed position, increased smoke_check lazy timeout to 25s, and verified npm run build + npm run test:smoke (5 split-screen + 35 desktop routes, 0 errors).
@@ -504,7 +509,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **398** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **399** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -516,7 +521,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 79.6 KB | 2432 | `14299dd` (2026-11-28) |
 | `package.json` | 904 B | 36 | `14299dd` (2026-11-28) |
-| `PROJECT_LOG.md` | 128.4 KB | 1245 | `2b50f8f` (2026-11-28) |
+| `PROJECT_LOG.md` | 129.1 KB | 1251 | `fa4d58c` (2026-11-28) |
 | `README.md` | 10.3 KB | 128 | `fda46bc` (2026-11-28) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -590,7 +595,7 @@
 | `scripts/buildBareActDataset.cjs` | 149.0 KB | 598 | `3db5394` (2026-11-16) |
 | `scripts/generate_case_studies.py` | 14.7 KB | — | `957f8a4` (2026-11-26) |
 | `scripts/generate_part_case_studies.py` | 12.3 KB | — | `2d653a6` (2026-11-26) |
-| `scripts/smoke_check.py` | 4.7 KB | — | `14299dd` (2026-11-28) |
+| `scripts/smoke_check.py` | 4.7 KB | — | `fa4d58c` (2026-11-28) |
 | `scripts/updateProjectLog.cjs` | 10.2 KB | 345 | `7da595c` (2026-11-18) |
 
 ### `src` (3 files)
@@ -598,7 +603,7 @@
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
 | `src/App.tsx` | 13.1 KB | 274 | `bb726be` (2026-11-28) |
-| `src/index.css` | 16.1 KB | 615 | `dbf046c` (2026-11-27) |
+| `src/index.css` | 16.2 KB | 620 | `dbf046c` (2026-11-27) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
 ### `src/assets` (3 files)
@@ -609,7 +614,7 @@
 | `src/assets/react.svg` | 4.0 KB | 1 | `3c486dd` (2026-11-13) |
 | `src/assets/vite.svg` | 8.5 KB | 2 | `3c486dd` (2026-11-13) |
 
-### `src/components/Common` (15 files)
+### `src/components/Common` (16 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -618,22 +623,23 @@
 | `src/components/Common/ChapterComprehensionLab.tsx` | 24.7 KB | 596 | `7bbd76a` (2026-11-27) |
 | `src/components/Common/ConstitutionalWatermark.tsx` | 7.2 KB | 152 | `f697564` (2026-11-26) |
 | `src/components/Common/DailyConstitutionalWorkout.tsx` | 25.7 KB | 535 | `dbf046c` (2026-11-27) |
+| `src/components/Common/DotMatrixPulse.tsx` | 8.4 KB | 259 | new (uncommitted) |
 | `src/components/Common/EditorialMotionCards.tsx` | 17.0 KB | 463 | `dbf046c` (2026-11-27) |
-| `src/components/Common/FloatingFocusCandle.tsx` | 2.8 KB | 76 | `3a7133b` (2026-11-28) |
+| `src/components/Common/FloatingFocusCandle.tsx` | 2.4 KB | 72 | `3a7133b` (2026-11-28) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.8 KB | 474 | `8a3a645` (2026-11-26) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
 | `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `f697564` (2026-11-26) |
 | `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | `a025b61` (2026-11-19) |
 | `src/components/Common/SearchModal.tsx` | 19.6 KB | 495 | `5c4ca12` (2026-11-27) |
-| `src/components/Common/ThreeBurningCandle.tsx` | 20.9 KB | 572 | `2b50f8f` (2026-11-28) |
-| `src/components/Common/ThreeSandHourglass.tsx` | 10.8 KB | 321 | `2b50f8f` (2026-11-28) |
+| `src/components/Common/ThreeBurningCandle.tsx` | 20.9 KB | 572 | `fa4d58c` (2026-11-28) |
+| `src/components/Common/ThreeSandHourglass.tsx` | 10.8 KB | 321 | `fa4d58c` (2026-11-28) |
 | `src/components/Common/UniversalDictionaryPopover.tsx` | 10.8 KB | 292 | `b351247` (2026-11-15) |
 
 ### `src/components/Layout` (3 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 8.7 KB | 165 | `2b50f8f` (2026-11-28) |
+| `src/components/Layout/Header.tsx` | 8.8 KB | 163 | `fa4d58c` (2026-11-28) |
 | `src/components/Layout/Sidebar.tsx` | 17.2 KB | 352 | `8a3a645` (2026-11-26) |
 | `src/components/Layout/ThemeSelector.tsx` | 11.4 KB | 266 | `8a3a645` (2026-11-26) |
 
@@ -691,7 +697,7 @@
 | `src/components/Views/FastTrackMasteryView.tsx` | 96.1 KB | 1837 | `d32e8e2` (2026-11-21) |
 | `src/components/Views/FederalRelationsView.tsx` | 29.9 KB | 601 | `8a3a645` (2026-11-26) |
 | `src/components/Views/FlashcardsView.tsx` | 53.3 KB | 1171 | `78d0908` (2026-11-27) |
-| `src/components/Views/FocusTimerView.tsx` | 7.1 KB | 161 | `2b50f8f` (2026-11-28) |
+| `src/components/Views/FocusTimerView.tsx` | 8.9 KB | 207 | `2b50f8f` (2026-11-28) |
 | `src/components/Views/JudgmentWritingLabView.tsx` | 23.5 KB | 470 | `dbf046c` (2026-11-27) |
 | `src/components/Views/LandmarkCasesView.tsx` | 55.5 KB | 1028 | `5c4ca12` (2026-11-27) |
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
@@ -745,7 +751,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/context/FocusTimerContext.tsx` | 5.8 KB | 192 | `bb726be` (2026-11-28) |
+| `src/context/FocusTimerContext.tsx` | 6.4 KB | 214 | `bb726be` (2026-11-28) |
 | `src/context/ThemeContext.tsx` | 7.0 KB | 204 | `ec161ca` (2026-11-25) |
 
 ### `src/data` (82 files)
@@ -1096,10 +1102,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**147** commits, newest first).
+> Complete git history (**148** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 148 | 2026-11-28 | `fa4d58c` | 5 | polish: make 3D hourglass and header candle smaller and fixed in place |
 | 147 | 2026-11-28 | `2b50f8f` | 5 | feat: use 3D Sand Hourglass in FocusTimerView and add mini candle to Header |
 | 146 | 2026-11-28 | `3a7133b` | 4 | feat: replace floating corner widget with 3D Three.js Sand Hourglass |
 | 145 | 2026-11-28 | `bb726be` | 6 | feat: add 1-inch floating lower-right Three.js focus candle pop-up |

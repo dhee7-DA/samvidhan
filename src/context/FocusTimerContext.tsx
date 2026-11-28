@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useRef, useMemo } from 'react';
 import { getStudyActivitySnapshot, recordStudyPulse, type StudyActivitySnapshot } from '../services/studyActivityService';
+import type { DotRhythmId } from '../components/Common/DotMatrixPulse';
 
 export type TimerMode = 'pomodoro' | 'deep' | 'break' | 'stopwatch';
 
@@ -11,6 +12,7 @@ export const MODE_DEFAULTS: Record<TimerMode, number> = {
 };
 
 const SESSIONS_KEY = 'samvidhan_pomodoro_sessions_v1';
+const RHYTHM_KEY = 'samvidhan_focus_rhythm_v1';
 
 function playGentleChime() {
   try {
@@ -46,6 +48,8 @@ interface FocusTimerContextValue {
   minsDisplay: string;
   secsDisplay: string;
   burnProgress: number;
+  rhythm: DotRhythmId;
+  setRhythm: (next: DotRhythmId) => void;
   widgetMinimized: boolean;
   setWidgetMinimized: React.Dispatch<React.SetStateAction<boolean>>;
   setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
@@ -65,6 +69,22 @@ export const FocusTimerProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [widgetMinimized, setWidgetMinimized] = useState<boolean>(false);
+  const [rhythm, setRhythmState] = useState<DotRhythmId>(() => {
+    try {
+      const saved = localStorage.getItem(RHYTHM_KEY) as DotRhythmId | null;
+      return saved || 'diamond';
+    } catch {
+      return 'diamond';
+    }
+  });
+  const setRhythm = (next: DotRhythmId) => {
+    setRhythmState(next);
+    try {
+      localStorage.setItem(RHYTHM_KEY, next);
+    } catch {
+      // ignore
+    }
+  };
   const [sessionsCompleted, setSessionsCompleted] = useState<number>(() => {
     try {
       return Number(localStorage.getItem(SESSIONS_KEY) || 0);
@@ -167,6 +187,8 @@ export const FocusTimerProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         minsDisplay,
         secsDisplay,
         burnProgress,
+        rhythm,
+        setRhythm,
         widgetMinimized,
         setWidgetMinimized,
         setIsRunning,
