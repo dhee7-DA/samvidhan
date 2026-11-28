@@ -3,6 +3,12 @@ import { AnimatePresence, motion } from 'motion/react';
 import { springs, drawerRevealVariants } from '../../lib/motionTokens';
 import { SlidingSegmentedControl } from '../Common/EditorialMotionCards';
 import {
+  ConfidenceDotPicker,
+  MorphingNotePill,
+  RadialMasteryCheckButton,
+  type ConfidenceLevel,
+} from '../Common/MicroInteractions';
+import {
   BookOpen,
   Search,
   Bookmark,
@@ -86,6 +92,48 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
       // ignore
     }
   }, [selectedArticleNum]);
+
+  // Micro-interaction states: per-article confidence & personal study notes
+  const [confidenceMap, setConfidenceMap] = useState<Record<string, ConfidenceLevel>>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('samvidhan_article_confidence_v1') || '{}');
+    } catch {
+      return {};
+    }
+  });
+  const [articleNotesMap, setArticleNotesMap] = useState<Record<string, string>>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('samvidhan_article_notes_v1') || '{}');
+    } catch {
+      return {};
+    }
+  });
+
+  const setArticleConfidence = (artNum: string, level: ConfidenceLevel) => {
+    setConfidenceMap((prev) => {
+      const next = { ...prev, [artNum]: level };
+      try {
+        localStorage.setItem('samvidhan_article_confidence_v1', JSON.stringify(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  };
+
+  const setArticleNote = (artNum: string, note: string) => {
+    setArticleNotesMap((prev) => {
+      const next = { ...prev };
+      if (note) next[artNum] = note;
+      else delete next[artNum];
+      try {
+        localStorage.setItem('samvidhan_article_notes_v1', JSON.stringify(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  };
 
   // Sync if another tab or view updates localStorage
   useEffect(() => {
@@ -678,6 +726,27 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                   <span className="hidden sm:inline">Drill</span>
                 </button>
 
+                <RadialMasteryCheckButton
+                  completed={confidenceMap[activeArticle.number] === 'mastered'}
+                  onToggle={() =>
+                    setArticleConfidence(
+                      activeArticle.number,
+                      confidenceMap[activeArticle.number] === 'mastered' ? 'unrated' : 'mastered'
+                    )
+                  }
+                  title={`Mark Article ${activeArticle.number} Mastered`}
+                />
+
+                <ConfidenceDotPicker
+                  value={confidenceMap[activeArticle.number] || 'unrated'}
+                  onChange={(lvl) => setArticleConfidence(activeArticle.number, lvl)}
+                />
+
+                <MorphingNotePill
+                  note={articleNotesMap[activeArticle.number] || ''}
+                  onSaveNote={(txt) => setArticleNote(activeArticle.number, txt)}
+                />
+
                 <button
                   onClick={() => toggleBookmark(`Art ${activeArticle.number}`)}
                   title={isCurrentBookmarked ? 'Remove Bookmark' : 'Add Bookmark'}
@@ -703,6 +772,15 @@ export const ArticlesMasterView: React.FC<ArticlesMasterViewProps> = ({ initialM
                 </button>
               </div>
             </div>
+
+            {articleNotesMap[activeArticle.number] && (
+              <div className="px-3 py-2 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/25 text-xs text-[var(--text-primary)] flex items-center justify-between gap-2">
+                <span>
+                  <strong className="font-mono text-[var(--accent)] mr-1.5">NOTE:</strong>
+                  {articleNotesMap[activeArticle.number]}
+                </span>
+              </div>
+            )}
 
             {/* Contextual Fast-Track Speed Hack & Mnemonic Anchor */}
             {speedHack && (

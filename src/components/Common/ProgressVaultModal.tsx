@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { modalBackdropVariants, modalPanelVariants } from '../../lib/motionTokens';
+import { MultiStateProgressButton } from './MicroInteractions';
 import {
   X,
   Download,
@@ -229,13 +230,13 @@ export const ProgressVaultModal: React.FC = () => {
 
           {/* Action Buttons */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-            <button
-              onClick={handleDownload}
-              className="py-3 px-4 rounded-xl bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 font-mono text-xs font-bold flex items-center justify-center gap-2 shadow-sm btn-tactile"
-            >
-              <Download className="w-4 h-4" />
-              <span>Export .JSON</span>
-            </button>
+            <MultiStateProgressButton
+              idleLabel="Export .JSON"
+              doneLabel="Exported"
+              icon={<Download className="w-4 h-4" />}
+              onAction={handleDownload}
+              className="bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 shadow-sm"
+            />
 
             <button
               onClick={() => fileInputRef.current?.click()}
@@ -245,13 +246,13 @@ export const ProgressVaultModal: React.FC = () => {
               <span>Restore .JSON</span>
             </button>
 
-            <button
-              onClick={handleCopyJson}
-              className="py-3 px-4 rounded-xl bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-[var(--border-strong)] font-mono text-xs font-bold flex items-center justify-center gap-2 transition-all btn-tactile"
-            >
-              {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? 'Copied!' : 'Copy JSON'}</span>
-            </button>
+            <MultiStateProgressButton
+              idleLabel="Copy JSON"
+              doneLabel="Copied"
+              icon={<Copy className="w-4 h-4" />}
+              onAction={handleCopyJson}
+              className="bg-[var(--bg-base)] border border-[var(--border-subtle)] text-[var(--text-primary)] hover:border-[var(--border-strong)]"
+            />
           </div>
 
           <input

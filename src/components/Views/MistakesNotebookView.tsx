@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'motion/react';
+import { SmoothListRow } from '../Common/MicroInteractions';
 import {
   AlertTriangle,
   CheckCircle2,
@@ -400,17 +402,18 @@ export const MistakesNotebookView: React.FC<MistakesNotebookViewProps> = ({
               </p>
             </div>
           ) : (
-            filteredMistakes.map((entry, idx) => {
-              const isMastered = entry.mastered;
-              return (
-                <div
-                  key={entry.id || idx}
-                  className={`p-5 rounded-xl border transition-all ${
-                    isMastered
-                      ? 'border-emerald-500/30 bg-emerald-950/10'
-                      : 'border-border/80 bg-card hover:border-border'
-                  }`}
-                >
+            <AnimatePresence mode="popLayout">
+              {filteredMistakes.map((entry, idx) => {
+                const isMastered = entry.mastered;
+                return (
+                  <SmoothListRow
+                    key={entry.id || idx}
+                    className={`p-5 rounded-xl border transition-colors ${
+                      isMastered
+                        ? 'border-emerald-500/30 bg-emerald-950/10'
+                        : 'border-border/80 bg-card hover:border-border'
+                    }`}
+                  >
                   <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 border-b border-border/40 pb-3 mb-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
@@ -506,9 +509,10 @@ export const MistakesNotebookView: React.FC<MistakesNotebookViewProps> = ({
                     </span>
                     {entry.explanation}
                   </div>
-                </div>
+                </SmoothListRow>
               );
-            })
+            })}
+            </AnimatePresence>
           )}
         </div>
       )}

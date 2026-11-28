@@ -8,12 +8,12 @@
 <!-- AUTO:SNAPSHOT:START -->
 | Metric | Value |
 | :--- | :--- |
-| **Last Log Sync** | 2026-11-28 14:23:17 (+05:30) |
+| **Last Log Sync** | 2026-11-28 15:21:05 (+05:30) |
 | **Repository** | https://github.com/dhee7-DA/samvidhan.git |
-| **Branch / HEAD** | `main` @ `c7444b5` (2026-11-28T13:59:30+05:30) |
-| **Total Commits** | 149 |
-| **Total Files Indexed** | 400 (399 tracked, 1 new untracked) |
-| **Working Tree** | 3 pending change(s) |
+| **Branch / HEAD** | `main` @ `8db2378` (2026-11-28T14:23:39+05:30) |
+| **Total Commits** | 150 |
+| **Total Files Indexed** | 401 (400 tracked, 1 new untracked) |
+| **Working Tree** | 4 pending change(s) |
 <!-- AUTO:SNAPSHOT:END -->
 
 ---
@@ -21,6 +21,11 @@
 ## Step-by-Step Activity Log
 
 <!-- AUTO:STEPS:START -->
+
+### [2026-11-28 15:21:05 (+05:30)] Add 5 UI micro-animations from @nitishkmrk, @emilkowalski & @benjitaylor across Articles, Vault & Mistakes (DONE)
+- **Details:** Created MicroInteractions.tsx (RadialMasteryCheckButton, ConfidenceDotPicker, MorphingNotePill, MultiStateProgressButton, SmoothListRow) and wired into ArticlesMasterView, ProgressVaultModal, and MistakesNotebookView; verified npm run build + npm run test:smoke (5 split-screen + 35 desktop routes, 0 errors).
+- **Files Touched (4):** `M src/components/Common/ProgressVaultModal.tsx`, `M src/components/Views/ArticlesMasterView.tsx`, `M src/components/Views/MistakesNotebookView.tsx`, `?? src/components/Common/MicroInteractions.tsx`
+- **Git HEAD:** `main` @ `8db2378`
 
 ### [2026-11-28 14:23:17 (+05:30)] Add hover HeaderFocusPopover & remove redundant lower-right floating widget (DONE)
 - **Details:** Created HeaderFocusPopover.tsx with hover-triggered full Focus Timer controls, presets, 8-rhythm picker, and Study Telemetry; removed FloatingFocusCandle from App.tsx; verified npm run build + npm run test:smoke (5 split-screen + 35 desktop routes, 0 errors).
@@ -514,7 +519,7 @@
 ## Complete File Inventory
 
 <!-- AUTO:FILES:START -->
-> Indexed **400** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
+> Indexed **401** project files across **37** directories (excluding `node_modules/`, `dist/`, `.git/`).
 
 ### `(root)` (12 files)
 
@@ -526,7 +531,7 @@
 | `index.html` | 1.5 KB | 22 | `ea3d899` (2026-11-16) |
 | `package-lock.json` | 79.6 KB | 2432 | `14299dd` (2026-11-28) |
 | `package.json` | 904 B | 36 | `14299dd` (2026-11-28) |
-| `PROJECT_LOG.md` | 130.1 KB | 1258 | `c7444b5` (2026-11-28) |
+| `PROJECT_LOG.md` | 130.8 KB | 1265 | `8db2378` (2026-11-28) |
 | `README.md` | 10.3 KB | 128 | `fda46bc` (2026-11-28) |
 | `tsconfig.app.json` | 683 B | 27 | `3c486dd` (2026-11-13) |
 | `tsconfig.json` | 126 B | 8 | `3c486dd` (2026-11-13) |
@@ -607,7 +612,7 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/App.tsx` | 12.8 KB | 268 | `bb726be` (2026-11-28) |
+| `src/App.tsx` | 12.8 KB | 268 | `8db2378` (2026-11-28) |
 | `src/index.css` | 16.2 KB | 620 | `c7444b5` (2026-11-28) |
 | `src/main.tsx` | 570 B | 20 | `ea3d899` (2026-11-16) |
 
@@ -619,7 +624,7 @@
 | `src/assets/react.svg` | 4.0 KB | 1 | `3c486dd` (2026-11-13) |
 | `src/assets/vite.svg` | 8.5 KB | 2 | `3c486dd` (2026-11-13) |
 
-### `src/components/Common` (16 files)
+### `src/components/Common` (17 files)
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
@@ -632,8 +637,9 @@
 | `src/components/Common/EditorialMotionCards.tsx` | 17.0 KB | 463 | `dbf046c` (2026-11-27) |
 | `src/components/Common/FloatingFocusCandle.tsx` | 2.4 KB | 72 | `c7444b5` (2026-11-28) |
 | `src/components/Common/GlobalDictionaryModal.tsx` | 21.8 KB | 474 | `8a3a645` (2026-11-26) |
+| `src/components/Common/MicroInteractions.tsx` | 14.3 KB | 404 | new (uncommitted) |
 | `src/components/Common/PocketCheatsheetModal.tsx` | 10.8 KB | 224 | `d003041` (2026-11-20) |
-| `src/components/Common/ProgressVaultModal.tsx` | 11.0 KB | 271 | `f697564` (2026-11-26) |
+| `src/components/Common/ProgressVaultModal.tsx` | 10.9 KB | 272 | `f697564` (2026-11-26) |
 | `src/components/Common/QuestionIntelHoverCard.tsx` | 10.5 KB | 255 | `a025b61` (2026-11-19) |
 | `src/components/Common/SearchModal.tsx` | 19.6 KB | 495 | `5c4ca12` (2026-11-27) |
 | `src/components/Common/ThreeBurningCandle.tsx` | 20.9 KB | 572 | `fa4d58c` (2026-11-28) |
@@ -644,8 +650,8 @@
 
 | File | Size | Lines | Last Commit |
 | :--- | ---: | ---: | :--- |
-| `src/components/Layout/Header.tsx` | 7.9 KB | 145 | `c7444b5` (2026-11-28) |
-| `src/components/Layout/HeaderFocusPopover.tsx` | 9.7 KB | 240 | new (uncommitted) |
+| `src/components/Layout/Header.tsx` | 7.9 KB | 145 | `8db2378` (2026-11-28) |
+| `src/components/Layout/HeaderFocusPopover.tsx` | 9.7 KB | 240 | `8db2378` (2026-11-28) |
 | `src/components/Layout/Sidebar.tsx` | 17.2 KB | 352 | `8a3a645` (2026-11-26) |
 | `src/components/Layout/ThemeSelector.tsx` | 11.4 KB | 266 | `8a3a645` (2026-11-26) |
 
@@ -690,7 +696,7 @@
 | `src/components/Views/ArcadeHubView.tsx` | 11.1 KB | 270 | `f697564` (2026-11-26) |
 | `src/components/Views/ArticleExamIntelTab.tsx` | 26.1 KB | 584 | `3d89178` (2026-11-22) |
 | `src/components/Views/ArticleRealCaseStoryTab.tsx` | 11.4 KB | 253 | `78c5f7d` (2026-11-19) |
-| `src/components/Views/ArticlesMasterView.tsx` | 79.0 KB | 1530 | `78d0908` (2026-11-27) |
+| `src/components/Views/ArticlesMasterView.tsx` | 81.8 KB | 1608 | `78d0908` (2026-11-27) |
 | `src/components/Views/AudioBriefingsView.tsx` | 17.7 KB | 393 | `ea3d899` (2026-11-16) |
 | `src/components/Views/BootcampDayFlashcards.tsx` | 17.3 KB | 377 | `9e33658` (2026-11-18) |
 | `src/components/Views/BootcampDayMemoryGame.tsx` | 24.7 KB | 613 | `ef6f11d` (2026-11-17) |
@@ -709,7 +715,7 @@
 | `src/components/Views/MainsAnswerWritingLabView.tsx` | 83.9 KB | 1711 | `d504081` (2026-11-22) |
 | `src/components/Views/MainsMockExamSimulatorView.tsx` | 42.2 KB | 938 | `12c64b5` (2026-11-19) |
 | `src/components/Views/MajoritiesLabView.tsx` | 33.7 KB | 674 | `5c4ca12` (2026-11-27) |
-| `src/components/Views/MistakesNotebookView.tsx` | 23.0 KB | 518 | `9e33658` (2026-11-18) |
+| `src/components/Views/MistakesNotebookView.tsx` | 23.2 KB | 522 | `9e33658` (2026-11-18) |
 | `src/components/Views/MockExamSimulatorView.tsx` | 35.0 KB | 815 | `a058cc1` (2026-11-16) |
 | `src/components/Views/NegativeMarkingSimulatorView.tsx` | 29.5 KB | 632 | `5c4ca12` (2026-11-27) |
 | `src/components/Views/OverviewDashboard.tsx` | 25.5 KB | 478 | `5c4ca12` (2026-11-27) |
@@ -1108,10 +1114,11 @@
 ## Complete Git Commit History
 
 <!-- AUTO:COMMITS:START -->
-> Complete git history (**149** commits, newest first).
+> Complete git history (**150** commits, newest first).
 
 | # | Date | Commit | Files | Summary |
 | ---: | :--- | :--- | ---: | :--- |
+| 150 | 2026-11-28 | `8db2378` | 4 | feat: add hover HeaderFocusPopover and remove redundant corner widget |
 | 149 | 2026-11-28 | `c7444b5` | 7 | feat: replace 3D candle/hourglass with 8-rhythm 7x7 Dot-Matrix Focus Studio & pills |
 | 148 | 2026-11-28 | `fa4d58c` | 5 | polish: make 3D hourglass and header candle smaller and fixed in place |
 | 147 | 2026-11-28 | `2b50f8f` | 5 | feat: use 3D Sand Hourglass in FocusTimerView and add mini candle to Header |
