@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { springs } from '../../lib/motionTokens';
 import {
@@ -11,7 +11,12 @@ import {
   PanelLeftOpen
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { useFocusTimer } from '../../context/FocusTimerContext';
 import { ThemeSelector } from './ThemeSelector';
+
+const ThreeBurningCandle = lazy(() =>
+  import('../Common/ThreeBurningCandle').then((m) => ({ default: m.ThreeBurningCandle }))
+);
 
 export const Header: React.FC = () => {
   const {
@@ -23,6 +28,8 @@ export const Header: React.FC = () => {
     sidebarCollapsed,
     setSidebarCollapsed
   } = useTheme();
+
+  const { isRunning, burnProgress } = useFocusTimer();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-base)]/85 backdrop-blur-md transition-colors">
@@ -56,6 +63,23 @@ export const Header: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Cute 3D Study Candle Mascot beside SAMVIDHAN branding */}
+          <button
+            type="button"
+            onClick={() => setActiveTab('focus-timer')}
+            title="Open Focus Timer & Sand Hourglass"
+            aria-label="Open Focus Timer"
+            className="hidden sm:flex items-center justify-center w-9 h-9 rounded-xl hover:bg-[var(--bg-surface)]/70 transition-colors cursor-pointer shrink-0"
+          >
+            <Suspense fallback={<span className="w-9 h-9" />}>
+              <ThreeBurningCandle
+                isBurning={isRunning || true}
+                burnProgress={burnProgress * 0.45}
+                headerMini
+              />
+            </Suspense>
+          </button>
         </div>
 
         {/* Center: Command Palette Spotlight Trigger */}

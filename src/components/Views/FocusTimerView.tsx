@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Flame, Pause, Play, RotateCcw, Timer, Volume2, VolumeX, CheckCircle2 } from 'lucide-react';
-import { ThreeBurningCandle } from '../Common/ThreeBurningCandle';
+import { ThreeSandHourglass } from '../Common/ThreeSandHourglass';
 import { EDITORIAL_SPRING, SlidingSegmentedControl, StudyTelemetryCard } from '../Common/EditorialMotionCards';
 import { useFocusTimer } from '../../context/FocusTimerContext';
 
@@ -73,12 +73,12 @@ export const FocusTimerView: React.FC = () => {
 
       {/* Main 2-Column Arena */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-        {/* Left: Three.js Burning Candle */}
+        {/* Left: Three.js Premium Sand Hourglass */}
         <div className="lg:col-span-5 p-5 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between gap-3 shadow-sm">
-          <ThreeBurningCandle isBurning={isRunning} burnProgress={burnProgress} />
+          <ThreeSandHourglass isRunning={isRunning} progress={burnProgress} compact={false} />
           <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] px-1">
-            <span>{isRunning ? 'Flame lit · Rising fumes active' : 'Paused · Wick resting'}</span>
-            <span>{Math.round(burnProgress * 100)}% burned</span>
+            <span>{isRunning ? 'Golden sand flowing · Session active' : 'Hourglass paused · Ready'}</span>
+            <span>{Math.round(burnProgress * 100)}% elapsed</span>
           </div>
         </div>
 

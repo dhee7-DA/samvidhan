@@ -6,12 +6,15 @@ interface ThreeSandHourglassProps {
   isRunning: boolean;
   /** 0.0 (full top bulb) -> 1.0 (sand drained to bottom bulb) */
   progress: number;
+  /** Compact mode for floating corner widget vs full premium studio view */
+  compact?: boolean;
   className?: string;
 }
 
 export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
   isRunning,
   progress,
+  compact = true,
   className = '',
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -34,8 +37,8 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       return;
     }
 
-    const width = container.clientWidth || 84;
-    const height = container.clientHeight || 84;
+    const width = container.clientWidth || (compact ? 84 : 320);
+    const height = container.clientHeight || (compact ? 84 : 260);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -47,8 +50,8 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
     scene.add(hourglassGroup);
 
     // Generous camera framing so zero geometry is ever clipped
-    const camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 50);
-    camera.position.set(0, 0.25, 4.45);
+    const camera = new THREE.PerspectiveCamera(compact ? 38 : 34, width / height, 0.1, 50);
+    camera.position.set(0, compact ? 0.25 : 0.3, compact ? 4.45 : 4.25);
     camera.lookAt(0, 0, 0);
 
     // Studio & warm sand lighting
@@ -76,34 +79,43 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       metalness: 0.08,
     });
 
-    // Top & Bottom caps
-    const capGeo = new THREE.CylinderGeometry(0.66, 0.66, 0.1, 32);
-    const capRimGeo = new THREE.TorusGeometry(0.64, 0.045, 12, 32);
+    // Top & Bottom luxury double-tiered caps
+    const capGeo = new THREE.CylinderGeometry(0.68, 0.68, 0.09, 36);
+    const plinthGeo = new THREE.CylinderGeometry(0.74, 0.78, 0.06, 36);
+    const capRimGeo = new THREE.TorusGeometry(0.66, 0.042, 12, 36);
 
     const topCap = new THREE.Mesh(capGeo, darkWoodMat);
     topCap.position.y = 0.96;
     hourglassGroup.add(topCap);
 
+    const topPlinth = new THREE.Mesh(plinthGeo, darkWoodMat);
+    topPlinth.position.y = 1.03;
+    hourglassGroup.add(topPlinth);
+
     const topRim = new THREE.Mesh(capRimGeo, brassMat);
     topRim.rotation.x = Math.PI / 2;
-    topRim.position.y = 0.92;
+    topRim.position.y = 0.91;
     hourglassGroup.add(topRim);
 
     const bottomCap = new THREE.Mesh(capGeo, darkWoodMat);
     bottomCap.position.y = -0.96;
     hourglassGroup.add(bottomCap);
 
+    const bottomPlinth = new THREE.Mesh(plinthGeo, darkWoodMat);
+    bottomPlinth.position.y = -1.03;
+    hourglassGroup.add(bottomPlinth);
+
     const bottomRim = new THREE.Mesh(capRimGeo, brassMat);
     bottomRim.rotation.x = Math.PI / 2;
-    bottomRim.position.y = -0.92;
+    bottomRim.position.y = -0.91;
     hourglassGroup.add(bottomRim);
 
-    // 3 slender brass pillars
-    const pillarGeo = new THREE.CylinderGeometry(0.032, 0.032, 1.84, 12);
-    const pillarAngles = [Math.PI * 0.22, Math.PI * 0.88, Math.PI * 1.55];
-    pillarAngles.forEach((ang) => {
+    // 4 sleek turned brass pillars
+    const pillarGeo = new THREE.CylinderGeometry(0.028, 0.028, 1.84, 12);
+    [0, 1, 2, 3].forEach((idx) => {
+      const ang = Math.PI * 0.25 + idx * (Math.PI * 0.5);
       const pillar = new THREE.Mesh(pillarGeo, brassMat);
-      pillar.position.set(Math.cos(ang) * 0.56, 0, Math.sin(ang) * 0.56);
+      pillar.position.set(Math.cos(ang) * 0.58, 0, Math.sin(ang) * 0.58);
       hourglassGroup.add(pillar);
     });
 
@@ -259,6 +271,7 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
       cancelAnimationFrame(animId);
       resizeObserver.disconnect();
       capGeo.dispose();
+      plinthGeo.dispose();
       capRimGeo.dispose();
       pillarGeo.dispose();
       bulbGeo.dispose();
@@ -282,7 +295,13 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
 
   if (webglError) {
     return (
-      <div className={`w-[84px] h-[84px] flex items-center justify-center text-2xl ${className}`}>
+      <div
+        className={
+          compact
+            ? `w-[84px] h-[84px] flex items-center justify-center text-2xl ${className}`
+            : `w-full h-[240px] sm:h-[270px] rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] flex items-center justify-center text-4xl ${className}`
+        }
+      >
         ⏳
       </div>
     );
@@ -291,7 +310,11 @@ export const ThreeSandHourglass: React.FC<ThreeSandHourglassProps> = ({
   return (
     <div
       ref={mountRef}
-      className={`relative w-[84px] h-[84px] bg-transparent overflow-visible ${className}`}
+      className={
+        compact
+          ? `relative w-[84px] h-[84px] bg-transparent overflow-visible ${className}`
+          : `relative w-full h-[240px] sm:h-[270px] rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.14)_0%,rgba(14,11,9,0.78)_58%,var(--bg-base)_100%)] border border-[var(--border-subtle)] overflow-hidden ${className}`
+      }
     />
   );
 };

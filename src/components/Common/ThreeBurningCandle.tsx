@@ -8,6 +8,8 @@ interface ThreeBurningCandleProps {
   burnProgress: number;
   /** Compact 1-inch framing for floating corner widget */
   compact?: boolean;
+  /** Ultra-compact 36x36px mascot framing for top header beside SAMVIDHAN branding */
+  headerMini?: boolean;
   className?: string;
 }
 
@@ -31,6 +33,7 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
   isBurning,
   burnProgress,
   compact = false,
+  headerMini = false,
   className = '',
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -53,8 +56,9 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
       return;
     }
 
-    const width = container.clientWidth || (compact ? 72 : 320);
-    const height = container.clientHeight || (compact ? 72 : 260);
+    const isMini = compact || headerMini;
+    const width = container.clientWidth || (headerMini ? 38 : compact ? 72 : 320);
+    const height = container.clientHeight || (headerMini ? 38 : compact ? 72 : 260);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -64,8 +68,11 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     const scene = new THREE.Scene();
     const candleGroup = new THREE.Group();
     scene.add(candleGroup);
-    const camera = new THREE.PerspectiveCamera(compact ? 34 : 36, width / height, 0.1, 50);
-    if (compact) {
+    const camera = new THREE.PerspectiveCamera(headerMini ? 40 : isMini ? 34 : 36, width / height, 0.1, 50);
+    if (headerMini) {
+      camera.position.set(0, 0.55, 5.15);
+      camera.lookAt(0, 0.08, 0);
+    } else if (compact) {
       camera.position.set(0, 1.0, 4.35);
       camera.lookAt(0, 0.28, 0);
     } else {
@@ -108,8 +115,8 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     candleGroup.add(handleMesh);
 
     // Cute chubby game-style candle wax pillar (pivot at bottom so it melts downward)
-    const baseWaxHeight = compact ? 1.38 : 1.85;
-    const waxRadius = compact ? 0.58 : 0.5;
+    const baseWaxHeight = isMini ? 1.38 : 1.85;
+    const waxRadius = isMini ? 0.58 : 0.5;
     const waxGeo = new THREE.CylinderGeometry(waxRadius - 0.02, waxRadius + 0.02, baseWaxHeight, 36, 1);
     waxGeo.translate(0, baseWaxHeight / 2, 0);
     const waxMat = new THREE.MeshStandardMaterial({
@@ -538,11 +545,11 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     return (
       <div
         className={`flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-base)] border border-[var(--border-subtle)] ${
-          compact ? 'w-[72px] h-[72px] p-1' : 'p-6'
+          headerMini ? 'w-9 h-9 p-0.5' : compact ? 'w-[72px] h-[72px] p-1' : 'p-6'
         } ${className}`}
       >
-        <div className={compact ? 'text-xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
-        {!compact && (
+        <div className={headerMini ? 'text-base' : compact ? 'text-xl' : 'text-3xl mb-2'}>{isBurning ? '🕯️' : '💨'}</div>
+        {!compact && !headerMini && (
           <span className="text-xs font-mono text-[var(--text-muted)]">
             {isBurning ? 'Focus flame burning' : 'Candle paused'}
           </span>
@@ -555,7 +562,9 @@ export const ThreeBurningCandle: React.FC<ThreeBurningCandleProps> = ({
     <div
       ref={mountRef}
       className={
-        compact
+        headerMini
+          ? `relative w-9 h-9 bg-transparent overflow-visible ${className}`
+          : compact
           ? `relative w-[72px] h-[72px] bg-transparent overflow-visible ${className}`
           : `relative w-full h-[230px] sm:h-[265px] rounded-2xl bg-gradient-to-b from-[#07070a]/70 via-[#0e0b09]/60 to-[var(--bg-base)] border border-[var(--border-subtle)] overflow-hidden ${className}`
       }
